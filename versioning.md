@@ -64,6 +64,8 @@ GET https://api.company.com/customers HTTP/1.1
 Accept: application/hal+json;profile="https://api.company.com/profiles/customer-v2"
 ```
 
+See [Media Type Parameters](https://tools.ietf.org/html/draft-kelly-json-hal-08#page-8) for `application/hal+json`.
+
 #### 3.1) Profile negotiation
 
 See [Indicating and Negotiating Profiles in HTTP](https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation)
