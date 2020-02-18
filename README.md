@@ -1,15 +1,15 @@
-# OTTO API Manifest
+# OTTO API Manifesto
 
-## Unsere API ist ein Produkt
+## Our API is a product.
 
-## Unsere API ist RESTful
+## Our API is RESTful.
 
-## Unsere API ist selbsterklärend
+## Our API is self-explanatory.
 
-## Unsere API ist einfach nutzbar
+## Our API is easy to use.
 
-## Wir erfüllen den Qualitätsanspruch an eine öffentliche API
+## We meet the quality standards of a public API.
 
-## Die Antworten unserer API sind konsistent geformt 
+## The responses of our API are consistently structured. 
 
-## Unsere API ist transparent versioniert
+## Our API is transparently versioned.
