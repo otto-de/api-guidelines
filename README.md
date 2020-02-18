@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## OTTO API Manifesto
 
 This repository is the source for establishing a uniform API standard, which serves as a set of rules for the creation of new APIs within MA-EC.
@@ -32,3 +33,22 @@ The [API Manifesto](/manifesto.md) helps to establish this standard and comprise
 Once there's a sound basis that we can work with, we will set up a PoC to show implementation possibilities of the standard against which the F-Teams can test and give feedback.
 
 Step by step, a set of rules will be established that form the basis of the future API development.
+=======
+# OTTO API Manifesto
+
+## Our API is a product.
+
+## Our API is RESTful.
+
+## Our API is self-explanatory.
+
+## Our API is easy to use.
+
+## We meet the quality standards of a public API.
+
+## The responses of our API are consistently structured.
+
+## Our API is transparently versioned.
+
+How to do [versioning](topics/versioning.md).
+>>>>>>> Update README.md
