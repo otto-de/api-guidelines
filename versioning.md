@@ -12,11 +12,26 @@ See also [Technische API Guidelines](https://confluence.scm.otto.de/display/API/
 GET https://api-v2.company.com/customers HTTP/1.1
 Accept: application/json
 ```
+#### 1.2) Versioned in path(es)
+Different variants of versions in url pathes.
+A "latest" should exist automatically
+```http
+GET https://api.company.com/customers HTTP/1.1
+Accept: application/json
+```
+points to the latest customers api
 
-#### 1.2) Versioned path:
+#### 1.2.1) Globally Versioned path:
 
 ```http
 GET https://api.company.com/v2/customers HTTP/1.1
+Accept: application/json
+```
+
+#### 1.2.2) Resource Versioned path:
+
+```http
+GET https://api.company.com/customers/v2 HTTP/1.1
 Accept: application/json
 ```
 
