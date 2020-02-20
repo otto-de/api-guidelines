@@ -1,3 +1,5 @@
+## OTTO API Manifesto
+
 This repository is the source for establishing of a uniform API standard, which serves as a set of rules for the creation of new APIs within MA-EC.
 (In the future, this standard can also be used to unify existing APIs.)
 An [API Manifesto] helps to establish this standard.
