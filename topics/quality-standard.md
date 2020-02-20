@@ -39,3 +39,8 @@ This requires:
 
 ### Unified authentication
 
+### Automation
+
+### Developer Experience
+
+API consumers should have fun using the API.
