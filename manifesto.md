@@ -49,4 +49,4 @@ Across all APIs within EC the responses provide
 
 ## Our API is transparently versioned.
 
-See [WIP](https://github.com/otto-ec/ottoapi_manifest/pull/1)
+See [versioning](topics/versioning.md)
