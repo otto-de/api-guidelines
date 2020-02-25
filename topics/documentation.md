@@ -6,21 +6,20 @@
 
 Basic information is available at one place, such as info about HTTP verbs, API operations, Request/Response headers, Versioning, Pagination, or errors.
 
-Example: 
-
+Example: https://developer.epages.com/apps/
 
 #### User-friendly navigation
 
 All relevant entry points that are required to properly use the API are located in the sidebar.
+The http verb is visually highlighted with the standard color coding.
 
-Example:
+Example: https://docs.ottoready.com/#tag/Touchpoint-API
 
 #### Clear and structured
 
 All information is easily discoverable (no deep nesting), easy to digest, and prepared in a way that the consumer can effectively work with it.
 
-Example:
-
+Example: https://developer.epages.com/apps/
 
 #### TechWriter accessible
 
@@ -30,9 +29,7 @@ Easy option for TechWriting to provide editorial content via Pull Requests (revi
 
 API reference docs are located outside of the code (key/value) and can be easily accessed and updated by TechWriting.
 
-Example:
-
-
+> more info on a technical level required from Jens.
 
 #### Working environment and review process
 
@@ -40,14 +37,19 @@ Content for API reference as well as editorial content is created in the develop
 
 Review process is done in the development environment.
 
-Example:
-
 #### Default values in example requests/responses
 
 The request and response examples that belong to every endpoint documentation have meaningful default values that follow a specific story.
 These values are created/reviewed with the help of TechWriting.
 
+> more info on a technical level required from Jens.
+
 For using example email addresses, phone numbers, and such refer to https://developers.google.com/style/examples
+
+#### EN-US
+
+Documentation is provided in American English.
+Also endpoints, properties, and default values are provided in American English.
 
 ### TECHNICAL
 
