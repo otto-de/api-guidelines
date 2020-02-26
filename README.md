@@ -25,7 +25,7 @@ The [API Manifesto](/manifesto.md) helps to establish this standard and comprise
 - The focus group presents the result in the next API AG jour fixe.
 - The lead documents the final result on GitHub.
 💡Use the [decisions](https://github.com/otto-ec/ottoapi_manifest/tree/master/decisions) folder for result documentation.
-- The API AG informs the API Champions in a separate meeting.
+- The API AG informs/presents the results in the API Champions meeting.
 
 ### Outlook
 
