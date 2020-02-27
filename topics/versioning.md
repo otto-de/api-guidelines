@@ -12,14 +12,26 @@ See also [Technische API Guidelines](https://confluence.scm.otto.de/display/API/
 GET https://api-v2.company.com/customers HTTP/1.1
 Accept: application/json
 ```
-#### 1.2) Versioned in path(es)
-Different variants of versions in url pathes.
-A "latest" should exist automatically
+
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
+
+#### 1.2) Versioned in path(s)
+
+Different variants of versions in URL paths.
+A `latest` should exist automatically.
+
 ```http
 GET https://api.company.com/customers HTTP/1.1
 Accept: application/json
 ```
-points to the latest customers api
+
+points to the latest customers api.
+
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
 
 #### 1.2.1) Globally Versioned path:
 
@@ -28,12 +40,20 @@ GET https://api.company.com/v2/customers HTTP/1.1
 Accept: application/json
 ```
 
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
+
 #### 1.2.2) Resource Versioned path:
 
 ```http
 GET https://api.company.com/customers/v2 HTTP/1.1
 Accept: application/json
 ```
+
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
 
 #### 1.3) Versioned query parameter:
 
@@ -42,6 +62,10 @@ GET https://api.company.com/customers?version=2 HTTP/1.1
 Accept: application/json
 ```
 
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
+
 #### 2.1) Custom version header:
 
 ```http
@@ -49,6 +73,10 @@ GET https://api.company.com/customers HTTP/1.1
 X-Api-Version: 2
 Accept: application/json
 ```
+
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
 
 #### 2.2.1) `Accept` header using vendor-specific media type:
 
@@ -64,6 +92,10 @@ Accept: application/vnd.company.customer.v2+json
 * really doing formal registration of own media types in the vendor tree?
 * or use the personal/vanity tree (`prs.`), or even unregistered (`x.`)?
 * list of typical suffixes other than `+json`
+
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
 
 #### 2.2.2) `Accept` header using standard media type with `profile` parameter:
 
@@ -81,9 +113,13 @@ Accept: application/hal+json;profile="https://api.company.com/profiles/customer-
 
 See [Media Type Parameters](https://tools.ietf.org/html/draft-kelly-json-hal-08#page-8) for `application/hal+json`.
 
-#### 3.1) Profile negotiation
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
 
-See [Indicating and Negotiating Profiles in HTTP](https://profilenegotiation.github.io/I-D-Profile-Negotiation/I-D-Profile-Negotiation)
+#### 3.1) Content Negotiation by Profile
+
+See [W3C Working Draft](https://www.w3.org/TR/dx-prof-conneg/)
 
 ```http
 GET https://api.company.com/customers HTTP/1.1
@@ -91,11 +127,11 @@ Accept: application/hal+json
 Accept-Profile: <https://api.example.com/profiles/customer-2>
 ```
 
-**Note:** status and support of this `Accept-Profile` header is unclear.
+**Note:** status and framework support of this `Accept-Profile` header is unclear.
 
-### Decision
-
-> Only use versioning of type ...
+* 💣 bad idea, because...
+* 🤔 undecided, because...
+* 🤟 good idea, because...
 
 ---
 
