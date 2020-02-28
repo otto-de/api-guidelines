@@ -163,9 +163,9 @@ See [Media Type Parameters](https://tools.ietf.org/html/draft-kelly-json-hal-08#
 
 ##### Assessment
 
+* 💣 Lack of framework support for content negotiation using Media Type parameters (like `profile`)
 * 🤔 Version implicitly via different `profile` URIs (may contain a version suffix)
 * 🤟 Standard `Accept` header for content negotiation with media types
-* 🤟 Framework support
 
 #### 2.2.3) `Accept` header using standard media type with `profile` and `version` parameters
 
@@ -182,7 +182,7 @@ Accept: application/hal+json;profile="https://api.company.com/profiles/customer"
 
 ##### Assessment
 
-* 💣 Lack of framework support for unsupported Media Type parameters (like `version`)
+* 💣 Lack of framework support for content negotiation using Media Type parameters (like `version`)
 * 🤟 Standard `Accept` header for content negotiation with media types
 
 #### 3.1) Content Negotiation by Profile:
