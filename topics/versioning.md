@@ -167,7 +167,7 @@ See [Media Type Parameters](https://tools.ietf.org/html/draft-kelly-json-hal-08#
 * 🤟 Standard `Accept` header for content negotiation with media types
 * 🤟 Framework support
 
-#### 2.2.2) `Accept` header using standard media type with `profile` and `version` parameters
+#### 2.2.3) `Accept` header using standard media type with `profile` and `version` parameters
 
 ```http
 GET https://api.company.com/customers HTTP/1.1
@@ -203,5 +203,5 @@ Accept-Profile: <https://api.example.com/profiles/customer-2>
 
 * 💣 Current status is Working Draft
 * 🤔 Framework support is unclear.
-* 🤔 Need for extra [`Vary` header´](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary) for caching support in content negotiation?
+* 🤔 Need for extra [`Vary` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Vary) for caching support in content negotiation?
 * 🤟 Standard `Accept` header for content negotiation with media types
