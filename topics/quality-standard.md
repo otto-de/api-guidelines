@@ -18,7 +18,7 @@ This requires:
 ### Provide software and service functionality
 
 ... and at the same time secure the rest of the application
-
+″
 ### Uniform product
 
 * our API endpoints are developed by heterogeneous and independent functional teams, but we strive to maintain homogeneity to the outside
@@ -36,6 +36,8 @@ This requires:
 * happy API consumers (if changes to an API are not properly managed, users become dissatisfied.)
 
 ### https/SSL certificates
+
+* Our API uses and requires HTTPS to guarantee confidentiality, authenticity, and integrity.
 
 ### Unified authentication
 
