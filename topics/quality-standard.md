@@ -21,7 +21,7 @@ This requires:
 
 ### Uniform product
 
-* present to the outside as one uniform product
+* our API endpoints are developed by heterogeneous and independent functional teams, but we strive to maintain homogeneity to the outside
 
 ### Free of security flaws
 
@@ -44,3 +44,5 @@ This requires:
 ### Developer Experience
 
 API consumers should have fun using the API.
+Our aim is to provide seamless experience to developers when writing software, and to increase their efficiency.
+API consumers should be comfortable calling our API in their chosen programming language, finding the functionality they need, as well as using the output.
