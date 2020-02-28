@@ -4,20 +4,38 @@
 
 #### Getting started
 
+Challenge:
+Basic information on how to use the API is made availabe at different spots throughout the documentation, or not available at all.
+It might also be required, that the API is quickly discoverable for non-technical people. 
+
+Approach:
 Basic information is available at one place, such as info about HTTP verbs, API operations, Request/Response headers, Versioning, Pagination, or errors.
 
 Example: https://developer.epages.com/apps/
 
 #### User-friendly navigation
 
+Challenge:
+Information is only available with several clicks and steps, hidden behind other topics, and hard to find.
+If users cannot quickly find what they are looking for, they lose valuable time, have to ask the API owner for support, or in the worst case stop using the API.
+
+Approach:
 All relevant entry points that are required to properly use the API are located in the sidebar.
 The http verb is visually highlighted with the standard color coding.
+The navigation is visible at all times.
 
 Example: https://docs.ottoready.com/#tag/Touchpoint-API
 
-#### Clear and structured
+#### Clear, structured, to the point
 
+Challenge:
+The user is overloaded with too much information, has too much text to read, and cannot find the relevant information.
+Information is not easy to digest.
+
+Approach:
 All information is easily discoverable (no deep nesting), easy to digest, and prepared in a way that the consumer can effectively work with it.
+This includes consistency in the following areas: tone of voice, terminology, attribute names, API endpoint design, requests and responses, and counting. 
+The layout supports accordingly, e.g. with syntax highlighting or multi-column layout.
 
 Example: https://developer.epages.com/apps/
 
