@@ -66,6 +66,8 @@ Accept: application/json
 ##### Prominent examples:
 
 * [Facebook](https://developers.facebook.com/docs/apps/versions)
+* [Google](https://cloud.google.com/blog/products/gcp/versioning-apis-at-google)
+* [ebay](https://developer.ebay.com/api-docs/static/versioning.html)
 
 ##### Assessment
 
@@ -133,12 +135,18 @@ See [Media Type vendor tree](https://en.wikipedia.org/wiki/Media_type#Vendor_tre
 ```http
 GET https://api.company.com/customers HTTP/1.1
 Accept: application/vnd.company.customer.v2+json
+
+or
+
+Accept: application/vnc.company.customer+json;version=2
+Content-Type: application/vnc.company.customer+json;version=2
 ```
 
 ##### Prominent examples:
 
 * [GitHub REST API](https://developer.github.com/v3/media/#request-specific-version)
 * [Shopify Payments REST API](https://shopify.dev/docs/admin-api/rest/reference/shopify_payments#versioning-of-the-shopify-payments-api)
+* [Zalando](https://opensource.zalando.com/restful-api-guidelines/#114)
 
 ##### Assessment
 
