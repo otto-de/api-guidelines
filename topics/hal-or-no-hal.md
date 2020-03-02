@@ -1,4 +1,4 @@
-# Wether or not to use HAL+JSON
+# Whether or not to use HAL+JSON
 
 ## current status
 
@@ -8,12 +8,13 @@
 ## drawbacks
 
 - the standard is no longer actively maintained and expired in November 2016
-- very few companies use HAL+JSON, it is somewhat obscure
- - because of that there is virtually no library/tooling eco system
+    - very few companies use HAL+JSON, it is somewhat obscure
+    - because of that there is virtually no library/tooling eco system
+
 - the standard is quite minimalistic, leaves out a lot that we might want to define, such as
- - pagination
- - versioning
- - filtering / sorting
+    - pagination
+    - versioning
+    - filtering / sorting
 
 ## advantages
 
@@ -23,7 +24,39 @@
 
 ## proposal
 
-- we adapt (JSON:API)[https://jsonapi.org/format/#fetching-pagination] for the basis of our new API standard
- - this should give us capabilities similar to JSON+HAL like hyperlinking
- - the standard is being actively maintained, new versions are backwards compatible
- - where we want to be stricter / more lax than the standard we can add to it in our own documentation
+- we adapt [JSON:API](https://jsonapi.org/format/#fetching-pagination) for the basis of our new API standard
+    - this should give us capabilities similar to JSON+HAL like hyperlinking
+    - the standard is being actively maintained, new versions are backwards compatible
+    - where we want to be stricter / more lax than the standard we can add to it in our own documentation
+
+## Related links
+- [JSON:API - Why not use the hal specification](https://jsonapi.org/faq/#why-not-use-the-hal-specification)
+- [Choosing a hypermedia format](https://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
+
+### Quote from _Choosing a hypermedia format_ blog post
+
+##### Conclusions
+
+I’ve create a [Gist](https://gist.github.com/soofaloofa/bc3f82793baa79dd897a7d2588841a07) comparing each of the media types discussed in this post.
+
+After going through this exercise I’ve come to a few conclusions.
+
+##### JSON-LD
+
+JSON-LD is great for augmenting existing APIs without introducing breaking changes. This augmentation mostly serves as a way to self document your API. If you are looking to add operations to a JSON-LD response look to HYDRA. HYDRA adds a vocabulary for communicating using the JSON-LD specification. This is an interesting choice as it decouples the API serialization format from the communication format.
+
+##### HAL
+
+The light weight syntax and semantics of HAL is appealing in a lot of contexts. HAL is a minimal representation that offers most of the benefits of using a hypermedia type without adding too much complexity to the implementation. One area where HAL falters is, like JSON-LD, the lack of support for specifying actions.
+
+##### Collection+JSON
+
+Don’t be fooled by the name. Collection+JSON can be used to represent single items as well and it does this quite well. Of course it shines when representing data collections. Particularly appealing is the ability to list queries that your collection supports and templates that clients can use to alter your collection. For publishing user editable data Collection+JSON shines.
+
+##### SIREN
+
+SIREN attempts to represent generic classes of items and overcome the main drawback of HAL – support for actions. It does this admirably well and also introduces the concept of classes to your model bringing a sense of type information to your API responses.
+
+##### JSON:API
+
+JSON:API provides a robust set of features for most APIs. In addition, it has arguably the broadest industry support. This is important because writing APIs directly against a standard can be difficult and being able to leverage tooling to help you is one of the best ways to ensure adoption of a standard across an entire organization.
