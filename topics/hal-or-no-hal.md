@@ -22,12 +22,19 @@
 - we want some features of HAL+JSON
  - ability to link between entities / endpoints
 
-## proposal
+## proposal for adapting JSON:API
 
 - we adapt [JSON:API](https://jsonapi.org/format/#fetching-pagination) for the basis of our new API standard
     - this should give us capabilities similar to JSON+HAL like hyperlinking
     - the standard is being actively maintained, new versions are backwards compatible
-    - where we want to be stricter / more lax than the standard we can add to it in our own documentation
+- our own standard is seen as an addendum to JSON:API
+- where we want to be stricter / more specific than the standard we can limit options that JSON:HAL gives
+  - this could mean changing SHOULD requirements to MUST requirements
+  - these stricter requirements can evolve & change over time to give teams time to adapt
+  - or limiting the number of options JSON:API to fewer to have a more consistent API experience
+- where JSON:API is lacking / makes no recommendations we try to define additions that will, most likely, not collide with future development of JSON:API
+  - i.e. with versioning we choose another mechanism than using the Content-Type header, since that will [probably be used by JSON-API](https://jsonapi.org/format/#content-negotiation-servers)
+- only where _absolutely_ necessary we deviate from JSON:API in such way that would contradict it
 
 ## Related links
 - [JSON:API - Why not use the hal specification](https://jsonapi.org/faq/#why-not-use-the-hal-specification)
