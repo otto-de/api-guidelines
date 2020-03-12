@@ -29,7 +29,7 @@
 
 *Getting started/Quick start guide*
 
-* Basic information is available at one place, such as info about HTTP verbs, API operations, request/response headers, versioning, pagination, or errors.
+* Basic information is available at one place, such as info about HTTP methods, API operations, request/response headers, versioning, pagination, or errors.
 * Short and simple guide that provides an overview of the most likely tasks to perform with the API
 * Contact/support form
 
@@ -77,7 +77,7 @@
 
 *Code examples and attribute tables*
 
-* Every endpoint documentation comes with a (request and) response example and also provides a table listing the available attributes with explanatory text,incl. "Constraints" column.
+* Every endpoint documentation comes with a (request and) response example and also provides a table listing the available attributes with explanatory text,incl. "Constraints".
 
 *Automated API reference documentation*
 
