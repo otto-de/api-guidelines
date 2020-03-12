@@ -1,7 +1,7 @@
 # HAL vs. JSON:API
 
-In the following you will find two opposing proposals: Section 2 is argueing to move to JSON:API. Section 1, on the 
-other hand, is argueing to keep application/hal+json as the primary format for hypertext documents. 
+In the following you will find two opposing proposals: Section 2 is arguing to move to JSON:API. Section 1, on the
+other hand, is arguing to keep application/hal+json as the primary format for hypertext documents.
 
 The arguments are partly contradictory, but hopefully helpful in order to come to an agreement.
 
@@ -76,7 +76,7 @@ Content-Type: application/hal+json
 - The format supports the most important features. Missing details can easily be specified.
 - The format is minimalistic, adding only a representation for hyperlinks, plus an implementation of the 
   "Hypertext Cache Pattern" using embedded resources.
-- Compared to other formats like, for example, JSON:API, the simplicitly ensures a rapid induction to the format.  
+- Compared to other formats like, for example, JSON:API, the simplicity ensures a rapid induction to the format.  
 - Every JSON document is a valid HAL+JSON document. This gives us the possibility to start with any given JSON API and
   later decide to add hyperlinks and embedded resources in a non-breaking way.
 - Because of it's simplicity, virtually no special tooling is required (though same is true for other formats as well). 
@@ -85,7 +85,7 @@ Content-Type: application/hal+json
   deprecation information and other things that are helpful to evolve APIs.
 - Embedded resources can be nested. Using this feature, servers can compose aggregate representations
   from the single aggregated parts in a simple, straightforward way.
-- All kinds of versioning is supported. Beside of URI-based versionining, the specification is explicitly supporting 
+- All kinds of versioning is supported. Beside of URI-based versioning, the specification is explicitly supporting 
   profile parameters in the accept header. Links may have `type`, `profile` and `deprecation` attributes to link to 
   different representations of a resources. In contradiction to this, JSON:API is explicitly prohibiting parameters
   of the accept header and does not support any attributes for links beside of custom (unspecified) meta-data attributes.  
@@ -152,27 +152,59 @@ Content-Type: application/vnd.api+json
 
 ### 2.1 Current Status
 
-- in theory JSON+HAL is one standard that APIs should adhere to
-- in practice a lot of APIs do not
+- In theory JSON+HAL is one standard that APIs should adhere to.
+- In practice a lot of APIs do not.
 
 ### 2.2 Drawbacks
 
-- the standard is no longer actively maintained and expired in November 2016
-    - very few companies use HAL+JSON, it is somewhat obscure
-    - because of that there is virtually no library/tooling eco system
+- The HAL+JSON standard is no longer actively maintained and expired in November 2016
+    - Very few companies use HAL+JSON, it is somewhat obscure.
+    - Because of that there is virtually no library/tooling eco system.
 
-- the standard is quite minimalistic, leaves out a lot that we might want to define, such as
+- The HAL+JSON standard is quite minimalistic, leaves out a lot that we might want to define, such as:
     - pagination
     - versioning
     - filtering / sorting
+    - error messages
 
 ### 2.3 Advantages
+- JSON:API ist an active standard which is continuously improved and has an active community
+- Error responses are standardized and allow multiple error messages in one response.
+- Pagination is a build in feature af JSON:API
+- Other standards like [Google JSON Style Guide](https://google.github.io/styleguide/jsoncstyleguide.xml)
+  are not dissimilar to JSON:API.
 
-- a bunch of APIs at otto already implement HAL+JSON, changing that will be some effort
-- we want some features of HAL+JSON
- - ability to link between entities / endpoints
+#### [Benefits From Using JSON API](https://nordicapis.com/the-benefits-of-using-json-api/)
 
-### 2.4 Proposal for Adapting JSON:API
+##### Compound Documents
+
+[Compound documents](https://jsonapi.org/format/#document-compound-documents) is a unique ability in JSON API, allowing servers to send related resources alongside the requested primary resources — if implemented correctly this could decrease the number of necessary HTTP requests. Compound documents works by using the include parameter like as follows:
+```
+GET https://api.example.com/posts?include=author
+```
+
+This enables you to include additional resources in an initial request.
+
+##### Sparse Fieldsets
+
+If you’re using compound documents to include related resources, you could run into an issue of having large responses. Once again, JSON API has a solution.
+
+Another unique aspect of JSON API are sparse fieldsets, which enable clients to only request data from specific fields. It works by adding the field you want to retrieve to the URI parameter with the resource name and the fields you want. This offers additional customization and can decrease bloat. It looks something like:
+
+```
+GET /articles?include=author&amp;;fields[articles]=title,body&amp;;fields[people]=name HTTP/1.1
+Accept: application/vnd.api+json
+```
+
+Sparse fieldsets is a standardized method of allowing clients to specify only the properties they want from an object to be included in the response. Using sparse fieldsets, you get only the fields that you desire, offering unique customization potential that is alluring for lean data sharing environments.
+
+Also Read: [Optimizing APIs For Mobile Apps](https://nordicapis.com/optimizing-apis-for-mobile-apps/)
+
+### 2.4 Disadvantages
+
+- A bunch of APIs at OTTO already implement HAL+JSON, changing that will be some effort.
+
+### 2.5 Proposal for Adapting JSON:API
 
 - we adapt [JSON:API](https://jsonapi.org/format/#fetching-pagination) for the basis of our new API standard
     - this should give us capabilities similar to JSON+HAL like hyperlinking
@@ -187,6 +219,8 @@ Content-Type: application/vnd.api+json
 - only where _absolutely_ necessary we deviate from JSON:API in such way that would contradict it
 
 ## 3. Related links
+- [The JSON API Spec](https://www.youtube.com/watch?v=RSv-Yv3cgPg) (YouTube)
+- [REST vs Json:API vs GraphQL](https://www.youtube.com/watch?v=hhB7bJC_sVs) (YouTube)
 - [JSON:API - Why not use the hal specification](https://jsonapi.org/faq/#why-not-use-the-hal-specification)
 - [Choosing a hypermedia format](https://sookocheff.com/post/api/on-choosing-a-hypermedia-format/)
 
