@@ -10,11 +10,11 @@ The [API Manifesto](/manifesto.md) helps to establish this standard and comprise
 * Eugen Baier (PL ShoZu)
 * Nico Engelhardt (TD Assets)
 * Jens Fischer (API Champion FT1)
-* Martin Kalsow (TD FT4)
+* Ulf Sauer (API Champion FT4)
 * Martin Knudsen (TD Apps)
 * Dennis Pattmann (TD ShoZu)
 * Guido Steinacker (TD FT3)
-* (supported by Jens Boening) (TD FT Find)
+* (supported by Jens Boening (TD FT Find) and Martin Kalsow (TD FT4))
 
 ### Mode of operation
 
@@ -26,6 +26,12 @@ The [API Manifesto](/manifesto.md) helps to establish this standard and comprise
 - The lead documents the final result on GitHub.
 💡Use the [decisions](https://github.com/otto-ec/ottoapi_manifest/tree/master/decisions) folder for result documentation.
 - The API AG informs/presents the results in the API Champions meeting.
+
+*Update 2020-03-11*
+
+After reviewing our mode of operation, we decided to try working with **issues** instead of branches.
+The lead of the focus group creates an issue for their topic.
+The active branches will be processed according to the previous procedure.
 
 ### Outlook
 
