@@ -24,7 +24,7 @@
 * All relevant entry points that are required to properly use the API are located in the sidebar.
 * The sidebar has a clear structure and is easy to navigate.
 * The navigation/sidebar is visible at all times.
-* The HTTP verb is visually highlighted with the standard color coding.
+* The HTTP method is visually highlighted with a common color coding.
 * A multi-column layout makes comprehension easier by showing endpoints and examples in context.
 
 *Getting started/Quick start guide*
