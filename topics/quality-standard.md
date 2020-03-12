@@ -1,50 +1,52 @@
-## Quality standard
+# Quality Standard
 
-"We meet the quality standards of a public API." 
-What does that mean?
+> "We strive for quality standards of a public API."
 
-Let's assume that someone wants our API public by tomorrow.
-External users outside of the OTTO Group should be able to consume our API immediately.
-In this case our API should meet a certain quality standard in order for these consumers to use it properly, and for us to being able to flawlessly make this immediate change.
-This requires:
+Let's assume that any internal or external stakeholder wants our API to be public by tomorrow. External users outside of the Otto Group should be able to consume our API immediately. Therefore our API should meet certain quality standards, which enable us to take the step to a public API without much effort.
 
-### REST implementation
+A consistent understanding of quality standards also facilitates the development of further endpoints and the evolution of the OTTO API as a product without unnecessary consultation between all parties involved.
 
-* easy to use and understand (makes it easy for other developers to understand and write services against)
-* uses HTTP and basic CRUD operations (it's simple to write and document)
-* designed to be stateless
-* supports many data formats, but the predominant use of JSON means better support for browser clients. (JSON sets a standardized method for consuming API payloads.)
+Our understanding of quality covers different aspects, which are explained in more detail below. 
 
-### Provide software and service functionality
+## Robustness
 
-... and at the same time secure the rest of the application
-″
-### Uniform product
+All implementations of our API follow the [Robustness Principle](https://en.wikipedia.org/wiki/Robustness_principle), because it is essential for the evolution of APIs. Future changes to interfaces cannot be anticipated in advance, so aspects such as backward compatibility, loose coupling and the elimination of the need to synchronize different services are of crucial importance. This is especially true for microservice environments where dependencies between services should be kept to a minimum.
 
-* our API endpoints are developed by heterogeneous and independent functional teams, but we strive to maintain homogeneity to the outside
+> Be conservative in what you do, be liberal in what you accept from others.
 
-### Free of security flaws
+## Consistency
 
-### Can be used by various clients
+Our API is essentially developed by independent, autonomous functional teams. However, we strive for a uniform presentation to the outside world. The API should make the impression that it was developed by a single team.
+This consistency covers several facets such as documentation, naming conventions, code examples, common data structures, pagination, governance, authentication and error codes.
 
-* no custom data formats
-* using Open Source Technologies and Community-based standards
+## Reliability
 
-### Sound API Management
+If our API infrastructure is not reliable, consumers will not build trust and engagement will not increase. API reliability extends beyond uptime. We do not limit our evaluation to availability, but also include aspects such as variations in response times or behavior with an increasing number of concurrent clients.
 
-* communicate changes and deprecations
-* happy API consumers (if changes to an API are not properly managed, users become dissatisfied.)
+We avoid unannounced changes and prevent outages to the best of our knowledge. In doubt we choose carefully between consistency (always return even in case of an error) and availability (in doubt return stale content). Our endpoints must always return a response, whether the requested operation succeeds or fails.
 
-### https/SSL certificates
+## Security
 
-* Our API uses and requires HTTPS to guarantee confidentiality, authenticity, and integrity.
+Security is not a side-issue, but an integral part of all software projects, and therefore also for APIs.
 
-### Unified authentication
+Not all vulnerabilities will be preventable. However, a good rule of thumb is to prepare for the worst case scenario that everyone is out to get our data. We leverage industry-standard technologies for encryption, authentication and authorization.
 
-### Automation
+We are conservative in exposing our data and the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) is applied to only allow enough access to API clients for them to perform what tasks they need to. As well we strive to only include the least amount of data necessary to respond to any API call.
 
-### Developer Experience
+Additionally we restrict the rate limit to specific resources to prevent misuse. 
 
-API consumers should have fun using the API.
-Our aim is to provide seamless experience to developers when writing software, and to increase their efficiency.
-API consumers should be comfortable calling our API in their chosen programming language, finding the functionality they need, as well as using the output.
+## Performance
+
+We identify and analyze key metrics for different groups of interest. The bandwidth of possible metrics ranges from purely technical information such as uptime, latencies and error rates to business insights such as SDK and version adoption, Time to First Hello World (TFHW) or API usage growth.
+
+## Documentation / Support
+
+We help both vendors during development and users of our API with the integration in offering suitable ways of exchange and support. As the primary resource for explaining our API and its capabilities, the documentation must be as accessible as it can be to the audience. We provide all consumers of our API with comprehensive, professional, up-to-date and complete information.
+
+## Communication
+
+We always keep both developers and consumers of our API informed through appropriate channels. Changes and deprecations are communicated regularly and actively. Therefore we establish different synchronous and asynchronous communication channels to support developers and consumers.
+
+## Developer Experience
+
+API consumers should have fun using our API. Our goal is to provide seamless experience to developers when writing software, and to increase their efficiency. API consumers should be comfortable using our API in their programming language of choice, finding the functionality they need, as well as using the output. We give developers the right tools to help them succeed and aim to provide a TTFHW (Time to First "Hello World") as short as possible.
