@@ -37,7 +37,7 @@ Furthermore we restrict the rate limit to specific resources to prevent misuse.
 
 ## Performance
 
-We identify and analyze key metrics for different groups of interest. The bandwidth of possible metrics ranges from purely technical information such as uptime, latencies, and error rates to business insights such as SDK and version adoption, Time to First Hello World (TFHW), or API usage growth.
+We identify and analyze key metrics for different groups of interest. The bandwidth of possible metrics ranges from purely technical information such as uptime, latencies, and error rates to business insights such as SDK and version adoption, Time to First Hello World (TTFHW), or API usage growth.
 
 ## Documentation / Support
 
