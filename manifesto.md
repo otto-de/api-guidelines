@@ -36,7 +36,7 @@ Specifically, this means:
 
 ## We meet the quality standards of a public API.
 
-See [WIP](https://github.com/otto-ec/ottoapi_manifest/pull/2)
+See [quality standard](decisions/quality-standard.md).
 
 ## The responses of our API are consistently structured.
 
@@ -49,4 +49,4 @@ Across all APIs within EC the responses provide
 
 ## Our API is transparently versioned.
 
-See [versioning](topics/versioning.md)
+See [versioning](decisions/versioning.md).
