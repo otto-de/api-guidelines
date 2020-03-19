@@ -4,7 +4,7 @@ Many of the API requirements imply the need to repeatedly provide API descriptio
 
 Furthermore, we have to automate as much as possible in order to be able to keep up with all the changes by minimizing manual efforts.
 
-In order to achive this we need to use an appropriate specification format for our APIs.
+In order to achieve this we need to use an appropriate specification format for our APIs.
 
 ## Machine-readable
 
@@ -23,7 +23,7 @@ So different content can be: grouped (nesting), referenced (path), and reused (s
 
 Formats that **DON'T** support nesting: `csv`
 
-Formats **DO** support nesting: `json', 'xml', 'yaml', 'toml`
+Formats **DO** support nesting: `json`, `xml`, `yaml`, `toml`
 
 ## Mergeable
 
@@ -44,9 +44,9 @@ It is not really critical which transport format we are using, it is even easy t
 structured text formats at once. But at the end of the day the data will land in the memory of the machine that processes it. 
 
 This means the data must be composed and all different specs from different services MUST apply
-the very same schema. Once chosen it must be applied to all spec files.
+the very same schema. Once chosen, it must be applied to all spec files.
 
-Having the right schema is critical point. The schema must cover all the requirements and provide enough possibilities to provide all the information we need in order to document, test, and provide the API to the clients.
+Having the right schema is a critical point. The schema must cover all the requirements and provide enough possibilities to provide all the information we need in order to document, test, and provide the API to the clients.
 
 There are several possibilities how this could be achieved: 
 
