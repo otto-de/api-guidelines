@@ -14,9 +14,9 @@ Participants
 
 Outcome
 
-* ![API as a product](/assets/api-as-a-product.jpg)
-* ![Product Ownership](/assets/product-ownership.jpg)
-* ![Product Ownership Setup](/assets/po-setting.png)
+![API as a product](/assets/api-as-a-product.jpg)
+![Product Ownership](/assets/product-ownership.jpg)
+![Product Ownership Setup](/assets/po-setting.png)
 
 ## Presentation for division managers
 
