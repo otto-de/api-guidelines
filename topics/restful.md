@@ -1,6 +1,6 @@
 # RESTful API
 
-
+## Table of Contents
 
 [TOC]
 
@@ -63,8 +63,8 @@ Service clients must be prepared for compatible API extensions of service provid
 
 - Be tolerant with unknown fields in the payload (see also Fowler’s ["TolerantReader"](http://martinfowler.com/bliki/TolerantReader.html) post), i.e. ignore new fields but do not eliminate them from payload if needed for subsequent `PUT` requests.
 - Be prepared that `enum` return parameter may deliver new values; either be agnostic or provide default behavior for unknown values.
-- Be prepared to handle HTTP status codes not explicitly specified in endpoint definitions. Note also, that status codes are extensible. Default handling is how you would treat the corresponding [2xx](https://opensource.zalando.com/restful-api-guidelines/#http-status-codes-and-errors) code (see [RFC 7231 Section 6](https://tools.ietf.org/html/rfc7231#section-6)).
-- Follow the redirect when the server returns HTTP status code [301](https://opensource.zalando.com/restful-api-guidelines/#status-code-301) (Moved Permanently).
+- Be prepared to handle HTTP status codes not explicitly specified in endpoint definitions. Note also, that status codes are extensible. Default handling is how you would treat the corresponding `HTTP 2xx` code (see [RFC 7231 Section 6](https://tools.ietf.org/html/rfc7231#section-6)).
+- Follow the redirect when the server returns HTTP status code `HTTP 301 Moved Permanently`.
 
 ### **[SHOULD]** avoid versioning
 
@@ -158,7 +158,7 @@ Clients should monitor the [`Deprecation`](https://tools.ietf.org/html/draft-dal
 
 Clients must not start using deprecated APIs, API versions, or API features.
 
-## Resources
+## REST Resources
 
 ## HTTP Methods
 
