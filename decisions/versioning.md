@@ -8,21 +8,26 @@ Also we want to use industry standards as much as possible, factoring out soluti
 #### Favorable options
 
 * [1.2.2)](../topics/versioning.md#122-resource-versioned-path) Resource Versioned path
+  * 💣 Contradicts with the [definition of REST resources](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_2_1_1) being identified by URIs at any particular point in time
 * [2.2.2)](../topics/versioning.md#222-accept-header-using-standard-media-type-with-profile-parameter) `Accept` header using standard media type with `profile` parameter
+  * 💣 [Poor support](https://github.com/jensfischer1515/rest-api-incubator/commit/f4758803523df4af408f62d1823185ef23b989ce) from frameworks like Spring
 
 #### Not favorable, but feasible options
 
 * [1.3)](../topics/versioning.md#13-versioned-query-parameter) Versioned query parameter
-* [2.1)](../topics/versioning.md#21-custom-version-header) Custom version header complicates caching
-* [2.2.1)](../topics/versioning.md#221-accept-header-using-vendor-specific-media-type) `Accept` header using vendor-specific media type without formal registration.
+  * 💣 Contradicts with the [definition of REST resources](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_2_1_1) being identified by URIs at any particular point in time
+* [2.1)](../topics/versioning.md#21-custom-version-header) Custom version header
+  * 💣 Complicates caching
+* [2.2.1)](../topics/versioning.md#221-accept-header-using-vendor-specific-media-type) `Accept` header using vendor-specific media type
+  * 💣 Need for formal registration of own `application/vnd.*` media types in the official vendor tree 
 
 #### Declined options
 
 * [1.1)](../topics/versioning.md#11-versioned-hostname) Versioned hostname
-  * contradicts with OTTO functional teams structure
+  * 💣 Contradicts with OTTO functional teams structure
 * [1.2.1)](../topics/versioning.md#121-globally-versioned-path) Globally Versioned path
-  * contradicts with OTTO functional teams structure
+  * 💣 Contradicts with OTTO functional teams structure
 * [2.2.3)](../topics/versioning.md#223-accept-header-using-standard-media-type-with-profile-and-version-parameters) `Accept` header using standard media type with `profile` and `version` parameters
-  * Violates Media Type `application/hal+json` standard, that does not define `version` parameter
+  * 💣 Violates [Media Type `application/hal+json` standard](https://tools.ietf.org/html/draft-kelly-json-hal-08#page-8), that does not define `version` parameter
 * [3.1)](../topics/versioning.md#31-content-negotiation-by-profile) Content Negotiation by Profile
-  * Specification still in draft
+  * 💣 Specification still in draft
