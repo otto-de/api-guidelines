@@ -1,5 +1,18 @@
 # RESTful API
 
+
+
+> **TODO:**
+>
+> 1. Die Regeln sind mit einem TODO: [REVIEW] markiert. Wenn das Review erfolgt ist und wir einverstanden sind, bitte den Kommentar entfernen.
+>
+> 2. Die noch unfertigen Abschnitte sind mit TODO: [WIP] gekennzeichnet (Work in Progress). Wenn ein Abschnitt ausgearbeitet ist bitte auf [REVIEW] ändern.
+> 3. Wir können Punkte, die wir erstmal ausprobieren wollen, mit TODO: [BETA] oder ähnlichem markieren und dann später anpassen, löschen oder freigeben
+> 4. Die Zalando Guidelines enthalten noch mehr Punkte, die wir nach und nach einarbeiten oder verwerfen können. Gleiches gilt für die bisherigen OTTO Guidelines - auch hier sind noch weitere Punkte enthalten, die wir eventuell übernehmen wollen.
+> 5. An geeigneter Stellen sollten wir auf die "Decisions" verlinken.
+
+
+
 ## Table of Contents
 
 [TOC]
