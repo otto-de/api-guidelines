@@ -29,5 +29,5 @@ Also we want to use industry standards as much as possible, factoring out soluti
   * 💣 Contradicts with OTTO functional teams structure
 * [2.2.3)](../topics/versioning.md#223-accept-header-using-standard-media-type-with-profile-and-version-parameters) `Accept` header using standard media type with `profile` and `version` parameters
   * 💣 Violates [Media Type `application/hal+json` standard](https://tools.ietf.org/html/draft-kelly-json-hal-08#page-8), that does not define `version` parameter
-* [3.1)](../topics/versioning.md#31-content-negotiation-by-profile) Content Negotiation by Profile
+* [3.1)](../topics/versioning.md#31-content-negotiation-by-profile) Content Negotiation by Accept-Profile
   * 💣 Specification still in draft
