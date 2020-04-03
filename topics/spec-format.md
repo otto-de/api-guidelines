@@ -72,3 +72,50 @@ We have to apply OTTO specific processes to the specs, for example registering i
 - [OpenApi](https://www.openapis.org/)
 - [RAML](https://raml.org/)
 - [api blueprint](https://apiblueprint.org/)
+
+Based on considerations we have to identify best possible solution for us.
+
+## Comparison of the named schemas
+
+### Api Blueprint 
+
+#### Pro
+
+- leverages markdown, which is easy to write
+
+#### Contra
+
+- requires format-proprietary parsers
+- not tansport-friendly
+- merging could get difficult.
+- also a mixture of descriptions and specs is very errorneous
+
+### RAML
+
+#### Pro
+
+- based on yaml/json
+- supports includes
+- supports markdown descriptions
+
+#### Contra
+
+- poor tooling support for newer versions
+- focus on modeling in early API lifecycle, i.e. it will likely need to be converted to other formats as the API matures
+- no backward compatibility of versions
+
+### OpenAPI 3.x:
+
+#### Pro
+
+- can be preprocessed and customized based on vendor extensions
+- supports vendor extensions
+- based on yaml/json, can be merged
+- supports markdown descriptions
+- supported by large companies such as Google, IBM, Atlassian, Microsoft
+- supports various frameworks
+- aims to be an API contract, a definition of what to expect from an API.
+
+#### Contra
+
+- does not supports includes
