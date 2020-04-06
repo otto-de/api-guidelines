@@ -103,6 +103,7 @@ Based on considerations we have to identify best possible solution for us.
 - poor tooling support for newer versions
 - focus on modeling in early API lifecycle, i.e. it will likely need to be converted to other formats as the API matures
 - no backward compatibility of versions
+- development state is stale, due to low activity
 
 ### OpenAPI 3.x:
 
@@ -115,6 +116,7 @@ Based on considerations we have to identify best possible solution for us.
 - supported by large companies such as Google, IBM, Atlassian, Microsoft
 - supports various frameworks
 - aims to be an API contract, a definition of what to expect from an API.
+- actively developed, with rich community
 
 #### Contra
 
