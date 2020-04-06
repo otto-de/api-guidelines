@@ -55,16 +55,15 @@ Furthermore, we should keep in mind which option is scalable in terms of integra
 
 **CONS**
 
-* As stand-alone solution no custom layout only themes, no custom layout
+* As stand-alone solution no custom layout, only themes
 
 ## GitBooks
 
-(i) similar to GitHub pages but more powerful
+(i) similar to GitHub pages, but more powerful
 
 **CONS**
 
 * Pricing
-
 
 ## api.otto.de
 
@@ -89,3 +88,9 @@ Furthermore, we should keep in mind which option is scalable in terms of integra
 - [Microsoft](https://github.com/microsoft/api-guidelines) via GitHub repository
 - [PayPal](https://github.com/paypal/api-standards) via GitHub repository
 - [adidas](https://adidas.gitbook.io/api-guidelines/) via GitBook
+- [UCSB](https://developer.ucsb.edu/docs/publishers/guidelines-and-standards) via Developer Portal
+
+## Summary
+
+As we strive for [high quality standards](/decisions/quality-standard.md) we should aim to set up a developer portal where every target group, be it API consumer or provider, can find the information they are looking for.
+All relevant information can be made available and kept up-to-date in one place, including the API guidelines.
