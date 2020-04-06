@@ -1,6 +1,6 @@
 ---
 name: Custom issue template
-about: Template to use for new issues in the API guideline context
+about: Use this template for new issues in the API guideline context
 title: ''
 labels: ''
 assignees: ''
