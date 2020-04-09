@@ -12,6 +12,14 @@ Also we want to use industry standards as much as possible, factoring out soluti
 * [2.2.2)](../topics/versioning.md#222-accept-header-using-standard-media-type-with-profile-parameter) `Accept` header using standard media type with `profile` parameter
   * 💣 [Poor support](https://github.com/jensfischer1515/rest-api-incubator/commit/f4758803523df4af408f62d1823185ef23b989ce) from frameworks like Spring
 
+Both of these options require some semantic of latest version of an endpoint. For option 1.2.2 this can be solved by using a special version identifier of `latest` as part of the URI, e.g. https://api.otto.de/checkouts/latest/1234-5678-0000. Option 2.2.2 needs some server-side logic to route to the correct endpoint in case an `Accept` header used for content negotiation does not include a versioned profile for the media type.
+
+Proposal for solving the last outstanding decision:
+
+* favour no versioning at all and only introduce non-breaking changes
+* if not possible favor option 2.2.2
+* if not possible fallback to option 1.2.2
+
 #### Not favorable, but feasible options
 
 * [1.3)](../topics/versioning.md#13-versioned-query-parameter) Versioned query parameter
