@@ -23,6 +23,6 @@ With this in mind, we trust that our teams build APIs that are:
 
 This guide is a living document and will be revised over time as new rules are added or existing rules are modified. 
 
-The guidelines are structured into individual rules that use the key words "MUST", "SHOULD", and "MAY".
+The guidelines are structured into individual rules that use the key words "MUST", "MUST NOT", "SHOULD", and "MAY".
 These keywords are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt).
 In this document, such keywords are highlighted in uppercase letters at the beginning of each section.
