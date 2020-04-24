@@ -16,7 +16,7 @@ In our implementation we strive to be as standard compatible as possible.
   - example at https://auth0.com/docs/api-auth/tutorials/authorization-code-grant-pkce
   - use for single page web-apps or mobile apps
 
-The API supports the [authorization code flow](https://tools.ietf.org/html/rfc6749#section-1.3.1) as well as the [PKCE code flow](https://tools.ietf.org/html/rfc7636). The former is to be used for server to server communication.
+The API supports the [client credentials flow](hhttps://tools.ietf.org/html/rfc6749#section-4.4) as well as the [PKCE code flow](https://tools.ietf.org/html/rfc7636). The former is to be used for server to server communication.
 
 The [implicit grant](https://tools.ietf.org/html/rfc6749#section-1.3.2) is deprecated and only in use by legacy clients.
 
@@ -32,7 +32,7 @@ Access to specific endpoints is managed by scopes. It is the responsibility of t
 
 ## responsibilites of the endpoints
 
-The resource server (aka API endpoint provider) is responsible for verifying the validity of the token. 
+The resource server (aka API endpoint provider) is responsible for verifying the validity of the token.
 
 This includes
 
