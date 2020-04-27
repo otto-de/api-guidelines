@@ -11,10 +11,10 @@ Both of the remaining options require some semantic of 'latest version' of an en
 
 Finally, we have come to the conclusion that we want to handle versioning in the following manner:
 
-### <span style="color: #F00020;">MUST</span> avoid versioning
+### <span style="color: #F1B500;">SHOULD NOT</span> use versioning
 Favour no versioning at all and only introduce non-breaking changes if absolutely necessarry.
 
-### <span style="color: #F1B500 ;">SHOULD</span> `Accept` header with profile parameter
+### <span style="color: #F1B500;">SHOULD</span> use `Accept` header with profile parameter
 If versioning cannot be avoided, versioning should be implemented using the [`Accept' header using standard media type with profile parameter](../topics/versioning.md#accept-header-using-standard-media-type-with-profile-parameter).
 
 ### <span style="color: #69AF1F;">MAY</span> use resource versioned path
