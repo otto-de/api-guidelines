@@ -18,7 +18,7 @@
 >
 > -- <cite>Stefan Tilkov on [API first strategy](https://twitter.com/stilkov/status/1250355396864176132)</cite>
 
-> I've always preferred an UI focused approach to identify the requirements and quality factors of the API.  UI "first" also helps gaining understanding of bounded contexts (in addition to other methods). After this point, I try to apply ideas and principles from API first approach.
+> I've always preferred an UI focused approach to identify the requirements and quality factors of the API. UI "first" also helps gaining understanding of bounded contexts (in addition to other methods). After this point, I try to apply ideas and principles from API first approach.
 >
 > -- <cite>Alexander Zeitler</cite>
 
