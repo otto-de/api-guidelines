@@ -15,7 +15,7 @@ Finally, we have come to the conclusion that we want to handle versioning in the
 Favour no versioning at all and only introduce non-breaking changes if absolutely necessarry.
 
 ### <span style="color: #F1B500 ;">SHOULD</span> `Accept` header with profile parameter
-If versioning cannot be avoided, versioning should be implemented using the `Accept' header using standard media type with profile parameter.
+If versioning cannot be avoided, versioning should be implemented using the [`Accept' header using standard media type with profile parameter](../topics/versioning.md#accept-header-using-standard-media-type-with-profile-parameter).
 
 ### <span style="color: #69AF1F;">MAY</span> use resource versioned path
-If the preferred versioning option is not possible, resource versioned path may be used.
+If the preferred versioning option is not possible, [resource versioned path](../topics/versioning.md#resource-versioned-paths) may be used.
