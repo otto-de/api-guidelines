@@ -1,6 +1,6 @@
 # API First vs. Contract First
 
-Immer wieder gibt es Überlegungen zum Entwicklungsparadigma "API First". Die Definition und das Verständnis sind nicht einheitlich.
+There are repeated discussions about the "API First" development paradigm. The definition and understanding are not consistent.
 Based on some thoughts of Stefan Tilkov [posted on Twitter](../topics/api-first-vs-contract-first.md#api-first) we decided to follow the principle "UI First, API Second". This implies that we do not approach the API design from the backend point of view, but from the direction of a specific visual representation of the intended feature. 
 
 ## Decision
