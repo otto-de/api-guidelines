@@ -102,12 +102,14 @@ Some fields can be omitted.
     "after" : "40770e2e3ce129faadd08663fa434c33",
     "before" : "911d39e987409c5b6fe7f913c9e568ca",
     "first" : "911d39e987409c5b6fe7f913c9e568ca",
-    "last": "4e9d5f51bc95eb9efe203737ff0f4f13"
+    "last": "4e9d5f51bc95eb9efe203737ff0f4f13",
+    "size": 10,
+    "totalElements": 958268
   }
 }
 ```
 
-??? Naming: Maybe prefix `cursors` with `_` ? Or maybe reuse the page object but with different keys?
+??? Naming: Maybe prefix `cursors` with `_` ? Or maybe reuse the page object and add cursor keys?
 ??? Naming: `after` , `before` vs `next` , `previous` - see page metadata?
 
 * `self` : Cursor to the first element in the result. Same as *first* if results
@@ -115,6 +117,8 @@ Some fields can be omitted.
 * `before` : Cursor to the first element of this subset. To be used to get the previous elements
 * `last` (*optional*): Cursor to the last element of all results. To be used to get the end of all results (and iterate backwards)
 * `first` (*optional*): Cursor to the first element of all results. To be used to get the beginning of all results
+* `size` (*optional*): Number of elements in the result
+* `totalElements` (*optional*): Total of all elements
 
 #### Pros
 
