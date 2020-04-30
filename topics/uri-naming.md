@@ -1,3 +1,8 @@
+# URI naming
+
+When resources are well named, an API is intuitive and easy to use.
+If the resources are poorly named, the same API can feel difficult to use and understand.
+Having a strong and consistent strategy for naming REST resources results in an easy to understand API that developers enjoy working with.
 
 ## MUST not use URI versioning
 
@@ -46,3 +51,6 @@ e.g. `productId`, `articleNumber`, etc
 
 e.g.  /users/... for a stable URL (see domain model)
 
+## MUST use forward slash (/) to indicate hierarchical relationships
+
+`/customers/{userId}/addresses/{addressId}`
