@@ -109,8 +109,9 @@ Some fields can be omitted.
 }
 ```
 
-??? Naming: Maybe prefix `cursors` with `_` ? Or maybe reuse the page object and add cursor keys?
+??? Naming: Maybe prefix `cursors` with `_` ? Or maybe reuse the page object and add cursor keys, see option below
 ??? Naming: `after` , `before` vs `next` , `previous` - see page metadata?
+
 
 * `self` : Cursor to the first element in the result. Same as *first* if results
 * `after` : Cursor to the last element in this subset. To be used to get the next elements
@@ -119,6 +120,28 @@ Some fields can be omitted.
 * `first` (*optional*): Cursor to the first element of all results. To be used to get the beginning of all results
 * `size` (*optional*): Number of elements in the result
 * `totalElements` (*optional*): Total of all elements
+
+#### ??? OPTION: Merge `cursors` and `page` object, e.g.
+
+``` json
+{
+  "page" : {
+    "size" : 5,
+    "number" : 0,
+    "totalElements" : 50,
+    "totalPages" : 10,
+    "after" : "40770e2e3ce129faadd08663fa434c33",
+    "before" : "911d39e987409c5b6fe7f913c9e568ca",
+    "first" : "911d39e987409c5b6fe7f913c9e568ca",
+    "last": "4e9d5f51bc95eb9efe203737ff0f4f13"
+  }
+} 
+```
+
+Depending on the variant, only a subset of the fields are present.
+
+Both could even be supported at the same time, letting the client decide (i.e. moving window vs page information). HAL links might be tricky then though...
+
 
 #### Pros
 
