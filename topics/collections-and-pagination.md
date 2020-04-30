@@ -38,15 +38,18 @@ There is no preference over which one to choose, it depends entirely on the impl
 
 ### 1. Offset based
 
-The most common approach to do pagination, especially for RDBM systems.
+The most common approach to do pagination, especially for traditional RDBM systems.
+
+If offset based pagination is chosen, it **MUST** be page based.
 
 #### **MUST** provide page metadata
 
-If offset based pagination is chosen, it **SHOULD** be page based.
+??? should or must? Any reason why not to enforce this? at least for public
 
-??? should or must? Any reason why not to restrict this?
+**MUST** provide page metadata so clients can build their own links (using a templated `self` link). Important for clients on REST maturity level 2.
 
 The page metadata structure **MUST** match the following structure.
+Some fields can be omitted.
 
 ``` json
 {
@@ -84,6 +87,13 @@ The total number of elements/pages **CAN** be omitted if the implementation is n
 Offset based pagination is often preferred, especially when data sets increase quickly.
 
 #### **MUST** provide cursor metadata
+
+??? should or must? Any reason why not to enforce this? at least for public
+
+**MUST** provide page metadata so clients can build their own links (using a templated `self` link). Important for clients on REST maturity level 2.
+
+The cursor metadata structure **MUST** match the following structure.
+Some fields can be omitted.
 
 ``` json
 {
