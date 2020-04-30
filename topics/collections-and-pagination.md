@@ -1,6 +1,5 @@
 # Collection resources and pagination
 
-
 ## **MUST** support pagination
 
 Any sufficiently large collection resource **MUST** support pagination to handle the server load and support the client processing patterns.
@@ -17,7 +16,7 @@ The most common ones are:
  - `first`: the first page
  - `last`: the last page
 
- *Page* might have different meanings depending on the implementation.
+ *Page* might have different meanings depending on the implementation, see below.
 
 
 ## Pagination variants
@@ -51,9 +50,8 @@ The page metadata structure must match the following structure.
 
 ??? naming: Maybe prefix `page` with with `_`?
 
-
-- `size`: number of elements in the response (page size)
-- `number`: page number (0-based)
+- `size`: Number of elements in the response (page size)
+- `number`: Current page number (0-based)
 - `totalElements` (*optional*): Overall number of elements
 - `totalPages` (*optional*): Overall number of pages
 
@@ -84,19 +82,21 @@ Offset based pagination is often preferred, especially when data sets increase q
 ```json
 {
   "cursors" : {
-    "self" : 5,
-    "first" : 50,
-    "previous" : 10,
-    "number" : 0
+    "self" : "e22e7ab6abd8c7886ef1c1f6c444c9ed",
+    "after" : "40770e2e3ce129faadd08663fa434c33",
+    "before" : "911d39e987409c5b6fe7f913c9e568ca",
+    "last": "f09698c242e179ce6a94505455e4ef78"
   }
 } 
 ```
 ??? Naming: Maybe prefix `cursors` with `_`?
+??? Naming: `after`, `before` vs `next`, `previous` - see page metadata?
 
-- `size`: number of elements in the response (page size)
-- `number`: page number (0-based)
-- `totalElements` (*optional*): Overall number of elements
-- `totalPages` (*optional*): Overall number of pages
+- `self`: Cursor to the first element in the result. Same as *first* if results
+- `after`: Cursor to use to get the next elements
+- `before`: Cursor to use to get the previous elements
+- `last` (*optional*): Cursor to the last element. To be used to get the end of the result set (and iterate backwards)
+- `first` (*optional*): Cursor to the first element. To be used to get the beginning of the result set
 
 
 #### Pros
