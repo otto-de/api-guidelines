@@ -9,13 +9,10 @@ To make our API as easy to use as possible we have defined the following naming 
 
 REST is all about resources.
 Therefore, consider the domain entities involved in web service interaction and try to model your API around them using the standard HTTP methods as operation indicators.
-@mknudsen Please rephrase for OTTO: For example, if an application needs to explicitly lock articles so that only one user can edit them, create an article lock using PUT or POST instead of using a locking action.
-
-@mknudsen Please match for OTTO, e.g. orders 
 
 Do:
 
-- `POST /orders/{order-id}`
+- `POST /orders/{order-id}` #TODO is this in line with collection resources?
 - `DELETE /articles/{article-number}`
 
 Don't:
