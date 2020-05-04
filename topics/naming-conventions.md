@@ -13,10 +13,15 @@ Therefore, consider the domain entities involved in web service interaction and 
 
 @mknudsen Please match for OTTO, e.g. orders 
 
-Request:
+Do:
 
-PUT /article-locks/{article-id}
-The added benefit is that you already have a service for browsing and filtering article locks.
+- `POST /orders/{order-id}`
+- `DELETE /articles/{article-number}`
+
+Don't:
+
+- `POST /orders/create-order`
+- `POST /articles/{article-number}/delete`
 
 ## MUST follow a consistent naming convention
 
