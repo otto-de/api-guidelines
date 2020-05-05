@@ -10,9 +10,15 @@ See [embedded resources](#embedded-resources) section.
 
 Any sufficiently large collection resource **MUST** support pagination to handle the server load and support the client processing patterns.
 
+??? TODO: see restful.md Collection Resources / MUST support pagination
+
 ## **MUST** provide hypermedia controls
 
-??? **SHOULD** for internal, **MUST** for public/partner?
+??? TODO **SHOULD** for internal, **MUST** for public/partner?
+
+??? TODO: see restful.md Collection Resources / SHOULD use pagination links where applicable
+
+??? TODO: Verweis auf Regel, die HAL+JSON für hypermedia controls empfiehlt
 
 **MUST** provide links to navigate the result set.
 The [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml) **SHOULD** be used whenever applicable.
@@ -203,6 +209,14 @@ Both could even be supported at the same time, letting the client decide (i.e. m
   }
 }
 ```
+
+## **[SHOULD]** design simple query languages using query parameters
+
+??? TODO: See restful.md
+
+## **[SHOULD]** design complex query languages using JSON
+
+??? TODO: See restful.md
 
 ## References
 
