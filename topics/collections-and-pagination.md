@@ -210,6 +210,10 @@ Both could even be supported at the same time, letting the client decide (i.e. m
 }
 ```
 
+## **[SHOULD]** support sorting using common query parameters
+
+??? TODO
+
 ## **[SHOULD]** design simple query languages using query parameters
 
 ??? TODO: See restful.md
