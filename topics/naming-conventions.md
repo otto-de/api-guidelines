@@ -14,11 +14,15 @@ Do:
 
 - `POST /orders/{order-id}` #TODO is this in line with collection resources?
 - `DELETE /articles/{article-number}`
+- `POST /articles/{article-number}/lock`
+
+> TODO: google erlaubt bei sich schon verben, die scheinen aber durch : getrennt zu sein, also ../{article-number}:lock
 
 Don't:
 
 - `POST /orders/create-order`
 - `POST /articles/{article-number}/delete`
+- `POST /artcles/lock-article/{article-number}`
 
 ## MUST follow a consistent naming convention
 
@@ -47,7 +51,10 @@ Link to collection resources
 ## MUST use camelCase for identifiers
 
 Use CamelCase to delimit combined words,
-e.g. `productId`, `articleNumber`, `loginId`, `lId` etc.  
+
+Do: `productId`, `articleNumber`, `loginId`, `lId` etc.  
+
+Don't: `product_id`, `Articlenumber`, `login-id`, `LID`
 
 ## MUST use forward slash (/) to indicate hierarchical relationships
 
@@ -59,7 +66,10 @@ Besides, a URI MUST NOT end with a trailing slash (/).
 
 ## MUST use URL-friendly resource identifiers:
 
-To simplify encoding of resource IDs in URLs, their representation must only consist of ASCII strings using 
+To simplify encoding of resource IDs in URLs, their representation must only consist of ASCII strings
+
+Use:
+
 - letters `[a-zA-Z]` 
 - numbers `[0-9]` 
 - underscore `_`
@@ -67,6 +77,12 @@ To simplify encoding of resource IDs in URLs, their representation must only con
 - colon `:`
 - period `.`
 - and - on rare occasions - slash `/`.
+
+Don't use (among others):
+
+- umlauts `äöü`
+- accents `àèĉ`
+- eszett `ß`
 
 **Note:** slashes are only allowed to build and signal resource identifiers consisting of [compound keys](#may-expose-compound-keys-as-resource-identifiers). 
 @mknudsen TBD, wenn wir auf Compound keys nicht eingehen.
@@ -80,7 +96,7 @@ Link zu canonical identifiers
 
 ## SHOULD NOT use URI versioning
 
-If you absolutely have to use a version identifier as part of your URL, do keeping it as a path segment relative to your
+If you absolutely have to use a version identifier as part of your URL, do so keeping it as a path segment relative to your
 resource.
 
 Do:
@@ -105,3 +121,6 @@ To be discussed
 ### **[SHOULD]** only use UUIDs if necessary
 > We need positive examples
 
+### **[SHOULD]** use preferred abbreviations 
+
+> Do we want that? See https://cloud.google.com/apis/design/naming_convention?hl=de
