@@ -57,9 +57,16 @@ Use the forward slash (/) in the path portion of the URI to indicate a hierarchi
 
 Besides, a URI MUST NOT end with a trailing slash (/).
 
-## MUST use URL-friendly resource identifiers: `a-zA-Z0-9:._\-/\]*`
+## MUST use URL-friendly resource identifiers:
 
-To simplify encoding of resource IDs in URLs, their representation must only consist of ASCII strings using letters, numbers, underscore, minus, colon, period, and - on rare occasions - slash.
+To simplify encoding of resource IDs in URLs, their representation must only consist of ASCII strings using 
+- letters `[a-zA-Z]` 
+- numbers `[0-9]` 
+- underscore `_`
+- minus `-` 
+- colon `:`
+- period `.`
+- and - on rare occasions - slash `/`.
 
 **Note:** slashes are only allowed to build and signal resource identifiers consisting of [compound keys](#may-expose-compound-keys-as-resource-identifiers). 
 @mknudsen TBD, wenn wir auf Compound keys nicht eingehen.
@@ -73,9 +80,21 @@ Link zu canonical identifiers
 
 ## SHOULD NOT use URI versioning
 
-If you have to do it, do it like this: ...
+If you absolutely have to use a version identifier as part of your URL, do keeping it as a path segment relative to your
+resource.
 
-Link zu Versioning einfügen.
+Do:
+
+- `/users/{user-identifier}`
+- `/users/v2/{user-identifier}`
+
+Don't:
+
+- `/users/{user-identifier}?version=2`
+- `/v2/users/{user-identifier}`
+
+
+For more details on the preferred way of versioning your resources see [Versioning](linkzuversioning). #TODO
 
 ---
 To be discussed
