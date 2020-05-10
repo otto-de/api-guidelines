@@ -1,24 +1,22 @@
 # Collection resources and pagination
 
+Lists of items are provided in the `_embedded` object under a key representing the resource type.
+
+The list resource *MAY* only include a subset of the properties of the resource, e.g. because of performance considerations.
+
 ## **MUST** respect embedded resources guidelines
 
-??? TODO: add link
-
-See [embedded resources](#embedded-resources) section.
+See [embedded resources](./embedding.md) section.
 
 ## **MUST** support pagination
 
 Any sufficiently large collection resource **MUST** support pagination to handle the server load and support the client processing patterns.
 
-??? TODO: see restful.md Collection Resources / MUST support pagination
+Exposing the total number of elements should consider the performance implications, not only now but over the lifespan of the service.
 
 ## **MUST** provide hypermedia controls
 
-??? TODO **SHOULD** for internal, **MUST** for public/partner?
-
-??? TODO: see restful.md Collection Resources / SHOULD use pagination links where applicable
-
-??? TODO: Verweis auf Regel, die HAL+JSON für hypermedia controls empfiehlt
+**SHOULD** for internal: For internal APIs it is only a recommendation to use HAL as a format to represent linking and embedding. However, as for partner and public APIs the HAL format is mandatory, publishing an internal API would require breaking changes to the API, if a different format than HAL would be used.
 
 **MUST** provide links to navigate the result set.
 The [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml) **SHOULD** be used whenever applicable.
@@ -35,7 +33,9 @@ The most common ones are:
 
  ## **MUST** use common query parameters
 
-??? TODO
+To provide a consistent look and feel of pagination patterns, you must stick to the common query parameter names defined in the [common query parameters](#common-query-parameters) section.
+
+Make sure to add query parameters (that differ from the default) to HAL links if necessary.
 
 ## Pagination variants
 
@@ -49,8 +49,6 @@ The most common approach to do pagination, especially for traditional RDBM syste
 If offset based pagination is chosen, it **MUST** be page based.
 
 #### **MUST** provide page metadata
-
-??? should or must? Any reason why not to enforce this? at least for public
 
 **MUST** provide page metadata so clients can build their own links (using a templated `self` link). Important for clients on REST maturity level 2.
 
@@ -68,16 +66,12 @@ Some fields can be omitted.
 } 
 ```
 
-??? naming: Maybe prefix `page` with with `_` ? Only `_embedded` and `_links` are reserved in the HAL RFC.
-
 * `size` : Number of elements in the response (page size)
-* `number` : Current page number (0-based)
+* `number` : Current page number (0 indexed)
 * `totalElements` (*optional*): Overall number of elements
 * `totalPages` (*optional*): Overall number of pages
 
-??? naming: others are names are also pretty common, e.g. `limit` , `page` , `total` , `pages` , `page` 
-
-The total number of elements/pages **CAN** be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
+`totalElements` and `totalPages` **CAN** be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
 
 #### Pros
 
@@ -94,8 +88,6 @@ Offset based pagination is often preferred, especially when data sets increase q
 
 #### **MUST** provide cursor metadata
 
-??? should or must? Any reason why not to enforce this? at least for public
-
 **MUST** provide page metadata so clients can build their own links (using a templated `self` link). Important for clients on REST maturity level 2.
 
 The cursor metadata structure **MUST** match the following structure.
@@ -103,21 +95,16 @@ Some fields can be omitted.
 
 ``` json
 {
-  "cursors" : {
-    "self" : "e22e7ab6abd8c7886ef1c1f6c444c9ed",
+  "page" : {
     "after" : "40770e2e3ce129faadd08663fa434c33",
     "before" : "911d39e987409c5b6fe7f913c9e568ca",
     "first" : "911d39e987409c5b6fe7f913c9e568ca",
     "last": "4e9d5f51bc95eb9efe203737ff0f4f13",
-    "size": 10,
-    "totalElements": 958268
+    "size" : 5,
+    "totalElements" : 50
   }
-}
+} 
 ```
-
-??? Naming: Maybe prefix `cursors` with `_` ? Or maybe reuse the page object and add cursor keys, see option below
-??? Naming: `after` , `before` vs `next` , `previous` - see page metadata?
-
 
 * `self` : Cursor to the first element in the result. Same as *first* if results
 * `after` : Cursor to the last element in this subset. To be used to get the next elements
@@ -127,27 +114,7 @@ Some fields can be omitted.
 * `size` (*optional*): Number of elements in the result
 * `totalElements` (*optional*): Total of all elements
 
-#### ??? OPTION: Merge `cursors` and `page` object, e.g.
-
-``` json
-{
-  "page" : {
-    "size" : 5,
-    "number" : 0,
-    "totalElements" : 50,
-    "totalPages" : 10,
-    "after" : "40770e2e3ce129faadd08663fa434c33",
-    "before" : "911d39e987409c5b6fe7f913c9e568ca",
-    "first" : "911d39e987409c5b6fe7f913c9e568ca",
-    "last": "4e9d5f51bc95eb9efe203737ff0f4f13"
-  }
-} 
-```
-
-Depending on the variant, only a subset of the fields are present.
-
-Both could even be supported at the same time, letting the client decide (i.e. moving window vs page information). HAL links might be tricky then though...
-
+`totalElements` and `totalPages` and also `first` and `last` **CAN** be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
 
 #### Pros
 
@@ -158,6 +125,7 @@ Both could even be supported at the same time, letting the client decide (i.e. m
 * not well-known
 * limited support for clients
 * cursor might be invalid if the entry is deleted, breaking iteration
+
 
 ## Example
 
@@ -210,17 +178,15 @@ Both could even be supported at the same time, letting the client decide (i.e. m
 }
 ```
 
-## **[SHOULD]** support sorting using common query parameters
+## Query parameters
 
-??? TODO
+Relevant query parameters are:
+- paging (offset): `size`, `page`
+- paging (cursor): `after`, `before`
+- sorting: `sort`
+- querying, filtering: `q`
 
-## **[SHOULD]** design simple query languages using query parameters
-
-??? TODO: See restful.md
-
-## **[SHOULD]** design complex query languages using JSON
-
-??? TODO: See restful.md
+Please refer to the [common query parameters](./common-query-parameters.md) section for more details.
 
 ## References
 
@@ -229,20 +195,12 @@ Both could even be supported at the same time, letting the client decide (i.e. m
 * [JSON: API Spec: Pagination](https://jsonapi.org/format/#fetching-pagination)
 * [Facebook API: Paging](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging)
 * [Spring data REST](https://docs.spring.io/spring-data/rest/docs/current/reference/html/#paging-and-sorting)
+* [Offset/Limit-based pagination](https://developer.infoconnect.com/paging-results): numeric offset identifies the first page entry
+* [Cursor/Limit-based](https://dev.twitter.com/overview/api/cursoring) — aka key-based — pagination: a unique key element identifies the first page entry (see also [Facebook's guide](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging))
+
+The technical conception of pagination should also consider user experience related issues. As mentioned in this [article](https://www.smashingmagazine.com/2016/03/pagination-infinite-scrolling-load-more-buttons/), jumping to a specific page is far less used than navigation via `next`/`prev` page links
 
 ## TODO
 
-* check MUST/SHOULD
-  + distinguishing between internal and public APIs?
-* templated links?
-* common query parameters
-* filtering
-* sorting
-* adjust/extend example
-* separate topics/issues for
-  + finders/search/queries
-  + embedded resouces, i.e. embedding products in `/orders/123` 
-    - how to do embed
-    - default: no embedding
-    - query param to enable specific embedded resources
-    - pagination on embedded resources? possible?
+* _embedded.*name* should be fixed for collection resources (main resource in embedded)?
+* add underscore for page metadata `_page`?
