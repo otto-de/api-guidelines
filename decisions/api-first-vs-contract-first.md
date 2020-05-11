@@ -11,7 +11,7 @@ backend point of view, but from the direction of a specific visual representatio
 
 ### <span style="color: #F1B500;">SHOULD</span> develop UI first, API second
 While developing more endpoints is crucial to establish a comprehensive and vital API ecosystem, we don't want to build 
-endpoints upfront without proper  usecases. In the first step, you should focus on implementing an appropriate UI to 
+endpoints upfront without proper usecases. In the first step, you should focus on implementing an appropriate UI to 
 identify the requirements and quality factors of the API. 
 
 Only in a second step, an API should be provided, that is suitable to implement more clients, having similar 
@@ -28,4 +28,4 @@ aspects:
 
 By defining API contracts outside the code, we want to facilitate early review feedback and also a development 
 discipline that focus service interface design on profound understanding of the domain and required functionality. 
-Furthermore we strive to generalized business resources to avoid of use case specific APIs.
+Furthermore we strive to generalize business resources to avoid of use case specific APIs.
