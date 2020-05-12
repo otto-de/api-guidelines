@@ -2,7 +2,7 @@
 
 Lists of items are provided in the `_embedded` object under a key representing the resource type.
 
-The list resource *MAY* only include a subset of the properties of the resource, e.g. because of performance considerations.
+The list resource **MAY** only include a subset of the properties of the resource, e.g. because of performance considerations.
 
 ## **MUST** respect embedded resources guidelines
 
@@ -33,7 +33,15 @@ The most common ones are:
 
  ## **MUST** use common query parameters
 
-To provide a consistent look and feel of pagination patterns, you must stick to the common query parameter names defined in the [common query parameters](#common-query-parameters) section.
+To provide a consistent look and feel of pagination patterns, you must stick to the common query parameter names.
+
+Relevant query parameters are:
+- paging (offset): `size`, `page`
+- paging (cursor): `after`, `before`
+- sorting: `sort`
+- querying, filtering: `q`
+
+Please refer to the [common query parameters](./common-query-parameters.md) section for more details.
 
 Make sure to add query parameters (that differ from the default) to HAL links if necessary.
 
@@ -177,16 +185,6 @@ Some fields can be omitted.
   }
 }
 ```
-
-## Query parameters
-
-Relevant query parameters are:
-- paging (offset): `size`, `page`
-- paging (cursor): `after`, `before`
-- sorting: `sort`
-- querying, filtering: `q`
-
-Please refer to the [common query parameters](./common-query-parameters.md) section for more details.
 
 ## References
 
