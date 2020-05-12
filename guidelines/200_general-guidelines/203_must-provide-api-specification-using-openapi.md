@@ -1,6 +1,9 @@
 ---
 title: MUST provide API specification using Open API
+type: MUST
 ---
+
+## <span style="color: #D4021D;">MUST</span> provide API specification using Open API
 
 We use the Open API specification as standard to define API specification files.
 Every API MUST be described using the Open API specification.

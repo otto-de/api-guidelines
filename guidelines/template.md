@@ -1,12 +1,20 @@
 ---
-layout:
-title: Template for API guideline sections
-date: 
-category: 
-tags: 
+title: MUST | SHOULD | SHOULD NOT some rule
+type: MUST | SHOULD | SHOULD NOT
 ---
 
-TO DO:
+## <span style="color: #D4021D;">MUST</span> MUST rule
 
-- Frontmatter to be specified by Team Assets
-- Content structure to be defined by Birgit
+## <span style="color: #F1B500;">SHOULD</span> SHOULD rule
+
+## <span style="color: #69AF1F;">SHOULD NOT</span> SHOULD NOT rule
+
+Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text
+
+* Maybe some some LoremIpsum bullets
+* Maybe some some LoremIpsum bullets
+* Maybe some some LoremIpsum bullets
+
+ [External link](https://www.google.de/?hl=en)
+ 
+ [Internal link](guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md)
