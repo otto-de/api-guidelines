@@ -211,17 +211,9 @@ Clients must not start using deprecated APIs, API versions, or API features.
 
 ### **[MUST]** use HTTP methods correctly
 
-> TODO: [REVIEW]
-
 Be compliant with the standardized HTTP method semantics summarized as follows:
 
 #### GET
-
-> 
->
-> TODO: [REVIEW]
->
-> 
 
 `GET` requests are used to **read** either a single or a collection resource.
 
@@ -232,12 +224,6 @@ Be compliant with the standardized HTTP method semantics summarized as follows:
 **Note:** `GET` requests on collection resources should provide sufficient [filter](#filtered-resources) and [pagination](#must-support-pagination) mechanisms.
 
 #### GET with body
-
-> 
->
-> TODO: [REVIEW]
->
-> 
 
 APIs sometimes face the problem, that they have to provide extensive structured request information with [`GET`](#get), that may conflict with the size limits of clients, load-balancers, and servers. As we require APIs to be standard conform (body in [`GET`](#get) must be ignored on server side), API designers have to check the following two options:
 
@@ -267,17 +253,11 @@ APIs sometimes face the problem, that they have to provide extensive structured 
 
 **Important:** It is best practice to prefer `POST` over `PUT` for creation of (at least top-level) resources. This leaves the resource ID under control of the service and allows to concentrate on the update semantic using `PUT` as follows.
 
-**Note:** In the rare cases where `PUT` is although used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment. Putting the same resource twice is required to be [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) and to result in the same single resource instance (see [**[MUST]** fulfill common method properties](#must-fulfill-common-method-properties)).
+**Note:** In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment. Putting the same resource twice is required to be [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) and to result in the same single resource instance (see [**[MUST]** fulfill common method properties](#must-fulfill-common-method-properties)).
 
 **Hint:** To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](#should-consider-to-support-etag-together-with-if-matchif-none-match-header) to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also [Optimistic locking in RESTful APIs](https://opensource.zalando.com/restful-api-guidelines/#optimistic-locking) for details and options.
 
 #### POST
-
-> 
->
-> TODO: [REVIEW]
->
-> 
 
 `POST` requests are idiomatically used to **create** single resources on a collection resource endpoint, but other semantics on single resources endpoint are equally possible. The semantic for collection endpoints is best described as *"please add the enclosed representation to the collection resource identified by the URL"*.
 
@@ -294,10 +274,6 @@ The semantic for single resource endpoints is best described as *"please execute
 
 #### PATCH
 
-> 
->
-> TODO: [REVIEW]
->
 > TODO: Link auf Optimistic Locking: Best practices übernehmen oder so...
 >
 > 
@@ -309,11 +285,11 @@ The semantic for single resource endpoints is best described as *"please execute
 - on successful `PATCH` requests, the server will update parts of the resource addressed by the URL as defined by the change request in the payload
 - successful `PATCH` requests will usually generate `200 Ok` or `204 No Content` (if resources have been updated with or without updated content returned)
 
-**Note:** since implementing `PATCH`correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change. In preference order:
+**Note:** since implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change. In preference order:
 
 1. use [`PUT`](#put) with complete objects to update a resource as long as feasible (i.e. do not use `PATCH` at all).
-2. use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` that is a partial resource representation.)
-3. use [`PATCH`](#patch) with [JSON Patch](https://tools.ietf.org/html/rfc6902), a specialized media type `application/json-patch+json` that includes instructions on how to change the resource.
+2. use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)
+3. use [`PATCH`](#patch) with [JSON Patch](https://tools.ietf.org/html/rfc6902), a specialized media type `application/json-patch+json` (sent as `Content-Type` request header) that includes instructions on how to change the resource.
 4. use [`POST`](#post) (with a proper description of what is happening) instead of [`PATCH`](#patch), if the request does not modify the resource in a way defined by the semantics of the media type.
 
 In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turns out to be too limited, especially when trying to update single objects in large collections (as part of the resource). In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).
@@ -324,27 +300,19 @@ In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turn
 
 #### DELETE
 
-> 
->
-> TODO: [REVIEW]
->
-> 
-
 `DELETE` requests are used to **delete** resources. The semantic is best described as *"please delete the resource identified by the URL"*.
 
 - `DELETE` requests are usually applied to single resources, not on collection resources, as this would imply deleting the entire collection
-- successful `DELETE` requests will usually generate `200 Ok` (if the deleted resource is returned) or `204 No Content` (if no content is returned)
+- successful `DELETE` requests will usually generate `200 Ok` (if some representation of the deleted resource is returned) or `204 No Content` (if no content is returned)
 - failed `DELETE` requests will usually generate `404 Not Found`  (if the resource cannot be found) or `410 Gone` (if the resource was already deleted before)
 
-**Important:** After deleting a resource with `DELETE`, a [`GET`](#get) request on the resource is expected to either return `404 Not Found` or `410 Gone`depending on how the resource is represented after deletion. Under no circumstances the resource must be accessible after this operation on its endpoint.
+> 
+> TODO [return `200 OK` and some custom representation, e.g. the whole shopping cart after `DELETE`ing only one lineitem]
+> 
+
+**Important:** After deleting a resource with `DELETE`, a [`GET`](#get) request on the resource is expected to either return `404 Not Found` or `410 Gone` depending on how the resource is represented after deletion. Under no circumstances the resource must be accessible after this operation on its endpoint.
 
 #### HEAD
-
-> 
->
-> TODO: [REVIEW]
->
-> 
 
 `HEAD` requests are used to **retrieve** the header information of single resources and resource collections.
 
@@ -354,12 +322,6 @@ In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turn
 
 #### OPTIONS
 
-> 
->
-> TODO: [REVIEW]
->
-> 
-
 `OPTIONS` requests are used to **inspect** the available operations (HTTP methods) of a given endpoint.
 
 - `OPTIONS` responses usually either return a comma separated list of methods in the `Allow` header or as a structured list of link templates
@@ -367,12 +329,6 @@ In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turn
 **Note:** `OPTIONS` is rarely implemented, though it could be used to self-describe the full functionality of a resource.
 
 ### **[MUST]** fulfill common method properties
-
-> 
->
-> TODO: [REVIEW]
->
-> 
 
 Request methods in RESTful services can be…
 
@@ -395,12 +351,6 @@ Method implementations must fulfill the following basic properties according to 
 | [`OPTIONS`](#options) | ✔ Yes | ✔ Yes                                                        | ✗ No                                                         |
 
 ### **[SHOULD]** consider to design `POST` and `PATCH` idempotent
-
-> 
->
-> TODO: [REVIEW]
->
-> 
 
 In many cases it is helpful or even necessary to design [`POST`](#post) and [`PATCH`](#patch) [idempotent](#idempotent) for clients to expose conflicts and prevent resource duplicate (a.k.a. zombie resources) or lost updates, e.g. if same resources may be created or changed in parallel or multiple times. To design an [idempotent](#idempotent) API endpoint owners should consider to apply one of the following three patterns.
 
@@ -429,12 +379,6 @@ If you mainly aim to support safe retries, we suggest to apply conditional key a
 
 ### **[SHOULD]** use secondary key for idempotent `POST` design
 
-> 
->
-> TODO: [REVIEW]
->
-> 
-
 The most important pattern to design [`POST`](#post) [idempotent](#idempotent) for creation is to introduce a resource specific **secondary key** provided in the request body, to eliminate the problem of duplicate (a.k.a zombie) resources.
 
 The secondary key is stored permanently in the resource as *alternate key* or *combined key* (if consisting of multiple properties) guarded by a uniqueness constraint enforced server-side, that is visible when reading the resource. The best and often naturally existing candidate is a *unique foreign key*, that points to another resource having *one-on-one* relationship with the newly created resource, e.g. a parent process identifier.
@@ -447,17 +391,18 @@ A good example here for a secondary key is the shopping cart ID in an order reso
 
 ### **[MUST]** specify success and error responses
 
-> 
->
-> TODO: [REVIEW]
->
-> 
-
 APIs should define the functional, business view and abstract from implementation aspects. Success and error responses are a vital part to define how an API is used correctly.
 
 Therefore, you must define **all** success and service specific error responses in your API specification. Both are part of the interface definition and provide important information for service clients to handle standard as well as exceptional situations.
 
 **Hint:** In most cases it is not useful to document all technical errors, especially if they are not under control of the service provider. Thus unless a response code conveys application-specific functional semantics or is used in a none standard way that requires additional explanation, multiple error response specifications can be combined using the following pattern:
+
+
+> 
+>
+> TODO: [Align with Error Docs issue]
+>
+> 
 
 ```
 responses:
@@ -474,17 +419,15 @@ API designers should also think about a **troubleshooting board** as part of the
 
 ### **[MUST]** use standard HTTP status codes
 
-> 
->
-> TODO: [REVIEW]
->
-> 
-
 You must only use standardized HTTP status codes consistently with their intended semantics. You must not invent new HTTP status codes.
 
-RFC standards define ~60 different HTTP status codes with specific semantics (mainly [RFC7231](https://tools.ietf.org/html/rfc7231#section-6)and [RFC 6585](https://tools.ietf.org/html/rfc6585)) — and there are upcoming new ones, e.g. [draft legally-restricted-status](https://tools.ietf.org/html/draft-tbray-http-legally-restricted-status-05). See overview on all error codes on [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) or via https://httpstatuses.com/) also inculding 'unofficial codes', e.g. used by popular web servers like Nginx.
+RFC standards define ~60 different HTTP status codes with specific semantics (mainly [RFC7231](https://tools.ietf.org/html/rfc7231#section-6) and [RFC 6585](https://tools.ietf.org/html/rfc6585)) — and there are upcoming new ones, e.g. [draft legally-restricted-status](https://tools.ietf.org/html/draft-tbray-http-legally-restricted-status-05). See overview on all error codes on [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) or via https://httpstatuses.com/) also inculding 'unofficial codes', e.g. used by popular web servers like Nginx.
 
 Below we list the most commonly used and best understood HTTP status codes, consistent with their semantic in the RFCs. APIs should only use these to prevent misconceptions that arise from less commonly used HTTP status codes.
+
+>
+> TODO [disallow status codes related to WebDAV if resource is not accessed that way]
+>
 
 **Important:** As long as your HTTP status code usage is well covered by the semantic defined here, you should not describe it to avoid an overload with common sense information and the risk of inconsistent definitions. Only if the HTTP status code is not in the list below or its usage requires additional information aside the well defined semantic, the API specification must provide a clear description of the HTTP status code in the response.
 
@@ -505,6 +448,11 @@ Below we list the most commonly used and best understood HTTP status codes, cons
 | `303 See Other`         | The response to the request can be found under another URI using a `GET` method. | `POST`, `PUT`, `PATCH`, `DELETE` |
 | `304 Not Modified`      | Indicates that a conditional `GET` or `HEAD` request would have resulted in `200` response if it were not for the fact that the condition evaluated to false, i.e. resource has not been modified since the date or version passed via request headers [`If-Modified-Since`](https://tools.ietf.org/html/rfc7232#section-3.3) or [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2). |`GET`, `HEAD`|
 
+>
+> TODO [why no 307 and 308?]
+>
+
+
 #### Client side error codes
 
 | Code                         | Meaning                                                      | Methods                          |
@@ -523,6 +471,11 @@ Below we list the most commonly used and best understood HTTP status codes, cons
 | `428 Precondition Required`  | Server requires the request to be conditional, e.g. to make sure that the "lost update problem" is avoided (see [**[SHOULD]** consider to support `ETAG` together with If-Match/If-None-Match header](#should-consider-to-support-etag-together-with-if-match-if-none-match-header)). | `<all>`                          |
 | `429 Too Many Requests`      | The client does not consider rate limiting and sent too many requests (see [**[MUST]** use code 429 with headers for rate limits](#must-use-code-429-with-headers-for-rate-limits)). | `<all>`                          |
 
+>
+> TODO [remove WebDAV status codes like 423]
+> TODO [we really need 418!]
+>
+
 #### Server side error codes
 
 | Code                        | Meaning                                                      | Methods |
@@ -533,21 +486,9 @@ Below we list the most commonly used and best understood HTTP status codes, cons
 
 ### [MUST]** use most specific HTTP status codes
 
-> 
->
-> TODO: [REVIEW]
->
-> 
-
 You must use the most specific HTTP status code when returning information about your request processing status or error situations.
 
 ### **[MUST]** use code 429 with headers for rate limits
-
-> 
->
-> TODO: [REVIEW]
->
-> 
 
 APIs that wish to manage the request rate of clients must use the `429 Too Many Requests` response code, if the client exceeded the request rate (see [RFC 6585](https://tools.ietf.org/html/rfc6585)). Such responses must also contain header information providing further details to the client. There are two approaches a service can take for header information:
 
@@ -560,7 +501,7 @@ The `X-RateLimit` headers are:
 - `X-RateLimit-Remaining`: The number of requests allowed in the current window.
 - `X-RateLimit-Reset`: The relative time in seconds when the rate limit window will be reset. **Beware** that this is different to Github and Twitter’s usage of a header with the same name which is using UTC epoch seconds instead.
 
-The reason to allow both approaches is that APIs can have different needs. Retry-After is often sufficient for general load handling and request throttling scenarios and notably, does not strictly require the concept of a calling entity such as a tenant or named account. In turn this allows resource owners to minimise the amount of state they have to carry with respect to client requests. The 'X-RateLimit' headers are suitable for scenarios where clients are associated with pre-existing account or tenancy structures. 'X-RateLimit' headers are generally returned on every request and not just on a 429, which implies the service implementing the API is carrying sufficient state to track the number of requests made within a given window for each named entity.
+The reason to allow both approaches is that APIs can have different needs. Retry-After is often sufficient for general load handling and request throttling scenarios and notably, does not strictly require the concept of a calling entity such as a tenant or named account. In turn this allows resource owners to minimise the amount of state they have to carry with respect to client requests. The 'X-RateLimit' headers are suitable for scenarios where clients are associated with pre-existing account or tenancy structures. `X-RateLimit` headers are generally returned on every request and not just on a 429, which implies the service implementing the API is carrying sufficient state to track the number of requests made within a given window for each named entity.
 
 ## Common Headers
 
