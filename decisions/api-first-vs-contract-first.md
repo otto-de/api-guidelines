@@ -28,4 +28,3 @@ aspects:
 
 By defining API contracts outside the code, we want to facilitate early review feedback and also a development 
 discipline that focus service interface design on profound understanding of the domain and required functionality. 
-Furthermore we strive to generalize business resources to avoid of use case specific APIs.
