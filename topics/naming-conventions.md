@@ -12,17 +12,17 @@ Therefore, consider the domain entities involved in web service interaction and 
 
 Do:
 
-- `POST /orders/{order-id}` #TODO is this in line with collection resources?
-- `DELETE /articles/{article-number}`
-- `POST /articles/{article-number}/lock`
+- `POST /orders/{orderId}` #TODO is this in line with collection resources?
+- `DELETE /articles/{articleNumber}`
+- `POST /articles/{articleNumber}/lock`
 
-> TODO: google erlaubt bei sich schon verben, die scheinen aber durch : getrennt zu sein, also ../{article-number}:lock
+> TODO: google erlaubt bei sich schon verben, die scheinen aber durch : getrennt zu sein, also ../{articleNumber}:lock
 
 Don't:
 
 - `POST /orders/create-order`
-- `POST /articles/{article-number}/delete`
-- `POST /artcles/lock-article/{article-number}`
+- `POST /articles/{articleNumber}/delete`
+- `POST /artcles/lock-article/{articleNumber}`
 
 ## MUST follow a consistent naming convention
 
@@ -32,9 +32,6 @@ In URLs use only nouns.
 Instead of thinking of actions (verbs), it’s often helpful to think about putting a message in a letter box: e.g., instead of having the verb cancel in the URL, think of sending a message to cancel an order to the cancellations letter box on the server side.
 
 * **Form URLs of nouns and write them in lower case letters**
-* **Separate several nouns by hyphens**
-
-`/coupon-campaigns/{couponCampaignId}/coupons`
 
 * **Follow a logical order**, e.g.
 
