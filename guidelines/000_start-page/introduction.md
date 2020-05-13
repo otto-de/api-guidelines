@@ -1,8 +1,4 @@
----
-title: OTTO API Guidelines
----
-
-## Introduction
+# Introduction
 
 The OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO's E-Commerce department.
 
@@ -19,10 +15,15 @@ With this in mind, we trust that our teams build APIs that are:
 * of high quality
 * transparently versioned
 
-## How to read the guidelines
+### How to read the guidelines
 
 This guide is a living document and will be revised over time as new rules are added or existing rules are modified. 
 
-The guidelines are structured into individual rules that use the key words "MUST", "MUST NOT", "SHOULD", and "MAY".
+The guidelines are structured into individual rules that use the key words "MUST", "MUST NOT", "SHOULD", "SHOULD NOT", and "MAY".
 These keywords are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt).
-In this document, such keywords are highlighted in uppercase letters at the beginning of each section.
+In this document, such keywords are highlighted at the beginning of each section in uppercase letters and are color-coded.
+
+### Reference
+
+At this point we would like to send Kudos to Zalando whose Tech Team did a great job crafting the [Zalando RESTful API Guidelines](https://opensource.zalando.com/restful-api-guidelines/#).
+As much of the content resonates with what we do at OTTO E-Commerce, we've taken this well-prepared document as a basis for OTTO API Guidelines and adapted it to our needs.

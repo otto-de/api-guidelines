@@ -12,5 +12,5 @@ The best and often naturally existing candidate is a *unique foreign key*, that 
 A good example here for a secondary key is the shopping cart ID in an order resource.
 
 **Note:** When using the secondary key pattern without [`Idempotency Key`](link) all subsequent retries should fail with status code `409 Conflict`.
-We suggest to avoid `200 OK` here unless you make sure, that the delivered resource is the original one implementing a well defined behavior.
+We suggest to avoid `200 OK` here unless you make sure, that the delivered resource is the original one implementing a well-defined behavior.
 Using `204 No Content` without content would be a similar well-defined option.
