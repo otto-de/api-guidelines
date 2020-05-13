@@ -9,15 +9,15 @@ This facilitates a great developer experience and the ability to quickly compose
 
 With this in mind, we trust that our teams build APIs that are:
 
-* RESTful
-* self-explanatory
-* easy to use
-* of high quality
-* transparently versioned
+- RESTful
+- self-explanatory
+- easy to use
+- of high quality
+- transparently versioned
 
 ### How to read the guidelines
 
-This guide is a living document and will be revised over time as new rules are added or existing rules are modified. 
+This guide is a living document and will be revised over time as new rules are added or existing rules are modified.
 
 The guidelines are structured into individual rules that use the key words "MUST", "MUST NOT", "SHOULD", "SHOULD NOT", and "MAY".
 These keywords are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt).

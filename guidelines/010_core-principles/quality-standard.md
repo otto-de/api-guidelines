@@ -39,7 +39,7 @@ Our endpoints must always return a response, whether the requested operation suc
 Security is not a marginal topic, but an integral part of all software projects, and thus also of APIs.
 
 Not all vulnerabilities will be preventable.
-However, a good rule of thumb is to prepare for the worst case scenario that everyone is out to get our data. 
+However, a good rule of thumb is to prepare for the worst case scenario that everyone is out to get our data.
 We leverage industry-standard technologies for encryption, authentication, and authorization.
 
 We are conservative in exposing our data and the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) is applied to allow API clients only enough access to perform the required tasks.
@@ -60,7 +60,7 @@ We provide all consumers of our API with comprehensive, professional, up-to-date
 
 ## Communication
 
-We always keep both developers and consumers of our API informed through appropriate channels. 
+We always keep both developers and consumers of our API informed through appropriate channels.
 Changes and deprecations are communicated regularly and actively.
 Therefore, we establish different synchronous and asynchronous communication channels to support developers and consumers.
 

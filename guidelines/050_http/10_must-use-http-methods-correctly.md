@@ -1,13 +1,13 @@
 ---
-title: MUST use HTTP methods correctly
 type: MUST
+id: R00004
 ---
 
-## <span style="color: #D4021D;">MUST</span> use HTTP methods correctly
+# use HTTP methods correctly
 
 We are compliant with the standardized HTTP method semantics described as follows:
 
-### GET
+## GET
 
 `GET` requests are used to **read** either a single or a collection resource.
 
@@ -17,15 +17,15 @@ We are compliant with the standardized HTTP method semantics described as follow
 
 **Note:** `GET` requests on collection resources should provide sufficient [filter](link) and [pagination](link) mechanisms.
 
-### GET with body
+## GET with body
 
 APIs sometimes need to provide extensive structured request information with [`GET`](#get), that may conflict with the size limits of clients, load balancers, and servers.
 As our APIs must be standard compliant (body in [`GET`](#get) must be ignored on server side), API designers have to check the following two options:
 
 1. [`GET`](#get) with URL encoded query parameters: if it is possible to encode the request information in query parameters, respecting the usual size limits of clients, gateways, and servers, this should be the first choice.
-The request information can either be provided via multiple query parameters or by a single structured URL encoded string.
+   The request information can either be provided via multiple query parameters or by a single structured URL encoded string.
 2. [`POST`](#post) with body content: if a [`GET`](#get) with URL encoded query parameters is not possible, a [`POST`](#post) with body content must be used.
-In this case the endpoint must be documented with the hint [`GET With Body`](#get-with-body) to transport the [`GET`](#get) semantic of this call.
+   In this case the endpoint must be documented with the hint [`GET With Body`](#get-with-body) to transport the [`GET`](#get) semantic of this call.
 
 **Note:** Encoding the lengthy structured request information using header parameters is not an option.
 From a conceptual point of view, the semantic of an operation should always be expressed by the resource names, as well as the involved path and query parameters, i.e. by everything that goes into the URL.
@@ -36,10 +36,10 @@ Thus, switching to headers does not solve the original problem.
 **Hint:** [`GET With Body`](#get-with-body) is used to transport extensive query parameters, if [simple query parameters](#link) cannot any longer be used to encode the query filters.
 As a consequence, it is best practice to transport the query filters in the body.
 
-### PUT
+## PUT
 
-`PUT` requests are used to **update** (in rare cases to create) **entire** resources – single or collection resources. 
-The semantic is best described as *"please put the enclosed representation at the resource mentioned by the URL, replacing any existing resource."*.
+`PUT` requests are used to **update** (in rare cases to create) **entire** resources – single or collection resources.
+The semantic is best described as _"please put the enclosed representation at the resource mentioned by the URL, replacing any existing resource."_.
 
 - `PUT` requests are usually applied to single resources, and not to collection resources, as this would imply replacing the entire collection.
 - `PUT` requests are usually robust against non-existence of resources by implicitly creating before updating.
@@ -54,30 +54,30 @@ Putting the same resource twice is required to be [idempotent](link) and to resu
 
 **Hint:** To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also [Optimistic locking in RESTful APIs](link) for details and options.
 
-### POST
+## POST
 
 `POST` requests are idiomatically used to **create** single resources on a collection resource endpoint, but other semantics on single resources endpoint are equally possible.
-The semantic for collection endpoints is best described as *"please add the enclosed representation to the collection resource identified by the URL"*.
+The semantic for collection endpoints is best described as _"please add the enclosed representation to the collection resource identified by the URL"_.
 
 - On a successful `POST` request, the server will create one or multiple new resources and provide their URI/URLs in the response.
 - Successful `POST` requests will usually generate `200 OK` (if resources have been updated), `201 Created` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if resources have been created), `202 Accepted` (if the request was accepted but has not been finished yet), and exceptionally `204 No Content` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if the actual resource is not returned).
 
-The semantic for single resource endpoints is best described as *"please execute the given well specified request on the resource identified by the URL"*.
+The semantic for single resource endpoints is best described as _"please execute the given well specified request on the resource identified by the URL"_.
 
 **Generally:** `POST` should be used for scenarios that cannot be covered by the other methods sufficiently.
 In such cases, make sure to document the fact that `POST` is used as a workaround (see [`GET With Body`](#get-with-body)).
 
-**Note:** Resource IDs related to `POST` requests are created and managed by the server and returned with the response payload and/or as part of the URL in the [`Location'] (https://tools.ietf.org/html/rfc7231#section-7.1.2) header.
+**Note:** Resource IDs related to `POST` requests are created and managed by the server and returned with the response payload and/or as part of the URL in the [`Location'] (<https://tools.ietf.org/html/rfc7231#section-7.1.2)> header.
 
 **Hint:** Posting the same resource twice is **not** required to be [idempotent](#idempotent) (check [MUST fulfill common method properties](link)) and may result in multiple resources.
 However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) to prevent this.
 
-### PATCH
+## PATCH
 
 > TODO: Link auf Optimistic Locking: Best practices übernehmen oder so...
 
 `PATCH`requests are used to **update parts** of single resources, i.e. where only a specific subset of resource fields should be replaced.
-The semantic is best described as *"please change the resource identified by the URL according to my change request"*.
+The semantic is best described as _"please change the resource identified by the URL according to my change request"_.
 The semantic of the change request is not defined in the HTTP standard and must be described in the API specification by using suitable media types.
 
 - `PATCH` requests are usually applied to single resources as patching an entire collection is challenging.
@@ -101,22 +101,21 @@ In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its ful
 **Hint:** To prevent unnoticed concurrent updates when using `PATCH` you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
 See [Optimistic locking in RESTful APIs](link) and [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) for details and options.
 
-### DELETE
+## DELETE
 
 `DELETE` requests are used to **delete** resources.
-The semantic is best described as *"please delete the resource identified by the URL"*.
+The semantic is best described as _"please delete the resource identified by the URL"_.
 
 - `DELETE` requests are usually applied to single resources, not on collection resources, as this would imply deleting the entire collection.
 - Successful `DELETE` requests will usually generate `200 OK` (if some representation of the deleted resource is returned) or `204 No Content` (if no content is returned).
-- Failed `DELETE` requests will usually generate `404 Not Found`  (if the resource cannot be found) or `410 Gone` (if the resource was already deleted before).
+- Failed `DELETE` requests will usually generate `404 Not Found` (if the resource cannot be found) or `410 Gone` (if the resource was already deleted before).
 
 > TODO [return `200 OK` and some custom representation, e.g. the whole shopping cart after `DELETE`ing only one lineitem]
-
 
 **Important:** After deleting a resource with `DELETE`, a [`GET`](#get) request on the resource is expected to either return `404 Not Found` or `410 Gone` depending on how the resource is represented after deletion.
 Under no circumstances the resource must be accessible after this operation on its endpoint.
 
-### HEAD
+## HEAD
 
 `HEAD` requests are used to **retrieve** the header information of single resources and resource collections.
 

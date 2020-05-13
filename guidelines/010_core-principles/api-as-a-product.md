@@ -1,6 +1,4 @@
----
-title: API as a product
----
+# API as a product
 
 When looking at APIs, the focus is mostly on the technical implementation, whereas the business perspective is often overlooked.
 But exactly in the business context more and more services are being created.
@@ -13,7 +11,7 @@ We treat our API as a business value generator that gives API consumers a great 
 
 Hence, the design of our APIs is based on the "API as a product" principle:
 
-* Our API is a product and we are responsible for it.
-* We provide our consumers with a homogeneous, easy-to-use API.
-* We advocate for our user's needs.
-* We actively improve and maintain API consistency.
+- Our API is a product and we are responsible for it.
+- We provide our consumers with a homogeneous, easy-to-use API.
+- We advocate for our user's needs.
+- We actively improve and maintain API consistency.

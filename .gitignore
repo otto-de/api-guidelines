@@ -1,3 +1,45 @@
+# Git Ignore
+# Put file patterns here for files which should not be committed
+
+# Log Files 
+*.log
+
+# Node Modules
+node_modules/
+
+# Build Output
+dist/
+build/
+tmp/
+bin/
+
+# this folder is created if an npm package is untared
+package/
+
+# Code Quality Test Output
+coverage/
+.jscpd
+.sonar/
+.scannerwork/
+
+# Editor Settings
+.idea/
+.vscode/
+
+# Terraform Temp Files
+.terraform/
+*.tfstate
+terraform/**/*.plan
+terraform/**/*.tfstate.*
+
+# Mac Specific Temp Files
 .DS_Store
-.vscode
-/.idea/
+
+# Bender Injected Files
+.browserslistrc*
+.eslintrc*
+.prettierrc*
+tslint*
+
+# generated api docs
+docs/api
