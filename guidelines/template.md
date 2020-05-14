@@ -1,13 +1,9 @@
 ---
-title: MUST | SHOULD | SHOULD NOT some rule
 type: MUST | SHOULD | SHOULD NOT
+id: R00000
 ---
 
-## <span style="color: #D4021D;">MUST</span> MUST rule
-
-## <span style="color: #F1B500;">SHOULD</span> SHOULD rule
-
-## <span style="color: #69AF1F;">SHOULD NOT</span> SHOULD NOT rule
+# some title
 
 Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text
 
@@ -18,3 +14,21 @@ Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text Some LoremIpsum t
  [External link](https://www.google.de/?hl=en)
  
  [Internal link](guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md)
+
+Some hightlighting:
+
+ ::: tip
+This is a tip
+:::
+
+::: warning
+This is a warning
+:::
+
+::: danger
+This is a dangerous warning
+:::
+
+::: details
+This is a details block, which does not work in IE / Edge
+:::
