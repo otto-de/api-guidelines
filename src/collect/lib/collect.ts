@@ -49,7 +49,7 @@ export async function collectCategory(
 ): Promise<Category> {
   const { indexData, catNameFromDir } = await getIndexData(dir);
   const index = new Parser(indexData, level);
-  const docsPaths = await globby([`${dir}/*.md`, `!${dir}/index.md`]);
+  const docsPaths = await globby([`${dir}/*.md`, `!${dir}/*index.md`]);
   log.trace("Docs in: %s", dir, docsPaths);
 
   const docs = await Promise.all(
