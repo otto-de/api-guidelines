@@ -1,10 +1,10 @@
 module.exports = {
   bundles: {
     ottoapi: {
-      //   js: {
-      //     module: "es6",
-      //     input: "PATH/TO/YOUR/FILES/ENTRY.js",
-      //   },
+      js: {
+        module: "es6",
+        input: "src/js/index.js",
+      },
       css: {
         input: "src/scss/main.scss",
       },

@@ -2,7 +2,11 @@
 
 <ul>
     {{#each children}}
-    <li>{{> child_nav}}</li>
+    <li class="nav-item">
+        {{#if children}}<span class="indicator">></span>{{/if}}
+        {{#if docs}}<span class="indicator">></span>{{/if}}
+        {{> child_nav}}
+    </li>
     {{/each}}
     {{#each docs}}
     <li>{{> docs_nav}}</li>

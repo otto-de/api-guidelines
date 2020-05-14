@@ -27,7 +27,7 @@
   "homepage": "https://github.com/otto-ec/ottoapi_guidelines#readme",
   "bender": {
     "eslint_env_node": true,
-    "eslint_env_browser": false,
+    "eslint_env_browser": true,
     "eslint_plugin_compat": false
   },
   "toolbox": {

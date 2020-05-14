@@ -38,4 +38,28 @@ body {
   position: fixed;
   width: $nav-width;
   background-color: darken($color: #ffffff, $amount: 5);
+
+  ul {
+    list-style-type: none;
+    padding-inline-start: 5px;
+
+    li {
+      > ul {
+        display: none;
+      }
+
+      &.focused {
+        > ul {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .nav-item.focused {
+    > .indicator {
+      transform: rotate(90deg);
+      display: inline-block;
+    }
+  }
 }
