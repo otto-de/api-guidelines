@@ -1,0 +1,709 @@
+{
+  "name": "API Guidelines",
+  "index": {
+    "frontMatter": {
+      "navTitle": "API Guidelines"
+    },
+    "env": {},
+    "level": 0,
+    "data": "---\nnavTitle: API Guidelines\n---\n\n# Avesome OTTO API Guidelines\n",
+    "headings": [
+      {
+        "level": 1,
+        "content": "Avesome OTTO API Guidelines"
+      }
+    ],
+    "navTitle": "API Guidelines",
+    "output": "\n<h1 id=\"avesome-otto-api-guidelines\"><a class=\"header-anchor\" href=\"#avesome-otto-api-guidelines\">Avesome OTTO API Guidelines</a></h1>\n"
+  },
+  "docs": [],
+  "children": [
+    {
+      "name": "Introduction",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Introduction\n\nThe OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO's E-Commerce department.\n\nOTTO E-Commerce consists of various microservice teams that aim to provide functionality for the OTTO webshop via RESTful APIs.\nOur APIs are a valuable part of our business assets, as with APIs we generate the corresponding operating values.\nIdeally, by applying the API guidelines, all APIs look as if they were created by a single team, thus providing API consumers with a homogeneous, easy-to-use product.\nThis facilitates a great developer experience and the ability to quickly compose complex business processes.\n\nWith this in mind, we trust that our teams build APIs that are:\n\n- RESTful\n- self-explanatory\n- easy to use\n- of high quality\n- transparently versioned\n\n## How to read the guidelines\n\nThis guide is a living document and will be revised over time as new rules are added or existing rules are modified.\n\nThe guidelines are structured into individual rules that use the key words \"MUST\", \"MUST NOT\", \"SHOULD\", \"SHOULD NOT\", and \"MAY\".\nThese keywords are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt).\nIn this document, such keywords are highlighted at the beginning of each section in uppercase letters and are color-coded.\n\n## Reference\n\nAt this point we would like to send Kudos to Zalando whose Tech Team did a great job crafting the [Zalando RESTful API Guidelines](https://opensource.zalando.com/restful-api-guidelines/#).\nAs much of the content resonates with what we do at OTTO E-Commerce, we've taken this well-prepared document as a basis for OTTO API Guidelines and adapted it to our needs.",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Introduction"
+          },
+          {
+            "level": 3,
+            "content": "How to read the guidelines"
+          },
+          {
+            "level": 3,
+            "content": "Reference"
+          }
+        ],
+        "navTitle": "Introduction",
+        "output": "<h2 id=\"introduction\"><a class=\"header-anchor\" href=\"#introduction\">Introduction</a></h2>\n<p>The OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO’s E-Commerce department.</p>\n<p>OTTO E-Commerce consists of various microservice teams that aim to provide functionality for the OTTO webshop via RESTful APIs.\nOur APIs are a valuable part of our business assets, as with APIs we generate the corresponding operating values.\nIdeally, by applying the API guidelines, all APIs look as if they were created by a single team, thus providing API consumers with a homogeneous, easy-to-use product.\nThis facilitates a great developer experience and the ability to quickly compose complex business processes.</p>\n<p>With this in mind, we trust that our teams build APIs that are:</p>\n<ul>\n<li>RESTful</li>\n<li>self-explanatory</li>\n<li>easy to use</li>\n<li>of high quality</li>\n<li>transparently versioned</li>\n</ul>\n<h3 id=\"how-to-read-the-guidelines\"><a class=\"header-anchor\" href=\"#how-to-read-the-guidelines\">How to read the guidelines</a></h3>\n<p>This guide is a living document and will be revised over time as new rules are added or existing rules are modified.</p>\n<p>The guidelines are structured into individual rules that use the key words “MUST”, “MUST NOT”, “SHOULD”, “SHOULD NOT”, and “MAY”.\nThese keywords are to be interpreted as described in <a href=\"https://www.ietf.org/rfc/rfc2119.txt\">RFC2119</a>.\nIn this document, such keywords are highlighted at the beginning of each section in uppercase letters and are color-coded.</p>\n<h3 id=\"reference\"><a class=\"header-anchor\" href=\"#reference\">Reference</a></h3>\n<p>At this point we would like to send Kudos to Zalando whose Tech Team did a great job crafting the <a href=\"https://opensource.zalando.com/restful-api-guidelines/#\">Zalando RESTful API Guidelines</a>.\nAs much of the content resonates with what we do at OTTO E-Commerce, we’ve taken this well-prepared document as a basis for OTTO API Guidelines and adapted it to our needs.</p>\n"
+      },
+      "docs": [],
+      "children": []
+    },
+    {
+      "name": "Core Principles",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Core Principles\n",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Core Principles"
+          }
+        ],
+        "navTitle": "Core Principles",
+        "output": "<h2 id=\"core-principles\"><a class=\"header-anchor\" href=\"#core-principles\">Core Principles</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "# API as a product\n\nWhen looking at APIs, the focus is mostly on the technical implementation, whereas the business perspective is often overlooked.\nBut exactly in the business context more and more services are being created.\nTherefore we need to understand our API as a product and not just look at it as a pure code base.\nJust like any other product, our API has consumers, it is subject to continuous development, it strives for high quality standards, and flexible delivery of features.\nIn addition, an API needs to deliver value such as efficiency and scalability, a flexible business model, shorter time to market, as well as lower development and maintenance costs.\n\nFrom a business perspective, every API transaction has a value, whether it is data generation, integrating with third-parties, or direct revenue generation.\nWe treat our API as a business value generator that gives API consumers a great experience to integrate with, while at the same time generating revenue.\n\nHence, the design of our APIs is based on the \"API as a product\" principle:\n\n- Our API is a product and we are responsible for it.\n- We provide our consumers with a homogeneous, easy-to-use API.\n- We advocate for our user's needs.\n- We actively improve and maintain API consistency.\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "API as a product"
+            }
+          ],
+          "navTitle": "API as a product",
+          "output": "<h3 id=\"api-as-a-product\"><a class=\"header-anchor\" href=\"#api-as-a-product\">API as a product</a></h3>\n<p>When looking at APIs, the focus is mostly on the technical implementation, whereas the business perspective is often overlooked.\nBut exactly in the business context more and more services are being created.\nTherefore we need to understand our API as a product and not just look at it as a pure code base.\nJust like any other product, our API has consumers, it is subject to continuous development, it strives for high quality standards, and flexible delivery of features.\nIn addition, an API needs to deliver value such as efficiency and scalability, a flexible business model, shorter time to market, as well as lower development and maintenance costs.</p>\n<p>From a business perspective, every API transaction has a value, whether it is data generation, integrating with third-parties, or direct revenue generation.\nWe treat our API as a business value generator that gives API consumers a great experience to integrate with, while at the same time generating revenue.</p>\n<p>Hence, the design of our APIs is based on the “API as a product” principle:</p>\n<ul>\n<li>Our API is a product and we are responsible for it.</li>\n<li>We provide our consumers with a homogeneous, easy-to-use API.</li>\n<li>We advocate for our user’s needs.</li>\n<li>We actively improve and maintain API consistency.</li>\n</ul>\n"
+        },
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "# API design principles\n\nAPI design involves many aspects such as architectural styles, API governance, backend capabilities, performance, and such.\nThere are many constraints and compromises to be considered.\nWith our API design we want to create value for the customer and provide a good developer experience.\n\nFor our APIs, we've decided to apply the RESTful principle to all kind of application components.\nREST resources are identified via URIs and can be manipulated via standardized CRUD operations using different representations, and hypermedia.\nRESTful APIs come with less rigid client/server coupling and are more suitable for an ecosystem of (core) services providing a platform of APIs to build diverse business services.\n\nIn summary:\n\n- We prefer REST-based APIs with JSON payloads.\n- We prefer systems to be truly RESTful.\n\nIf you want to dive deeper into REST, here's some good literature:\n\n- [Build APIs You Won’t Hate](https://www.amazon.de/Build-APIs-You-Wont-Hate/dp/0692232699)\n- [Irresistable APIs: Designing web APIs that developers will love](https://www.amazon.de/Irresistible-APIs-Designing-that-developers/dp/1617292559)\n- [Architectural Styles and the Design of Network-Based Software Architectures](https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "API design principles"
+            }
+          ],
+          "navTitle": "API design principles",
+          "output": "<h3 id=\"api-design-principles\"><a class=\"header-anchor\" href=\"#api-design-principles\">API design principles</a></h3>\n<p>API design involves many aspects such as architectural styles, API governance, backend capabilities, performance, and such.\nThere are many constraints and compromises to be considered.\nWith our API design we want to create value for the customer and provide a good developer experience.</p>\n<p>For our APIs, we’ve decided to apply the RESTful principle to all kind of application components.\nREST resources are identified via URIs and can be manipulated via standardized CRUD operations using different representations, and hypermedia.\nRESTful APIs come with less rigid client/server coupling and are more suitable for an ecosystem of (core) services providing a platform of APIs to build diverse business services.</p>\n<p>In summary:</p>\n<ul>\n<li>We prefer REST-based APIs with JSON payloads.</li>\n<li>We prefer systems to be truly RESTful.</li>\n</ul>\n<p>If you want to dive deeper into REST, here’s some good literature:</p>\n<ul>\n<li><a href=\"https://www.amazon.de/Build-APIs-You-Wont-Hate/dp/0692232699\">Build APIs You Won’t Hate</a></li>\n<li><a href=\"https://www.amazon.de/Irresistible-APIs-Designing-that-developers/dp/1617292559\">Irresistable APIs: Designing web APIs that developers will love</a></li>\n<li><a href=\"https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm\">Architectural Styles and the Design of Network-Based Software Architectures</a></li>\n</ul>\n"
+        },
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "# API scope\n\nAPIs can be assigned attributes to define certain non-functional requirements.\nHere's what this exactly means in the context of the OTTO API.\n\nBasically APIs can be described with the following attributes:\n\n| Attribute | Description                                                                                                     |\n| --------- | --------------------------------------------------------------------------------------------------------------- |\n| public    | No network access restrictions, world-wide reachable.                                                           |\n| private   | Network access restrictions, e.g. firewall or egress SecurityGroups required.                                   |\n| open      | No authorization/authentication required, anonymous access.                                                     |\n| closed    | Authorization/authentication required, different scopes for fine-grained permissions.                           |\n| published | Service Level Agreements apply, such as established versioning, changelog, and documentation processes.         |\n| internal  | Less strict Service Level Agreements, such as no established versioning, changelog, or documentation processes. |\n\nThe scope of the OTTO API ranges between a public and a private API.\nThe operational and organisational requirements such as guidelines, governance, documentation, and stability are similar to those of a public API.\nThe scope, level of detail, and content of the endpoints are not intended for public or anonymous use.\nAccess to data and company assets is only granted to selected and predictable API consumers.\nThis approach enables a targeted and managed development of API clients and products.\n\nBottom line: the OTTO API corresponds to the attributes **public**, **closed**, and **published**.\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "API scope"
+            }
+          ],
+          "navTitle": "API scope",
+          "output": "<h3 id=\"api-scope\"><a class=\"header-anchor\" href=\"#api-scope\">API scope</a></h3>\n<p>APIs can be assigned attributes to define certain non-functional requirements.\nHere’s what this exactly means in the context of the OTTO API.</p>\n<p>Basically APIs can be described with the following attributes:</p>\n<table>\n<thead>\n<tr>\n<th>Attribute</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>public</td>\n<td>No network access restrictions, world-wide reachable.</td>\n</tr>\n<tr>\n<td>private</td>\n<td>Network access restrictions, e.g. firewall or egress SecurityGroups required.</td>\n</tr>\n<tr>\n<td>open</td>\n<td>No authorization/authentication required, anonymous access.</td>\n</tr>\n<tr>\n<td>closed</td>\n<td>Authorization/authentication required, different scopes for fine-grained permissions.</td>\n</tr>\n<tr>\n<td>published</td>\n<td>Service Level Agreements apply, such as established versioning, changelog, and documentation processes.</td>\n</tr>\n<tr>\n<td>internal</td>\n<td>Less strict Service Level Agreements, such as no established versioning, changelog, or documentation processes.</td>\n</tr>\n</tbody>\n</table>\n<p>The scope of the OTTO API ranges between a public and a private API.\nThe operational and organisational requirements such as guidelines, governance, documentation, and stability are similar to those of a public API.\nThe scope, level of detail, and content of the endpoints are not intended for public or anonymous use.\nAccess to data and company assets is only granted to selected and predictable API consumers.\nThis approach enables a targeted and managed development of API clients and products.</p>\n<p>Bottom line: the OTTO API corresponds to the attributes <strong>public</strong>, <strong>closed</strong>, and <strong>published</strong>.</p>\n"
+        },
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "# Contract first\n\nThere are repeated discussions about the \"API First\" development paradigm, and many well-known software development companies follow this approach.\nThe definition and understanding are not consistent though, and we have learned that the \"API First\" approach does not work well for us.\nBut \"Contract First\" does even better.\n\nIn a nutshell, Contract First implies that we start out establishing a contract and then share it with our consumer.\nThe contract includes what the request and response communication is expected to be.\nOnce the contract is in place, the backend team can start developing the API whereas the consumer can start working on an application to consume it.\n\nSpecifically we have decided to follow the principle \"UI First, API Second\" based on some thoughts that [Stefan Tilkov posted on Twitter](https://twitter.com/stilkov/status/1250355396864176132).\nThis implies that we do not approach the API design from the backend point of view, but from the direction of a specific visual representation of the intended feature.\n\nWhat are the advantages of Contract First for us?\n\n- Since coding happens based on the contract, the backend team and the consumer are clear about the communication approach and details.\n  Hence, development can happen at the same time.\n\n- The backend team and the consumer have an idea of each others' expectations.\n  As a result, if cross team testing is not possible due to different paces of development, stub software can be used to mock the other's behavior, all based on the contract.\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "Contract first"
+            }
+          ],
+          "navTitle": "Contract first",
+          "output": "<h3 id=\"contract-first\"><a class=\"header-anchor\" href=\"#contract-first\">Contract first</a></h3>\n<p>There are repeated discussions about the “API First” development paradigm, and many well-known software development companies follow this approach.\nThe definition and understanding are not consistent though, and we have learned that the “API First” approach does not work well for us.\nBut “Contract First” does even better.</p>\n<p>In a nutshell, Contract First implies that we start out establishing a contract and then share it with our consumer.\nThe contract includes what the request and response communication is expected to be.\nOnce the contract is in place, the backend team can start developing the API whereas the consumer can start working on an application to consume it.</p>\n<p>Specifically we have decided to follow the principle “UI First, API Second” based on some thoughts that <a href=\"https://twitter.com/stilkov/status/1250355396864176132\">Stefan Tilkov posted on Twitter</a>.\nThis implies that we do not approach the API design from the backend point of view, but from the direction of a specific visual representation of the intended feature.</p>\n<p>What are the advantages of Contract First for us?</p>\n<ul>\n<li>\n<p>Since coding happens based on the contract, the backend team and the consumer are clear about the communication approach and details.\nHence, development can happen at the same time.</p>\n</li>\n<li>\n<p>The backend team and the consumer have an idea of each others’ expectations.\nAs a result, if cross team testing is not possible due to different paces of development, stub software can be used to mock the other’s behavior, all based on the contract.</p>\n</li>\n</ul>\n"
+        },
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "# Quality standards\n\nAs already mentioned, [the scope of the OTTO API](guidelines/100_core-principles/api-scope.md) ranges between a public and a private API.\nNevertheless, when it comes to quality, we strive for the standards of a public API.\nIf our API needs to be public by tomorrow, external users should then be able to consume our API immediately.\nWhat's more, a consistent understanding of quality standards facilitates the development of further endpoints and the evolution of the OTTO API as a product without unnecessary consultation between all parties involved.\n\nOur understanding of quality covers the following aspects:\n\n## Robustness\n\nAll implementations of our API follow the [Robustness Principle](https://en.wikipedia.org/wiki/Robustness_principle), as it is essential for the evolution of APIs.\nFuture changes to interfaces cannot be anticipated in advance, so aspects such as backward compatibility, loose coupling, and the elimination of the need to synchronize different services are of crucial importance.\nThis is especially true for microservice environments where dependencies between services should be kept to a minimum.\n\n> Be conservative in what you do, be liberal in what you accept from others.\n\n## Consistency\n\nOur API is essentially developed by independent, autonomous functional teams.\nHowever, we strive for a uniform presentation to the outside world.\nThe API should give the impression that it was developed by a single team.\nThis consistency covers several facets such as documentation, naming conventions, code examples, common data structures, pagination, governance, authentication, and error codes.\n\n## Reliability\n\nIf our API infrastructure is not reliable, consumers will not build trust, and engagement will not increase.\nAPI reliability extends beyond uptime.\nWe do not limit our evaluation to availability, but also include aspects such as variations in response times or behavior with an increasing number of concurrent clients.\n\nWe avoid unannounced changes and prevent outages to the best of our knowledge.\nIn doubt we choose carefully between consistency (always return even in case of an error) and availability (in doubt return stale content).\nOur endpoints must always return a response, whether the requested operation succeeds or fails.\n\n## Security\n\nSecurity is not a marginal topic, but an integral part of all software projects, and thus also of APIs.\n\nNot all vulnerabilities will be preventable.\nHowever, a good rule of thumb is to prepare for the worst case scenario that everyone is out to get our data.\nWe leverage industry-standard technologies for encryption, authentication, and authorization.\n\nWe are conservative in exposing our data and the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) is applied to allow API clients only enough access to perform the required tasks.\nIn addition, we strive to include only the least amount of data necessary to respond to any API call.\n\nWe also restrict the rate limit to specific resources to prevent misuse.\n\n## Performance\n\nWe identify and analyze key metrics for different groups of interest.\nThe bandwidth of possible metrics ranges from purely technical information such as uptime, latencies, and error rates to business insights such as SDK, version adoption, as well as Time to First Hello World (TTFHW), or API usage growth.\n\n## Documentation & Support\n\nWe help both vendors during development and users of our API with the integration by offering suitable ways of exchange and support.\nAs the primary resource for explaining our API and its capabilities, documentation must be as accessible to the audience as possible.\nWe provide all consumers of our API with comprehensive, professional, up-to-date, and complete information.\n\n## Communication\n\nWe always keep both developers and consumers of our API informed through appropriate channels.\nChanges and deprecations are communicated regularly and actively.\nTherefore, we establish different synchronous and asynchronous communication channels to support developers and consumers.\n\n## Developer Experience\n\nAPI consumers should have fun using our API.\nOur goal is to provide seamless experience to developers when writing software, and to increase their efficiency.\nAPI consumers should be comfortable using our API in their programming language of choice, finding the functionality they need, as well as using the output.\nWe give developers the right tools to help them succeed and aim to provide a TTFHW (Time to First \"Hello World\") as short as possible.\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "Quality standards"
+            },
+            {
+              "level": 4,
+              "content": "Robustness"
+            },
+            {
+              "level": 4,
+              "content": "Consistency"
+            },
+            {
+              "level": 4,
+              "content": "Reliability"
+            },
+            {
+              "level": 4,
+              "content": "Security"
+            },
+            {
+              "level": 4,
+              "content": "Performance"
+            },
+            {
+              "level": 4,
+              "content": "Documentation & Support"
+            },
+            {
+              "level": 4,
+              "content": "Communication"
+            },
+            {
+              "level": 4,
+              "content": "Developer Experience"
+            }
+          ],
+          "navTitle": "Quality standards",
+          "output": "<h3 id=\"quality-standards\"><a class=\"header-anchor\" href=\"#quality-standards\">Quality standards</a></h3>\n<p>As already mentioned, <a href=\"guidelines/100_core-principles/api-scope.md\">the scope of the OTTO API</a> ranges between a public and a private API.\nNevertheless, when it comes to quality, we strive for the standards of a public API.\nIf our API needs to be public by tomorrow, external users should then be able to consume our API immediately.\nWhat’s more, a consistent understanding of quality standards facilitates the development of further endpoints and the evolution of the OTTO API as a product without unnecessary consultation between all parties involved.</p>\n<p>Our understanding of quality covers the following aspects:</p>\n<h4 id=\"robustness\"><a class=\"header-anchor\" href=\"#robustness\">Robustness</a></h4>\n<p>All implementations of our API follow the <a href=\"https://en.wikipedia.org/wiki/Robustness_principle\">Robustness Principle</a>, as it is essential for the evolution of APIs.\nFuture changes to interfaces cannot be anticipated in advance, so aspects such as backward compatibility, loose coupling, and the elimination of the need to synchronize different services are of crucial importance.\nThis is especially true for microservice environments where dependencies between services should be kept to a minimum.</p>\n<blockquote>\n<p>Be conservative in what you do, be liberal in what you accept from others.</p>\n</blockquote>\n<h4 id=\"consistency\"><a class=\"header-anchor\" href=\"#consistency\">Consistency</a></h4>\n<p>Our API is essentially developed by independent, autonomous functional teams.\nHowever, we strive for a uniform presentation to the outside world.\nThe API should give the impression that it was developed by a single team.\nThis consistency covers several facets such as documentation, naming conventions, code examples, common data structures, pagination, governance, authentication, and error codes.</p>\n<h4 id=\"reliability\"><a class=\"header-anchor\" href=\"#reliability\">Reliability</a></h4>\n<p>If our API infrastructure is not reliable, consumers will not build trust, and engagement will not increase.\nAPI reliability extends beyond uptime.\nWe do not limit our evaluation to availability, but also include aspects such as variations in response times or behavior with an increasing number of concurrent clients.</p>\n<p>We avoid unannounced changes and prevent outages to the best of our knowledge.\nIn doubt we choose carefully between consistency (always return even in case of an error) and availability (in doubt return stale content).\nOur endpoints must always return a response, whether the requested operation succeeds or fails.</p>\n<h4 id=\"security\"><a class=\"header-anchor\" href=\"#security\">Security</a></h4>\n<p>Security is not a marginal topic, but an integral part of all software projects, and thus also of APIs.</p>\n<p>Not all vulnerabilities will be preventable.\nHowever, a good rule of thumb is to prepare for the worst case scenario that everyone is out to get our data.\nWe leverage industry-standard technologies for encryption, authentication, and authorization.</p>\n<p>We are conservative in exposing our data and the <a href=\"https://en.wikipedia.org/wiki/Principle_of_least_privilege\">Principle of least privilege</a> is applied to allow API clients only enough access to perform the required tasks.\nIn addition, we strive to include only the least amount of data necessary to respond to any API call.</p>\n<p>We also restrict the rate limit to specific resources to prevent misuse.</p>\n<h4 id=\"performance\"><a class=\"header-anchor\" href=\"#performance\">Performance</a></h4>\n<p>We identify and analyze key metrics for different groups of interest.\nThe bandwidth of possible metrics ranges from purely technical information such as uptime, latencies, and error rates to business insights such as SDK, version adoption, as well as Time to First Hello World (TTFHW), or API usage growth.</p>\n<h4 id=\"documentation---support\"><a class=\"header-anchor\" href=\"#documentation---support\">Documentation &amp; Support</a></h4>\n<p>We help both vendors during development and users of our API with the integration by offering suitable ways of exchange and support.\nAs the primary resource for explaining our API and its capabilities, documentation must be as accessible to the audience as possible.\nWe provide all consumers of our API with comprehensive, professional, up-to-date, and complete information.</p>\n<h4 id=\"communication\"><a class=\"header-anchor\" href=\"#communication\">Communication</a></h4>\n<p>We always keep both developers and consumers of our API informed through appropriate channels.\nChanges and deprecations are communicated regularly and actively.\nTherefore, we establish different synchronous and asynchronous communication channels to support developers and consumers.</p>\n<h4 id=\"developer-experience\"><a class=\"header-anchor\" href=\"#developer-experience\">Developer Experience</a></h4>\n<p>API consumers should have fun using our API.\nOur goal is to provide seamless experience to developers when writing software, and to increase their efficiency.\nAPI consumers should be comfortable using our API in their programming language of choice, finding the functionality they need, as well as using the output.\nWe give developers the right tools to help them succeed and aim to provide a TTFHW (Time to First “Hello World”) as short as possible.</p>\n"
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "General Guidelines",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# General Guidelines",
+        "headings": [
+          {
+            "level": 2,
+            "content": "General Guidelines"
+          }
+        ],
+        "navTitle": "General Guidelines",
+        "output": "<h2 id=\"general-guidelines\"><a class=\"header-anchor\" href=\"#general-guidelines\">General Guidelines</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {
+            "type": "MUST",
+            "id": "R000003"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntype: MUST\nid: R000003\n---\n\n# follow Contract First approach\n\nWhen a new API is being developed, we follow the [Contract First approach](guidelines/100_core-principles/contract-first.md).\nThis requires the following aspects:\n\n- We define API contracts first before coding the implementation using a [standard specification language](guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md).\n- We get early review feedback from peers and client developers.\n\nBy defining API contracts outside of the code, we aim to facilitate early review feedback and also a development discipline that focuses service interface design on a profound understanding of the domain and the required functionality.\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "MUST: follow Contract First approach [R000003]"
+            }
+          ],
+          "navTitle": "MUST: follow Contract First approach [R000003]",
+          "output": "\n<h3 id=\"R000003\"><a class=\"header-anchor\" href=\"#R000003\"><span class=\"rule-type-must\">MUST</span>: follow Contract First approach [R000003]</a></h3>\n<p>When a new API is being developed, we follow the <a href=\"guidelines/100_core-principles/contract-first.md\">Contract First approach</a>.\nThis requires the following aspects:</p>\n<ul>\n<li>We define API contracts first before coding the implementation using a <a href=\"guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md\">standard specification language</a>.</li>\n<li>We get early review feedback from peers and client developers.</li>\n</ul>\n<p>By defining API contracts outside of the code, we aim to facilitate early review feedback and also a development discipline that focuses service interface design on a profound understanding of the domain and the required functionality.</p>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "SHOULD develop UI first, API second",
+            "type": "SHOULD"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: SHOULD develop UI first, API second\ntype: SHOULD\n---\n\n## <span style=\"color: #F1B500;\">SHOULD</span> develop UI first, API second\n\nWhile the development of additional endpoints is crucial to establish a comprehensive and vital API ecosystem, we do not want to build endpoints upfront without the appropriate use cases.\nIn a first step, you SHOULD focus on implementing an appropriate UI to identify the requirements and quality factors of the API.\nOnly in a second step, we provide an API, that is suitable to implement more clients, having similar requirements as the first UI use case.\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---f1b500---\"><a class=\"header-anchor\" href=\"#-span-style--color---f1b500---\"><span style=\"color: #F1B500;\"></a></h4>\n<p>While the development of additional endpoints is crucial to establish a comprehensive and vital API ecosystem, we do not want to build endpoints upfront without the appropriate use cases.\nIn a first step, you SHOULD focus on implementing an appropriate UI to identify the requirements and quality factors of the API.\nOnly in a second step, we provide an API, that is suitable to implement more clients, having similar requirements as the first UI use case.</p>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "MUST provide API specification using Open API",
+            "type": "MUST"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: MUST provide API specification using Open API\ntype: MUST\n---\n\n## <span style=\"color: #D4021D;\">MUST</span> provide API specification using Open API\n\nWe use the Open API specification as standard to define API specification files.\nEvery API MUST be described using the Open API specification.\nAll teams that design APIs are required to provide the API specification using a single self-contained YAML file to improve readability.\nThe API description format used MUST be [Open API 3.0](https://github.com/OAI/OpenAPI-Specification/).\nWe will extend it according to our needs by using vendor tags in order to describe the functionality that we require.\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---d4021d---\"><a class=\"header-anchor\" href=\"#-span-style--color---d4021d---\"><span style=\"color: #D4021D;\"></a></h4>\n<p>We use the Open API specification as standard to define API specification files.\nEvery API MUST be described using the Open API specification.\nAll teams that design APIs are required to provide the API specification using a single self-contained YAML file to improve readability.\nThe API description format used MUST be <a href=\"https://github.com/OAI/OpenAPI-Specification/\">Open API 3.0</a>.\nWe will extend it according to our needs by using vendor tags in order to describe the functionality that we require.</p>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "MUST write APIs using American English"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: MUST write APIs using American English\n---\n\nThe API description as well as the overall documentation MUST be written in American English.\nUse standard American spelling.\n",
+          "headings": [],
+          "output": "\n<p>The API description as well as the overall documentation MUST be written in American English.\nUse standard American spelling.</p>\n"
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Authorization",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Authorization",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Authorization"
+          }
+        ],
+        "navTitle": "Authorization",
+        "output": "<h2 id=\"authorization\"><a class=\"header-anchor\" href=\"#authorization\">Authorization</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Url Structure",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Url Structure",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Url Structure"
+          }
+        ],
+        "navTitle": "Url Structure",
+        "output": "<h2 id=\"url-structure\"><a class=\"header-anchor\" href=\"#url-structure\">Url Structure</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "HTTP",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# HTTP\n",
+        "headings": [
+          {
+            "level": 2,
+            "content": "HTTP"
+          }
+        ],
+        "navTitle": "HTTP",
+        "output": "<h2 id=\"http\"><a class=\"header-anchor\" href=\"#http\">HTTP</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "# HTTP\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "HTTP"
+            }
+          ],
+          "navTitle": "HTTP",
+          "output": "<h3 id=\"http\"><a class=\"header-anchor\" href=\"#http\">HTTP</a></h3>\n"
+        },
+        {
+          "frontMatter": {
+            "type": "MUST",
+            "id": "R00004"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntype: MUST\nid: R00004\n---\n\n# use HTTP methods correctly\n\nWe are compliant with the standardized HTTP method semantics described as follows:\n\n## GET\n\n`GET` requests are used to **read** either a single or a collection resource.\n\n- For individual resources `GET` requests will usually generate a `HTTP 404 Not Found` if the resource does not exist.\n- For collection resources `GET` requests may return either `HTTP 200 OK` (if the collection is empty) or `HTTP 404 Not Found` (if the collection is missing).\n- `GET` requests must NOT have a request body payload (see [`GET With Body`](#get-with-body)).\n\n**Note:** `GET` requests on collection resources should provide sufficient [filter](link) and [pagination](link) mechanisms.\n\n## GET with body\n\nAPIs sometimes need to provide extensive structured request information with [`GET`](#get), that may conflict with the size limits of clients, load balancers, and servers.\nAs our APIs must be standard compliant (body in [`GET`](#get) must be ignored on server side), API designers have to check the following two options:\n\n1. [`GET`](#get) with URL encoded query parameters: if it is possible to encode the request information in query parameters, respecting the usual size limits of clients, gateways, and servers, this should be the first choice.\n   The request information can either be provided via multiple query parameters or by a single structured URL encoded string.\n2. [`POST`](#post) with body content: if a [`GET`](#get) with URL encoded query parameters is not possible, a [`POST`](#post) with body content must be used.\n   In this case the endpoint must be documented with the hint [`GET With Body`](#get-with-body) to transport the [`GET`](#get) semantic of this call.\n\n**Note:** Encoding the lengthy structured request information using header parameters is not an option.\nFrom a conceptual point of view, the semantic of an operation should always be expressed by the resource names, as well as the involved path and query parameters, i.e. by everything that goes into the URL.\nRequest headers are reserved for general context information.\nIn addition, size limits on query parameters and headers are not reliable and depend on clients, gateways, server, and actual settings.\nThus, switching to headers does not solve the original problem.\n\n**Hint:** [`GET With Body`](#get-with-body) is used to transport extensive query parameters, if [simple query parameters](#link) cannot any longer be used to encode the query filters.\nAs a consequence, it is best practice to transport the query filters in the body.\n\n## PUT\n\n`PUT` requests are used to **update** (in rare cases to create) **entire** resources – single or collection resources.\nThe semantic is best described as _\"please put the enclosed representation at the resource mentioned by the URL, replacing any existing resource.\"_.\n\n- `PUT` requests are usually applied to single resources, and not to collection resources, as this would imply replacing the entire collection.\n- `PUT` requests are usually robust against non-existence of resources by implicitly creating before updating.\n- On successful `PUT` requests, the server will **replace the entire resource** addressed by the URL with the representation passed in the payload (subsequent reads will deliver the same payload).\n- Successful `PUT` requests will usually generate `200 OK` or `204 No Content` (if the resource was updated – with or without actual content returned), and `201 Created` (if the resource was created).\n\n**Important:** It is best practice to prefer `POST` over `PUT` for creation of (at least top-level) resources.\nThis leaves the resource ID under control of the service and allows to concentrate on the update semantic using `PUT` as follows.\n\n**Note:** In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.\nPutting the same resource twice is required to be [idempotent](link) and to result in the same single resource instance (see [MUST fulfill common method properties](link)).\n\n**Hint:** To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also [Optimistic locking in RESTful APIs](link) for details and options.\n\n## POST\n\n`POST` requests are idiomatically used to **create** single resources on a collection resource endpoint, but other semantics on single resources endpoint are equally possible.\nThe semantic for collection endpoints is best described as _\"please add the enclosed representation to the collection resource identified by the URL\"_.\n\n- On a successful `POST` request, the server will create one or multiple new resources and provide their URI/URLs in the response.\n- Successful `POST` requests will usually generate `200 OK` (if resources have been updated), `201 Created` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if resources have been created), `202 Accepted` (if the request was accepted but has not been finished yet), and exceptionally `204 No Content` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if the actual resource is not returned).\n\nThe semantic for single resource endpoints is best described as _\"please execute the given well specified request on the resource identified by the URL\"_.\n\n**Generally:** `POST` should be used for scenarios that cannot be covered by the other methods sufficiently.\nIn such cases, make sure to document the fact that `POST` is used as a workaround (see [`GET With Body`](#get-with-body)).\n\n**Note:** Resource IDs related to `POST` requests are created and managed by the server and returned with the response payload and/or as part of the URL in the [`Location'] (<https://tools.ietf.org/html/rfc7231#section-7.1.2)> header.\n\n**Hint:** Posting the same resource twice is **not** required to be [idempotent](#idempotent) (check [MUST fulfill common method properties](link)) and may result in multiple resources.\nHowever, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) to prevent this.\n\n## PATCH\n\n> TODO: Link auf Optimistic Locking: Best practices übernehmen oder so...\n\n`PATCH`requests are used to **update parts** of single resources, i.e. where only a specific subset of resource fields should be replaced.\nThe semantic is best described as _\"please change the resource identified by the URL according to my change request\"_.\nThe semantic of the change request is not defined in the HTTP standard and must be described in the API specification by using suitable media types.\n\n- `PATCH` requests are usually applied to single resources as patching an entire collection is challenging.\n- `PATCH` requests are usually not robust against non-existence of resource instances.\n- On successful `PATCH` requests, the server will update parts of the resource addressed by the URL as defined by the change request in the payload.\n- Successful `PATCH` requests will usually generate `200 OK` or `204 No Content` (if resources have been updated with or without updated content returned).\n\n**Note:** As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change.\nIn preferred order:\n\n1. Use [`PUT`](#put) with complete objects to update a resource as long as feasible (i.e. do not use `PATCH` at all).\n2. Use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)\n3. Use [`PATCH`](#patch) with [JSON Patch](https://tools.ietf.org/html/rfc6902), a specialized media type `application/json-patch+json` (sent as `Content-Type` request header) that includes instructions on how to change the resource.\n4. Use [`POST`](#post) (with a proper description of what is happening) instead of [`PATCH`](#patch), if the request does not modify the resource in a way defined by the semantics of the media type.\n\nIn practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turns out to be too limited, especially when trying to update single objects in large collections (as part of the resource).\nIn this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).\n\n**Note:** Patching the same resource twice is **not** required to be [idempotent](#idempotent) (check [MUST fulfill common method properties](link) and may result in a changing result. However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) to prevent this.\n\n**Hint:** To prevent unnoticed concurrent updates when using `PATCH` you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.\nSee [Optimistic locking in RESTful APIs](link) and [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) for details and options.\n\n## DELETE\n\n`DELETE` requests are used to **delete** resources.\nThe semantic is best described as _\"please delete the resource identified by the URL\"_.\n\n- `DELETE` requests are usually applied to single resources, not on collection resources, as this would imply deleting the entire collection.\n- Successful `DELETE` requests will usually generate `200 OK` (if some representation of the deleted resource is returned) or `204 No Content` (if no content is returned).\n- Failed `DELETE` requests will usually generate `404 Not Found` (if the resource cannot be found) or `410 Gone` (if the resource was already deleted before).\n\n> TODO [return `200 OK` and some custom representation, e.g. the whole shopping cart after `DELETE`ing only one lineitem]\n\n**Important:** After deleting a resource with `DELETE`, a [`GET`](#get) request on the resource is expected to either return `404 Not Found` or `410 Gone` depending on how the resource is represented after deletion.\nUnder no circumstances the resource must be accessible after this operation on its endpoint.\n\n## HEAD\n\n`HEAD` requests are used to **retrieve** the header information of single resources and resource collections.\n\n- `HEAD` has exactly the same semantics as [`GET`](#get), but returns headers only, no body.\n\n**Hint:** `HEAD` is particular useful to efficiently lookup whether large resources or collection resources have been updated in conjunction with the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3)-header.\n\n### OPTIONS\n\n`OPTIONS` requests are used to **inspect** the available operations (HTTP methods) of a given endpoint.\n\n- `OPTIONS` responses usually either return a comma separated list of methods in the `Allow` header or a structured list of link templates.\n\n**Note:** `OPTIONS` is rarely implemented, though it could be used to self-describe the full functionality of a resource.\n",
+          "headings": [
+            {
+              "level": 3,
+              "content": "MUST: use HTTP methods correctly [R00004]"
+            },
+            {
+              "level": 4,
+              "content": "GET"
+            },
+            {
+              "level": 4,
+              "content": "GET with body"
+            },
+            {
+              "level": 4,
+              "content": "PUT"
+            },
+            {
+              "level": 4,
+              "content": "POST"
+            },
+            {
+              "level": 4,
+              "content": "PATCH"
+            },
+            {
+              "level": 4,
+              "content": "DELETE"
+            },
+            {
+              "level": 4,
+              "content": "HEAD"
+            },
+            {
+              "level": 5,
+              "content": "OPTIONS"
+            }
+          ],
+          "navTitle": "MUST: use HTTP methods correctly [R00004]",
+          "output": "\n<h3 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\"><span class=\"rule-type-must\">MUST</span>: use HTTP methods correctly [R00004]</a></h3>\n<p>We are compliant with the standardized HTTP method semantics described as follows:</p>\n<h4 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">GET</a></h4>\n<p><code>GET</code> requests are used to <strong>read</strong> either a single or a collection resource.</p>\n<ul>\n<li>For individual resources <code>GET</code> requests will usually generate a <code>HTTP 404 Not Found</code> if the resource does not exist.</li>\n<li>For collection resources <code>GET</code> requests may return either <code>HTTP 200 OK</code> (if the collection is empty) or <code>HTTP 404 Not Found</code> (if the collection is missing).</li>\n<li><code>GET</code> requests must NOT have a request body payload (see <a href=\"#get-with-body\"><code>GET With Body</code></a>).</li>\n</ul>\n<p><strong>Note:</strong> <code>GET</code> requests on collection resources should provide sufficient <a href=\"link\">filter</a> and <a href=\"link\">pagination</a> mechanisms.</p>\n<h4 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">GET with body</a></h4>\n<p>APIs sometimes need to provide extensive structured request information with <a href=\"#get\"><code>GET</code></a>, that may conflict with the size limits of clients, load balancers, and servers.\nAs our APIs must be standard compliant (body in <a href=\"#get\"><code>GET</code></a> must be ignored on server side), API designers have to check the following two options:</p>\n<ol>\n<li><a href=\"#get\"><code>GET</code></a> with URL encoded query parameters: if it is possible to encode the request information in query parameters, respecting the usual size limits of clients, gateways, and servers, this should be the first choice.\nThe request information can either be provided via multiple query parameters or by a single structured URL encoded string.</li>\n<li><a href=\"#post\"><code>POST</code></a> with body content: if a <a href=\"#get\"><code>GET</code></a> with URL encoded query parameters is not possible, a <a href=\"#post\"><code>POST</code></a> with body content must be used.\nIn this case the endpoint must be documented with the hint <a href=\"#get-with-body\"><code>GET With Body</code></a> to transport the <a href=\"#get\"><code>GET</code></a> semantic of this call.</li>\n</ol>\n<p><strong>Note:</strong> Encoding the lengthy structured request information using header parameters is not an option.\nFrom a conceptual point of view, the semantic of an operation should always be expressed by the resource names, as well as the involved path and query parameters, i.e. by everything that goes into the URL.\nRequest headers are reserved for general context information.\nIn addition, size limits on query parameters and headers are not reliable and depend on clients, gateways, server, and actual settings.\nThus, switching to headers does not solve the original problem.</p>\n<p><strong>Hint:</strong> <a href=\"#get-with-body\"><code>GET With Body</code></a> is used to transport extensive query parameters, if <a href=\"#link\">simple query parameters</a> cannot any longer be used to encode the query filters.\nAs a consequence, it is best practice to transport the query filters in the body.</p>\n<h4 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">PUT</a></h4>\n<p><code>PUT</code> requests are used to <strong>update</strong> (in rare cases to create) <strong>entire</strong> resources – single or collection resources.\nThe semantic is best described as <em>“please put the enclosed representation at the resource mentioned by the URL, replacing any existing resource.”</em>.</p>\n<ul>\n<li><code>PUT</code> requests are usually applied to single resources, and not to collection resources, as this would imply replacing the entire collection.</li>\n<li><code>PUT</code> requests are usually robust against non-existence of resources by implicitly creating before updating.</li>\n<li>On successful <code>PUT</code> requests, the server will <strong>replace the entire resource</strong> addressed by the URL with the representation passed in the payload (subsequent reads will deliver the same payload).</li>\n<li>Successful <code>PUT</code> requests will usually generate <code>200 OK</code> or <code>204 No Content</code> (if the resource was updated – with or without actual content returned), and <code>201 Created</code> (if the resource was created).</li>\n</ul>\n<p><strong>Important:</strong> It is best practice to prefer <code>POST</code> over <code>PUT</code> for creation of (at least top-level) resources.\nThis leaves the resource ID under control of the service and allows to concentrate on the update semantic using <code>PUT</code> as follows.</p>\n<p><strong>Note:</strong> In the rare cases where <code>PUT</code> is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.\nPutting the same resource twice is required to be <a href=\"link\">idempotent</a> and to result in the same single resource instance (see <a href=\"link\">MUST fulfill common method properties</a>).</p>\n<p><strong>Hint:</strong> To prevent unnoticed concurrent updates and duplicate creations when using <code>PUT</code>, you <a href=\"link\"><strong>[SHOULD]</strong> consider to support <code>ETag</code> together with <code>If-Match</code>/<code>If-None-Match</code> header</a> to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also <a href=\"link\">Optimistic locking in RESTful APIs</a> for details and options.</p>\n<h4 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">POST</a></h4>\n<p><code>POST</code> requests are idiomatically used to <strong>create</strong> single resources on a collection resource endpoint, but other semantics on single resources endpoint are equally possible.\nThe semantic for collection endpoints is best described as <em>“please add the enclosed representation to the collection resource identified by the URL”</em>.</p>\n<ul>\n<li>On a successful <code>POST</code> request, the server will create one or multiple new resources and provide their URI/URLs in the response.</li>\n<li>Successful <code>POST</code> requests will usually generate <code>200 OK</code> (if resources have been updated), <code>201 Created</code> with <a href=\"https://tools.ietf.org/html/rfc7231#section-7.1.2\"><code>Location</code></a> header (if resources have been created), <code>202 Accepted</code> (if the request was accepted but has not been finished yet), and exceptionally <code>204 No Content</code> with <a href=\"https://tools.ietf.org/html/rfc7231#section-7.1.2\"><code>Location</code></a> header (if the actual resource is not returned).</li>\n</ul>\n<p>The semantic for single resource endpoints is best described as <em>“please execute the given well specified request on the resource identified by the URL”</em>.</p>\n<p><strong>Generally:</strong> <code>POST</code> should be used for scenarios that cannot be covered by the other methods sufficiently.\nIn such cases, make sure to document the fact that <code>POST</code> is used as a workaround (see <a href=\"#get-with-body\"><code>GET With Body</code></a>).</p>\n<p><strong>Note:</strong> Resource IDs related to <code>POST</code> requests are created and managed by the server and returned with the response payload and/or as part of the URL in the [`Location’] (<a href=\"https://tools.ietf.org/html/rfc7231#section-7.1.2)\">https://tools.ietf.org/html/rfc7231#section-7.1.2)</a> header.</p>\n<p><strong>Hint:</strong> Posting the same resource twice is <strong>not</strong> required to be <a href=\"#idempotent\">idempotent</a> (check <a href=\"link\">MUST fulfill common method properties</a>) and may result in multiple resources.\nHowever, you <a href=\"link\"><strong>[SHOULD]</strong> consider to design <code>POST</code> and <code>PATCH</code> idempotent</a> to prevent this.</p>\n<h4 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">PATCH</a></h4>\n<blockquote>\n<p>TODO: Link auf Optimistic Locking: Best practices übernehmen oder so…</p>\n</blockquote>\n<p><code>PATCH</code>requests are used to <strong>update parts</strong> of single resources, i.e. where only a specific subset of resource fields should be replaced.\nThe semantic is best described as <em>“please change the resource identified by the URL according to my change request”</em>.\nThe semantic of the change request is not defined in the HTTP standard and must be described in the API specification by using suitable media types.</p>\n<ul>\n<li><code>PATCH</code> requests are usually applied to single resources as patching an entire collection is challenging.</li>\n<li><code>PATCH</code> requests are usually not robust against non-existence of resource instances.</li>\n<li>On successful <code>PATCH</code> requests, the server will update parts of the resource addressed by the URL as defined by the change request in the payload.</li>\n<li>Successful <code>PATCH</code> requests will usually generate <code>200 OK</code> or <code>204 No Content</code> (if resources have been updated with or without updated content returned).</li>\n</ul>\n<p><strong>Note:</strong> As implementing <code>PATCH</code> correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change.\nIn preferred order:</p>\n<ol>\n<li>Use <a href=\"#put\"><code>PUT</code></a> with complete objects to update a resource as long as feasible (i.e. do not use <code>PATCH</code> at all).</li>\n<li>Use <a href=\"#patch\"><code>PATCH</code></a> with partial objects to only update parts of a resource, whenever possible. (This is basically <a href=\"https://tools.ietf.org/html/rfc7396\">JSON Merge Patch</a>, a specialized media type <code>application/merge-patch+json</code> (sent as <code>Content-Type</code> request header) that is a partial resource representation.)</li>\n<li>Use <a href=\"#patch\"><code>PATCH</code></a> with <a href=\"https://tools.ietf.org/html/rfc6902\">JSON Patch</a>, a specialized media type <code>application/json-patch+json</code> (sent as <code>Content-Type</code> request header) that includes instructions on how to change the resource.</li>\n<li>Use <a href=\"#post\"><code>POST</code></a> (with a proper description of what is happening) instead of <a href=\"#patch\"><code>PATCH</code></a>, if the request does not modify the resource in a way defined by the semantics of the media type.</li>\n</ol>\n<p>In practice <a href=\"https://tools.ietf.org/html/rfc7396\">JSON Merge Patch</a> quickly turns out to be too limited, especially when trying to update single objects in large collections (as part of the resource).\nIn this cases <a href=\"https://tools.ietf.org/html/rfc6902\">JSON Patch</a> can show its full power while still showing readable patch requests (see also <a href=\"http://erosb.github.io/post/json-patch-vs-merge-patch\">JSON patch vs. merge</a>).</p>\n<p><strong>Note:</strong> Patching the same resource twice is <strong>not</strong> required to be <a href=\"#idempotent\">idempotent</a> (check <a href=\"link\">MUST fulfill common method properties</a> and may result in a changing result. However, you <a href=\"link\"><strong>[SHOULD]</strong> consider to design <code>POST</code> and <code>PATCH</code> idempotent</a> to prevent this.</p>\n<p><strong>Hint:</strong> To prevent unnoticed concurrent updates when using <code>PATCH</code> you <a href=\"link\"><strong>[SHOULD]</strong> consider to support <code>ETag</code> together with <code>If-Match</code>/<code>If-None-Match</code> header</a> to allow the server to react on stricter demands that expose conflicts and prevent lost updates.\nSee <a href=\"link\">Optimistic locking in RESTful APIs</a> and <a href=\"link\"><strong>[SHOULD]</strong> consider to design <code>POST</code> and <code>PATCH</code> idempotent</a> for details and options.</p>\n<h4 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">DELETE</a></h4>\n<p><code>DELETE</code> requests are used to <strong>delete</strong> resources.\nThe semantic is best described as <em>“please delete the resource identified by the URL”</em>.</p>\n<ul>\n<li><code>DELETE</code> requests are usually applied to single resources, not on collection resources, as this would imply deleting the entire collection.</li>\n<li>Successful <code>DELETE</code> requests will usually generate <code>200 OK</code> (if some representation of the deleted resource is returned) or <code>204 No Content</code> (if no content is returned).</li>\n<li>Failed <code>DELETE</code> requests will usually generate <code>404 Not Found</code> (if the resource cannot be found) or <code>410 Gone</code> (if the resource was already deleted before).</li>\n</ul>\n<blockquote>\n<p>TODO [return <code>200 OK</code> and some custom representation, e.g. the whole shopping cart after <code>DELETE</code>ing only one lineitem]</p>\n</blockquote>\n<p><strong>Important:</strong> After deleting a resource with <code>DELETE</code>, a <a href=\"#get\"><code>GET</code></a> request on the resource is expected to either return <code>404 Not Found</code> or <code>410 Gone</code> depending on how the resource is represented after deletion.\nUnder no circumstances the resource must be accessible after this operation on its endpoint.</p>\n<h4 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">HEAD</a></h4>\n<p><code>HEAD</code> requests are used to <strong>retrieve</strong> the header information of single resources and resource collections.</p>\n<ul>\n<li><code>HEAD</code> has exactly the same semantics as <a href=\"#get\"><code>GET</code></a>, but returns headers only, no body.</li>\n</ul>\n<p><strong>Hint:</strong> <code>HEAD</code> is particular useful to efficiently lookup whether large resources or collection resources have been updated in conjunction with the <a href=\"https://tools.ietf.org/html/rfc7232#section-2.3\"><code>ETag</code></a>-header.</p>\n<h5 id=\"R00004\"><a class=\"header-anchor\" href=\"#R00004\">OPTIONS</a></h5>\n<p><code>OPTIONS</code> requests are used to <strong>inspect</strong> the available operations (HTTP methods) of a given endpoint.</p>\n<ul>\n<li><code>OPTIONS</code> responses usually either return a comma separated list of methods in the <code>Allow</code> header or a structured list of link templates.</li>\n</ul>\n<p><strong>Note:</strong> <code>OPTIONS</code> is rarely implemented, though it could be used to self-describe the full functionality of a resource.</p>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "MUST fulfill common method properties",
+            "type": "MUST"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: MUST fulfill common method properties\ntype: MUST\n---\n\n## <span style=\"color: #D4021D;\">MUST</span> fulfill common method properties\n\nRequest methods in RESTful services can be:\n\n- [safe](https://tools.ietf.org/html/rfc7231#section-4.2.1) - the operation semantic is defined to be read-only, meaning it must not have _intended side effects_, i.e. changes, to the server state.\n- [idempotent](https://tools.ietf.org/html/rfc7231#section-4.2.2) - the operation has the same _intended effect_ on the server state, independently whether it is executed once or multiple times.\n  **Note:** this does not require that the operation is returning the same response or status code.\n- [cacheable](https://tools.ietf.org/html/rfc7231#section-4.2.3) - to indicate that responses are allowed to be stored for future reuse.\n  In general, requests to safe methods are cacheable, if no current or authoritative response from the server is required.\n\n**Note:** The above definitions, of _intended (side) effect_ allows the server to provide additional state changing behavior as logging, accounting, pre-fetching, etc.\nHowever, these actual effects and state changes, must not be intended by the operation so that it can be held accountable.\n\nMethod implementations must fulfill the following basic properties according to [RFC 7231](https://tools.ietf.org/html/rfc7231):\n\n| Method                | Safe  | Idempotent                                                                      | Cacheable                                                                                                |\n| --------------------- | ----- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |\n| [`GET`](#get)         | ✔ Yes | ✔ Yes                                                                           | ✔ Yes                                                                                                    |\n| [`HEAD`](#head)       | ✔ Yes | ✔ Yes                                                                           | ✔ Yes                                                                                                    |\n| [`POST`](#post)       | ✗ No  | ⚠️ No, but [**[SHOULD]** consider to design `POST` and `PATCH`idempotent](link) | ⚠️ May, but only if specific [`POST`](#post) endpoint is `safe`. **Hint:** not supported by most caches. |\n| [`PUT`](#put)         | ✗ No  | ✔ Yes                                                                           | ✗ No                                                                                                     |\n| [`PATCH`](#patch)     | ✗ No  | ⚠️ No, but [**SHOULD** consider to design `POST` and `PATCH` idempotent](link)) | ✗ No                                                                                                     |\n| [`DELETE`](#delete)   | ✗ No  | ✔ Yes                                                                           | ✗ No                                                                                                     |\n| [`OPTIONS`](#options) | ✔ Yes | ✔ Yes                                                                           | ✗ No                                                                                                     |\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---d4021d---\"><a class=\"header-anchor\" href=\"#-span-style--color---d4021d---\"><span style=\"color: #D4021D;\"></a></h4>\n<p>Request methods in RESTful services can be:</p>\n<ul>\n<li><a href=\"https://tools.ietf.org/html/rfc7231#section-4.2.1\">safe</a> - the operation semantic is defined to be read-only, meaning it must not have <em>intended side effects</em>, i.e. changes, to the server state.</li>\n<li><a href=\"https://tools.ietf.org/html/rfc7231#section-4.2.2\">idempotent</a> - the operation has the same <em>intended effect</em> on the server state, independently whether it is executed once or multiple times.\n<strong>Note:</strong> this does not require that the operation is returning the same response or status code.</li>\n<li><a href=\"https://tools.ietf.org/html/rfc7231#section-4.2.3\">cacheable</a> - to indicate that responses are allowed to be stored for future reuse.\nIn general, requests to safe methods are cacheable, if no current or authoritative response from the server is required.</li>\n</ul>\n<p><strong>Note:</strong> The above definitions, of <em>intended (side) effect</em> allows the server to provide additional state changing behavior as logging, accounting, pre-fetching, etc.\nHowever, these actual effects and state changes, must not be intended by the operation so that it can be held accountable.</p>\n<p>Method implementations must fulfill the following basic properties according to <a href=\"https://tools.ietf.org/html/rfc7231\">RFC 7231</a>:</p>\n<table>\n<thead>\n<tr>\n<th>Method</th>\n<th>Safe</th>\n<th>Idempotent</th>\n<th>Cacheable</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><a href=\"#get\"><code>GET</code></a></td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n</tr>\n<tr>\n<td><a href=\"#head\"><code>HEAD</code></a></td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n</tr>\n<tr>\n<td><a href=\"#post\"><code>POST</code></a></td>\n<td>✗ No</td>\n<td>⚠️ No, but <a href=\"link\"><strong>[SHOULD]</strong> consider to design <code>POST</code> and <code>PATCH</code>idempotent</a></td>\n<td>⚠️ May, but only if specific <a href=\"#post\"><code>POST</code></a> endpoint is <code>safe</code>. <strong>Hint:</strong> not supported by most caches.</td>\n</tr>\n<tr>\n<td><a href=\"#put\"><code>PUT</code></a></td>\n<td>✗ No</td>\n<td>✔ Yes</td>\n<td>✗ No</td>\n</tr>\n<tr>\n<td><a href=\"#patch\"><code>PATCH</code></a></td>\n<td>✗ No</td>\n<td>⚠️ No, but <a href=\"link\"><strong>SHOULD</strong> consider to design <code>POST</code> and <code>PATCH</code> idempotent</a>)</td>\n<td>✗ No</td>\n</tr>\n<tr>\n<td><a href=\"#delete\"><code>DELETE</code></a></td>\n<td>✗ No</td>\n<td>✔ Yes</td>\n<td>✗ No</td>\n</tr>\n<tr>\n<td><a href=\"#options\"><code>OPTIONS</code></a></td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n<td>✗ No</td>\n</tr>\n</tbody>\n</table>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "SHOULD consider to design `POST` and `PATCH` idempotent",
+            "type": "SHOULD"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: SHOULD consider to design `POST` and `PATCH` idempotent\ntype: SHOULD\n---\n\n## <span style=\"color: #F1B500;\">SHOULD</span> consider to design `POST` and `PATCH` idempotent\n\nIn many cases it is helpful or even necessary to design [`POST`](#post) and [`PATCH`](#patch) [idempotent](#idempotent) for clients to expose conflicts and prevent resource duplicate (a.k.a. zombie resources) or lost updates, e.g. if same resources may be created or changed in parallel or multiple times. To design an [idempotent](#idempotent) API endpoint owners should consider to apply one of the following three patterns.\n\n- A resource specific **conditional key** provided via `If-Match` header in the request. The key is in general a meta information of the resource, e.g. a _hash_ or _version number_, often stored with it. It allows to detect concurrent creations and updates to ensure [idempotent](#idempotent) behavior (see [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](#should-consider-to-support-etag-together-with-if-matchif-none-match-header)).\n- A resource specific **secondary key** provided as resource property in the request body. The _secondary key_ is stored permanently in the resource. It allows to ensure [idempotent](#idempotent) behavior by looking up the unique secondary key in case of multiple independent resource creations from different clients (see [**[SHOULD]** use secondary key for idempotent `POST` design](#should-use-secondary-key-for-idempotent-post-design)).\n- A client specific **idempotency key** provided via [`Idempotency-Key`](#may-consider-to-support-idempotency-key-header) header in the request. The key is not part of the resource but stored temporarily pointing to the original response to ensure [idempotent](#idempotent) behavior when retrying a request (see [**MAY** consider to support `Idempotency-Key`header](#may-consider-to-support-idempotency-key-header)).\n\n**Note:** While **conditional key** and **secondary key** are focused on handling concurrent requests, the **idempotency key** is focused on providing the exact same responses, which is even a _stronger_ requirement than the [idempotency defined above](#idempotent). It can be combined with the two other patterns.\n\nTo decide, which pattern is suitable for your use case, please consult the following table showing the major properties of each pattern:\n\n|                                       | Conditional Key   | Secondary Key   | Idempotency Key                   |\n| ------------------------------------- | ----------------- | --------------- | --------------------------------- |\n| Applicable with                       | [`PATCH`](#patch) | [`POST`](#post) | [`POST`](#post)/[`PATCH`](#patch) |\n| HTTP Standard                         | ✔ Yes             | ✗ No            | ✗ No                              |\n| Prevents duplicate (zombie) resources | ✔ Yes             | ✔ Yes           | ✗ No                              |\n| Prevents concurrent lost updates      | ✔ Yes             | ✗ No            | ✗ No                              |\n| Supports safe retries                 | ✔ Yes             | ✔ Yes           | ✔ Yes                             |\n| Supports exact same response          | ✗ No              | ✗ No            | ✔ Yes                             |\n| Can be inspected (by intermediaries)  | ✔ Yes             | ✗ No            | ✔ Yes                             |\n| Usable without previous [`GET`](#get) | ✗ No              | ✔ Yes           | ✔ Yes                             |\n\n**Note:** The patterns applicable to [`PATCH`](#patch) can be applied in the same way to [`PUT`](#put) and [`DELETE`](#delete) providing the same properties.\n\nIf you mainly aim to support safe retries, we suggest to apply Conditional Key and Secondary Key pattern before the Idempotency Key pattern.\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---f1b500---\"><a class=\"header-anchor\" href=\"#-span-style--color---f1b500---\"><span style=\"color: #F1B500;\"></a></h4>\n<p>In many cases it is helpful or even necessary to design <a href=\"#post\"><code>POST</code></a> and <a href=\"#patch\"><code>PATCH</code></a> <a href=\"#idempotent\">idempotent</a> for clients to expose conflicts and prevent resource duplicate (a.k.a. zombie resources) or lost updates, e.g. if same resources may be created or changed in parallel or multiple times. To design an <a href=\"#idempotent\">idempotent</a> API endpoint owners should consider to apply one of the following three patterns.</p>\n<ul>\n<li>A resource specific <strong>conditional key</strong> provided via <code>If-Match</code> header in the request. The key is in general a meta information of the resource, e.g. a <em>hash</em> or <em>version number</em>, often stored with it. It allows to detect concurrent creations and updates to ensure <a href=\"#idempotent\">idempotent</a> behavior (see <a href=\"#should-consider-to-support-etag-together-with-if-matchif-none-match-header\"><strong>[SHOULD]</strong> consider to support <code>ETag</code> together with <code>If-Match</code>/<code>If-None-Match</code> header</a>).</li>\n<li>A resource specific <strong>secondary key</strong> provided as resource property in the request body. The <em>secondary key</em> is stored permanently in the resource. It allows to ensure <a href=\"#idempotent\">idempotent</a> behavior by looking up the unique secondary key in case of multiple independent resource creations from different clients (see <a href=\"#should-use-secondary-key-for-idempotent-post-design\"><strong>[SHOULD]</strong> use secondary key for idempotent <code>POST</code> design</a>).</li>\n<li>A client specific <strong>idempotency key</strong> provided via <a href=\"#may-consider-to-support-idempotency-key-header\"><code>Idempotency-Key</code></a> header in the request. The key is not part of the resource but stored temporarily pointing to the original response to ensure <a href=\"#idempotent\">idempotent</a> behavior when retrying a request (see <a href=\"#may-consider-to-support-idempotency-key-header\"><strong>MAY</strong> consider to support <code>Idempotency-Key</code>header</a>).</li>\n</ul>\n<p><strong>Note:</strong> While <strong>conditional key</strong> and <strong>secondary key</strong> are focused on handling concurrent requests, the <strong>idempotency key</strong> is focused on providing the exact same responses, which is even a <em>stronger</em> requirement than the <a href=\"#idempotent\">idempotency defined above</a>. It can be combined with the two other patterns.</p>\n<p>To decide, which pattern is suitable for your use case, please consult the following table showing the major properties of each pattern:</p>\n<table>\n<thead>\n<tr>\n<th></th>\n<th>Conditional Key</th>\n<th>Secondary Key</th>\n<th>Idempotency Key</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Applicable with</td>\n<td><a href=\"#patch\"><code>PATCH</code></a></td>\n<td><a href=\"#post\"><code>POST</code></a></td>\n<td><a href=\"#post\"><code>POST</code></a>/<a href=\"#patch\"><code>PATCH</code></a></td>\n</tr>\n<tr>\n<td>HTTP Standard</td>\n<td>✔ Yes</td>\n<td>✗ No</td>\n<td>✗ No</td>\n</tr>\n<tr>\n<td>Prevents duplicate (zombie) resources</td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n<td>✗ No</td>\n</tr>\n<tr>\n<td>Prevents concurrent lost updates</td>\n<td>✔ Yes</td>\n<td>✗ No</td>\n<td>✗ No</td>\n</tr>\n<tr>\n<td>Supports safe retries</td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n</tr>\n<tr>\n<td>Supports exact same response</td>\n<td>✗ No</td>\n<td>✗ No</td>\n<td>✔ Yes</td>\n</tr>\n<tr>\n<td>Can be inspected (by intermediaries)</td>\n<td>✔ Yes</td>\n<td>✗ No</td>\n<td>✔ Yes</td>\n</tr>\n<tr>\n<td>Usable without previous <a href=\"#get\"><code>GET</code></a></td>\n<td>✗ No</td>\n<td>✔ Yes</td>\n<td>✔ Yes</td>\n</tr>\n</tbody>\n</table>\n<p><strong>Note:</strong> The patterns applicable to <a href=\"#patch\"><code>PATCH</code></a> can be applied in the same way to <a href=\"#put\"><code>PUT</code></a> and <a href=\"#delete\"><code>DELETE</code></a> providing the same properties.</p>\n<p>If you mainly aim to support safe retries, we suggest to apply Conditional Key and Secondary Key pattern before the Idempotency Key pattern.</p>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "SHOULD use secondary key for idempotent `POST` design",
+            "type": "SHOULD"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: SHOULD use secondary key for idempotent `POST` design\ntype: SHOULD\n---\n\n## <span style=\"color: #F1B500;\">SHOULD</span> use secondary key for idempotent `POST` design\n\nThe most important pattern to design [`POST`](#post) [idempotent](link) for creation is to introduce a resource specific **secondary key** provided in the request body, to eliminate the problem of duplicate (a.k.a zombie) resources.\n\nThe secondary key is stored permanently in the resource as _alternate key_ or _combined key_ (if consisting of multiple properties) guarded by a uniqueness constraint enforced server-side, that is visible when reading the resource.\nThe best and often naturally existing candidate is a _unique foreign key_, that points to another resource having _one-on-one_ relationship with the newly created resource, e.g. a parent process identifier.\n\nA good example here for a secondary key is the shopping cart ID in an order resource.\n\n**Note:** When using the secondary key pattern without [`Idempotency Key`](link) all subsequent retries should fail with status code `409 Conflict`.\nWe suggest to avoid `200 OK` here unless you make sure, that the delivered resource is the original one implementing a well defined behavior.\nUsing `204 No Content` without content would be a similar well-defined option.\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---f1b500---\"><a class=\"header-anchor\" href=\"#-span-style--color---f1b500---\"><span style=\"color: #F1B500;\"></a></h4>\n<p>The most important pattern to design <a href=\"#post\"><code>POST</code></a> <a href=\"link\">idempotent</a> for creation is to introduce a resource specific <strong>secondary key</strong> provided in the request body, to eliminate the problem of duplicate (a.k.a zombie) resources.</p>\n<p>The secondary key is stored permanently in the resource as <em>alternate key</em> or <em>combined key</em> (if consisting of multiple properties) guarded by a uniqueness constraint enforced server-side, that is visible when reading the resource.\nThe best and often naturally existing candidate is a <em>unique foreign key</em>, that points to another resource having <em>one-on-one</em> relationship with the newly created resource, e.g. a parent process identifier.</p>\n<p>A good example here for a secondary key is the shopping cart ID in an order resource.</p>\n<p><strong>Note:</strong> When using the secondary key pattern without <a href=\"link\"><code>Idempotency Key</code></a> all subsequent retries should fail with status code <code>409 Conflict</code>.\nWe suggest to avoid <code>200 OK</code> here unless you make sure, that the delivered resource is the original one implementing a well defined behavior.\nUsing <code>204 No Content</code> without content would be a similar well-defined option.</p>\n"
+        },
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Json Guidelines",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Json Guidelines",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Json Guidelines"
+          }
+        ],
+        "navTitle": "Json Guidelines",
+        "output": "<h2 id=\"json-guidelines\"><a class=\"header-anchor\" href=\"#json-guidelines\">Json Guidelines</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Resources",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Resources",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Resources"
+          }
+        ],
+        "navTitle": "Resources",
+        "output": "<h2 id=\"resources\"><a class=\"header-anchor\" href=\"#resources\">Resources</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Hypermedia",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Hypermedia",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Hypermedia"
+          }
+        ],
+        "navTitle": "Hypermedia",
+        "output": "<h2 id=\"hypermedia\"><a class=\"header-anchor\" href=\"#hypermedia\">Hypermedia</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Error Handling",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Error Handling",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Error Handling"
+          }
+        ],
+        "navTitle": "Error Handling",
+        "output": "<h2 id=\"error-handling\"><a class=\"header-anchor\" href=\"#error-handling\">Error Handling</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Versioning Compatibility",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Versioning Compatibility",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Versioning Compatibility"
+          }
+        ],
+        "navTitle": "Versioning Compatibility",
+        "output": "<h2 id=\"versioning-compatibility\"><a class=\"header-anchor\" href=\"#versioning-compatibility\">Versioning Compatibility</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {
+            "title": "MUST NOT break backward compatibility",
+            "type": "MUST NOT"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: MUST NOT break backward compatibility\ntype: MUST NOT\n---\n\n## <span style=\"color: #D4021D;\">MUST NOT</span> break backward compatibility\n\nChange APIs, but keep all consumers running. Consumers usually have independent release lifecycles, focus on stability, and avoid changes that do not provide additional value. APIs are contracts between service providers and service consumers that cannot be broken via unilateral decisions.\n\nThere are two techniques to change APIs without breaking them:\n\n- follow rules for compatible extensions\n- introduce new API versions and still support older versions\n\nWe strongly encourage using compatible API extensions and discourage versioning. The following guidelines for service providers ([SHOULD prefer compatible extensions](#should-prefer-compatible-extensions)) and consumers ([MUST prepare clients accept compatible API extensions](#must-prepare-clients-accept-compatible-api-extensions)) enable us (having Postel’s Law in mind) to make compatible changes without versioning.\n\n**Note:** There is a difference between incompatible and breaking changes. Incompatible changes are changes that are not covered by the compatibility rules below. Breaking changes are incompatible changes deployed into operation, and thereby breaking running API consumers. Usually, incompatible changes are breaking changes when deployed into operation.\nHowever, in specific controlled situations it is possible to deploy incompatible changes in a non-breaking way, if no API consumer is using the affected API aspects (see also Deprecation[TODO: link] guidelines).\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---d4021d---\"><a class=\"header-anchor\" href=\"#-span-style--color---d4021d---\"><span style=\"color: #D4021D;\"></a></h4>\n<p>Change APIs, but keep all consumers running. Consumers usually have independent release lifecycles, focus on stability, and avoid changes that do not provide additional value. APIs are contracts between service providers and service consumers that cannot be broken via unilateral decisions.</p>\n<p>There are two techniques to change APIs without breaking them:</p>\n<ul>\n<li>follow rules for compatible extensions</li>\n<li>introduce new API versions and still support older versions</li>\n</ul>\n<p>We strongly encourage using compatible API extensions and discourage versioning. The following guidelines for service providers (<a href=\"#should-prefer-compatible-extensions\">SHOULD prefer compatible extensions</a>) and consumers (<a href=\"#must-prepare-clients-accept-compatible-api-extensions\">MUST prepare clients accept compatible API extensions</a>) enable us (having Postel’s Law in mind) to make compatible changes without versioning.</p>\n<p><strong>Note:</strong> There is a difference between incompatible and breaking changes. Incompatible changes are changes that are not covered by the compatibility rules below. Breaking changes are incompatible changes deployed into operation, and thereby breaking running API consumers. Usually, incompatible changes are breaking changes when deployed into operation.\nHowever, in specific controlled situations it is possible to deploy incompatible changes in a non-breaking way, if no API consumer is using the affected API aspects (see also Deprecation[TODO: link] guidelines).</p>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "SHOULD prefer compatible extensions",
+            "type": "SHOULD"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: SHOULD prefer compatible extensions\ntype: SHOULD\n---\n\n## <span style=\"color: #F1B500;\">SHOULD</span> prefer compatible extensions\n\nAPI designers should apply the following rules to evolve RESTful APIs for services in a backward-compatible way:\n\n- Add only optional, never mandatory fields.\n- Never change the semantic of fields (e.g. changing the semantic from customer-number to customer-id, as both are different unique customer keys)\n- Input fields may have (complex) constraints being validated via server-side business logic. Never change the validation logic to be more restrictive and make sure that all constraints are clearly defined in description.\n- Enum ranges can be reduced when used as input parameters, only if the server is ready to accept and handle old range values too. Enum range can be reduced when used as output parameters.\n- Enum ranges cannot be extended when used for output parameters — clients may not be prepared to handle it. However, enum ranges can be extended when used for input parameters.\n- Support redirection in case an URL has to change `HTTP 301 Moved Permanently`.\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---f1b500---\"><a class=\"header-anchor\" href=\"#-span-style--color---f1b500---\"><span style=\"color: #F1B500;\"></a></h4>\n<p>API designers should apply the following rules to evolve RESTful APIs for services in a backward-compatible way:</p>\n<ul>\n<li>Add only optional, never mandatory fields.</li>\n<li>Never change the semantic of fields (e.g. changing the semantic from customer-number to customer-id, as both are different unique customer keys)</li>\n<li>Input fields may have (complex) constraints being validated via server-side business logic. Never change the validation logic to be more restrictive and make sure that all constraints are clearly defined in description.</li>\n<li>Enum ranges can be reduced when used as input parameters, only if the server is ready to accept and handle old range values too. Enum range can be reduced when used as output parameters.</li>\n<li>Enum ranges cannot be extended when used for output parameters — clients may not be prepared to handle it. However, enum ranges can be extended when used for input parameters.</li>\n<li>Support redirection in case an URL has to change <code>HTTP 301 Moved Permanently</code>.</li>\n</ul>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "MUST prepare clients accept compatible API extensions",
+            "type": "MUST"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: MUST prepare clients accept compatible API extensions\ntype: MUST\n---\n\n## <span style=\"color: #D4021D;\">MUST</span> prepare clients accept compatible API extensions\n\nService clients should apply the robustness principle:\n\n- Be conservative with API requests and data passed as input, e.g. avoid to exploit definition deficits like passing megabytes of strings with unspecified maximum length.\n- Be tolerant in processing and reading data of API responses, more specifically…\n\nService clients must be prepared for compatible API extensions of service providers:\n\n- Be tolerant with unknown fields in the payload (see also Fowler’s [\"TolerantReader\"](http://martinfowler.com/bliki/TolerantReader.html) post), i.e. ignore new fields but do not eliminate them from payload if needed for subsequent `PUT` requests.\n- Be prepared that `enum` return parameter may deliver new values; either be agnostic or provide default behavior for unknown values.\n- Be prepared to handle HTTP status codes not explicitly specified in endpoint definitions. Note also, that status codes are extensible. Default handling is how you would treat the corresponding `HTTP 2xx` code (see [RFC 7231 Section 6](https://tools.ietf.org/html/rfc7231#section-6)).\n- Follow the redirect when the server returns HTTP status code `HTTP 301 Moved Permanently`.\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---d4021d---\"><a class=\"header-anchor\" href=\"#-span-style--color---d4021d---\"><span style=\"color: #D4021D;\"></a></h4>\n<p>Service clients should apply the robustness principle:</p>\n<ul>\n<li>Be conservative with API requests and data passed as input, e.g. avoid to exploit definition deficits like passing megabytes of strings with unspecified maximum length.</li>\n<li>Be tolerant in processing and reading data of API responses, more specifically…</li>\n</ul>\n<p>Service clients must be prepared for compatible API extensions of service providers:</p>\n<ul>\n<li>Be tolerant with unknown fields in the payload (see also Fowler’s <a href=\"http://martinfowler.com/bliki/TolerantReader.html\">“TolerantReader”</a> post), i.e. ignore new fields but do not eliminate them from payload if needed for subsequent <code>PUT</code> requests.</li>\n<li>Be prepared that <code>enum</code> return parameter may deliver new values; either be agnostic or provide default behavior for unknown values.</li>\n<li>Be prepared to handle HTTP status codes not explicitly specified in endpoint definitions. Note also, that status codes are extensible. Default handling is how you would treat the corresponding <code>HTTP 2xx</code> code (see <a href=\"https://tools.ietf.org/html/rfc7231#section-6\">RFC 7231 Section 6</a>).</li>\n<li>Follow the redirect when the server returns HTTP status code <code>HTTP 301 Moved Permanently</code>.</li>\n</ul>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "SHOULD use Accept header with profile parameter",
+            "type": "SHOULD"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: SHOULD use Accept header with profile parameter\ntype: SHOULD\n---\n\n## <span style=\"color: #F1B500;\">SHOULD</span> use `Accept` header with profile parameter\n\nWhen changing your RESTful APIs, do so in a compatible way and avoid generating additional API versions.\nMultiple versions can significantly complicate understanding, testing, maintaining, evolving, operating and releasing our systems ([supplementary reading](http://martinfowler.com/articles/enterpriseREST.html)).\n\nIf changing an API can’t be done in a compatible way, versioning should be implemented using the\n[Accept header using standard media type with profile parameter](../topics/versioning.md#accept-header-using-standard-media-type-with-profile-parameter).\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---f1b500---\"><a class=\"header-anchor\" href=\"#-span-style--color---f1b500---\"><span style=\"color: #F1B500;\"></a></h4>\n<p>When changing your RESTful APIs, do so in a compatible way and avoid generating additional API versions.\nMultiple versions can significantly complicate understanding, testing, maintaining, evolving, operating and releasing our systems (<a href=\"http://martinfowler.com/articles/enterpriseREST.html\">supplementary reading</a>).</p>\n<p>If changing an API can’t be done in a compatible way, versioning should be implemented using the\n<a href=\"../topics/versioning.md#accept-header-using-standard-media-type-with-profile-parameter\">Accept header using standard media type with profile parameter</a>.</p>\n"
+        },
+        {
+          "frontMatter": {
+            "title": "SHOULD NOT use resource versioned path",
+            "type": "SHOULD NOT"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: SHOULD NOT use resource versioned path\ntype: SHOULD NOT\n---\n\n## <span style=\"color: #69AF1F;\">SHOULD NOT</span> use resource versioned path\n\nVersion numbers in URLs should not be used. However, if the preferred versioning option is not possible,\n[resource versioned path](../topics/versioning.md#resource-versioned-paths) may be introduced, if absolutely required.\n",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---69af1f---\"><a class=\"header-anchor\" href=\"#-span-style--color---69af1f---\"><span style=\"color: #69AF1F;\"></a></h4>\n<p>Version numbers in URLs should not be used. However, if the preferred versioning option is not possible,\n<a href=\"../topics/versioning.md#resource-versioned-paths\">resource versioned path</a> may be introduced, if absolutely required.</p>\n"
+        }
+      ],
+      "children": []
+    },
+    {
+      "name": "Revision History",
+      "index": {
+        "frontMatter": {},
+        "env": {},
+        "level": 1,
+        "data": "# Revision History",
+        "headings": [
+          {
+            "level": 2,
+            "content": "Revision History"
+          }
+        ],
+        "navTitle": "Revision History",
+        "output": "<h2 id=\"revision-history\"><a class=\"header-anchor\" href=\"#revision-history\">Revision History</a></h2>\n"
+      },
+      "docs": [
+        {
+          "frontMatter": {},
+          "env": {},
+          "level": 2,
+          "data": "",
+          "headings": [],
+          "output": ""
+        },
+        {
+          "frontMatter": {
+            "title": "MUST | SHOULD | SHOULD NOT some rule",
+            "type": "MUST | SHOULD | SHOULD NOT"
+          },
+          "env": {},
+          "level": 2,
+          "data": "---\ntitle: MUST | SHOULD | SHOULD NOT some rule\ntype: MUST | SHOULD | SHOULD NOT\n---\n\n## <span style=\"color: #D4021D;\">MUST</span> MUST rule\n\n## <span style=\"color: #F1B500;\">SHOULD</span> SHOULD rule\n\n## <span style=\"color: #69AF1F;\">SHOULD NOT</span> SHOULD NOT rule\n\nSome LoremIpsum text Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text\n\n* Maybe some some LoremIpsum bullets\n* Maybe some some LoremIpsum bullets\n* Maybe some some LoremIpsum bullets\n\n [External link](https://www.google.de/?hl=en)\n \n [Internal link](guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md)",
+          "headings": [
+            {
+              "level": 4,
+              "content": ""
+            },
+            {
+              "level": 4,
+              "content": ""
+            },
+            {
+              "level": 4,
+              "content": ""
+            }
+          ],
+          "output": "\n<h4 id=\"-span-style--color---d4021d---\"><a class=\"header-anchor\" href=\"#-span-style--color---d4021d---\"><span style=\"color: #D4021D;\"></a></h4>\n<h4 id=\"-span-style--color---f1b500---\"><a class=\"header-anchor\" href=\"#-span-style--color---f1b500---\"><span style=\"color: #F1B500;\"></a></h4>\n<h4 id=\"-span-style--color---69af1f---\"><a class=\"header-anchor\" href=\"#-span-style--color---69af1f---\"><span style=\"color: #69AF1F;\"></a></h4>\n<p>Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text</p>\n<ul>\n<li>Maybe some some LoremIpsum bullets</li>\n<li>Maybe some some LoremIpsum bullets</li>\n<li>Maybe some some LoremIpsum bullets</li>\n</ul>\n<p><a href=\"https://www.google.de/?hl=en\">External link</a></p>\n<p><a href=\"guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md\">Internal link</a></p>\n"
+        }
+      ],
+      "children": []
+    }
+  ]
+}

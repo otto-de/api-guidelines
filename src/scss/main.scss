@@ -1,0 +1,29 @@
+$nav-width: 15em;
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  padding-left: $nav-width;
+  padding-right: 0;
+}
+
+.rule-type-must {
+  color: red;
+}
+
+.tooltip {
+  background-color: aqua;
+  border: 2px solid blue;
+  border-radius: 5px;
+}
+
+.nav {
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: $nav-width;
+  background-color: darken($color: #ffffff, $amount: 5);
+}

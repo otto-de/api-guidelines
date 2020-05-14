@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{config.site.name}}</title>
+    <link rel="stylesheet" href="./ottoapi.ottoapi-guidelines.ottoapi.latest.css" />
+</head>
+
+<body>
+    <div class="nav">
+        {{#with categorys}}{{> child_nav}}{{/with}}
+    </div>
+    <div>
+        {{#with categorys}}{{> data}}{{/with}}
+    </div>
+</body>
+
+</html>
