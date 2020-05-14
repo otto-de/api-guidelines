@@ -19,8 +19,9 @@ export async function pack(): Promise<void> {
   log.info("Collect Data");
   const cats = await collectCategory(config.root);
 
+  await mkdir("tmp", { recursive: true });
   await writeFile(
-    "structure.json",
+    "tmp/structure.json",
     JSON.stringify(
       cats,
       (k, v) => {

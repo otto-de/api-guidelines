@@ -58,7 +58,7 @@ export async function collectCategory(
   // eslint-disable-next-line @typescript-eslint/no-use-before-define, no-use-before-define
   const children = await collectCategorys(dir, level + 1);
   const res = {
-    name: index.navTitle || catNameFromDir,
+    name: index.nav?.text || catNameFromDir,
     index,
     docs,
     children,

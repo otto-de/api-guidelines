@@ -13,6 +13,26 @@ export function getConfig() {
     site: {
       name: "Api Guidelines",
     },
+    markdown: {
+      blocks: {
+        tip: {
+          tag: "div",
+          class: "ottoapi-block tip",
+        },
+        warning: {
+          tag: "div",
+          class: "ottoapi-block warning",
+        },
+        danger: {
+          tag: "div",
+          class: "ottoapi-block danger",
+        },
+        details: {
+          tag: "details",
+          class: "ottoapi-block details",
+        },
+      },
+    },
   };
   return res;
 }

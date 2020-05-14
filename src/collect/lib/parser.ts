@@ -8,30 +8,38 @@ import type Token from "markdown-it/lib/token";
 import { load } from "js-yaml";
 import { format } from "util";
 import { FrontMatter } from "../types";
+import { getConfig } from "./config";
 
 const log = debug("collect:parser");
 
-export function getParser(frontCb: (frontMatter: string) => void): Md {
+export function getParser(
+  config: ReturnType<typeof getConfig>,
+  frontCb: (frontMatter: string) => void
+): Md {
   const md = Md({
     linkify: true,
     html: true,
     typographer: true,
   })
     .use(attrs)
-    .use(container, "tip", {
-      render: (tokens: Record<string, any>, idx: string) => {
-        const token = tokens[idx];
-        log.trace(idx, token);
-        if (token.nesting > 0) {
-          return '<div class="foo--bar-----tooltip">';
-        }
-        return "</div>";
-      },
-    })
+
     .use(front, (fm: string) => {
       frontCb(fm);
     })
     .use(highlight);
+
+  Object.entries(config.markdown.blocks).forEach(([b, c]) => {
+    md.use(container, b, {
+      render: (tokens: Record<string, any>, idx: string) => {
+        const token = tokens[idx];
+        log.trace(idx, token);
+        if (token.nesting > 0) {
+          return `<${c.tag} class="${c.class}">`;
+        }
+        return `</${c.tag}>`;
+      },
+    });
+  });
   return md;
 }
 
@@ -49,18 +57,19 @@ export class Parser {
   output: string;
 
   headings: {
+    id: string;
     level: number;
-    content: string;
+    text: string;
   }[];
 
-  navTitle?: string;
+  nav: { text: string };
 
   level: number;
 
   constructor(data: string, level: number) {
     this.level = level;
     this.data = data;
-    this.parser = getParser((fm) => {
+    this.parser = getParser(getConfig(), (fm) => {
       this.frontMatter = load(fm);
     });
 
@@ -68,9 +77,12 @@ export class Parser {
 
     this.headings = this.processHeadings();
 
-    this.navTitle =
-      this.frontMatter?.navTitle ||
-      this.headings.find((h) => h.level === level + 1)?.content;
+    this.nav = {
+      ...(this.headings.find((h) => h.level === level + 1) as { text: string }),
+    };
+    if (this.frontMatter?.navTitle) {
+      this.nav.text = this.frontMatter.navTitle;
+    }
 
     this.output = this.parser.renderer.render(
       this.tokens,
@@ -96,10 +108,16 @@ export class Parser {
       ) {
         const { content } = (inline.children as Token[])[0];
         const id = content.replace(/[\W_]/gi, "-").toLowerCase();
+        const enhanced = this.enhanceTitle(open, content);
 
-        const enhanced = this.enhanceTitle(open, content, id);
+        const anchored = format(
+          '<a class="header-anchor" href="#%s">#</a> %s',
+          id,
+          enhanced.markupWithId
+        );
+
         inline.children = this.parser.parseInline(
-          enhanced,
+          anchored,
           this.env
         )[0].children;
 
@@ -109,11 +127,10 @@ export class Parser {
         close.tag = `h${level}`;
 
         res.push({
+          id,
           level,
-          content: (inline.children as Token[])
-            .filter((c) => c.type === "text")
-            .map((c) => c.content)
-            .join(""),
+          orig: content,
+          ...enhanced,
         });
 
         i += 3;
@@ -125,28 +142,39 @@ export class Parser {
     return res;
   }
 
-  private enhanceTitle(token: Token, content: string, tokenId: string): string {
-    let res: string = content;
-    let id = tokenId;
-
+  private enhanceTitle(token: Token, content: string) {
     if (token.tag === "h1" && this.frontMatter.type !== undefined) {
       log.debug("enhance title");
       const { id: ruleId, type } = this.frontMatter;
-      id =
+      const id =
         ruleId ??
         (() => {
           throw new Error(`Rule "${content}" must contain an id Field`);
         })();
 
-      res = format(
-        '<span class="rule-type-%s">%s</span>: %s [%s]',
-        type.toLowerCase(),
+      const markup = format(
+        '<span class="rule-type-%s">%s</span>: %s',
+        type.toLowerCase().replace(/\s/g, "-"),
         type,
-        content,
-        id
+        content
       );
+      const text = format("%s %s", type, content);
+      const markupWithId = format("%s [%s]", markup, id);
+      const textWithId = format("%s [%s]", text, id);
+
+      return {
+        markup,
+        text,
+        markupWithId,
+        textWithId,
+      };
     }
 
-    return format('<a class="header-anchor" href="#%s">#</a>%s', id, res);
+    return {
+      markup: content,
+      text: content,
+      markupWithId: content,
+      textWithId: content,
+    };
   }
 }
