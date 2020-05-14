@@ -95,9 +95,7 @@ export class Parser {
         inline.children.length > 0
       ) {
         const { content } = (inline.children as Token[])[0];
-        const id = this.frontMatter?.id
-          ? this.frontMatter.id
-          : content.replace(/[\W_]/gi, "-").toLowerCase();
+        const id = content.replace(/[\W_]/gi, "-").toLowerCase();
 
         const enhanced = this.enhanceTitle(open, content, id);
         inline.children = this.parser.parseInline(
@@ -112,8 +110,8 @@ export class Parser {
 
         res.push({
           level,
-          content: inline.children
-            ?.filter((c) => c.type === "text")
+          content: (inline.children as Token[])
+            .filter((c) => c.type === "text")
             .map((c) => c.content)
             .join(""),
         });
@@ -127,23 +125,28 @@ export class Parser {
     return res;
   }
 
-  private enhanceTitle(token: Token, content: string, id: string): string {
+  private enhanceTitle(token: Token, content: string, tokenId: string): string {
     let res: string = content;
+    let id = tokenId;
+
     if (token.tag === "h1" && this.frontMatter.type !== undefined) {
       log.debug("enhance title");
+      const { id: ruleId, type } = this.frontMatter;
+      id =
+        ruleId ??
+        (() => {
+          throw new Error(`Rule "${content}" must contain an id Field`);
+        })();
 
       res = format(
         '<span class="rule-type-%s">%s</span>: %s [%s]',
-        this.frontMatter.type.toLowerCase(),
-        this.frontMatter.type,
+        type.toLowerCase(),
+        type,
         content,
         id
       );
-
-      // eslint-disable-next-line no-param-reassign
-      //
     }
 
-    return format('<a class="header-anchor" href="#%s">%s</a>', id, res);
+    return format('<a class="header-anchor" href="#%s">#</a>%s', id, res);
   }
 }

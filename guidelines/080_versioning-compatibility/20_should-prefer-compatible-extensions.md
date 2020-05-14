@@ -1,5 +1,6 @@
 ---
 type: SHOULD
+id: R88836
 ---
 
 # prefer compatible extensions

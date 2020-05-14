@@ -48,6 +48,7 @@
     "markdown-it-highlightjs": "^3.1.0"
   },
   "devDependencies": {
+    "@otto-ec/bender": "^1.6.5",
     "@otto-ec/toolbox": "^1.12.2",
     "@otto-ec/toolbox-config-assets": "^1.25.9",
     "@types/js-yaml": "^3.12.3",

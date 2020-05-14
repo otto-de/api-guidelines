@@ -1,9 +1,9 @@
 ---
-title: SHOULD use secondary key for idempotent `POST` design
 type: SHOULD
+id: R000222
 ---
 
-## <span style="color: #F1B500;">SHOULD</span> use secondary key for idempotent `POST` design
+# use secondary key for idempotent `POST` design
 
 The most important pattern to design [`POST`](#post) [idempotent](link) for creation is to introduce a resource specific **secondary key** provided in the request body, to eliminate the problem of duplicate (a.k.a zombie) resources.
 

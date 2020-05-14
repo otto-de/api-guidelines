@@ -1,5 +1,6 @@
 ---
 type: MUST
+id: R00033
 ---
 
 # provide API specification using Open API

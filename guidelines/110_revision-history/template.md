@@ -7,17 +7,17 @@ id: R00000
 
 Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text Some LoremIpsum text
 
-* Maybe some some LoremIpsum bullets
-* Maybe some some LoremIpsum bullets
-* Maybe some some LoremIpsum bullets
+- Maybe some some LoremIpsum bullets
+- Maybe some some LoremIpsum bullets
+- Maybe some some LoremIpsum bullets
 
- [External link](https://www.google.de/?hl=en)
- 
- [Internal link](guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md)
+[External link](https://www.google.de/?hl=en)
+
+[Internal link](guidelines/200_general-guidelines/203_must-provide-api-specification-using-openapi.md)
 
 Some hightlighting:
 
- ::: tip
+::: tip
 This is a tip
 :::
 
