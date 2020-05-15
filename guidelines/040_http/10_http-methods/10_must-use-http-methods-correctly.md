@@ -11,8 +11,8 @@ We are compliant with the standardized HTTP method semantics described as follow
 
 `GET` requests are used to **read** either a single or a collection resource.
 
-- For individual resources `GET` requests will usually generate a `HTTP 404 Not Found` if the resource does not exist.
-- For collection resources `GET` requests may return either `HTTP 200 OK` (if the collection is empty) or `HTTP 404 Not Found` (if the collection is missing).
+- For individual resources `GET` requests will usually generate a `404 Not Found` if the resource does not exist.
+- For collection resources `GET` requests may return either `200 OK` (if the collection is empty) or `404 Not Found` (if the collection is missing).
 - `GET` requests must NOT have a request body payload (see [`GET With Body`](#get-with-body)).
 
 **Note:** `GET` requests on collection resources should provide sufficient [filter](link) and [pagination](link) mechanisms.

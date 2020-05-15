@@ -26,4 +26,4 @@ In this document, such keywords are highlighted at the beginning of each section
 ## Reference
 
 At this point we would like to send Kudos to Zalando whose Tech Team did a great job crafting the [Zalando RESTful API Guidelines](https://opensource.zalando.com/restful-api-guidelines/#).
-As much of the content resonates with what we do at OTTO E-Commerce, we've taken this well-prepared document as a basis for OTTO API Guidelines and adapted it to our needs.
+As much of the content resonates with what we do at OTTO E-Commerce, this well-prepared document inspired us when crafting the OTTO API Guidelines and we adapted it to our needs.
