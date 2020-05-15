@@ -153,7 +153,7 @@ export class Parser {
         })();
 
       const markup = format(
-        '<span class="rule-type-%s">%s</span>: %s',
+        '<span class="rule-type-%s">%s</span> %s',
         type.toLowerCase().replace(/\s/g, "-"),
         type,
         content

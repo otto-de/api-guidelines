@@ -10,11 +10,13 @@
 </head>
 
 <body>
-    <div class="nav">
-        {{#with categorys}}{{> child_nav}}{{/with}}
-    </div>
-    <div>
-        {{#with categorys}}{{> data}}{{/with}}
+    <div class="uk-flex">
+        <div class="uk-flex-none uk-padding uk-background-muted">
+            {{#with categorys}}{{> child_nav}}{{/with}}
+        </div>
+        <div class="uk-flex-auto uk-padding">
+            {{#with categorys}}{{> data}}{{/with}}
+        </div>
     </div>
 
     <script src="index.js"></script>
