@@ -7,7 +7,7 @@
     "build": "(for S in clean js collect css; do npm run build:$S; [ $? -ne 0 ] && exit 1; done; exit 0;)",
     "build:js": "rollup -c",
     "build:clean": "npm run clean",
-    "build:css": "sass src/scss/main.scss:dist/main.css",
+    "build:css": "sass src/scss/main.scss:dist/main.css -I node_modules",
     "build:collect": "FORCE_COLOR=true DEBUG_COLORS=true DEBUG_DEPTH=6 DEBUG_LEVEL=debug ts-node -T src/collect/index.ts --color",
     "dev": "npm run build:clean && concurrently --kill-others \"npm run watch:collect\" \"npm run watch:js\" \"npm run watch:css\"",
     "watch:collect": "nodemon --config config/nodemon.collect.json -x 'npm run build:collect'",

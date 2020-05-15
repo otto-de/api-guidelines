@@ -2,24 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{config.site.name}}</title>
-    <link rel="stylesheet" href="./main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{config.site.name}}</title>
+  <link rel="stylesheet" href="./main.css" />
 
 </head>
 
 <body>
-    <div class="uk-flex">
-        <div class="uk-flex-none uk-padding uk-background-muted">
-            {{#with categorys}}{{> child_nav}}{{/with}}
-        </div>
-        <div class="uk-flex-auto uk-padding">
-            {{#with categorys}}{{> data}}{{/with}}
-        </div>
+  <div class="uk-flex">
+    <div class="uk-flex-none uk-padding uk-background-muted">
+      <ul class="uk-nav">
+        {{#with categorys}}{{> nav}}{{/with}}
+      </ul>
     </div>
+    <div class="uk-flex-auto uk-padding">
+      {{#with categorys}}{{> data}}{{/with}}
+    </div>
+  </div>
 
-    <script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
 
 </html>

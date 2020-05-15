@@ -27,40 +27,16 @@
   color: darken($color: yellow, $amount: 20);
 }
 
-.tooltip {
-  background-color: aqua;
-  border: 2px solid blue;
-  border-radius: 5px;
+.uk-nav .uk-nav-header > a {
+  color: gray;
 }
 
-.nav {
-  left: 0;
-  top: 0;
-  position: fixed;
-  width: $nav-width;
-  background-color: darken($color: #ffffff, $amount: 5);
-
-  ul {
-    list-style-type: none;
-    padding-inline-start: 5px;
-
-    li {
-      > ul {
-        display: none;
-      }
-
-      &.focused {
-        > ul {
-          display: block;
-        }
-      }
-    }
+.ottoapi-block {
+  padding: 8px;
+  &.tip {
+    @extend .uk-alert-primary;
   }
-
-  .nav-item.focused {
-    > .indicator {
-      transform: rotate(90deg);
-      display: inline-block;
-    }
+  .title {
+    @extend .uk-text-lead;
   }
 }

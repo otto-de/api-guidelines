@@ -32,9 +32,15 @@ export function getParser(
     md.use(container, b, {
       render: (tokens: Record<string, any>, idx: string) => {
         const token = tokens[idx];
-        log.trace(idx, token);
+        log.info(idx, token);
+
         if (token.nesting > 0) {
-          return `<${c.tag} class="${c.class}">`;
+          const title = token.info.replace(b, "").trim();
+          const res = [`<${c.tag} class="${c.class}">`];
+          if (title.length > 0) {
+            res.push(`<span class="title">${title}</span>`);
+          }
+          return res.join("");
         }
         return `</${c.tag}>`;
       },

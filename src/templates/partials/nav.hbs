@@ -1,0 +1,10 @@
+<li class="uk-nav-header"><a href="#{{index.nav.id}}">{{name}}</a></li>
+
+{{!-- Category Documents first --}}
+{{#each docs}}
+<li><a href="#{{nav.id}}">{{{nav.markup}}}</a></li>
+{{/each}}
+
+{{#each children}}
+{{> nav_child}}
+{{/each}}
