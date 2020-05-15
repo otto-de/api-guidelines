@@ -11,32 +11,6 @@
 // 4. Import UIkit.
 @import "uikit/src/scss/uikit-theme.scss";
 
-.rule-type-must {
-  color: red;
-}
-
-.rule-type-must-not {
-  color: brown;
-}
-
-.rule-type-should {
-  color: orange;
-}
-
-.rule-type-should-not {
-  color: darken($color: yellow, $amount: 20);
-}
-
-.uk-nav .uk-nav-header > a {
-  color: gray;
-}
-
-.ottoapi-block {
-  padding: 8px;
-  &.tip {
-    @extend .uk-alert-primary;
-  }
-  .title {
-    @extend .uk-text-lead;
-  }
-}
+@import "partials/custom-containers";
+@import "partials/rules";
+@import "partials/sidebar";

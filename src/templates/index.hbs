@@ -6,17 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{config.site.name}}</title>
   <link rel="stylesheet" href="./main.css" />
-
 </head>
 
 <body>
   <div class="uk-flex">
-    <div class="uk-flex-none uk-padding uk-background-muted">
-      <ul class="uk-nav">
+    <div class="uk-flex-none uk-padding-large sidebar">
+      <ul class="uk-nav uk-nav-default">
         {{#with categorys}}{{> nav}}{{/with}}
       </ul>
     </div>
-    <div class="uk-flex-auto uk-padding">
+    <div class="uk-flex-auto uk-padding-large uk-background-muted">
       {{#with categorys}}{{> data}}{{/with}}
     </div>
   </div>

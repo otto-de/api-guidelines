@@ -1,0 +1,9 @@
+.ottoapi-block {
+  padding: 8px;
+  &.tip {
+    @extend .uk-alert-primary;
+  }
+  .title {
+    @extend .uk-text-lead;
+  }
+}
