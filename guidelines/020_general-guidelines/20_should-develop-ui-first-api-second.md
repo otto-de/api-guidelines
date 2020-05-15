@@ -1,6 +1,6 @@
 ---
 type: SHOULD
-id: R0004
+id: R000002
 ---
 
 # develop UI first, API second

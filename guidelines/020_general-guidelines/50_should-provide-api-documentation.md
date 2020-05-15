@@ -1,6 +1,11 @@
 ---
-title: SHOULD provide API documentation
+type: SHOULD
+id: R000005
 ---
+
+# provide API documentation
+
+>TO DO
 
 In order to improve the developer experience of API consumers, especially of engineers that are less experienced in using the OTTO API, it is good practice to provide API documentation along with the API reference (provided via the API spec). A helpful API user manual typically describes the following API aspects:
 
