@@ -1,6 +1,6 @@
 ---
 type: SHOULD
-id: R000222
+id: R000009
 ---
 
 # use secondary key for idempotent `POST` design

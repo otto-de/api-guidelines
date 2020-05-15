@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R00004
+id: R000006
 ---
 
 # use HTTP methods correctly
