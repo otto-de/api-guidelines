@@ -9,5 +9,5 @@ id: R000013
 
 ```
 /customers/{userId}/addresses/
-customers/{userId}/addresses/{addressId}
+/customers/{userId}/addresses/{addressId}/
 ```
