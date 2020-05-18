@@ -1,15 +1,17 @@
-.rule-type-must {
-  color: red;
-}
+.api {
+  &-rule-type-must {
+    color: red;
+  }
 
-.rule-type-must-not {
-  color: brown;
-}
+  &-rule-type-must-not {
+    color: brown;
+  }
 
-.rule-type-should {
-  color: orange;
-}
+  &-rule-type-should {
+    color: orange;
+  }
 
-.rule-type-should-not {
-  color: darken($color: yellow, $amount: 20);
+  &-rule-type-should-not {
+    color: darken($color: yellow, $amount: 20);
+  }
 }

@@ -38,7 +38,9 @@ export function getParser(
           const title = token.info.replace(b, "").trim();
           const res = [`<${c.tag} class="${c.class}">`];
           if (title.length > 0) {
-            res.push(`<span class="title">${title}</span>`);
+            res.push(
+              `<span class="api-custom-container--title">${title}</span>`
+            );
           }
           return res.join("");
         }
@@ -117,7 +119,7 @@ export class Parser {
         const enhanced = this.enhanceTitle(open, content);
 
         const anchored = format(
-          '<a class="header-anchor" href="#%s">#</a> %s',
+          '<a class="api-headline__anchor" href="#%s">&#10521;</a> %s',
           id,
           enhanced.markupWithId
         );
@@ -130,6 +132,7 @@ export class Parser {
         const level = parseInt(open.tag.replace(/h/gi, ""), 10) + this.level;
         open.tag = `h${level}`;
         open.attrSet("id", id);
+        open.attrSet("class", "api-headline");
         close.tag = `h${level}`;
 
         res.push({

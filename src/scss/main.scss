@@ -1,5 +1,13 @@
-// 1. Your custom variables and variable overwrites.
-//$global-link-color: #DA7D02;
+// custom variables
+$hightlight-grey: #c4c4c4;
+$highlight-yellow: #ffd200;
+$highlight-red: #f00020;
+$highlight-green: #50af31;
+
+// variable overwrites.
+$global-font-family: "OttoSans";
+$global-font-size: 14px;
+$base-heading-font-family: "OttoSansThin";
 
 // 2. Import default variables and available mixins.
 @import "uikit/src/scss/variables-theme.scss";
@@ -14,3 +22,4 @@
 @import "partials/custom-containers";
 @import "partials/rules";
 @import "partials/sidebar";
+@import "partials/content";

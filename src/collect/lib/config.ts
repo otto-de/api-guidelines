@@ -17,19 +17,19 @@ export function getConfig() {
       blocks: {
         tip: {
           tag: "div",
-          class: "ottoapi-block tip",
+          class: "api-custom-container api-custom-container--tip",
         },
         warning: {
           tag: "div",
-          class: "ottoapi-block warning",
+          class: "api-custom-container api-custom-container--warning",
         },
         danger: {
           tag: "div",
-          class: "ottoapi-block danger",
+          class: "api-custom-container api-custom-container--danger",
         },
         details: {
           tag: "details",
-          class: "ottoapi-block details",
+          class: "api-custom-container api-custom-container--details",
         },
       },
     },

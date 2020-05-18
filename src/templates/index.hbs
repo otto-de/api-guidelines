@@ -5,20 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{config.site.name}}</title>
-  <link rel="stylesheet" href="./main.css" />
+  <link rel="stylesheet" type="text/css" href="https://www.otto.de/assets-static/global-resources/assets.global-resources.fonts.latest.css">
+  <link rel="stylesheet" type="text/css" href="./main.css" />
 </head>
 
 <body>
-  <div class="uk-flex">
-    <div class="uk-flex-none uk-padding-large sidebar">
+    <div class="api-sidebar">
+      <img src="./api-logo-red.png" class="api-sidebar__logo" alt="OTTO API Logo red" />
       <ul class="uk-nav uk-nav-default">
         {{#with categorys}}{{> nav}}{{/with}}
       </ul>
     </div>
-    <div class="uk-flex-auto uk-padding-large uk-background-muted">
+    <div class="api-content">
       {{#with categorys}}{{> data}}{{/with}}
     </div>
-  </div>
 
   <script src="index.js"></script>
 </body>

@@ -1,9 +1,38 @@
-.ottoapi-block {
-  padding: 8px;
-  &.tip {
-    @extend .uk-alert-primary;
+.api-custom-container {
+  @extend .uk-card;
+  @extend .uk-card-body;
+  @extend .uk-margin-medium-bottom;
+
+  border-left: 6px solid $alert-color;
+  padding: 1em 1.5em;
+
+  &--tip {
+    border: 1px solid #e5e5e5;
+    border-left-color: $alert-primary-color;
+    border-left-width: 6px;
   }
-  .title {
-    @extend .uk-text-lead;
+
+  &--warning {
+    border-left-color: $highlight-yellow;
+    background-color: lighten($highlight-yellow, 40%);
+    color: darken($highlight-yellow, 15%);
+  }
+
+  &--danger {
+    border-left-color: $highlight-red;
+    background-color: lighten($highlight-red, 45%);
+    color: darken($highlight-red, 15%);
+  }
+
+  &--details {
+  }
+
+  &--title {
+    font-family: $base-heading-font-family;
+    font-size: $global-medium-font-size;
+  }
+
+  p {
+    //@extend .uk-margin-small;
   }
 }
