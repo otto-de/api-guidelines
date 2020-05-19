@@ -7,15 +7,14 @@
   padding: 1em 1.5em;
 
   &--tip {
-    border: 1px solid #e5e5e5;
-    border-left-color: $alert-primary-color;
-    border-left-width: 6px;
+    background-color: #f5f5f5;
+    border-left: 6px solid $alert-primary-color;
   }
 
   &--warning {
     border-left-color: $highlight-yellow;
     background-color: lighten($highlight-yellow, 40%);
-    color: darken($highlight-yellow, 15%);
+    color: darken($highlight-yellow, 20%);
   }
 
   &--danger {

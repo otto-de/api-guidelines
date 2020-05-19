@@ -119,7 +119,7 @@ export class Parser {
         const enhanced = this.enhanceTitle(open, content);
 
         const anchored = format(
-          '<a class="api-headline__anchor" href="#%s">&#10521;</a> %s',
+          '<a class="api-headline__anchor" href="#%s">#</a> %s',
           id,
           enhanced.markupWithId
         );
@@ -129,6 +129,7 @@ export class Parser {
           this.env
         )[0].children;
 
+        // TODO: Limit max nesting to H4
         const level = parseInt(open.tag.replace(/h/gi, ""), 10) + this.level;
         open.tag = `h${level}`;
         open.attrSet("id", id);
@@ -162,14 +163,15 @@ export class Parser {
         })();
 
       const markup = format(
-        '<span class="rule-type-%s">%s</span> %s',
+        '<span class="api-rule api-rule--%s">%s</span> %s <span class="api-rule__id">%s</span>',
         type.toLowerCase().replace(/\s/g, "-"),
         type,
-        content
+        content,
+        id
       );
       const text = format("%s %s", type, content);
-      const markupWithId = format("%s [%s]", markup, id);
-      const textWithId = format("%s [%s]", text, id);
+      const markupWithId = format("%s", markup);
+      const textWithId = format("%s [%s]", text, id); // TODO: What is this used for?
 
       return {
         markup,

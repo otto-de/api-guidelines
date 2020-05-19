@@ -1,20 +1,51 @@
 .api {
   &-content {
-    @extend .uk-padding-large;
-    @extend .uk-background-muted;
-    margin-left: 320px;
+    @extend .uk-section;
+    // @extend .uk-section-muted;
+    margin-left: 240px;
+
+    @media (min-width: 1200px) {
+      margin-left: 320px;
+    }
   }
+
+  &-docs-index {
+    // @extend .uk-margin-medium-bottom;
+    @extend .uk-padding;
+    // @extend .uk-section-muted;
+    // background-color: $global-background;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  // &-docs {
+  //     background-color: $highlight-yellow;
+  // }
+
+  // &-item {
+  //     background-color: $highlight-green;
+
+  //     .api-index {
+  //         background-color: $global-background;
+  //     }
+  // }
+
+  &-container {
+    @extend .uk-container;
+    @extend .uk-container-small;
+    @extend .uk-padding-large;
+  }
+
   &-headline {
-    margin-left: -0.23em;
+    padding-right: 90px;
+    position: relative;
 
     &__anchor {
-      font-family: "OttoIconFonts";
       font-size: 0.85em;
       float: left;
-      margin-left: -0.87em;
+      margin-left: -1em;
       margin-top: 0.125em;
       opacity: 0;
-      padding-right: 0.23em;
+      padding-right: 0.5em;
       transition: opacity 0.1s ease-out;
     }
     &:hover & {
@@ -23,5 +54,9 @@
         text-decoration: none;
       }
     }
+  }
+
+  p {
+    line-height: 1.8em;
   }
 }

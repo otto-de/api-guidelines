@@ -1,17 +1,35 @@
-.api {
-  &-rule-type-must {
-    color: red;
+.api-rule {
+  font-family: $global-font-family;
+
+  &--must {
+    color: $highlight-red;
   }
 
-  &-rule-type-must-not {
-    color: brown;
+  &--must-not {
+    color: $highlight-red;
   }
 
-  &-rule-type-should {
-    color: orange;
+  &--should {
+    color: darken($highlight-yellow, 3%);
   }
 
-  &-rule-type-should-not {
-    color: darken($color: yellow, $amount: 20);
+  &--should-not {
+    color: $highlight-yellow;
+  }
+
+  &--may {
+    color: $highlight-green;
+  }
+
+  &--may {
+    color: $highlight-green;
+  }
+
+  &__id {
+    @extend .uk-label;
+    font-family: $global-font-family;
+    position: absolute;
+    right: 0;
+    top: 2px;
   }
 }

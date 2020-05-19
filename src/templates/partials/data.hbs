@@ -1,5 +1,13 @@
-{{{output}}}
-{{{index.output}}}
+<div class="api-docs-index">
+    {{{output}}}
+    {{{index.output}}}
+</div>
 
-{{#each docs}}{{> data}}{{/each}}
-{{#each children}}{{> data}}{{/each}}
+
+{{#each docs}}
+    <div class="api-docs">{{> data}}</div>
+{{/each}}
+
+{{#each children}}
+    <div class="api-item">{{> data}}</div>
+{{/each}}
