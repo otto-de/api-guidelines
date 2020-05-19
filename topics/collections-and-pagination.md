@@ -60,6 +60,8 @@ If offset based pagination is chosen, it **MUST** be page based.
 
 **MUST** provide page metadata so clients can build their own links (using a templated `self` link). Important for clients on REST maturity level 2.
 
+> [TODO] Review feedback: _Important for clients on REST maturity level **3**???_
+
 The page metadata structure **MUST** match the following structure.
 Some fields can be omitted.
 
@@ -98,6 +100,8 @@ Offset based pagination is often preferred, especially when data sets increase q
 
 **MUST** provide page metadata so clients can build their own links (using a templated `self` link). Important for clients on REST maturity level 2.
 
+> [TODO] Review feedback: _Important for clients on REST maturity level **3**???_
+
 The cursor metadata structure **MUST** match the following structure.
 Some fields can be omitted.
 
@@ -121,6 +125,8 @@ Some fields can be omitted.
 * `first` (*optional*): Cursor to the first element of all results. To be used to get the beginning of all results
 * `size` (*optional*): Number of elements in the result
 * `totalElements` (*optional*): Total of all elements
+
+> [TODO] Review feedback: `self` really is only an alias for `first`? Sentence doesn't sound complete
 
 `totalElements` and `totalPages` and also `first` and `last` **CAN** be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
 
@@ -186,6 +192,10 @@ Some fields can be omitted.
 }
 ```
 
+
+> [TODO] Review feedback: add example for cursor-based paging
+
+
 ## References
 
 * [HAL RFC: Example document](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-6)
@@ -201,4 +211,4 @@ The technical conception of pagination should also consider user experience rela
 ## TODO
 
 * _embedded.*name* should be fixed for collection resources (main resource in embedded)?
-* add underscore for page metadata `_page`?
+* add underscore for page metadata `_page`? (+1 from Jens)
