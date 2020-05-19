@@ -8,12 +8,14 @@
   <link rel="stylesheet" type="text/css"
     href="https://www.otto.de/assets-static/global-resources/assets.global-resources.fonts.latest.css">
   <link rel="stylesheet" type="text/css" href="./main.css" />
+  {{!-- TODO: include to index.js to prevent external dependency --}}
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.4.6/dist/js/uikit.min.js"></script>
 </head>
 
 <body>
   <div class="api-sidebar">
     <img src="./api-logo-red.png" class="api-sidebar__logo" alt="OTTO API Logo red" />
-    <ul class="api-main-nav">
+    <ul class="api-main-nav" uk-scrollspy-nav="closest: li; scroll: true; offset: 40; overflow: false">
       {{#with categorys}}{{> nav}}{{/with}}
     </ul>
   </div>

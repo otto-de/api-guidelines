@@ -28,6 +28,21 @@
         font-size: 12px;
         letter-spacing: 1px;
       }
+
+      .uk-active {
+        position: relative;
+
+        &::before {
+          content: " ";
+          height: 18px;
+          width: 2px;
+          position: absolute;
+          display: block;
+          background: #1e87f0;
+          left: -13px;
+          top: 6px;
+        }
+      }
     }
   }
 
