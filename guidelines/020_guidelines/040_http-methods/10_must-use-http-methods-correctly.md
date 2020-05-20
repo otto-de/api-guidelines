@@ -52,6 +52,8 @@ This leaves the resource ID under control of the service and allows to concentra
 **Note:** In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.
 Putting the same resource twice is required to be [idempotent](link) and to result in the same single resource instance (see [MUST fulfill common method properties](link)).
 
+> [TODO] make explicit that no `Location` response header is needed for creating resources via `PUT`, since the client already knows the resource's URI
+
 **Hint:** To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also [Optimistic locking in RESTful APIs](link) for details and options.
 
 ## POST

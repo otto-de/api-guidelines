@@ -5,9 +5,11 @@ https://github.com/otto-ec/ottoapi_manifest/issues/27
 HTTP status codes are the most obvious choice for error communication, but they have a limited expressiveness. Many status codes are too generic to explain the specific type of an error. Most importantly, without contextual details, they are not particularly meaningful and user-friendly.
 The current API guidelines are mainly based on HTTP status codes for error communication. In addition, a self-defined response format can optionally be
 
+> [TODO] finish the last sentence
+
 ## Overloading HTTP status codes
 
-HTTP status codes are limited. As a result most of them are drastically overused in APIs. For example `HTTP 404` is utilised to multiple usecases like "never existed", "no longer exists", "you can't view it" and "it is deactivated". All these variants have in common that they are way to vague. They can be split up into `404 Not Found`, `403 Forbidden` and `410 Gone`. Receiving a `403 Forbidden` response could be caused by a missing authorization group or by a user initiated restriction. A `410 Gone` response could be due to deletion of that resource, or it could be down to the removal of an entire content group.
+HTTP status codes are limited. As a result most of them are drastically overused in APIs. For example `HTTP 404` is utilised to multiple usecases like "never existed", "no longer exists", "you can't view it" and "it is deactivated". All these variants have in common that they are way too vague. They can be split up into `404 Not Found`, `403 Forbidden` and `410 Gone`. Receiving a `403 Forbidden` response could be caused by a missing authorization group or by a user initiated restriction. A `410 Gone` response could be due to deletion of that resource, or it could be down to the removal of an entire content group.
 
 In all of these situations, the ideal solution is to complement the HTTP status code with a service specific error code, which can be whatever you want as long as they are unique within the API and documented somewhere.
 
@@ -40,10 +42,13 @@ Content-Type: application/problem+json
 
 * Developers do not have to dig through documentation looking for the corresponding error message. Instead: Link to documentation, error code and problem description in the actual response.
 * Extend with error code to support client specific localization!
+* Namespaces for error codes for different teams/domains/verticals?
 * Only respond with `problem+json` if client sends corresponding `Accept`-Header?
 * Format seems truly RESTfully...
 * Possible localizations for error communication must and can be left to the consumer.
-* Some teams alright have some form of error keys in place. How do we want to handle the transition? See: https://confluence.scm.otto.de/pages/viewpage.action?pageId=356208247
+* Some teams already have some form of error keys in place. How do we want to handle the transition? See: https://confluence.scm.otto.de/pages/viewpage.action?pageId=356208247
+* How to structure a list of errors associated to a request? Like validation failures for more than one property of the JSON request body? 
+* I think it's very important to show examples of complex input validation error responses.
 
 ## Resources
 
