@@ -1,13 +1,9 @@
-<div class="api-docs-index">
-    {{{output}}}
-    {{{index.output}}}
+<div class="api-item api-docs-level-{{index.level}}">
+    <div class="api-docs-index">{{{index.output}}}</div>
+
+    {{#each docs}}
+    <div class="api-docs">{{{output}}}</div>
+    {{/each}}
+
+    {{#each children}}{{> data}}{{/each}}
 </div>
-
-
-{{#each docs}}
-    <div class="api-docs">{{> data}}</div>
-{{/each}}
-
-{{#each children}}
-    <div class="api-item">{{> data}}</div>
-{{/each}}

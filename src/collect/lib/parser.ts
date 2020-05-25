@@ -121,7 +121,7 @@ export class Parser {
         const anchored = format(
           '<a class="api-headline__anchor" href="#%s">#</a> %s',
           id,
-          enhanced.markupWithId
+          enhanced.markup
         );
 
         inline.children = this.parser.parseInline(
@@ -170,22 +170,16 @@ export class Parser {
         id
       );
       const text = format("%s %s", type, content);
-      const markupWithId = format("%s", markup);
-      const textWithId = format("%s [%s]", text, id); // TODO: What is this used for?
 
       return {
         markup,
         text,
-        markupWithId,
-        textWithId,
       };
     }
 
     return {
       markup: content,
       text: content,
-      markupWithId: content,
-      textWithId: content,
     };
   }
 }

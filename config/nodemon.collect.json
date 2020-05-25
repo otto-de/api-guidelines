@@ -3,7 +3,7 @@
   "watch": [
     "./guidelines",
     "./src/collect",
-    "./src/templates",
+    "./src/templates/**",
     "./src/examples"
   ],
   "ext": "md,ts,png,jpg,svg,hbs,html",

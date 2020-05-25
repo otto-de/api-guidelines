@@ -1,10 +1,25 @@
+{{!-- Site Title --}}
 <li class="uk-nav-header">{{name}}</li>
 
-{{!-- Category Documents first --}}
+{{!-- Top Level Documents First --}}
 {{#each docs}}
 <li><a href="#{{nav.id}}">{{{nav.markup}}}</a></li>
 {{/each}}
 
+{{!-- Next Level Children --}}
 {{#each children}}
-{{> nav_child}}
+
+  {{!-- Category Title --}}
+  <li class="uk-nav-header">{{name}}</li>
+
+  {{!-- Either Direct Doc files --}}
+  {{#each docs}}
+  <li><a href="#{{nav.id}}">{{{nav.markup}}}</a></li>
+  {{/each}}
+
+  {{!-- Or Next Level Index Files --}}
+  {{#each children}}
+  <li><a href="#{{index.nav.id}}">{{{name}}}</a></li>
+  {{/each}}
+
 {{/each}}
