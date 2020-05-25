@@ -47,16 +47,17 @@ export async function collectCategory(
   dir: string,
   level = 0
 ): Promise<Category> {
+  const nextLevel = level + 1;
   const { indexData, catNameFromDir } = await getIndexData(dir);
   const index = new Parser(indexData, level);
   const docsPaths = await globby([`${dir}/*.md`, `!${dir}/*index.md`]);
   log.trace("Docs in: %s", dir, docsPaths);
 
   const docs = await Promise.all(
-    docsPaths.map(async (p) => new Parser(await readText(p), level + 1))
+    docsPaths.map(async (p) => new Parser(await readText(p), nextLevel, p))
   );
   // eslint-disable-next-line @typescript-eslint/no-use-before-define, no-use-before-define
-  const children = await collectCategorys(dir, level + 1);
+  const children = await collectCategorys(dir, nextLevel);
   const res = {
     name: index.nav?.text || catNameFromDir,
     index,

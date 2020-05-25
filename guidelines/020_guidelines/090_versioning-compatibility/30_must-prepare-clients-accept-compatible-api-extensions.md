@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R254345
+id: R000029
 ---
 
 # prepare clients accept compatible API extensions

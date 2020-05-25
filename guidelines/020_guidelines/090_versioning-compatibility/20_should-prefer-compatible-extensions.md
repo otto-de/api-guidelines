@@ -1,6 +1,6 @@
 ---
 type: SHOULD
-id: R88836
+id: R000028
 ---
 
 # prefer compatible extensions

@@ -1,6 +1,6 @@
 ---
 type: SHOULD NOT
-id: R000021
+id: R000026
 ---
 
 # use URI verisoning

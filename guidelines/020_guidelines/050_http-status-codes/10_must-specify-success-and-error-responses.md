@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R000010
+id: R000011
 ---
 
 # specify success and error responses
@@ -11,12 +11,7 @@ Therefore, you must define **all** success and service specific error responses 
 
 **Hint:** In most cases it is not useful to document all technical errors, especially if they are not under control of the service provider. Thus unless a response code conveys application-specific functional semantics or is used in a none standard way that requires additional explanation, multiple error response specifications can be combined using the following pattern:
 
-
-> 
->
 > TODO: [Align with Error Docs issue]
->
-> 
 
 ```
 responses:

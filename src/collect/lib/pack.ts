@@ -2,16 +2,17 @@
 import { debug } from "@otto-ec/assets-debug";
 import { promises as fs } from "fs";
 import globby from "globby";
-import { writeLine, hbTransform, hbCompile } from "@otto-ec/toolbox";
+import chalk from "chalk";
+import { hbTransform } from "@otto-ec/toolbox";
 import { join } from "path";
 import { registerPartial } from "handlebars";
 import { getConfig } from "./config";
-import { getParser, Parser } from "./parser";
-import { collectCategorys, collectCategory } from "./collect";
+import { collectCategory } from "./collect";
 import { readText } from "./fs";
+import { Parser } from "./parser";
 
 const log = debug("collect:pack");
-const { readFile, mkdir, writeFile } = fs;
+const { mkdir, writeFile } = fs;
 
 export async function pack(): Promise<void> {
   const config = getConfig();
@@ -58,4 +59,16 @@ export async function pack(): Promise<void> {
     categorys: cats,
   });
   await writeFile(join(config.dist, "index.html"), res);
+
+  log.info(
+    "Processed rules:",
+    [...Parser.rules.entries()]
+      .map(
+        ([k, v]) =>
+          `${chalk.yellowBright(k)}: ${chalk.magentaBright(
+            v.navTitle
+          )}, in: ${chalk.greenBright(v.source)}`
+      )
+      .join("\n")
+  );
 }

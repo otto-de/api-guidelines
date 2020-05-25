@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R000010
+id: R000015
 ---
 
 # avoid actions - think about resources

@@ -1,6 +1,6 @@
 ---
 type: MUST NOT
-id: R000015
+id: R000020
 ---
 
 # end URIs with a trailing slash (/)

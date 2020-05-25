@@ -9,28 +9,24 @@ import { load } from "js-yaml";
 import { format } from "util";
 import { FrontMatter } from "../types";
 import { getConfig } from "./config";
+import { ContentError } from "./errors";
 
 const log = debug("collect:parser");
 
-export function getParser(
-  config: ReturnType<typeof getConfig>,
-  frontCb: (frontMatter: string) => void
-): Md {
+export function getParser(config: ReturnType<typeof getConfig>): Md {
   const md = Md({
     linkify: true,
     html: true,
     typographer: true,
   })
     .use(attrs)
-
-    .use(front, (fm: string) => {
-      frontCb(fm);
-    })
+    // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+    .use(front, (fm: string): void => {})
     .use(highlight);
 
   Object.entries(config.markdown.blocks).forEach(([b, c]) => {
     md.use(container, b, {
-      render: (tokens: Record<string, any>, idx: string) => {
+      render: (tokens: Record<string, Token>, idx: string) => {
         const token = tokens[idx];
         log.info(idx, token);
 
@@ -52,6 +48,8 @@ export function getParser(
 }
 
 export class Parser {
+  static rules = new Map<string, { navTitle: string; source?: string }>();
+
   frontMatter: FrontMatter = {};
 
   parser: Md;
@@ -74,14 +72,17 @@ export class Parser {
 
   level: number;
 
-  constructor(data: string, level: number) {
+  source: string | undefined;
+
+  constructor(data: string, level: number, source?: string) {
+    this.source = source;
     this.level = level;
     this.data = data;
-    this.parser = getParser(getConfig(), (fm) => {
-      this.frontMatter = load(fm);
-    });
+    this.parser = getParser(getConfig());
 
     this.tokens = this.parser.parse(this.data, this.env);
+    const fm = this.tokens.find((t) => t.type === "front_matter")?.meta;
+    this.frontMatter = fm ? load(fm) : {};
 
     this.headings = this.processHeadings();
 
@@ -98,7 +99,34 @@ export class Parser {
       this.env
     );
 
+    this.processRule();
+
     log.trace(this.tokens);
+  }
+
+  public processRule() {
+    if (this.frontMatter.id) {
+      if (Parser.rules.has(this.frontMatter.id)) {
+        throw new ContentError(
+          [
+            "Duplicate rule id: ",
+            this.frontMatter.id,
+            " for: ",
+            this.nav.text,
+            "\nin: ",
+            this.source,
+            "\nAlready used in:",
+            Parser.rules.get(this.frontMatter.id)?.source,
+          ].join(" ")
+        );
+      }
+
+      Parser.rules.set(this.frontMatter.id, {
+        ...this.frontMatter,
+        navTitle: this.frontMatter.navTitle ?? this.nav.text,
+        source: this.source,
+      });
+    }
   }
 
   public processHeadings() {
@@ -115,8 +143,8 @@ export class Parser {
         inline.children.length > 0
       ) {
         const { content } = (inline.children as Token[])[0];
-        const id = content.replace(/[\W_]/gi, "-").toLowerCase();
         const enhanced = this.enhanceTitle(open, content);
+        const id = enhanced.id ?? content.replace(/[\W_]/gi, "-").toLowerCase();
 
         const anchored = format(
           '<a class="api-headline__anchor" href="#%s">#</a> %s',
@@ -154,7 +182,7 @@ export class Parser {
 
   private enhanceTitle(token: Token, content: string) {
     if (token.tag === "h1" && this.frontMatter.type !== undefined) {
-      log.debug("enhance title");
+      log.debug("enhance title", content);
       const { id: ruleId, type } = this.frontMatter;
       const id =
         ruleId ??
@@ -174,6 +202,7 @@ export class Parser {
       return {
         markup,
         text,
+        id,
       };
     }
 

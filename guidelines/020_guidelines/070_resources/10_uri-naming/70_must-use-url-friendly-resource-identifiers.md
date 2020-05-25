@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R000019
+id: R000024
 ---
 
 # use URL-friendly resource identifiers

@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R000016
+id: R000021
 ---
 
 # use plural for collection resources

@@ -49,6 +49,7 @@
     "@types/markdown-it": "^10.0.1",
     "@types/node": "^14.0.1",
     "browser-sync": "^2.26.7",
+    "chalk": "^4.0.0",
     "concurrently": "^5.2.0",
     "globby": "^11.0.0",
     "handlebars": "^4.7.6",

@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R000018
+id: R000023
 ---
 
 # use kebab-case for URIs

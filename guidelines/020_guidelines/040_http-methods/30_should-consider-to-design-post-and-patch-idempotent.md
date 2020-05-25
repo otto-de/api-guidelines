@@ -1,6 +1,6 @@
 ---
 type: SHOULD
-id: R000008
+id: R000009
 ---
 
 # consider to design `POST` and `PATCH` idempotent

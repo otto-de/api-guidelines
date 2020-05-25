@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R000012
+id: R000013
 ---
 
 # use most specific HTTP status codes

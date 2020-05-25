@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R000012
+id: R000017
 ---
 
 # use lowercase letters in URIs
