@@ -105,7 +105,7 @@ export class Parser {
   }
 
   public processRule() {
-    if (this.frontMatter.id) {
+    if (Parser.isRule(this.frontMatter)) {
       if (Parser.rules.has(this.frontMatter.id)) {
         throw new ContentError(
           [
@@ -127,6 +127,10 @@ export class Parser {
         source: this.source,
       });
     }
+  }
+
+  static isRule(fm: FrontMatter): fm is Required<FrontMatter> {
+    return !!fm.id && !!fm.type;
   }
 
   public processHeadings() {
