@@ -1,7 +1,17 @@
+@mixin guideline-section() {
+  @extend .uk-margin-large-bottom;
+  @extend .uk-padding-large;
+  @extend .uk-padding-remove-horizontal;
+  @extend .uk-padding-remove-top;
+
+  border-bottom: 1px solid #e5e5e5;
+  // padding-bottom: 40px;
+  // margin-bottom: 40px;
+}
+
 .api {
   &-content {
     @extend .uk-section;
-    // @extend .uk-section-muted;
     margin-left: 240px;
 
     @media (min-width: 1200px) {
@@ -9,25 +19,18 @@
     }
   }
 
-  &-docs-index {
-    // @extend .uk-margin-medium-bottom;
-    @extend .uk-padding;
-    // @extend .uk-section-muted;
-    // background-color: $global-background;
-    border-bottom: 1px solid #e5e5e5;
+  &-docs-level-0,
+  &-docs-level-1,
+  &-docs-level-2 {
+    > .api-docs-index,
+    > .api-docs {
+      @include guideline-section();
+
+      > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
   }
-
-  // &-docs {
-  //     background-color: $highlight-yellow;
-  // }
-
-  // &-item {
-  //     background-color: $highlight-green;
-
-  //     .api-index {
-  //         background-color: $global-background;
-  //     }
-  // }
 
   &-container {
     @extend .uk-container;
