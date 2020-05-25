@@ -6,7 +6,7 @@ import chalk from "chalk";
 import { table } from "table";
 import { hbTransform } from "@otto-ec/toolbox";
 import { join } from "path";
-import { registerPartial } from "handlebars";
+import { registerPartial, registerHelper } from "handlebars";
 import { getConfig } from "./config";
 import { collectCategory } from "./collect";
 import { readText } from "./fs";
@@ -14,6 +14,8 @@ import { Parser } from "./parser";
 
 const log = debug("collect:pack");
 const { mkdir, writeFile } = fs;
+
+registerHelper("toLowerCase", (str: string): string => str.toLowerCase());
 
 export async function pack(): Promise<void> {
   const config = getConfig();

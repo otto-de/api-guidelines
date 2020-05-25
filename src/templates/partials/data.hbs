@@ -2,7 +2,9 @@
     <div class="api-docs-index">{{{index.output}}}</div>
 
     {{#each docs}}
-    <div class="api-docs">{{{output}}}</div>
+    <div class="api-docs {{#if frontMatter.type}}js_rule-{{toLowerCase frontMatter.type}}{{/if}}">
+        {{{output}}}
+    </div>
     {{/each}}
 
     {{#each children}}{{> data}}{{/each}}
