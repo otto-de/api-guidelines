@@ -3,6 +3,7 @@ import { debug } from "@otto-ec/assets-debug";
 import { promises as fs } from "fs";
 import globby from "globby";
 import chalk from "chalk";
+import { table } from "table";
 import { hbTransform } from "@otto-ec/toolbox";
 import { join } from "path";
 import { registerPartial } from "handlebars";
@@ -60,15 +61,24 @@ export async function pack(): Promise<void> {
   });
   await writeFile(join(config.dist, "index.html"), res);
 
-  log.info(
-    "Processed rules:",
-    [...Parser.rules.entries()]
-      .map(
-        ([k, v]) =>
-          `${chalk.yellowBright(k)}: ${chalk.magentaBright(
-            v.navTitle
-          )}, in: ${chalk.greenBright(v.source)}`
-      )
-      .join("\n")
+  log.info("Processed rules:");
+  process.stdout.write(
+    table(
+      [
+        ["Rule ID", "Rule Title", "Source File"],
+        ...[...Parser.rules.entries()]
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([k, v]) => [
+            chalk.yellowBright(k),
+            chalk.magentaBright(v.navTitle),
+            chalk.greenBright(v.source),
+          ]),
+      ],
+      {
+        drawHorizontalLine: (index: number, size: number) =>
+          [0, 1, size].includes(index),
+      }
+    )
   );
+  process.stdout.write("\n");
 }
