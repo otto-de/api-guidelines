@@ -1,86 +1,44 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { debug } from "@otto-ec/assets-debug";
-import { promises as fs } from "fs";
-import globby from "globby";
-import chalk from "chalk";
-import { table } from "table";
-import { hbTransform } from "@otto-ec/toolbox";
+import { hbTransform, writeLine } from "@otto-ec/toolbox";
 import { join } from "path";
-import { registerPartial, registerHelper } from "handlebars";
 import { getConfig } from "./config";
 import { collectCategory } from "./collect";
-import { readText } from "./fs";
-import { Parser } from "./parser";
+import { readText, outputFile } from "./fs";
+import {
+  registerPartials,
+  formatRules,
+  writeModel,
+  registerHelpers,
+} from "./utils";
+import { getParser } from "./markdown";
 
 const log = debug("collect:pack");
-const { mkdir, writeFile } = fs;
 
-registerHelper("toLowerCase", (str: string): string => str.toLowerCase());
-
+/**
+ * Collects Guidelines Documents into a data structure and
+ * uses handlebars to render it as HTML Document
+ */
 export async function pack(): Promise<void> {
+  log.debug("Get Colector Config");
   const config = getConfig();
+  const parser = getParser(config);
 
-  log.info("Collect Data");
-  const cats = await collectCategory(config.root);
+  log.info("Collect Data from:", config.root);
+  const cats = await collectCategory(config.root, parser);
 
-  await mkdir("tmp", { recursive: true });
-  await writeFile(
-    "tmp/structure.json",
-    JSON.stringify(
-      cats,
-      (k, v) => {
-        if (["parser", "tokens"].includes(k)) {
-          return undefined;
-        }
-        return v;
-      },
-      2
-    )
-  );
+  log.debug("Output Model as JSON into:", config.debug.model);
+  await writeModel(config.debug.model, cats);
 
-  const partials = await globby(`${config.templates.partials}/**/*.hbs`, {
-    onlyFiles: true,
-  });
-  log.debug("Partials: %O", partials);
-  await Promise.all(
-    partials.map(async (p) => {
-      const pData = await readText(p);
-      registerPartial(
-        p.replace(`${config.templates.partials}/`, "").replace(".hbs", ""),
-        pData
-      );
-    })
-  );
-
+  log.debug("Load render template data");
+  registerHelpers();
+  await registerPartials(config);
   const indexTpl = await readText(join(config.templates.root, "index.hbs"));
 
-  await mkdir(config.dist, { recursive: true });
-
-  log.debug("Transform Stuff");
-  const res = hbTransform(indexTpl, {
-    config,
-    categorys: cats,
-  });
-  await writeFile(join(config.dist, "index.html"), res);
+  log.info("Render Data as Html");
+  const res = hbTransform(indexTpl, { config, categorys: cats });
+  await outputFile(join(config.dist, "index.html"), res);
 
   log.info("Processed rules:");
-  process.stdout.write(
-    table(
-      [
-        ["Rule ID", "Rule Title", "Source File"],
-        ...[...Parser.rules.entries()]
-          .sort(([a], [b]) => a.localeCompare(b))
-          .map(([k, v]) => [
-            chalk.yellowBright(k),
-            chalk.magentaBright(v.navTitle),
-            chalk.greenBright(v.source),
-          ]),
-      ],
-      {
-        drawHorizontalLine: (index: number, size: number) =>
-          [0, 1, size].includes(index),
-      }
-    )
-  );
-  process.stdout.write("\n");
+  writeLine(formatRules());
 }

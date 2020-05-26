@@ -1,17 +1,17 @@
 import globby from "globby";
 import { debug } from "@otto-ec/assets-debug";
+import MarkdownIt from "markdown-it";
 import { readText } from "./fs";
 import { Parser } from "./parser";
+import { Category } from "../types";
 
 const log = debug("collect:collect");
 
-export interface Category {
-  name: string;
-  index: Parser;
-  docs: Parser[];
-  children: Category[];
-}
-
+/**
+ * Uses globby to find only directories in the given dir
+ * @param dir
+ * @returns dirs
+ */
 export function globDirs(dir: string): Promise<string[]> {
   return globby([`${dir}/**/*`], {
     deep: 1,
@@ -19,56 +19,84 @@ export function globDirs(dir: string): Promise<string[]> {
   });
 }
 
+/**
+ * Parses category from directory name
+ * @param dir
+ * @returns category from dir
+ */
 export function parseCategoryFromDir(dir: string): string {
   return (dir.match(/(?<=[0-9]+_)[a-zA-Z0-9-_]+$/g)?.[0] as string)
     .replace(/[-_]/g, " ")
     .replace(/\w\S+/g, (w) => w[0].toUpperCase() + w.slice(1));
 }
 
+/**
+ * Collect index data from a single directory
+ * @param dir
+ */
 export async function getIndexData(
   dir: string
 ): Promise<{
   indexData: string;
   catNameFromDir: string;
 }> {
-  const index = await globby([`${dir}/*index.md`], {
-    onlyFiles: true,
-  });
+  const index = await globby([`${dir}/*index.md`], { onlyFiles: true });
   log.trace("Is index in %s?: %s", dir, !!index.length);
+
   const catName = parseCategoryFromDir(dir);
   const indexData = index.length ? await readText(index[0]) : `# ${catName}`;
-  return {
-    indexData,
-    catNameFromDir: catName,
-  };
+
+  return { indexData, catNameFromDir: catName };
 }
 
+/**
+ * Works together with `collectCategorys` to recursively collect all the
+ * Markdown documents in the guidelines source folder
+ *
+ * @param dir directory to search for documents
+ * @param parser markdown instance passed throrugh to the Parser
+ * @param level added as category metadata, used to structure the nesting
+ */
 export async function collectCategory(
   dir: string,
+  parser: MarkdownIt,
   level = 0
 ): Promise<Category> {
   const nextLevel = level + 1;
   const { indexData, catNameFromDir } = await getIndexData(dir);
-  const index = new Parser(indexData, level);
+  const index = new Parser(parser, indexData, level);
   const docsPaths = await globby([`${dir}/*.md`, `!${dir}/*index.md`]);
   log.trace("Docs in: %s", dir, docsPaths);
 
   const docs = await Promise.all(
-    docsPaths.map(async (p) => new Parser(await readText(p), nextLevel, p))
+    docsPaths.map(
+      async (p) => new Parser(parser, await readText(p), nextLevel, p)
+    )
   );
+
   // eslint-disable-next-line @typescript-eslint/no-use-before-define, no-use-before-define
-  const children = await collectCategorys(dir, nextLevel);
+  const children = await collectCategorys(dir, parser, nextLevel);
   const res = {
     name: index.nav?.text || catNameFromDir,
     index,
     docs,
     children,
   };
+
   return res;
 }
 
+/**
+ * Works together with `collectCategory` to recursively collect all the
+ * Markdown documents in the guidelines source folder
+ *
+ * @param dir the start point for globbing categorys folders
+ * @param parser passed througth to collectCategory function
+ * @param level passed througth to collectCategory function
+ */
 export async function collectCategorys(
   dir: string,
+  parser: MarkdownIt,
   level: number
 ): Promise<Category[]> {
   log.debug("Find Categorys in: %s", dir);
@@ -76,7 +104,9 @@ export async function collectCategorys(
   log.trace("Categorys in %s: %O", dir, dirs);
 
   log.debug("Process %d Categorys in: %s", dirs.length, dir);
-  const data = await Promise.all(dirs.map((d) => collectCategory(d, level)));
+  const data = await Promise.all(
+    dirs.map((d) => collectCategory(d, parser, level))
+  );
 
   return data;
 }

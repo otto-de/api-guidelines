@@ -1,3 +1,6 @@
+/**
+ * Creates configuration object for collector
+ */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export function getConfig() {
   const res = {
@@ -33,6 +36,11 @@ export function getConfig() {
         },
       },
     },
+    debug: {
+      model: "./tmp/structure.json",
+    },
   };
   return res;
 }
+
+export type Config = ReturnType<typeof getConfig>;

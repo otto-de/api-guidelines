@@ -1,111 +1,129 @@
-import Md from "markdown-it";
-import attrs from "markdown-it-attrs";
-import container from "markdown-it-container";
-import front from "markdown-it-front-matter";
-import highlight from "markdown-it-highlightjs";
 import { debug } from "@otto-ec/assets-debug";
 import type Token from "markdown-it/lib/token";
 import { load } from "js-yaml";
 import { format } from "util";
-import { FrontMatter } from "../types";
-import { getConfig } from "./config";
+import type MarkdownIt from "markdown-it";
 import { ContentError } from "./errors";
+import type { FrontMatter } from "../types";
 
 const log = debug("collect:parser");
 
-export function getParser(config: ReturnType<typeof getConfig>): Md {
-  const md = Md({
-    linkify: true,
-    html: true,
-    typographer: true,
-  })
-    .use(attrs)
-    // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
-    .use(front, (fm: string): void => {})
-    .use(highlight);
-
-  Object.entries(config.markdown.blocks).forEach(([b, c]) => {
-    md.use(container, b, {
-      render: (tokens: Record<string, Token>, idx: string) => {
-        const token = tokens[idx];
-        log.info(idx, token);
-
-        if (token.nesting > 0) {
-          const title = token.info.replace(b, "").trim();
-          const res = [`<${c.tag} class="${c.class}">`];
-          if (title.length > 0) {
-            res.push(
-              `<span class="api-custom-container--title">${title}</span>`
-            );
-          }
-          return res.join("");
-        }
-        return `</${c.tag}>`;
-      },
-    });
-  });
-  return md;
+interface ProcessedHeading {
+  markup: string;
+  text: string;
+  id: string;
+  level: number;
+  orig: string;
 }
 
+/**
+ * Encapsulates processing of a single markdown document, by
+ * parsing it, and acting as data container for the document data
+ */
 export class Parser {
-  static rules = new Map<string, { navTitle: string; source?: string }>();
+  /** Every document declared as rule will be added here */
+  static rules = new Map<
+    string,
+    Required<FrontMatter> & { navTitle: string; source?: string }
+  >();
 
+  /** Front Matter extracted from docuement */
   frontMatter: FrontMatter = {};
 
-  parser: Md;
+  /** Markdown Parser used to process markdown data */
+  parser: MarkdownIt;
 
+  /** used by markdown parser internally */
   env: unknown = {};
 
+  /** Source data as raw Markdown */
   data: string;
 
+  /** Parsed Tokens */
   tokens: Token[];
 
+  /** Rendered HTML output */
   output: string;
 
-  headings: {
-    id: string;
-    level: number;
-    text: string;
-  }[];
+  /** Heading found in the Document */
+  headings: ProcessedHeading[];
 
-  nav: { text: string };
+  /** First Heading of the document, can be used to build nav */
+  nav: ProcessedHeading;
 
+  /**
+   * Level of the document in the file structure
+   */
   level: number;
 
-  source: string | undefined;
+  /**
+   * Source file of the markdown data
+   */
+  source?: string;
 
-  constructor(data: string, level: number, source?: string) {
+  constructor(
+    parser: MarkdownIt,
+    data: string,
+    level: number,
+    source?: string
+  ) {
     this.source = source;
     this.level = level;
     this.data = data;
-    this.parser = getParser(getConfig());
+    this.parser = parser;
 
     this.tokens = this.parser.parse(this.data, this.env);
-    const fm = this.tokens.find((t) => t.type === "front_matter")?.meta;
-    this.frontMatter = fm ? load(fm) : {};
-
+    this.frontMatter = this.processFrontMatter();
     this.headings = this.processHeadings();
+    this.nav = this.processNavData();
+    this.output = this.renderTokens();
+    this.checkAndProcessRule();
+  }
 
-    this.nav = {
-      ...(this.headings.find((h) => h.level === level + 1) as { text: string }),
-    };
-    if (this.frontMatter?.navTitle) {
-      this.nav.text = this.frontMatter.navTitle;
-    }
-
-    this.output = this.parser.renderer.render(
+  /**
+   * Renders processed tokens into HTML
+   * @returns Rendered html as string
+   */
+  public renderTokens(): string {
+    return this.parser.renderer.render(
       this.tokens,
       this.parser.options,
       this.env
     );
-
-    this.processRule();
-
-    log.trace(this.tokens);
   }
 
-  public processRule() {
+  /**
+   * creates nav object from headings and frontmatter
+   * @returns nav data
+   */
+  public processNavData(): ProcessedHeading {
+    const nav = {
+      ...(this.headings.find(
+        (h): h is ProcessedHeading => h.level === this.level + 1
+      ) as ProcessedHeading),
+    };
+    if (this.frontMatter?.navTitle) {
+      nav.text = this.frontMatter.navTitle;
+    }
+
+    return nav;
+  }
+
+  /**
+   * Process front matter by searching frontmatter data in the token list
+   * @returns front matter
+   */
+  public processFrontMatter(): FrontMatter {
+    const fm = this.tokens.find((t) => t.type === "front_matter")?.meta;
+    return fm ? load(fm) : {};
+  }
+
+  /**
+   * Ensures the rule id is not duplicate, and adds it to the rule collection
+   */
+  public checkAndProcessRule(): void {
     if (Parser.isRule(this.frontMatter)) {
+      // Check for rule id duplicates
       if (Parser.rules.has(this.frontMatter.id)) {
         throw new ContentError(
           [
@@ -121,6 +139,7 @@ export class Parser {
         );
       }
 
+      // Add rule to the collection of rules
       Parser.rules.set(this.frontMatter.id, {
         ...this.frontMatter,
         navTitle: this.frontMatter.navTitle ?? this.nav.text,
@@ -129,11 +148,29 @@ export class Parser {
     }
   }
 
+  /**
+   * Determines whether processed document is a Guiedeline Rule
+   * For this the docuement frontmatter must have metadata in the front matter
+   *
+   * as yaml in from like
+   *
+   * ```yaml
+   * id: R000333
+   * type: SCHOULD
+   * ```
+   *
+   * @param fm
+   * @returns true if docuement is rule
+   */
   static isRule(fm: FrontMatter): fm is Required<FrontMatter> {
     return !!fm.id && !!fm.type;
   }
 
-  public processHeadings() {
+  /**
+   * Process headings by enriching them with anchors and ids
+   * @returns headings
+   */
+  public processHeadings(): ProcessedHeading[] {
     const res = [];
     for (let i = 0, len = this.tokens.length; i < len; ) {
       const open = this.tokens[i];
@@ -147,34 +184,32 @@ export class Parser {
         inline.children.length > 0
       ) {
         const { content } = (inline.children as Token[])[0];
+
+        // Enhance h1 rule heading if file is a rule
         const enhanced = this.enhanceTitle(open, content);
+
+        // use frontmatter id or heading text otherwise
         const id = enhanced.id ?? content.replace(/[\W_]/gi, "-").toLowerCase();
 
-        const anchored = format(
-          '<a class="api-headline__anchor" href="#%s">#</a> %s',
-          id,
-          enhanced.markup
-        );
-
+        // Replace heading children with an anchored data
         inline.children = this.parser.parseInline(
-          anchored,
+          format(
+            '<a class="api-headline__anchor" href="#%s">#</a> %s',
+            id,
+            enhanced.markup
+          ),
           this.env
         )[0].children;
 
         // TODO: Limit max nesting to H4
+        // Calculate new heading level
         const level = parseInt(open.tag.replace(/h/gi, ""), 10) + this.level;
         open.tag = `h${level}`;
         open.attrSet("id", id);
         open.attrSet("class", "api-headline");
         close.tag = `h${level}`;
 
-        res.push({
-          id,
-          level,
-          orig: content,
-          ...enhanced,
-        });
-
+        res.push({ id, level, orig: content, ...enhanced });
         i += 3;
       } else {
         i += 1;
@@ -184,15 +219,24 @@ export class Parser {
     return res;
   }
 
-  private enhanceTitle(token: Token, content: string) {
-    if (token.tag === "h1" && this.frontMatter.type !== undefined) {
-      log.debug("enhance title", content);
-      const { id: ruleId, type } = this.frontMatter;
-      const id =
-        ruleId ??
-        (() => {
-          throw new Error(`Rule "${content}" must contain an id Field`);
-        })();
+  /**
+   * Enhances title for rule documetns
+   * @param token
+   * @param content
+   * @returns title
+   */
+  private enhanceTitle(
+    token: Token,
+    content: string
+  ): {
+    markup: string;
+    text: string;
+    id?: string;
+  } {
+    // Process h1 of rule files
+    if (token.tag === "h1" && Parser.isRule(this.frontMatter)) {
+      log.trace("Enhance rule title", content);
+      const { id, type } = this.frontMatter;
 
       const markup = format(
         '<span class="api-rule api-rule--%s">%s</span> %s <span class="api-rule__id">%s</span>',
@@ -203,16 +247,10 @@ export class Parser {
       );
       const text = format("%s %s", type, content);
 
-      return {
-        markup,
-        text,
-        id,
-      };
+      return { markup, text, id };
     }
 
-    return {
-      markup: content,
-      text: content,
-    };
+    // just pass throught data
+    return { markup: content, text: content, id: this.frontMatter.id };
   }
 }
