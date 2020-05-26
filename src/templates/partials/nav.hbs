@@ -3,7 +3,7 @@
 
 {{!-- Top Level Documents First --}}
 {{#each docs}}
-<li><a href="#{{nav.id}}">{{{nav.markup}}}</a></li>
+<li><a href="#{{nav.id}}">{{{nav.text}}}</a></li>
 {{/each}}
 
 {{!-- Next Level Children --}}
@@ -14,7 +14,7 @@
 
   {{!-- Either Direct Doc files --}}
   {{#each docs}}
-  <li><a href="#{{nav.id}}">{{{nav.markup}}}</a></li>
+  <li><a href="#{{nav.id}}">{{{nav.text}}}</a></li>
   {{/each}}
 
   {{!-- Or Next Level Index Files --}}

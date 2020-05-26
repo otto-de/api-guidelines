@@ -9,7 +9,6 @@ import type { FrontMatter } from "../types";
 const log = debug("collect:parser");
 
 interface ProcessedHeading {
-  markup: string;
   text: string;
   id: string;
   level: number;
@@ -184,21 +183,23 @@ export class Parser {
         inline.children?.length &&
         inline.children.length > 0
       ) {
-        const { content } = (inline.children as Token[])[0];
+        if (inline.children.length > 1) {
+          log.debug(inline);
+        }
+        const { content } = inline;
 
         // Enhance h1 rule heading if file is a rule
-        const enhanced = this.enhanceTitle(open, content);
-
-        // use frontmatter id or heading text otherwise
-        const id = enhanced.id ?? content.replace(/[\W_]/gi, "-").toLowerCase();
+        const {
+          markup,
+          text,
+          // use frontmatter id or heading text otherwise
+          id = content.replace(/[\W_]/gi, "-").toLowerCase(),
+        } = this.enhanceTitle(open, content);
 
         // Replace heading children with an anchored data
+        const aFormat = '<a class="api-headline__anchor" href="#%s">#</a> %s';
         inline.children = this.parser.parseInline(
-          format(
-            '<a class="api-headline__anchor" href="#%s">#</a> %s',
-            id,
-            enhanced.markup
-          ),
+          format(aFormat, id, markup),
           this.env
         )[0].children;
 
@@ -210,7 +211,7 @@ export class Parser {
         open.attrSet("class", "api-headline");
         close.tag = `h${level}`;
 
-        res.push({ ...enhanced, level, orig: content, id });
+        res.push({ text, level, orig: content, id });
         i += 3;
       } else {
         i += 1;
@@ -229,11 +230,7 @@ export class Parser {
   private enhanceTitle(
     token: Token,
     content: string
-  ): {
-    markup: string;
-    text: string;
-    id?: string;
-  } {
+  ): { markup: string; text: string; id?: string } {
     // Process h1 of rule files
     if (token.tag === "h1" && Parser.isRule(this.frontMatter)) {
       log.trace("Enhance rule title", content);
