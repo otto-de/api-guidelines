@@ -39,6 +39,7 @@
   }
 
   &-headline {
+    @extend .uk-margin-medium-bottom;
     padding-right: 90px;
     position: relative;
 
