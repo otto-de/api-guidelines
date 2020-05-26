@@ -1,7 +1,8 @@
 {
   "s3": {
     "config": {
-      "swamp": "{{hbs swamp.profiles.apidocs_upload}}"
+      "swamp": "{{hbs swamp.profiles.apidocs_upload}}",
+      "groups": ["web"]
     },
     "buckets": {
       "default": {
