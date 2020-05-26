@@ -183,9 +183,6 @@ export class Parser {
         inline.children?.length &&
         inline.children.length > 0
       ) {
-        if (inline.children.length > 1) {
-          log.debug(inline);
-        }
         const { content } = inline;
 
         // Enhance h1 rule heading if file is a rule
