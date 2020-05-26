@@ -172,6 +172,7 @@ export class Parser {
    */
   public processHeadings(): ProcessedHeading[] {
     const res = [];
+
     for (let i = 0, len = this.tokens.length; i < len; ) {
       const open = this.tokens[i];
       const inline = this.tokens[i + 1];
@@ -209,7 +210,7 @@ export class Parser {
         open.attrSet("class", "api-headline");
         close.tag = `h${level}`;
 
-        res.push({ id, level, orig: content, ...enhanced });
+        res.push({ ...enhanced, level, orig: content, id });
         i += 3;
       } else {
         i += 1;

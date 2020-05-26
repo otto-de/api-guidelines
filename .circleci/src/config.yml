@@ -1,0 +1,83 @@
+version: 2.1
+
+jobs:
+  apidocs_build:
+    executor: toolbox/node
+    parameters:
+      preview:
+        type: boolean
+        default: false
+    environment:
+
+    steps:
+      - unless:
+          condition: <<parameters.preview>>
+          steps:
+            - checkout
+            - toolbox/npm_install
+      - when:
+          condition: <<parameters.preview>>
+          steps:
+            - toolbox/ci_attach
+      - toolbox/npm_run:
+          scripts: build
+          # scripts: build<<# parameters.preview >>:ci-preview<</ parameters.preview >>
+      - when:
+          condition: <<parameters.preview>>
+          steps:
+            - store_artifacts:
+                path: dist
+                destination: guidelines
+      - unless:
+          condition: <<parameters.preview>>
+          steps:
+            - toolbox/ci_persist
+
+workflows:
+  version: 2
+
+  ######################
+  default:
+    jobs:
+      - apidocs_build:
+          name: apidocs_build
+      - apidocs_build:
+          name: apidocs_preview
+          preview: true
+          requires: [apidocs_build]
+      # - toolbox/npm_run:
+      #     name: apidocs_lint
+      #     scripts: lint:api
+      #     requires: [apidocs_build]
+
+      ######################
+      - UPLOAD_DEVELOP:
+          type: approval
+          filters:
+            branches:
+              only: /^(?!(dependabot\/|master)).*/
+          requires: [apidocs_preview]
+
+      ######################
+      - toolbox/tf_deploy:
+          name: apidocs_upload_develop
+          target: develop
+          run-tf-apply: false
+          run-s3-upload: true
+          run-cloudfront: true
+          run-healthcheck: false
+          run-deployment-report: false
+          requires: [apidocs_preview, UPLOAD_DEVELOP]
+      # ######################
+      # - toolbox/tf_deploy:
+      #     name: apidocs_upload_live
+      #     target: live
+      #     run-tf-apply: false
+      #     run-s3-upload: true
+      #     run-cloudfront: true
+      #     run-healthcheck: false
+      #     run-deployment-report: false
+      #     filters:
+      #       branches:
+      #         only: master
+      #     requires: [apidocs_upload_develop]

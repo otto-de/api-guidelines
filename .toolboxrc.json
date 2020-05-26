@@ -1,0 +1,28 @@
+{
+  "s3": {
+    "config": {
+      "swamp": "{{hbs swamp.profiles.apidocs_upload}}"
+    },
+    "buckets": {
+      "default": {
+        "app": "api-docs",
+        "to": "{{parent.app}}/guidelines"
+      }
+    }
+  },
+  "cloudfront": {
+    "config": {
+      "swamp": "{{hbs swamp.profiles.apidocs_upload}}"
+    },
+    "distributions": {
+      "default": {
+        "name": "api-docs"
+      }
+    }
+  },
+  "swamp": {
+    "profiles": {
+      "apidocs_upload": "{{swamp.profiles.default}}+{{env.current.accounts.default.name}}:service-api-docs-uploader"
+    }
+  }
+}

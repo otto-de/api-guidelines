@@ -11,11 +11,13 @@
     "build:css": "kestrel build --css",
     "build:collect": "FORCE_COLOR=true DEBUG_COLORS=true DEBUG_DEPTH=6 DEBUG_LEVEL=debug ts-node -T src/collect/index.ts --color",
     "dev": "npm run build:clean && concurrently --kill-others \"npm run watch:collect\" \"npm run watch:js\" \"npm run watch:css\"",
+    "deploy": "tb s3 upload && tb cloudfront invalidate",
     "watch:collect": "nodemon --config config/nodemon.collect.json -x 'npm run build:collect'",
     "watch:css": "nodemon --config config/nodemon.css.json -x 'npm run build:css && npm run build:images'",
     "watch:js": "nodemon --config config/nodemon.js.json -x 'npm run build:js'",
     "serve": "browser-sync start -s \"dist\" -f \"dist\" -w",
     "clean": "rm -rf ./tmp ./build ./dist && mkdir -p ./dist",
+    "packci": "tb ci pack && tb ci c g --coarse",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
