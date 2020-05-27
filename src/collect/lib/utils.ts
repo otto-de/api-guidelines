@@ -56,7 +56,7 @@ export function formatRules(): string {
       ...[...Parser.ruleMap.entries()]
         .sort(([a], [b]) => a.localeCompare(b))
         .map(([k, v]) => [
-          chalk.yellowBright(k),
+          chalk.cyanBright(k),
           chalk.magentaBright(v.nav.text),
           chalk.greenBright(v.source),
         ]),
@@ -75,7 +75,7 @@ export function formatBadLinks(): string {
       ...[...Parser.badLinksMap.values()]
         .sort((a, b) => a.source.localeCompare(b.source))
         .map((v) => [
-          chalk.yellowBright(v.href),
+          chalk.cyanBright(v.href),
           chalk.magentaBright(v.source),
           chalk.greenBright(v.map),
         ]),
