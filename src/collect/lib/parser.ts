@@ -3,10 +3,14 @@ import type Token from "markdown-it/lib/token";
 import { load } from "js-yaml";
 import { format } from "util";
 import type MarkdownIt from "markdown-it";
+import { dirname, normalize, join } from "path";
 import { ContentError } from "./errors";
 import type { FrontMatter } from "../types";
+import { Config } from "./config";
 
 const log = debug("collect:parser");
+
+const localPathRegex = /(?<path>\S+[\w-]+\.md)(?<hash>#\S+)?/gm;
 
 interface ProcessedHeading {
   text: string;
@@ -21,10 +25,17 @@ interface ProcessedHeading {
  */
 export class Parser {
   /** Every document declared as rule will be added here */
-  static rules = new Map<
-    string,
-    Required<FrontMatter> & { navTitle: string; source?: string }
-  >();
+  static ruleMap = new Map<string, Parser>();
+
+  /** Every instance of Parser mapped by the source path */
+  static sourceMap = new Map<string, Parser>();
+
+  /** Contains bad links found in the data */
+  static badLinksMap = new Set<{
+    href: string;
+    source: string;
+    map?: [number, number] | null;
+  }>();
 
   /** Front Matter extracted from docuement */
   frontMatter: FrontMatter = {};
@@ -42,7 +53,7 @@ export class Parser {
   tokens: Token[];
 
   /** Rendered HTML output */
-  output: string;
+  output?: string;
 
   /** Heading found in the Document */
   headings: ProcessedHeading[];
@@ -50,45 +61,105 @@ export class Parser {
   /** First Heading of the document, can be used to build nav */
   nav: ProcessedHeading;
 
-  /**
-   * Level of the document in the file structure
-   */
+  /** Level of the document in the file structure */
   level: number;
 
-  /**
-   * Source file of the markdown data
-   */
-  source?: string;
+  /** Source file of the markdown data */
+  source: string;
+
+  /** Collector Config  object  */
+  config: Config;
 
   constructor(
     parser: MarkdownIt,
+    config: Config,
     data: string,
     level: number,
-    source?: string
+    source: string
   ) {
     this.source = source;
     this.level = level;
     this.data = data;
     this.parser = parser;
+    this.config = config;
 
     this.tokens = this.parser.parse(this.data, this.env);
     this.frontMatter = this.processFrontMatter();
     this.headings = this.processHeadings();
     this.nav = this.processNavData();
-    this.output = this.renderTokens();
     this.checkAndProcessRule();
+    this.processSourceMap();
   }
 
-  /**
-   * Renders processed tokens into HTML
-   * @returns Rendered html as string
-   */
-  public renderTokens(): string {
-    return this.parser.renderer.render(
-      this.tokens,
-      this.parser.options,
-      this.env
-    );
+  public render(): void {
+    const { parser, tokens, env } = this;
+    this.processTokens(tokens);
+    this.output = parser.renderer.render(tokens, parser.options, env);
+  }
+
+  public processTokens(tokens: Token[], parent?: Token): void {
+    tokens.forEach((t) => {
+      if (t.type === "link_open") {
+        // log.debug("Link Found: ", t.attrGet("href"));
+        this.remapLink(t, parent);
+      }
+
+      if (t.children) {
+        this.processTokens(t.children, t);
+      }
+    });
+  }
+
+  public remapLink(token: Token, parent?: Token): void {
+    const href = token.attrGet("href") as string;
+    log.trace("Processing href: %o", href);
+    const matches = localPathRegex.exec(href);
+    log.trace("Regex Result:", matches);
+
+    if (matches?.groups?.hash) {
+      log.trace("Found hash: ", matches.groups.hash);
+      token.attrSet("href", matches.groups.hash);
+    } else if (matches?.groups?.path) {
+      let path = normalize(matches.groups.path);
+      const root = normalize(this.config.root);
+
+      if (path.startsWith(root)) {
+        log.trace("Path is relative to root: ", path);
+      } else {
+        log.trace("Path is relative to source", path);
+
+        const sourceDir = dirname(this.source);
+        path = normalize(join(sourceDir, path));
+      }
+      log.trace("Found Path:", path);
+
+      const target = [...Parser.sourceMap.keys()].find(
+        (k) => k.indexOf(path) > -1
+      );
+      log.trace("Found Target", target);
+
+      if (target) {
+        const { nav } = Parser.sourceMap.get(target) as Parser;
+        log.debug("Remapped Link from: %s to: %s", href, nav.id);
+        token.attrSet("href", `#${nav.id}`);
+      } else {
+        const map = token.map || parent?.map;
+        // eslint-disable-next-line no-script-url
+        token.attrSet("href", "javascript:void(0);");
+        token.attrSet(
+          "onClick",
+          [
+            "alert('This Link is Brocken!",
+            `href: ${href}`,
+            `Source${this.source}`,
+            "')",
+          ].join("\\n")
+        );
+
+        log.warn("Bad Link: %s in: %s at: %o", href, this.source, map);
+        Parser.badLinksMap.add({ href, source: this.source, map });
+      }
+    }
   }
 
   /**
@@ -108,6 +179,13 @@ export class Parser {
     return nav;
   }
 
+  public processSourceMap(): void {
+    if (Parser.sourceMap.has(this.source)) {
+      throw new Error(`Source File already exists in map: ${this.source}`);
+    }
+    Parser.sourceMap.set(this.source, this);
+  }
+
   /**
    * Process front matter by searching frontmatter data in the token list
    * @returns front matter
@@ -123,7 +201,7 @@ export class Parser {
   public checkAndProcessRule(): void {
     if (Parser.isRule(this.frontMatter)) {
       // Check for rule id duplicates
-      if (Parser.rules.has(this.frontMatter.id)) {
+      if (Parser.ruleMap.has(this.frontMatter.id)) {
         throw new ContentError(
           [
             "Duplicate rule id: ",
@@ -133,17 +211,13 @@ export class Parser {
             "\nin: ",
             this.source,
             "\nAlready used in:",
-            Parser.rules.get(this.frontMatter.id)?.source,
+            Parser.ruleMap.get(this.frontMatter.id)?.source,
           ].join(" ")
         );
       }
 
       // Add rule to the collection of rules
-      Parser.rules.set(this.frontMatter.id, {
-        ...this.frontMatter,
-        navTitle: this.frontMatter.navTitle ?? this.nav.text,
-        source: this.source,
-      });
+      Parser.ruleMap.set(this.frontMatter.id, this);
     }
   }
 

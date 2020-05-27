@@ -10,8 +10,10 @@ import {
   formatRules,
   writeModel,
   registerHelpers,
+  formatBadLinks,
 } from "./utils";
 import { getParser } from "./markdown";
+import { Parser } from "./parser";
 
 const log = debug("collect:pack");
 
@@ -25,7 +27,10 @@ export async function pack(): Promise<void> {
   const parser = getParser(config);
 
   log.info("Collect Data from:", config.root);
-  const cats = await collectCategory(config.root, parser);
+  const cats = await collectCategory(config.root, parser, config);
+
+  log.info("Call Render on all Models");
+  Parser.sourceMap.forEach((p) => p.render());
 
   log.debug("Output Model as JSON into:", config.debug.model);
   await writeModel(config.debug.model, cats);
@@ -41,4 +46,9 @@ export async function pack(): Promise<void> {
 
   log.info("Processed rules:");
   writeLine(formatRules());
+
+  if (Parser.badLinksMap.size > 0) {
+    log.warn("Sources contain Bad Links");
+    writeLine(formatBadLinks());
+  }
 }

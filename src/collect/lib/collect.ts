@@ -4,6 +4,7 @@ import MarkdownIt from "markdown-it";
 import { readText } from "./fs";
 import { Parser } from "./parser";
 import { Category } from "../types";
+import { Config } from "./config";
 
 const log = debug("collect:collect");
 
@@ -37,16 +38,17 @@ export function parseCategoryFromDir(dir: string): string {
 export async function getIndexData(
   dir: string
 ): Promise<{
+  path: string;
   indexData: string;
   catNameFromDir: string;
 }> {
-  const index = await globby([`${dir}/*index.md`], { onlyFiles: true });
-  log.trace("Is index in %s?: %s", dir, !!index.length);
+  const [path] = await globby([`${dir}/*index.md`], { onlyFiles: true });
+  log.trace("Is index in %s?: %s", dir, !!path.length);
 
   const catName = parseCategoryFromDir(dir);
-  const indexData = index.length ? await readText(index[0]) : `# ${catName}`;
+  const indexData = path.length ? await readText(path) : `# ${catName}`;
 
-  return { indexData, catNameFromDir: catName };
+  return { path, indexData, catNameFromDir: catName };
 }
 
 /**
@@ -60,22 +62,23 @@ export async function getIndexData(
 export async function collectCategory(
   dir: string,
   parser: MarkdownIt,
+  config: Config,
   level = 0
 ): Promise<Category> {
   const nextLevel = level + 1;
-  const { indexData, catNameFromDir } = await getIndexData(dir);
-  const index = new Parser(parser, indexData, level);
+  const { path, indexData, catNameFromDir } = await getIndexData(dir);
+  const index = new Parser(parser, config, indexData, level, path);
   const docsPaths = await globby([`${dir}/*.md`, `!${dir}/*index.md`]);
   log.trace("Docs in: %s", dir, docsPaths);
 
   const docs = await Promise.all(
     docsPaths.map(
-      async (p) => new Parser(parser, await readText(p), nextLevel, p)
+      async (p) => new Parser(parser, config, await readText(p), nextLevel, p)
     )
   );
 
   // eslint-disable-next-line @typescript-eslint/no-use-before-define, no-use-before-define
-  const children = await collectCategorys(dir, parser, nextLevel);
+  const children = await collectCategorys(dir, parser, config, nextLevel);
   const res = {
     name: index.nav?.text || catNameFromDir,
     index,
@@ -97,6 +100,7 @@ export async function collectCategory(
 export async function collectCategorys(
   dir: string,
   parser: MarkdownIt,
+  config: Config,
   level: number
 ): Promise<Category[]> {
   log.debug("Find Categorys in: %s", dir);
@@ -105,7 +109,7 @@ export async function collectCategorys(
 
   log.debug("Process %d Categorys in: %s", dirs.length, dir);
   const data = await Promise.all(
-    dirs.map((d) => collectCategory(d, parser, level))
+    dirs.map((d) => collectCategory(d, parser, config, level))
   );
 
   return data;

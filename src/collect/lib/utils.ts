@@ -53,12 +53,31 @@ export function formatRules(): string {
   return table(
     [
       ["Rule ID", "Rule Title", "Source File"],
-      ...[...Parser.rules.entries()]
+      ...[...Parser.ruleMap.entries()]
         .sort(([a], [b]) => a.localeCompare(b))
         .map(([k, v]) => [
           chalk.yellowBright(k),
-          chalk.magentaBright(v.navTitle),
+          chalk.magentaBright(v.nav.text),
           chalk.greenBright(v.source),
+        ]),
+    ],
+    {
+      drawHorizontalLine: (index: number, size: number) =>
+        [0, 1, size].includes(index),
+    }
+  );
+}
+
+export function formatBadLinks(): string {
+  return table(
+    [
+      ["Broken Link", "Source", "Between Lines"],
+      ...[...Parser.badLinksMap.values()]
+        .sort((a, b) => a.source.localeCompare(b.source))
+        .map((v) => [
+          chalk.yellowBright(v.href),
+          chalk.magentaBright(v.source),
+          chalk.greenBright(v.map),
         ]),
     ],
     {
@@ -81,7 +100,7 @@ export function writeModel(path: string, cats: Category): Promise<void> {
       cats,
       (k, v) => {
         // Remove bloating data
-        if (["parser", "tokens"].includes(k)) {
+        if (["parser", "tokens", "config"].includes(k)) {
           return undefined;
         }
         return v;
