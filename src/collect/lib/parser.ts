@@ -146,6 +146,7 @@ export class Parser {
         const map = token.map || parent?.map;
         // eslint-disable-next-line no-script-url
         token.attrSet("href", "javascript:void(0);");
+        token.attrSet("class", "api-docs-broken-link");
         token.attrSet(
           "onClick",
           [

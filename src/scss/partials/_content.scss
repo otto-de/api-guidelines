@@ -63,4 +63,16 @@
   p {
     line-height: 1.8em;
   }
+
+  &-docs-broken-link {
+    text-decoration-color: darkred;
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+
+    &:hover {
+      text-decoration-color: darkred;
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+    }
+  }
 }
