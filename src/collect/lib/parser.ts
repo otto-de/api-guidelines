@@ -31,11 +31,14 @@ export class Parser {
   static sourceMap = new Map<string, Parser>();
 
   /** Contains bad links found in the data */
-  static badLinksMap = new Set<{
+  static badLinks = new Set<{
     href: string;
     source: string;
     map?: [number, number] | null;
   }>();
+
+  /** Flattened Data Collection */
+  static docs = new Set<Parser>();
 
   /** Front Matter extracted from docuement */
   frontMatter: FrontMatter = {};
@@ -89,6 +92,8 @@ export class Parser {
     this.nav = this.processNavData();
     this.checkAndProcessRule();
     this.processSourceMap();
+
+    Parser.docs.add(this);
   }
 
   public render(): void {
@@ -158,7 +163,7 @@ export class Parser {
         );
 
         log.warn("Bad Link: %s in: %s at: %o", href, this.source, map);
-        Parser.badLinksMap.add({ href, source: this.source, map });
+        Parser.badLinks.add({ href, source: this.source, map });
       }
     }
   }

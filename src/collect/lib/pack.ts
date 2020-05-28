@@ -8,7 +8,7 @@ import { readText, outputFile } from "./fs";
 import {
   registerPartials,
   formatRules,
-  writeModel,
+  writeStructure,
   registerHelpers,
   formatBadLinks,
 } from "./utils";
@@ -33,7 +33,7 @@ export async function pack(): Promise<void> {
   Parser.sourceMap.forEach((p) => p.render());
 
   log.debug("Output Model as JSON into:", config.debug.model);
-  await writeModel(config.debug.model, cats);
+  await writeStructure(config.debug.model, cats);
 
   log.debug("Load render template data");
   registerHelpers();
@@ -41,13 +41,19 @@ export async function pack(): Promise<void> {
   const indexTpl = await readText(join(config.templates.root, "index.hbs"));
 
   log.info("Render Data as Html");
-  const res = hbTransform(indexTpl, { config, categorys: cats });
+  const model = {
+    config,
+    categorys: cats,
+    docs: Parser.docs,
+    headings: [...Parser.docs].map((d) => d.headings).flat(1),
+  };
+  const res = hbTransform(indexTpl, model);
   await outputFile(join(config.dist, "index.html"), res);
 
   log.info("Processed rules:");
   writeLine(formatRules());
 
-  if (Parser.badLinksMap.size > 0) {
+  if (Parser.badLinks.size > 0) {
     log.warn("Sources contain Bad Links");
     writeLine(formatBadLinks());
   }

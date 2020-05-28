@@ -72,7 +72,7 @@ export function formatBadLinks(): string {
   return table(
     [
       ["Broken Link", "Source", "Between Lines"],
-      ...[...Parser.badLinksMap.values()]
+      ...[...Parser.badLinks.values()]
         .sort((a, b) => a.source.localeCompare(b.source))
         .map((v) => [
           chalk.cyanBright(v.href),
@@ -93,7 +93,7 @@ export function formatBadLinks(): string {
  * @param cats
  * @returns Promise
  */
-export function writeModel(path: string, cats: Category): Promise<void> {
+export function writeStructure(path: string, cats: Category): Promise<void> {
   return outputFile(
     path,
     JSON.stringify(
