@@ -22,17 +22,17 @@ An API should contain the complete business processes containing all resources r
 
 In addition, it prevents services from being designed as thin wrappers around databases, which normally tends to shift business logic to the clients.
 
-### **[SHOULD]** define *useful* resources
+### **[SHOULD]** define _useful_ resources
 
 > TODO: [REVIEW]
 
-As a rule of thumb resources should be defined to cover 90% of all its client’s use cases. A *useful* resource should contain as much information as necessary, but as little as possible. A great way to support the last 10% is to allow clients to specify their needs for more/less information by supporting filtering and [embedding](#embedding).
+As a rule of thumb resources should be defined to cover 90% of all its client’s use cases. A _useful_ resource should contain as much information as necessary, but as little as possible. A great way to support the last 10% is to allow clients to specify their needs for more/less information by supporting filtering and [embedding](#embedding).
 
 ### **[MUST]** keep URLs verb-free
 
 > TODO: [REVIEW]
 
-The API describes resources, so the only place where actions should appear is in the HTTP methods. In URLs, use only nouns. Instead of thinking of actions (verbs), it’s often helpful to think about putting a message in a letter box: e.g., instead of having the verb *cancel* in the url, think of sending a message to cancel an order to the *cancellations* letter box on the server side.
+The API describes resources, so the only place where actions should appear is in the HTTP methods. In URLs, use only nouns. Instead of thinking of actions (verbs), it’s often helpful to think about putting a message in a letter box: e.g., instead of having the verb _cancel_ in the url, think of sending a message to cancel an order to the _cancellations_ letter box on the server side.
 
 ### **[MUST]** use domain-specific resource names
 
@@ -75,7 +75,7 @@ In order to improve the consumer experience, you **[SHOULD** aim for intuitively
 
 > TODO: [REVIEW]
 
-If a resource is best identified by a *compound key* consisting of multiple other resource identifiers, it is allowed to reuse the compound key in its natural form containing slashes instead of *technical* resource identifier in the resource path without violating the above rule [**MUST** identify resources and sub-resources via path segments](#must-identify-resources-and-sub-resources-via-path-segments) as follows:
+If a resource is best identified by a _compound key_ consisting of multiple other resource identifiers, it is allowed to reuse the compound key in its natural form containing slashes instead of _technical_ resource identifier in the resource path without violating the above rule [**MUST** identify resources and sub-resources via path segments](#must-identify-resources-and-sub-resources-via-path-segments) as follows:
 
 ```
 /resources/{compound-key-1}[delim-1]...[delim-n-1]{compound-key-n}
@@ -93,7 +93,7 @@ Example paths:
 
 **Warning:** Exposing a compound key as described above limits ability to evolve the structure of the resource identifier as it is no longer opaque.
 
-To compensate for this drawback, APIs must apply a compound key abstraction consistently in all requests and responses parameters and attributes allowing consumers to treat these as *technical resource identifier* replacement. The use of independent compound key components must be limited to search and creation requests, as follows:
+To compensate for this drawback, APIs must apply a compound key abstraction consistently in all requests and responses parameters and attributes allowing consumers to treat these as _technical resource identifier_ replacement. The use of independent compound key components must be limited to search and creation requests, as follows:
 
 ```
 # compound key components passed as independent search query parameters
@@ -132,20 +132,12 @@ However, if the resource can be accessed directly via its unique id, then the AP
 
 ### **[MUST]** pluralize resource names
 
-> 
->
 > TODO [WIP]
->
-> 
-
-
 
 ```
 /customers/1637asikzec1
 /sales-orders/5273gh3k525a
 ```
-
-
 
 ### **[SHOULD]** only use UUIDs if necessary
 
@@ -170,7 +162,7 @@ Please be aware that sequential, strictly monotonically increasing numeric ident
 
 In any case, we should always use string rather than number type for identifiers. This gives us more flexibility to evolve the identifier naming scheme. Accordingly, if used as identifiers, UUIDs should not be qualified using a format property.
 
-*Hint*: Usually, random UUID is used - see UUID version 4 in [RFC 4122](https://tools.ietf.org/html/rfc4122). Though UUID version 1 also contains leading timestamps it is not reflected by its lexicographic sorting. This deficit is addressed by [ULID](https://github.com/ulid/spec) (Universally Unique Lexicographically Sortable Identifier). You may favour ULID instead of UUID, for instance, for pagination use cases ordered along creation time.
+_Hint_: Usually, random UUID is used - see UUID version 4 in [RFC 4122](https://tools.ietf.org/html/rfc4122). Though UUID version 1 also contains leading timestamps it is not reflected by its lexicographic sorting. This deficit is addressed by [ULID](https://github.com/ulid/spec) (Universally Unique Lexicographically Sortable Identifier). You may favour ULID instead of UUID, for instance, for pagination use cases ordered along creation time.
 
 ### **[SHOULD]** limit number of resource types
 
@@ -204,7 +196,7 @@ Nevertheless one API should hold all necessary resources to model complete busin
 
 > TODO: [REVIEW]
 
-There are main resources (with root url paths) and sub-resources (or *nested* resources with non-root urls paths). Use sub-resources if their life cycle is (loosely) coupled to the main resource, i.e. the main resource works as collection resource of the subresource entities. You should use <= 3 sub-resource (nesting) levels — more levels increase API complexity and url path length. (Remember, some popular web browsers do not support URLs of more than 2000 characters.)
+There are main resources (with root url paths) and sub-resources (or _nested_ resources with non-root urls paths). Use sub-resources if their life cycle is (loosely) coupled to the main resource, i.e. the main resource works as collection resource of the subresource entities. You should use <= 3 sub-resource (nesting) levels — more levels increase API complexity and url path length. (Remember, some popular web browsers do not support URLs of more than 2000 characters.)
 
 ### **[MUST]** stick to conventional query parameters
 
@@ -228,17 +220,17 @@ If you provide query support for searching, sorting, filtering, and paginating, 
 
 Header and query parameters allow to provide a collection of values, either by providing a comma-separated list of values or by repeating the parameter multiple times with different values as follows:
 
-| Parameter Type | Comma-separated Values  | Multiple Parameters              | Standard                                                     |
-| :------------- | :---------------------- | :------------------------------- | :----------------------------------------------------------- |
+| Parameter Type | Comma-separated Values  | Multiple Parameters              | Standard                                                                    |
+| :------------- | :---------------------- | :------------------------------- | :-------------------------------------------------------------------------- |
 | Header         | `Header: value1,value2` | `Header: value1, Header: value2` | [RFC 7230 Section 3.2.2](https://tools.ietf.org/html/rfc7230#section-3.2.2) |
 | Query          | `?param=value1,value2`  | `?param=value1&param=value2`     | [RFC 6570 Section 3.2.8](https://tools.ietf.org/html/rfc6570#section-3.2.8) |
 
 As Open API does not support both schemas at once, an API specification must explicitly define the collection format to guide consumers as follows:
 
-| Parameter Type | Comma-separated Values          | Multiple Parameters                                          |
-| :------------- | :------------------------------ | :----------------------------------------------------------- |
+| Parameter Type | Comma-separated Values          | Multiple Parameters                                                                           |
+| :------------- | :------------------------------ | :-------------------------------------------------------------------------------------------- |
 | Header         | `style: simple, explode: false` | not allowed (see [RFC 7230 Section 3.2.2](https://tools.ietf.org/html/rfc7230#section-3.2.2)) |
-| Query          | `style: form, explode: false`   | `style: form, explode: true`                                 |
+| Query          | `style: form, explode: false`   | `style: form, explode: true`                                                                  |
 
 When choosing the collection format, take into account the tool support, the escaping of special characters and the maximal URL length.
 
@@ -326,17 +318,17 @@ In such cases, the implicit filtering must be in the API specification (in its d
 
 **Example**:
 
-If an employee of the company *Foo* accesses one of our business-to-business service and performs a `GET /business-partners`, it must, for legal reasons, not display any other business partner that is not owned or contractually managed by her/his company. It should never see that we are doing business also with company *Bar*.
+If an employee of the company _Foo_ accesses one of our business-to-business service and performs a `GET /business-partners`, it must, for legal reasons, not display any other business partner that is not owned or contractually managed by her/his company. It should never see that we are doing business also with company _Bar_.
 
 Response as seen from a consumer working at `FOO`:
 
 ```json
 {
-    "items": [
-        { "name": "Foo Performance" },
-        { "name": "Foo Sport" },
-        { "name": "Foo Signature" }
-    ]
+  "items": [
+    { "name": "Foo Performance" },
+    { "name": "Foo Sport" },
+    { "name": "Foo Signature" }
+  ]
 }
 ```
 
@@ -344,10 +336,7 @@ Response as seen from a consumer working at `BAR`:
 
 ```json
 {
-    "items": [
-        { "name": "Bar Classics" },
-        { "name": "Bar pour Elle" }
-    ]
+  "items": [{ "name": "Bar Classics" }, { "name": "Bar pour Elle" }]
 }
 ```
 
@@ -369,16 +358,12 @@ paths:
 > TODO: [WIP]
 >
 > **TODO**: für interne APIs. Bei public APIs ist das ein MUST. Hinweis auf mögliche spätere Migration auf HAL
->
-> 
-
-
 
 ### **[SHOULD]** allow optional embedding of sub-resources
 
 > TODO: [REVIEW]
 
-Embedding related resources (also know as *Resource expansion*) is a great way to reduce the number of requests. In cases where clients know upfront that they need some related resources they can instruct the server to prefetch that data eagerly. Whether this is optimized on the server, e.g. a database join, or done in a generic way, e.g. an HTTP proxy that transparently embeds resources, is up to the implementation.
+Embedding related resources (also know as _Resource expansion_) is a great way to reduce the number of requests. In cases where clients know upfront that they need some related resources they can instruct the server to prefetch that data eagerly. Whether this is optimized on the server, e.g. a database join, or done in a generic way, e.g. an HTTP proxy that transparently embeds resources, is up to the implementation.
 
 See [**MUST** stick to conventional query parameters](#must-stick-to-conventional-query-parameters) for naming, e.g. "embed" for steering of embedded resource expansion. Please use the [BNF](https://en.wikipedia.org/wiki/Backus–Naur_form) grammar, as already defined above for filtering, when it comes to an embedding query syntax.
 
@@ -417,7 +402,7 @@ Query parameters should have the following aspects specified:
 - Reference to corresponding property, if any
 - Value range, e.g. inclusive vs. exclusive
 - Comparison semantics (equals, less than, greater than, etc)
-- Implications when combined with other queries, e.g. *and* vs. *or*
+- Implications when combined with other queries, e.g. _and_ vs. _or_
 
 How query parameters are named and used is up to individual API designers. The following examples should serve as ideas:
 
@@ -425,9 +410,9 @@ How query parameters are named and used is up to individual API designers. The f
 - `age=5`, to query for elements based on logical properties
   - Assuming that elements don’t actually have an `age` but rather a `birthday`
 - `maxLength=5`, based on upper and lower bounds (`min` and `max`)
-- `shorterThan=5`, using terminology specific e.g. to *length*
+- `shorterThan=5`, using terminology specific e.g. to _length_
 - `createdBefore=2019-07-17` or `notModifiedSince=2019-07-17`
-  - Using terminology specific e.g. to time: *before*, *after*, *since* and *until*
+  - Using terminology specific e.g. to time: _before_, _after_, _since_ and _until_
 
 We don’t advocate for or against certain names because in the end APIs should be free to choose the terminology that fits their domain the best.
 
@@ -435,7 +420,7 @@ We don’t advocate for or against certain names because in the end APIs should 
 
 > TODO: [REVIEW]
 
-Minimalistic query languages based on [query parameters](#should-design-simple-query-languages-using-query-parameters) are suitable for simple use cases with a small set of available filters that are combined in one way and one way only (e.g. *and* semantics). Simple query languages are generally preferred over complex ones.
+Minimalistic query languages based on [query parameters](#should-design-simple-query-languages-using-query-parameters) are suitable for simple use cases with a small set of available filters that are combined in one way and one way only (e.g. _and_ semantics). Simple query languages are generally preferred over complex ones.
 
 Some APIs will have a need for sophisticated and more complex query languages. Dominant examples are APIs around search (incl. faceting) and product catalogs.
 

@@ -26,19 +26,20 @@ The [IANA link relations](http://www.iana.org/assignments/link-relations/link-re
 
 The most common ones are:
 
-* `self` : the current page
-* `next` : the next page
-* `prev` : the previous page
-* `first` : the first page
-* `last` : the last page
+- `self` : the current page
+- `next` : the next page
+- `prev` : the previous page
+- `first` : the first page
+- `last` : the last page
 
- *Page* might have different meanings depending on the implementation, see below.
+  _Page_ might have different meanings depending on the implementation, see below.
 
- ## **MUST** use common query parameters
+## **MUST** use common query parameters
 
 To provide a consistent look and feel of pagination patterns, you must stick to the common query parameter names.
 
 Relevant query parameters are:
+
 - paging (offset): `size`, `page`
 - paging (cursor): `after`, `before`
 - sorting: `sort`
@@ -66,32 +67,32 @@ If offset based pagination is chosen, it **MUST** be page based.
 The page metadata structure **MUST** match the following structure.
 Some fields can be omitted.
 
-``` json
+```json
 {
-  "_page" : {
-    "size" : 5,
-    "number" : 0,
-    "totalElements" : 50,
-    "totalPages" : 10
+  "_page": {
+    "size": 5,
+    "number": 0,
+    "totalElements": 50,
+    "totalPages": 10
   }
-} 
+}
 ```
 
-* `size` : Number of elements in the response (page size)
-* `number` : Current page number (0 indexed)
-* `totalElements` (*optional*): Overall number of elements
-* `totalPages` (*optional*): Overall number of pages
+- `size` : Number of elements in the response (page size)
+- `number` : Current page number (0 indexed)
+- `totalElements` (_optional_): Overall number of elements
+- `totalPages` (_optional_): Overall number of pages
 
 `totalElements` and `totalPages` **CAN** be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
 
 #### Pros
 
-* well-known pattern
-* wide support for server and client
+- well-known pattern
+- wide support for server and client
 
 #### Cons
 
-* window is fixed: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime. **SHOULD** be avoided for quickly updating collections.
+- window is fixed: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime. **SHOULD** be avoided for quickly updating collections.
 
 ### 2. Cursor based
 
@@ -105,46 +106,45 @@ TODO: Define cursor metadata. There are different approaches
 
 #### Pros
 
-* window moves: next page always refers to the following elements, even if new elements are prepended in the meantime
+- window moves: next page always refers to the following elements, even if new elements are prepended in the meantime
 
 #### Cons
 
-* not well-known
-* limited support for clients
-* cursor might be invalid if the entry is deleted, breaking iteration
-
+- not well-known
+- limited support for clients
+- cursor might be invalid if the entry is deleted, breaking iteration
 
 ## Example
 
 ### Offset based
 
-``` json
+```json
 {
   "_embedded": {
     "orders": [
-        {
-          "total": 30.00,
-          "currency": "USD",
-          "status": "shipped",
+      {
+        "total": 30.0,
+        "currency": "USD",
+        "status": "shipped",
 
-          "_links": {
-            "self": { "href": "/orders/123" },
-            "basket": { "href": "/baskets/98712" },
-            "customer": { "href": "/customers/7809" }
-          }
-        },
-        {
-          "total": 20.00,
-          "currency": "USD",
-          "status": "processing",
-
-          "_links": {
-            "self": { "href": "/orders/124" },
-            "basket": { "href": "/baskets/97213" },
-            "customer": { "href": "/customers/12369" }
-          }
+        "_links": {
+          "self": { "href": "/orders/123" },
+          "basket": { "href": "/baskets/98712" },
+          "customer": { "href": "/customers/7809" }
         }
-      ]
+      },
+      {
+        "total": 20.0,
+        "currency": "USD",
+        "status": "processing",
+
+        "_links": {
+          "self": { "href": "/orders/124" },
+          "basket": { "href": "/baskets/97213" },
+          "customer": { "href": "/customers/12369" }
+        }
+      }
+    ]
   },
 
   "currentlyProcessing": 14,
@@ -161,33 +161,33 @@ TODO: Define cursor metadata. There are different approaches
 
 ### Cursor based
 
-``` json
+```json
 {
   "_embedded": {
     "orders": [
-        {
-          "total": 30.00,
-          "currency": "USD",
-          "status": "shipped",
-          
-          "_links": {
-            "self": { "href": "/orders/123" },
-            "basket": { "href": "/baskets/98712" },
-            "customer": { "href": "/customers/7809" }
-          }
-        },
-        {
-          "total": 20.00,
-          "currency": "USD",
-          "status": "processing",
-          
-          "_links": {
-            "self": { "href": "/orders/124" },
-            "basket": { "href": "/baskets/97213" },
-            "customer": { "href": "/customers/12369" }
-          }
+      {
+        "total": 30.0,
+        "currency": "USD",
+        "status": "shipped",
+
+        "_links": {
+          "self": { "href": "/orders/123" },
+          "basket": { "href": "/baskets/98712" },
+          "customer": { "href": "/customers/7809" }
         }
-      ]
+      },
+      {
+        "total": 20.0,
+        "currency": "USD",
+        "status": "processing",
+
+        "_links": {
+          "self": { "href": "/orders/124" },
+          "basket": { "href": "/baskets/97213" },
+          "customer": { "href": "/customers/12369" }
+        }
+      }
+    ]
   },
 
   "currentlyProcessing": 14,
@@ -201,24 +201,23 @@ TODO: Define cursor metadata. There are different approaches
     "last": { "href": "/orders?page=9" }
   },
 
-  "_page" : {
-    "size" : 10,
-    "totalElements" : 100,
-    "totalPages" : 10,
-    "number" : 0
+  "_page": {
+    "size": 10,
+    "totalElements": 100,
+    "totalPages": 10,
+    "number": 0
   }
 }
 ```
 
-
 ## References
 
-* [HAL RFC: Example document](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-6)
-* [Zalando's guidelines on pagination](https://opensource.zalando.com/restful-api-guidelines/#pagination)
-* [JSON: API Spec: Pagination](https://jsonapi.org/format/#fetching-pagination)
-* [Facebook API: Paging](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging)
-* [Spring data REST](https://docs.spring.io/spring-data/rest/docs/current/reference/html/#paging-and-sorting)
-* [Offset/Limit-based pagination](https://developer.infoconnect.com/paging-results): numeric offset identifies the first page entry
-* [Cursor/Limit-based](https://dev.twitter.com/overview/api/cursoring) — aka key-based — pagination: a unique key element identifies the first page entry (see also [Facebook's guide](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging))
+- [HAL RFC: Example document](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-6)
+- [Zalando's guidelines on pagination](https://opensource.zalando.com/restful-api-guidelines/#pagination)
+- [JSON: API Spec: Pagination](https://jsonapi.org/format/#fetching-pagination)
+- [Facebook API: Paging](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging)
+- [Spring data REST](https://docs.spring.io/spring-data/rest/docs/current/reference/html/#paging-and-sorting)
+- [Offset/Limit-based pagination](https://developer.infoconnect.com/paging-results): numeric offset identifies the first page entry
+- [Cursor/Limit-based](https://dev.twitter.com/overview/api/cursoring) — aka key-based — pagination: a unique key element identifies the first page entry (see also [Facebook's guide](https://developers.facebook.com/docs/graph-api/using-graph-api/v2.4#paging))
 
 The technical conception of pagination should also consider user experience related issues. As mentioned in this [article](https://www.smashingmagazine.com/2016/03/pagination-infinite-scrolling-load-more-buttons/), jumping to a specific page is far less used than navigation via `next`/`prev` page links

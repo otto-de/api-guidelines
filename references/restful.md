@@ -1,7 +1,5 @@
 # RESTful API
 
-
-
 > **TODO:**
 >
 > 1. Die Regeln sind mit einem TODO: [REVIEW] markiert. Wenn das Review erfolgt ist und wir einverstanden sind, bitte den Kommentar entfernen.
@@ -10,8 +8,6 @@
 > 3. Wir können Punkte, die wir erstmal ausprobieren wollen, mit TODO: [BETA] oder ähnlichem markieren und dann später anpassen, löschen oder freigeben
 > 4. Die Zalando Guidelines enthalten noch mehr Punkte, die wir nach und nach einarbeiten oder verwerfen können. Gleiches gilt für die bisherigen OTTO Guidelines - auch hier sind noch weitere Punkte enthalten, die wir eventuell übernehmen wollen.
 > 5. An geeigneter Stellen sollten wir auf die "Decisions" verlinken.
-
-
 
 ## Table of Contents
 
@@ -26,7 +22,7 @@ Comparing SOA web service interfacing style of SOAP vs. REST, the former tend to
 - We prefer REST-based APIs with JSON payloads
 - We prefer systems to be truly RESTful
 
-*Readings:* Some interesting reads on the RESTful API design style and service architecture:
+_Readings:_ Some interesting reads on the RESTful API design style and service architecture:
 
 - Book: [Irresistable APIs: Designing web APIs that developers will love](https://www.amazon.de/Irresistible-APIs-Designing-that-developers/dp/1617292559)
 - Book: [REST in Practice: Hypermedia and Systems Architecture](http://www.amazon.de/REST-Practice-Hypermedia-Systems-Architecture/dp/0596805829)
@@ -111,7 +107,7 @@ As we discourage versioning by all means because of the manifold disadvantages, 
 
 > TODO: [WIP]
 >
-> TODO**: Mit Entscheidungen zum Thema Versionierung abgleichen!!!
+> TODO\*\*: Mit Entscheidungen zum Thema Versionierung abgleichen!!!
 
 However, when API versioning is unavoidable, you have to design your multi-version RESTful APIs using media type versioning (instead of URI versioning, see below). Media type versioning is less tightly coupled since it supports content negotiation and hence reduces complexity of release management.
 
@@ -142,7 +138,7 @@ Further reading: [API Versioning Has No "Right Way"](https://blog.apisyouwonthat
 
 > TODO: [WIP]
 >
-> TODO**: Mit Entscheidungen zum Thema Versionierung abgleichen!!!
+> TODO\*\*: Mit Entscheidungen zum Thema Versionierung abgleichen!!!
 
 With URI versioning a (major) version number is included in the path, e.g. `/v1/customers`. The consumer has to wait until the provider has been released and deployed. If the consumer also supports hypermedia links — even in their APIs — to drive workflows (HATEOAS), this quickly becomes complex. So does coordinating version upgrades — especially with hyperlinked service dependencies — when using URL versioning. To avoid this tighter coupling and complexer release management we do not use URI versioning, and go instead with media type versioning and content negotiation (see above).
 
@@ -150,7 +146,7 @@ With URI versioning a (major) version number is included in the path, e.g. `/v1/
 
 > TODO: [REVIEW]
 
-Sometimes it is necessary to phase out an API endpoint, an API version, or an API feature, e.g. if a field or parameter is no longer supported or a whole business functionality behind an endpoint is supposed to be shut down. As long as the API endpoints and features are still used by consumers these shut downs are breaking changes and not allowed. To progress the following deprecation rules have to be applied to make sure that the necessary consumer changes and actions are well communicated and aligned using *deprecation* and *sunset* dates.
+Sometimes it is necessary to phase out an API endpoint, an API version, or an API feature, e.g. if a field or parameter is no longer supported or a whole business functionality behind an endpoint is supposed to be shut down. As long as the API endpoints and features are still used by consumers these shut downs are breaking changes and not allowed. To progress the following deprecation rules have to be applied to make sure that the necessary consumer changes and actions are well communicated and aligned using _deprecation_ and _sunset_ dates.
 
 ### **[MUST]** obtain approval of clients before API shut down
 
@@ -182,7 +178,7 @@ Owners of an API, API version, or API feature used in production that is schedul
 
 > TODO: [REVIEW]
 
-During the deprecation phase, the producer should add a `Deprecation: ` (see [draft: RFC Deprecation HTTP Header](https://tools.ietf.org/html/draft-dalal-deprecation-header)) and - if also planned - a `Sunset: ` (see [RFC 8594](https://tools.ietf.org/html/rfc8594#section-3)) header on each response affected by a deprecated element (see [**MUST** reflect deprecation in API specifications](#must-reflect-deprecation-in-api-specifications)).
+During the deprecation phase, the producer should add a `Deprecation:` (see [draft: RFC Deprecation HTTP Header](https://tools.ietf.org/html/draft-dalal-deprecation-header)) and - if also planned - a `Sunset:` (see [RFC 8594](https://tools.ietf.org/html/rfc8594#section-3)) header on each response affected by a deprecated element (see [**MUST** reflect deprecation in API specifications](#must-reflect-deprecation-in-api-specifications)).
 
 The [`Deprecation`](https://tools.ietf.org/html/draft-dalal-deprecation-header) header can either be set to `true` - if a feature is retired -, or carry a deprecation time stamp, at which a replacement will become/became available and consumers must not on-board any longer (see [**MUST** not start using deprecated APIs](#must-not-start-using-deprecated-apis)). The optional [`Sunset`](https://tools.ietf.org/html/rfc8594) time stamp carries the information when consumers latest have to stop using a feature. The sunset date should always offer an eligible time interval for switching to a replacement feature.
 
@@ -209,31 +205,23 @@ Clients must not start using deprecated APIs, API versions, or API features.
 
 ## Common Headers
 
-> 
->
 > TODO: [WIP]
->
-> 
 
 ### **[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header
 
-> 
->
 > TODO: [REVIEW]
 >
 > TODO: Link auf Zalando Best Practices - Inhalt übernehmen oder sonstwie einarbeiten.
 
+When creating or updating resources it may be necessary to expose conflicts and to prevent the 'lost update' or 'initially created' problem. Following [RFC 7232 "HTTP: Conditional Requests"](https://tools.ietf.org/html/rfc7232) this can be best accomplished by supporting the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3) header together with the [`If-Match`](https://tools.ietf.org/html/rfc7232#section-3.1) or [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) conditional header. The contents of an `ETag: <entity tag>` header is either
 
+​ a) a hash of the response body,
 
-When creating or updating resources it may be necessary to expose conflicts and to prevent the 'lost update' or 'initially created' problem. Following [RFC 7232 "HTTP: Conditional Requests"](https://tools.ietf.org/html/rfc7232) this can be best accomplished by supporting the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3) header together with the [`If-Match`](https://tools.ietf.org/html/rfc7232#section-3.1) or [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) conditional header. The contents of an `ETag: <entity tag> ` header is either 
+​ b) a hash of the last modified field of the entity, or
 
-​	a) a hash of the response body, 
+​ c) a version number or identifier of the entity version.
 
-​	b) a hash of the last modified field of the entity, or 
-
-​	c) a version number or identifier of the entity version.
-
-To expose conflicts between concurrent update operations via [`PUT`](#put), [`POST`](#post), or [`PATCH`](#patch), the `If-Match: <entity tag> ` header can be used to force the server to check whether the version of the updated entity is conforming to the requested [`<entity tag>`](https://tools.ietf.org/html/rfc7232#section-2.3). If no matching entity is found, the operation is supposed to respond with status code `412 - Precondition Failed`.
+To expose conflicts between concurrent update operations via [`PUT`](#put), [`POST`](#post), or [`PATCH`](#patch), the `If-Match: <entity tag>` header can be used to force the server to check whether the version of the updated entity is conforming to the requested [`<entity tag>`](https://tools.ietf.org/html/rfc7232#section-2.3). If no matching entity is found, the operation is supposed to respond with status code `412 - Precondition Failed`.
 
 Beside other use cases, `If-None-Match: *` can be used in a similar way to expose conflicts in resource creation. If any matching entity is found, the operation is supposed to respond with status code `412 Precondition Failed`.
 
@@ -285,15 +273,11 @@ Please see [Optimistic locking in RESTful APIs](https://opensource.zalando.com/r
 
 ### [**MAY** consider to support `Idempotency-Key` header [230\]](https://opensource.zalando.com/restful-api-guidelines/#230)
 
-> 
->
 > TODO: [WIP]
->
-> 
 
-When creating or updating resources it can be helpful or necessary to ensure a strong [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) behavior comprising same responses, to prevent duplicate execution in case of retries after timeout and network outages. Generally, this can be achieved by sending a client specific *unique request key*– that is not part of the resource – via [`Idempotency-Key`](https://opensource.zalando.com/restful-api-guidelines/#230) header.
+When creating or updating resources it can be helpful or necessary to ensure a strong [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) behavior comprising same responses, to prevent duplicate execution in case of retries after timeout and network outages. Generally, this can be achieved by sending a client specific _unique request key_– that is not part of the resource – via [`Idempotency-Key`](https://opensource.zalando.com/restful-api-guidelines/#230) header.
 
-The *unique request key* is stored temporarily, e.g. for 24 hours, together with the response and the request hash (optionally) of the first request in a key cache, regardless of whether it succeeded or failed. The service can now look up the *unique request key* in the key cache and serve the response from the key cache, instead of re-executing the request, to ensure [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) behavior. Optionally, it can check the request hash for consistency before serving the response. If the key is not in the key store, the request is executed as usual and the response is stored in the key cache.
+The _unique request key_ is stored temporarily, e.g. for 24 hours, together with the response and the request hash (optionally) of the first request in a key cache, regardless of whether it succeeded or failed. The service can now look up the _unique request key_ in the key cache and serve the response from the key cache, instead of re-executing the request, to ensure [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) behavior. Optionally, it can check the request hash for consistency before serving the response. If the key is not in the key store, the request is executed as usual and the response is stored in the key cache.
 
 This allows clients to safely retry requests after timeouts, network outages, etc. while receive the same response multiple times. **Note:** The request retry in this context requires to send the exact same request, i.e. updates of the request that would change the result are off-limits. The request hash in the key cache can protection against this misbehavior. The service is recommended to reject such a request using status code [400](https://opensource.zalando.com/restful-api-guidelines/#status-code-400).
 
@@ -341,7 +325,7 @@ The first some of the following guidelines are about property names, the later o
 
 > TODO: [REVIEW]
 
-Use JSON-encoded body payload for transferring structured data. The JSON payload must follow [RFC 7159](https://tools.ietf.org/html/rfc7159) using a JSON object as top-level data structure (if possible) to allow for future extension. This also applies to collection resources, where one naturally would assume an array. 
+Use JSON-encoded body payload for transferring structured data. The JSON payload must follow [RFC 7159](https://tools.ietf.org/html/rfc7159) using a JSON object as top-level data structure (if possible) to allow for future extension. This also applies to collection resources, where one naturally would assume an array.
 
 Additionally, the JSON payload must comply to [RFC 7493](https://tools.ietf.org/html/rfc7493), particularly
 
@@ -368,15 +352,15 @@ In a response body, you must always return a JSON object (and not e.g. an array)
 
 Generally speaking, only english should be used to name things: properties, property values, resources, etc. pp.
 
-### **[MUST]** property names must be ASCII camelCase (and never snake_case): `[a-z_][a-zA-Z0-9]*`
+### **[MUST]** property names must be ASCII camelCase (and never snake*case): `[a-z*][a-zA-Z0-9]\*`
 
 > TODO: [REVIEW]
 
 Property names are restricted to ASCII strings. The first character must be a letter, or an underscore, and subsequent characters can be a letter or a number.
 
-(It is highly recommended to use _ at the start of property names only for keywords like _links or _embedded.)
+(It is highly recommended to use \_ at the start of property names only for keywords like \_links or \_embedded.)
 
-*Rationale*: No established industry standard exists, but the currently existing OTTO APIs prefer camelCase. While many popular Internet companies prefer snake_case: e.g. GitHub, Stack Exchange, Twitter. Others, like Google and Amazon, use both - not only camelCase. It’s essential to establish a consistent look and feel such that JSON looks as if it came from the same hand.
+_Rationale_: No established industry standard exists, but the currently existing OTTO APIs prefer camelCase. While many popular Internet companies prefer snake_case: e.g. GitHub, Stack Exchange, Twitter. Others, like Google and Amazon, use both - not only camelCase. It’s essential to establish a consistent look and feel such that JSON looks as if it came from the same hand.
 
 ### **[MUST]** array names must be in plural
 
@@ -421,7 +405,7 @@ The following table shows all combinations and whether the examples are valid:
 
 While API designers and implementers may be tempted to assign different semantics to both cases, we explicitly decide **against** that option, because we think that any gain in expressiveness is far outweighed by the risk of clients not understanding and implementing the subtle differences incorrectly.
 
-As an example, an API that provides the ability for different users to coordinate on a time schedule, e.g. a meeting, may have a resource for options in which every user has to make a `choice`. The difference between *undecided* and *decided against any of the options* could be modeled as *absent*and `null` respectively. It would be safer to express the `null` case with a dedicated [Null object](https://en.wikipedia.org/wiki/Null_object_pattern), e.g. `{}` compared to `{"id":"42"}`.
+As an example, an API that provides the ability for different users to coordinate on a time schedule, e.g. a meeting, may have a resource for options in which every user has to make a `choice`. The difference between _undecided_ and _decided against any of the options_ could be modeled as *absent*and `null` respectively. It would be safer to express the `null` case with a dedicated [Null object](https://en.wikipedia.org/wiki/Null_object_pattern), e.g. `{}` compared to `{"id":"42"}`.
 
 Moreover, many major libraries have somewhere between little to no support for a `null`/absent pattern (see [Gson](https://stackoverflow.com/questions/48465005/gson-distinguish-null-value-field-and-missing-field), [Moshi](https://github.com/square/moshi#borrows-from-gson), [Jackson](https://github.com/FasterXML/jackson-databind/issues/578), [JSON-B](https://developer.ibm.com/articles/j-javaee8-json-binding-3/)). Especially strongly-typed languages suffer from this since a new composite type is required to express the third state. Nullable `Option`/`Optional`/`Maybe` types could be used but having nullable references of these types completely contradicts their purpose.
 
@@ -433,7 +417,7 @@ The only exception to this rule is JSON Merge Patch [RFC 7396](https://tools.iet
 
 Empty array values can unambiguously be represented as the empty list, `[]`.
 
-### **[MUST]** define dates and times properties compliant with [RFC 3339](https://tools.ietf.org/html/rfc3339) 
+### **[MUST]** define dates and times properties compliant with [RFC 3339](https://tools.ietf.org/html/rfc3339)
 
 > TODO: [REVIEW]
 
@@ -450,7 +434,7 @@ When it comes to storage, all dates should be consistently stored in UTC without
 
 Sometimes it can seem data is naturally represented using numerical timestamps, but this can introduce interpretation issues with precision, e.g. whether to represent a timestamp as 1460062925, 1460062925000 or 1460062925.000. Date strings, though more verbose and requiring more effort to parse, avoid this ambiguity.
 
-### **[SHOULD]** define time durations and intervals properties conform to ISO 8601 
+### **[SHOULD]** define time durations and intervals properties conform to ISO 8601
 
 > TODO: [REVIEW]
 
@@ -480,17 +464,17 @@ An API should contain the complete business processes containing all resources r
 
 In addition, it prevents services from being designed as thin wrappers around databases, which normally tends to shift business logic to the clients.
 
-### **[SHOULD]** define *useful* resources
+### **[SHOULD]** define _useful_ resources
 
 > TODO: [REVIEW]
 
-As a rule of thumb resources should be defined to cover 90% of all its client’s use cases. A *useful* resource should contain as much information as necessary, but as little as possible. A great way to support the last 10% is to allow clients to specify their needs for more/less information by supporting filtering and [embedding](#embedding).
+As a rule of thumb resources should be defined to cover 90% of all its client’s use cases. A _useful_ resource should contain as much information as necessary, but as little as possible. A great way to support the last 10% is to allow clients to specify their needs for more/less information by supporting filtering and [embedding](#embedding).
 
 ### **[MUST]** keep URLs verb-free
 
 > TODO: [REVIEW]
 
-The API describes resources, so the only place where actions should appear is in the HTTP methods. In URLs, use only nouns. Instead of thinking of actions (verbs), it’s often helpful to think about putting a message in a letter box: e.g., instead of having the verb *cancel* in the url, think of sending a message to cancel an order to the *cancellations* letter box on the server side.
+The API describes resources, so the only place where actions should appear is in the HTTP methods. In URLs, use only nouns. Instead of thinking of actions (verbs), it’s often helpful to think about putting a message in a letter box: e.g., instead of having the verb _cancel_ in the url, think of sending a message to cancel an order to the _cancellations_ letter box on the server side.
 
 ### **[MUST]** use domain-specific resource names
 
@@ -533,7 +517,7 @@ In order to improve the consumer experience, you **[SHOULD** aim for intuitively
 
 > TODO: [REVIEW]
 
-If a resource is best identified by a *compound key* consisting of multiple other resource identifiers, it is allowed to reuse the compound key in its natural form containing slashes instead of *technical* resource identifier in the resource path without violating the above rule [**MUST** identify resources and sub-resources via path segments](#must-identify-resources-and-sub-resources-via-path-segments) as follows:
+If a resource is best identified by a _compound key_ consisting of multiple other resource identifiers, it is allowed to reuse the compound key in its natural form containing slashes instead of _technical_ resource identifier in the resource path without violating the above rule [**MUST** identify resources and sub-resources via path segments](#must-identify-resources-and-sub-resources-via-path-segments) as follows:
 
 ```
 /resources/{compound-key-1}[delim-1]...[delim-n-1]{compound-key-n}
@@ -551,7 +535,7 @@ Example paths:
 
 **Warning:** Exposing a compound key as described above limits ability to evolve the structure of the resource identifier as it is no longer opaque.
 
-To compensate for this drawback, APIs must apply a compound key abstraction consistently in all requests and responses parameters and attributes allowing consumers to treat these as *technical resource identifier* replacement. The use of independent compound key components must be limited to search and creation requests, as follows:
+To compensate for this drawback, APIs must apply a compound key abstraction consistently in all requests and responses parameters and attributes allowing consumers to treat these as _technical resource identifier_ replacement. The use of independent compound key components must be limited to search and creation requests, as follows:
 
 ```
 # compound key components passed as independent search query parameters
@@ -590,20 +574,12 @@ However, if the resource can be accessed directly via its unique id, then the AP
 
 ### **[MUST]** pluralize resource names
 
-> 
->
 > TODO [WIP]
->
-> 
-
-
 
 ```
 /customers/1637asikzec1
 /sales-orders/5273gh3k525a
 ```
-
-
 
 ### **[SHOULD]** only use UUIDs if necessary
 
@@ -628,7 +604,7 @@ Please be aware that sequential, strictly monotonically increasing numeric ident
 
 In any case, we should always use string rather than number type for identifiers. This gives us more flexibility to evolve the identifier naming scheme. Accordingly, if used as identifiers, UUIDs should not be qualified using a format property.
 
-*Hint*: Usually, random UUID is used - see UUID version 4 in [RFC 4122](https://tools.ietf.org/html/rfc4122). Though UUID version 1 also contains leading timestamps it is not reflected by its lexicographic sorting. This deficit is addressed by [ULID](https://github.com/ulid/spec) (Universally Unique Lexicographically Sortable Identifier). You may favour ULID instead of UUID, for instance, for pagination use cases ordered along creation time.
+_Hint_: Usually, random UUID is used - see UUID version 4 in [RFC 4122](https://tools.ietf.org/html/rfc4122). Though UUID version 1 also contains leading timestamps it is not reflected by its lexicographic sorting. This deficit is addressed by [ULID](https://github.com/ulid/spec) (Universally Unique Lexicographically Sortable Identifier). You may favour ULID instead of UUID, for instance, for pagination use cases ordered along creation time.
 
 ### **[SHOULD]** limit number of resource types
 
@@ -662,7 +638,7 @@ Nevertheless one API should hold all necessary resources to model complete busin
 
 > TODO: [REVIEW]
 
-There are main resources (with root url paths) and sub-resources (or *nested* resources with non-root urls paths). Use sub-resources if their life cycle is (loosely) coupled to the main resource, i.e. the main resource works as collection resource of the subresource entities. You should use <= 3 sub-resource (nesting) levels — more levels increase API complexity and url path length. (Remember, some popular web browsers do not support URLs of more than 2000 characters.)
+There are main resources (with root url paths) and sub-resources (or _nested_ resources with non-root urls paths). Use sub-resources if their life cycle is (loosely) coupled to the main resource, i.e. the main resource works as collection resource of the subresource entities. You should use <= 3 sub-resource (nesting) levels — more levels increase API complexity and url path length. (Remember, some popular web browsers do not support URLs of more than 2000 characters.)
 
 ### **[MUST]** stick to conventional query parameters
 
@@ -686,17 +662,17 @@ If you provide query support for searching, sorting, filtering, and paginating, 
 
 Header and query parameters allow to provide a collection of values, either by providing a comma-separated list of values or by repeating the parameter multiple times with different values as follows:
 
-| Parameter Type | Comma-separated Values  | Multiple Parameters              | Standard                                                     |
-| :------------- | :---------------------- | :------------------------------- | :----------------------------------------------------------- |
+| Parameter Type | Comma-separated Values  | Multiple Parameters              | Standard                                                                    |
+| :------------- | :---------------------- | :------------------------------- | :-------------------------------------------------------------------------- |
 | Header         | `Header: value1,value2` | `Header: value1, Header: value2` | [RFC 7230 Section 3.2.2](https://tools.ietf.org/html/rfc7230#section-3.2.2) |
 | Query          | `?param=value1,value2`  | `?param=value1&param=value2`     | [RFC 6570 Section 3.2.8](https://tools.ietf.org/html/rfc6570#section-3.2.8) |
 
 As Open API does not support both schemas at once, an API specification must explicitly define the collection format to guide consumers as follows:
 
-| Parameter Type | Comma-separated Values          | Multiple Parameters                                          |
-| :------------- | :------------------------------ | :----------------------------------------------------------- |
+| Parameter Type | Comma-separated Values          | Multiple Parameters                                                                           |
+| :------------- | :------------------------------ | :-------------------------------------------------------------------------------------------- |
 | Header         | `style: simple, explode: false` | not allowed (see [RFC 7230 Section 3.2.2](https://tools.ietf.org/html/rfc7230#section-3.2.2)) |
-| Query          | `style: form, explode: false`   | `style: form, explode: true`                                 |
+| Query          | `style: form, explode: false`   | `style: form, explode: true`                                                                  |
 
 When choosing the collection format, take into account the tool support, the escaping of special characters and the maximal URL length.
 
@@ -784,17 +760,17 @@ In such cases, the implicit filtering must be in the API specification (in its d
 
 **Example**:
 
-If an employee of the company *Foo* accesses one of our business-to-business service and performs a `GET /business-partners`, it must, for legal reasons, not display any other business partner that is not owned or contractually managed by her/his company. It should never see that we are doing business also with company *Bar*.
+If an employee of the company _Foo_ accesses one of our business-to-business service and performs a `GET /business-partners`, it must, for legal reasons, not display any other business partner that is not owned or contractually managed by her/his company. It should never see that we are doing business also with company _Bar_.
 
 Response as seen from a consumer working at `FOO`:
 
 ```json
 {
-    "items": [
-        { "name": "Foo Performance" },
-        { "name": "Foo Sport" },
-        { "name": "Foo Signature" }
-    ]
+  "items": [
+    { "name": "Foo Performance" },
+    { "name": "Foo Sport" },
+    { "name": "Foo Signature" }
+  ]
 }
 ```
 
@@ -802,10 +778,7 @@ Response as seen from a consumer working at `BAR`:
 
 ```json
 {
-    "items": [
-        { "name": "Bar Classics" },
-        { "name": "Bar pour Elle" }
-    ]
+  "items": [{ "name": "Bar Classics" }, { "name": "Bar pour Elle" }]
 }
 ```
 
@@ -827,16 +800,12 @@ paths:
 > TODO: [WIP]
 >
 > **TODO**: für interne APIs. Bei public APIs ist das ein MUST. Hinweis auf mögliche spätere Migration auf HAL
->
-> 
-
-
 
 ### **[SHOULD]** allow optional embedding of sub-resources
 
 > TODO: [REVIEW]
 
-Embedding related resources (also know as *Resource expansion*) is a great way to reduce the number of requests. In cases where clients know upfront that they need some related resources they can instruct the server to prefetch that data eagerly. Whether this is optimized on the server, e.g. a database join, or done in a generic way, e.g. an HTTP proxy that transparently embeds resources, is up to the implementation.
+Embedding related resources (also know as _Resource expansion_) is a great way to reduce the number of requests. In cases where clients know upfront that they need some related resources they can instruct the server to prefetch that data eagerly. Whether this is optimized on the server, e.g. a database join, or done in a generic way, e.g. an HTTP proxy that transparently embeds resources, is up to the implementation.
 
 See [**MUST** stick to conventional query parameters](#must-stick-to-conventional-query-parameters) for naming, e.g. "embed" for steering of embedded resource expansion. Please use the [BNF](https://en.wikipedia.org/wiki/Backus–Naur_form) grammar, as already defined above for filtering, when it comes to an embedding query syntax.
 
@@ -875,7 +844,7 @@ Query parameters should have the following aspects specified:
 - Reference to corresponding property, if any
 - Value range, e.g. inclusive vs. exclusive
 - Comparison semantics (equals, less than, greater than, etc)
-- Implications when combined with other queries, e.g. *and* vs. *or*
+- Implications when combined with other queries, e.g. _and_ vs. _or_
 
 How query parameters are named and used is up to individual API designers. The following examples should serve as ideas:
 
@@ -883,9 +852,9 @@ How query parameters are named and used is up to individual API designers. The f
 - `age=5`, to query for elements based on logical properties
   - Assuming that elements don’t actually have an `age` but rather a `birthday`
 - `maxLength=5`, based on upper and lower bounds (`min` and `max`)
-- `shorterThan=5`, using terminology specific e.g. to *length*
+- `shorterThan=5`, using terminology specific e.g. to _length_
 - `createdBefore=2019-07-17` or `notModifiedSince=2019-07-17`
-  - Using terminology specific e.g. to time: *before*, *after*, *since* and *until*
+  - Using terminology specific e.g. to time: _before_, _after_, _since_ and _until_
 
 We don’t advocate for or against certain names because in the end APIs should be free to choose the terminology that fits their domain the best.
 
@@ -893,7 +862,7 @@ We don’t advocate for or against certain names because in the end APIs should 
 
 > TODO: [REVIEW]
 
-Minimalistic query languages based on [query parameters](#should-design-simple-query-languages-using-query-parameters) are suitable for simple use cases with a small set of available filters that are combined in one way and one way only (e.g. *and* semantics). Simple query languages are generally preferred over complex ones.
+Minimalistic query languages based on [query parameters](#should-design-simple-query-languages-using-query-parameters) are suitable for simple use cases with a small set of available filters that are combined in one way and one way only (e.g. _and_ semantics). Simple query languages are generally preferred over complex ones.
 
 Some APIs will have a need for sophisticated and more complex query languages. Dominant examples are APIs around search (incl. faceting) and product catalogs.
 
@@ -951,8 +920,6 @@ Feel free to also get some inspiration from:
 > TODO: [WIP]
 >
 > **TODO**: Links prüfen, Hinweis auf internal APIs
->
-> 
 
 We strive for a good implementation of [REST Maturity Level 2](http://martinfowler.com/articles/richardsonMaturityModel.html#level2) as it enables us to build resource-oriented APIs that make full use of HTTP verbs and status codes. You can see this expressed by many rules throughout these guidelines, e.g.:
 
@@ -968,8 +935,6 @@ Although this is not HATEOAS, it should not prevent you from designing proper li
 > TODO: [WIP]
 >
 > **TODO** Vollständig überarbeiten bzw. ersetzen!
->
-> 
 
 We do not generally recommend to implement [REST Maturity Level 3](http://martinfowler.com/articles/richardsonMaturityModel.html#level3). HATEOAS comes with additional API complexity without real value in our SOA context where client and server interact via REST APIs and provide complex business functions as part of our e-commerce SaaS platform.
 
@@ -985,11 +950,7 @@ However, we do not forbid HATEOAS; you could use it, if you checked its limitati
 
 ### **[MUST]** use HAL for partner and public APIs
 
-> 
->
 > TODO: [WIP]
->
-> 
 
 ### **[MUST]** use full, absolute URI
 
@@ -1003,13 +964,7 @@ Links to other resource must always use full, absolute URI.
 
 > TODO: [WIP]
 >
-> 
->
 > **TODO** Vollständig überarbeiten bzw. ersetzen!
->
-> 
-
-
 
 When embedding links to other resources into representations you must use the common hypertext control object. It contains at least one attribute:
 
@@ -1076,4 +1031,3 @@ Hypertext controls are allowed anywhere within a JSON model. While this specific
 ## Media Types
 
 > TODO: [WIP]
-

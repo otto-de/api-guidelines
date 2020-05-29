@@ -5,13 +5,14 @@ other hand, is arguing to keep application/hal+json as the primary format for hy
 
 The arguments are partly contradictory, but hopefully helpful in order to come to an agreement.
 
-Section 3) contains a brief excerpt from blog post about _choosing a hypermedia format_ 
+Section 3) contains a brief excerpt from blog post about _choosing a hypermedia format_
 
-## 1 Pro HAL+JSON 
+## 1 Pro HAL+JSON
 
 A biased proposal for HAL+JSON
 
 **Example Document**
+
 ```json
 GET /orders HTTP/1.1
 Host: example.org
@@ -56,7 +57,7 @@ Content-Type: application/hal+json
 
 - HAL+JSON is one of many possible standardized formats used to implement RESTful APIs w/ hyperlinks
 - Other formats like, for example, JSON:API have a broader industry support
-- Beside of plain JSON, HAL+JSON is the format that is currently used most in present otto.de APIs. 
+- Beside of plain JSON, HAL+JSON is the format that is currently used most in present otto.de APIs.
 
 ## Drawbacks
 
@@ -64,35 +65,35 @@ Content-Type: application/hal+json
 - Few companies use HAL+JSON
 
 - The standard is quite minimalistic, leaving out a couple of things that we might want to define, such as
-    - pagination
-    - filtering / sorting
-    - templates
-    - problems / errors
+  - pagination
+  - filtering / sorting
+  - templates
+  - problems / errors
 
 ## Advantages
 
 - A bunch of APIs at otto already implement HAL+JSON. Sticking to the already adopted format will prevent pointless
   migration of already established APIs to a different format.
 - The format supports the most important features. Missing details can easily be specified.
-- The format is minimalistic, adding only a representation for hyperlinks, plus an implementation of the 
+- The format is minimalistic, adding only a representation for hyperlinks, plus an implementation of the
   "Hypertext Cache Pattern" using embedded resources.
-- Compared to other formats like, for example, JSON:API, the simplicity ensures a rapid induction to the format.  
+- Compared to other formats like, for example, JSON:API, the simplicity ensures a rapid induction to the format.
 - Every JSON document is a valid HAL+JSON document. This gives us the possibility to start with any given JSON API and
   later decide to add hyperlinks and embedded resources in a non-breaking way.
-- Because of it's simplicity, virtually no special tooling is required (though same is true for other formats as well). 
+- Because of it's simplicity, virtually no special tooling is required (though same is true for other formats as well).
   However, a number of tools and libraries for several languages are available.
 - Hyperlink are represented as link objects with a couple of helpful attributes. It defines link titles, types, profiles,
   deprecation information and other things that are helpful to evolve APIs.
 - Embedded resources can be nested. Using this feature, servers can compose aggregate representations
   from the single aggregated parts in a simple, straightforward way.
-- All kinds of versioning is supported. Beside of URI-based versioning, the specification is explicitly supporting 
-  profile parameters in the accept header. Links may have `type`, `profile` and `deprecation` attributes to link to 
+- All kinds of versioning is supported. Beside of URI-based versioning, the specification is explicitly supporting
+  profile parameters in the accept header. Links may have `type`, `profile` and `deprecation` attributes to link to
   different representations of a resources. In contradiction to this, JSON:API is explicitly prohibiting parameters
-  of the accept header and does not support any attributes for links beside of custom (unspecified) meta-data attributes.  
+  of the accept header and does not support any attributes for links beside of custom (unspecified) meta-data attributes.
 - While not explicitly specified, filtering + sorting is supported using `templated` links. The RFC specifying templated
   links is [RFC6580](https://tools.ietf.org/html/rfc6570)
 - While not explicitly specified, paging is supported using the standardized IANA link-relation types like, for example,
-  `next`, `prev`, `first`, `last`. An example is also contained in the specification 
+  `next`, `prev`, `first`, `last`. An example is also contained in the specification
   [Section 6](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-6)
 
 ## Proposal for Sticking to HAL+JSON
@@ -102,23 +103,24 @@ consent about the preferred mediatype that is both enabling us to implement an e
 providing enough flexibility to meet the different requirements of the teams.
 
 Therefore we propose:
-  
-- The minimum requirement for **internal** APIs is to use application/json w/o hyperlinks, following only the 
+
+- The minimum requirement for **internal** APIs is to use application/json w/o hyperlinks, following only the
   so-called [Richardson's Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html) Level 2 requirements.
-- For all **partner** and **public** APIs, we expect the API to be RESTful (Level 3). According to Roy Fielding, this 
+- For all **partner** and **public** APIs, we expect the API to be RESTful (Level 3). According to Roy Fielding, this
   [necessarily](https://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven) requires the APIs to contain hyperlinks.
-  He should know best - he has introduced and defined the concept.  
+  He should know best - he has introduced and defined the concept.
 - Hyperlinks MUST be represented in HAL+JSON format.
 - The API SHOULD support embedding of resources. In this case HAL+JSON MUST be used to represent embedded resources.
 
-Because every JSON document is a valid HAL+JSON document (_links and _embedded fields are optional), the HAL format 
-gives us the ability to migrate internal APIs into partner or public APIs, without breaking changes. 
- 
+Because every JSON document is a valid HAL+JSON document (\_links and \_embedded fields are optional), the HAL format
+gives us the ability to migrate internal APIs into partner or public APIs, without breaking changes.
+
 ## 2 Pro JSON:API
 
 A biased proposal for JSON:API
 
 **Example Document**
+
 ```json
 GET /articles?page[number]=3&page[size]=1 HTTP/1.1
 HTTP/1.1 200 OK
@@ -147,7 +149,7 @@ Content-Type: application/vnd.api+json
     "next": "http://example.com/articles?page[number]=4&page[size]=1",
     "last": "http://example.com/articles?page[number]=13&page[size]=1"
   }
-} 
+}
 ```
 
 ### 2.1 Current Status
@@ -158,16 +160,18 @@ Content-Type: application/vnd.api+json
 ### 2.2 Drawbacks
 
 - The HAL+JSON standard is no longer actively maintained and expired in November 2016
-    - Very few companies use HAL+JSON, it is somewhat obscure.
-    - Because of that there is virtually no library/tooling eco system.
+
+  - Very few companies use HAL+JSON, it is somewhat obscure.
+  - Because of that there is virtually no library/tooling eco system.
 
 - The HAL+JSON standard is quite minimalistic, leaves out a lot that we might want to define, such as:
-    - pagination
-    - versioning
-    - filtering / sorting
-    - error messages
+  - pagination
+  - versioning
+  - filtering / sorting
+  - error messages
 
 ### 2.3 Advantages
+
 - JSON:API ist an active standard which is continuously improved and has an active community
 - Error responses are standardized and allow multiple error messages in one response.
 - Pagination is a build in feature af JSON:API
@@ -179,6 +183,7 @@ Content-Type: application/vnd.api+json
 ##### Compound Documents
 
 [Compound documents](https://jsonapi.org/format/#document-compound-documents) is a unique ability in JSON API, allowing servers to send related resources alongside the requested primary resources — if implemented correctly this could decrease the number of necessary HTTP requests. Compound documents works by using the include parameter like as follows:
+
 ```
 GET https://api.example.com/posts?include=author
 ```
@@ -207,8 +212,8 @@ Also Read: [Optimizing APIs For Mobile Apps](https://nordicapis.com/optimizing-a
 ### 2.5 Proposal for Adapting JSON:API
 
 - we adapt [JSON:API](https://jsonapi.org/format/#fetching-pagination) for the basis of our new API standard
-    - this should give us capabilities similar to JSON+HAL like hyperlinking
-    - the standard is being actively maintained, new versions are backwards compatible
+  - this should give us capabilities similar to JSON+HAL like hyperlinking
+  - the standard is being actively maintained, new versions are backwards compatible
 - our own standard is seen as an addendum to JSON:API
 - where we want to be stricter / more specific than the standard we can limit options that JSON:HAL gives
   - this could mean changing SHOULD requirements to MUST requirements
@@ -219,6 +224,7 @@ Also Read: [Optimizing APIs For Mobile Apps](https://nordicapis.com/optimizing-a
 - only where _absolutely_ necessary we deviate from JSON:API in such way that would contradict it
 
 ## 3. Related links
+
 - [The JSON API Spec](https://www.youtube.com/watch?v=RSv-Yv3cgPg) (YouTube)
 - [REST vs Json:API vs GraphQL](https://www.youtube.com/watch?v=hhB7bJC_sVs) (YouTube)
 - [JSON:API - Why not use the hal specification](https://jsonapi.org/faq/#why-not-use-the-hal-specification)
