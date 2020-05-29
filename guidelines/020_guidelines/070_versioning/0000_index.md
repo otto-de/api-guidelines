@@ -1,4 +1,4 @@
-# Versioning & compatibility
+# Versioning
 
 After deciding to continue using HAL+JSON as the API format, we can cluster the [list of identified options](../topics/versioning.md)
 into three categories, including those relying on media types otherwise forbidden by using JSON:API.

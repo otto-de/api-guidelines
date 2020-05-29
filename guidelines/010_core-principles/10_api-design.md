@@ -1,4 +1,4 @@
-# API design principles
+# API design
 
 API design involves many aspects such as architectural styles, API governance, backend capabilities, performance, and such.
 There are many constraints and compromises to be considered.
