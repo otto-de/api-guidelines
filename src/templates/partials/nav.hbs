@@ -1,6 +1,3 @@
-{{!-- Site Title --}}
-<li class="uk-nav-header">{{name}}</li>
-
 {{!-- Top Level Documents First --}}
 {{#each docs}}
 <li><a href="#{{nav.id}}">{{{nav.text}}}</a></li>
@@ -9,17 +6,17 @@
 {{!-- Next Level Children --}}
 {{#each children}}
 
-  {{!-- Category Title --}}
-  <li class="uk-nav-header">{{name}}</li>
+{{!-- Category Title --}}
+<li class="uk-nav-header">{{name}}</li>
 
-  {{!-- Either Direct Doc files --}}
-  {{#each docs}}
-  <li><a href="#{{nav.id}}">{{{nav.text}}}</a></li>
-  {{/each}}
+{{!-- Either Direct Doc files --}}
+{{#each docs}}
+<li><a href="#{{nav.id}}">{{{nav.text}}}</a></li>
+{{/each}}
 
-  {{!-- Or Next Level Index Files --}}
-  {{#each children}}
-  <li><a href="#{{index.nav.id}}">{{{name}}}</a></li>
-  {{/each}}
+{{!-- Or Next Level Index Files --}}
+{{#each children}}
+<li><a href="#{{index.nav.id}}">{{{name}}}</a></li>
+{{/each}}
 
 {{/each}}
