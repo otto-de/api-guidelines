@@ -14,7 +14,7 @@ export function getConfig() {
       partials: "src/templates/partials",
     },
     site: {
-      name: "Api Guidelines",
+      name: "OTTO API Guidelines",
     },
     markdown: {
       blocks: {
