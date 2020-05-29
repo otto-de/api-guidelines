@@ -1,10 +1,8 @@
 # Documentation
 
 Our [quality standards](guidelines/100_core-principles/quality-standard.md) define all the values that are important to us.
-Consistency, reliability, support, communication or developer experience play a big role and also have an impact on API documentation.
-
-We aim to take care of clearly structured documentation, provide our audience with code examples, and make sure they have a great time using our API.
-Here are the details:
+What's more, we aim to take care of clearly structured documentation, provide our audience with code examples, and make sure they have a great time using our API.
+Here's what that means:
 
 ## Clear structure
 
@@ -14,11 +12,11 @@ Here are the details:
 * The sidebar is cleary structured and easy to navigate.
 * API endpoints and examples are shown in context.
 
-### Getting started/Quick start guide
+### Getting started
 
 * Basic information is available at one central place, such as info about HTTP methods, API operations, request/response headers, versioning, pagination, or errors.
-* A short and simple guide that provides an overview of the most likely tasks to perform with the API
-* Users can get in touch via a contact form.
+* A short and simple guide provides an overview of the most likely tasks to perform with the API.
+* Users can get in touch with us via a contact form.
 
 ### Tutorials
 
@@ -42,7 +40,7 @@ Request and response examples that belong to every endpoint documentation have m
 
 ### Code examples and attribute tables
 
-Every endpoint documentation comes with a examples and also provides a table listing the available attributes with explanatory text.
+Every endpoint documentation comes with examples and also provides a table listing the available attributes with explanatory text.
 
 ### Automated API reference documentation
 
@@ -52,8 +50,8 @@ API reference documentation is created and published automatically, see [MUST pr
 
 * Documentation is provided in American English (EN-US), as US spelling has become the standard in APIs. Also endpoints, properties, and default values are provided in American English.
 * Users can search the documentation.
-* The documentation can be easily browsed via the sidebar, the endpoints can be accessed via the sidebar, and the sidebar is available at all times.
-* Code examples and explanatory text will be visually separated.
+* The sidebar is available at all times so that the documentation can be easily browsed. All the endpoints can be accessed via the sidebar.
+* Code examples and explanatory text are visually separated.
 
 ## Efficient and refined
 

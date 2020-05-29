@@ -67,4 +67,4 @@ Therefore, we establish different synchronous and asynchronous communication cha
 API consumers should have fun using our API.
 Our goal is to provide seamless experience to developers when writing software, and to increase their efficiency.
 API consumers should be comfortable using our API in their programming language of choice, finding the functionality they need, as well as using the output.
-We give developers the right tools to help them succeed and aim to provide a TTFHW (Time to First "Hello World") as short as possible.
+We give developers the right tools to help them succeed and aim to provide an as short as possible TTFHW.

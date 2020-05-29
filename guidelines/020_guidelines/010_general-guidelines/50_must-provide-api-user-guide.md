@@ -5,6 +5,8 @@ id: R000005
 
 # provide API user guide
 
+TODO
+
 ::: warning
 All OTTO API endpoints that correspond to the attributes **public**, **closed**, and **published** (see [API scope](guidelines/010_core-principles/30_api-scope.md)) must be published along with an API user guide.
 :::
