@@ -98,13 +98,8 @@ export function writeStructure(path: string, cats: Category): Promise<void> {
     path,
     JSON.stringify(
       cats,
-      (k, v) => {
-        // Remove bloating data
-        if (["parser", "tokens", "config"].includes(k)) {
-          return undefined;
-        }
-        return v;
-      },
+      // Remove bloating data
+      (k, v) => (["parser", "tokens", "config"].includes(k) ? undefined : v),
       2
     )
   );

@@ -42,13 +42,15 @@ export async function getIndexData(
   indexData: string;
   catNameFromDir: string;
 }> {
-  const [path] = await globby([`${dir}/*index.md`], { onlyFiles: true });
-  log.trace("Is index in %s?: %s", dir, !!path.length);
+  const globRes = await globby([`${dir}/*index.md`], { onlyFiles: true });
+  const path = globRes[0] || undefined;
+
+  log.trace("Is index in %s?: %s", dir, !!path?.length);
 
   const catName = parseCategoryFromDir(dir);
-  const indexData = path.length ? await readText(path) : `# ${catName}`;
+  const indexData = path?.length ? await readText(path) : `# ${catName}`;
 
-  return { path, indexData, catNameFromDir: catName };
+  return { path: path || dir, indexData, catNameFromDir: catName };
 }
 
 /**
@@ -65,6 +67,7 @@ export async function collectCategory(
   config: Config,
   level = 0
 ): Promise<Category> {
+  log.debug("Processing Category in: ", dir);
   const nextLevel = level + 1;
   const { path, indexData, catNameFromDir } = await getIndexData(dir);
   const index = new Parser(parser, config, indexData, level, path);
