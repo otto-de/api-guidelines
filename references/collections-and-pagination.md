@@ -1,12 +1,25 @@
 # Collection resources and pagination
 
-Lists of items are provided in the `_embedded` object under a key representing the resource type.
+A collection resource is a resource that represents a list of resources like, for example the collection of all 
+products.
+
+## **MUST** use HAL format for collection resources
+
+All collection resources **MUST** use application/hal+json to represent lists of items.
+
+## **MUST** contain hyperlinks to the items of the collection
+
+The items of the collection **MUST** be linked using HAL `_links`. In most cases, the link-relation type of the links 
+**SHOULD** be [`item`](https://www.iana.org/assignments/link-relations/link-relations.xhtml).
+
+## **SHOULD** support embedding of the items
+ 
+Lists of items **SHOULD** be embedded using the HAL `_embedded` object using the same link-relation type that is used
+in the `_links` section.
 
 The list resource **MAY** only include a subset of the properties of the resource, e.g. because of performance considerations.
 
-## **MUST** respect embedded resources guidelines
-
-See [embedded resources](./embedding.md) section.
+The embedded [resources guidelines](./embedding.md) **MUST** be respected.
 
 ## **MUST** support pagination
 
