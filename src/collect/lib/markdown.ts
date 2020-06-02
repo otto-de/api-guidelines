@@ -5,6 +5,7 @@ import frontMatter from "markdown-it-front-matter";
 import highlightjs from "markdown-it-highlightjs";
 import { debug } from "@otto-ec/assets-debug";
 import type Token from "markdown-it/lib/token";
+import { format } from "util";
 import type { Config } from "./config";
 
 const log = debug("collect:markdown");
@@ -88,6 +89,47 @@ export function registerAccordion(config: Config, md: Md): void {
 }
 
 /**
+ *
+ * @param config
+ * @param md
+ *
+ * ```md
+ * lorem ipsum `hallo`{ label }
+ * lorem ipsum `hallo`{ label=danger }
+ * lorem ipsum `hallo`{ label=warning }
+ * lorem ipsum `hallo`{ label=success }
+ * ```
+ */
+
+export function registerLabel(config: Config, md: Md): void {
+  const {
+    renderer: { rules },
+  } = md;
+  const { attrs: map, classes } = config.markdown.label;
+
+  const codeInlineOrig = rules.code_inline;
+
+  // eslint-disable-next-line @typescript-eslint/camelcase
+  rules.code_inline = (tokens, idx, options, env, slf) => {
+    const token = tokens[idx];
+    const type = token.attrGet(map.marker);
+
+    if (typeof type === "string") {
+      const res: string[] = [];
+
+      res.push('<span class="', classes.base);
+      if (type) {
+        res.push(` ${format(classes.style, type)}`);
+      }
+      res.push('">', token.content, "</span>");
+      return res.join("");
+    }
+
+    return codeInlineOrig?.(tokens, idx, options, env, slf) || "";
+  };
+}
+
+/**
  * Creates Markdown Parser with needed Plugins
  * @param config
  * @returns parser
@@ -102,5 +144,6 @@ export function getParser(config: Config): Md {
 
   registerBlocks(config, md);
   registerAccordion(config, md);
+  registerLabel(config, md);
   return md;
 }

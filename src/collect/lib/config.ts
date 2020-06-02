@@ -44,6 +44,15 @@ export function getConfig() {
           title: "title",
         },
       },
+      label: {
+        attrs: {
+          marker: "label",
+        },
+        classes: {
+          base: "api-label",
+          style: "api-label--%s",
+        },
+      },
     },
     debug: {
       model: "./tmp/model.json",
