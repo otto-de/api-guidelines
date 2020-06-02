@@ -18,9 +18,9 @@ export function getConfig() {
     },
     markdown: {
       blocks: {
-        tip: {
+        info: {
           tag: "div",
-          class: "api-custom-container api-custom-container--tip",
+          class: "api-custom-container api-custom-container--info",
         },
         warning: {
           tag: "div",

@@ -11,7 +11,7 @@ In many cases it is helpful or even necessary to design [`POST`](#post) and [`PA
 - A resource specific **secondary key** provided as resource property in the request body. The _secondary key_ is stored permanently in the resource. It allows to ensure [idempotent](#idempotent) behavior by looking up the unique secondary key in case of multiple independent resource creations from different clients (see [**[SHOULD]** use secondary key for idempotent `POST` design](#should-use-secondary-key-for-idempotent-post-design)).
 - A client specific **idempotency key** provided via [`Idempotency-Key`](#may-consider-to-support-idempotency-key-header) header in the request. The key is not part of the resource but stored temporarily pointing to the original response to ensure [idempotent](#idempotent) behavior when retrying a request (see [**MAY** consider to support `Idempotency-Key`header](#may-consider-to-support-idempotency-key-header)).
 
-::: tip
+::: info
 While **conditional key** and **secondary key** are focused on handling concurrent requests, the **idempotency key** is focused on providing the exact same responses, which is even a _stronger_ requirement than the [idempotency defined above](#idempotent). It can be combined with the two other patterns.
 :::
 
@@ -28,7 +28,7 @@ To decide, which pattern is suitable for your use case, please consult the follo
 | Can be inspected (by intermediaries)  | ✔ Yes             | ✗ No            | ✔ Yes                             |
 | Usable without previous [`GET`](#get) | ✗ No              | ✔ Yes           | ✔ Yes                             |
 
-::: tip
+::: info
 The patterns applicable to [`PATCH`](#patch) can be applied in the same way to [`PUT`](#put) and [`DELETE`](#delete) providing the same properties.
 :::
 

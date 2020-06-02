@@ -14,8 +14,8 @@ const log = debug("collect:markdown");
  * Uses container plugin, to render banners from blocks like:
  *
  * ```md
- * ::: tip You Know?
- * this is a tip
+ * ::: info You Know?
+ * this is an info
  * :::
  * ```
  *

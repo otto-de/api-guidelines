@@ -15,7 +15,7 @@ We are compliant with the standardized HTTP method semantics described as follow
 - For collection resources `GET` requests may return either `200 OK` (if the collection is empty) or `404 Not Found` (if the collection is missing).
 - `GET` requests must NOT have a request body payload (see [`GET With Body`](#get-with-body)).
 
-**Note:** `GET` requests on collection resources should provide sufficient [filter](link) and [pagination](link) mechanisms.
+`Note`{ label } `GET` requests on collection resources should provide sufficient [filter](link) and [pagination](link) mechanisms.
 
 ## GET with body
 
@@ -27,7 +27,7 @@ As our APIs must be standard compliant (body in [`GET`](#get) must be ignored on
 2. [`POST`](#post) with body content: if a [`GET`](#get) with URL encoded query parameters is not possible, a [`POST`](#post) with body content must be used.
    In this case the endpoint must be documented with the hint [`GET With Body`](#get-with-body) to transport the [`GET`](#get) semantic of this call.
 
-::: tip
+::: info
 Encoding the lengthy structured request information using header parameters is not an option.
 From a conceptual point of view, the semantic of an operation should always be expressed by the resource names, as well as the involved path and query parameters, i.e. by everything that goes into the URL.
 Request headers are reserved for general context information.
@@ -53,7 +53,7 @@ The semantic is best described as _"please put the enclosed representation at th
 **Important:** It is best practice to prefer `POST` over `PUT` for creation of (at least top-level) resources.
 This leaves the resource ID under control of the service and allows to concentrate on the update semantic using `PUT` as follows.
 
-::: tip
+::: info
 In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.
 Putting the same resource twice is required to be [idempotent](link) and to result in the same single resource instance (see [MUST fulfill common method properties](link)).
 :::
@@ -72,7 +72,7 @@ The semantic for collection endpoints is best described as _"please add the encl
 
 The semantic for single resource endpoints is best described as _"please execute the given well specified request on the resource identified by the URL"_.
 
-::: tip
+::: info
 `POST` should be used for scenarios that cannot be covered by the other methods sufficiently.
 In such cases, make sure to document the fact that `POST` is used as a workaround (see [`GET With Body`](#get-with-body)).
 
@@ -97,7 +97,7 @@ The semantic of the change request is not defined in the HTTP standard and must 
 - On successful `PATCH` requests, the server will update parts of the resource addressed by the URL as defined by the change request in the payload.
 - Successful `PATCH` requests will usually generate `200 OK` or `204 No Content` (if resources have been updated with or without updated content returned).
 
-::: tip
+::: info
 As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change.In preferred order:
 :::
 
@@ -109,7 +109,7 @@ As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose
 In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turns out to be too limited, especially when trying to update single objects in large collections (as part of the resource).
 In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).
 
-::: tip
+::: info
 Patching the same resource twice is **not** required to be [idempotent](#idempotent) (check [MUST fulfill common method properties](link) and may result in a changing result. However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) to prevent this.
 :::
 
@@ -150,6 +150,6 @@ Under no circumstances the resource must be accessible after this operation on i
 
 - `OPTIONS` responses usually either return a comma separated list of methods in the `Allow` header or a structured list of link templates.
 
-::: tip
+::: info
 `OPTIONS` is rarely implemented, though it could be used to self-describe the full functionality of a resource.
 :::

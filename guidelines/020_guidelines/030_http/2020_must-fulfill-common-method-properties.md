@@ -13,7 +13,7 @@ Request methods in RESTful services can be:
 - [cacheable](https://tools.ietf.org/html/rfc7231#section-4.2.3) - to indicate that responses are allowed to be stored for future reuse.
   In general, requests to safe methods are cacheable, if no current or authoritative response from the server is required.
 
-::: tip
+::: info
 The above definitions, of _intended (side) effect_ allows the server to provide additional state changing behavior as logging, accounting, pre-fetching, etc.
 However, these actual effects and state changes, must not be intended by the operation so that it can be held accountable.
 :::
