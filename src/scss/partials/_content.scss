@@ -43,6 +43,14 @@
     padding-right: 90px;
     position: relative;
 
+    &::before {
+      content: "";
+      display: block;
+      height: 40px;
+      margin-top: -40px;
+      visibility: hidden;
+    }
+
     &__anchor {
       font-size: 0.85em;
       float: left;

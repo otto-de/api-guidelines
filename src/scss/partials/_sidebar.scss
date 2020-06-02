@@ -11,9 +11,9 @@
     overflow-y: auto;
     width: 180px;
 
-    &__logo {
-      left: 50%;
-      margin: -25px 0 20px -60px;
+    &__logo-link {
+      display: block;
+      margin: -35px auto 35px;
       position: relative;
       width: 120px;
     }
