@@ -1,4 +1,5 @@
 ---
 sideNav: true
-navTitle: Methods
 ---
+
+# Methods

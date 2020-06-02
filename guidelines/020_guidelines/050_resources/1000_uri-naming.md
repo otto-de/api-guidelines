@@ -1,7 +1,8 @@
 ---
 sideNav: true
-navTitle: URI naming
 ---
+
+# URI naming
 
 When resources are well-named, an API is intuitive and easy to use.
 If resources are poorly named, the same API can feel difficult to use and understand.

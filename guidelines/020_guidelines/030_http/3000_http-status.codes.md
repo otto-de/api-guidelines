@@ -1,4 +1,5 @@
 ---
 sideNav: true
-navTitle: Status codes
 ---
+
+# Status codes
