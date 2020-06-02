@@ -13,8 +13,6 @@ This implies that we do not approach the API design from the backend point of vi
 
 What are the advantages of Contract First for us?
 
-- Since coding happens based on the contract, the backend team and the consumer are clear about the communication approach and details.
-  Hence, development can happen at the same time.
+- Since coding happens based on the contract, the backend team and the consumer are clear about the communication approach and details. Hence, development on backend and consumer side can happen at the same time.
 
-- The backend team and the consumer have an idea of each others' expectations.
-  As a result, if cross team testing is not possible due to different paces of development, stub software can be used to mock the other's behavior, all based on the contract.
+- The backend team and the consumer have an idea of each others' expectations. As a result, if cross-team testing is not possible due to different paces of development, stub software can be used to mock the other's behavior, all based on the contract.
