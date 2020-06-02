@@ -1,4 +1,4 @@
-# JSON guidelines
+# JSON
 
 ## yay/nay list
 

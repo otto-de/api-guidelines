@@ -13,7 +13,9 @@ Below we list the most commonly used and best understood HTTP status codes, cons
 
 > TODO [disallow status codes related to WebDAV if resource is not accessed that way]
 
-**Important:** As long as your HTTP status code usage is well covered by the semantic defined here, you should not describe it to avoid an overload with common sense information and the risk of inconsistent definitions. Only if the HTTP status code is not in the list below or its usage requires additional information aside the well defined semantic, the API specification must provide a clear description of the HTTP status code in the response.
+::: danger
+As long as your HTTP status code usage is well covered by the semantic defined here, you should not describe it to avoid an overload with common sense information and the risk of inconsistent definitions. Only if the HTTP status code is not in the list below or its usage requires additional information aside the well defined semantic, the API specification must provide a clear description of the HTTP status code in the response.
+:::
 
 #### Success codes
 
