@@ -3,11 +3,9 @@ type: MUST
 id: R000022
 ---
 
-# use camelCase for identifiers
+# use camelCase for query parameters
 
-!TBD: identifiers or query parameters? wäre fooFilter userName pageSize dann anders zu schreiben weil kein identifier?
-
-Use CamelCase to delimit combined words.
+Use CamelCase to delimit combined words in query parameters.
 
 **DO**
 
@@ -16,3 +14,4 @@ Use CamelCase to delimit combined words.
 **DON'T:**
 
 `product_id`, `Articlenumber`, `login-id`, `LID`
+
