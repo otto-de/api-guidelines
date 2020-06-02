@@ -17,6 +17,13 @@
     @media (min-width: 1200px) {
       margin-left: 320px;
     }
+
+    table {
+      @extend .uk-table;
+      @extend .uk-table-small;
+      @extend .uk-table-divider;
+      @extend .uk-table-striped;
+    }
   }
 
   &-docs-level-0,
