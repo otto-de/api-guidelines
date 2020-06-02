@@ -1,4 +1,7 @@
-# Error handling
+---
+sideNav: true
+navTitle: Error handling
+---
 
 HTTP status codes are the most obvious choice for error communication, but they have a limited expressiveness. Many status codes are too generic to explain the specific type of an error. Most importantly, without contextual details, they are not particularly meaningful and user-friendly.
 

@@ -1,4 +1,7 @@
-# HATEOAS
+---
+sideNav: true
+navTitle: HATEOAS
+---
 
 HATEOAS is short for "Hypermedia As The Engine Of Application State" and describes a design model for REST interfaces.
 If we wouldn't use hypermedia in the design of our interfaces, clients would be forced to construct URLs themselves, which can only be done with knowledge of the resource's internals.

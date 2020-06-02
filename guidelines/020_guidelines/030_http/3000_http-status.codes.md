@@ -1,1 +1,4 @@
-# HTTP status codes
+---
+sideNav: true
+navTitle: Status codes
+---

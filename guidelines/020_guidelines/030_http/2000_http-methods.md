@@ -1,1 +1,4 @@
-# HTTP methods
+---
+sideNav: true
+navTitle: Methods
+---
