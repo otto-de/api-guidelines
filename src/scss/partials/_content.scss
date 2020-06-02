@@ -26,6 +26,26 @@
     }
   }
 
+  &-label {
+    @extend .uk-label;
+    margin-right: 5px;
+
+    &--success {
+      @extend .uk-label-success;
+      background-color: $highlight-green;
+    }
+
+    &--warning {
+      @extend .uk-label-warning;
+      background-color: $highlight-yellow;
+    }
+
+    &--danger {
+      @extend .uk-label-danger;
+      background-color: $highlight-red;
+    }
+  }
+
   &-docs-level-0,
   &-docs-level-1,
   &-docs-level-2 {
