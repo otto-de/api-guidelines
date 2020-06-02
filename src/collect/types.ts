@@ -1,4 +1,5 @@
 import type { Parser } from "./lib/parser";
+import type { Config } from "./lib/config";
 
 /**
  * Rule types allowed in Api Guidelines
@@ -16,6 +17,7 @@ export interface FrontMatter {
   id?: string;
   type?: RuleType;
   navTitle?: string;
+  sideNav?: boolean;
 }
 
 /**
@@ -26,4 +28,18 @@ export interface Category {
   index: Parser;
   docs: Parser[];
   children: Category[];
+}
+
+export interface ProcessedHeading {
+  text: string;
+  id: string;
+  level: number;
+  orig: string;
+}
+
+export interface Model {
+  config: Config;
+  categorys: Category;
+  docs: Set<Parser>;
+  headings: ProcessedHeading[];
 }

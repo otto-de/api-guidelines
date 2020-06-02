@@ -87,20 +87,12 @@ export function formatBadLinks(): string {
   );
 }
 
-/**
- * Writes model to a file for debugging purposes
- * @param path
- * @param cats
- * @returns Promise
- */
-export function writeStructure(path: string, cats: Category): Promise<void> {
-  return outputFile(
-    path,
+export function cleanupStructure<T>(input: T): T {
+  return JSON.parse(
     JSON.stringify(
-      cats,
+      input,
       // Remove bloating data
-      (k, v) => (["parser", "tokens", "config"].includes(k) ? undefined : v),
-      2
+      (k, v) => (["parser", "tokens", "config"].includes(k) ? undefined : v)
     )
   );
 }

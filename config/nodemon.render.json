@@ -1,0 +1,6 @@
+{
+  "verbose": true,
+  "watch": ["./tmp", "./src/templates"],
+  "ext": "md,png,jpg,svg,hbs,json",
+  "delay": 2000
+}

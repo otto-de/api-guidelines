@@ -16,7 +16,19 @@
 
 {{!-- Or Next Level Index Files --}}
 {{#each children}}
-<li><a href="#{{index.nav.id}}">{{{name}}}</a></li>
+
+
+  {{#if sideNav}}
+  <li class="uk-parent">
+    <a href="#{{index.nav.id}}">{{{name}}}</a>
+    <ul class="uk-nav-sub">
+    {{#each sideNav}}<li><a href="#{{nav.id}}">{{{nav.text}}}</a></li>{{/each}}
+    </ul>
+  </li>
+  {{else}}
+  <li><a href="#{{index.nav.id}}">{{{name}}}</a></li>
+  {{/if}}
+
 {{/each}}
 
 {{/each}}

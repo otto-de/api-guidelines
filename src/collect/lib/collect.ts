@@ -87,6 +87,7 @@ export async function collectCategory(
     index,
     docs,
     children,
+    sideNav: docs.filter((d) => d.frontMatter.sideNav),
   };
 
   return res;

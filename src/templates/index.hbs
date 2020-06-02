@@ -17,7 +17,8 @@
     <a href="#" class="api-sidebar__logo-link" uk-scroll>
       <img src="./api-logo-red.png" alt="OTTO API Logo red" />
     </a>
-    <ul class="api-main-nav" uk-scrollspy-nav="closest: li; scroll: true; offset: 30; overflow: false">
+    <ul uk-nav class="api-main-nav uk-nav-parent-icon"
+      uk-scrollspy-nav="closest: li; scroll: true; offset: 30; overflow: false">
       {{#with categorys}}{{> nav}}{{/with}}
     </ul>
   </div>

@@ -37,7 +37,7 @@ export function getConfig() {
       },
     },
     debug: {
-      model: "./tmp/structure.json",
+      model: "./tmp/model.json",
     },
   };
   return res;

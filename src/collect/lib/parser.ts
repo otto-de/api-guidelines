@@ -5,19 +5,12 @@ import { format } from "util";
 import type MarkdownIt from "markdown-it";
 import { dirname, normalize, join } from "path";
 import { ContentError } from "./errors";
-import type { FrontMatter } from "../types";
+import type { FrontMatter, ProcessedHeading } from "../types";
 import { Config } from "./config";
 
 const log = debug("collect:parser");
 
 const localPathRegex = /(?<path>\S+[\w-]+\.md)(?<hash>#\S+)?/gm;
-
-interface ProcessedHeading {
-  text: string;
-  id: string;
-  level: number;
-  orig: string;
-}
 
 /**
  * Encapsulates processing of a single markdown document, by
