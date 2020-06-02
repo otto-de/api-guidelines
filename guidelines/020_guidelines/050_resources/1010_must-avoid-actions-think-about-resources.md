@@ -15,8 +15,6 @@ Therefore, we consider the domain entities involved in web service interaction, 
 - `DELETE /articles/{articleNumber}`
 - `POST /articles/{articleNumber}/lock`
 
-> TODO: google erlaubt bei sich schon verben, die scheinen aber durch : getrennt zu sein, also ../{articleNumber}:lock
-
 **DON'T**
 
 - `POST /orders/create-order`
