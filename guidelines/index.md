@@ -4,6 +4,18 @@ navTitle: OTTO API Guidelines
 
 # OTTO API Guidelines
 
+::: accordion Accordion Begin and Open { begin open }
+lorem ipsum
+:::
+
+::: accordion { title="Title in Attrs" }
+lorem ipsum
+:::
+
+::: accordion Accordion End { end }
+lorem ipsum
+:::
+
 The OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO's E-Commerce department.
 
 OTTO E-Commerce consists of various microservice teams that aim to provide functionality for the OTTO webshop via RESTful APIs.

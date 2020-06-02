@@ -81,6 +81,7 @@ export class Parser {
 
     this.tokens = this.parser.parse(this.data, this.env);
     this.frontMatter = this.processFrontMatter();
+    this.pairAttrs(this.tokens);
     this.headings = this.processHeadings();
     this.nav = this.processNavData();
     this.checkAndProcessRule();
@@ -106,6 +107,26 @@ export class Parser {
         this.processTokens(t.children, t);
       }
     });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  public pairAttrs(tokens: Token[]): void {
+    for (let i = 0; i < tokens.length; i += 1) {
+      const token = tokens[i];
+
+      if (token.block && token.nesting === 1 && token.attrs) {
+        for (let p = i; p < tokens.length; p += 1) {
+          const t = tokens[p];
+          if (t.block && t.tag === token.tag && t.nesting === -1) {
+            t.attrs = token.attrs;
+          }
+        }
+      }
+
+      if (token.children) {
+        this.pairAttrs(token.children);
+      }
+    }
   }
 
   public remapLink(token: Token, parent?: Token): void {

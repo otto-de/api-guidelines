@@ -47,6 +47,46 @@ export function registerBlocks(config: Config, md: Md): void {
   });
 }
 
+export function registerAccordion(config: Config, md: Md): void {
+  const { marker, attrs: map } = config.markdown.accordion;
+  md.use(container, marker, {
+    render: (tokens: Token[], idx: number) => {
+      const token = tokens[idx];
+      log.trace(idx, token);
+
+      const res: string[] = [];
+      // Opening Tag
+      if (token.nesting > 0) {
+        const titleAttr = token.attrGet(map.title);
+        const title = titleAttr || token.info.replace(marker, "").trim();
+
+        if (typeof token.attrGet(map.begin) === "string") {
+          res.push("<ul uk-accordion>");
+        }
+
+        res.push("<li");
+
+        const classes = token.attrGet("class");
+        const open = typeof token.attrGet(map.open) === "string";
+        if (open || classes) {
+          res.push(' class="', classes || "", open ? " uk-open" : "", '"');
+        }
+
+        res.push('><a class="uk-accordion-title" href="#">', title, "</a>");
+        res.push('<div class="uk-accordion-content">');
+      } else {
+        // Closing Tag
+        res.push(`</div></li>`);
+        if (typeof token.attrGet(map.end) === "string") {
+          res.push("</ul>");
+        }
+      }
+
+      return res.join("");
+    },
+  });
+}
+
 /**
  * Creates Markdown Parser with needed Plugins
  * @param config
@@ -61,5 +101,6 @@ export function getParser(config: Config): Md {
     .use(highlightjs);
 
   registerBlocks(config, md);
+  registerAccordion(config, md);
   return md;
 }

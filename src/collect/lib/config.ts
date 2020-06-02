@@ -35,6 +35,15 @@ export function getConfig() {
           class: "api-custom-container api-custom-container--details",
         },
       },
+      accordion: {
+        marker: "accordion",
+        attrs: {
+          begin: "begin",
+          end: "end",
+          open: "open",
+          title: "title",
+        },
+      },
     },
     debug: {
       model: "./tmp/model.json",
