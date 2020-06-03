@@ -40,7 +40,7 @@ export class Parser {
   parser: MarkdownIt;
 
   /** used by markdown parser internally */
-  env: unknown = {};
+  env: Record<string, any> = {};
 
   /** Source data as raw Markdown */
   data: string;
@@ -81,9 +81,10 @@ export class Parser {
 
     this.tokens = this.parser.parse(this.data, this.env);
     this.frontMatter = this.processFrontMatter();
-    this.pairAttrs(this.tokens);
+    this.preprocessTokens(this.tokens);
     this.headings = this.processHeadings();
     this.nav = this.processNavData();
+    this.env.docId = this.nav.id;
     this.checkAndProcessRule();
     this.processSourceMap();
 
@@ -110,7 +111,7 @@ export class Parser {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  public pairAttrs(tokens: Token[]): void {
+  public preprocessTokens(tokens: Token[]): void {
     for (let i = 0; i < tokens.length; i += 1) {
       const token = tokens[i];
 
@@ -123,8 +124,15 @@ export class Parser {
         }
       }
 
+      if (
+        this.source.match("guidelines/index.md") &&
+        token.type.match("footnote")
+      ) {
+        log.debug(token);
+      }
+
       if (token.children) {
-        this.pairAttrs(token.children);
+        this.preprocessTokens(token.children);
       }
     }
   }
@@ -291,7 +299,7 @@ export class Parser {
         const aFormat = '<a class="api-headline__anchor" href="#%s">#</a> %s';
         inline.children = this.parser.parseInline(
           format(aFormat, id, markup),
-          this.env
+          {}
         )[0].children;
 
         // TODO: Limit max nesting to H4

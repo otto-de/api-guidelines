@@ -53,6 +53,13 @@ export function getConfig() {
           style: "api-label--%s",
         },
       },
+      footnote: {
+        classes: {
+          ref: "api-footnote-ref",
+          list: "api-footnotes",
+          backref: "api-footnote-backref",
+        },
+      },
     },
     debug: {
       model: "./tmp/model.json",

@@ -1,8 +1,10 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import Md from "markdown-it";
 import attrs from "markdown-it-attrs";
 import container from "markdown-it-container";
 import frontMatter from "markdown-it-front-matter";
 import highlightjs from "markdown-it-highlightjs";
+import footnote from "markdown-it-footnote";
 import { debug } from "@otto-ec/assets-debug";
 import type Token from "markdown-it/lib/token";
 import { format } from "util";
@@ -109,7 +111,6 @@ export function registerLabel(config: Config, md: Md): void {
 
   const codeInlineOrig = rules.code_inline;
 
-  // eslint-disable-next-line @typescript-eslint/camelcase
   rules.code_inline = (tokens, idx, options, env, slf) => {
     const token = tokens[idx];
     const type = token.attrGet(map.marker);
@@ -129,6 +130,53 @@ export function registerLabel(config: Config, md: Md): void {
   };
 }
 
+export function registerFootnotes(config: Config, md: Md): void {
+  const {
+    renderer: { rules },
+  } = md;
+  const { classes } = config.markdown.footnote;
+
+  rules.footnote_ref = (tokens, idx, options, env, slf) => {
+    const id = slf.rules.footnote_anchor_name?.(tokens, idx, options, env, slf);
+    const caption = slf.rules.footnote_caption?.(
+      tokens,
+      idx,
+      options,
+      env,
+      slf
+    );
+    let refid = id;
+
+    if (tokens[idx].meta.subId > 0) {
+      refid += `:${tokens[idx].meta.subId}`;
+    }
+
+    return `<sup class="${classes.ref}"><a href="#fn${id}" id="fnref${refid}">${caption}</a></sup>`;
+  };
+
+  rules.footnote_block_open = () => `<dl class="${classes.list}">`;
+  rules.footnote_block_close = () => "</dl>";
+
+  rules.footnote_open = (tokens, idx, options, env, slf) => {
+    let id = slf.rules.footnote_anchor_name?.(tokens, idx, options, env, slf);
+    const caption = slf.rules.footnote_caption?.(
+      tokens,
+      idx,
+      options,
+      env,
+      slf
+    );
+    if (tokens[idx].meta.subId > 0) {
+      id += `:${tokens[idx].meta.subId}`;
+    }
+
+    return `<dt id="fn${id}"><a href="#fnref${id}" class="${classes.backref}">${caption}</a></dt><dd>`;
+  };
+
+  rules.footnote_close = () => "</dd>";
+  rules.footnote_anchor = () => "";
+}
+
 /**
  * Creates Markdown Parser with needed Plugins
  * @param config
@@ -140,10 +188,12 @@ export function getParser(config: Config): Md {
     .use(frontMatter, (fm: string): void => {
       log.trace(fm);
     })
-    .use(highlightjs);
+    .use(highlightjs)
+    .use(footnote);
 
   registerBlocks(config, md);
   registerAccordion(config, md);
   registerLabel(config, md);
+  registerFootnotes(config, md);
   return md;
 }
