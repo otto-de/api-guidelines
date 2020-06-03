@@ -13,7 +13,7 @@ Therefore, you must define **all** success and service specific error responses 
 
 > TODO: [Align with Error Docs issue]
 
-```
+```yaml
 responses:
   ...
   default:

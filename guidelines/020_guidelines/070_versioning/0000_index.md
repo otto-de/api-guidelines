@@ -9,7 +9,7 @@ out solutions that violate existing standards or rely on draft standards where i
 
 Both of the remaining options require some semantic of 'latest version' of an endpoint. For
 [resource versioned path](../topics/versioning.md#resource-versioned-paths) this can be solved by using a special
-version identifier of `latest` as part of the URI, e.g. https://api.otto.de/checkouts/latest. The option
+version identifier of `latest` as part of the URI, e.g. <https://api.otto.de/checkouts/latest.> The option
 [Accept header with profile parameter](../topics/versioning.md#accept-header-using-standard-media-type-with-profile-parameter)
 needs some server-side logic to route to the correct endpoint in case an `Accept` header used for content negotiation
 does not include a versioned profile for the media type.

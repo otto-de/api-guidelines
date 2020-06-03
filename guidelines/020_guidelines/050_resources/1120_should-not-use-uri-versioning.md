@@ -7,12 +7,12 @@ id: R000026
 
 If you absolutely have to use a version identifier as part of your URL, do so by keeping it as a path segment relative to your resource.
 
-**Do**
+## Do
 
 - `/users/{user-identifier}`
 - `/users/v2/{user-identifier}`
 
-**DON'T**
+## DON'T
 
 - `/users/{user-identifier}?version=2`
 - `/v2/users/{user-identifier}`

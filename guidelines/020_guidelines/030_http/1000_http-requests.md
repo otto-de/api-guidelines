@@ -1,5 +1,6 @@
 ---
 sideNav: true
+navTitle: Requests
 ---
 
-# Requests
+# HTTP requests

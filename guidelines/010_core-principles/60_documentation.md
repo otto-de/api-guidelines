@@ -36,7 +36,7 @@ We'll cater for experienced users that already have an idea of the endpoints to 
 
 ### Default values
 
-Request and response examples that belong to every endpoint documentation have meaningful default values that follow a specific story. 
+Request and response examples that belong to every endpoint documentation have meaningful default values that follow a specific story.
 
 ### Code examples and attribute tables
 

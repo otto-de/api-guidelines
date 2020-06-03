@@ -3,9 +3,8 @@ import globby from "globby";
 import { registerPartial, registerHelper } from "handlebars";
 import chalk from "chalk";
 import { table } from "table";
-import { readText, outputFile } from "./fs";
+import { readText } from "./fs";
 import { Parser } from "./parser";
-import type { Category } from "../types";
 import type { Config } from "./config";
 
 const log = debug("collect:utils");

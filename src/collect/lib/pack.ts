@@ -2,7 +2,7 @@
 import { debug } from "@otto-ec/assets-debug";
 import { hbTransform, writeLine } from "@otto-ec/toolbox";
 import { join } from "path";
-import { getConfig, Config } from "./config";
+import { getConfig } from "./config";
 import { collectCategory } from "./collect";
 import { readText, outputFile } from "./fs";
 import {
@@ -14,7 +14,6 @@ import {
 } from "./utils";
 import { getParser } from "./markdown";
 import { Parser } from "./parser";
-import { Category, ProcessedHeading } from "../types";
 
 const log = debug("collect:pack");
 

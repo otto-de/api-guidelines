@@ -7,7 +7,7 @@ id: R000024
 
 To simplify encoding of resource IDs in URLs, their representation must only consist of ASCII strings.
 
-**Use**
+## Use
 
 - letters [a-zA-Z]
 - numbers [0-9]
@@ -17,7 +17,7 @@ To simplify encoding of resource IDs in URLs, their representation must only con
 - period .
 - and - on rare occasions - slash /
 
-**Don't use** (among others):
+## Don't use (among others)
 
 - umlauts äöü
 - accents àèĉ

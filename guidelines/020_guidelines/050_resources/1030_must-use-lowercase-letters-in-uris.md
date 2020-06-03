@@ -7,10 +7,10 @@ id: R000017
 
 We consistently use lowercase letters in URI paths.
 
-**DO**
+## DO
 
-http://api.example.com/orders
+<http://api.example.com/orders>
 
-**DON'T**
+## DON'T
 
-http://api.example.com/Orders
+<http://api.example.com/Orders>

@@ -7,11 +7,10 @@ id: R000022
 
 Use CamelCase to delimit combined words in query parameters.
 
-**DO**
+## DO
 
 `productId`, `articleNumber`, `loginId`, `lId` etc.
 
-**DON'T:**
+## DON'T
 
 `product_id`, `Articlenumber`, `login-id`, `LID`
-

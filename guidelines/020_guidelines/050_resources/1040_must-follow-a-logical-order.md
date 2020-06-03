@@ -5,7 +5,7 @@ id: R000018
 
 # follow a logical order
 
-**DO**
+## DO
 
 ```
 /customers/{userId}/addresses/

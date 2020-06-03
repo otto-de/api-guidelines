@@ -7,7 +7,7 @@ id: R000012
 
 You must only use standardized HTTP status codes consistently with their intended semantics. You must not invent new HTTP status codes.
 
-RFC standards define ~60 different HTTP status codes with specific semantics (mainly [RFC7231](https://tools.ietf.org/html/rfc7231#section-6) and [RFC 6585](https://tools.ietf.org/html/rfc6585)) — and there are upcoming new ones, e.g. [draft legally-restricted-status](https://tools.ietf.org/html/draft-tbray-http-legally-restricted-status-05). See overview on all error codes on [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) or via https://httpstatuses.com/) also inculding 'unofficial codes', e.g. used by popular web servers like Nginx.
+RFC standards define ~60 different HTTP status codes with specific semantics (mainly [RFC7231](https://tools.ietf.org/html/rfc7231#section-6) and [RFC 6585](https://tools.ietf.org/html/rfc6585)) — and there are upcoming new ones, e.g. [draft legally-restricted-status](https://tools.ietf.org/html/draft-tbray-http-legally-restricted-status-05). See overview on all error codes on [Wikipedia](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) or via <https://httpstatuses.com/)> also inculding 'unofficial codes', e.g. used by popular web servers like Nginx.
 
 Below we list the most commonly used and best understood HTTP status codes, consistent with their semantic in the RFCs. APIs should only use these to prevent misconceptions that arise from less commonly used HTTP status codes.
 
@@ -17,7 +17,7 @@ Below we list the most commonly used and best understood HTTP status codes, cons
 As long as your HTTP status code usage is well covered by the semantic defined here, you should not describe it to avoid an overload with common sense information and the risk of inconsistent definitions. Only if the HTTP status code is not in the list below or its usage requires additional information aside the well defined semantic, the API specification must provide a clear description of the HTTP status code in the response.
 :::
 
-#### Success codes
+## Success codes
 
 | Status Code      | Meaning                                                                                                                                                                                                                                                   | Methods                          |
 | :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- |
@@ -26,7 +26,7 @@ As long as your HTTP status code usage is well covered by the semantic defined h
 | `202 Accepted`   | The request was successful and will be processed asynchronously.                                                                                                                                                                                          | `POST`, `PUT`, `PATCH`, `DELETE` |
 | `204 No Content` | There is no response body.                                                                                                                                                                                                                                | `PUT`, `PATCH`, `DELETE`         |
 
-#### Redirection codes
+## Redirection codes
 
 | Code                    | Meaning                                                                                                                                                                                                                                                                                                                                                                                              | Methods                          |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- |
@@ -36,7 +36,7 @@ As long as your HTTP status code usage is well covered by the semantic defined h
 
 > TODO [why no 307 and 308?]
 
-#### Client side error codes
+## Client side error codes
 
 | Code                         | Meaning                                                                                                                                                                                                                                                                               | Methods                          |
 | :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------- |
@@ -57,7 +57,7 @@ As long as your HTTP status code usage is well covered by the semantic defined h
 > TODO [remove WebDAV status codes like 423]
 > TODO [we really need 418!]
 
-#### Server side error codes
+## Server side error codes
 
 | Code                        | Meaning                                                                                                                                                                                                                                                                                                         | Methods |
 | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
