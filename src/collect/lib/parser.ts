@@ -10,7 +10,7 @@ import { Config } from "./config";
 
 const log = debug("collect:parser");
 
-const localPathRegex = /(?<path>\S+[\w-]+\.md)(?<hash>#\S+)?/gm;
+const localPathRegex = /(?<path>\S+[\w-]+\.md)(?<hash>#\S+)?/;
 
 /**
  * Encapsulates processing of a single markdown document, by
