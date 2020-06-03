@@ -17,19 +17,19 @@ While **conditional key** and **secondary key** are focused on handling concurre
 
 To decide, which pattern is suitable for your use case, please consult the following table showing the major properties of each pattern:
 
-|                                       | Conditional Key   | Secondary Key   | Idempotency Key                   |
-| ------------------------------------- | ----------------- | --------------- | --------------------------------- |
-| Applicable with                       | [`PATCH`](#patch) | [`POST`](#post) | [`POST`](#post)/[`PATCH`](#patch) |
-| HTTP Standard                         | ✔ Yes             | ✗ No            | ✗ No                              |
-| Prevents duplicate (zombie) resources | ✔ Yes             | ✔ Yes           | ✗ No                              |
-| Prevents concurrent lost updates      | ✔ Yes             | ✗ No            | ✗ No                              |
-| Supports safe retries                 | ✔ Yes             | ✔ Yes           | ✔ Yes                             |
-| Supports exact same response          | ✗ No              | ✗ No            | ✔ Yes                             |
-| Can be inspected (by intermediaries)  | ✔ Yes             | ✗ No            | ✔ Yes                             |
-| Usable without previous [`GET`](#get) | ✗ No              | ✔ Yes           | ✔ Yes                             |
+|                                       | Conditional Key | Secondary Key | Idempotency Key |
+| ------------------------------------- | --------------- | ------------- | --------------- |
+| Applicable with                       | `PATCH`         | `POST`        | `POST`/`PATCH`  |
+| HTTP Standard                         | ✔               | ✗             | ✗               |
+| Prevents duplicate (zombie) resources | ✔               | ✔             | ✗               |
+| Prevents concurrent lost updates      | ✔               | ✗             | ✗               |
+| Supports safe retries                 | ✔               | ✔             | ✔               |
+| Supports exact same response          | ✗               | ✗             | ✔               |
+| Can be inspected (by intermediaries)  | ✔               | ✗             | ✔               |
+| Usable without previous `GET`         | ✗               | ✔             | ✔               |
 
-::: info
-The patterns applicable to [`PATCH`](#patch) can be applied in the same way to [`PUT`](#put) and [`DELETE`](#delete) providing the same properties.
-:::
+`Note:`{ label } The patterns applicable to `PATCH` can be applied in the same way to `PUT` and `DELETE` providing the same properties.
 
+::: warning
 If you mainly aim to support safe retries, we suggest to apply Conditional Key and Secondary Key pattern before the Idempotency Key pattern.
+:::

@@ -20,12 +20,16 @@ However, these actual effects and state changes, must not be intended by the ope
 
 Method implementations must fulfill the following basic properties according to [RFC 7231](https://tools.ietf.org/html/rfc7231):
 
-| Method                | Safe  | Idempotent                                                                      | Cacheable                                                                                                |
-| --------------------- | ----- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [`GET`](#get)         | ✔ Yes | ✔ Yes                                                                           | ✔ Yes                                                                                                    |
-| [`HEAD`](#head)       | ✔ Yes | ✔ Yes                                                                           | ✔ Yes                                                                                                    |
-| [`POST`](#post)       | ✗ No  | ⚠️ No, but [**[SHOULD]** consider to design `POST` and `PATCH`idempotent](link) | ⚠️ May, but only if specific [`POST`](#post) endpoint is `safe`. **Hint:** not supported by most caches. |
-| [`PUT`](#put)         | ✗ No  | ✔ Yes                                                                           | ✗ No                                                                                                     |
-| [`PATCH`](#patch)     | ✗ No  | ⚠️ No, but [**SHOULD** consider to design `POST` and `PATCH` idempotent](link)) | ✗ No                                                                                                     |
-| [`DELETE`](#delete)   | ✗ No  | ✔ Yes                                                                           | ✗ No                                                                                                     |
-| [`OPTIONS`](#options) | ✔ Yes | ✔ Yes                                                                           | ✗ No                                                                                                     |
+| Method                | Safe | Idempotent | Cacheable |
+| --------------------- | ---- | ---------- | --------- |
+| [`GET`](#get)         | ✔    | ✔          | ✔         |
+| [`HEAD`](#head)       | ✔    | ✔          | ✔         |
+| [`POST`](#post)       | ✗    | ✗ [^1]     | ✗ [^2]    |
+| [`PUT`](#put)         | ✗    | ✔          | ✗         |
+| [`PATCH`](#patch)     | ✗    | ✗ [^3]     | ✗         |
+| [`DELETE`](#delete)   | ✗    | ✔          | ✗         |
+| [`OPTIONS`](#options) | ✔    | ✔          | ✗         |
+
+[^1]: No, but [**[SHOULD]** consider to design `POST` and `PATCH`idempotent](link).
+[^2]: May, but only if specific [`POST`](#post) endpoint is `safe`. **Hint:** not supported by most caches.
+[^3]: No, but [**SHOULD** consider to design `POST` and `PATCH` idempotent](link)).
