@@ -17,7 +17,7 @@ Below we list the most commonly used and best understood HTTP status codes, cons
 As long as your HTTP status code usage is well covered by the semantic defined here, you should not describe it to avoid an overload with common sense information and the risk of inconsistent definitions. Only if the HTTP status code is not in the list below or its usage requires additional information aside the well defined semantic, the API specification must provide a clear description of the HTTP status code in the response.
 :::
 
-## Success codes
+||| accordion Success codes { begin }
 
 | Status Code      | Meaning                                                                                                                                                                                                                                                   | Methods                          |
 | :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- |
@@ -26,7 +26,9 @@ As long as your HTTP status code usage is well covered by the semantic defined h
 | `202 Accepted`   | The request was successful and will be processed asynchronously.                                                                                                                                                                                          | `POST`, `PUT`, `PATCH`, `DELETE` |
 | `204 No Content` | There is no response body.                                                                                                                                                                                                                                | `PUT`, `PATCH`, `DELETE`         |
 
-## Redirection codes
+|||
+
+||| accordion Redirection codes
 
 | Code                    | Meaning                                                                                                                                                                                                                                                                                                                                                                                              | Methods                          |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------- |
@@ -36,7 +38,9 @@ As long as your HTTP status code usage is well covered by the semantic defined h
 
 > TODO [why no 307 and 308?]
 
-## Client side error codes
+|||
+
+||| accordion Client side error codes
 
 | Code                         | Meaning                                                                                                                                                                                                                                                                               | Methods                          |
 | :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------- |
@@ -57,10 +61,13 @@ As long as your HTTP status code usage is well covered by the semantic defined h
 > TODO [remove WebDAV status codes like 423]
 > TODO [we really need 418!]
 
-## Server side error codes
+|||
+
+||| accordion Server side error codes { end }
 
 | Code                        | Meaning                                                                                                                                                                                                                                                                                                         | Methods |
 | :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
 | `500 Internal Server Error` | A generic error indication for an unexpected server execution problem (here, client retry may be sensible)                                                                                                                                                                                                      | `<all>` |
 | `501 Not Implemented`       | Server cannot fulfill the request (usually implies future availability, e.g. new feature).                                                                                                                                                                                                                      | `<all>` |
 | `503 Service Unavailable`   | Service is (temporarily) not available (e.g. if a required component or downstream service is not available) — client retry may be sensible. If possible, the service should indicate how long the client should wait by setting the [`Retry-After`](https://tools.ietf.org/html/rfc7231#section-7.1.3) header. | `<all>` |
+||| 

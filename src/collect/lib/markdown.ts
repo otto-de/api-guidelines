@@ -65,7 +65,7 @@ export function registerAccordion(config: Config, md: Md): void {
         const title = titleAttr || token.info.replace(identifier, "").trim();
 
         if (typeof token.attrGet(map.begin) === "string") {
-          res.push('<ul uk-accordion="multiple: true">');
+          res.push('<ul uk-accordion="multiple: true" class="api-accordion">');
         }
 
         res.push("<li");
@@ -76,8 +76,12 @@ export function registerAccordion(config: Config, md: Md): void {
           res.push(' class="', classes || "", open ? " uk-open" : "", '"');
         }
 
-        res.push('><a class="uk-accordion-title" href="#">', title, "</a>");
-        res.push('<div class="uk-accordion-content">');
+        res.push(
+          '><a class="uk-accordion-title api-accordion-title" href="#">',
+          title,
+          "</a>"
+        );
+        res.push('<div class="uk-accordion-content api-accordion-content">');
       } else {
         // Closing Tag
         res.push(`</div></li>`);

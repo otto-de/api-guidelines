@@ -7,25 +7,24 @@ id: R000007
 
 We are compliant with the standardized HTTP method semantics described as follows:
 
-## GET
-
+||| accordion GET { begin }
 `GET` requests are used to **read** either a single or a collection resource.
 
 - For individual resources `GET` requests will usually generate a `404 Not Found` if the resource does not exist.
 - For collection resources `GET` requests may return either `200 OK` (if the collection is empty) or `404 Not Found` (if the collection is missing).
-- `GET` requests must NOT have a request body payload (see [`GET With Body`](#get-with-body)).
+- `GET` requests must NOT have a request body payload (see `GET With Body`).
 
 `Note`{ label } `GET` requests on collection resources should provide sufficient [filter](link) and [pagination](link) mechanisms.
+|||
 
-## GET with body
+||| accordion GET with body
+APIs sometimes need to provide extensive structured request information with `GET`, that may conflict with the size limits of clients, load balancers, and servers.
+As our APIs must be standard compliant (body in `GET` must be ignored on server side), API designers have to check the following two options:
 
-APIs sometimes need to provide extensive structured request information with [`GET`](#get), that may conflict with the size limits of clients, load balancers, and servers.
-As our APIs must be standard compliant (body in [`GET`](#get) must be ignored on server side), API designers have to check the following two options:
-
-1. [`GET`](#get) with URL encoded query parameters: if it is possible to encode the request information in query parameters, respecting the usual size limits of clients, gateways, and servers, this should be the first choice.
+1. `GET` with URL encoded query parameters: if it is possible to encode the request information in query parameters, respecting the usual size limits of clients, gateways, and servers, this should be the first choice.
    The request information can either be provided via multiple query parameters or by a single structured URL encoded string.
-2. [`POST`](#post) with body content: if a [`GET`](#get) with URL encoded query parameters is not possible, a [`POST`](#post) with body content must be used.
-   In this case the endpoint must be documented with the hint [`GET With Body`](#get-with-body) to transport the [`GET`](#get) semantic of this call.
+2. `POST` with body content: if a `GET` with URL encoded query parameters is not possible, a `POST` with body content must be used.
+   In this case the endpoint must be documented with the hint `GET with body` to transport the `GET` semantic of this call.
 
 ::: info
 Encoding the lengthy structured request information using header parameters is not an option.
@@ -35,13 +34,11 @@ In addition, size limits on query parameters and headers are not reliable and de
 Thus, switching to headers does not solve the original problem.
 :::
 
-::: details
-[`GET With Body`](#get-with-body) is used to transport extensive query parameters, if [simple query parameters](#link) cannot any longer be used to encode the query filters.
+`Note:`{ label } `GET with body` is used to transport extensive query parameters, if [simple query parameters](#link) cannot any longer be used to encode the query filters.
 As a consequence, it is best practice to transport the query filters in the body.
-:::
+|||
 
-## PUT
-
+||| accordion PUT
 `PUT` requests are used to **update** (in rare cases to create) **entire** resources – single or collection resources.
 The semantic is best described as _"please put the enclosed representation at the resource mentioned by the URL, replacing any existing resource."_.
 
@@ -50,20 +47,18 @@ The semantic is best described as _"please put the enclosed representation at th
 - On successful `PUT` requests, the server will **replace the entire resource** addressed by the URL with the representation passed in the payload (subsequent reads will deliver the same payload).
 - Successful `PUT` requests will usually generate `200 OK` or `204 No Content` (if the resource was updated – with or without actual content returned), and `201 Created` (if the resource was created).
 
-**Important:** It is best practice to prefer `POST` over `PUT` for creation of (at least top-level) resources.
+`Important:`{ label="warning" } It is best practice to prefer `POST` over `PUT` for creation of (at least top-level) resources.
 This leaves the resource ID under control of the service and allows to concentrate on the update semantic using `PUT` as follows.
 
 ::: info
 In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.
-Putting the same resource twice is required to be [idempotent](link) and to result in the same single resource instance (see [MUST fulfill common method properties](link)).
+Putting the same resource twice is required to be [idempotent](link.md) and to result in the same single resource instance (see [MUST fulfill common method properties](2010_must-use-http-methods-correctly.md)).
 :::
 
-::: details
 To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also [Optimistic locking in RESTful APIs](link) for details and options.
-:::
+|||
 
-## POST
-
+||| accordion POST
 `POST` requests are idiomatically used to **create** single resources on a collection resource endpoint, but other semantics on single resources endpoint are equally possible.
 The semantic for collection endpoints is best described as _"please add the enclosed representation to the collection resource identified by the URL"_.
 
@@ -83,8 +78,9 @@ Resource IDs related to `POST` requests are created and managed by the server an
 Posting the same resource twice is **not** required to be [idempotent](#idempotent) (check [MUST fulfill common method properties](link)) and may result in multiple resources.
 However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) to prevent this.
 :::
+|||
 
-## PATCH
+||| accordion PATCH
 
 > TODO: Link auf Optimistic Locking: Best practices übernehmen oder so...
 
@@ -102,7 +98,7 @@ As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose
 :::
 
 1. Use [`PUT`](#put) with complete objects to update a resource as long as feasible (i.e. do not use `PATCH` at all).
-2. Use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)
+2. `FOOBAR`{ label="warning"} Use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)
 3. Use [`PATCH`](#patch) with [JSON Patch](https://tools.ietf.org/html/rfc6902), a specialized media type `application/json-patch+json` (sent as `Content-Type` request header) that includes instructions on how to change the resource.
 4. Use [`POST`](#post) (with a proper description of what is happening) instead of [`PATCH`](#patch), if the request does not modify the resource in a way defined by the semantics of the media type.
 
@@ -110,16 +106,14 @@ In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turn
 In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).
 
 ::: info
-Patching the same resource twice is **not** required to be [idempotent](#idempotent) (check [MUST fulfill common method properties](link) and may result in a changing result. However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) to prevent this.
+Patching the same resource twice is **not** required to be [idempotent](idempotent.md) (check [MUST fulfill common method properties](link.md) and may result in a changing result. However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link.md) to prevent this.
 :::
 
-::: details
-To prevent unnoticed concurrent updates when using `PATCH` you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
+`Note:`{ label } To prevent unnoticed concurrent updates when using `PATCH` you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
 See [Optimistic locking in RESTful APIs](link) and [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) for details and options.
-:::
+|||
 
-## DELETE
-
+||| accordion DELETE
 `DELETE` requests are used to **delete** resources.
 The semantic is best described as _"please delete the resource identified by the URL"_.
 
@@ -133,23 +127,20 @@ The semantic is best described as _"please delete the resource identified by the
 After deleting a resource with `DELETE`, a [`GET`](#get) request on the resource is expected to either return `404 Not Found` or `410 Gone` depending on how the resource is represented after deletion.
 Under no circumstances the resource must be accessible after this operation on its endpoint.
 :::
+|||
 
-## HEAD
-
+||| accordion HEAD
 `HEAD` requests are used to **retrieve** the header information of single resources and resource collections.
 
 - `HEAD` has exactly the same semantics as [`GET`](#get), but returns headers only, no body.
 
-::: details
-`HEAD` is particular useful to efficiently lookup whether large resources or collection resources have been updated in conjunction with the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3)-header.
-:::
+`Note:`{ label } `HEAD` is particular useful to efficiently lookup whether large resources or collection resources have been updated in conjunction with the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3)-header.
+|||
 
-### OPTIONS
-
+||| accordion OPTIONS { end }
 `OPTIONS` requests are used to **inspect** the available operations (HTTP methods) of a given endpoint.
 
 - `OPTIONS` responses usually either return a comma separated list of methods in the `Allow` header or a structured list of link templates.
 
-::: info
-`OPTIONS` is rarely implemented, though it could be used to self-describe the full functionality of a resource.
-:::
+`Note:`{ label } `OPTIONS` is rarely implemented, though it could be used to self-describe the full functionality of a resource.
+|||
