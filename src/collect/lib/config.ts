@@ -36,7 +36,8 @@ export function getConfig() {
         },
       },
       accordion: {
-        marker: "accordion",
+        identifier: "accordion",
+        marker: "/",
         attrs: {
           begin: "begin",
           end: "end",

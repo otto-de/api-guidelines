@@ -51,8 +51,9 @@ export function registerBlocks(config: Config, md: Md): void {
 }
 
 export function registerAccordion(config: Config, md: Md): void {
-  const { marker, attrs: map } = config.markdown.accordion;
-  md.use(container, marker, {
+  const { identifier, marker, attrs: map } = config.markdown.accordion;
+  md.use(container, identifier, {
+    marker,
     render: (tokens: Token[], idx: number) => {
       const token = tokens[idx];
       log.trace(idx, token);
@@ -61,7 +62,7 @@ export function registerAccordion(config: Config, md: Md): void {
       // Opening Tag
       if (token.nesting > 0) {
         const titleAttr = token.attrGet(map.title);
-        const title = titleAttr || token.info.replace(marker, "").trim();
+        const title = titleAttr || token.info.replace(identifier, "").trim();
 
         if (typeof token.attrGet(map.begin) === "string") {
           res.push('<ul uk-accordion="multiple: true">');
