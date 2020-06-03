@@ -62,7 +62,7 @@ export function registerAccordion(config: Config, md: Md): void {
         const title = titleAttr || token.info.replace(marker, "").trim();
 
         if (typeof token.attrGet(map.begin) === "string") {
-          res.push("<ul uk-accordion>");
+          res.push('<ul uk-accordion="multiple: true">');
         }
 
         res.push("<li");
