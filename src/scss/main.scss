@@ -7,7 +7,7 @@ $highlight-green: #009640;
 // variable overwrites.
 $global-font-family: "OttoSans";
 $global-font-size: 14px;
-$base-heading-font-family: "OttoSansThin";
+$base-heading-font-family: "OttoSansThin", $global-font-family;
 
 // 2. Import default variables and available mixins.
 @import "uikit/src/scss/variables-theme.scss";
