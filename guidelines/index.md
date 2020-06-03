@@ -4,6 +4,10 @@ navTitle: OTTO API Guidelines
 
 # OTTO API Guidelines
 
+::: warning Work in progress!
+This version of our API guidelines is intended as a sneakpeak. Contents and structure are likely to change.
+:::
+
 The OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO's E-Commerce department.
 
 OTTO E-Commerce consists of various microservice teams that aim to provide functionality for the OTTO webshop via RESTful APIs.
