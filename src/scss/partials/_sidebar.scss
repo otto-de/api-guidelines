@@ -18,6 +18,19 @@
       width: 120px;
     }
 
+    .uk-nav-sub a {
+      padding: 5px 0;
+    }
+
+    .uk-nav-parent-icon > .uk-parent > a:after {
+      transform: rotate(180deg);
+    }
+
+    .uk-nav-parent-icon > .uk-parent.uk-open > a:after {
+      transform: rotate(0deg);
+    }
+
+
     .uk-nav-default {
       font-size: 1em;
 
