@@ -1,0 +1,6 @@
+{
+  "writer": {
+    "type": "github",
+    "apiTokenSecret": "github-fkt-tokens"
+  }
+}
