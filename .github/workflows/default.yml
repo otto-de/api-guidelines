@@ -38,23 +38,18 @@ jobs:
 
       - name: Store Runner Context Data
         run: |
-          echo "${{ toJson(github) }}" > ${{ github.workspace }}/tmp/github.json
-          echo "${{ toJson(env) }}" > ${{ github.workspace }}/tmp/env.json
+          echo '${{ toJson(github) }}' > ${{ github.workspace }}/tmp/github.json
+          echo '${{ toJson(env) }}' > ${{ github.workspace }}/tmp/env.json
 
-      - name: "Persist Workspace: dist"
+      - name: Persist dist
         uses: actions/upload-artifact@v2
         with:
-          name: workspace
+          name: dist
           path: ${{ github.workspace }}/dist
-      - name: "Persist Workspace: build"
+      - name: Persist tmp
         uses: actions/upload-artifact@v2
         with:
-          name: workspace
-          path: ${{ github.workspace }}/build
-      - name: "Persist Workspace: tmp"
-        uses: actions/upload-artifact@v2
-        with:
-          name: workspace
+          name: tmp
           path: ${{ github.workspace }}/tmp
 
   specs:
@@ -71,8 +66,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v2
         with:
-          name: workspace
           path: ${{ github.workspace }}
+      - run: ls -la
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
