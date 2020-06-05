@@ -22,8 +22,12 @@ jobs:
       - name: Print Metadata
         run: |
           echo "Actor: ${{ github.actor }}"
-          echo "Branch: ${{ github.event.pull_request.head.ref }}"
-          echo "Author: ${{ github.event.pull_request.user.login }}"
+
+          echo "PR Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "PR Author: ${{ github.event.pull_request.user.login }}"
+
+          echo "${{ github }}" > build/github.json
+          echo "${{ env }}" > build/env.json
 
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
