@@ -26,6 +26,7 @@ jobs:
           echo "PR Branch: ${{ github.event.pull_request.head.ref }}"
           echo "PR Author: ${{ github.event.pull_request.user.login }}"
 
+          mkdir -p build
           echo "${{ github }}" > build/github.json
           echo "${{ env }}" > build/env.json
 
