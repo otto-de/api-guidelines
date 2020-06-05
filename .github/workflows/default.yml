@@ -1,6 +1,8 @@
 name: "Build and Test"
 
-on: push
+on:
+  push:
+  pull_request:
 
 env:
   GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
