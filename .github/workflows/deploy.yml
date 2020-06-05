@@ -1,0 +1,38 @@
+name: Deploy assets to S3
+
+on:
+  repository_dispatch:
+    types: [deploy]
+
+jobs:
+  deploy_develop:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+      fail-fast: false
+
+    steps:
+      - name: Print Metadata
+        run: |
+          echo "Actor: ${{ github.actor }}"
+          echo "Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "Author: ${{ github.event.pull_request.user.login }}"
+
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Npm Dependencies
+        run: npm ci
+
+      - name: Build Sources
+        run: npm run build
+
+      - name: Deploy Assets
+        run: $(npm bin)/tb s3 upload
+
+      - name: Invalidate Cloudfront Distribution
+        run: $(npm bin)/tb cf invalidate

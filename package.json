@@ -21,7 +21,7 @@
     "watch:js": "nodemon --config config/nodemon.js.json -x 'npm run build:js'",
     "serve": "browser-sync start -s \"dist\" -f \"dist\" -w",
     "clean": "mkdir -p ./tmp ./build ./dist && rm -rf ./tmp/* ./build/* ./dist/*",
-    "packci": "tb ci pack && tb ci c g --coarse",
+    "packci": "echo 'TODO'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
