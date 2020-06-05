@@ -4,6 +4,9 @@ on:
   repository_dispatch:
     types: [deploy]
 
+env:
+  GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+
 jobs:
   deploy_develop:
     runs-on: ubuntu-latest
