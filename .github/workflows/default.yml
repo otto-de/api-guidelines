@@ -22,13 +22,8 @@ jobs:
       - name: Print Metadata
         run: |
           echo "Actor: ${{ github.actor }}"
-
           echo "PR Branch: ${{ github.event.pull_request.head.ref }}"
           echo "PR Author: ${{ github.event.pull_request.user.login }}"
-
-          mkdir -p ${{ github.workspace }}/build
-          echo "${{ github }}" > ${{ github.workspace }}/build/github.json
-          echo "${{ env }}" > ${{ github.workspace }}/build/env.json
 
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -41,9 +36,11 @@ jobs:
       - name: Build Sources
         run: npm run build
 
-      - run: |
-          ls -la
-          pwd
+      - name: Store Runner Context Data
+        run: |
+          mkdir -p ${{ github.workspace }}/build
+          echo "${{ github }}" > ${{ github.workspace }}/build/github.json
+          echo "${{ env }}" > ${{ github.workspace }}/build/env.json
 
       - name: "Persist Workspace: dist"
         uses: actions/upload-artifact@v2
