@@ -111,12 +111,10 @@ jobs:
       - name: Execute Linter
         if: github.event.pull_request.user.login != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot-preview[bot]'
         run: |
-          if [[ ${{ github.ref }} =~ ^(?!(dependabot\/|master)).* ]]; then
-            echo "Skip linter for dependabot"
-          else
-            npm run lint:src --silent \
-            && npm run lint:docs --silent 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" >&2; done)
-          fi
+          npm run lint:src --silent \
+            && npm run lint:docs --silent 2> >(while read line; do echo -e "::error $line" >&2; done)
+
+        # && npm run lint:docs --silent 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" >&2; done)
 
   license:
     runs-on: ubuntu-latest
