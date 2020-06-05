@@ -38,9 +38,8 @@ jobs:
 
       - name: Store Runner Context Data
         run: |
-          mkdir -p ${{ github.workspace }}/build
-          echo "${{ github }}" > ${{ github.workspace }}/build/github.json
-          echo "${{ env }}" > ${{ github.workspace }}/build/env.json
+          echo "${{ toJson(github) }}" > ${{ github.workspace }}/tmp/github.json
+          echo "${{ toJson(env) }}" > ${{ github.workspace }}/tmp/env.json
 
       - name: "Persist Workspace: dist"
         uses: actions/upload-artifact@v2
