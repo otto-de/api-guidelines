@@ -175,3 +175,16 @@ jobs:
         run: |
           npm set audit-level=high
           npm audit
+
+  deploy:
+    if: github.head_ref == 'master'
+    runs-on: ubuntu-latest
+    needs: [specs, lint, license]
+
+    steps:
+      - name: Dispatch Deploy Trigger Event
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.TOKEN_GITHUB }}
+          event-type: deploy
+          client-payload: '{"ref": "${{ github.head_ref }}", "sha": "${{ github.sha }}"}'
