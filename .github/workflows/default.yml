@@ -22,6 +22,7 @@ jobs:
       - name: Print Metadata
         run: |
           echo "Actor: ${{ github.actor }}"
+          echo "Event Ref: ${{ github.event.ref }}"
           echo "PR Branch: ${{ github.event.pull_request.head.ref }}"
           echo "PR Author: ${{ github.event.pull_request.user.login }}"
 
@@ -36,10 +37,10 @@ jobs:
       - name: Build Sources
         run: npm run build
 
-      - name: Store Runner Context Data
-        run: |
-          echo '${{ toJson(github) }}' > ${{ github.workspace }}/tmp/github.json
-          echo '${{ toJson(env) }}' > ${{ github.workspace }}/tmp/env.json
+      # - name: Store Runner Context Data
+      #   run: |
+      #     echo '${{ toJson(github) }}' > ${{ github.workspace }}/tmp/github.json
+      #     echo '${{ toJson(env) }}' > ${{ github.workspace }}/tmp/env.json
 
       - name: Persist dist
         uses: actions/upload-artifact@v2
