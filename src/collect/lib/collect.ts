@@ -25,9 +25,10 @@ export function globDirs(dir: string): Promise<string[]> {
  * @param dir
  * @returns category from dir
  */
-export function parseCategoryFromDir(dir: string): string {
-  return (dir.match(/(?<=[0-9]+_)[a-zA-Z0-9-_]+$/g)?.[0] as string)
-    .replace(/[-_]/g, " ")
+export function parseCategoryFromDir(dir: string): string | undefined {
+  return dir
+    .match(/(?<=[0-9]+_)[a-zA-Z0-9-_]+$/g)?.[0]
+    ?.replace(/[-_]/g, " ")
     .replace(/\w\S+/g, (w) => w[0].toUpperCase() + w.slice(1));
 }
 
@@ -40,7 +41,7 @@ export async function getIndexData(
 ): Promise<{
   path: string;
   indexData: string;
-  catNameFromDir: string;
+  catNameFromDir?: string;
 }> {
   const globRes = await globby([`${dir}/*index.md`], { onlyFiles: true });
   const path = globRes[0] || undefined;
@@ -83,7 +84,7 @@ export async function collectCategory(
   // eslint-disable-next-line @typescript-eslint/no-use-before-define, no-use-before-define
   const children = await collectCategorys(dir, parser, config, nextLevel);
   const res = {
-    name: index.nav?.text || catNameFromDir,
+    name: index.nav?.text || catNameFromDir || "Undefined",
     index,
     docs,
     children,

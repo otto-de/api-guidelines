@@ -1,0 +1,176 @@
+name: "Build and Test"
+
+on:
+  pull_request:
+
+env:
+  GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+      fail-fast: false
+
+    steps:
+      - name: Print Metadata
+        run: |
+          echo "Actor: ${{ github.actor }}"
+          echo "Branch: ${{ github.event.pull_request.head.ref }}"
+          echo "Author: ${{ github.event.pull_request.user.login }}"
+
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Npm Dependencies
+        run: npm ci
+
+      - name: Build Sources
+        run: npm run build
+
+      - run: |
+          ls -la
+          pwd
+
+      - name: "Persist Workspace: dist"
+        uses: actions/upload-artifact@v2
+        with:
+          name: workspace
+          path: ${{ github.workspace }}/dist
+      - name: "Persist Workspace: build"
+        uses: actions/upload-artifact@v2
+        with:
+          name: workspace
+          path: ${{ github.workspace }}/build
+      - name: "Persist Workspace: tmp"
+        uses: actions/upload-artifact@v2
+        with:
+          name: workspace
+          path: ${{ github.workspace }}/tmp
+
+  specs:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+      fail-fast: true
+
+    needs: [build]
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: workspace
+          path: ${{ github.workspace }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Npm Dependencies
+        run: npm ci
+
+      - name: Execute Tests
+        run: |
+          echo "This is a dummy Job"
+          npm run build:collect
+          mv dist tmp/coverage
+
+      - name: Persist coverage Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: ${{ github.workspace }}/tmp/coverage
+
+  lint:
+    if: github.event.pull_request.user.login != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot-preview[bot]'
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+      fail-fast: true
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: workspace
+          path: ${{ github.workspace }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Npm Dependencies
+        run: npm ci
+
+      - name: Execute Linter
+        run: |
+          if [[ ${{ github.ref }} =~ ^(?!(dependabot\/|master)).* ]]; then
+            echo "Skip linter for dependabot"
+          else
+            npm run lint:src --silent \
+            && npm run lint:docs --silent 2> >(while read line; do echo -e "\e[01;31m$line\e[0m" >&2; done)
+          fi
+
+  license:
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+      fail-fast: true
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: workspace
+          path: ${{ github.workspace }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Npm Dependencies
+        run: npm ci
+
+      - name: Check Dependency License Usage
+        run: $(npm bin)/tb chk lic
+
+  audit:
+    if: github.event.pull_request.user.login != 'dependabot[bot]' && github.event.pull_request.user.login != 'dependabot-preview[bot]'
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+      fail-fast: true
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: workspace
+          path: ${{ github.workspace }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Npm Dependencies
+        run: npm ci
+
+      - name: Check dependencies for Vulnerabilities
+        run: |
+          npm set audit-level=high
+          npm audit

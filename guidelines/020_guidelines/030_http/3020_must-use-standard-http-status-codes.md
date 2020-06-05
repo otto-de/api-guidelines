@@ -70,4 +70,4 @@ As long as your HTTP status code usage is well covered by the semantic defined h
 | `500 Internal Server Error` | A generic error indication for an unexpected server execution problem (here, client retry may be sensible)                                                                                                                                                                                                      | `<all>` |
 | `501 Not Implemented`       | Server cannot fulfill the request (usually implies future availability, e.g. new feature).                                                                                                                                                                                                                      | `<all>` |
 | `503 Service Unavailable`   | Service is (temporarily) not available (e.g. if a required component or downstream service is not available) — client retry may be sensible. If possible, the service should indicate how long the client should wait by setting the [`Retry-After`](https://tools.ietf.org/html/rfc7231#section-7.1.3) header. | `<all>` |
-||| 
+|||

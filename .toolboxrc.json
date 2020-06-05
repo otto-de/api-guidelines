@@ -1,4 +1,9 @@
 {
+  "check": {
+    "license": {
+      "excludePackages": "xmldom@0.1.27"
+    }
+  },
   "s3": {
     "config": {
       "swamp": "{{hbs swamp.profiles.apidocs_upload}}",
