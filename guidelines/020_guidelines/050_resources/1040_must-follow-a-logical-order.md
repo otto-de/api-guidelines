@@ -7,7 +7,7 @@ id: R000018
 
 ## DO
 
-```
+```text
 /customers/{userId}/addresses/
 /customers/{userId}/addresses/{addressId}/
 ```
