@@ -9,8 +9,8 @@ The top-level data structure of your JSON response should always be a JSON objec
 Do:
 
 ```json
-{ 
-  "searchSuggestions": ["gaming pc", "gaming laptop", "gaming monitor"] 
+{
+  "searchSuggestions": ["gaming pc", "gaming laptop", "gaming monitor"]
 }
 ```
 
