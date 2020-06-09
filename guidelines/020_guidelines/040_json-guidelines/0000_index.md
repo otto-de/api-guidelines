@@ -5,7 +5,7 @@
 ?? = not sure if we need/want this rule
 (should/must) = we need to agree on strictness
 
-- ?? do we distinguish requiredness / nullability? MUST use same semantics for null and absent properties [123]
+- ?? do we distinguish requiredness / nullability?
   - do we want required, yet nullable values??
 - (should/must) omit optional values OR explicitly null optional values
 - SHOULD pluralize array names [120] <https://opensource.zalando.com/restful-api-guidelines/#120>
