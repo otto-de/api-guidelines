@@ -2,6 +2,8 @@
 type: must
 ---
 
+# always return JSON objects as top-level data structure
+
 The top-level data structure of your JSON response should always be a JSON object and not, for example, an array.
 
 Do:
