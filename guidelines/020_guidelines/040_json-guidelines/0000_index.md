@@ -8,7 +8,6 @@
 - ?? do we distinguish requiredness / nullability? MUST use same semantics for null and absent properties [123]
   - do we want required, yet nullable values??
 - (should/must) omit optional values OR explicitly null optional values
-- SHOULD represent maps as objects with keys being properties (abweichung zu 118 schreibweise?)
 - SHOULD pluralize array names [120] <https://opensource.zalando.com/restful-api-guidelines/#120>
 - SHOULD not use null for empty arrays [124] <https://opensource.zalando.com/restful-api-guidelines/#124>
 - ?? enumerations as strings / enumerations in UPPER_SNAKE_CASE? <https://opensource.zalando.com/restful-api-guidelines/#125>
