@@ -7,9 +7,7 @@
 
 - ?? do we distinguish requiredness / nullability? MUST use same semantics for null and absent properties [123]
   - do we want required, yet nullable values??
-- MUST use same semantics for null and absent properties [123] <https://opensource.zalando.com/restful-api-guidelines/#123>
 - (should/must) omit optional values OR explicitly null optional values
-- (should/must) use camel case for property names
 - MUST always return JSON objects as top-level data structures [110] <https://opensource.zalando.com/restful-api-guidelines/#110>
 - SHOULD represent maps as objects with keys being properties (abweichung zu 118 schreibweise?)
 - SHOULD pluralize array names [120] <https://opensource.zalando.com/restful-api-guidelines/#120>
