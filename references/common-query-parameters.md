@@ -28,10 +28,20 @@ This section describes common query parameters to provide the client a consisten
 | :----- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------ | :--------------------------- |
 | `sort` | Property to sort by with optional ordering. Can be provided multiple times to sort by multiple properties. Naming _should_ correspond to JSON field names with dot-navigation if necessary (e.g. `price.grossValue`). | `<field>[,(asc \| desc)]` | `?sort=price,desc&sort=name` |
 
-## querying and filtering
+## Querying and filtering
 
 | name | description       | values | example    |
 | :--- | :---------------- | :----- | :--------- |
 | `q`  | Simple text query | \*     | `?q=shoes` |
 
 If more advanced queries are necessary, they should be made available via separate endpoints that accept queries as JSON payloads.
+
+TODO: queries über request parameter
+TODO: Filtering als separaten Punkt
+
+## Embedding
+
+| name     | description                                 | values | example                |
+| :------- | :------------------------------------------ | :----- | :--------------------- |
+| `embed`  | Comma-separated list of link-relation types | \*     | `?embed=item,o:images` |
+

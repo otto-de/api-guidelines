@@ -16,4 +16,8 @@ TODO (links)
 * MUST use standard HTTP status codes
 
 Although this is not HATEOAS, it should not prevent you from designing proper link relationships in your APIs.
-If you do so, it is highly recommended to use application/hal+json as representation format, so the API can be published later without breaking changes.
+If you do so, you SHOULD use application/hal+json as representation format, so the API can be published later without
+breaking changes.
+
+See:
+* Internet Draft [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-08) 
