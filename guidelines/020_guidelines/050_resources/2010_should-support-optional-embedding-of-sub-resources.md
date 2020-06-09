@@ -39,5 +39,5 @@ GET /products?embed=(item) HTTP/1.1
 }
 ```
 
-See:
+See also:
  * [MUST stick to conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md)
