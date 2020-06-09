@@ -1,5 +1,6 @@
 ---
-type: should
+type: SHOULD
+id: R004010
 ---
 
 # use camelCase for property names

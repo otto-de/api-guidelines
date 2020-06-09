@@ -1,5 +1,6 @@
 ---
-type: must
+type: MUST
+id: R004030
 ---
 
 # always return JSON objects as top-level data structure

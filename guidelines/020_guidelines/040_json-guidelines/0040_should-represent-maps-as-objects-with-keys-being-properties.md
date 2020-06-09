@@ -1,5 +1,6 @@
 ---
-type: should
+type: SHOULD
+id: R004040
 ---
 
 # represent maps as objects with keys being their property names

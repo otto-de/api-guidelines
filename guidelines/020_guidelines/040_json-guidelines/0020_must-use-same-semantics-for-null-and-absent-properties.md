@@ -1,5 +1,6 @@
 ---
 type: MUST
+id: R004020
 todo: mention Open API cases or do we cover that somewhere else? See https://opensource.zalando.com/restful-api-guidelines/#123
 ---
 
