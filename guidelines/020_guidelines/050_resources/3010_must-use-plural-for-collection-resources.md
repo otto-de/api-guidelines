@@ -1,14 +1,14 @@
 ---
 type: MUST
-id: R000021
+id: R100020
 ---
 
 # use plural for collection resources
 
-If a resource can be identified as a collection resource, such as `customer`, use the plural for resource naming:
+If a resource can be identified as a collection resource, such as `order`, use the plural for resource naming:
 
-`/customers`
+`/orders`
 
 If we want to identify a single customer resource, this is what we do:
 
-`/customers/{customerId}`
+`/orders/{orderId}`
