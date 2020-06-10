@@ -11,7 +11,7 @@ The page metadata structure must match the following structure.
 
 ```json
 {
-  "page": {
+  "_page": {
     "size": 5,
     "number": 0,
     "totalElements": 50,

@@ -75,7 +75,7 @@ This is the most common approach to do pagination, especially for traditional RD
     "last": { "href": "/orders?page=9" }
   },
 
-  "page": {
+  "_page": {
     "size": 10,
     "totalElements": 100,
     "totalPages": 1,
