@@ -1,6 +1,6 @@
 ---
 type: SHOULD NOT
-id: R000053
+id: R000055
 ---
 
 # use Implicit Grant Flow
