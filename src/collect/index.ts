@@ -7,6 +7,7 @@ import { writeLine } from "@otto-ec/toolbox";
 import { pack } from "./lib/pack";
 import { nextId } from "./lib/nextid";
 import { ContentError } from "./lib/errors";
+import { lint } from "./lib/lint";
 
 Debug.set({
   namespaces: process.env.DEBUG
@@ -46,6 +47,12 @@ export default yargs
     "Collect guidelines and calculate next free rule id",
     () => undefined,
     (a) => nextId(a)
+  )
+  .command(
+    "lint",
+    "lint guidelines and write errors to stdout",
+    () => undefined,
+    (a) => lint(a)
   )
   .fail((m, e) => {
     if (e) {
