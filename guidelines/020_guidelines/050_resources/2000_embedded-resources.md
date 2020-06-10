@@ -22,35 +22,37 @@ resource (or vice versa) because client support for this technique is
 OPTIONAL.
 
 The format used for embedded resources SHOULD be application/hal+json for private APIs. For public APIs, using
-the HAL format is mandatory. 
+the HAL format is mandatory.
 
 The following examples shows the hypertext cache pattern applied to
 an "author" link:
 
-*Before:*
+_Before:_
+
 ```json
-   {
-     "_links": {
-       "self": { "href": "/books/the-way-of-zen" },
-       "author": { "href": "/people/alan-watts" }
-     }
-   }
+{
+  "_links": {
+    "self": { "href": "/books/the-way-of-zen" },
+    "author": { "href": "/people/alan-watts" }
+  }
+}
 ```
 
-*After:*
+_After:_
+
 ```json
-   {
-     "_links": {
-       "self": { "href": "/blog-post" },
-       "author": { "href": "/people/alan-watts" }
-     },
-     "_embedded": {
-       "author": {
-         "_links": { "self": { "href": "/people/alan-watts" } },
-         "name": "Alan Watts",
-         "born": "January 6, 1915",
-         "died": "November 16, 1973"
-       }
-     }
-   }
+{
+  "_links": {
+    "self": { "href": "/blog-post" },
+    "author": { "href": "/people/alan-watts" }
+  },
+  "_embedded": {
+    "author": {
+      "_links": { "self": { "href": "/people/alan-watts" } },
+      "name": "Alan Watts",
+      "born": "January 6, 1915",
+      "died": "November 16, 1973"
+    }
+  }
+}
 ```

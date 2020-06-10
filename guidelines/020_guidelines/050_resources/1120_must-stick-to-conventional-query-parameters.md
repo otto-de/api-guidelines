@@ -10,16 +10,16 @@ parameters for the same functionality.
 
 **Index:**
 
-| name       | section                                           |
-| :--------- | :------------------------------------------------ |
-| `after`    | [paging](#paging)                                 |
-| `before`   | [paging](#paging)                                 |
-| `embed`    | [embedding](#embedding)                           |
-| `fields`   | [filtering](#filtering)                           |
-| `page`     | [paging](#paging)                                 |
-| `pageSize` | [paging](#paging)                                 |
-| `q`        | [querying](#querying)                             |
-| `sort`     | [sorting](#sorting)                               |
+| name       | section                 |
+| :--------- | :---------------------- |
+| `after`    | [paging](#paging)       |
+| `before`   | [paging](#paging)       |
+| `embed`    | [embedding](#embedding) |
+| `fields`   | [filtering](#filtering) |
+| `page`     | [paging](#paging)       |
+| `pageSize` | [paging](#paging)       |
+| `q`        | [querying](#querying)   |
+| `sort`     | [sorting](#sorting)     |
 
 ## Paging
 
@@ -44,14 +44,14 @@ TODO: Alternativ: comma-separated list of fields (as defined by MUST define coll
 | :--- | :---------------- | :----- | :--------- |
 | `q`  | Simple text query | \*     | `?q=shoes` |
 
-If more advanced queries are necessary, they should be made available via separate endpoints that accept queries as 
+If more advanced queries are necessary, they should be made available via separate endpoints that accept queries as
 JSON payloads.
 
 TODO: queries über request parameter
 
 ## Filtering
 
-Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting 
+Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting
 filtering of returned entity fields.
 
 | name     | description                                 | values | example                            |
@@ -73,9 +73,9 @@ The syntax of the query fields value is defined by the following BNF grammar.
 <digit>             ::= "0" | ... | "9"
 <negation>          ::= "!"
 ```
+
 ## Embedding
 
-| name     | description                                 | values | example                |
-| :------- | :------------------------------------------ | :----- | :--------------------- |
-| `embed`  | Comma-separated list of link-relation types | \*     | `?embed=item,o:images` |
-
+| name    | description                                 | values | example                |
+| :------ | :------------------------------------------ | :----- | :--------------------- |
+| `embed` | Comma-separated list of link-relation types | \*     | `?embed=item,o:images` |

@@ -1,8 +1,6 @@
 ---
-
 type: SHOULD
 id: R000048
-
 ---
 
 # scopes should adhere to the naming convention
@@ -11,7 +9,7 @@ Scopes should adhere to the naming convention starting with the vertical or serv
 
 If sensible the scope can be limited to specific business entities.
 
-$vertical.($entity.)$permissionType 
+$vertical.($entity.)\$permissionType
 
 Do:
 
