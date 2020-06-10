@@ -2,10 +2,13 @@
 import { execaTask, writeLine } from "@otto-ec/toolbox";
 import { debug } from "@otto-ec/assets-debug";
 import chalk from "chalk";
+import { Arguments } from "yargs";
+import { Args } from "./opts";
 
 const log = debug("collect:lint");
 
-export async function lint(): Promise<void> {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export async function lint(argv: Arguments<Args>): Promise<void> {
   log.debug("Run lint");
   const npmBin = await execaTask({}).execute(
     { execaInput: { cmd: "npm", args: ["bin"] } } as any,

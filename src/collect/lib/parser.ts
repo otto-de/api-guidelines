@@ -40,6 +40,7 @@ export class Parser {
   parser: MarkdownIt;
 
   /** used by markdown parser internally */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   env: Record<string, any> = {};
 
   /** Source data as raw Markdown */

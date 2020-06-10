@@ -10,6 +10,7 @@ import { Parser } from "./parser";
 
 const log = debug("collect:nextid");
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function nextId(argv: Arguments<Args>): Promise<void> {
   log.debug("Get Colector Config");
   const config = getConfig();
