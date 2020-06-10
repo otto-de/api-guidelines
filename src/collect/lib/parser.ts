@@ -190,7 +190,7 @@ export class Parser {
       }
     } else {
       token.attrSet("target", "_blank");
-      token.attrSet("uk-icon", "icon: link");
+      token.attrSet("uk-icon", "icon: link; ratio: 0.9");
     }
   }
 

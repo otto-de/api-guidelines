@@ -24,6 +24,15 @@
       @extend .uk-table-divider;
       @extend .uk-table-striped;
     }
+
+    a[target="_blank"] {
+      color: $global-link-color !important;
+
+      svg {
+        margin-left: 2px;
+        margin-right: 1px;
+      }
+    }
   }
 
   &-accordion {
@@ -44,7 +53,7 @@
       }
     }
 
-    li:last-child.uk-open .api-accordion-content{
+    li:last-child.uk-open .api-accordion-content {
       border-bottom: none;
       padding-bottom: 0;
     }
