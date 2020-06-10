@@ -43,3 +43,11 @@ export interface Model {
   docs: Set<Parser>;
   headings: ProcessedHeading[];
 }
+
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  type Mock<T extends (...args: any) => any> = jest.Mock<
+    ReturnType<T>,
+    Parameters<T>
+  >;
+}
