@@ -3,8 +3,7 @@ import Md from "markdown-it";
 import attrs from "markdown-it-attrs";
 import container from "markdown-it-container";
 import frontMatter from "markdown-it-front-matter";
-// import highlightjs from "markdown-it-highlightjs";
-import prism from "markdown-it-prism";
+import highlightjs from "markdown-it-highlightjs";
 import footnote from "markdown-it-footnote";
 import { debug } from "@otto-ec/assets-debug";
 import type Token from "markdown-it/lib/token";
@@ -194,7 +193,7 @@ export function getParser(config: Config): Md {
     .use(frontMatter, (fm: string): void => {
       log.trace(fm);
     })
-    .use(prism)
+    .use(highlightjs)
     .use(footnote);
 
   registerBlocks(config, md);
