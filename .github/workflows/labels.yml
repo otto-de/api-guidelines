@@ -1,0 +1,23 @@
+name: "Label Dependabot PR"
+
+on:
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - synchronize
+      - opened
+      - edited
+      - ready_for_review
+      - reopened
+      - unlocked
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jurijzahn8019/action-dependabot-labels@v0.1.0
+        env:
+          DEBUG: "action-dependabot-labels:*"
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
