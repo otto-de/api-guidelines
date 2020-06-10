@@ -1,6 +1,6 @@
 # Quality standards
 
-As already mentioned, [the scope of the OTTO API](./guidelines/010_core-principles/30_api-scope.md) ranges between a public and a private API.
+As already mentioned, [the scope of the OTTO API](./guidelines/010_core-principles/0030_api-scope.md) ranges between a public and a private API.
 Nevertheless, when it comes to quality, we strive for the standards of a public API.
 If our API needs to be public by tomorrow, external users should then be able to consume our API immediately.
 What's more, a consistent understanding of quality standards facilitates the development of further endpoints and the evolution of the OTTO API as a product without unnecessary consultation between all parties involved.
