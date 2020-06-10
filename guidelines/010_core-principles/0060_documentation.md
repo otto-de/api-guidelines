@@ -8,15 +8,15 @@ Here's what that means:
 
 ### Usability
 
-* A user-friendly navigation makes it easy to discover the API and find all relevant information.
-* The sidebar is cleary structured and easy to navigate.
-* API endpoints and examples are shown in context.
+- A user-friendly navigation makes it easy to discover the API and find all relevant information.
+- The sidebar is cleary structured and easy to navigate.
+- API endpoints and examples are shown in context.
 
 ### Getting started
 
-* Basic information is available at one central place, such as info about HTTP methods, API operations, request/response headers, versioning, pagination, or errors.
-* A short and simple guide provides an overview of the most likely tasks to perform with the API.
-* Users can get in touch with us via a contact form.
+- Basic information is available at one central place, such as info about HTTP methods, API operations, request/response headers, versioning, pagination, or errors.
+- A short and simple guide provides an overview of the most likely tasks to perform with the API.
+- Users can get in touch with us via a contact form.
 
 ### Tutorials
 
@@ -28,9 +28,9 @@ We'll cater for experienced users that already have an idea of the endpoints to 
 
 ### Discoverable and easy to digest
 
-* All information is easily discoverable, easy to digest, and prepared in a way that the user can effectively work with it.
-* We'll be consistent with our tone of voice, terminology, attribute names, API endpoint design, requests and responses, and counting.
-* The layout supports accordingly, e.g. with syntax highlighting or multi-column layout.
+- All information is easily discoverable, easy to digest, and prepared in a way that the user can effectively work with it.
+- We'll be consistent with our tone of voice, terminology, attribute names, API endpoint design, requests and responses, and counting.
+- The layout supports accordingly, e.g. with syntax highlighting or multi-column layout.
 
 ## Code examples
 
@@ -48,10 +48,10 @@ API reference documentation is created and published automatically, see [MUST pr
 
 ## Consistency and accessability
 
-* Documentation is provided in American English (EN-US), as US spelling has become the standard in APIs. Also endpoints, properties, and default values are provided in American English.
-* Users can search the documentation.
-* The sidebar is available at all times so that the documentation can be easily browsed. All the endpoints can be accessed via the sidebar.
-* Code examples and explanatory text are visually separated.
+- Documentation is provided in American English (EN-US), as US spelling has become the standard in APIs. Also endpoints, properties, and default values are provided in American English.
+- Users can search the documentation.
+- The sidebar is available at all times so that the documentation can be easily browsed. All the endpoints can be accessed via the sidebar.
+- Code examples and explanatory text are visually separated.
 
 ## Efficient and refined
 
