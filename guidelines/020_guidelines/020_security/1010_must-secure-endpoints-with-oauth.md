@@ -1,5 +1,6 @@
 ---
 type: MUST
+id: R000051
 ---
 
 # secure endpoints with OAuth 2.0

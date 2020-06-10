@@ -1,7 +1,8 @@
 ---
 type: MUST
+id: R000046
 ---
 
-# use HTTPS 
+# use HTTPS
 
 All service URLs must be HTTPS

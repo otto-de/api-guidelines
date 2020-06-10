@@ -1,5 +1,6 @@
 ---
 type: MUST
+id: R000052
 ---
 
 # use Authorization Grant
@@ -8,15 +9,15 @@ An authorization grant is a credential representing the resource owner's authori
 
 The OTTO API supports three grant types.
 
-* Authorization Code
-* Client Credentials
-* Implicit Grant
+- Authorization Code
+- Client Credentials
+- Implicit Grant
 
 Unsupported is the password credentials grant type.
 
 The grant type which should be used depends on use case.
 
-## Authorization Code Grant 
+## Authorization Code Grant
 
 The Authorization Code grant type is used by confidential and public clients to exchange an authorization code for an access token.
 
