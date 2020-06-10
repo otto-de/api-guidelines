@@ -10,12 +10,12 @@ Page based pagination means the result set is further divided into pages of a ce
 
 This is the most common approach to do pagination, especially for traditional RDBM systems.
 
-### Pros
+## Pros
 
 - well-known pattern
 - wide support for server and client
 
-### Cons
+## Cons
 
 - assumes fixed length / window is fixed: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime. Should be avoided for quickly updating collections.
 
