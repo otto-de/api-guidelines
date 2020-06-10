@@ -188,6 +188,9 @@ export class Parser {
         log.warn("Bad Link: %s in: %s at: %o", href, this.source, map);
         Parser.badLinks.add({ href, source: this.source, map });
       }
+    } else {
+      token.attrSet("target", "_blank");
+      token.attrSet("uk-icon", "icon: link");
     }
   }
 
