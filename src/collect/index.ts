@@ -51,7 +51,8 @@ export default yargs
   .command(
     "lint",
     "lint guidelines and write errors to stdout",
-    () => undefined
+    () => undefined,
+    (a) => lint(a)
   )
   .fail((m, e) => {
     if (e) {
