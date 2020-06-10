@@ -5,10 +5,9 @@ id: R004040
 
 # represent maps as objects with keys being their property names
 
-Strive to model map like data structures as JSON objects with the keys of the map encoded as the property names
-and the values being the property values of the JSON object.
+Strive to model map like data structures as JSON objects with the keys of the map encoded as the property names and the values being the property values of the JSON object.
 
-Do:
+## DO
 
 ````json
 {
@@ -20,7 +19,7 @@ Do:
 }
 ````
 
-Don't:
+## DON'T
 
 ````json
 {

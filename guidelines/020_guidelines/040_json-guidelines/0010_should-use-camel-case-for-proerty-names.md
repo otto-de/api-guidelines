@@ -7,7 +7,7 @@ id: R004010
 
 Property names of JSON objects should be formatted in camel case.
 
-Do:
+## DO
 
 ````json
 {
@@ -17,7 +17,7 @@ Do:
 }
 ````
 
-Don't
+## DON'T
 
 ````json
 {

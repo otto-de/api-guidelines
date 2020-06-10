@@ -1,13 +1,13 @@
 ---
-type: SHOULD
+type: SHOULD NOT
 id: R004060
 ---
 
-# not use null for empty arrays
+# use null for empty arrays
 
 Arrays should be empty and not null if there is no data to provide.
 
-Do:
+## DO
 
 ````json
 {
@@ -15,7 +15,7 @@ Do:
 }
 ````
 
-Don't:
+## DON'T
 
 ````json
 {
