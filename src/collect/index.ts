@@ -23,12 +23,14 @@ process.on("unhandledRejection", (e) => {
 });
 
 export default yargs
-  .option({
+  .options({
     render: {
+      boolean: true,
       default: false,
       desc: "if set to true, then will only perform render from model",
     },
     model: {
+      boolean: true,
       default: false,
       desc: "if set to true, then will only write model for rendering",
     },
