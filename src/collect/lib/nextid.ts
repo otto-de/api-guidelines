@@ -32,9 +32,9 @@ export async function nextId(argv: Arguments<Args>): Promise<void> {
     .sort((a, b) => a - b);
   log.debug("Parsed IDs: %o", ids);
 
-  // eslint-disable-next-line no-constant-condition
   let i = 0;
   let next;
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     i += 1;
     if (!ids.includes(i)) {

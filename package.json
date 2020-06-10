@@ -70,6 +70,7 @@
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-front-matter": "^0.2.1",
     "markdown-it-highlightjs": "^3.1.0",
+    "markdown-it-prism": "^2.0.5",
     "markdownlint": "^0.20.3",
     "markdownlint-cli": "^0.23.1",
     "node-sass": "^4.14.1",
