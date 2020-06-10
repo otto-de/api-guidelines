@@ -16,6 +16,10 @@ export function getConfig() {
     site: {
       name: "OTTO API Guidelines",
     },
+    rules: {
+      prefix: "R",
+      matcher: "^R(?<id>[0-9]{6})$",
+    },
     markdown: {
       blocks: {
         info: {

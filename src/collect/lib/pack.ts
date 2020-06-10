@@ -2,6 +2,7 @@
 import { debug } from "@otto-ec/assets-debug";
 import { hbTransform, writeLine } from "@otto-ec/toolbox";
 import { join } from "path";
+import type { Arguments } from "yargs";
 import { getConfig } from "./config";
 import { collectCategory } from "./collect";
 import { readText, outputFile } from "./fs";
@@ -14,6 +15,7 @@ import {
 } from "./utils";
 import { getParser } from "./markdown";
 import { Parser } from "./parser";
+import { Args } from "./opts";
 
 const log = debug("collect:pack");
 
@@ -21,11 +23,11 @@ const log = debug("collect:pack");
  * Collects Guidelines Documents into a data structure and
  * uses handlebars to render it as HTML Document
  */
-export async function pack(): Promise<void> {
+export async function pack(argv: Arguments<Args>): Promise<void> {
   log.debug("Get Colector Config");
   const config = getConfig();
 
-  if (!process.argv.includes("--render")) {
+  if (!argv.render) {
     log.info("Collect Data from:", config.root);
     const parser = getParser(config);
     const cats = await collectCategory(config.root, parser, config);
@@ -53,7 +55,7 @@ export async function pack(): Promise<void> {
     }
   }
 
-  if (!process.argv.includes("--model")) {
+  if (!argv.model) {
     log.debug("Load Model data");
     const model = JSON.parse(await readText(config.debug.model));
 

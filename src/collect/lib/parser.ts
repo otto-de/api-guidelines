@@ -236,14 +236,33 @@ export class Parser {
             this.frontMatter.id,
             " for: ",
             this.nav.text,
-            "\nin: ",
-            this.source,
-            "\nAlready used in:",
+            "\n    Already used in:",
             Parser.ruleMap.get(this.frontMatter.id)?.source,
-          ].join(" ")
+          ].join(" "),
+          this.source,
+          0,
+          0
         );
       }
 
+      const match = new RegExp(this.config.rules.matcher, "m").exec(
+        this.frontMatter.id
+      );
+      if (!match || !match.groups || !match.groups.id) {
+        throw new ContentError(
+          [
+            "Invalid rule id: ",
+            this.frontMatter.id,
+            " for: ",
+            this.nav.text,
+            "Must match:",
+            this.config.rules.matcher,
+          ].join(" "),
+          this.source,
+          0,
+          0
+        );
+      }
       // Add rule to the collection of rules
       Parser.ruleMap.set(this.frontMatter.id, this);
     }
