@@ -11,7 +11,7 @@ The page metadata structure must match the following structure.
 
 ```json
 {
-  "_page": {
+  "page": {
     "size": 5,
     "number": 0,
     "totalElements": 50,
@@ -20,7 +20,7 @@ The page metadata structure must match the following structure.
 }
 ```
 
-- `size` : Number of elements in the response (page size)
+- `size` : Maximum number of elements in the response
 - `number` : Current page number (0 indexed)
 - `totalElements` (_optional_): Overall number of elements
 - `totalPages` (_optional_): Overall number of pages

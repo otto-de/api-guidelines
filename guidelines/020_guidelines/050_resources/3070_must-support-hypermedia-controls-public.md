@@ -6,7 +6,7 @@ id: R100026
 # support hypermedia controls (for public APIs)
 
 Provide links to navigate the result.
-The [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml) should be used whenever applicable.
+The [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml) must be used whenever applicable.
 
 The most common ones are:
 
