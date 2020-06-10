@@ -71,5 +71,6 @@ Absolute URIs are compatible to more use cases and relieve the client of the nee
 
 Therefore the following two recommendations must be included in the documentation:
 
+### **[MUST]** use absolute URLs for hyperlinks
 ### **[MUST]** support X-FORWARDED-HOST Header to support proxies in front of your origin server
 ### **[MUST]** contain an ID-field in the payload so that the client is able to construct the URI on it's own
