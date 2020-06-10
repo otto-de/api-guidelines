@@ -60,7 +60,7 @@ filtering of returned entity fields.
 
 The syntax of the query fields value is defined by the following BNF grammar.
 
-```
+```text
 <fields>            ::= [ <negation> ] <fields_struct>
 <fields_struct>     ::= "(" <field_items> ")"
 <field_items>       ::= <field> [ "," <field_items> ]

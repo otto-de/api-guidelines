@@ -15,16 +15,16 @@ $vertical.($entity.)$permissionType
 
 Do:
 
-````
+```text
 opal.products.write
 opal.brands.read
 reco.read
-````
+```
 
 Don't
 
-````
+```text
 read
 opal.write.products
 products
-````
+```
