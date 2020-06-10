@@ -1,6 +1,6 @@
 # Documentation
 
-Our [quality standards](guidelines/100_core-principles/quality-standard.md) define all the values that are important to us.
+Our [quality standards](./guidelines/010_core-principles/50_quality-standards.md) define all the values that are important to us.
 What's more, we aim to take care of clearly structured documentation, provide our audience with code examples, and make sure they have a great time using our API.
 Here's what that means:
 
