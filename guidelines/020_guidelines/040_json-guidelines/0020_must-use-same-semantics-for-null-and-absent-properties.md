@@ -3,9 +3,10 @@ type: MUST
 id: R004020
 ---
 
-TODO mention Open API cases or do we cover that somewhere else? See https://opensource.zalando.com/restful-api-guidelines/#123
 
 # use same semantics for null and absent properties
+
+TODO mention Open API cases or do we cover that somewhere else? See https://opensource.zalando.com/restful-api-guidelines/#123
 
 While JSON does allow null values in the scope of this API nullable properties that are *explicitly* null, and those that are absent should be considered semantically equivalent.
 
