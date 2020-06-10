@@ -271,48 +271,6 @@ components:
 
 Please see [Optimistic locking in RESTful APIs](https://opensource.zalando.com/restful-api-guidelines/#optimistic-locking) for a detailed discussion and options.
 
-### [**MAY** consider to support `Idempotency-Key` header [230\]](https://opensource.zalando.com/restful-api-guidelines/#230)
-
-> TODO: [WIP]
-
-When creating or updating resources it can be helpful or necessary to ensure a strong [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) behavior comprising same responses, to prevent duplicate execution in case of retries after timeout and network outages. Generally, this can be achieved by sending a client specific _unique request key_– that is not part of the resource – via [`Idempotency-Key`](https://opensource.zalando.com/restful-api-guidelines/#230) header.
-
-The _unique request key_ is stored temporarily, e.g. for 24 hours, together with the response and the request hash (optionally) of the first request in a key cache, regardless of whether it succeeded or failed. The service can now look up the _unique request key_ in the key cache and serve the response from the key cache, instead of re-executing the request, to ensure [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) behavior. Optionally, it can check the request hash for consistency before serving the response. If the key is not in the key store, the request is executed as usual and the response is stored in the key cache.
-
-This allows clients to safely retry requests after timeouts, network outages, etc. while receive the same response multiple times. **Note:** The request retry in this context requires to send the exact same request, i.e. updates of the request that would change the result are off-limits. The request hash in the key cache can protection against this misbehavior. The service is recommended to reject such a request using status code [400](https://opensource.zalando.com/restful-api-guidelines/#status-code-400).
-
-**Important:** To grant a reliable [idempotent](https://opensource.zalando.com/restful-api-guidelines/#idempotent) execution semantic, the resource and the key cache have to be updated with hard transaction semantics – considering all potential pitfalls of failures, timeouts, and concurrent requests in a distributed systems. This makes a correct implementation exceeding the local context very hard.
-
-The [`Idempotency-Key`](https://opensource.zalando.com/restful-api-guidelines/#230) header must be defined as follows, but you are free to choose your expiration time:
-
-```
-components:
-  headers:
-  - Idempotency-Key:
-      description: |
-        The idempotency key is a free identifier created by the client to
-        identify a request. It is used by the service to identify subsequent
-        retries of the same request and ensure idempotent behavior by sending
-        the same response without executing the request a second time.
-
-        Clients should be careful as any subsequent requests with the same key
-        may return the same response without further check. Therefore, it is
-        recommended to use an UUID version 4 (random) or any other random
-        string with enough entropy to avoid collisions.
-
-        Idempotency keys expire after 24 hours. Clients are responsible to stay
-        within this limits, if they require idempotent behavior.
-
-      type: string
-      format: uuid
-      required: false
-      example: "7da7a728-f910-11e6-942a-68f728c1ba70"
-```
-
-**Hint:** The key cache is not intended as request log, and therefore should have a limited lifetime, else it could easily exceed the data resource in size.
-
-**Note:** The [`Idempotency-Key`](https://opensource.zalando.com/restful-api-guidelines/#230) header unlike other headers in this section is not standardized in an RFC. Our only reference are the usage in the [Stripe API](https://stripe.com/docs/api/idempotent_requests). However, as it fit not into our section about [Proprietary headers](https://opensource.zalando.com/restful-api-guidelines/#proprietary-headers), and we did not want to change the header name and semantic, we decided to treat it as any other common header.
-
 ## JSON Guidelines
 
 > TODO: [REVIEW]
