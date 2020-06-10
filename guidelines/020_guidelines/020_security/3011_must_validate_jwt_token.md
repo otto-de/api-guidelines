@@ -11,4 +11,6 @@ This includes:
 
 - the cryptographic signature of the token
 - the expiration date of the token
-- the scopes encoded in the token (and if they match the endpoint)
+- the scopes encoded in the token (if they match the endpoint)
+
+If either of these are not valid the request is no be denied with an appropriate [status code](./guidelines/020_guidelines/030_http/3000_http-status.codes.md) and [error message](./guidelines/020_guidelines/030_http/4000_error-handling.md).
