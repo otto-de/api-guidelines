@@ -1,6 +1,6 @@
 ---
 type: SHOULD
-id: R000058
+id: R000010
 ---
 
 # use `ETag` header for caching
