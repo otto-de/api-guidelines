@@ -5,34 +5,34 @@ id: R100023
 
 # support pagination for collection resources
 
-Any sufficiently large collection resource must support pagination to handle the server load and support the client processing patterns.
+Any sufficiently large collection resource must support pagination to handle the server load and support the client 
+processing patterns.
 
 There are two approaches to pagination:
 
-- [offset based](#offset-based-pagination)
-- [cursor based](#cursor-based-pagination)
+- Offset/Limit-based pagination
+- Cursor-based pagination
 
 Choosing the right approach depends entirely on the constraints of the service.
 There is no preference over which one to choose, they both have their advantages.
 
-## Offset based pagination
-
+||| Offset/limit-based pagination { begin }
 Offset based pagination allows navigation of the result by specifying an offset.
 
 Page based pagination means the result set is further divided into pages of a certain size and you navigate by providing the page number instead of just an offset.
 
 This is the most common approach to do pagination, especially for traditional RDBM systems.
 
-### Pros
+**Pros**
 
 - well-known pattern
 - wide support for server and client
 
-### Cons
+**Cons**
 
 - assumes fixed length / window is fixed: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime. Should be avoided for quickly updating collections.
 
-### Example
+**Example**
 
 ```json
 {
@@ -83,22 +83,22 @@ This is the most common approach to do pagination, especially for traditional RD
   }
 }
 ```
+|||
 
-## Cursor based pagination
-
+||| Cursor-based pagination End { end }
 Cursor based pagination is often preferred, especially when data sets increase quickly.
 
-### Pros
+**Pros**
 
 - window moves: next page always refers to the following elements, even if new elements are prepended in the meantime
 
-### Cons
+**Cons**
 
 - not well-known
 - limited support for clients
 - cursor might be invalid if the entry is deleted, breaking iteration
 
-### Example
+**Example**
 
 ```json
 {
@@ -141,3 +141,4 @@ Cursor based pagination is often preferred, especially when data sets increase q
   }
 }
 ```
+|||
