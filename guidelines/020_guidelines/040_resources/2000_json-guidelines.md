@@ -1,4 +1,9 @@
-# JSON
+---
+sideNav: true
+navTitle: JSON guidelines
+---
+
+# JSON guidelines
 
 ## yay/nay list
 
