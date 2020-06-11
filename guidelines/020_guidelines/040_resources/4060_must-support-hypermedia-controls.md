@@ -3,7 +3,7 @@ type: MUST
 id: R100026
 ---
 
-# support hypermedia controls
+# support hypermedia controls in collection resources
 
 ::: warning Public APIs only
 This rule only applies to public APIs. For private APIs, this rule SHOULD be followed.
