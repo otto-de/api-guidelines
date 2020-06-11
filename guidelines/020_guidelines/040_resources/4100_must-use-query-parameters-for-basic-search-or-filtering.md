@@ -12,6 +12,8 @@ They should reference the property and the operation if necessary.
 - `min_colors=5`: Either property `colors` or the computed number of colors (e.g. the resource only includes an array of colors) needs to be greater than `5`
 - `released_after=2020-02-02`: Release date needs to be after `2020-02-02`
 
+TODO: snake_case or camelCase? I see 3 variants: `last_modified_after` (all snake case), `lastModified_after` (property camelcase as it should be in the response but otherwise snake case), `lastModifiedAfter` (all camel case)
+
 Different types may have different interpretations of equality, or have their own set of operators.
 For example`color=blue` may include any shades of blue and also match `aquamarine`. `max_order_status=PACKED` may include all items that are packed, in delivery or already delivered.
 
