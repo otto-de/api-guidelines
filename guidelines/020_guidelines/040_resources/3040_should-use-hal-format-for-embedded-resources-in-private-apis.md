@@ -5,7 +5,7 @@ id: R000044
 
 # use hal format for embedded resources in private APIs
 
-While [application/hal+json is OPTIONAL](../060_hypermedia/1010_must-implement-rest-maturity-level-2-for-private-apis.md)
+While [application/hal+json is OPTIONAL](../050_hypermedia/1010_must-implement-rest-maturity-level-2-for-private-apis.md)
 for [private APIs](../../010_core-principles/30_api-scope.md), the HAL format SHOULD still be used instead of
 proprietary formats because:
 
