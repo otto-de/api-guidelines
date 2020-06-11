@@ -9,8 +9,6 @@ id: R000010
 
 Using the `ETag` header in combination with the `If-None-Matching` header is a powerful tool for caching resources. This approach offers a solution where other caching headers (e.g. `Cache-Control` or `Expires`) hint at a _stale_ resource on the client side.
 
-Commonly the header value is (1) a hash of the response body, (2) a hash of the last modified field of the entity, or​ (3) a version number or identifier of the entity version.
-
 ```sh
 GET /products/abc123 HTTP/1.1
 
