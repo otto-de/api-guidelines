@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 
 import chalk from "chalk";
-import { debug, Debug } from "@otto-ec/assets-debug";
+import { debug } from "@otto-ec/assets-debug";
 import yargs from "yargs";
 import { writeLine } from "@otto-ec/toolbox";
-import { pack } from "./lib/pack";
+import { collect, render, rules, badLinks } from "./lib/pack";
 import { nextId } from "./lib/nextid";
 import { ContentError } from "./lib/errors";
 import { lint } from "./lib/lint";
 
-Debug.set({
-  namespaces: process.env.DEBUG
-    ? `${process.env.DEBUG},collect:*`
-    : "collect:*",
-});
+// Debug.set({
+//   namespaces: process.env.DEBUG
+//     ? `${process.env.DEBUG},collect:*`
+//     : "collect:*",
+// });
 
 const log = debug("collect:entrypoint");
 
@@ -40,7 +40,48 @@ export default yargs
     ["$0", "pack"],
     "Collect and render Api Guidelines",
     () => undefined,
-    (a) => pack(a)
+    async (a) => {
+      await collect(a);
+      await render(a);
+      await rules(a);
+      await badLinks(a);
+    }
+  )
+  .command(
+    "model",
+    "Collect guidelines and write model file",
+    () => undefined,
+    async (a) => {
+      await collect(a);
+      await rules(a);
+      await badLinks(a);
+    }
+  )
+  .command(
+    "render",
+    "Collect guidelines and list all rules",
+    () => undefined,
+    async (a) => {
+      await render(a);
+    }
+  )
+  .command(
+    "list-rules",
+    "Collect guidelines and list all rules",
+    () => undefined,
+    async (a) => {
+      await collect(a);
+      await rules(a);
+    }
+  )
+  .command(
+    "bad-links",
+    "Collect guidelines and list all rules",
+    () => undefined,
+    async (a) => {
+      await collect(a);
+      await badLinks(a);
+    }
   )
   .command(
     "nextid",
