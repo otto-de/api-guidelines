@@ -7,7 +7,7 @@ id: R000019
 
 Use the forward slash (/) in the path portion of the URI to indicate a hierarchical relationship between resources.
 
-```text
+```plaintext
 /customers/{userId}
 /customers/{userId}/addresses
 /customers/{userId}/addresses/{addressId}

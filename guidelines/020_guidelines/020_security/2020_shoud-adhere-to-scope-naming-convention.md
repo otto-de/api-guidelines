@@ -13,7 +13,7 @@ $vertical.($entity.)\$permissionType
 
 Do:
 
-```text
+```plaintext
 opal.products.write
 opal.brands.read
 reco.read
@@ -21,7 +21,7 @@ reco.read
 
 Don't
 
-```text
+```plaintext
 read
 opal.write.products
 products
