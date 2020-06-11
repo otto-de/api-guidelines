@@ -3,7 +3,7 @@ type: SHOULD
 id: R000010
 ---
 
-# use `ETag` header for caching
+# use `ETag` header for caching single entities
 
 > TODO: [REVIEW] Issue #57
 
