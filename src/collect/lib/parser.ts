@@ -178,7 +178,7 @@ export class Parser {
         token.attrSet(
           "onClick",
           [
-            "alert('This Link is Brocken!",
+            "alert('This link is broken!",
             `href: ${href}`,
             `Source${this.source}`,
             "')",
