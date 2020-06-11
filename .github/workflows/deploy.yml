@@ -24,6 +24,8 @@ jobs:
           echo "Author: ${{ github.event.pull_request.user.login }}"
 
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.sha }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2.0.0
         with:
