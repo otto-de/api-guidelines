@@ -75,6 +75,7 @@
   &-label {
     @extend .uk-label;
     margin-right: 5px;
+    margin-top: -3px;
 
     &--success {
       @extend .uk-label-success;
