@@ -23,3 +23,6 @@ $base-heading-font-family: "OttoSansThin", $global-font-family;
 @import "partials/rules";
 @import "partials/sidebar";
 @import "partials/content";
+
+// Third Party
+@import "highlight.js/scss/atom-one-light.scss";
