@@ -3,7 +3,7 @@ type: MUST
 id: R000032
 ---
 
-# implement REST Maturity Level 2 for private APIs
+# implement REST maturity level 2 for private APIs
 
 For private APIs, we strive for a good implementation of [REST Maturity Level 2](https://martinfowler.com/articles/richardsonMaturityModel.html#level2) as it enables us to build resource-oriented APIs that make full use of HTTP methods and status codes.
 You can see this in many rules in these guidelines, e.g.
