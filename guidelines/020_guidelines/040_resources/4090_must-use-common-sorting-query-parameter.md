@@ -19,7 +19,7 @@ If the use case cannot be expressed using this simple sorting parameter, you sho
 
 Syntax in BNF for the `sort` parameter:
 
-```text
+```ebnf
 <sort>              ::= <field> [ "," <direction> ]
 <field>             ::= <field_name> [ "." <field_name> ]
 <field_name>        ::= <dash_letter_digit> [ <field_name> ]
