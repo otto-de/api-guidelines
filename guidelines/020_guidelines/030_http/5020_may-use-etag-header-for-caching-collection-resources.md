@@ -1,6 +1,6 @@
 ---
 type: MAY
-id: R000099
+id: R000021
 ---
 
 # use `ETag` header for caching collection resources
