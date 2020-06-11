@@ -24,7 +24,7 @@ The most common ones are:
 - `first` (_optional_): the first page
 - `last` (_optional_): the last page
 
-::: warning
+::: info
 Some properties like `first` and `last` can be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
 Exposing this data should consider the performance implications, not only now but over the lifespan of the service.
 :::
