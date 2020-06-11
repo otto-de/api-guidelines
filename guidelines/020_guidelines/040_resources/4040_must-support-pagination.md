@@ -92,7 +92,7 @@ This is the most common approach to do pagination, especially for traditional RD
 
 |||
 
-||| accordion Cursor-based pagination End { end }
+||| accordion Cursor-based pagination { end }
 Cursor based pagination is often preferred, especially when data sets increase quickly.
 
 **Pros**
