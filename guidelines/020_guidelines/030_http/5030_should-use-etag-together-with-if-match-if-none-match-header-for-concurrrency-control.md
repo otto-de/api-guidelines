@@ -36,13 +36,13 @@ HTTP/1.1 200 OK
 GET /orders/O0000042 HTTP/1.1
 
 HTTP/1.1 200 OK
-ETag: osjnfkjbnkq3jlnksjnvkjlsbf
+ETag: "osjnfkjbnkq3jlnksjnvkjlsbf"
 { "id": "BO0000042", ... }
 ```
 
 ```http
 PUT /orders/O0000042 HTTP/1.1
-If-Match: osjnfkjbnkq3jlnksjnvkjlsbf
+If-Match: "osjnfkjbnkq3jlnksjnvkjlsbf"
 { "id": "O0000042", ... }
 
 HTTP/1.1 204 No Content
@@ -52,7 +52,7 @@ Or, if there was an update since the `GET` and the entity’s `ETag` has changed
 
 ```http
 PUT /orders/O0000042 HTTP/1.1
-If-Match: osjnfkjbnkq3jlnksjnvkjlsbf
+If-Match: "osjnfkjbnkq3jlnksjnvkjlsbf"
 { "id": "O0000042", ... }
 
 HTTP/1.1 412 Precondition failed
