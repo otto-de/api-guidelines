@@ -38,6 +38,8 @@ ETag: "8341-5db68c06-68f728c1ba70-1a68-11e9"
 {/* big payload */}
 ```
 
+The semantic is best described as: _"please give me the representation of the current state of the resource, if the state changed compared to the version I already know about."_
+
 The purpose of the value is to indicate a change in the underlying resource. One must differentiate between _weakly_ and _strongly_ validating entity tags:
 
 - A _strong_ entity tag indicates a byte-by-byte equality if matching and should be the **default**.
