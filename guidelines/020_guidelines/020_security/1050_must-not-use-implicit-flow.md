@@ -1,5 +1,5 @@
 ---
-type: SHOULD NOT
+type: MUST NOT
 id: R000055
 ---
 
