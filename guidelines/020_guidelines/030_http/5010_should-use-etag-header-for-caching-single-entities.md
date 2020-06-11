@@ -46,5 +46,4 @@ The purpose of the value is to indicate a change in the underlying resource. One
 `Note`{ label } A strong ETag must change when the representation of an entity changes, so it has to be sensitive to `Content-Type`, `Content-Encoding` and other response characteristics in order to be compliant with [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3).
 
 > [TODO] Document ETag behaviour on collections
-
 > [TODO] Document double quotes being part of ETag value in "common headers" section and link to that section from here.

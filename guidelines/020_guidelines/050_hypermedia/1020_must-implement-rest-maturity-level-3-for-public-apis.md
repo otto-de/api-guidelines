@@ -9,4 +9,5 @@ According to the [Richardson Maturity Model](https://martinfowler.com/articles/r
 For [public APIs](../../010_core-principles/0030_api-scope.md), you must implement [REST Maturity Level 3](https://martinfowler.com/articles/richardsonMaturityModel.html#level3), using the HAL+JSON format.
 
 See also:
-* Internet Draft [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-08).
+
+- Internet Draft [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-08).

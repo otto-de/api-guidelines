@@ -24,13 +24,11 @@ Header
 }
 ```
 
-Payload 
+Payload
 
-````json
+```json
 {
-  "aud": [
-    "https://api.develop.otto.de"
-  ],
+  "aud": ["https://api.develop.otto.de"],
   "client_id": "f3b9910a-08ea-4b6b-895a-261674e573b9",
   "exp": 1591892081,
   "ext": {},
@@ -38,10 +36,7 @@ Payload
   "iss": "https://api.develop.otto.de/",
   "jti": "6f76d949-fad5-4634-ba4f-b7ebf9d32ade",
   "nbf": 1591888481,
-  "scp": [
-    "offline",
-    "mock"
-  ],
+  "scp": ["offline", "mock"],
   "sub": "3d44bbc24614e28edd094bc54ef0497809717af5"
 }
-````
+```
