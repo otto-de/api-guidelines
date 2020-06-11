@@ -3,6 +3,8 @@ type: MUST
 id: R000007
 ---
 
+> [TODO] fix broken links
+
 # use HTTP methods correctly
 
 We are compliant with the standardized HTTP method semantics described as follows:
@@ -52,7 +54,7 @@ This leaves the resource ID under control of the service and allows to concentra
 
 ::: info
 In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.
-Putting the same resource twice is required to be [idempotent](link.md) and to result in the same single resource instance (see [MUST fulfill common method properties](2010_must-use-http-methods-correctly.md)).
+Putting the same resource twice is required to be [idempotent](#idempotent) and to result in the same single resource instance (see [**[MUST]** fulfill common method properties](2020_must-fulfill-common-method-properties.md)).
 :::
 
 To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also [Optimistic locking in RESTful APIs](link) for details and options.
@@ -75,8 +77,8 @@ Resource IDs related to `POST` requests are created and managed by the server an
 :::
 
 ::: details
-Posting the same resource twice is **not** required to be [idempotent](#idempotent) (check [MUST fulfill common method properties](link)) and may result in multiple resources.
-However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) to prevent this.
+Posting the same resource twice is **not** required to be [idempotent](#idempotent) (check [**[MUST]** fulfill common method properties](2020_must-fulfill-common-method-properties.md)) and may result in multiple resources.
+However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](2030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
 :::
 |||
 
@@ -106,11 +108,11 @@ In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turn
 In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).
 
 ::: info
-Patching the same resource twice is **not** required to be [idempotent](idempotent.md) (check [MUST fulfill common method properties](link.md) and may result in a changing result. However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link.md) to prevent this.
+Patching the same resource twice is **not** required to be [idempotent](#idempotent) (check [**[MUST]** fulfill common method properties](2020_must-fulfill-common-method-properties.md) and may result in a changing result. However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](2030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
 :::
 
 `Note:`{ label } To prevent unnoticed concurrent updates when using `PATCH` you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
-See [Optimistic locking in RESTful APIs](link) and [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link) for details and options.
+See [Optimistic locking in RESTful APIs](link) and [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](2030_should-consider-to-design-post-and-patch-idempotent.md) for details and options.
 |||
 
 ||| accordion DELETE
