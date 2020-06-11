@@ -5,7 +5,7 @@ id: R100023
 
 # support pagination for collection resources
 
-Any sufficiently large collection resource must support pagination to handle the server load and support the client 
+Any sufficiently large collection resource must support pagination to handle the server load and support the client
 processing patterns.
 
 There are two approaches to pagination:
@@ -16,7 +16,7 @@ There are two approaches to pagination:
 Choosing the right approach depends entirely on the constraints of the service.
 There is no preference over which one to choose, they both have their advantages.
 
-||| Offset/limit-based pagination { begin }
+||| accordion Offset/limit-based pagination { begin }
 Offset based pagination allows navigation of the result by specifying an offset.
 
 Page based pagination means the result set is further divided into pages of a certain size and you navigate by providing the page number instead of just an offset.
@@ -56,7 +56,13 @@ This is the most common approach to do pagination, especially for traditional RD
 
         "_links": {
           "self": { "href": "/orders/124" },
-          "curies": [{ "name": "o", "href": "https://api.otto.de/link-relations/{rel}", "templated": true}],
+          "curies": [
+            {
+              "name": "o",
+              "href": "https://api.otto.de/link-relations/{rel}",
+              "templated": true
+            }
+          ],
           "basket": { "href": "/baskets/97213" },
           "customer": { "href": "/customers/12369" }
         }
@@ -83,9 +89,10 @@ This is the most common approach to do pagination, especially for traditional RD
   }
 }
 ```
+
 |||
 
-||| Cursor-based pagination End { end }
+||| accordion Cursor-based pagination End { end }
 Cursor based pagination is often preferred, especially when data sets increase quickly.
 
 **Pros**
@@ -134,11 +141,18 @@ Cursor based pagination is often preferred, especially when data sets increase q
 
   "_links": {
     "self": { "href": "/orders?after=532d39e987409c5b6fe7f913c9e568af" },
-    "curies": [{ "name": "o", "href": "https://api.otto.de/link-relations/{rel}", "templated": true}],
+    "curies": [
+      {
+        "name": "o",
+        "href": "https://api.otto.de/link-relations/{rel}",
+        "templated": true
+      }
+    ],
     "prev": { "href": "/orders?before=911d39e987409c5b6fe7f913c9e568ca" },
     "next": { "href": "/orders?after=40770e2e3ce129faadd08663fa434c33" },
     "first": { "href": "/orders" }
   }
 }
 ```
+
 |||
