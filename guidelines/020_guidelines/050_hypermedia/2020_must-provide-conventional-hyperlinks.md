@@ -18,13 +18,27 @@ For [public APIs](../../010_core-principles/0030_api-scope.md), all resources
 hyperlinking other resources.
 
 The following links must be contained in HAL representations:
-* self: The *canonical* hyperlink of the resource. 
-* profile: The fully qualified link pointing to the profile of the resource. The link should resolve to some 
-  human-readable documentation of the profile.
-* collection: for items contained in a collection resource, this link should point to the collection. In most cases, this 
+* `self`: The *canonical* hyperlink of the resource. 
+* `profile`: The fully qualified link pointing to the `profile` of the resource, if any. The link should resolve to some 
+  human-readable documentation of the profile. The `profile` is omitted, if the resource does not have one. Collection 
+  resource, for example, might only be plain `application/hal+json` representations w/o any custom attributes.  
+* `collection`: For items contained in a collection resource, this link should point to the collection. In most cases, this 
   link will be [templated](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.2).
+* `search`: For searchable collection resources, a [templated](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.2) 
+  link should be added that refers to the collection including all template parameters. 
   
-Example:
+Example 'collection' resource:
+```json
+{
+    "_links": {
+      "self": { "href": "https://api.otto.de/orders?page=2&pageSize=10" },
+      "search": { "href": "https://api.otto.de/orders{?q,page,pageSize}", "templated": true },
+      "item": [{ "href": "https://api.otto.de/orders/4711" }]
+    }
+}
+```
+
+Example collection 'item':
 ```json
 {
     "_links": {
