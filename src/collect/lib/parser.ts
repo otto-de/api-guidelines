@@ -3,7 +3,7 @@ import type Token from "markdown-it/lib/token";
 import { load } from "js-yaml";
 import { format } from "util";
 import type MarkdownIt from "markdown-it";
-import { dirname, normalize, join } from "path";
+import { dirname, normalize, join, isAbsolute } from "path";
 import { ContentError } from "./errors";
 import type { FrontMatter, ProcessedHeading } from "../types";
 import { Config } from "./config";
@@ -148,7 +148,9 @@ export class Parser {
       log.trace("Found hash: ", matches.groups.hash);
       token.attrSet("href", matches.groups.hash);
     } else if (matches?.groups?.path) {
-      let path = normalize(matches.groups.path);
+      let path = normalize(
+        (isAbsolute(matches.groups.path) ? "." : "") + matches.groups.path
+      );
       const root = normalize(this.config.root);
 
       if (path.startsWith(root)) {
