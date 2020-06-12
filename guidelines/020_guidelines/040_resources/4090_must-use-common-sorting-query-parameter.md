@@ -14,7 +14,7 @@ The sort direction must always be provided.
 
 The property name should correspond to the name used in the resource representation (e.g. `sort=+price.grossValue`).
 
-Multiple sorting criteria are supported by providing a comma-separated list (e.g. `sort=+price,-name`).
+Multiple sorting criteria [must be provided as a comma-separated list](./1085_must-not-use-the-same-query-parameter-multiple-times.md) (e.g. `sort=+price,-name`).
 
 Services do not need to support all resource properties to be used for sorting.
 
