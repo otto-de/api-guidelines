@@ -13,19 +13,17 @@ This leaves us with using `ETag` header for concurrency control. For now (v1.0.0
 When using `PATCH` with `application/json-patch+json`, a server should answer with status code `409 Conflict` instead of `412 Precondition Failed` when the `test` operation failed, based on https://tools.ietf.org/html/rfc5789#section-2.2:
 
 > Conflicting state: Can be specified with a 409 (Conflict) status
-
-      code when the request cannot be applied given the state of the
-      resource.  For example, if the client attempted to apply a
-      structural modification and the structures assumed to exist did
-      not exist (with XML, a patch might specify changing element 'foo'
-      to element 'bar' but element 'foo' might not exist).
+> code when the request cannot be applied given the state of the
+> resource. For example, if the client attempted to apply a
+> structural modification and the structures assumed to exist did
+> not exist (with XML, a patch might specify changing element 'foo'
+> to element 'bar' but element 'foo' might not exist).
 
 > Conflicting modification: When a client uses either the If-Match or
-
-      If-Unmodified-Since header to define a precondition, and that
-      precondition failed, then the 412 (Precondition Failed) error is
-      most helpful to the client.  However, that response makes no sense
-      if there was no precondition on the request.  In cases when the
-      server detects a possible conflicting modification and no
-      precondition was defined in the request, the server can return a
-      409 (Conflict) response.
+> If-Unmodified-Since header to define a precondition, and that
+> precondition failed, then the 412 (Precondition Failed) error is
+> most helpful to the client. However, that response makes no sense
+> if there was no precondition on the request. In cases when the
+> server detects a possible conflicting modification and no
+> precondition was defined in the request, the server can return a
+> 409 (Conflict) response.
