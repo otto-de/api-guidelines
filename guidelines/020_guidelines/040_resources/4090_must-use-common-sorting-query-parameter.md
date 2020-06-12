@@ -7,11 +7,14 @@ id: R100030
 
 If simple sorting of the results is possible, the `sort` query parameter must be used.
 
-The parameter accepts a property and optionally the direction to sort by (e.g. `?sort=price,desc`).
+The parameter accepts a property and a direction prefix (e.g. `sort=+price`).
+The direction `+` means the result will be sorted ascending, `-` descending accordingly.
 
-The property name should correspond to the name used in the resource representation (e.g. `price.grossValue`).
+The sort direction must always be provided.
 
-Multiple sorting criteria are supported by providing the `sort` query parameter multiple times (e.g. `?sort=price,desc&sort=name`)
+The property name should correspond to the name used in the resource representation (e.g. `sort=+price.grossValue`).
+
+Multiple sorting criteria are supported by providing a comma-separated list (e.g. `sort=+price,-name`).
 
 Services do not need to support all resource properties to be used for sorting.
 
@@ -20,11 +23,15 @@ If the use case cannot be expressed using this simple sorting parameter, you sho
 Syntax in BNF for the `sort` parameter:
 
 ```ebnf
-<sort>              ::= <field> [ "," <direction> ]
-<field>             ::= <field_name> [ "." <field_name> ]
-<field_name>        ::= <dash_letter_digit> [ <field_name> ]
-<direction>         ::= "ASC" | "DESC" (* case insensitive *)
+<sort>              ::= <sort_field> [ "," <sort> ]
+<sort_field>        ::= <direction> <field>
+<field>             ::= <field_name> [ "." <field>]
+<field_name>        ::= <us_letter_digit> [ <field_name_suffix> ]
+<field_name_suffix> ::= <dash_letter_digit> [ <field_name_suffix> ]
+<direction>         ::= "+" | "-"
 <dash_letter_digit> ::= <dash> | <letter> | <digit>
+<us_letter_digit>   ::= <underscore> | <letter> | <digit>
+<underscore>        ::= "_"
 <dash>              ::= "-" | "_"
 <letter>            ::= "A" | ... | "Z" | "a" | ... | "z"
 <digit>             ::= "0" | ... | "9"
