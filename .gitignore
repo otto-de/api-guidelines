@@ -43,3 +43,4 @@ tslint*
 
 # generated api docs
 docs/api
+.DS_Store
