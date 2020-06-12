@@ -7,7 +7,7 @@ id: R000010
 
 > TODO: [REVIEW] Issue #57
 
-Using the `ETag` header in combination with the `If-None-Matching` header is a powerful tool for caching resources. This approach offers a solution where other caching headers (e.g. `Cache-Control` or `Expires`) hint at a _stale_ resource on the client side.
+Using the `ETag` header in combination with the `If-None-Match` header is a powerful tool for caching resources. This approach offers a solution where other caching headers (e.g. `Cache-Control` or `Expires`) hint at a _stale_ resource on the client side.
 
 ```sh
 GET /products/abc123 HTTP/1.1
@@ -45,5 +45,4 @@ The purpose of the value is to indicate a change in the underlying resource. One
 
 `Note`{ label } A strong ETag must change when the representation of an entity changes, so it has to be sensitive to `Content-Type`, `Content-Encoding` and other response characteristics in order to be compliant with [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3).
 
-> [TODO] Document ETag behaviour on collections
 > [TODO] Document double quotes being part of ETag value in "common headers" section and link to that section from here.
