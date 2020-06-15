@@ -10,3 +10,7 @@ Multiple versions can significantly complicate understanding, testing, maintaini
 
 If changing an API can’t be done in a compatible way, versioning should be implemented using the
 [Accept header using standard media type with profile parameter](../topics/versioning.md#accept-header-using-standard-media-type-with-profile-parameter).
+
+See also:
+* [MUST use resolvable profile URLs](../050_hypermedia/4010_must-use-resolvable-profile-urls.md)
+* [MUST provide OpenAPI spec for profiles](../050_hypermedia/4020_must-provide-openapi-spec-for-profiles.md)
