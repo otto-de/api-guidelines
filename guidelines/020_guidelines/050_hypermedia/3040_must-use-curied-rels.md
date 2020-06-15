@@ -43,23 +43,61 @@ Links to a resource having a custom link-relation type MUST be curied using this
 
 ```json
 {
-  "_links": {
-    "self": { "href": "https://api.otto.de/orders?page=2&pageSize=10" },
-    "curies": [
-      {
-        "name": "o",
-        "href": "https://api.otto.de/link-relations/{rel}",
-        "templated": true
-      }
-    ],
-    "o:order-item": [
-      { "href": "https://api.otto.de/orders/4711" },
-      { "href": "https://api.otto.de/orders/0815" }
-    ]
-  }
+    "_links": {
+      "self": { "href": "https://api.otto.de/orders?page=2&pageSize=10" },
+      "curies": [{ 
+          "name": "o", 
+          "href": "https://api.otto.de/link-relations/{rel}", 
+          "templated": true }
+      ],
+      "o:order": [
+          {"href": "https://api.otto.de/orders/4711"},
+          {"href": "https://api.otto.de/orders/0815"}
+      ]
+    }
 }
 ```
 
+If the linked resources [can be embedded](../040_resources/3010_should-embed-sub-resources.md) into the response, the 
+service should do so, using the same link-relation type that is used to link the sub-resources:
+
+```json
+{
+    "_links": {
+      "self": { "href": "https://api.otto.de/orders?page=2&pageSize=10" },
+      "curies": [{ 
+          "name": "o", 
+          "href": "https://api.otto.de/link-relations/{rel}", 
+          "templated": true }
+      ],
+      "o:order": [
+          {"href": "https://api.otto.de/orders/4711"},
+          {"href": "https://api.otto.de/orders/0815"}
+      ]
+    },
+    "_embedded": {
+      "o:order": [
+          {
+             "_links": {
+                 "self": { "href": "https://api.otto.de/orders/4711" },
+                 "collection": { "href": "https://api.otto.de/orders" }
+             },
+             "id": "4711",
+             "total": 4200
+          },
+          {
+              "_links": {
+                 "self": { "href": "https://api.otto.de/orders/0815" },
+                 "collection": { "href": "https://api.otto.de/orders" }
+              },
+              "id": "0815",
+             "total": 12900
+          }
+      ]
+    } 
+}
+```
+  
 See also:
 
 - [MUST prefer IANA-registered link-relation types](./3020_must-prefer-registered-rels.md)

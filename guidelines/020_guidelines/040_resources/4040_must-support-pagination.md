@@ -36,17 +36,26 @@ This is the most common approach to do pagination, especially for traditional RD
 
 ```json
 {
+  "_links": {
+    "item": [
+        {"href": "https://api.otto.de/orders/123"},
+        {"href": "https://api.otto.de/orders/124"}
+    ],
+    "prev": { "href": "https://api.otto.de/orders?page=1" },
+    "self": { "href": "https://api.otto.de/orders?page=2" },
+    "next": { "href": "https://api.otto.de/orders?page=3" },
+    "first": { "href": "https://api.otto.de/orders" },
+    "last": { "href": "https://api.otto.de/orders?page=9" }
+  },
   "_embedded": {
-    "o:orders": [
+    "item": [
       {
         "total": 30.0,
         "currency": "USD",
         "status": "shipped",
 
         "_links": {
-          "self": { "href": "/orders/123" },
-          "basket": { "href": "/baskets/98712" },
-          "customer": { "href": "/customers/7809" }
+          "self": { "href": "https://api.otto.de/orders/123" }
         }
       },
       {
@@ -55,30 +64,10 @@ This is the most common approach to do pagination, especially for traditional RD
         "status": "processing",
 
         "_links": {
-          "self": { "href": "/orders/124" },
-          "curies": [
-            {
-              "name": "o",
-              "href": "https://api.otto.de/link-relations/{rel}",
-              "templated": true
-            }
-          ],
-          "basket": { "href": "/baskets/97213" },
-          "customer": { "href": "/customers/12369" }
+          "self": { "href": "https://api.otto.de/orders/124" }
         }
       }
     ]
-  },
-
-  "currentlyProcessing": 14,
-  "shippedToday": 20,
-
-  "_links": {
-    "prev": { "href": "/orders?page=1" },
-    "self": { "href": "/orders?page=2" },
-    "next": { "href": "/orders?page=3" },
-    "first": { "href": "/orders" },
-    "last": { "href": "/orders?page=9" }
   },
 
   "_page": {
@@ -86,7 +75,10 @@ This is the most common approach to do pagination, especially for traditional RD
     "totalElements": 100,
     "totalPages": 1,
     "number": 0
-  }
+  },
+
+  "currentlyProcessing": 14,
+  "shippedToday": 20
 }
 ```
 
@@ -109,17 +101,25 @@ Cursor based pagination is often preferred, especially when data sets increase q
 
 ```json
 {
+  "_links": {
+    "self": { "href": "https://api.otto.de/orders?after=532d39e987409c5b6fe7f913c9e568af" },
+    "item": [
+        {"href": "https://api.otto.de/orders/123"},
+        {"href": "https://api.otto.de/orders/124"}
+    ],
+    "prev": { "href": "https://api.otto.de/orders?before=911d39e987409c5b6fe7f913c9e568ca" },
+    "next": { "href": "https://api.otto.de/orders?after=40770e2e3ce129faadd08663fa434c33" },
+    "first": { "href": "https://api.otto.de/orders" }
+  },
   "_embedded": {
-    "o:orders": [
+    "item": [
       {
         "total": 30.0,
         "currency": "USD",
         "status": "shipped",
 
         "_links": {
-          "self": { "href": "/orders/123" },
-          "basket": { "href": "/baskets/98712" },
-          "customer": { "href": "/customers/7809" }
+          "self": { "href": "https://api.otto.de/orders/123" }
         }
       },
       {
@@ -128,30 +128,14 @@ Cursor based pagination is often preferred, especially when data sets increase q
         "status": "processing",
 
         "_links": {
-          "self": { "href": "/orders/124" },
-          "basket": { "href": "/baskets/97213" },
-          "customer": { "href": "/customers/12369" }
+          "self": { "href": "/orders/124" }
         }
       }
     ]
   },
 
   "currentlyProcessing": 14,
-  "shippedToday": 20,
-
-  "_links": {
-    "self": { "href": "/orders?after=532d39e987409c5b6fe7f913c9e568af" },
-    "curies": [
-      {
-        "name": "o",
-        "href": "https://api.otto.de/link-relations/{rel}",
-        "templated": true
-      }
-    ],
-    "prev": { "href": "/orders?before=911d39e987409c5b6fe7f913c9e568ca" },
-    "next": { "href": "/orders?after=40770e2e3ce129faadd08663fa434c33" },
-    "first": { "href": "/orders" }
-  }
+  "shippedToday": 20
 }
 ```
 

@@ -58,24 +58,18 @@ filtering of returned entity fields.
 | :------- | :------------------------------------------ | :----- | :--------------------------------- |
 | `fields` | Selection of fields that should be returned | \*     | `?fields=(name,friends(id, name))` |
 
-The syntax of the query fields value is defined by the following BNF grammar.
-
-```ebnf
-<fields>            ::= [ <negation> ] <fields_struct>
-<fields_struct>     ::= "(" <field_items> ")"
-<field_items>       ::= <field> [ "," <field_items> ]
-<field>             ::= <field_name> | <fields_substruct>
-<fields_substruct>  ::= <field_name> <fields_struct>
-<field_name>        ::= <dash_letter_digit> [ <field_name> ]
-<dash_letter_digit> ::= <dash> | <letter> | <digit>
-<dash>              ::= "-" | "_"
-<letter>            ::= "A" | ... | "Z" | "a" | ... | "z"
-<digit>             ::= "0" | ... | "9"
-<negation>          ::= "!"
-```
+Examples:
+* Include only field name: `fields=(name)`
+* Include field name and id: `fields=(name,id)`
+* Include field name and friends, with friends only having id and name properties: `fields=(name,friends(id, name))`
 
 ## Embedding
 
 | name    | description                                 | values | example                |
 | :------ | :------------------------------------------ | :----- | :--------------------- |
-| `embed` | Comma-separated list of link-relation types | \*     | `?embed=item,o:images` |
+| `embed` | Selection of link-relation types to embed   | \*     | `?embed=(item,item(o:images))` |
+
+Examples:
+* Do not embed anything: `?embed=()`
+* Embed products into the response: `?embed=(o:product)`
+* Embed all products, and for every product also embed it's variations: `?embed=(o:product, o:product(o:variation))`

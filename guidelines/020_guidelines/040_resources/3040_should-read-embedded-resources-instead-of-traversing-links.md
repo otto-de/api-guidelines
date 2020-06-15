@@ -13,5 +13,6 @@ If supported by the API, clients SHOULD use the common request-parameter
 
 See also:
 
-- [SHOULD support optional embedding of sub-resources](./3010_should-support-optional-embedding-of-sub-resources.md)
+- [SHOULD embed sub-resources](./3010_should-embed-sub-resources.md)
+- [SHOULD support optional embedding of sub-resources](./3020_should-support-optional-embedding-of-sub-resources.md)
 - [MUST stick to conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md)
