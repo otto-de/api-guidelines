@@ -31,8 +31,6 @@ If multiple values need to be supported, they [should be provided as a comma-sep
 These query parameters must be documented with their possible values (ranges), semantics and interactions with other query parameters (e.g. multiple values form a logical _or_, but with other query parameters an _and_ connection).
 This may be obvious for single valued properties, but not necessarily for lists (e.g. `tags=sporty,retro`)
 
-More complex search or filter capabilities must introduce a separate endpoint that accepts a complex filter/query language as a JSON body.
-
 `Note`{ label } Make sure that you add the query parameters to the to HAL links if necessary.
 
 See also [Conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md).
