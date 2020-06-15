@@ -59,17 +59,19 @@ filtering of returned entity fields.
 | `fields` | Selection of fields that should be returned | \*     | `?fields=(name,friends(id, name))` |
 
 Examples:
-* Include only field name: `fields=(name)`
-* Include field name and id: `fields=(name,id)`
-* Include field name and friends, with friends only having id and name properties: `fields=(name,friends(id, name))`
+
+- Include only field name: `fields=(name)`
+- Include field name and id: `fields=(name,id)`
+- Include field name and friends, with friends only having id and name properties: `fields=(name,friends(id, name))`
 
 ## Embedding
 
-| name    | description                                 | values | example                |
-| :------ | :------------------------------------------ | :----- | :--------------------- |
-| `embed` | Selection of link-relation types to embed   | \*     | `?embed=(item,item(o:images))` |
+| name    | description                               | values | example                        |
+| :------ | :---------------------------------------- | :----- | :----------------------------- |
+| `embed` | Selection of link-relation types to embed | \*     | `?embed=(item,item(o:images))` |
 
 Examples:
-* Do not embed anything: `?embed=()`
-* Embed products into the response: `?embed=(o:product)`
-* Embed all products, and for every product also embed it's variations: `?embed=(o:product, o:product(o:variation))`
+
+- Do not embed anything: `?embed=()`
+- Embed products into the response: `?embed=(o:product)`
+- Embed all products, and for every product also embed it's variations: `?embed=(o:product, o:product(o:variation))`
