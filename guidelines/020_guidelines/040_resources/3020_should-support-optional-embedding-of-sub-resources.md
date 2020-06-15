@@ -1,6 +1,6 @@
 ---
 type: SHOULD
-id: R000041
+id: R000063
 ---
 
 # support optional embedding of sub-resources
