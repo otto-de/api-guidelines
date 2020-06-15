@@ -46,7 +46,8 @@ GET https://api.otto.de/products?embed=(item) HTTP/1.1
 }
 ```
 
-If optional embedding is supported, clients could also decide to *not* embed the linked resources:
+If parameter 'embed' is not provided by the client, the resources should be embedded by default. However, clients could 
+also decide to *not* embed the linked resources:
 
 ```http request
 GET https://api.otto.de/products?embed=() HTTP/1.1

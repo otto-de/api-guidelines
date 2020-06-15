@@ -9,6 +9,11 @@ Embedding related resources (also know as resource expansion) is a great way to 
 
 Resources that are linking to sub-resources SHOULD return these sub-resources using the HAL `_embedded` object.  
 
+::: info Hint
+In many cases, the linked resources will be provided by different services. In this case, the linked resources
+sometimes can not be embedded without major efford and this rule should not be applied.
+:::
+
 *Example:*
 
 ```http request
