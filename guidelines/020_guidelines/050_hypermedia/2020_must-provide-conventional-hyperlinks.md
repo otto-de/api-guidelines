@@ -64,7 +64,7 @@ Example collection 'item':
 
 See also:
 
-- [MUST support hypermedia controls in collection resources](../040_resources/4060_must-support-hypermedia-controls.md)
+- [MUST support hypermedia controls in collection resources](../040_resources/4070_must-support-hypermedia-controls.md)
 - [Link-Relation Types](./3000_link-relation-types.md)
 - [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
 - [REST lesson learned: consider a self link on all resources](https://blog.ploeh.dk/2013/05/03/rest-lesson-learned-consider-a-self-link-on-all-resources/)
