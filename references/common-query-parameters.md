@@ -34,14 +34,13 @@ This section describes common query parameters to provide the client a consisten
 | :--- | :---------------- | :----- | :--------- |
 | `q`  | Simple text query | \*     | `?q=shoes` |
 
-If more advanced queries are necessary, they should be made available via separate endpoints that accept queries as JSON payloads.
+If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](./../guidelines/020_guidelines/040_resources/4110_use-json-for-advanced-querying-and-filtering.md).
 
 TODO: queries über request parameter
 TODO: Filtering als separaten Punkt
 
 ## Embedding
 
-| name     | description                                 | values | example                |
-| :------- | :------------------------------------------ | :----- | :--------------------- |
-| `embed`  | Comma-separated list of link-relation types | \*     | `?embed=item,o:images` |
-
+| name    | description                                 | values | example                |
+| :------ | :------------------------------------------ | :----- | :--------------------- |
+| `embed` | Comma-separated list of link-relation types | \*     | `?embed=item,o:images` |
