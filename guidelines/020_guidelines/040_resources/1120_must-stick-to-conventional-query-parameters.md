@@ -32,9 +32,9 @@ parameters for the same functionality.
 
 ## Sorting
 
-| name   | description                                                                                                                                                                                                           | values                    | example                      |
-| :----- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------ | :--------------------------- |
-| `sort` | Property to sort by with optional ordering. Can be provided multiple times to sort by multiple properties. Naming _should_ correspond to JSON field names with dot-navigation if necessary (e.g. `price.grossValue`). | `<field>[,(asc \| desc)]` | `?sort=price,desc&sort=name` |
+| name   | description                                                                                                                                                                                                           | values                    | example                 |
+| :----- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------ | :---------------------- |
+| `sort` | Property to sort by with optional ordering. Can be provided multiple times to sort by multiple properties. Naming _should_ correspond to JSON field names with dot-navigation if necessary (e.g. `price.grossValue`). | `<field>[:(asc \| desc)]` | `?sort=price:desc,name` |
 
 TODO: Alternativ: comma-separated list of fields (as defined by MUST define collection format of header and query parameters) to define the sort order. To indicate sorting direction, fields may be prefixed with + (ascending) or - (descending), e.g. /sales-orders?sort=+id.
 
