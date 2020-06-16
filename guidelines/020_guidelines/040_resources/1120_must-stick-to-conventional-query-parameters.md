@@ -55,9 +55,9 @@ TODO: queries über request parameter
 Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting
 filtering of returned entity fields.
 
-| name     | description                                 | values | example                            |
-| :------- | :------------------------------------------ | :----- | :--------------------------------- |
-| `fields` | Selection of fields that should be returned | \*     | `?fields=(name,friends(id, name))` |
+| name     | description                                 | values | example                         |
+| :------- | :------------------------------------------ | :----- | :------------------------------ |
+| `fields` | Selection of fields that should be returned | \*     | `?fields=name,friends(id,name)` |
 
 Examples:
 
