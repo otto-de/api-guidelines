@@ -21,25 +21,34 @@ hyperlinking other resources.
 The following links must be contained in HAL representations:
 
 - `self`: The _canonical_ hyperlink of the resource.
-- `profile`: The fully qualified link pointing to the `profile` of the resource, if any. The link should resolve to some
-  human-readable documentation of the profile. The `profile` is omitted, if the resource does not have one. Collection
-  resource, for example, might only be plain `application/hal+json` representations w/o any custom attributes.
+- `profile`: The fully qualified link pointing to the `profile` of the resource, if any. The link [MUST resolve to some
+  human-readable documentation](./4010_must-use-resolvable-profile-urls.md) of the profile. The `profile` is omitted, 
+  if the resource does not have any custom properties beside HALs `_links` and `_embedded` elements. [Collection
+  resource](../040_resources/4000_collection-resources.md), for example, might only be plain `application/hal+json` 
+  representations w/o any custom attributes.
 - `collection`: For items contained in a collection resource, this link should point to the collection. In most cases, this
   link will be [templated](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.2).
 - `search`: For searchable collection resources, a [templated](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.2)
   link should be added that refers to the collection including all template parameters.
 
-Example 'collection' resource:
+Example [paged collection](../040_resources/4060_must-provide-page-metadata.md) resource:
 
 ```json
 {
   "_links": {
     "self": { "href": "https://api.otto.de/orders?page=2&pageSize=10" },
+    "profile": { "href": "https://api.otto.de/profiles/paged-collection+v1" },
     "search": {
       "href": "https://api.otto.de/orders{?q,page,pageSize}",
       "templated": true
     },
     "item": [{ "href": "https://api.otto.de/orders/4711" }]
+  },
+  "_page": {
+    "size": 10,
+    "number": 2,
+    "totalElements": 21,
+    "totalPages": 3
   }
 }
 ```
