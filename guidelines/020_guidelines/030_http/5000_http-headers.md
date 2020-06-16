@@ -54,3 +54,28 @@ components:
 ::: info
 Make sure to not forget to double-quote the values of `ETag` as per [RFC 7232 Section 2.3](https://tools.ietf.org/html/rfc7232#section-2.3)!
 :::
+
+| Header Name           | Description                                                                                                                                                                         | Part of Request | Part of Response |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------- |
+| `Accept`              | -                                                                                                                                                                                   | ✔               | ✗                |
+| `Accept-Encoding`     | -                                                                                                                                                                                   | ✔               | ✗                |
+| `Authorization`       | Includes the credentials for accessing a given resource, see [[MUST] use Bearer Authentication](./guidelines/020_security/1060_must-use-bearer-authentication.md).                  | ✔               | ✗                |
+| `Content-Encoding`    |                                                                                                                                                                                     | ✗               | ✔                |
+| `Content-Length`      | The size of the response body in bytes.                                                                                                                                             | ✗               | ✔                |
+| `Content-Type`        | Indicates the media type of a resource. Describes the payload format of requests and the content type of responses. Required for `PUT` & `POST` requests.                           | ✔               | ✔                |
+| `Cookies`             | > [TODO] separate issue? Also `Set-Cookies`. Probably not relevant for the API.                                                                                                     | ✔               | ✔                |
+| `Date`                | Contains the timestamp of the request (client) and response (server) respectively. The timestamp format must follow [RFC 7231](https://tools.ietf.org/html/rfc7231#section-7.1.1.1) | ✔               | ✔                |
+| `ETag`                | See Etag rules                                                                                                                                                                      | ✗               | ✔                |
+| `If-Match`            | -                                                                                                                                                                                   | ✔               | ✗                |
+| `If-Modified-Since`   | -                                                                                                                                                                                   | ✔               | ✗                |
+| `If-None-Match`       | -                                                                                                                                                                                   | ✔               | ✗                |
+| `If-Unmodified-Since` | -                                                                                                                                                                                   | ✔               | ✗                |
+| `If-Unmodified-Since` | -                                                                                                                                                                                   | ✔               | ✗                |
+| `Location`            | -                                                                                                                                                                                   | ✗               | ✔                |
+| `X-Forwarded-*`       | > [TODO] Should we support -For -Host & -Proto or recommend the actual standard `Forwarded` header                                                                                  | ✔               | ✗                |
+
+> [TODO] Rate limit headers, Caching headers (Expires, Vary, Cache-Control etc.)
+
+## Request Response Example
+
+> [TODO] Provide some HTTP examples demonstrating different header combinations
