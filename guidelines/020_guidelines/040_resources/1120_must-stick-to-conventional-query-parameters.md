@@ -44,8 +44,9 @@ TODO: Alternativ: comma-separated list of fields (as defined by MUST define coll
 | :--- | :---------------- | :----- | :--------- |
 | `q`  | Simple text query | \*     | `?q=shoes` |
 
-If more advanced queries are necessary, they should be made available via separate endpoints that accept queries as
-JSON payloads.
+Introduce [your own descriptive query parameters for querying](./4100_must-use-query-parameters-for-basic-search-or-filtering.md).
+
+If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](./4110_use-json-for-advanced-querying-and-filtering.md).
 
 TODO: queries über request parameter
 
