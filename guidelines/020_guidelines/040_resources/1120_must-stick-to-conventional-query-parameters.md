@@ -59,11 +59,7 @@ filtering of returned entity fields.
 | :------- | :------------------------------------------ | :----- | :------------------------------ |
 | `fields` | Selection of fields that should be returned | \*     | `?fields=name,friends(id,name)` |
 
-Examples:
-
-- Include only field name: `fields=(name)`
-- Include field name and id: `fields=(name,id)`
-- Include field name and friends, with friends only having id and name properties: `fields=(name,friends(id, name))`
+See also [Filtering of fields using common query parameter](./2070_should-support-filtering-of-fields-using-common-query-parameter.md)
 
 ## Embedding
 
