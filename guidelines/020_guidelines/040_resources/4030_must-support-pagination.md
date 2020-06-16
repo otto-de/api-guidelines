@@ -38,8 +38,8 @@ This is the most common approach to do pagination, especially for traditional RD
 {
   "_links": {
     "item": [
-        {"href": "https://api.otto.de/orders/123"},
-        {"href": "https://api.otto.de/orders/124"}
+      { "href": "https://api.otto.de/orders/123" },
+      { "href": "https://api.otto.de/orders/124" }
     ],
     "prev": { "href": "https://api.otto.de/orders?page=1" },
     "self": { "href": "https://api.otto.de/orders?page=2" },
@@ -102,13 +102,19 @@ Cursor based pagination is often preferred, especially when data sets increase q
 ```json
 {
   "_links": {
-    "self": { "href": "https://api.otto.de/orders?after=532d39e987409c5b6fe7f913c9e568af" },
+    "self": {
+      "href": "https://api.otto.de/orders?after=532d39e987409c5b6fe7f913c9e568af"
+    },
     "item": [
-        {"href": "https://api.otto.de/orders/123"},
-        {"href": "https://api.otto.de/orders/124"}
+      { "href": "https://api.otto.de/orders/123" },
+      { "href": "https://api.otto.de/orders/124" }
     ],
-    "prev": { "href": "https://api.otto.de/orders?before=911d39e987409c5b6fe7f913c9e568ca" },
-    "next": { "href": "https://api.otto.de/orders?after=40770e2e3ce129faadd08663fa434c33" },
+    "prev": {
+      "href": "https://api.otto.de/orders?before=911d39e987409c5b6fe7f913c9e568ca"
+    },
+    "next": {
+      "href": "https://api.otto.de/orders?after=40770e2e3ce129faadd08663fa434c33"
+    },
     "first": { "href": "https://api.otto.de/orders" }
   },
   "_embedded": {
