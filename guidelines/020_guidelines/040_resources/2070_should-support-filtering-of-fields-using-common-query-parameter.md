@@ -13,3 +13,6 @@ Examples:
 - `fields=(name)`: include only field `name`
 - `fields=(name,id)`: include field `name` and `id`
 - `fields=(name,friends(id,name))`: include field `name` and `friends`, with `friends` only having `id` and `name` properties
+
+See also:
+- [MUST stick to conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md)
