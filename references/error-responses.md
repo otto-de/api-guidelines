@@ -44,7 +44,7 @@ Content-Type: application/problem+json
 - Only respond with `problem+json` if client sends corresponding `Accept`-Header?
 - Format seems truly RESTfully...
 - Possible localizations for error communication must and can be left to the consumer.
-- Some teams already have some form of error keys in place. How do we want to handle the transition? See: https://confluence.scm.otto.de/pages/viewpage.action?pageId=356208247
+- Some teams already have some form of error keys in place. How do we want to handle the transition? See: https://confluence.otto.de/pages/viewpage.action?pageId=356208247
 - How to structure a list of errors associated to a request? Like validation failures for more than one property of the JSON request body?
 - I think it's very important to show examples of complex input validation error responses.
 

@@ -213,8 +213,8 @@ For further details see [W3C Working Draft](https://www.w3.org/TR/dx-prof-conneg
 ## Resources
 
 - OTTO API Guidelines
-  - [Technische API Guidelines](https://confluence.scm.otto.de/display/API/Technische+API+Guidelines#TechnischeAPIGuidelines-VersionierungundKompabilit%C3%A4t)
-  - [Möglichkeiten API-Versionierung](https://confluence.scm.otto.de/pages/viewpage.action?pageId=213378715).
+  - [Technische API Guidelines](https://confluence.otto.de/display/API/Technische+API+Guidelines#TechnischeAPIGuidelines-VersionierungundKompabilit%C3%A4t)
+  - [Möglichkeiten API-Versionierung](https://confluence.otto.de/pages/viewpage.action?pageId=213378715).
 - Zalando API Guidelines
   - [Compatibility](https://opensource.zalando.com/restful-api-guidelines/#compatibility)
     - [SHOULD avoid versioning](https://opensource.zalando.com/restful-api-guidelines/#113)
