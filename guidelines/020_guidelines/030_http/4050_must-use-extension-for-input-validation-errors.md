@@ -30,40 +30,60 @@ The JSON response looks as follows (isolated from the problem details):
 
 ```json
 {
-  "validationErrors": {
-    "<json_path_to_error_field_1>": [
-      { "message": "Error Message in prosa 1" },
-      { "message": "Error Message in prosa 2" }
-    ],
-    "<json_path_to_error_field_2>": [{ "message": "Error Message in prosa" }],
-    "unbound": [
-      { "message": "Generic error not bound to a specific data point" }
-    ]
-  }
+  "validationErrors": [
+    {
+      "path": "<json_path_to_error_field_1>",
+      "invalidValue": "The invalid Input of the client 1",
+      "details": [
+        {
+          "message": "Error Message in prosa 1"
+        },
+        {
+          "message": "Error Message in prosa 2"
+        }
+      ]
+    },
+    {
+      "path": "<json_path_to_error_field_2>",
+      "invalidValue": "The invalid Input of the client 2",
+      "details": [
+        {
+          "message": "Error Message in prosa"
+        }
+      ]
+    },
+    {
+      "path": "unbound",
+      "details": [
+        {
+          "message": "Generic error not bound to a specific data point"
+        }
+      ]
+    }
+  ]
 }
 ```
 
 **Complete Example**
 
+We want to create a new Retailer
+
 Functional API restrictions:
 
-- the widget type `"lala"` doesn't exist
-- the promo widget needs a `shopName` property
-- the `title` must contain between 3 and 20 characters
-- the `title` must not contain whitespace
+- the supported address type `"lala"` doesn't exist
+- the `name` must contain between 3 and 20 characters
+- the `name` must not contain whitespace
+- the bank account needs an `iban` property
 
 Request payload:
 
 ```json
 {
-  "title": "My Topic Page title is a little bit too long",
-  "widgets": [
+  "name": "My Retailer name is a little bit too long",
+  "supportedAddressTypes": ["lala"],
+  "bankAccounts": [
     {
-      "type": "lala",
-      "shopName": "socks"
-    },
-    {
-      "type": "PROMO"
+      "ownerName": "Otto"
     }
   ]
 }
@@ -76,13 +96,36 @@ Fitting error response:
   "type": "https://example.com/probs/validation-error",
   "title": "Your request payload didn't validate.",
   "status": 400,
-  "validationErrors": {
-    "title": [
-      { "message": "The title must have between 3 and 20 characters" },
-      { "message": "The title must not contain whitespace" }
-    ],
-    "widgets[0].type": [{ "message": "The given widget type does not exist" }],
-    "widgets[1].shopName": [{ "message": "The ShopName should not be empty" }]
-  }
+  "validationErrors": [
+    {
+      "path": "name",
+      "invalidValue": "My Retailer name is a little bit too long",
+      "details": [
+        {
+          "message": "The name must have between 3 and 20 characters"
+        },
+        {
+          "message": "The name must not contain whitespace"
+        }
+      ]
+    },
+    {
+      "path": "supportedAddressTypes[0]",
+      "invalidValue": "lala",
+      "details": [
+        {
+          "message": "The given adress type does not exist"
+        }
+      ]
+    },
+    {
+      "path": "bankAccounts[0].iban",
+      "details": [
+        {
+          "message": "The iban must not be empty"
+        }
+      ]
+    }
+  ]
 }
 ```
