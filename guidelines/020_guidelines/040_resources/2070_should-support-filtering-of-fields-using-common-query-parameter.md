@@ -10,6 +10,6 @@ You should also support filtering of nested properties.
 
 Examples:
 
-- `fields=name`: include only field `name`
-- `fields=name,id`: include field `name` and `id`
-- `fields=name,friends(id, name)`: include field `name` and `friends`, with `friends` only having `id` and `name` properties
+- `fields=(name)`: include only field `name`
+- `fields=(name,id)`: include field `name` and `id`
+- `fields=(name,friends(id,name))`: include field `name` and `friends`, with `friends` only having `id` and `name` properties
