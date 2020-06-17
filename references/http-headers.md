@@ -10,3 +10,5 @@ We decided to treat some (groups of) headers in separate issues, because they'll
 - Caching: https://github.com/otto-ec/ottoapi_guidelines/issues/56
 - CORS (cross-origin resource sharing): https://github.com/otto-ec/ottoapi_guidelines/issues/145
 - Rate Limiting: https://github.com/otto-ec/ottoapi_guidelines/issues/51
+
+[TODO] support headers that apply to non-HTTP2, since the API Gateway will also support older HTTP versions
