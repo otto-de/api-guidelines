@@ -70,9 +70,10 @@ As links may either contain a single link, or an array of links, the specificati
 [MUST be explicit](./3050_must-document-link-cardinality.md), whether `o:customer-reviews` will contain a single link,
 or an array of links.
 
-_See also:_
+::: references
 
 - [The 'profile' Link Relation Type (RFC 9606)](https://tools.ietf.org/html/rfc6906)
 - [SHOULD use Accept header with profile parameter](../060_versioning/1040_should-use-accept-header-with-profile-parameter.md)
 - [MUST provide conventional hyperlinks](./2020_must-provide-conventional-hyperlinks.md)
 - [paged collection](../040_resources/4060_must-provide-page-metadata.md)
+  :::

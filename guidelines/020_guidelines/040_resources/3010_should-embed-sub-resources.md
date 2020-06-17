@@ -7,24 +7,23 @@ id: R000041
 
 Embedding related resources (also know as resource expansion) is a great way to reduce the number of requests.
 
-Resources that are linking to sub-resources SHOULD return these sub-resources using the HAL `_embedded` object.  
+Resources that are linking to sub-resources SHOULD return these sub-resources using the HAL `_embedded` object.
 
 ::: info Hint
 In many cases, the linked resources will be provided by different services. In this case, the linked resources
 sometimes can not be embedded without major efford and this rule should not be applied.
 :::
 
-*Example:*
+_Example:_
 
 ```http request
 GET https://api.otto.de/products HTTP/1.1
 ```
+
 ```json
 {
   "_links": {
-    "item": [
-      { "href": "http://api.otto.de/products/4711" }
-    ]
+    "item": [{ "href": "http://api.otto.de/products/4711" }]
   },
   "_embedded": {
     "item": [
@@ -40,6 +39,7 @@ GET https://api.otto.de/products HTTP/1.1
 }
 ```
 
-See also:
+::: references
 
 - [SHOULD support optional embedding of sub-resources](./3020_should-support-optional-embedding-of-sub-resources.md)
+  :::

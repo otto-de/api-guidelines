@@ -25,6 +25,7 @@ a custom link-relation type can be used.
 
 Using link-relation type like `"variation": {"href":"https://api.otto.de/variations/4711"}` is therefore forbidden.
 
-See also:
+::: references
 
 - [MUST use curied link-relation types](./3040_must-use-curied-rels.md)
+  :::

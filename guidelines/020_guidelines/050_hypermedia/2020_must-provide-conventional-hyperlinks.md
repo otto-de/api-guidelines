@@ -22,9 +22,9 @@ The following links must be contained in HAL representations:
 
 - `self`: The _canonical_ hyperlink of the resource.
 - `profile`: The fully qualified link pointing to the `profile` of the resource, if any. The link [MUST resolve to some
-  human-readable documentation](./4010_must-use-resolvable-profile-urls.md) of the profile. The `profile` is omitted, 
+  human-readable documentation](./4010_must-use-resolvable-profile-urls.md) of the profile. The `profile` is omitted,
   if the resource does not have any custom properties beside HALs `_links` and `_embedded` elements. [Collection
-  resource](../040_resources/4000_collection-resources.md), for example, might only be plain `application/hal+json` 
+  resource](../040_resources/4000_collection-resources.md), for example, might only be plain `application/hal+json`
   representations w/o any custom attributes.
 - `collection`: For items contained in a collection resource, this link should point to the collection. In most cases, this
   link will be [templated](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.2).
@@ -71,9 +71,10 @@ Example collection 'item':
 }
 ```
 
-See also:
+::: references
 
 - [MUST support hypermedia controls in collection resources](../040_resources/4070_must-support-hypermedia-controls.md)
 - [Link-Relation Types](./3000_link-relation-types.md)
 - [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
 - [REST lesson learned: consider a self link on all resources](https://blog.ploeh.dk/2013/05/03/rest-lesson-learned-consider-a-self-link-on-all-resources/)
+  :::

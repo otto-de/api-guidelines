@@ -21,6 +21,7 @@ If you do so, you SHOULD use application/hal+json as representation format becau
 - Implementation of API clients is easier if different parts of the API are behaving in the same way and if
   the same format is used for different purposes.
 
-See also:
+::: references
 
-- Internet Draft [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-08).
+- Internet Draft [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-08)
+  :::

@@ -146,6 +146,31 @@
     line-height: 1.8em;
   }
 
+  &-references {
+    @extend .uk-section-muted;
+    @extend .uk-text-meta;
+    padding: 5px 20px;
+    position: relative;
+
+    > .uk-icon {
+      position: absolute;
+      margin-top: -20px;
+      top: 50%;
+    }
+
+    > ul {
+      margin-left: 50px;
+    }
+
+    a[target="_blank"] {
+      color: inherit !important;
+
+      &:hover {
+        color: #666 !important;
+      }
+    }
+  }
+
   &-footnotes {
     @extend .uk-text-meta;
 

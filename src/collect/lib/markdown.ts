@@ -135,6 +135,28 @@ export function registerLabel(config: Config, md: Md): void {
   };
 }
 
+export function registerReferences(config: Config, md: Md): void {
+  const {
+    renderer: { rules },
+  } = md;
+  const { tag, identifier, classes } = config.markdown.references;
+
+  md.use(container, identifier, {
+    render: (tokens: Record<string, Token>, idx: string) => {
+      const token = tokens[idx];
+      log.trace(idx, token);
+
+      // Opening Tag
+      if (token.nesting > 0) {
+        return `<div class="${classes}"><span uk-icon="icon: bookmark; ratio: 2;"></span>`;
+      }
+
+      // Closing Tag
+      return `</${tag}>`;
+    },
+  });
+}
+
 export function registerFootnotes(config: Config, md: Md): void {
   const {
     renderer: { rules },
@@ -199,6 +221,7 @@ export function getParser(config: Config): Md {
   registerBlocks(config, md);
   registerAccordion(config, md);
   registerLabel(config, md);
+  registerReferences(config, md);
   registerFootnotes(config, md);
   return md;
 }

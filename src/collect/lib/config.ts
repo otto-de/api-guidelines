@@ -58,6 +58,11 @@ export function getConfig() {
           style: "api-label--%s",
         },
       },
+      references: {
+        identifier: "references",
+        tag: "div",
+        classes: "api-references",
+      },
       footnote: {
         classes: {
           ref: "api-footnote-ref",
