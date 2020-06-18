@@ -5,10 +5,10 @@ id: R000001
 
 # follow Contract First approach
 
-When a new API is being developed, we follow the [Contract First approach](./guidelines/010_core-principles/40_contract-first.md).
+When a new API is being developed, we follow the [Contract First approach](./../../010_core-principles/0040_contract-first.md).
 This requires the following aspects:
 
-- We define API contracts first before coding the implementation using a [standard specification language](./guidelines/020_general-guidelines/1030_must-provide-api-specification-using-openapi.md).
+- We define API contracts first before coding the implementation using a [standard specification language](./1030_must-provide-api-specification-using-openapi.md).
 - We get early review feedback from peers and client developers.
 
 By defining API contracts outside of the code, we aim to facilitate early review feedback and also a development discipline that focuses service interface design on a profound understanding of the domain and the required functionality.
