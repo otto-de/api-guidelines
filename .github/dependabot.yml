@@ -1,5 +1,6 @@
 version: 2
 updates:
+  # Npm Dependencies
   - package-ecosystem: npm
     directory: "/"
     schedule:
@@ -14,6 +15,7 @@ updates:
       - "dependabot :rocket:"
     versioning-strategy: increase
 
+  # Github Actions
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
