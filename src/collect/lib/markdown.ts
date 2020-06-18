@@ -148,7 +148,7 @@ export function registerReferences(config: Config, md: Md): void {
 
       // Opening Tag
       if (token.nesting > 0) {
-        return `<div class="${classes}"><span uk-icon="icon: bookmark; ratio: 2;"></span>`;
+        return `<div class="${classes}"><span uk-icon="icon: bookmark; ratio: 1.5;"></span>`;
       }
 
       // Closing Tag

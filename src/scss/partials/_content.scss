@@ -149,24 +149,26 @@
   &-references {
     @extend .uk-section-muted;
     @extend .uk-text-meta;
+    line-height: 1.5;
     padding: 5px 20px;
     position: relative;
 
     > .uk-icon {
       position: absolute;
-      margin-top: -20px;
+      margin-top: -16px;
       top: 50%;
     }
 
     > ul {
-      margin-left: 50px;
+      margin-left: 32px;
     }
 
-    a[target="_blank"] {
-      color: inherit !important;
+    a {
+      color: $global-link-color !important;
 
-      &:hover {
-        color: #666 !important;
+      &:hover,
+      &:active {
+        color: $global-link-hover-color !important;
       }
     }
   }
