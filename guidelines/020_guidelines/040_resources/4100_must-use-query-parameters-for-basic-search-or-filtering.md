@@ -33,4 +33,7 @@ This may be obvious for single valued properties, but not necessarily for lists 
 
 `Note`{ label } Make sure that you add the query parameters to the to HAL links if necessary.
 
-See also [Conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md).
+::: references
+- [Conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md)
+:::
+

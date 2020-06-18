@@ -20,4 +20,6 @@ If the use case cannot be expressed using this simple sorting parameter, you sho
 
 `Note`{ label } Make sure that you add the `sort` parameter to the to HAL links if necessary.
 
-See also [Conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md).
+::: references
+- [Conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md)
+:::

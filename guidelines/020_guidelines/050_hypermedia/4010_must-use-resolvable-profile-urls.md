@@ -24,3 +24,9 @@ an `href` containing the URL of the representation`s profile:
   "status": "shipped"
 }
 ``` 
+
+::: references
+- [MUST implement REST maturity level 2 for private APIs](./1010_must-implement-rest-maturity-level-2-for-private-apis.md)
+- [MUST implement REST maturity level 3 for public APIs](./1020_must-implement-rest-maturity-level-3-for-public-apis.md)
+- [MUST provide conventional hyperlinks](./2020_must-provide-conventional-hyperlinks.md)
+:::
