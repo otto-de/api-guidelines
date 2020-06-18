@@ -24,9 +24,10 @@ merge:
 
   required_statuses:
     - "Semantic PR"
-    - "build"
-    - "specs"
-    - "license"
+    - "build (14.x)"
+    - "specs (12.x)"
+    - "specs (14.x)"
+    - "license (14.x)"
 
   # If true, bulldozer will delete branches after their pull requests merge.
   delete_after_merge: true
