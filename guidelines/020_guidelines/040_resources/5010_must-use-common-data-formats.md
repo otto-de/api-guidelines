@@ -49,6 +49,14 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | o_language-code       | [ISO 639-1][iso639-1], [BCP 47][bcp47] | `de`, `de-DE`, `en`, `en-US`           |                                 |
 | string  | o_currency-code       | [ISO 4217][iso4217]                    | `EUR`, `USD`, `CHF`                    |                                 |
 
+These format names are intended to be used in the OpenAPI specification provided by the service.
+
+::: references
+
+- [provide API specification using OpenAPI](./../010_general-guidelines/1030_must-provide-api-specification-using-openapi.md)
+- [provide API specification for profiles](./../050_hypermedia/4030_must-provide-openapi-spec-for-profiles.md)
+  :::
+
 [rule-date]: ./5020_must-use-common-date-format.md
 [rfc3339]: https://tools.ietf.org/html/rfc3339#section-5.6
 [rfc5322]: https://tools.ietf.org/html/rfc5322#section-3.4.1
