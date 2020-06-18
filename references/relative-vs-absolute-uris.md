@@ -14,7 +14,7 @@ This leads to lot of overhead for the client for the prize of a slightly smaller
 
 Absolute URIs prohibit clientside complexity as the client can simply extract the URI out of the payload into his workflow. What seems very handy from the client perspective can lead to a problem, when the client operates through a proxy.
 
-After the initial request, the client still wants to operate through the proxy and not call the API directly. For this reason the Team responsible for the API should never hardcode the hostname:port part of their URI. In fact they should provide an ability to replace the hostname of their given URIs. This should be done by supporting the X-FORWARDED-HOST header which identifies the original host requested by the client. Spring HATEOAS supports the X-FORWARDED-Headers by default. We must follow this pattern.
+After the initial request, the client still wants to operate through the proxy and not call the API directly. For this reason the Team responsible for the API should never hardcode the hostname:port part of their URI. In fact they should provide an ability to replace the hostname of their given URIs. This should be done by supporting the Forwarded header which identifies the original host requested by the client. Spring HATEOAS supports the Forwarded header by default. We must follow this pattern.
 
 ## Shopoffice point of view
 
@@ -58,13 +58,13 @@ But even when the URIs are both absolute, as it is the case in this example, we 
 
 Therefore we can not use the absolute URIs that are part of the response. Right now we extract the technical id, that is part of the response and construct the different URIs client sided. This should not be the preferred way.
 
-A good solution would be, that the Teams providing an API supports the X-FORWARDED-HOST Header, so that the absolute URIs are rewritten and contain our proxy as hostname. If this shouldn't be possible for whatever reason, we need at least a technical id field in the payload, so that we are able to construct the URIs on the client side. We absolutely do not want to parse the IDs out of the links.
+A good solution would be, that the Teams providing an API supports the Forwarded header, so that the absolute URIs are rewritten and contain our proxy as hostname. If this shouldn't be possible for whatever reason, we need at least a technical id field in the payload, so that we are able to construct the URIs on the client side. We absolutely do not want to parse the IDs out of the links.
 
-So when sending the X-Forwarded-Host-Header, the request will look like this:
+So when sending the Forwarded header, the request will look like this:
 
 ```http
 GET https://mc.develop.nav.cloud.otto.de/v1/page/(und.(ist.sortiment.bekleidung).(ist.zielgruppe.herren).(~.(v.1)))/child/(und.(ist.sortiment.bekleidung).(ist.zielgruppe.herren).(sind.kategorien.anzuege).(~.(v.1)))/live/1 HTTP/1.1
-X-Forwarded-Host: trude.develop.shopoffice.cloud.otto.de
+Forwarded: host=trude.develop.shopoffice.cloud.otto.de
 ```
 
 Matching the response:
@@ -98,6 +98,6 @@ Therefore the following two recommendations must be included in the documentatio
 
 ### **[MUST]** use absolute URLs for hyperlinks
 
-### **[MUST]** support X-FORWARDED-HOST Header to support proxies in front of your origin server
+### **[MUST]** support Forwarded header to support proxies in front of your origin server
 
 ### **[MUST]** contain an ID-field in the payload so that the client is able to construct the URI on it's own
