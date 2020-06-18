@@ -24,9 +24,9 @@ merge:
 
   required_statuses:
     - "Semantic PR"
-    - "ci/circleci: build"
-    - "ci/circleci: specs"
-    - "ci/circleci: license"
+    - "build"
+    - "specs"
+    - "license"
 
   # If true, bulldozer will delete branches after their pull requests merge.
   delete_after_merge: true
