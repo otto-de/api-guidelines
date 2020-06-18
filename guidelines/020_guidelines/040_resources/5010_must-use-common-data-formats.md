@@ -1,6 +1,6 @@
 ---
 type: MUST
-id: R100171
+id: R100071
 ---
 
 # use common data formats
