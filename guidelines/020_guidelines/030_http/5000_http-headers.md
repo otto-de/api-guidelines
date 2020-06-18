@@ -21,7 +21,7 @@ The list of headers is not supposed to be exhaustive, but contains the most comm
 | `Forwarded`             | Identifies the original `Host` requested by a client, to be used for e.g. [generating absolute URLs in links](/guidelines/020_guidelines/050_hypermedia/2010_must-use-absolute-urls.md). See [RFC 7239](https://tools.ietf.org/html/rfc7239)     | ✔               | ✗                |
 | `If-Match`              | Used for [caching](/guidelines/030_http/5010_may-use-etag-header-for-caching-resources.md) and [concurrency control](5030_may-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md).                                 | ✔               | ✗                |
 | `If-None-Match`         | Used for [caching](/guidelines/030_http/5010_may-use-etag-header-for-caching-resources.md) and [concurrency control](5030_may-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md).                                 | ✔               | ✗                |
-| `Location`              | Contains a URL to redirect to. This URL also [must be absolute](/guidelines/020_guidelines/050_hypermedia/2010_must-use-absolute-urls.md) and respect any `Forwarded` header.                                                                    | ✗               | ✔                |
+| `Location`              | Contains an URL to redirect to. This URL must be fully qualified.                                                                                                                                                                                | ✗               | ✔                |
 | `Retry-After`           | Used for rate limiting, see [[MUST] use code 429 with headers for rate limits](./guidelines/030_http/3040_must-use-code-429-with-headers-for-rate-limits.md)                                                                                     | ✗               | ✔                |
 | `Server`                | The header describes the software used by the server that handled the request.                                                                                                                                                                   | ✗               | ✔                |
 | `User-Agent`            | Used by a client to identify itself to the server. It should include a unique, human-readable identifier, optionally suffixed by a version string reflecting different software releases of the client. Example: `User-Agent: otto-ready-v2.3.1` | ✔               | ✗                |
@@ -54,7 +54,7 @@ Example: `"7da7a728-f910-11e6-942a-68f728c1ba70"`, `*`
 |||
 
 ||| accordion Location
-The `Location` header includes a fully qualified URL. Use this for two use cases:
+The `Location` header includes a fully qualified URL. This URL also [must be absolute](/guidelines/020_guidelines/050_hypermedia/2010_must-use-absolute-urls.md) and respect any `Forwarded` header. Use this for two use cases:
 
 - Redirection: When answering a request with a `3xx` status code, the header value should point to where the resource moved.
 - Creation: When succesfully creating a resource via `POST`, you should tell a client the final location of that resource using the `Location` header. If a resource was created via `PUT` the client is already aware of the resource location, in this instance you should not set the `Location` header.
