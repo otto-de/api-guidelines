@@ -13,7 +13,7 @@ We decided to treat some (groups of) headers in separate issues, because they'll
 
 ---
 
-[TODO] support headers that apply to non-HTTP2, since the API Gateway will also support older HTTP versions
+The API Gateway supports HTTP v1.x and v2, the former only for compatibility with older clients. In order to discourage the older protocol, we will not list headers that became obsolete with HTTP2.
 
 ---
 
@@ -21,5 +21,9 @@ We decided against documenting the `Content-Encoding` header for client requests
 
 > Regarding `Content-Encoding` for client requests:
 > Seems somewhat exotic, the main problem is discoverability for the client. There is a RFC for [Client-Initiated Content-Encoding](https://tools.ietf.org/html/rfc7694) which also highlights this problem. I don't expect a lot of clients and servers to actually support this out of the box. I'd recommend to not have this in our v1 guidelines. We don't prohibit anyone from using this for a given use case.
+
+---
+
+Instead of supporting the set of proprietary `X-Forwarded-*` headers, we decided to only support the standard `Forwarded` header.
 
 ---
