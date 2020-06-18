@@ -3,7 +3,7 @@ type: MUST
 id: R000045
 ---
 
-# use hal format for embedded resources
+# use HAL format for embedded resources
 
 ::: warning Public APIs only
 This rule only applies to public APIs. For private APIs, this rule SHOULD be followed.
