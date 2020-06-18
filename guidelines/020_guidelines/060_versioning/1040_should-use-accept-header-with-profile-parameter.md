@@ -14,5 +14,5 @@ If changing an API can’t be done in a compatible way, versioning should be imp
 ::: references
 
 - [MUST use resolvable profile URLs](../050_hypermedia/4010_must-use-resolvable-profile-urls.md)
-- [MUST provide OpenAPI spec for profiles](../050_hypermedia/4020_must-provide-openapi-spec-for-profiles.md)
+- [MUST provide OpenAPI spec for profiles](guidelines/020_guidelines/050_hypermedia/4030_must-provide-openapi-spec-for-profiles.md)
   :::
