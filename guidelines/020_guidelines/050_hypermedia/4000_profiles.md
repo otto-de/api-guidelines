@@ -8,7 +8,7 @@ The OTTO APIs must either support `application/json`, or `application/hal+json` 
 not specific enough for our purposes, all APIs [MUST be documented](../010_general-guidelines/1030_must-provide-api-specification-using-openapi.md)
 using [OpenAPI Spec 3.0](http://spec.openapis.org/oas/v3.0.3).
 
-A 'product' representation, for example, might use 'application/hal+json' as a media type. Using OpenAPI Spec, the
+A 'product' representation, for example, might use `application/hal+json` as a media type. Using OpenAPI Spec, the
 structure of the representation must be specified, so developers of an API client know about the different properties
 of the 'product' representation.
 
@@ -21,7 +21,7 @@ clients can now specify the requested version of the specification like this:
 
 ```http request
 GET https://api.otto.de/products/42 HTTP/1.1
-Accept: application/hal+json; p rofile="https://api.otto.de/profiles/product+v1"
+Accept: application/hal+json; profile="https://api.otto.de/profiles/product+v1"
 ```
 
 The returned product representation (beeing an `application/hal+json` document) [MUST](./2020_must-provide-conventional-hyperlinks.md) contain
