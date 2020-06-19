@@ -30,7 +30,7 @@ This is the most common approach to do pagination, especially for traditional RD
 
 **Cons**
 
-- assumes fixed length / window is fixed: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime. Should be avoided for quickly updating collections.
+- assumes fixed length / window is fixed: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime. Should be avoided for frequently updated collections.
 
 **Example**
 
