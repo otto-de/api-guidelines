@@ -3,7 +3,7 @@ type: SHOULD
 id: R000065
 ---
 
-# should evaluate onsite experiment (OnEx) headers
+# evaluate onsite experiment (OnEx) headers
 
 Endpoints should evaluate on-site experiment headers and, if the experiment is applicable to the endpoint, change the response accordingly.
 

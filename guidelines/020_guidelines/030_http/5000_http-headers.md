@@ -60,3 +60,8 @@ The `Location` header includes a fully qualified URL. This URL also [must be abs
 - Redirection: When answering a request with a `3xx` status code, the header value should point to where the resource moved.
 - Creation: When succesfully creating a resource via `POST`, you should tell a client the final location of that resource using the `Location` header. If a resource was created via `PUT` the client is already aware of the resource location, in this instance you should not set the `Location` header.
   |||
+
+::: references
+
+- [MUST NOT use link headers for JSON representations](guidelines/020_guidelines/050_hypermedia/2030_must-not-use-link-headers-for-json-representations.md)
+  :::
