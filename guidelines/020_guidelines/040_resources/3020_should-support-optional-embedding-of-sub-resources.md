@@ -7,7 +7,7 @@ id: R000063
 
 Resources that are linking to sub-resources [SHOULD support embedding of sub-resources](./3010_should-embed-sub-resources.md).
 In order to improve flexibility of the API for different use-cases, embedding of sub-resources SHOULD be optional,
-using the request parameter `[embed](./1120_must-stick-to-conventional-query-parameters.md)` to select the
+using the request parameter [`embed`](./1120_must-stick-to-conventional-query-parameters.md) to select the
 sub-resources to embed.
 
 In cases where clients know upfront that they need some related resources they can instruct the server to prefetch
