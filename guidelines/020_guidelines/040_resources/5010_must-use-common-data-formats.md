@@ -29,10 +29,10 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | date-time             | [RFC3339] - `date-time`                | `2020-06-16T04:05:06Z`                 | see also [date rule][rule-date] |
 | string  | time                  | [RFC3339] - `full-time`                | `04:05:06Z`                            | see also [date rule][rule-date] |
 | string  | duration              | [RFC3339] - `duration`                 | `P1DT12H` (1 day 12 hours)             |                                 |
-| string  | password              |                                        |                                        | a hint for processing/display   |
+| string  | password              |                                        | `passw0rd`                             | a hint for processing/display   |
 | string  | email                 | [RFC5322][rfc5322]                     | `example@otto.de`                      | internationalized email         |
 | string  | idn-email             | [RFC5322][rfc5322]                     |                                        |                                 |
-| string  | hostname              | [RFC1123][rfc1123], [RFC5891][rfc5891] |                                        | internationalized hostname      |
+| string  | hostname              | [RFC1123][rfc1123], [RFC5891][rfc5891] | `www.otto.de`                          | internationalized hostname      |
 | string  | idn-hostname          | [RFC1123][rfc1123], [RFC5890][rfc5890] |                                        |                                 |
 | string  | ipv4                  | [RFC2673][rfc2673]                     | `127.0.0.1`                            |                                 |
 | string  | ipv6                  | [RFC2673][rfc2673]                     | `0:0:0:0:0:0:0:1`                      |                                 |
@@ -43,7 +43,7 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | iri-reference         | [RFC3987][rfc3987]                     |                                        | internationalized uri-reference |
 | string  | uuid                  | [RFC4122][rfc4122]                     | `f81d4fae-7dec-11d0-a765-00a0c91e6bf6` |                                 |
 | string  | json-pointer          | [RFC6901][rfc6901]                     | `/foo/0`                               |                                 |
-| string  | relative-json-pointer | [DRAFT json-pointer][json-pointer]     |                                        |                                 |
+| string  | relative-json-pointer | [DRAFT json-pointer][json-pointer]     | `1/nested/objects`                     |                                 |
 | string  | regex                 | [ECMA-262][ecma-262]                   | `[a-f]+[0-9]*`                         |                                 |
 | string  | o_country-code        | [ISO 3166-1-alpha2][iso3166-1-alpha2]  | `DE`, `GB`                             |                                 |
 | string  | o_language-code       | [ISO 639-1][iso639-1], [BCP 47][bcp47] | `de`, `de-DE`, `en`, `en-US`           |                                 |
