@@ -12,7 +12,7 @@ Use standard data formats as defined in
 
 The following is a non-exhaustive table of common formats.
 
-Format names starting with `o_` are not defined by OpenAPI or JSON Schema and are specific to the Otto organisation.
+Format names starting with `otto:` are not defined by OpenAPI or JSON Schema and are specific to the Otto organisation.
 They represent formats that are not covered or are extensions of existing ones.
 
 | type    | format                | spec                                   | example                                | comment                         |
@@ -45,9 +45,9 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | json-pointer          | [RFC6901][rfc6901]                     | `/foo/0`                               |                                 |
 | string  | relative-json-pointer | [DRAFT json-pointer][json-pointer]     | `1/nested/objects`                     |                                 |
 | string  | regex                 | [ECMA-262][ecma-262]                   | `[a-f]+[0-9]*`                         |                                 |
-| string  | o_country-code        | [ISO 3166-1-alpha2][iso3166-1-alpha2]  | `DE`, `GB`                             |                                 |
-| string  | o_language-code       | [ISO 639-1][iso639-1], [BCP 47][bcp47] | `de`, `de-DE`, `en`, `en-US`           |                                 |
-| string  | o_currency-code       | [ISO 4217][iso4217]                    | `EUR`, `USD`, `CHF`                    |                                 |
+| string  | otto:country-code     | [ISO 3166-1-alpha2][iso3166-1-alpha2]  | `DE`, `GB`                             |                                 |
+| string  | otto:language-code    | [ISO 639-1][iso639-1], [BCP 47][bcp47] | `de`, `de-DE`, `en`, `en-US`           |                                 |
+| string  | otto:currency-code    | [ISO 4217][iso4217]                    | `EUR`, `USD`, `CHF`                    |                                 |
 
 These format names are intended to be used in the OpenAPI specification provided by the service.
 
