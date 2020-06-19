@@ -3,7 +3,7 @@ type: MUST
 id: R100072
 ---
 
-# use standard date and time format
+# use common date and time format
 
 Use the `full-date`, `date-time` or `full-time` format as defined in [RFC3339][rfc3339].
 
@@ -22,10 +22,16 @@ Examples:
 
 Use `date-time` in UTC without time zone (e.g. `2020-06-16T12:53:11Z`).
 
-`Note`{ label } In the [OpenAPI specification][openapi-specification-data-types]
+::: info
+In the [OpenAPI specification][openapi-specification-data-types]
 `full-date` corresponds to `date`,
 `date-time` corresponds to `date-time`.
 In the [JSON Schema specification][json-schema-spec-defined-formats] `full-time` corresponds to `time`.
+:::
+
+::: warning
+HTTP headers must use the date format recommended by the HTTP specification [RFC7231][rfc7231] (e.g. `Sun, 06 Nov 1994 08:49:37 GMT`).
+:::
 
 ::: references
 
@@ -35,3 +41,4 @@ In the [JSON Schema specification][json-schema-spec-defined-formats] `full-time`
 [rfc3339]: https://tools.ietf.org/html/rfc3339#section-5.6
 [json-schema-spec-defined-formats]: https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3
 [openapi-specification-data-types]: http://spec.openapis.org/oas/v3.0.3#data-types
+[rfc7231]: https://tools.ietf.org/html/rfc7231#section-7.1.1.1
