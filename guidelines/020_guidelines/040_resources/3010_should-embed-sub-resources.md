@@ -11,7 +11,7 @@ Resources that are linking to sub-resources SHOULD return these sub-resources us
 
 ::: info Hint
 In many cases, the linked resources will be provided by different services. In this case, the linked resources
-sometimes can not be embedded without major efford and this rule should not be applied.
+sometimes can not be embedded without major effort and this rule should not be applied.
 :::
 
 _Example:_
