@@ -3,6 +3,8 @@ type: SHOULD
 id: R000065
 ---
 
+[TODO] rework in context of https://github.com/otto-ec/ottoapi_guidelines/issues/25
+
 # evaluate onsite experiment (OnEx) headers
 
 Endpoints should evaluate on-site experiment headers and, if the experiment is applicable to the endpoint, change the response accordingly.

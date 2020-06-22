@@ -3,7 +3,9 @@ type: SHOULD
 id: R000064
 ---
 
-SHOULD accept X-visitorId and X-BrowserId as HTTP headers
+[TODO] harmonize with JWT/auth requirements
+
+accept X-visitorId and X-BrowserId as HTTP headers
 
 Many endpoints use the BrowserId or the visitorId to grant access to user specific information.
 
