@@ -13,7 +13,7 @@ OAuth 2.0 scopes represent permissions for different resources. Scopes are up to
 To keep a consistent naming pattern, scopes should be constructed according to the following scheme.
 
 ```text
-({resource}).{permission}
+{resource}.{permission}
 ```
 
 ::: info
