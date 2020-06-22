@@ -5,12 +5,10 @@ id: R000010
 
 # use `ETag` header for caching resources
 
-> TODO: [REVIEW] Issue #57
-
-Using the `ETag` header in combination with the `If-None-Match` header is a powerful tool for caching resources. This approach offers a solution where other caching headers (e.g. `Cache-Control` or `Expires`) hint at a _stale_ resource on the client side.
+Using the `ETag` response header in combination with the `If-None-Match` request header is a powerful tool for caching resources. This approach offers a solution where other caching headers (e.g. `Cache-Control` or `Expires`) hint at a _stale_ resource on the client side.
 
 :::warning
-When implementing ETags for caching "[[MAY] use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](./guidelines/030_http/5030_may-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md)" also applies, see below "pitfalls".
+When implementing `ETag` for caching, also "[[SHOULD] use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](./guidelines/030_http/5020_should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md)" applies, see below "pitfalls".
 :::
 
 ```sh
@@ -47,13 +45,13 @@ The purpose of the value is to indicate a change in the underlying resource. One
 - A _strong_ entity tag indicates a byte-by-byte equality if matching and should be the **default**.
 - A _weak_ entity tag, marked by a `W/` prefix, only indicates semantic equality of the underlying resource. It should be the **fallback** if generating a strong tag is unfeasible, e.g. due to performance reasons.
 
-There are [several pitfalls](https://www.mnot.net/blog/2007/08/07/etags) to consider when implementing `ETags` correctly:
+There are [several pitfalls](https://www.mnot.net/blog/2007/08/07/etags) to consider when implementing `ETag` header correctly:
 
-- A strong ETag must change when the representation of an entity changes, so it has to be sensitive to `Content-Type`, `Content-Encoding` and other response characteristics in order to be compliant with [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3).
-- Using `gzip` compression will include a timestamp in your compressed resource representation, resulting in a different ETag value when compressed at another time even though the resource has not changed at all.
-- Handing out ETags for caching implies, that your API also supported concurrency control/optimistic locking via ETags. This might add unwanted development and operational overhead.
-- You might find yourself doing a bunch of (CPU-bound) work on the server only to validate incoming ETags. In this case using ETags will only save network bandwidth, while still incurring compute costs, dwarfing the actual returns expected from implementing ETags.
-- ETags for collection resources are nontrivial to implement (see below).
+- A strong `ETag` value must change when the representation of an entity changes, so it has to be sensitive to `Content-Type`, `Content-Encoding` and other response characteristics in order to be compliant with [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3).
+- Using `gzip` compression will include a timestamp in your compressed resource representation, resulting in a different `ETag` value when compressed at another time even though the resource has not changed at all.
+- Handing out `ETag` headers for caching also implies, that your API also supports concurrency control/optimistic locking via `ETag`. This might add unwanted development and operational overhead.
+- You might find yourself doing a bunch of (CPU-bound) work on the server only to validate incoming `If-None-Match` request headers. In this case using `ETag` will only save network bandwidth, while still incurring compute costs, dwarfing the actual returns expected from implementing `ETag`.
+- `ETag` for collection resources are nontrivial to implement (see below).
 
 ## Caching collection resources
 
