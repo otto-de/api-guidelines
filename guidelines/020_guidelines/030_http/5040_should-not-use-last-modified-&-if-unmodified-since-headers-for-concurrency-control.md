@@ -11,7 +11,7 @@ If you choose to implement this behaviour nevertheless, you should communicate t
 
 ::: references
 
-- [[MUST] follow concurrenct update pattern with `If-Modified-Since` header]()
-- [[SHOULD] use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control]()
+- [[MUST] follow concurrenct update pattern with `If-Modified-Since` header](./guidelines/030_http/5050_must-follow-concurrenct-update-pattern-with-if-umodified-since-header.md)
+- [[SHOULD] use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](./guidelines/030_http/5020_should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md)
 
 :::
