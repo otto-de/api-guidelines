@@ -42,7 +42,7 @@ GET https://api.otto.de/products?embed=(item) HTTP/1.1
 }
 ```
 
-If parameter 'embed' is not provided by the client, the resources should be embedded by default. However, clients could
+If parameter `embed` is not provided by the client, the resources should be embedded by default. However, clients could
 also decide to _not_ embed the linked resources:
 
 ```http request
