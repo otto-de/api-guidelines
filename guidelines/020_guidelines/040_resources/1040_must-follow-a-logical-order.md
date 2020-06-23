@@ -8,6 +8,6 @@ id: R000018
 ## DO
 
 ```plaintext
-/customers/{userId}/addresses/
-/customers/{userId}/addresses/{addressId}/
+/customers/{userId}/addresses
+/customers/{userId}/addresses/{addressId}
 ```
