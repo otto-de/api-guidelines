@@ -57,7 +57,7 @@
     "@otto-ec/toolbox": "^1.13.1",
     "@otto-ec/toolbox-config-assets": "^1.25.9",
     "@rollup/plugin-typescript": "^4.1.2",
-    "@types/jest": "^26.0.0",
+    "@types/jest": "^26.0.3",
     "@types/js-yaml": "^3.12.4",
     "@types/markdown-it": "^10.0.1",
     "@types/node": "^14.0.14",
