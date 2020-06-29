@@ -1,15 +1,9 @@
 ---
-type: MUST
+type: MAY
 id: R000005
 ---
 
 # provide API user guide
-
-TODO
-
-::: warning
-All OTTO API endpoints that correspond to the attributes **public**, **closed**, and **published** (see [API scope](./guidelines/010_core-principles/0030_api-scope.md)) must be published along with an API user guide.
-:::
 
 In order to improve the developer experience of API consumers, especially of engineers that are less experienced in using the OTTO API, it is good practice to provide an API user guide along with the API reference (provided via the API spec).
 A helpful API user guide typically describes aspects such as:
@@ -19,4 +13,4 @@ A helpful API user guide typically describes aspects such as:
 * Error handling information and solution support
 * Architectural context and manjor dependencies, including illustrations and flow charts
 
-The user guide must be published online together with the API reference.
+The user guide is created by a technical writer in a central repository, agreed with the development teams, and published online together with the API reference.

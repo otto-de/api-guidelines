@@ -5,7 +5,7 @@ id: R000003
 
 # provide API specification using Open API
 
-We use the Open API specification as standard to define API specification files.
+We use the Open API specification as a standard to define API specification files.
 Every API must be described using the Open API specification.
 All teams that design APIs are required to provide the API specification using a single self-contained YAML file to improve readability.
 The API description format used must be [Open API 3.0](https://github.com/OAI/OpenAPI-Specification).
