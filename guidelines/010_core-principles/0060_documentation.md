@@ -34,14 +34,14 @@ We'll cater for experienced users that already have an idea of the endpoints to 
 **Default values**  
 Request and response examples that belong to every endpoint documentation have meaningful default values that follow a specific story.
 
-**Code examples and attribute tables**  
-Every endpoint documentation comes with examples and also provides a table listing the available attributes with explanatory text.
+**Code examples and schemas**  
+Every endpoint documentation comes with examples and also provides schemas listing the available attributes with explanatory text.
 
 **Automated API reference documentation**  
 API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](../020_guidelines/010_general-guidelines/1030_must-provide-api-specification-using-openapi.md).
 |||
 
-||| accordion Consistency and accessability
+||| accordion Consistency and accessibility
 
 - Documentation is provided in American English (EN-US), as US spelling has become the standard in APIs. Also endpoints, properties, and default values are provided in American English.
 - Users can search the documentation.
