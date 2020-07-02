@@ -75,7 +75,7 @@
     "markdown-it-container": "^3.0.0",
     "markdown-it-footnote": "^3.0.2",
     "markdown-it-front-matter": "^0.2.1",
-    "markdown-it-highlightjs": "^3.1.0",
+    "markdown-it-highlightjs": "^3.2.0",
     "markdownlint": "^0.20.4",
     "markdownlint-cli": "^0.23.2",
     "node-sass": "^4.14.1",
