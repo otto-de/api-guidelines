@@ -4,12 +4,12 @@ This document should server as a reference for the various user identifiers that
 
 It is explicitly meant to be descriptive not normative.
 
-| id        | synonyms | tech origin             | business owner | trackin label     | 
-|-----------|----------|-------------------------|----------------|-------------------|
-| browserId |          | ShoZu / PA-layer        | unknown        | -                 |
-| visitorId |          | ShoZu / PA-layer        | unknown        | ot_Vid            |
-| ec-uuid   | uuid     | FT4 / Identity          | FT4            | user_UniqueUserId |
-| lId       | loginId  | FT4 / Identity          | FT4            | ot_Lid            |
+| id        | synonyms | tech origin             | business owner | tracking label     | 
+|-----------|----------|-------------------------|----------------|--------------------|
+| browserId |          | ShoZu / PA-layer        | unknown        | -                  |
+| visitorId |          | ShoZu / PA-layer        | unknown        | ot_Vid             |
+| ec-uuid   | uuid     | FT4 / Identity          | FT4            | user_UniqueUserId  |
+| lId       | loginId  | FT4 / Identity          | FT4            | ot_Lid             |
 
 ## browserId
 
