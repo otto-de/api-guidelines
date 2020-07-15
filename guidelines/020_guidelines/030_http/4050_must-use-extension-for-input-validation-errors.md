@@ -33,34 +33,16 @@ The JSON response looks as follows (isolated from the problem details):
   "validationErrors": [
     {
       "path": "<json_path_to_error_field_1>",
-      "invalidValue": "The invalid Input of the client 1",
+      "invalidValue": "The invalid client input",
       "details": [
         {
-          "message": "Error Message in prosa 1"
+          "message": "First detailed error message"
         },
         {
-          "message": "Error Message in prosa 2"
-        }
-      ]
-    },
-    {
-      "path": "<json_path_to_error_field_2>",
-      "invalidValue": "The invalid Input of the client 2",
-      "details": [
-        {
-          "message": "Error Message in prosa"
-        }
-      ]
-    },
-    {
-      "path": "unbound",
-      "details": [
-        {
-          "message": "Generic error not bound to a specific data point"
+          "message": "Second error message"
         }
       ]
     }
-  ]
 }
 ```
 
@@ -70,17 +52,15 @@ We want to create a new Retailer
 
 Functional API restrictions:
 
-- the supported address type `"lala"` doesn't exist
-- the `name` must contain between 3 and 20 characters
-- the `name` must not contain whitespace
-- the bank account needs an `iban` property
+- the `name` property must contain between 3 and 20 characters
+- the `name` property must not contain whitespace
+- the `bankAccount` items need an `iban` property
 
 Request payload:
 
 ```json
 {
-  "name": "My Retailer name is a little bit too long",
-  "supportedAddressTypes": ["lala"],
+  "name": "Retailer 1234 Too-Long-To-Be-Validated",
   "bankAccounts": [
     {
       "ownerName": "Otto"
@@ -89,32 +69,23 @@ Request payload:
 }
 ```
 
-Fitting error response:
+Corresponding error response:
 
 ```json
 {
-  "type": "https://example.com/probs/validation-error",
+  "type": "https://api.otto.de/errors/ValidationError",
   "title": "Your request payload didn't validate.",
   "status": 400,
   "validationErrors": [
     {
       "path": "name",
-      "invalidValue": "My Retailer name is a little bit too long",
+      "invalidValue": "retailer name is invalid",
       "details": [
         {
           "message": "The name must have between 3 and 20 characters"
         },
         {
           "message": "The name must not contain whitespace"
-        }
-      ]
-    },
-    {
-      "path": "supportedAddressTypes[0]",
-      "invalidValue": "lala",
-      "details": [
-        {
-          "message": "The given adress type does not exist"
         }
       ]
     },
