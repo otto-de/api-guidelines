@@ -10,4 +10,4 @@ Keep URLs free of verbs and use only nouns.
 
 ## DO
 
-`/orders/{orderId}/processes/cancelations/{cancelationProcessId}
+`/orders/{orderId}/processes/cancelations/{cancelationProcessId}`
