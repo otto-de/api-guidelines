@@ -10,7 +10,7 @@ Our understanding of quality covers the following aspects:
 ||| accordion Robustness { begin }
 All implementations of our API follow the [Robustness Principle](https://en.wikipedia.org/wiki/Robustness_principle), as it is essential for the evolution of APIs.
 Future changes to interfaces cannot be anticipated in advance, so aspects such as backward compatibility, loose coupling, and the elimination of the need to synchronize different services are of crucial importance.
-This is especially true for microservice environments where dependencies between services should be kept to a minimum.
+This is especially applicable for microservice environments where dependencies between services should be kept to a minimum.
 
 ::: info
 Be conservative in what you do, be liberal in what you accept from others.
@@ -44,7 +44,7 @@ We leverage industry-standard technologies for encryption, authentication, and a
 We are conservative in exposing our data and the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) is applied to allow API clients only enough access to perform the required tasks.
 In addition, we strive to include only the least amount of data necessary to respond to any API call.
 
-We also restrict the rate limit to specific resources to prevent misuse. For an overview, see [Security Guidelines](guidelines/020_guidelines/020_security/0000_index.md).
+We also restrict the rate limit to specific resources to prevent misuse. For an overview, see [Security](guidelines/020_guidelines/020_security/0000_index.md).
 |||
 
 ||| accordion Performance
@@ -61,7 +61,7 @@ We provide all consumers of our API with comprehensive, professional, up-to-date
 ||| accordion Communication
 
 We always keep both developers and consumers of our API informed through appropriate channels.
-Changes and deprecations are communicated regularly and actively.
+Changes and [deprecations](guidelines/020_guidelines/060_versioning/2000_deprecation.md) are communicated regularly and actively.
 Therefore, we establish different synchronous and asynchronous communication channels to support developers and consumers.
 |||
 

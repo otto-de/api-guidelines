@@ -5,12 +5,12 @@ navTitle: OTTO API Guidelines
 # OTTO API Guidelines
 
 ::: warning Work in progress!
-This version of our API guidelines is intended as a sneakpeak. Contents and structure are likely to change.
+This version is intended as a sneak preview. Contents and structure are likely to change.
 :::
 
-The OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO's E-Commerce department.
+The OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO's MA-EC department.
 
-OTTO E-Commerce consists of various microservice teams that aim to provide functionality for the OTTO webshop via RESTful APIs.
+MA-EC consists of various microservice teams that aim to provide functionality for OTTO clients via RESTful APIs.
 Our APIs are a valuable part of our business assets, as with APIs we generate the corresponding operating values.
 Ideally, by applying the API guidelines, all APIs look as if they were created by a single team, thus providing API consumers with a homogeneous, easy-to-use product.
 This facilitates a great developer experience and the ability to quickly compose complex business processes.
@@ -34,4 +34,4 @@ In this document, such keywords are highlighted at the beginning of each section
 ## Reference
 
 At this point we would like to send Kudos to Zalando whose Tech Team did a great job crafting the [Zalando RESTful API Guidelines](https://opensource.zalando.com/restful-api-guidelines/#).
-As much of the content resonates with what we do at OTTO E-Commerce, this well-prepared document inspired us when crafting the OTTO API Guidelines and we adapted it to our needs.
+As much of the content resonates with what we do at OTTO's MA-EC, this well-prepared document inspired us when crafting the OTTO API Guidelines, and we adapted it to our needs.
