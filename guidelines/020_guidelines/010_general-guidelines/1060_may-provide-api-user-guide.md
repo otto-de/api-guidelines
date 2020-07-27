@@ -13,4 +13,4 @@ A helpful API user guide typically describes aspects such as:
 * Error handling information and solution support
 * Architectural context and manjor dependencies, including illustrations and flow charts
 
-The user guide is created by a technical writer in a central repository, agreed with the development teams, and published online together with the API reference.
+The user guide is created by a [technical writer](./guidelines/020_guidelines/010_general-guidelines/1050_should-involve-technical-writer.md) in a central repository, agreed with the development teams, and published online together with the API reference.

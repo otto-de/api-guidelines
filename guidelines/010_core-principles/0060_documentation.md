@@ -38,7 +38,7 @@ Request and response examples that belong to every endpoint documentation have m
 Every endpoint documentation comes with examples and also provides schemas listing the available attributes with explanatory text.
 
 **Automated API reference documentation**  
-API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](../020_guidelines/010_general-guidelines/1030_must-provide-api-specification-using-openapi.md).
+API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](./guidelines/020_guidelines/010_general-guidelines/1040_must-provide-api-specification-using-openapi.md).
 |||
 
 ||| accordion Consistency and accessibility
