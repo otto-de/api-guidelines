@@ -3,7 +3,7 @@ type: MUST NOT
 id: R000055
 ---
 
-# use Implicit Grant Flow
+# use Implicit Grant flow
 
 The [Implicit Grant](https://oauth.net/2/grant-types/implicit) flow was a simplified OAuth flow previously recommended for native apps and JavaScript apps where the access token was returned immediately without an extra authorization code exchange step.
 
