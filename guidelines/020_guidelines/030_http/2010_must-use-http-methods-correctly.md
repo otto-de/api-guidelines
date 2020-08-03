@@ -96,7 +96,7 @@ The semantic of the change request is not defined in the HTTP standard and must 
 - Successful `PATCH` requests will usually generate `200 OK` or `204 No Content` (if resources have been updated with or without updated content returned).
 
 ::: info
-As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change.In preferred order:
+As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change. In preferred order:
 :::
 
 1. Use [`PUT`](#put) with complete objects to update a resource as long as feasible (i.e. do not use `PATCH` at all).
