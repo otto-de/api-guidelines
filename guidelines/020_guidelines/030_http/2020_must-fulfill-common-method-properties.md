@@ -30,6 +30,6 @@ Method implementations must fulfill the following basic properties according to 
 | [`DELETE`](#delete)   | ✗    | ✔          | ✗         |
 | [`OPTIONS`](#options) | ✔    | ✔          | ✗         |
 
-[^1]: No, but [**[SHOULD]** consider to design `POST` and `PATCH`idempotent](link).
-[^2]: May, but only if specific [`POST`](#post) endpoint is `safe`. **Hint:** not supported by most caches.
-[^3]: No, but [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link).
+[^1]: No, but you [**[SHOULD]** consider to design `POST` and `PATCH`idempotent](link).
+[^2]: May, but only if the specific [`POST`](#post) endpoint is `safe`. **Hint:** not supported by most caches.
+[^3]: No, but you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](link).
