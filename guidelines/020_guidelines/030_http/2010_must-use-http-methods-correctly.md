@@ -127,7 +127,7 @@ The semantic is best described as _"please delete the resource identified by the
 
 ::: danger
 After deleting a resource with `DELETE`, a [`GET`](#get) request on the resource is expected to either return `404 Not Found` or `410 Gone` depending on how the resource is represented after deletion.
-Under no circumstances the resource must be accessible after this operation on its endpoint.
+The resource must not be accessible on its endpoint after this operation.
 :::
 |||
 
