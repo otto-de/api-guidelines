@@ -100,7 +100,7 @@ As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose
 :::
 
 1. Use [`PUT`](#put) with complete objects to update a resource as long as feasible (i.e. do not use `PATCH` at all).
-2. `FOOBAR`{ label="warning"} Use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)
+2. Use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)
 3. Use [`PATCH`](#patch) with [JSON Patch](https://tools.ietf.org/html/rfc6902), a specialized media type `application/json-patch+json` (sent as `Content-Type` request header) that includes instructions on how to change the resource.
 4. Use [`POST`](#post) (with a proper description of what is happening) instead of [`PATCH`](#patch), if the request does not modify the resource in a way defined by the semantics of the media type.
 
