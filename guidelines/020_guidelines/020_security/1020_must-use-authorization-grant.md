@@ -11,8 +11,8 @@ The OTTO API supports three grant types:
 
 - Authorization Code
 - Client Credentials
-- Implicit Grant
+- Implicit Grant (only for legacy reasons, [must not be used](guidelines/020_guidelines/020_security/1060_must-not-use-implicit-grant-flow.md) for new clients)
 
 `Note`{ label } The password credentials grant type is not supported.
 
-The grant type to be used depends on use case.
+The grant type to be used depends on the use cases outlined in the following rules.

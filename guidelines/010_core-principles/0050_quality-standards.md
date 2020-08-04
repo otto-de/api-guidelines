@@ -44,7 +44,7 @@ We leverage industry-standard technologies for encryption, authentication, and a
 We are conservative in exposing our data and the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) is applied to allow API clients only enough access to perform the required tasks.
 In addition, we strive to include only the least amount of data necessary to respond to any API call.
 
-We also restrict the rate limit to specific resources to prevent misuse. For an overview, see [Security](guidelines/020_guidelines/020_security/0000_index.md).
+We also restrict the rate limit to specific resources to prevent misuse.
 |||
 
 ||| accordion Performance
