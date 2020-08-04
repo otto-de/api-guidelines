@@ -11,6 +11,7 @@
     "build:css": "kestrel build --css",
     "build:collect": "FORCE_COLOR=true DEBUG_COLORS=true DEBUG_DEPTH=6 DEBUG_LEVEL=debug DEBUG=collect:* npm run collect",
     "dev": "npm run build:clean && concurrently \"npm run watch:model\" \"npm run watch:js\" \"npm run watch:css\" \"npm run watch:render\"",
+    "dev:docker": "concurrently \"npm run watch:model -- -L\" \"npm run watch:render -- -L\" \"npm run serve\"",
     "deploy": "tb s3 upload && tb cloudfront invalidate",
     "lint": "(for S in src docs; do npm run lint:$S; [ $? -ne 0 ] && exit 1; done; exit 0;)",
     "lint:src": "eslint --fix './src/**/*.[t|j]s'",

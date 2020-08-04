@@ -1,0 +1,13 @@
+version: "3.1"
+
+services:
+  ottoapi-docs-server:
+    build:
+      context: ../..
+      dockerfile: tools/docker/Dockerfile
+      args:
+        GITHUB_TOKEN: ${GITHUB_TOKEN}
+    volumes:
+      - "./guidelines:/opt/app/guidelines"
+    ports:
+      - 3000:3000
