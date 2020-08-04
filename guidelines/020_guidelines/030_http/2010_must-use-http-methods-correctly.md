@@ -35,9 +35,6 @@ Request headers are reserved for general context information.
 In addition, size limits on query parameters and headers are not reliable and depend on clients, gateways, server, and actual settings.
 Thus, switching to headers does not solve the original problem.
 :::
-
-`Note:`{ label } `GET with body` is used to transport extensive query parameters, if [simple query parameters](#link) cannot any longer be used to encode the query filters.
-As a consequence, it is best practice to transport the query filters in the body.
 |||
 
 ||| accordion PUT
