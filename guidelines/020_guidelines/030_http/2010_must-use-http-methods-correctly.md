@@ -64,8 +64,6 @@ The semantic for collection endpoints is best described as _"please add the encl
 - On a successful `POST` request, the server will create one or multiple new resources and provide their URI/URLs in the response.
 - Successful `POST` requests will usually generate `200 OK` (if resources have been updated), `201 Created` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if resources have been created), `202 Accepted` (if the request was accepted but has not been finished yet), and exceptionally `204 No Content` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if the actual resource is not returned).
 
-The semantic for single resource endpoints is best described as _"please execute the given well specified request on the resource identified by the URL"_.
-
 ::: info
 `POST` should be used for scenarios that cannot be covered by the other methods sufficiently.
 In such cases, make sure to document the fact that `POST` is used as a workaround (see [`GET With Body`](#get-with-body)).
