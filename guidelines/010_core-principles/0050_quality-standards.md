@@ -30,7 +30,7 @@ API reliability extends beyond uptime.
 We do not limit our evaluation to availability, but also include aspects such as variations in response times or behavior with an increasing number of concurrent clients.
 
 We avoid unannounced changes and prevent outages to the best of our knowledge.
-In doubt we choose carefully between consistency (always return even in case of an error) and availability (in doubt return stale content).
+When having to choose between consistency (always return even in case of an error) and availability (in doubt return stale content), we prefer availability. Even to the detriment of consistency.
 Our endpoints must always return a response, whether the requested operation succeeds or fails.
 |||
 
