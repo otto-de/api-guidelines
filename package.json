@@ -65,7 +65,7 @@
     "@types/table": "^5.0.0",
     "browser-sync": "^2.26.12",
     "chalk": "^4.1.0",
-    "concurrently": "^5.2.0",
+    "concurrently": "^5.3.0",
     "globby": "^11.0.1",
     "handlebars": "^4.7.6",
     "jest": "^26.2.2",
