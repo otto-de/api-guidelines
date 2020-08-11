@@ -9,9 +9,9 @@ Authorization Grant is a credential representing the resource owner's authorizat
 
 The OTTO API supports two grant types:
 
-- Authorization Code
-- Client Credentials
+- [Authorization Code](https://oauth.net/2/grant-types/authorization-code/)
+- [Client Credentials](https://oauth.net/2/grant-types/client-credentials/)
 
-`Note`{ label } The password credentials grant type is not supported.
+`Note`{ label } The [Resource Owner Password Credentials](https://oauth.net/2/grant-types/password/) grant type is not supported.
 
 The grant type to be used depends on the use cases outlined in the following rules.
