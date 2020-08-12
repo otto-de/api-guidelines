@@ -1,5 +1,5 @@
 ---
-type: Must
+type: SHOULD
 id: R000069
 ---
 

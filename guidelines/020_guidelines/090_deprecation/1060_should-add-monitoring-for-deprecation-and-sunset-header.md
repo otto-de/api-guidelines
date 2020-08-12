@@ -1,5 +1,5 @@
 ---
-type: May
+type: SHOULD
 id: R000070
 ---
 
