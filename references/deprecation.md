@@ -1,6 +1,6 @@
 ## Deprecation
 
-As an API Provider with the intention to deprecate my API, I need to find out about which clients are consuming my API. To do this, I need to collect all the clients, that have the scope and therefore the ability to call my API. Afterwards the corresponding teams are informed via email that the API is deprecated and will be switched off. A switch-off date has to be discussed with the customers.
+As an API Provider with the intention to deprecate my API, I need to find out about which clients are consuming my API. To do this, I need to collect all the clients, that have the scope and therefore the ability to call my API. Initally the API Owner should write to Team ShoZu in order to let them investigate the clients manually. Afterwards the corresponding teams are informed via email that the API is deprecated and will be switched off. A switch-off date has to be discussed with the customers.
 
 The planned API changes that have led to the deprecation must be recorded in the Open API Specification. At least the affected endpoints must be marked as deprecated in the specification. But the API-owner may also mark the specific fields as deprecated.
 
@@ -140,7 +140,7 @@ or just the specific field inside of the components schema:
  
 The payload itself does not contain any further information. But the deprecated and sunset headers form a central element. Both contain a timestamp as value. While the Deprecation header shows when the API should be migrated, the Sunset header shows when the API is really no longer available. These allow the client to build a logic upon these headers so that they can monitor the API states themselves.
 
-As soon as the API is in the deprecated state, it becomes necessary to keep an eye on the migration process through monitoring. On the one hand, there is the possibility of doing this centrally on the reverse proxy, which would have the advantage that there is a central solution, or each team has to implement a solution itself.
+As soon as the API is in the deprecated state, it becomes necessary to keep an eye on the migration process through monitoring. On the one hand, there is the possibility of doing this centrally on the reverse proxy, which would have the advantage that there is a central solution, or each team has to implement a solution itself. Since the API Gateway does have a Kibana Monitoring right now, the corresponding team can just create queries (with the specific endpoint or deprecation-header) and build a monitoring upon these queries.
 
 Likewise, there must be no new clients as soon as the API has been marked as deprecated. This can also be mapped through appropriate monitoring.
 
