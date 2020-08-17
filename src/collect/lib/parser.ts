@@ -10,7 +10,7 @@ import { Config } from "./config";
 
 const log = debug("collect:parser");
 
-const localPathRegex = /(?<path>\S+[\w-]+\.md)(?<hash>#\S+)?/;
+const localPathRegex = /^(?!http)(?<path>\S+[\w-]+\.md)(?<hash>#\S+)?/;
 
 /**
  * Encapsulates processing of a single markdown document, by
@@ -123,13 +123,6 @@ export class Parser {
             t.attrs = token.attrs;
           }
         }
-      }
-
-      if (
-        this.source.match("guidelines/index.md") &&
-        token.type.match("footnote")
-      ) {
-        log.debug(token);
       }
 
       if (token.children) {
