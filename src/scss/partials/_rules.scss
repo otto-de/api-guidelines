@@ -27,10 +27,17 @@
 
   &__id {
     @extend .uk-label;
-    background: #2730a2;
     font-family: $global-font-family;
     position: absolute;
     right: 0;
     top: 42px;
+
+    &::selection {
+      background: lighten($base-selection-background, $amount: 30);
+    }
+
+    &::-moz-selection {
+      background: lighten($base-selection-background, $amount: 30);
+    }
   }
 }
