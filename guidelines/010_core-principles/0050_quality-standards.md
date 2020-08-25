@@ -42,7 +42,7 @@ However, a good rule of thumb is to prepare for the worst case scenario that eve
 We leverage industry-standard technologies for encryption, authentication, and authorization.
 
 We are conservative in exposing our data and the [Principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) is applied to allow API clients only enough access to perform the required tasks.
-In addition, we strive to include only the least amount of data necessary to respond to any API call.
+In addition, we strive to include only the least amount of data necessary to respond to any API call and secure our applications against the [OWASP Top 10 Threats](https://owasp.org/www-project-top-ten/).
 
 We also restrict the rate limit to specific resources to prevent misuse.
 |||
