@@ -57,11 +57,15 @@
     margin-top: 40px;
 
     &-title {
-      border-bottom: 1px solid #e5e5e5;
+      background-color: #f8f8f8;
       font-family: $base-heading-font-family;
       font-size: 1rem;
-      padding-bottom: 18px;
+      padding: 12px 18px;
       text-transform: uppercase;
+    }
+
+    > :nth-child(n + 2) {
+      margin-top: 4px;
     }
 
     li:last-child,
@@ -78,14 +82,10 @@
 
     &-content {
       margin-bottom: 20px;
-      padding-bottom: 40px;
+      padding: 18px;
 
       & > :last-child {
         margin-bottom: 0 !important;
-      }
-
-      .uk-open & {
-        border-bottom: 1px solid #e5e5e5;
       }
     }
   }
