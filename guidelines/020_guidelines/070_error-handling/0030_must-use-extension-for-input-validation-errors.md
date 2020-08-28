@@ -5,9 +5,8 @@ id: R000038
 
 # use `problem+json` extension for input validation errors
 
-> TODO: [Define and link Validation Error as problem type]
-
-If an input validation error occurs when we call an API, we expect a `400 Bad Request` response. The problem `type` is defined at <https://api.otto.de/api-docs/errors/ValidationError>, the `title` should be _"Your request cannot be validated."_.
+If an input validation error occurs when calling an API, we expect a `400 Bad Request` response.
+The problem `type` is defined at <https://api.otto.de/api-docs/errors/ValidationError>, the `title` should be _"Your request cannot be validated."_.
 
 This results in the following structure:
 
@@ -21,23 +20,30 @@ This results in the following structure:
 ```
 
 ::: info
-We aim at consistent and informative validation messages, and we don't want nondescript validation messages.
+We aim at consistent and informative validation messages.
+We don't want nondescript validation messages.
 
 `&nbsp;`{label="danger"} Invalid  
 `&nbsp;`{label="warning"} "Not a valid US phone number"  
 `&nbsp;`{label="success"} "Not a valid 10-digit US phone number (must not include spaces or special characters)."
 :::
 
-As the `problem+json` media type standard does not provide a field for details about input validation, we had to establish one. You could argue about using the already defined `details` field. But [RFC 7807](https://tools.ietf.org/html/rfc7807) explicitly states, that this field is not meant to be parsed. Therefore we created a new field called `validationErrors`.
+As the `problem+json` media type standard does not provide a field for details about input validation, we had to establish one.
+You could argue about using the already defined `details` field.
+But [RFC 7807](https://tools.ietf.org/html/rfc7807) explicitly states, that this field is not meant to be parsed.
+Therefore we created a new field called `validationErrors`.
 
-When creating a user interface with forms that should be validated, the API must send the `validationErrors` extension as part of the problem details, whereas the client can parse it. This way the user will know which fields in the submitted form need to be adjusted before the submission can be successful.
+When creating a user interface with forms that should be validated, the API must send the `validationErrors` extension as part of the problem details so that the client can parse it.
+This way the user knows which fields in the submitted form need to be adjusted before the submission can be successful.
 
-For each invalid field of a request body the API must respond with a dedicated validation error object. Each object consists of three **mandatory** fields. Any further fields are allowed but will be ignored for now.
+For each invalid field of a request body the API must respond with a dedicated validation error object.
+Each object consists of three **mandatory** fields.
+Any further fields are allowed but will be ignored for now.
 
 | field          | description                                                                                                      |
 | -------------- | ---------------------------------------------------------------------------------------------------------------- |
 | `path`         | [JSONPath](https://goessner.net/articles/JsonPath/) string that describes the invalid field in the request body. |
-| `invalidValue` | Client submitted value that caused the validation error.                                                         |
+| `invalidValue` | Client submitted the value that caused the validation error.                                                         |
 | `details`      | Array of objects that hold several validation error messages for a given `path`.                                 |
 
 The JSON response looks as follows (isolated from the problem details):
@@ -60,7 +66,7 @@ The JSON response looks as follows (isolated from the problem details):
 }
 ```
 
-**Comprehensive Example (creating a fictional new retailer)**
+Here's a comprehensive example (creating a fictional new retailer):
 
 Functional API restrictions:
 
