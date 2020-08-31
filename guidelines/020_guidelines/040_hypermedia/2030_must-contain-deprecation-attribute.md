@@ -7,5 +7,4 @@ id: R100065
 
 Links to deprecated APIs must contain the optional link attribute ['deprecation'](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.4), if applicable.
 The value of the deprecation attribute must point to human-readable information about the deprecation.
-
-TODO: Add link to 'deprecation' rules
+See also [Deprecation](guidelines/020_guidelines/090_deprecation/0000_index.md).
