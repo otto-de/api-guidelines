@@ -1,15 +1,17 @@
 # Naming conventions
 
-To be discussed
+Reasons for arriving at our naming conventions for URIs and query-parameters:
 
-### **[MAY]** expose compound keys as resource identifiers
+## for URIs
 
-> Do we really need this?
+- ideally we would have only used lowercase
+- no underscores because we feared they would, depending on rendering, be hard to distinguish from underlining whitespace a link
+- that left us with kebab-case
 
-### **[SHOULD]** only use UUIDs if necessary
+## for query parameters
 
-> We need positive examples
+- query parameters are meant to map to JSON-properties of the underlying documents
+ - defining a translation rule would be error-prone
+ - most teams use Java POJOs where the dominant style is camelCase property names
 
-### **[SHOULD]** use preferred abbreviations
-
-> Do we want that? See https://cloud.google.com/apis/design/naming_convention?hl=de
+Both of which seem also to be the variants most teams have been using before defining this API standard.
