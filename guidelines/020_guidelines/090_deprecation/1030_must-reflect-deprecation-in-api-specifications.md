@@ -7,4 +7,11 @@ id: R000067
 
 The API deprecation must be part of the OpenAPI specification.
 
-If an API endpoint (operation object), an input argument (parameter object), an in/out data object (schema object), or on a more fine grained level, a schema attribute or property should be deprecated, the producers must set `deprecated: true` for the affected element and add further explanation to the `description` section of the API specification. If a future shutdown is planned, the producer must provide a sunset date and document in details what consumers should use instead and how to migrate.
+The API provider must set `deprecated: true` for the affected element and add further explanation to the `description` section of the API specification if one of the following is about to be deprecated:
+
+* an API endpoint (operation object)
+* an input argument (parameter object)
+* an in/out data object (schema object)
+* or, on a more fine grained level, a schema attribute or property.
+
+If a future shutdown is planned, the API provider must specify a sunset date and document in detail what consumers should use instead and how to migrate.
