@@ -7,7 +7,7 @@ id: R004050
 
 Arrays should have pluralized names whereas objects should be named in singular.
 
-## DO
+DO
 
 ````json
 {
@@ -19,7 +19,7 @@ Arrays should have pluralized names whereas objects should be named in singular.
 }
 ````
 
-## DON'T
+DON'T
 
 ````json
 {

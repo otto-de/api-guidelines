@@ -5,23 +5,23 @@ id: R004010
 
 # use camelCase for property names
 
-Property names of JSON objects should be formatted in camel case.
+Property names of JSON objects should be formatted in camelCase.
 
-## DO
+DO
 
 ````json
 {
-    "name": "Peter",
+    "name": "John",
     "jobDescription": "product manager",
     "vacationDays": 37
 }
 ````
 
-## DON'T
+DON'T
 
 ````json
 {
-    "NAME": "Peter",
+    "NAME": "John",
     "job-description": "product manager",
     "vacationdays": 37
 }

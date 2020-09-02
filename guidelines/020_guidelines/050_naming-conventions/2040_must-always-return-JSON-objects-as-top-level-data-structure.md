@@ -7,7 +7,7 @@ id: R004030
 
 The top-level data structure of your JSON response should always be a JSON object and not, for example, an array.
 
-## DO
+DO
 
 ```json
 {
@@ -15,7 +15,7 @@ The top-level data structure of your JSON response should always be a JSON objec
 }
 ```
 
-## DON'T
+DON'T
 
 ```json
 ["gaming pc", "gaming laptop", "gaming monitor"]

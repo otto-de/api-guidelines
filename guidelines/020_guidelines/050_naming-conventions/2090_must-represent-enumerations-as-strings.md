@@ -5,7 +5,8 @@ id: R004080
 
 # represent enumerations as strings
 
-An enumeration is a human readable representation of data. Therefore, strings are a good data type choice for enumerations. 
+An enumeration is a human readable representation of data.
+Therefore, strings are a good data type choice for enumerations.
 
 Example:
 

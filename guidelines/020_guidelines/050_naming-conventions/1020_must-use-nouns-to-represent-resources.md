@@ -8,6 +8,6 @@ id: R000016
 The API describes resources, so the only place where actions should appear is in the HTTP methods.
 Keep URLs free of verbs and use only nouns.
 
-## DO
+DO
 
 `/orders/{orderId}/processes/cancelations/{cancelationProcessId}`

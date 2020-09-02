@@ -5,9 +5,9 @@ id: R004021
 
 # omit optional properties
 
-Although [null and absent properties are semantically equivalent](./2020_must-use-same-semantics-for-null-and-absent-properties.md), optional properties should be absent instead of null whenever applicable.
+Although [null and absent properties are semantically equivalent](./guidelines/020_guidelines/050_naming-conventions/2020_must-use-same-semantics-for-null-and-absent-properties.md), optional properties should be omitted instead of null whenever applicable.
 
-## DO
+DO
 
 ````json
 {
@@ -15,7 +15,7 @@ Although [null and absent properties are semantically equivalent](./2020_must-us
 }
 ````
 
-## DON'T
+DON'T
 
 ````json
 {

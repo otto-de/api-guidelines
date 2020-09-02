@@ -5,10 +5,9 @@ id: R000049
 
 # stick to conventional query parameters
 
-In order to provide clients a consistent API, the following query parameters MUST be used instead of introducing custom
-parameters for the same functionality.
+To provide clients with a consistent API, the following query parameters must be used instead of introducing custom parameters for the same functionality.
 
-**Index:**
+**Index**:
 
 | name       | section                 |
 | :--------- | :---------------------- |
@@ -42,20 +41,19 @@ parameters for the same functionality.
 | :--- | :---------------- | :----- | :--------- |
 | `q`  | Simple text query | \*     | `?q=shoes` |
 
-Introduce [your own descriptive query parameters for querying](./4100_must-use-query-parameters-for-basic-search-or-filtering.md).
+Introduce [your own descriptive query parameters for querying](./guidelines/020_guidelines/060_resources/2100_must-use-query-parameters-for-basic-search-or-filtering.md).
 
-If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](./4110_use-json-for-advanced-querying-and-filtering.md).
+If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](./guidelines/020_guidelines/060_resources/2110_use-json-for-advanced-querying-and-filtering.md).
 
 ## Filtering
 
-Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting
-filtering of returned entity fields.
+Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting filtering of returned entity fields.
 
 | name     | description                                 | values | example                         |
 | :------- | :------------------------------------------ | :----- | :------------------------------ |
 | `fields` | Selection of fields that should be returned | \*     | `?fields=name,friends(id,name)` |
 
-See also [Filtering of fields using common query parameter](./2070_should-support-filtering-of-fields-using-common-query-parameter.md)
+See also [Filtering of fields using common query parameter](./guidelines/020_guidelines/050_naming-conventions/2080_should-support-filtering-of-fields-using-common-query-parameter.md)
 
 ## Embedding
 
@@ -67,4 +65,4 @@ Examples:
 
 - Do not embed anything: `?embed=()`
 - Embed products into the response: `?embed=(o:product)`
-- Embed all products, and for every product also embed it's variations: `?embed=(o:product, o:product(o:variation))`
+- Embed all products and for every product also embed its variations: `?embed=(o:product, o:product(o:variation))`

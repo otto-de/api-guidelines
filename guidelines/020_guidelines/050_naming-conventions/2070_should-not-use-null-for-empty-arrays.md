@@ -7,7 +7,7 @@ id: R004060
 
 Arrays should be empty and not null if there is no data to provide.
 
-## DO
+DO
 
 ````json
 {
@@ -15,7 +15,7 @@ Arrays should be empty and not null if there is no data to provide.
 }
 ````
 
-## DON'T
+DON'T
 
 ````json
 {

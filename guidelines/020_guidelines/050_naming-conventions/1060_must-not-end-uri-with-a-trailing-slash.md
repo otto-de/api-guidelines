@@ -7,10 +7,10 @@ id: R000020
 
 As the last character in a URI's path does not add semantic value and may cause confusion, a URI must not end with a trailing slash (/).
 
-## DO
+DO
 
 `/customers/{userId}/addresses/{addressId}`
 
-## DON'T
+DON'T
 
 `/customers/{userId}/addresses/{addressId}/`

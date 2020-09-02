@@ -5,7 +5,7 @@ id: R004070
 
 # support filtering of fields using common query parameter
 
-To reduce potential load on the server and reduce payload size, you can use the `fields` query parameter to specify the set of properties you are interested in that will be included in the response.
+To reduce potential load on the server and reduce the payload size, you can use the `fields` query parameter to specify the set of properties you are interested in and that will be included in the response.
 You should also support filtering of nested properties.
 
 Examples:
@@ -14,5 +14,7 @@ Examples:
 - `fields=(name,id)`: include field `name` and `id`
 - `fields=(name,friends(id,name))`: include field `name` and `friends`, with `friends` only having `id` and `name` properties
 
-See also:
-- [MUST stick to conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md)
+::: references
+
+- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md)
+  :::

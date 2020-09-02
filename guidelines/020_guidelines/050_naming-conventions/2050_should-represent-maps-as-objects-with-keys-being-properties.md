@@ -5,9 +5,9 @@ id: R004040
 
 # represent maps as objects with keys being their property names
 
-Strive to model map like data structures as JSON objects with the keys of the map encoded as the property names and the values being the property values of the JSON object.
+Strive to model map-like data structures as JSON objects, with map's keys encoded as property names and the values as property values of the JSON object.
 
-## DO
+DO
 
 ````json
 {
@@ -19,7 +19,7 @@ Strive to model map like data structures as JSON objects with the keys of the ma
 }
 ````
 
-## DON'T
+DON'T
 
 ````json
 {
@@ -40,11 +40,9 @@ Strive to model map like data structures as JSON objects with the keys of the ma
 }
 ````
 
-Note that the map keys need not follow the rule for using camel case for property names and can follow whatever format is
-natural to their domain.
+`Note`{ label } The map keys don't need to follow the rule for using camelCase for property names and can follow whatever format is natural to their domain.
 
-I.e. a map of currencies to prices could be encoded as such
-as
+That means, a map of currencies to prices could be encoded like this:
 
 ```json
 {

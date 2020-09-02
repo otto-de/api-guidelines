@@ -11,7 +11,7 @@ So this object:
 
 ```json
 {
-  "name": "Peter",
+  "name": "John",
   "age": null
 }
 ```
@@ -20,11 +20,12 @@ should be considered semantically equivalent to this object:
 
 ```json
 {
-  "name": "Peter"
+  "name": "John"
 }
 ```
 
-In order to observe this rule, there are either unrequired and nullable or required and not nullable properties. See this table:
+In order to observe this rule, there are either unrequired and nullable or required and not nullable properties.
+See this table:
 
 | required | nullable | {}  | {"property": null} | allowed by this rule |
 |----------|----------|-----|--------------------|----------------------|
@@ -33,4 +34,4 @@ In order to observe this rule, there are either unrequired and nullable or requi
 | true     | false    | no  | no                 | yes                  |
 | false    | false    | yes | no                 | no                   |
 
-**Note**: The exception to this rule are `PATCH` endpoints (see: [**[MUST]** use HTTP methods correctly](2010_must-use-http-methods-correctly.md)). Regarding the example above, a `PATCH` request with the first object would set the `name` to Peter and the `age` to null, whereas a request with the second object would only modify the `name`.
+`Note`{ label } `PATCH` endpoints are an exception to this rule (see [MUST use HTTP methods correctly](./guidelines/020_guidelines/030_http/1010_must-use-http-methods-correctly.md)). Regarding the example above, a `PATCH` request with the first object would set the `name` to `John` and the `age` to `null`, whereas a request with the second object would only modify the `name`.
