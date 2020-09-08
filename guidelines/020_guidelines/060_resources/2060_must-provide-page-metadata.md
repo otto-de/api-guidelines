@@ -3,7 +3,7 @@ type: MUST
 id: R100025
 ---
 
-# provide page metadata (for offset based pagination)
+# provide page metadata (for offset-based pagination)
 
 Page metadata is important for clients that build their own links and do not use hypermedia controls.
 
@@ -26,6 +26,6 @@ The page metadata structure must match the following structure.
 - `totalPages` (_optional_): Overall number of pages
 
 ::: info
-Some fields like `totalElements` and `totalPages` can be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
+Some fields like `totalElements` and `totalPages` can be omitted if the implementation is not feasable, for example, when the calculation has a big performance impact.
 Exposing this data should consider the performance implications, not only now but over the lifespan of the service.
 :::

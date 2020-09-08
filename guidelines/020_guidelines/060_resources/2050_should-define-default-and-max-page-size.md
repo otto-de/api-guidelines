@@ -12,4 +12,8 @@ Every collection resource should define and document
 
 which can be used as the `pageSize` query parameter.
 
-Also see [common query parameters](./1120_must-stick-to-conventional-query-parameters.md).
+::: references
+
+- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1120_must-stick-to-conventional-query-parameters.md).
+  :::
+

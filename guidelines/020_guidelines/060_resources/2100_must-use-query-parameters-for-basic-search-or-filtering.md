@@ -5,7 +5,7 @@ id: R100031
 
 # use query parameters for basic search or filtering
 
-Resource specific query parameters may be introduced for querying.
+Resource-specific query parameters may be introduced for querying.
 They should reference the property and the operation if necessary.
 
 - `brand=Adidas`: Property `brand` matches `Adidas`
@@ -26,14 +26,15 @@ Usually this is a simple text query, satisfying simple search needs that might c
 
 Query parameters should be combinable (e.g. `brand=Puma&color=blue`) and otherwise respond with a `400 Bad Request`.
 
-If multiple values need to be supported, they [should be provided as a comma-separated list](./1085_must-not-use-the-same-query-parameter-multiple-times.md) (e.g. `brand=Adidas,Puma`).
+If multiple values need to be supported, they [should be provided as a comma-separated list](./guidelines/020_guidelines/050_naming-conventions/1080_must-not-use-the-same-query-parameter-multiple-times.md) (e.g. `brand=Adidas,Puma`).
 
 These query parameters must be documented with their possible values (ranges), semantics and interactions with other query parameters (e.g. multiple values form a logical _or_, but with other query parameters an _and_ connection).
 This may be obvious for single valued properties, but not necessarily for lists (e.g. `tags=sporty,retro`)
 
-`Note`{ label } Make sure that you add the query parameters to the to HAL links if necessary.
+`Note`{ label } Make sure to add the query parameters to the to HAL links if necessary.
 
 ::: references
-- [Conventional query parameters](./1120_must-stick-to-conventional-query-parameters.md)
-:::
+
+- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1120_must-stick-to-conventional-query-parameters.md).
+  :::
 

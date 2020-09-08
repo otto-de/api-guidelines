@@ -5,15 +5,14 @@ id: R000042
 
 # swap out links for embedded resources
 
-Servers SHOULD NOT entirely "swap out" a link for an embedded
-resource (or vice versa) because client support for this technique is
-OPTIONAL.
+Servers should not entirely "swap out" a link for an embedded resource (or vice versa) because client support for this technique is OPTIONAL.
 
-_Example:_
+Example:
 
 ```http request
 GET https://api.otto.de/products HTTP/1.1
 ```
+
 ```json
 {
   "_links": {
@@ -36,11 +35,12 @@ GET https://api.otto.de/products HTTP/1.1
 }
 ```
 
-But don't render the item like this:
+But do not render the item like this:
 
 ```http request
 GET https://api.otto.de/products HTTP/1.1
 ```
+
 ```json
 {
   "_links": {

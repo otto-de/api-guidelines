@@ -12,7 +12,7 @@ Use standard data formats as defined in
 
 The following is a non-exhaustive table of common formats.
 
-Format names starting with `otto:` are not defined by OpenAPI or JSON Schema and are specific to the Otto organisation.
+Format names starting with `otto:` are not defined by OpenAPI or JSON Schema and are specific to the OTTO organisation.
 They represent formats that are not covered or are extensions of existing ones.
 
 | type    | format                | spec                                   | example                                | comment                         |
@@ -30,7 +30,7 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | time                  | [RFC3339] - `full-time`                | `04:05:06Z`                            | see also [date rule][rule-date] |
 | string  | duration              | [RFC3339] - `duration`                 | `P1DT12H` (1 day 12 hours)             |                                 |
 | string  | password              |                                        | `passw0rd`                             | a hint for processing/display   |
-| string  | email                 | [RFC5322][rfc5322]                     | `example@otto.de`                      | internationalized email         |
+| string  | email                 | [RFC5322][rfc5322]                     | `example@example.com`                      | internationalized email         |
 | string  | idn-email             | [RFC5322][rfc5322]                     |                                        |                                 |
 | string  | hostname              | [RFC1123][rfc1123], [RFC5891][rfc5891] | `www.otto.de`                          | internationalized hostname      |
 | string  | idn-hostname          | [RFC1123][rfc1123], [RFC5890][rfc5890] |                                        |                                 |
@@ -39,8 +39,8 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | uri                   | [RFC3986][rfc3986]                     | `http://otto.de`                       |                                 |
 | string  | uri-reference         | [RFC3986][rfc3986]                     |                                        |                                 |
 | string  | uri-template          | [RFC6570][rfc6570]                     | `http://api.otto.de/users/{userId}`    |                                 |
-| string  | iri                   | [RFC3987][rfc3987]                     |                                        | internationalized uri           |
-| string  | iri-reference         | [RFC3987][rfc3987]                     |                                        | internationalized uri-reference |
+| string  | iri                   | [RFC3987][rfc3987]                     |                                        | internationalized URI           |
+| string  | iri-reference         | [RFC3987][rfc3987]                     |                                        | internationalized URI-reference |
 | string  | uuid                  | [RFC4122][rfc4122]                     | `f81d4fae-7dec-11d0-a765-00a0c91e6bf6` |                                 |
 | string  | json-pointer          | [RFC6901][rfc6901]                     | `/foo/0`                               |                                 |
 | string  | relative-json-pointer | [DRAFT json-pointer][json-pointer]     | `1/nested/objects`                     |                                 |
@@ -53,11 +53,11 @@ These format names are intended to be used in the OpenAPI specification provided
 
 ::: references
 
-- [provide API specification using OpenAPI](./../010_general-guidelines/1030_must-provide-api-specification-using-openapi.md)
-- [provide API specification for profiles](./../050_hypermedia/4030_must-provide-openapi-spec-for-profiles.md)
+- [MUST provide API specification using OpenAPI](./guidelines/020_guidelines/010_general-guidelines/1040_must-provide-api-specification-using-openapi.md)
+- [MUST provide OpenAPI specification for profiles](./guidelines/020_guidelines/040_hypermedia/4030_must-provide-openapi-spec-for-profiles.md)
   :::
 
-[rule-date]: ./5020_must-use-common-date-format.md
+[rule-date]: ./guidelines/020_guidelines/060_resources/3020_must-use-common-date-and-time-format.md
 [rfc3339]: https://tools.ietf.org/html/rfc3339#section-5.6
 [rfc5322]: https://tools.ietf.org/html/rfc5322#section-3.4.1
 [rfc6531]: https://tools.ietf.org/html/rfc6531

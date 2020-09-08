@@ -3,18 +3,16 @@ type: SHOULD
 id: R000041
 ---
 
-# embed sub-resources
+# embed subresources
 
-Embedding related resources (also know as resource expansion) is a great way to reduce the number of requests.
+Embedding related resources (also known as resource expansion) is a great way to reduce the number of requests.
+Resources that link to subresources should return these subresources using the HAL `_embedded` object.
 
-Resources that are linking to sub-resources SHOULD return these sub-resources using the HAL `_embedded` object.
-
-::: info Hint
-In many cases, the linked resources will be provided by different services. In this case, the linked resources
-sometimes can not be embedded without major effort and this rule should not be applied.
+::: info
+Do not embed a resource or at least embed it optional (via embed query param), if it generates unnecessary load, traffic, or response bloat.
 :::
 
-_Example:_
+Example:
 
 ```http request
 GET https://api.otto.de/products HTTP/1.1
@@ -41,5 +39,5 @@ GET https://api.otto.de/products HTTP/1.1
 
 ::: references
 
-- [SHOULD support optional embedding of sub-resources](./3020_should-support-optional-embedding-of-sub-resources.md)
+- [SHOULD support optional embedding of subresources](./guidelines/020_guidelines/060_resources/1020_should-support-optional-embedding-of-subresources.md)
   :::

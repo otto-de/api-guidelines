@@ -5,27 +5,14 @@ navTitle: Embedded resources
 
 # Embedded resources
 
-The "hypertext cache pattern" allows servers to use embedded
-resources to dynamically reduce the number of requests a client
-makes, improving the efficiency and performance of the application.
+The "hypertext cache pattern" allows servers to use embedded resources to dynamically reduce the number of requests a client makes, improving the efficiency and performance of the application.
+Clients should be automated for this purpose so that, for any given link relation, they will read from an embedded resource (if present) in preference to traversing a link.
+To activate this client behavior for a given link, servers should add an embedded resource into the representation with the same relation.
+Servers should not entirely "swap out" a link for an embedded resource (or vice versa) because client support for this technique is OPTIONAL.
 
-Clients SHOULD be automated for this purpose so that, for any given link
-relation, they will read from an embedded resource (if present) in
-preference to traversing a link.
+The format used for embedded resources should be application/hal+json for private APIs. For public APIs the format `application/hal+json` is mandatory.
 
-To activate this client behaviour for a given link, servers SHOULD
-add an embedded resource into the representation with the same
-relation.
-
-Servers SHOULD NOT entirely "swap out" a link for an embedded
-resource (or vice versa) because client support for this technique is
-OPTIONAL.
-
-The format used for embedded resources SHOULD be application/hal+json for private APIs. For public APIs, using
-the HAL format is mandatory.
-
-The following examples shows the hypertext cache pattern applied to
-an "author" link:
+The following examples show the hypertext cache pattern applied to an "author" link:
 
 _Before:_
 

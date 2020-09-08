@@ -5,13 +5,8 @@ id: R100026
 
 # support hypermedia controls in collection resources
 
-::: warning Public APIs only
-This rule only applies to public APIs. For private APIs, this rule SHOULD be followed.
-
-See also:
-
-- [MUST implement REST maturity level 2 for private APIs](../050_hypermedia/1010_must-implement-rest-maturity-level-2-for-private-apis.md)
-- [MUST implement REST maturity level 3 for public APIs](../050_hypermedia/1020_must-implement-rest-maturity-level-3-for-public-apis.md)
+::: warning
+This rule applies to public APIs. For private APIs it is a recommendation.
   :::
 
 Provide links to navigate the result.
@@ -26,6 +21,12 @@ The most common ones are:
 - `last` (_optional_): the last page
 
 ::: info
-Some properties like `first` and `last` can be omitted if the implementation is not feasable, e.g. when the calculation has a big performance impact.
+Some properties like `first` and `last` can be omitted if the implementation is not feasable, for example, when the calculation has a big performance impact.
 Exposing this data should consider the performance implications, not only now but over the lifespan of the service.
 :::
+
+::: references
+
+- [MUST implement REST maturity level 2 for private APIs](./guidelines/020_guidelines/040_hypermedia/1010_must-implement-rest-maturity-level-2-for-private-apis.md)
+- [MUST implement REST maturity level 3 for public APIs](./guidelines/020_guidelines/040_hypermedia/1020_must-implement-rest-maturity-level-3-for-public-apis.md)
+  :::

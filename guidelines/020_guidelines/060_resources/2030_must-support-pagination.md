@@ -5,8 +5,7 @@ id: R100023
 
 # support pagination for collection resources
 
-Any sufficiently large collection resource must support pagination to handle the server load and support the client
-processing patterns.
+Any sufficiently large collection resource must support pagination to handle the server load and support the client processing patterns.
 
 There are two approaches to pagination:
 
@@ -14,25 +13,24 @@ There are two approaches to pagination:
 - Cursor-based pagination
 
 Choosing the right approach depends entirely on the constraints of the service.
-There is no preference over which one to choose, they both have their advantages.
+There is no preference of which one to choose, they both have their advantages.
 
 ||| accordion Offset/limit-based pagination { begin }
-Offset based pagination allows navigation of the result by specifying an offset.
-
-Page based pagination means the result set is further divided into pages of a certain size and you navigate by providing the page number instead of just an offset.
-
+Offset or limit-based pagination allows the navigation of the result by specifying an offset.
+This kind of pagination is ususally implemented as page-based pagination, that means, the result set is further divided into pages of a certain size and you navigate by providing the page number instead of just an offset.
 This is the most common approach to do pagination, especially for traditional RDBM systems.
 
-**Pros**
+PROs
 
 - well-known pattern
 - wide support for server and client
 
-**Cons**
+CONs
 
-- assumes fixed length / window is fixed: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime. Should be avoided for frequently updated collections.
+- assumes fixed length / fixed window: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime.
+Should be avoided for frequently updated collections.
 
-**Example**
+Example:
 
 ```json
 {
@@ -85,19 +83,19 @@ This is the most common approach to do pagination, especially for traditional RD
 |||
 
 ||| accordion Cursor-based pagination { end }
-Cursor based pagination is often preferred, especially when data sets increase quickly.
+Cursor-based pagination is often preferred, especially when data sets increase quickly.
 
-**Pros**
+PROs
 
 - window moves: next page always refers to the following elements, even if new elements are prepended in the meantime
 
-**Cons**
+CONs
 
 - not well-known
 - limited support for clients
 - cursor might be invalid if the entry is deleted, breaking iteration
 
-**Example**
+Example:
 
 ```json
 {
