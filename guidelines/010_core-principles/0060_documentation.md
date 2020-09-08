@@ -52,3 +52,4 @@ API reference documentation is created and published automatically, see [MUST pr
 ||| accordion Efficient and refined { end }
 The API is well-documented and up-to-date.  
 Users can flawlessly integrate and are informed about recent changes via a revision history.
+  |||
