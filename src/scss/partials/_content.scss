@@ -5,14 +5,30 @@
   @extend .uk-padding-remove-top;
 
   border-bottom: 1px solid #e5e5e5;
-  // padding-bottom: 40px;
-  // margin-bottom: 40px;
 }
 
 .api {
+  &-navbar {
+    &-container {
+      @extend .uk-container;
+      @extend .uk-container-small;
+      @extend .uk-padding-large;
+
+      padding-top: 0;
+    }
+
+    &-filter-rules {
+      padding-right: 0;
+    }
+
+    background: #fff;
+    padding: 12px 0;
+  }
+
   &-content {
     @extend .uk-section;
     margin-left: 240px;
+    padding-top: 0;
 
     @media (min-width: 1200px) {
       margin-left: 320px;
@@ -50,6 +66,35 @@
 
     .uk-open > .uk-accordion-title:before {
       background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' data-svg='chevron-up'%3E%3Cpolyline fill='none' stroke='%23000' stroke-width='1.03' points='4 13 10 7 16 13'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+
+    .api-rule-filter {
+      &-must {
+        .api-docs-index,
+        .api-docs:not(.js_rule-must),
+        .js_rule-should,
+        .js_rule-may {
+          display: none;
+        }
+      }
+
+      &-should {
+        .api-docs-index,
+        .api-docs:not(.js_rule-should),
+        .js_rule-must,
+        .js_rule-may {
+          display: none;
+        }
+      }
+
+      &-may {
+        .api-docs-index,
+        .api-docs:not(.js_rule-may),
+        .js_rule-must,
+        .js_rule-should {
+          display: none;
+        }
+      }
     }
   }
 
@@ -128,6 +173,8 @@
     @extend .uk-container;
     @extend .uk-container-small;
     @extend .uk-padding-large;
+
+    padding-top: 0;
   }
 
   &-headline {
@@ -138,8 +185,8 @@
     &::before {
       content: "";
       display: block;
-      height: 40px;
-      margin-top: -40px;
+      height: 110px;
+      margin-top: -110px;
       visibility: hidden;
     }
 

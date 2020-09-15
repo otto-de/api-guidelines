@@ -30,7 +30,7 @@
     font-family: $global-font-family;
     position: absolute;
     right: 0;
-    top: 42px;
+    top: 112px;
 
     &::selection {
       background: lighten($base-selection-background, $amount: 30);

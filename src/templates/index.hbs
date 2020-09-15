@@ -17,12 +17,29 @@
     <a href="/" class="api-sidebar__logo-link js_api-sidebar__logo-link">
       <img src="./api-logo-red.png" alt="OTTO API Logo red" />
     </a>
-    <ul uk-nav class="api-main-nav uk-nav-parent-icon"
-      uk-scrollspy-nav="closest: li; offset: 30; overflow: false">
+    <ul uk-nav class="api-main-nav uk-nav-parent-icon" uk-scrollspy-nav="closest: li; offset: 80; overflow: false">
       {{#with categorys}}{{> nav}}{{/with}}
     </ul>
   </div>
   <div class="api-content">
+    <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;">
+      <div class="api-navbar-container">
+        <nav class="uk-navbar-container uk-navbar-transparent api-navbar" uk-navbar
+          style="position: relative; z-index: 980;">
+          <div class="uk-navbar-right">
+            <div class="uk-navbar-item api-navbar-filter-rules">
+              <select class="uk-select js_api-rule-selection">
+                <option value="" disabled selected hidden>Filter</option>
+                <option value="">ALL</option>
+                <option value="must">MUST</option>
+                <option value="should">SHOULD</option>
+                <option value="may">MAY</option>
+              </select>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
     <div class="api-container">
       {{#with categorys}}{{> data}}{{/with}}
     </div>
