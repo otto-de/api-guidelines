@@ -7,6 +7,8 @@ name: 'Build, Test, Lint'
 env:
   GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
   TOOLBOX: $(npm bin)/toolbox
+  RUN_PERSIST_DIST: false
+  RUN_PERSIST_JSCPD: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,6 +34,7 @@ jobs:
       - name: Build Sources
         run: npm run build
       - name: Persist dist
+        if: '${{ env.RUN_PERSIST_DIST == ''true'' }}'
         uses: actions/upload-artifact@v2
         with:
           name: dist
@@ -128,15 +131,10 @@ jobs:
         env:
           NODE_ICU_DATA: '${{ env.TEST_ICU_DATA }}'
         run: '${{ env.SPECS_COMMANDLINE }}'
-      - name: Persist coverage Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: '${{ github.workspace }}/tmp/coverage'
       - name: Persist Test Results
         uses: actions/upload-artifact@v2
         with:
-          name: spec-results
+          name: integration-results
           path: '${{ github.workspace }}/tmp/test-results'
   license:
     runs-on: ubuntu-latest
@@ -198,6 +196,7 @@ jobs:
             --reporters console,html \
             --gitignore
       - name: Persist Jscpd Results
+        if: '${{ env.RUN_PERSIST_JSCPD == ''true'' }}'
         uses: actions/upload-artifact@v2
         with:
           name: jscpd
