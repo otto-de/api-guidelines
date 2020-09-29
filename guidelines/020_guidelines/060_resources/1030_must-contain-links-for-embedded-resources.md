@@ -1,11 +1,13 @@
 ---
-type: SHOULD NOT
+type: MUST
 id: R000042
 ---
 
-# swap out links for embedded resources
+# contain links for embedded resources
 
-Servers should not entirely "swap out" a link for an embedded resource (or vice versa) because client support for this technique is OPTIONAL.
+Servers must not entirely "swap out" a link for an embedded resource (or vice versa) because client support for this technique is OPTIONAL.
+
+For every embedded resource, a corresponding link MUST be contained in the `_links` object of the embedding resource.
 
 Example:
 
