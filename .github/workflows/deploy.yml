@@ -60,10 +60,12 @@ jobs:
         if: '${{ env.RUN_PRE_DEPLOY != '''' }}'
         run: '${{ env.RUN_PRE_DEPLOY }}'
       - name: Apply Terraform Stacks
-        if: '${{ env.RUN_TF_DEPLOY != ''true'' }}'
-        run: |
+        if: '${{ env.RUN_TF_DEPLOY == ''true'' }}'
+        run: >
           echo "Deploy to: $TB_ENVIRONMENT"
-          ${{ env.TOOLBOX }} terraform apply --plan
+
+          ${{ env.TOOLBOX }} terraform apply --plan --app.repo.branch ${{
+          env.GITHUB_REF }}
       - name: Execute toolbox s3 upload
         if: '${{ env.RUN_S3_UPLOAD == ''true'' }}'
         run: '${{ env.TOOLBOX }} s3 upload'
@@ -84,7 +86,7 @@ jobs:
           echo "https://deployment-report.live.qs.cloud.otto.de/ui/index.html"
           ${{ env.TOOLBOX }} deployment-report send
       - name: Destroy Deployment Admin
-        if: '${{ env.RUN_TF_DEPLOY != ''true'' && always() }}'
+        if: '${{ env.RUN_TF_DEPLOY == ''true'' && always() }}'
         run: '${{ env.TOOLBOX }} terraform destroy -g admin'
   live:
     needs:
@@ -129,10 +131,12 @@ jobs:
         if: '${{ env.RUN_PRE_DEPLOY != '''' }}'
         run: '${{ env.RUN_PRE_DEPLOY }}'
       - name: Apply Terraform Stacks
-        if: '${{ env.RUN_TF_DEPLOY != ''true'' }}'
-        run: |
+        if: '${{ env.RUN_TF_DEPLOY == ''true'' }}'
+        run: >
           echo "Deploy to: $TB_ENVIRONMENT"
-          ${{ env.TOOLBOX }} terraform apply --plan
+
+          ${{ env.TOOLBOX }} terraform apply --plan --app.repo.branch ${{
+          env.GITHUB_REF }}
       - name: Execute toolbox s3 upload
         if: '${{ env.RUN_S3_UPLOAD == ''true'' }}'
         run: '${{ env.TOOLBOX }} s3 upload'
@@ -153,5 +157,5 @@ jobs:
           echo "https://deployment-report.live.qs.cloud.otto.de/ui/index.html"
           ${{ env.TOOLBOX }} deployment-report send
       - name: Destroy Deployment Admin
-        if: '${{ env.RUN_TF_DEPLOY != ''true'' && always() }}'
+        if: '${{ env.RUN_TF_DEPLOY == ''true'' && always() }}'
         run: '${{ env.TOOLBOX }} terraform destroy -g admin'
