@@ -61,11 +61,9 @@ jobs:
         run: '${{ env.RUN_PRE_DEPLOY }}'
       - name: Apply Terraform Stacks
         if: '${{ env.RUN_TF_DEPLOY == ''true'' }}'
-        run: >
+        run: |
           echo "Deploy to: $TB_ENVIRONMENT"
-
-          ${{ env.TOOLBOX }} terraform apply --plan --app.repo.branch ${{
-          env.GITHUB_REF }}
+          ${{ env.TOOLBOX }} terraform apply --plan
       - name: Execute toolbox s3 upload
         if: '${{ env.RUN_S3_UPLOAD == ''true'' }}'
         run: '${{ env.TOOLBOX }} s3 upload'
@@ -132,11 +130,9 @@ jobs:
         run: '${{ env.RUN_PRE_DEPLOY }}'
       - name: Apply Terraform Stacks
         if: '${{ env.RUN_TF_DEPLOY == ''true'' }}'
-        run: >
+        run: |
           echo "Deploy to: $TB_ENVIRONMENT"
-
-          ${{ env.TOOLBOX }} terraform apply --plan --app.repo.branch ${{
-          env.GITHUB_REF }}
+          ${{ env.TOOLBOX }} terraform apply --plan
       - name: Execute toolbox s3 upload
         if: '${{ env.RUN_S3_UPLOAD == ''true'' }}'
         run: '${{ env.TOOLBOX }} s3 upload'
