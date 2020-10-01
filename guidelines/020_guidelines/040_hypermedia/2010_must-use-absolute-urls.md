@@ -6,7 +6,7 @@ id: R100032
 # use absolute URLs
 
 Links to other resources must always use full, absolute hrefs.
-If a client supplies a [`Forwarded` request header](2040_must-support-forwarded-header.md), the header value must be used for generating absolute URLs.
+If a client supplies a [`Forwarded` request header](2060_must-support-forwarded-header.md), the header value must be used for generating absolute URLs.
 
 Motivation:
 

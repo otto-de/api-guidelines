@@ -37,5 +37,5 @@ paths:
 
 See:
 
-- [[MAY] use `ETag` header for caching resources](./5010_may-use-etag-header-for-caching-resources.md)
-- [[SHOULD] use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](./5020_should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md)
+- [MAY use `ETag` header for caching resources](./2010_may-use-etag-header-for-caching-resources.md)
+- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](./2020_should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md)

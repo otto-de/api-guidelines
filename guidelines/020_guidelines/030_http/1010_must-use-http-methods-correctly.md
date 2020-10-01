@@ -3,8 +3,6 @@ type: MUST
 id: R000007
 ---
 
-> [TODO] fix broken links
-
 # use HTTP methods correctly
 
 We are compliant with the standardized HTTP method semantics described as follows:
@@ -12,11 +10,11 @@ We are compliant with the standardized HTTP method semantics described as follow
 ||| accordion GET { begin }
 `GET` requests are used to **read** either a single or a collection resource.
 
-- For individual resources `GET` requests will usually generate a `404 Not Found` if the resource does not exist.
-- For collection resources `GET` requests may return either `200 OK` (if the collection is empty) or `404 Not Found` (if the collection is missing).
+- For individual resources, `GET` requests will usually generate a `404 Not Found` if the resource does not exist.
+- For collection resources, `GET` requests may return either `200 OK` (if the collection is empty) or `404 Not Found` (if the collection is missing).
 - `GET` requests must NOT have a request body payload (see `GET With Body`).
 
-`Note`{ label } `GET` requests on collection resources should provide sufficient [filter](link) and [pagination](link) mechanisms.
+`Note`{ label } `GET` requests on collection resources should provide sufficient [filter](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md#filtering) and [pagination](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md#paging) mechanisms.
 |||
 
 ||| accordion GET with body
@@ -30,7 +28,7 @@ As our APIs must be standard compliant (body in `GET` must be ignored on server 
 
 ::: info
 Encoding the lengthy structured request information using header parameters is not an option.
-From a conceptual point of view, the semantic of an operation should always be expressed by the resource names, as well as the involved path and query parameters, i.e. by everything that goes into the URL.
+From a conceptual point of view, the semantic of an operation should always be expressed by the resource names, as well as the involved path and query parameters, that means, by everything that goes into the URL.
 Request headers are reserved for general context information.
 In addition, size limits on query parameters and headers are not reliable and depend on clients, gateways, server, and actual settings.
 Thus, switching to headers does not solve the original problem.
@@ -46,15 +44,15 @@ The semantic is best described as _"please put the enclosed representation at th
 - On successful `PUT` requests, the server will **replace the entire resource** addressed by the URL with the representation passed in the payload (subsequent reads will deliver the same payload).
 - Successful `PUT` requests will usually generate `200 OK` or `204 No Content` (if the resource was updated – with or without actual content returned), and `201 Created` (if the resource was created).
 
-`Important:`{ label="warning" } It is best practice to prefer `POST` over `PUT` for creation of (at least top-level) resources.
+`Important:`{ label="warning" } It is best practice to prefer `POST` over `PUT` for creation of (at least top level) resources.
 This leaves the resource ID under control of the service and allows to concentrate on the update semantic using `PUT` as follows.
 
 ::: info
 In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.
-Putting the same resource twice is required to be [idempotent](#idempotent) and to result in the same single resource instance (see [**[MUST]** fulfill common method properties](2020_must-fulfill-common-method-properties.md)).
+Putting the same resource twice is required to be idempotent and to result in the same single resource instance (see [MUST fulfill common method properties](./guidelines/020_guidelines/030_http/1020_must-fulfill-common-method-properties.md)).
 :::
 
-To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates. See also [Optimistic locking in RESTful APIs](link) for details and options.
+To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](./guidelines/020_guidelines/030_http/2020_should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
 |||
 
 ||| accordion POST
@@ -66,22 +64,20 @@ The semantic for collection endpoints is best described as _"please add the encl
 
 ::: info
 `POST` should be used for scenarios that cannot be covered by the other methods sufficiently.
-In such cases, make sure to document the fact that `POST` is used as a workaround (see [`GET With Body`](#get-with-body)).
+In such cases, make sure to document the fact that `POST` is used as a workaround (see `GET With Body`).
 
-Resource IDs related to `POST` requests are created and managed by the server and returned with the response payload and/or as part of the URL in the [`Location'] (<https://tools.ietf.org/html/rfc7231#section-7.1.2)> header.
+Resource IDs related to `POST` requests are created and managed by the server and returned with the response payload and/or as part of the URL in the [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header.
 :::
 
 ::: details
-Posting the same resource twice is **not** required to be [idempotent](#idempotent) (check [**[MUST]** fulfill common method properties](2020_must-fulfill-common-method-properties.md)) and may result in multiple resources.
-However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](2030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
+Posting the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](./guidelines/020_guidelines/030_http/1020_must-fulfill-common-method-properties.md)) and may result in multiple resources.
+However, you [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
 :::
 |||
 
 ||| accordion PATCH
 
-> TODO: Link auf Optimistic Locking: Best practices übernehmen oder so...
-
-`PATCH`requests are used to **update parts** of single resources, i.e. where only a specific subset of resource fields should be replaced.
+`PATCH` requests are used to **update parts** of single resources, i.e. where only a specific subset of resource fields should be replaced.
 The semantic is best described as _"please change the resource identified by the URL according to my change request"_.
 The semantic of the change request is not defined in the HTTP standard and must be described in the API specification by using suitable media types.
 
@@ -103,11 +99,11 @@ In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turn
 In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).
 
 ::: info
-Patching the same resource twice is **not** required to be [idempotent](#idempotent) (check [**[MUST]** fulfill common method properties](2020_must-fulfill-common-method-properties.md) and may result in a changing result. However, you [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](2030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
+Patching the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](./guidelines/020_guidelines/030_http/1020_must-fulfill-common-method-properties.md) and may result in a changing result. However, you [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
 :::
 
-`Note:`{ label } To prevent unnoticed concurrent updates when using `PATCH` you [**[SHOULD]** consider to support `ETag` together with `If-Match`/`If-None-Match` header](link) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
-See [Optimistic locking in RESTful APIs](link) and [**[SHOULD]** consider to design `POST` and `PATCH` idempotent](2030_should-consider-to-design-post-and-patch-idempotent.md) for details and options.
+`Note:`{ label } To prevent unnoticed concurrent updates when using `PATCH` you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](./guidelines/020_guidelines/030_http/2020_should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
+See [Optimistic locking in RESTful APIs](link) and [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md) for details and options.
 |||
 
 ||| accordion DELETE
@@ -116,12 +112,11 @@ The semantic is best described as _"please delete the resource identified by the
 
 - `DELETE` requests are usually applied to single resources, not on collection resources, as this would imply deleting the entire collection.
 - Successful `DELETE` requests will usually generate `200 OK` (if some representation of the deleted resource is returned) or `204 No Content` (if no content is returned).
+  - Depending on the `Access` header of the `DELETE` request, not only a representation of the deleted resource could be returned. Think of returning the whole shopping cart after `DELETE`ing only one lineitem.
 - Failed `DELETE` requests will usually generate `404 Not Found` (if the resource cannot be found) or `410 Gone` (if the resource was already deleted before).
 
-> TODO [return `200 OK` and some custom representation, e.g. the whole shopping cart after `DELETE`ing only one lineitem]
-
 ::: danger
-After deleting a resource with `DELETE`, a [`GET`](#get) request on the resource is expected to either return `404 Not Found` or `410 Gone` depending on how the resource is represented after deletion.
+After deleting a resource with `DELETE`, a `GET` request on the resource is expected to either return `404 Not Found` or `410 Gone` depending on how the resource is represented after deletion.
 The resource must not be accessible on its endpoint after this operation.
 :::
 |||
@@ -129,9 +124,9 @@ The resource must not be accessible on its endpoint after this operation.
 ||| accordion HEAD
 `HEAD` requests are used to **retrieve** the header information of single resources and resource collections.
 
-- `HEAD` has exactly the same semantics as [`GET`](#get), but returns headers only, no body.
+- `HEAD` has exactly the same semantics as `GET`, but returns headers only, no body.
 
-`Note:`{ label } `HEAD` is particular useful to efficiently lookup whether large resources or collection resources have been updated in conjunction with the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3)-header.
+`Note:`{ label } `HEAD` is particular useful to efficiently lookup whether large resources or collection resources have been updated in conjunction with the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3) header.
 |||
 
 ||| accordion OPTIONS { end }

@@ -5,12 +5,14 @@ id: R000060
 
 # use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control
 
-When creating or updating resources it may be necessary to expose conflicts and to prevent the 'lost update' or 'initially created' problem. Following [RFC 7232 "HTTP: Conditional Requests"](https://tools.ietf.org/html/rfc7232) this can be best accomplished by supporting the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3) header together with the [`If-Match`](https://tools.ietf.org/html/rfc7232#section-3.1) or [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) conditional header.
+When creating or updating resources it may be necessary to expose conflicts and to prevent the 'lost update' or 'initially created' problem.
+Following [RFC 7232 "HTTP: Conditional Requests"](https://tools.ietf.org/html/rfc7232), this can be best accomplished by supporting the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3) header together with the [`If-Match`](https://tools.ietf.org/html/rfc7232#section-3.1) or [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) conditional header.
 
 ||| accordion Updating resources without 'lost update' problem { begin }
-To expose conflicts between concurrent update operations via [`PUT`](#put), [`POST`](#post), or [`PATCH`](#patch), the `If-Match: <entity tag>` header can be used to enable the server to check whether the version of the updated entity is conforming to the requested [`<entity tag>`](https://tools.ietf.org/html/rfc7232#section-2.3). If no matching entity is found, the operation is supposed to respond with status code `412 - Precondition Failed`.
+To expose conflicts between concurrent update operations via `PUT`, `POST`, or `PATCH`, the `If-Match: <entity tag>` header can be used to enable the server to check whether the version of the updated entity is conforming to the requested [`<entity tag>`](https://tools.ietf.org/html/rfc7232#section-2.3).
+If no matching entity is found, the operation is supposed to respond with status code `412 - Precondition Failed`.
 
-**Example:**
+Example:
 
 ```http
 GET /orders HTTP/1.1
@@ -53,9 +55,10 @@ HTTP/1.1 412 Precondition failed
 |||
 
 ||| accordion Creating resources without 'initially created' problem
-Besides other use cases, `If-None-Match: *` can be used in a similar way to expose conflicts in resource creation. If any matching entity is found, the operation is supposed to respond with status code `412 Precondition Failed`.
+Besides other use cases, `If-None-Match: *` can be used in a similar way to expose conflicts in resource creation.
+If any matching entity is found, the operation is supposed to respond with status code `412 Precondition Failed`.
 
-**Example:**
+Example:
 
 ```http
 GET /orders HTTP/1.1
@@ -81,7 +84,7 @@ HTTP/1.1 412 Precondition Failed
 ||| accordion Enforce conditional requests {end}
 In order to enforce the usage of conditional requests, the server is supposed to answer with status code `428 Precondition Required` in case of clients omitting the `If-Match`/`If-None-Match` request header.
 
-**Example:**
+Example:
 
 ```http
 PUT /orders/O0000042 HTTP/1.1
@@ -98,5 +101,5 @@ Using `HEAD` instead of `GET` in order to just fetch the most current `ETag` val
 
 ::: references
 
-- Pitfalls described in [MAY use `ETag` header for caching resources](5010_may-use-etag-header-for-caching-resources.md)
+- [MAY use `ETag` header for caching resources](./guidelines/020_guidelines/030_http/2010_may-use-etag-header-for-caching-resources.md)
   :::
