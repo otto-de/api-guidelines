@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
@@ -61,7 +61,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
@@ -111,7 +111,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
@@ -148,7 +148,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
@@ -177,7 +177,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
@@ -217,7 +217,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
@@ -250,7 +250,7 @@ jobs:
         with:
           path: '${{ github.workspace }}'
       - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
