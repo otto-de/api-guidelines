@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import Md from "markdown-it";
 import attrs from "markdown-it-attrs";
 import container from "markdown-it-container";
@@ -136,9 +135,6 @@ export function registerLabel(config: Config, md: Md): void {
 }
 
 export function registerReferences(config: Config, md: Md): void {
-  const {
-    renderer: { rules },
-  } = md;
   const { tag, identifier, classes } = config.markdown.references;
 
   md.use(container, identifier, {

@@ -1,7 +1,7 @@
 /**
  * Creates configuration object for collector
  */
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+// eslint-disable-next-line
 export function getConfig() {
   const res = {
     root: "./guidelines",

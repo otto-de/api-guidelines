@@ -41,7 +41,7 @@ function initRuleFilter(): void {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function initTopMenu() {
   logoLinkToTop();
   initRuleFilter();
 });
