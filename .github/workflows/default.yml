@@ -264,7 +264,7 @@ jobs:
       - name: Execute Linter for Sources
         run: 'npm run lint:src --silent'
       - name: Execute Linter for Specs
-        run: 'npm run lint:api --silent'
+        run: 'npm run lint:docs --silent'
       - name: Persist tmp
         uses: actions/upload-artifact@v2
         with:
