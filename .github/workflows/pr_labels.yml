@@ -16,7 +16,7 @@ jobs:
   labels:
     runs-on: ubuntu-latest
     steps:
-      - uses: jurijzahn8019/action-dependabot-labels@v0.1.3
+      - uses: jurijzahn8019/action-dependabot-labels@v0.1.4
         env:
           DEBUG: "action-dependabot-labels:*"
         with:
