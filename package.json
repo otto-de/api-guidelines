@@ -61,7 +61,7 @@
     "@types/jest": "^26.0.14",
     "@types/js-yaml": "^3.12.5",
     "@types/markdown-it": "^10.0.2",
-    "@types/node": "^14.11.4",
+    "@types/node": "^14.11.5",
     "@types/table": "^5.0.0",
     "browser-sync": "^2.26.12",
     "chalk": "^4.1.0",
