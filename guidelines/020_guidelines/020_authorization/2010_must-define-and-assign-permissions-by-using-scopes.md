@@ -20,7 +20,7 @@ For example:
 - Product data
 - Deal of the day
 
-However, even endpoints providing public resources [must be secured with OAuth 2.0](./guidelines/020_guidelines/020_authorization/1010_must-secure-endpoints-with-oauth2.md)].
+However, even endpoints providing public resources [must be secured with OAuth 2.0](./guidelines/020_guidelines/020_authorization/1010_must-secure-endpoints-with-oauth2.md).
 To harmonize the access to public resources we defined the special scope `otto.read`, which can be used to secure those resources.
 
 ::: danger

@@ -8,7 +8,7 @@ id: R000043
 For any given link relation, clients of an API should be automated to read from an embedded resource (if present) in preference to traversing a link.
 
 If supported by the API, clients should use the common request parameter
-[`embed`](./guidelines/020_guidelines/050_naming-conventions/1120_must-stick-to-conventional-query-parameters.md) to select the subresources they are interested in.
+[`embed`](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md) to select the subresources they are interested in.
 
 ::: references
 

@@ -6,7 +6,7 @@ id: R000063
 # support optional embedding of subresources
 
 Resources that link to subresources [SHOULD support embedding of subresources](./guidelines/020_guidelines/060_resources/1010_should-embed-subresources.md).
-In order to improve flexibility of the API for different use cases, embedding of subresources should be optional, using the request parameter [`embed`](./guidelines/020_guidelines/050_naming-conventions/1120_must-stick-to-conventional-query-parameters.md) to select the
+In order to improve flexibility of the API for different use cases, embedding of subresources should be optional, using the request parameter [`embed`](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md) to select the
 subresources to embed.
 
 In cases where clients know upfront that they need some related resources they can instruct the server to prefetch that data eagerly.

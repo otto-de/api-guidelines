@@ -62,5 +62,3 @@ POST /users HTTP/1.1
 When using the secondary key pattern all subsequent retries should fail with status code `409 Conflict`.
 We suggest to avoid `200 OK` here unless you make sure, that the delivered resource is the original one implementing a well defined behavior. Using `204 No Content` without content would be a similar well-defined option.
 :::
-
-> [TODO] Consider defining an extension to the problem json returned for `409 Conflict`. The client needs to be able to attain the already created resource, if (re)-creating it resulted in a conflict. Another approach might be to answer with `204` and providing the `Location` of the existing resource.

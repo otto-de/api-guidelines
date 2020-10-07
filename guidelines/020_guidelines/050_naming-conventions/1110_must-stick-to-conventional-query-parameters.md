@@ -11,16 +11,16 @@ To provide clients with a consistent API, the following query parameters must be
 
 | name       | section                 |
 | :--------- | :---------------------- |
-| `after`    | [paging](#paging)       |
-| `before`   | [paging](#paging)       |
-| `embed`    | [embedding](#embedding) |
-| `fields`   | [filtering](#filtering) |
-| `page`     | [paging](#paging)       |
-| `pageSize` | [paging](#paging)       |
-| `q`        | [querying](#querying)   |
-| `sort`     | [sorting](#sorting)     |
+| `after`    | paging      |
+| `before`   | paging       |
+| `embed`    | embedding |
+| `fields`   | filtering |
+| `page`     | paging         |
+| `pageSize` | paging        |
+| `q`        | querying  |
+| `sort`     | sorting    |
 
-## Paging
+||| accordion Paging { begin }
 
 | name       | description                        | values | example         |
 | :--------- | :--------------------------------- | :----- | :-------------- |
@@ -28,14 +28,16 @@ To provide clients with a consistent API, the following query parameters must be
 | `page`     | Page number (0-indexed)            | `0..`  | `?page=2`       |
 | `after`    | Results after the cursor position  | \*     | `?after=e2e3c`  |
 | `before`   | Results before the cursor position | \*     | `?before=129fa` |
+|||
 
-## Sorting
+||| accordion Sorting
 
 | name   | description                                                                                                                                                                                                         | values                 | example                 |
 | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------- | :---------------------- |
 | `sort` | Property to sort by with optional ordering. Can be provided multiple times to sort by multiple properties. Naming should correspond to JSON field names with dot-navigation if necessary (e.g. `price.grossValue`). | `<field>[:(asc|desc)]` | `?sort=price:desc,name` |
+|||
 
-## Querying
+||| accordion Querying
 
 | name | description       | values | example    |
 | :--- | :---------------- | :----- | :--------- |
@@ -44,8 +46,9 @@ To provide clients with a consistent API, the following query parameters must be
 Introduce [your own descriptive query parameters for querying](./guidelines/020_guidelines/060_resources/2100_must-use-query-parameters-for-basic-search-or-filtering.md).
 
 If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](./guidelines/020_guidelines/060_resources/2110_use-json-for-advanced-querying-and-filtering.md).
+|||
 
-## Filtering
+||| accordion Filtering
 
 Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting filtering of returned entity fields.
 
@@ -54,8 +57,9 @@ Depending on your use case and payload size, you can significantly reduce networ
 | `fields` | Selection of fields that should be returned | \*     | `?fields=name,friends(id,name)` |
 
 See also [Filtering of fields using common query parameter](./guidelines/020_guidelines/050_naming-conventions/2080_should-support-filtering-of-fields-using-common-query-parameter.md)
+|||
 
-## Embedding
+||| accordion Embedding { end }
 
 | name    | description                               | values | example                        |
 | :------ | :---------------------------------------- | :----- | :----------------------------- |
@@ -66,3 +70,4 @@ Examples:
 - Do not embed anything: `?embed=()`
 - Embed products into the response: `?embed=(o:product)`
 - Embed all products and for every product also embed its variations: `?embed=(o:product, o:product(o:variation))`
+|||

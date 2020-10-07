@@ -17,7 +17,7 @@ The `X-RateLimit` headers are:
 - `X-RateLimit-Limit`: The maximum number of requests that the client is allowed to make in this window.
 - `X-RateLimit-Remaining`: The number of requests allowed in the current window.
 - `X-RateLimit-Reset`: The relative time in seconds when the rate limit window will be reset.
-  `Note`{ label } This is different to Github and Twitter’s usage of a header with the same name which is using UTC epoch seconds instead.
+  `Note`{ label } This is different to GitHub and Twitter’s usage of a header with the same name which is using UTC epoch seconds instead.
 
 The reason to allow both approaches is that APIs can have different needs.
 Retry-After is often sufficient for general load handling and request throttling scenarios and notably, does not strictly require the concept of a calling entity such as a tenant or named account.

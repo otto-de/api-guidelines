@@ -35,6 +35,6 @@ This may be obvious for single valued properties, but not necessarily for lists 
 
 ::: references
 
-- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1120_must-stick-to-conventional-query-parameters.md).
+- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md)
   :::
 

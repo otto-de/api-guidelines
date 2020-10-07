@@ -19,6 +19,6 @@ For cursor-based pagination we _recommend_ using the following query parameters:
 
 ::: references
 
-- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1120_must-stick-to-conventional-query-parameters.md).
+- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md)
 - [MUST support pagination](./guidelines/020_guidelines/060_resources/2030_must-support-pagination.md)
   :::

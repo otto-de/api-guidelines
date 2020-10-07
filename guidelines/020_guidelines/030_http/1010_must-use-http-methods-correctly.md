@@ -99,11 +99,11 @@ In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turn
 In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).
 
 ::: info
-Patching the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](./guidelines/020_guidelines/030_http/1020_must-fulfill-common-method-properties.md) and may result in a changing result. However, you [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
+Patching the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](./guidelines/020_guidelines/030_http/1020_must-fulfill-common-method-properties.md)) and may result in a changing result. However, you [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md) to prevent this.
 :::
 
 `Note:`{ label } To prevent unnoticed concurrent updates when using `PATCH` you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](./guidelines/020_guidelines/030_http/2020_should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
-See [Optimistic locking in RESTful APIs](link) and [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md) for details and options.
+Refer to [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md) for details and options.
 |||
 
 ||| accordion DELETE
