@@ -7,19 +7,6 @@ id: R000049
 
 To provide clients with a consistent API, the following query parameters must be used instead of introducing custom parameters for the same functionality.
 
-**Index**:
-
-| name       | section                 |
-| :--------- | :---------------------- |
-| `after`    | paging      |
-| `before`   | paging       |
-| `embed`    | embedding |
-| `fields`   | filtering |
-| `page`     | paging         |
-| `pageSize` | paging        |
-| `q`        | querying  |
-| `sort`     | sorting    |
-
 ||| accordion Paging { begin }
 
 | name       | description                        | values | example         |
