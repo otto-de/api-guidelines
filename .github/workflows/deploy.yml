@@ -36,7 +36,7 @@ jobs:
         run: 'apk add --no-progress ${{ env.APK_PACKAGES }}'
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ env.NODE_VER }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ env.NODE_VER }}'
       - name: Setup Npm Cache
@@ -105,7 +105,7 @@ jobs:
         run: 'apk add --no-progress ${{ env.APK_PACKAGES }}'
       - uses: actions/checkout@v2.3.3
       - name: 'Use Node.js ${{ env.NODE_VER }}'
-        uses: actions/setup-node@v2.1.1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ env.NODE_VER }}'
       - name: Setup Npm Cache
