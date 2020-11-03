@@ -1,5 +1,5 @@
 ---
-type: SHOULD NOT
+type: SHOULD
 id: R100078
 ---
 
