@@ -18,7 +18,7 @@ jobs:
           - 14.x
       fail-fast: false
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ matrix.node-version }}'
         uses: actions/setup-node@v2.1.2
         with:
@@ -59,7 +59,7 @@ jobs:
           --coverageReporters json json-summary text html clover \
           --reporters default --reporters jest-junit
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ matrix.node-version }}'
         uses: actions/setup-node@v2.1.2
         with:
@@ -109,7 +109,7 @@ jobs:
           --reporters default --reporters jest-junit \
           -c jest.config.integration.js
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ matrix.node-version }}'
         uses: actions/setup-node@v2.1.2
         with:
@@ -146,7 +146,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ matrix.node-version }}'
         uses: actions/setup-node@v2.1.2
         with:
@@ -175,7 +175,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ matrix.node-version }}'
         uses: actions/setup-node@v2.1.2
         with:
@@ -215,7 +215,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ matrix.node-version }}'
         uses: actions/setup-node@v2.1.2
         with:
@@ -245,7 +245,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - uses: actions/download-artifact@v2
         with:
           path: '${{ github.workspace }}'

@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: 'Install APK Packages: ${{ env.APK_PACKAGES }}'
         run: 'apk add --no-progress ${{ env.APK_PACKAGES }}'
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ env.NODE_VER }}'
         uses: actions/setup-node@v2.1.2
         with:
@@ -103,7 +103,7 @@ jobs:
     steps:
       - name: 'Install APK Packages: ${{ env.APK_PACKAGES }}'
         run: 'apk add --no-progress ${{ env.APK_PACKAGES }}'
-      - uses: actions/checkout@v2.3.3
+      - uses: actions/checkout@v2.3.4
       - name: 'Use Node.js ${{ env.NODE_VER }}'
         uses: actions/setup-node@v2.1.2
         with:
