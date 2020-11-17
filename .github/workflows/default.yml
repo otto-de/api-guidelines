@@ -245,7 +245,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.3
       - uses: actions/download-artifact@v2
         with:
           path: '${{ github.workspace }}'
