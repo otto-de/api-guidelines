@@ -1,0 +1,19 @@
+name: Opened Pull by Assets
+'on':
+  pull_request_target:
+    types:
+      - opened
+      - reopened
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    if: >-
+      startsWith(github.event.repository.name, 'assets_') &&
+      !startsWith(github.event.pull_request.user.login, 'dependabot')
+    steps:
+      - name: Move new Pull Request in Progress
+        uses: alex-page/github-project-automation-plus@v0.3.0
+        with:
+          project: Team Assets
+          column: In Progress
+          repo-token: '${{ secrets.TOKEN_GITHUB }}'
