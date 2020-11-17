@@ -1,9 +1,11 @@
 version: 1
 merge:
-  whitelist:
+  trigger:
     labels:
       - 'pull: automerge'
-  blacklist:
+    branches:
+      - master
+  ignore:
     labels:
       - 'pull: not merge'
     comment_substrings:
@@ -21,10 +23,12 @@ merge:
     - license (14.x)
   delete_after_merge: true
 update:
-  whitelist:
+  trigger:
     labels:
       - 'pull: update'
-  blacklist:
+    branches:
+      - master
+  ignore:
     labels:
       - 'pull: not update'
       - 'dependabot :rocket:'
