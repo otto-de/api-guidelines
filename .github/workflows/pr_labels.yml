@@ -13,6 +13,7 @@ name: Label Dependabot PR
 jobs:
   labels:
     runs-on: ubuntu-latest
+    if: 'startsWith(github.event.pull_request.user.login, ''dependabot'')'
     steps:
       - uses: jurijzahn8019/action-dependabot-labels@v0.1.5
         env:
