@@ -1,0 +1,22 @@
+name: Labeled Issue by Assets
+'on':
+  issues:
+    types:
+      - labeled
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Target Column to 'To do' for Bug and Support
+        if: >-
+          github.event.label.name == 'bug' || github.event.label.name ==
+          'support'
+        run: echo "TARGET_COLUMN=To do" >> $GITHUB_ENV
+      - uses: alex-page/github-project-automation-plus@v0.3.0
+        if: >-
+          startsWith(github.event.repository.name, 'assets_') &&
+          env.TARGET_COLUMN != ''
+        with:
+          project: Team Assets
+          column: '${{ env.TARGET_COLUMN }}'
+          repo-token: '${{ secrets.TOKEN_GITHUB }}'
