@@ -219,7 +219,11 @@ export class Parser {
    */
   public processFrontMatter(): FrontMatter {
     const fm = this.tokens.find((t) => t.type === "front_matter")?.meta;
-    return fm ? load(fm) : {};
+    const res: FrontMatter = fm ? load(fm) : this.frontMatter;
+    if (Parser.isRule(res) && !res.appliesTo) {
+      res.appliesTo = ["server"];
+    }
+    return res;
   }
 
   /**
@@ -320,9 +324,11 @@ export class Parser {
           {}
         )[0].children;
 
+        const hLevel = parseInt(open.tag.replace(/h/gi, ""), 10);
+
         // TODO: Limit max nesting to H4
         // Calculate new heading level
-        const level = parseInt(open.tag.replace(/h/gi, ""), 10) + this.level;
+        const level = hLevel + this.level;
         open.tag = `h${level}`;
         open.attrSet("id", id);
         open.attrSet("class", "api-headline");
@@ -366,6 +372,6 @@ export class Parser {
     }
 
     // just pass throught data
-    return { markup: content, text: content, id: this.frontMatter.id };
+    return { markup: content, text: content };
   }
 }

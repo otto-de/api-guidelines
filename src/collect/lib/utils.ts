@@ -6,6 +6,7 @@ import { table } from "table";
 import { readText } from "./fs";
 import { Parser } from "./parser";
 import type { Config } from "./config";
+import { FrontMatter } from "../types";
 
 const log = debug("collect:utils");
 
@@ -42,6 +43,32 @@ export async function registerPartials(config: Config): Promise<void> {
  */
 export function registerHelpers(): void {
   registerHelper("toLowerCase", (str: string): string => str.toLowerCase());
+
+  registerHelper("frontMatterToClasses", (frontMatter: FrontMatter) => {
+    const { type } = frontMatter;
+    // eslint-disable-next-line no-nested-ternary
+    const appliesTo = Array.isArray(frontMatter.appliesTo)
+      ? frontMatter.appliesTo
+      : typeof frontMatter.appliesTo === "string"
+      ? [frontMatter.appliesTo]
+      : undefined;
+
+    const classes = [] as string[];
+
+    if (type) {
+      classes.push(
+        `js_rule-${frontMatter.type?.replace(/[\s\W]/g, "-").toLowerCase()}`
+      );
+    }
+
+    if (appliesTo) {
+      appliesTo.forEach((a) => {
+        classes.push(`js_rule-applies-to-${a.toLowerCase()}`);
+      });
+    }
+
+    return classes.join(" ");
+  });
 }
 
 /**

@@ -2,7 +2,7 @@
     <div class="api-docs-index">{{{index.output}}}</div>
 
     {{#each docs}}
-    <div class="api-docs {{#if frontMatter.type}}js_rule-{{toLowerCase frontMatter.type}}{{/if}}">
+    <div class="api-docs {{{frontMatterToClasses frontMatter}}}">
         {{{output}}}
     </div>
     {{/each}}

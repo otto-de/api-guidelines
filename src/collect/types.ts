@@ -18,6 +18,7 @@ export interface FrontMatter {
   type?: RuleType;
   navTitle?: string;
   sideNav?: boolean;
+  appliesTo?: string | string[];
 }
 
 /**
