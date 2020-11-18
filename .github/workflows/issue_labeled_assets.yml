@@ -4,18 +4,27 @@ name: Labeled Issue by Assets
     types:
       - labeled
 jobs:
-  process:
+  move-to-do:
     runs-on: ubuntu-latest
+    continue-on-error: true
+    if: >-
+      startsWith(github.event.repository.name, 'assets_') &&
+      github.event.label.name == 'bug' || github.event.label.name == 'support'
+    env:
+      TARGET_COLUMN: To do
     steps:
-      - name: Set Target Column to 'To do' for Bug and Support
-        if: >-
-          github.event.label.name == 'bug' || github.event.label.name ==
-          'support'
-        run: echo "TARGET_COLUMN=To do" >> $GITHUB_ENV
-      - uses: alex-page/github-project-automation-plus@v0.3.0
-        if: >-
-          startsWith(github.event.repository.name, 'assets_') &&
-          env.TARGET_COLUMN != ''
+      - name: 'Try to move issue to ''${{ env.TARGET_COLUMN }}'''
+        uses: alex-page/github-project-automation-plus@v0.3.0
+        with:
+          project: Team Assets
+          column: '${{ env.TARGET_COLUMN }}'
+          repo-token: '${{ secrets.TOKEN_GITHUB }}'
+      - name: Wait on Error
+        if: '${{ failure() }}'
+        run: sleep 10
+      - name: 'Retry to move issue to ''${{ env.TARGET_COLUMN }}'''
+        uses: alex-page/github-project-automation-plus@v0.3.0
+        if: '${{ failure() }}'
         with:
           project: Team Assets
           column: '${{ env.TARGET_COLUMN }}'
