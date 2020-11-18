@@ -17,3 +17,9 @@ jobs:
           project: Team Assets
           column: In Progress
           repo-token: '${{ secrets.TOKEN_GITHUB }}'
+      - name: Add Label based on branch name
+        uses: TimonVS/pr-labeler-action@v3
+        with:
+          configuration-path: .github/pr-labeler.yml
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
