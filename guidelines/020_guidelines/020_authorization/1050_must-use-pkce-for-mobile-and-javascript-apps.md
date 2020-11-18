@@ -1,6 +1,7 @@
 ---
 type: MUST
 id: R000053
+appliesTo: client
 ---
 
 # use Proof Key for Code Exchange (PKCE) for mobile and JavaScript apps

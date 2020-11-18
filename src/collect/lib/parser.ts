@@ -5,7 +5,7 @@ import { format } from "util";
 import type MarkdownIt from "markdown-it";
 import { dirname, normalize, join, isAbsolute } from "path";
 import { ContentError } from "./errors";
-import type { FrontMatter, ProcessedHeading } from "../types";
+import { FrontMatter, ProcessedHeading, RuleReviewType } from "../types";
 import { Config } from "./config";
 
 const log = debug("collect:parser");
@@ -220,8 +220,13 @@ export class Parser {
   public processFrontMatter(): FrontMatter {
     const fm = this.tokens.find((t) => t.type === "front_matter")?.meta;
     const res: FrontMatter = fm ? load(fm) : this.frontMatter;
-    if (Parser.isRule(res) && !res.appliesTo) {
-      res.appliesTo = ["server"];
+    if (Parser.isRule(res)) {
+      if (!res.appliesTo) {
+        res.appliesTo = ["server"];
+      }
+      if (!res.reviewType) {
+        res.reviewType = RuleReviewType.MANUAL;
+      }
     }
     return res;
   }

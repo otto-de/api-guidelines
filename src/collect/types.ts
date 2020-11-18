@@ -11,6 +11,15 @@ export enum RuleType {
 }
 
 /**
+ * Rule review type
+ */
+export enum RuleReviewType {
+  AUTOMATIC = "automatic",
+  PARTIAL = "partial",
+  MANUAL = "manual",
+}
+
+/**
  * Front matter schema used in the api guidelines
  */
 export interface FrontMatter {
@@ -18,6 +27,7 @@ export interface FrontMatter {
   type?: RuleType;
   navTitle?: string;
   sideNav?: boolean;
+  reviewType?: RuleReviewType;
   appliesTo?: string | string[];
 }
 

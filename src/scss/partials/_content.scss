@@ -17,7 +17,8 @@
       padding-top: 0;
     }
 
-    &-filter-rules {
+    &-filter-rules,
+    &-filter-review-type {
       padding-right: 0;
     }
 
@@ -92,6 +93,53 @@
         .api-docs:not(.js_rule-may),
         .js_rule-must,
         .js_rule-should {
+          display: none;
+        }
+      }
+    }
+
+    .api-review-filter {
+      &-automatic {
+        .api-docs-index,
+        .api-docs:not(.js_rule-review-automatic),
+        .js_rule-review-partial,
+        .js_rule-review-manual {
+          display: none;
+        }
+      }
+
+      &-partial {
+        .api-docs-index,
+        .api-docs:not(.js_rule-review-partial),
+        .js_rule-review-automatic,
+        .js_rule-review-manual {
+          display: none;
+        }
+      }
+
+      &-manual {
+        .api-docs-index,
+        .api-docs:not(.js_rule-review-manual),
+        .js_rule-review-automatic,
+        .js_rule-review-partial {
+          display: none;
+        }
+      }
+    }
+
+    .api-applies-filter {
+      &-server {
+        .api-docs-index,
+        .api-docs:not(.js_rule-applies-server),
+        .js_rule-applies-client {
+          display: none;
+        }
+      }
+
+      &-client {
+        .api-docs-index,
+        .api-docs:not(.js_rule-applies-client),
+        .js_rule-applies-server {
           display: none;
         }
       }

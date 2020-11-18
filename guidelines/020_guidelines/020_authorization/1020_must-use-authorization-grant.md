@@ -1,7 +1,13 @@
 ---
 type: MUST
 id: R000052
+reviewType: automatic
 ---
+
+<!--
+The automatic check only ensures the schema is used in the spec
+The implementation can only be checks by CDCs
+-->
 
 # use Authorization Grant
 

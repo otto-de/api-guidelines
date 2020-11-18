@@ -1,6 +1,7 @@
 ---
 type: SHOULD
 id: R000048
+reviewType: automatic
 ---
 
 # adhere to scope naming conventions
@@ -25,9 +26,10 @@ The following additional rules apply for scope names:
 
 - Must only include alphanumeric characters, lowercase letters or the special characters `_` or `-`.
 - Must be delimited with dots.
-- Must be attributable to a resource.
-- Must not include internal product team names as `resource`.
-- `resource` should be pluralized when referring to collections and singular for singleton resources.
+- Must be attributable to a resource. <!-- not automatic -->
+- Must not include internal product team names as `resource`. <!-- not automatic -->
+- `resource` should be pluralized when referring to collections and singular for singleton resources. <!-- not automatic -->
+
 |||
 
 ||| accordion Examples

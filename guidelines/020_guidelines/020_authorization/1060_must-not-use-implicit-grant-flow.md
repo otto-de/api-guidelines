@@ -1,6 +1,7 @@
 ---
 type: MUST NOT
 id: R000055
+appliesTo: client
 ---
 
 # use Implicit Grant flow

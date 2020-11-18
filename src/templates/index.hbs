@@ -30,10 +30,27 @@
             <div class="uk-navbar-item api-navbar-filter-rules">
               <select class="uk-select js_api-rule-selection">
                 <option value="" disabled selected hidden>Filter</option>
-                <option value="">ALL</option>
+                <option value="">ALL RULES</option>
                 <option value="must">MUST</option>
                 <option value="should">SHOULD</option>
                 <option value="may">MAY</option>
+              </select>
+            </div>
+            <div class="uk-navbar-item api-navbar-filter-review-type">
+              <select class="uk-select js_api-review-type-selection">
+                <option value="" disabled selected hidden>Review Mode</option>
+                <option value="">ALL MODES</option>
+                <option value="automatic">AUTOMATIC</option>
+                <option value="partial">PARTIAL</option>
+                <option value="manual">MANUAL</option>
+              </select>
+            </div>
+            <div class="uk-navbar-item api-navbar-filter-applies-to">
+              <select class="uk-select js_api-applies-to-selection">
+                <option value="" disabled selected hidden>Applies To</option>
+                <option value="">ALL</option>
+                <option value="server">SERVER</option>
+                <option value="client">CLIENT</option>
               </select>
             </div>
           </div>

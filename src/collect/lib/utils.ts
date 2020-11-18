@@ -45,7 +45,7 @@ export function registerHelpers(): void {
   registerHelper("toLowerCase", (str: string): string => str.toLowerCase());
 
   registerHelper("frontMatterToClasses", (frontMatter: FrontMatter) => {
-    const { type } = frontMatter;
+    const { type, reviewType } = frontMatter;
     // eslint-disable-next-line no-nested-ternary
     const appliesTo = Array.isArray(frontMatter.appliesTo)
       ? frontMatter.appliesTo
@@ -56,15 +56,19 @@ export function registerHelpers(): void {
     const classes = [] as string[];
 
     if (type) {
-      classes.push(
-        `js_rule-${frontMatter.type?.replace(/[\s\W]/g, "-").toLowerCase()}`
-      );
+      classes.push(`js_rule-${type.toLowerCase().replace(/[\s\W]/g, "-")}`);
     }
 
     if (appliesTo) {
       appliesTo.forEach((a) => {
-        classes.push(`js_rule-applies-to-${a.toLowerCase()}`);
+        classes.push(`js_rule-applies-${a.toLowerCase()}`);
       });
+    }
+
+    if (reviewType) {
+      classes.push(
+        `js_rule-review-${reviewType.toLowerCase().replace(/[\s\W]/g, "-")}`
+      );
     }
 
     return classes.join(" ");
