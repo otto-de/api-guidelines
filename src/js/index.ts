@@ -42,8 +42,6 @@ function initRuleFilter(): void {
 }
 
 function initReviewTypeFilter(): void {
-  console.log("initReviewTypeFilter");
-
   const reviewTypeSelection = document.querySelectorAll(
     ".js_api-review-type-selection"
   )[0] as HTMLSelectElement;
@@ -53,9 +51,6 @@ function initReviewTypeFilter(): void {
     .filter((x) => x !== "");
   const apiContainer: Element = document.querySelectorAll(".api-container")[0];
 
-  console.log(reviewTypeSelection);
-  console.log(cssClasses);
-
   reviewTypeSelection.addEventListener("change", (event: Event) => {
     const target = event.target as HTMLSelectElement;
 
@@ -63,7 +58,6 @@ function initReviewTypeFilter(): void {
       ...cssClasses.map((cl) => `api-review-filter-${cl}`)
     );
     if (target.value !== "") {
-      console.log(target.value);
       apiContainer.classList.add(`api-review-filter-${target.value}`);
     }
 
@@ -73,8 +67,6 @@ function initReviewTypeFilter(): void {
 }
 
 function initAppliesToFilter(): void {
-  console.log("initAppliesToFilter");
-
   const appliesToSelection = document.querySelectorAll(
     ".js_api-applies-to-selection"
   )[0] as HTMLSelectElement;
@@ -84,9 +76,6 @@ function initAppliesToFilter(): void {
     .filter((x) => x !== "");
   const apiContainer: Element = document.querySelectorAll(".api-container")[0];
 
-  console.log(appliesToSelection);
-  console.log(cssClasses);
-
   appliesToSelection.addEventListener("change", (event: Event) => {
     const target = event.target as HTMLSelectElement;
 
@@ -94,7 +83,6 @@ function initAppliesToFilter(): void {
       ...cssClasses.map((cl) => `api-applies-filter-${cl}`)
     );
     if (target.value !== "") {
-      console.log(target.value);
       apiContainer.classList.add(`api-applies-filter-${target.value}`);
     }
 
