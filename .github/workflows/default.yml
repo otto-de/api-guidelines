@@ -3,9 +3,21 @@ name: 'Build, Test, Lint'
   push:
     branches:
       - master
-  pull_request: null
+    paths-ignore:
+      - .bulldozer.yml
+      - .policy.yml
+      - .versionrc
+      - LICENSE
+      - .github/gitty.yml
+      - .github/stale.yml
+      - .github/settings.yml
+      - .github/pr-labeler.yml
+      - .github/dependabot.yml
+      - .github/workflows/issue-*.yml
+      - .github/workflows/pull-*.yml
+  pull_request: {}
 env:
-  GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
   TOOLBOX: $(npm bin)/toolbox
   RUN_PERSIST_DIST: false
   RUN_PERSIST_JSCPD: false
@@ -19,21 +31,27 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.2
+        id: checkout
+      - uses: actions/setup-node@v2.1.2
+        id: setup_node
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
+        id: setup_cache
         with:
           path: ~/.npm
           key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: '${{ runner.os }}-node-'
       - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
         run: npm ci
       - name: Build Sources
+        id: build
         run: npm run build
       - name: Persist dist
+        id: persist_dist
         if: '${{ env.RUN_PERSIST_DIST == ''true'' }}'
         uses: actions/upload-artifact@v2
         with:
@@ -60,81 +78,42 @@ jobs:
           --reporters default --reporters jest-junit
     steps:
       - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.2
+        id: checkout
+      - uses: actions/setup-node@v2.1.2
+        id: setup_node
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
+        id: setup_cache
         with:
           path: ~/.npm
           key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: '${{ runner.os }}-node-'
       - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
         run: npm ci
       - name: Run Custom Process before Specs
+        id: run_pre_specs
         if: '${{ env.RUN_PRE_SPECS != '''' }}'
         run: '${{ env.RUN_PRE_SPECS }}'
       - name: Execute Tests
+        id: specs
         env:
           NODE_ICU_DATA: '${{ env.TEST_ICU_DATA }}'
         run: '${{ env.SPECS_COMMANDLINE }}'
       - name: Persist coverage Results
+        id: persist_coverage
         uses: actions/upload-artifact@v2
         with:
           name: coverage
           path: '${{ github.workspace }}/tmp/coverage'
       - name: Persist Test Results
+        id: persist_test_results
         uses: actions/upload-artifact@v2
         with:
           name: spec-results
-          path: '${{ github.workspace }}/tmp/test-results'
-  integration:
-    if: '${{ false }}'
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 12.x
-          - 14.x
-      fail-fast: false
-    needs:
-      - build
-    env:
-      JEST_JUNIT_OUTPUT_DIR: tmp/test-results/jest
-      JEST_JUNIT_OUTPUT_NAME: results.xml
-      RUN_PRE_SPECS: ''
-      SPECS_COMMANDLINE: |
-        $(npm bin)/jest --colors -w 2 --ci --silent \
-          --reporters default --reporters jest-junit \
-          -c jest.config.integration.js
-    steps:
-      - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: '${{ matrix.node-version }}'
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install Npm Dependencies
-        run: npm ci
-      - name: Build Sources
-        run: npm run build
-      - name: Run Custom Process before Specs
-        if: '${{ env.RUN_PRE_SPECS != '''' }}'
-        run: '${{ env.RUN_PRE_SPECS }}'
-      - name: Execute Tests
-        env:
-          NODE_ICU_DATA: '${{ env.TEST_ICU_DATA }}'
-        run: '${{ env.SPECS_COMMANDLINE }}'
-      - name: Persist Test Results
-        uses: actions/upload-artifact@v2
-        with:
-          name: integration-results
           path: '${{ github.workspace }}/tmp/test-results'
   license:
     runs-on: ubuntu-latest
@@ -147,19 +126,24 @@ jobs:
       fail-fast: true
     steps:
       - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.2
+        id: checkout
+      - uses: actions/setup-node@v2.1.2
+        id: setup_node
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
+        id: setup_cache
         with:
           path: ~/.npm
           key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: '${{ runner.os }}-node-'
       - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
         run: npm ci
       - name: Check Dependency License Usage
+        id: check_license
         run: '${{ env.TOOLBOX }} chk lic'
   jscpd:
     continue-on-error: true
@@ -176,19 +160,24 @@ jobs:
       fail-fast: true
     steps:
       - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.2
+        id: checkout
+      - uses: actions/setup-node@v2.1.2
+        id: setup_node
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
+        id: setup_cache
         with:
           path: ~/.npm
           key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: '${{ runner.os }}-node-'
       - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
         run: npm ci
       - name: Run jscpd to collect code duplicates
+        id: jscpd
         run: |
           npx jscpd \
             --output tmp/jscpd \
@@ -196,6 +185,7 @@ jobs:
             --reporters console,html \
             --gitignore
       - name: Persist Jscpd Results
+        id: persist_jscpd
         if: '${{ env.RUN_PERSIST_JSCPD == ''true'' }}'
         uses: actions/upload-artifact@v2
         with:
@@ -216,27 +206,29 @@ jobs:
       fail-fast: true
     steps:
       - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.2
+        id: checkout
+      - uses: actions/setup-node@v2.1.2
+        id: setup_node
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
+        id: setup_cache
         with:
           path: ~/.npm
           key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: '${{ runner.os }}-node-'
       - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
         run: npm ci
       - name: Check dependencies for Vulnerabilities
+        id: npm_audit
         run: |
           npm set audit-level=high
           npm audit
   lint:
     runs-on: ubuntu-latest
-    if: >-
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      github.event.pull_request.user.login != 'dependabot-preview[bot]'
     needs:
       - build
     strategy:
@@ -245,42 +237,43 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.3
-      - uses: actions/download-artifact@v2
-        with:
-          path: '${{ github.workspace }}'
-      - name: 'Use Node.js ${{ matrix.node-version }}'
-        uses: actions/setup-node@v2.1.2
+      - uses: actions/checkout@v2.3.4
+        id: checkout
+      - uses: actions/setup-node@v2.1.2
+        id: setup_node
         with:
           node-version: '${{ matrix.node-version }}'
       - uses: actions/cache@v2
+        id: setup_cache
         with:
           path: ~/.npm
           key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
+          restore-keys: '${{ runner.os }}-node-'
       - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
         run: npm ci
-      - name: Execute Linter for Sources
+      - name: Lint Sources
+        id: lint
         run: 'npm run lint:src --silent'
-      - name: Execute Linter for Specs
+      - name: Lint Specs
         run: 'npm run lint:docs --silent'
-      - name: Persist tmp
-        uses: actions/upload-artifact@v2
-        with:
-          name: tmp
-          path: '${{ github.workspace }}/tmp'
-  trigger-develop:
+  dispatch_deploy:
     runs-on: ubuntu-latest
-    if: github.event.ref == 'refs/heads/master'
     needs:
       - specs
       - lint
       - license
+    if: github.event.ref == 'refs/heads/master'
+    env:
+      EVENT_TYPE: deploy
+      EVENT_PAYLOAD: '{"ref": "${{ github.head_ref }}", "sha": "${{ github.sha }}"}'
     steps:
-      - name: Dispatch Deploy Develop Event
+      - name: Dispatch Deploy Trigger Event
+        id: dispatch_event
         uses: peter-evans/repository-dispatch@v1
         with:
           token: '${{ secrets.TOKEN_GITHUB }}'
-          event-type: deploy
-          client-payload: '{"ref": "${{ github.head_ref }}", "sha": "${{ github.sha }}"}'
+          event-type: '${{ env.EVENT_TYPE }}'
+          client-payload: '${{ env.EVENT_PAYLOAD }}'

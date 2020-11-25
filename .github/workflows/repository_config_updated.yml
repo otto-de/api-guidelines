@@ -1,0 +1,22 @@
+name: Repository config Updated
+'on':
+  push:
+    branches:
+      - master
+    paths:
+      - ./github/gitty.yml
+jobs:
+  invoke-protecty:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch Event at Protecty
+        id: dispatch_event
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: '${{ secrets.TOKEN_GITHUB }}'
+          event-type: gitty-changed
+          repository: otto-ec/assets_protecty
+          client-payload: |-
+            { 
+              "repo": "${{ github.event.repository.name }}"
+            }

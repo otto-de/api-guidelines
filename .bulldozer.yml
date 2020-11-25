@@ -3,7 +3,8 @@ merge:
   trigger:
     labels:
       - 'pull: automerge'
-    branches: []
+    branches:
+      - master
   ignore:
     labels:
       - 'pull: not merge'
@@ -20,6 +21,8 @@ merge:
     - specs (12.x)
     - specs (14.x)
     - license (14.x)
+    - 'policy-bot: master'
+    - lint (14.x)
   delete_after_merge: true
 update:
   trigger:
