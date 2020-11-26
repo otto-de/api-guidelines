@@ -4,7 +4,7 @@ name: Repository config Updated
     branches:
       - master
     paths:
-      - ./github/gitty.yml
+      - .github/gitty.yml
 jobs:
   invoke-protecty:
     runs-on: ubuntu-latest

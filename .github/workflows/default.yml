@@ -13,8 +13,9 @@ name: 'Build, Test, Lint'
       - .github/settings.yml
       - .github/pr-labeler.yml
       - .github/dependabot.yml
-      - .github/workflows/issue-*.yml
-      - .github/workflows/pull-*.yml
+      - .github/workflows/issue_*.yml
+      - .github/workflows/pull_*.yml
+      - .github/workflows/repository_*.yml
   pull_request: {}
 env:
   GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
