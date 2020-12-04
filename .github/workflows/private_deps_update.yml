@@ -1,0 +1,38 @@
+name: Private Deps Update
+'on':
+  schedule:
+    - cron: 0 7 * * *
+  push:
+    branches:
+      - master
+    paths:
+      - package.json
+  repository_dispatch:
+    types:
+      - deps-update
+jobs:
+  package-update:
+    runs-on: ubuntu-latest
+    if: 'github.event.head_commit.author.username != ''dependabot[bot]'''
+    steps:
+      - uses: actions/checkout@v2.3.4
+        id: checkout
+      - name: Configure git credentials
+        id: gitconfig
+        uses: oleksiyrudenko/gha-git-credentials@v2
+        with:
+          token: '${{ secrets.GITHUB_TOKEN }}'
+      - name: Check for Dependency Updates
+        id: updater
+        env:
+          AUTHOR_EMAIL: fkt-assets-github@otto.de
+          AUTHOR_NAME: FKT-assets-github
+          EXECUTE: 'true'
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          LOG_LEVEL: debug
+          UPDATE_COMMAND: npx
+          PULL_REQUEST_TITLE: 'chore(deps-priv): bump private otto-ec packages'
+          BRANCH_PREFIX: deps-priv/
+        run: >-
+          npx actions-package-update npm-check-updates --packageFile
+          package.json --dep dev,prod -u -f /@otto-ec/ --loglevel verbose

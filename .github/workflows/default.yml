@@ -16,6 +16,7 @@ name: 'Build, Test, Lint'
       - .github/workflows/issue_*.yml
       - .github/workflows/pull_*.yml
       - .github/workflows/repository_*.yml
+      - .github/workflows/private_deps_*.yml
   pull_request: {}
 env:
   GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
