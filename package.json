@@ -53,9 +53,9 @@
   },
   "dependencies": {
     "@otto-ec/assets-debug": "^1.2.2",
-    "@otto-ec/bender": "^1.6.18",
+    "@otto-ec/bender": "^1.7.0",
     "@otto-ec/kestrel": "^3.3.13",
-    "@otto-ec/toolbox": "^1.18.1",
+    "@otto-ec/toolbox": "^1.19.0",
     "@otto-ec/toolbox-config-assets": "^1.26.0",
     "@rollup/plugin-typescript": "^8.0.0",
     "@types/jest": "^26.0.16",
