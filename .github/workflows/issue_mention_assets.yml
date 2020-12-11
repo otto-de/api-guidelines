@@ -5,6 +5,10 @@ name: Issue Mention Assets
       - opened
       - reopened
       - edited
+  issue_comment:
+    types:
+      - created
+      - edited
   pull_request:
     types:
       - opened
@@ -101,7 +105,7 @@ jobs:
           token: '${{ secrets.TOKEN_GITHUB }}'
           username: '${{ steps.mentions.outputs.mentions }}'
           teams: otto-ec/assets
-      - uses: alex-page/github-project-automation-plus@v0.3.0
+      - uses: alex-page/github-project-automation-plus@v0.5.0
         id: automation
         if: |-
           ${{ 
