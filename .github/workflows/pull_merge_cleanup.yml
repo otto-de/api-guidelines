@@ -1,0 +1,20 @@
+name: Pull Merge Cleanup
+'on':
+  schedule:
+    - cron: 0 10 * * *
+  repository_dispatch:
+    types:
+      - pulls-automerge
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pascalgn/automerge-action@v0.12.0
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          MERGE_LABELS: '!pull: not merge'
+          MERGE_METHOD: squash
+          MERGE_COMMIT_MESSAGE: pull-request-title-and-description
+          MERGE_DELETE_BRANCH: true
+          UPDATE_LABELS: '!pull: not update'
+          UPDATE_METHOD: rebase

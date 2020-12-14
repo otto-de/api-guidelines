@@ -93,7 +93,7 @@ jobs:
           ${{ 
             steps.mentions.outputs.mentions 
             && steps.mentions.outputs.mentions != ''
-            && !contains(steps.mentions.outputs.mentions, '@otto-ec/assets') 
+            && !contains(steps.mentions.outputs.mentions, 'otto-ec/assets') 
             && steps.isOnBoard.outputs.isOnBoard != 'true'
           }}
         env:
@@ -112,7 +112,7 @@ jobs:
             steps.isOnBoard.outputs.isOnBoard != 'true'
             && (
                 steps.isMember.outputs.ismember == 'true' 
-                || contains(steps.mentions.outputs.mentions, '@otto-ec/assets')
+                || contains(steps.mentions.outputs.mentions, 'otto-ec/assets')
               )
           }}
         env:
@@ -133,7 +133,7 @@ jobs:
             && (
               steps.isOnBoard.outputs.isOnBoard == 'true'
               || steps.isMember.outputs.ismember == 'true' 
-              || contains(steps.mentions.outputs.mentions, '@otto-ec/assets')
+              || contains(steps.mentions.outputs.mentions, 'otto-ec/assets')
             )
           }}
         env:

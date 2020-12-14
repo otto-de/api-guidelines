@@ -21,6 +21,8 @@ name: 'Build, Test, Lint'
 env:
   GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
   TOOLBOX: $(npm bin)/toolbox
+  RUN_PERSIST_TESTRESULTS: false
+  RUN_PERSIST_COVERAGE: false
   RUN_PERSIST_DIST: false
   RUN_PERSIST_JSCPD: false
 jobs:
@@ -106,12 +108,14 @@ jobs:
           NODE_ICU_DATA: '${{ env.TEST_ICU_DATA }}'
         run: '${{ env.SPECS_COMMANDLINE }}'
       - name: Persist coverage Results
+        if: '${{ env.RUN_PERSIST_COVERAGE == ''true'' }}'
         id: persist_coverage
         uses: actions/upload-artifact@v2
         with:
           name: coverage
           path: '${{ github.workspace }}/tmp/coverage'
       - name: Persist Test Results
+        if: '${{ env.RUN_PERSIST_TESTRESULTS == ''true'' }}'
         id: persist_test_results
         uses: actions/upload-artifact@v2
         with:

@@ -1,0 +1,33 @@
+name: Assigned Issue to Assets
+'on':
+  issues:
+    types:
+      - assigned
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.4
+        id: checker
+        if: '${{ !startsWith(github.event.repository.name, ''assets_'') }}'
+        with:
+          token: '${{ secrets.TOKEN_GITHUB }}'
+          username: '${{ github.event.assignee.login }}'
+          teams: otto-ec/assets
+      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.1
+        id: isOnBoard
+        if: '${{ startsWith(github.event.repository.name, ''assets_'') }}'
+        with:
+          token: '${{ secrets.TOKEN_GITHUB }}'
+          owner: '${{ github.repository_owner }}'
+          board: Team Assets
+          repo: '${{ github.event.repository.name }}'
+          number: '${{ github.event.issue.number }}'
+      - uses: alex-page/github-project-automation-plus@v0.5.0
+        if: >-
+          ${{ steps.checker.outputs.ismember ||
+          steps.isOnBoard.outputs.columnName == 'Pool' }}
+        with:
+          project: Team Assets
+          column: To do
+          repo-token: '${{ secrets.TOKEN_GITHUB }}'
