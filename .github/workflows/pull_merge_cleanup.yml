@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: pascalgn/automerge-action@v0.12.0
         env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
           MERGE_LABELS: '!pull: not merge'
           MERGE_METHOD: squash
           MERGE_COMMIT_MESSAGE: pull-request-title-and-description
