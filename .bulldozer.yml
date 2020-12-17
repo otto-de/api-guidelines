@@ -8,6 +8,7 @@ merge:
   ignore:
     labels:
       - 'pull: not merge'
+      - 'approval: waiting'
     comment_substrings:
       - '==DO_NOT_MERGE=='
   method: squash
