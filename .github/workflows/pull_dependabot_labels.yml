@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     if: 'startsWith(github.event.pull_request.user.login, ''dependabot'')'
     steps:
-      - uses: jurijzahn8019/action-dependabot-bump-range@v0.0.11
+      - uses: jurijzahn8019/action-dependabot-bump-range@v0.0.12
         id: checker
         with:
           token: '${{ secrets.GITHUB_TOKEN }}'
