@@ -16,5 +16,5 @@ jobs:
           MERGE_METHOD: squash
           MERGE_COMMIT_MESSAGE: pull-request-title-and-description
           MERGE_DELETE_BRANCH: true
-          UPDATE_LABELS: '!pull: not update'
+          MERGE_RETRIES: 2
           UPDATE_METHOD: rebase
