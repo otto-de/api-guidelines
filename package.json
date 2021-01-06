@@ -82,7 +82,7 @@
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.6",
     "reveal-md": "^4.3.0",
-    "rollup": "^2.35.1",
+    "rollup": "^2.36.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "sass": "^1.32.0",
     "table": "^6.0.7",
