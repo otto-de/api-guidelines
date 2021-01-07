@@ -80,7 +80,7 @@
     "markdownlint": "^0.22.0",
     "markdownlint-cli": "^0.26.0",
     "node-sass": "^5.0.0",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.7",
     "reveal-md": "^4.3.0",
     "rollup": "^2.36.1",
     "rollup-plugin-node-resolve": "^5.2.0",
