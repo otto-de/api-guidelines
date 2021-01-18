@@ -8,7 +8,7 @@ updates:
       timezone: Europe/Berlin
     open-pull-requests-limit: 10
     commit-message:
-      prefix: chore
+      prefix: npm
       include: scope
     labels:
       - 'dependabot :rocket:'
@@ -21,7 +21,7 @@ updates:
       timezone: Europe/Berlin
     open-pull-requests-limit: 10
     commit-message:
-      prefix: chore
+      prefix: actions
       include: scope
     labels:
       - 'dependabot :rocket:'

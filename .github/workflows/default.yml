@@ -1,4 +1,4 @@
-name: 'Build, Test, Lint'
+name: Build, Test, Lint
 'on':
   push:
     branches:
@@ -19,8 +19,10 @@ name: 'Build, Test, Lint'
       - .github/workflows/private_deps_*.yml
   pull_request: {}
 env:
-  GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
+  RUN_COMPILE: true
+  COMPILE_COMMAND: $(npm bin)/tsc --noEmit
   RUN_PERSIST_TESTRESULTS: false
   RUN_PERSIST_COVERAGE: false
   RUN_PERSIST_DIST: false
@@ -39,28 +41,32 @@ jobs:
       - uses: actions/setup-node@v2.1.4
         id: setup_node
         with:
-          node-version: '${{ matrix.node-version }}'
+          node-version: ${{ matrix.node-version }}
       - uses: actions/cache@v2
         id: setup_cache
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: '${{ runner.os }}-node-'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: Install Npm Dependencies
         id: npm_install
         env:
-          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
-      - name: Build Sources
+      - name: Compile sources with typescript
+        id: compile
+        if: ${{ env.RUN_COMPILE == 'true' }}
+        run: ${{ env.COMPILE_COMMAND }}
+      - name: Build sources with npm script
         id: build
         run: npm run build
       - name: Persist dist
         id: persist_dist
-        if: '${{ env.RUN_PERSIST_DIST == ''true'' }}'
+        if: ${{ env.RUN_PERSIST_DIST == 'true' }}
         uses: actions/upload-artifact@v2
         with:
           name: dist
-          path: '${{ github.workspace }}/dist'
+          path: ${{ github.workspace }}/dist
   specs:
     runs-on: ubuntu-latest
     strategy:
@@ -86,41 +92,41 @@ jobs:
       - uses: actions/setup-node@v2.1.4
         id: setup_node
         with:
-          node-version: '${{ matrix.node-version }}'
+          node-version: ${{ matrix.node-version }}
       - uses: actions/cache@v2
         id: setup_cache
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: '${{ runner.os }}-node-'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: Install Npm Dependencies
         id: npm_install
         env:
-          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Run Custom Process before Specs
         id: run_pre_specs
-        if: '${{ env.RUN_PRE_SPECS != '''' }}'
-        run: '${{ env.RUN_PRE_SPECS }}'
+        if: ${{ env.RUN_PRE_SPECS != '' }}
+        run: ${{ env.RUN_PRE_SPECS }}
       - name: Execute Tests
         id: specs
         env:
-          NODE_ICU_DATA: '${{ env.TEST_ICU_DATA }}'
-        run: '${{ env.SPECS_COMMANDLINE }}'
+          NODE_ICU_DATA: ${{ env.TEST_ICU_DATA }}
+        run: ${{ env.SPECS_COMMANDLINE }}
       - name: Persist coverage Results
-        if: '${{ env.RUN_PERSIST_COVERAGE == ''true'' }}'
+        if: ${{ env.RUN_PERSIST_COVERAGE == 'true' }}
         id: persist_coverage
         uses: actions/upload-artifact@v2
         with:
           name: coverage
-          path: '${{ github.workspace }}/tmp/coverage'
+          path: ${{ github.workspace }}/tmp/coverage
       - name: Persist Test Results
-        if: '${{ env.RUN_PERSIST_TESTRESULTS == ''true'' }}'
+        if: ${{ env.RUN_PERSIST_TESTRESULTS == 'true' }}
         id: persist_test_results
         uses: actions/upload-artifact@v2
         with:
           name: spec-results
-          path: '${{ github.workspace }}/tmp/test-results'
+          path: ${{ github.workspace }}/tmp/test-results
   license:
     runs-on: ubuntu-latest
     needs:
@@ -136,21 +142,21 @@ jobs:
       - uses: actions/setup-node@v2.1.4
         id: setup_node
         with:
-          node-version: '${{ matrix.node-version }}'
+          node-version: ${{ matrix.node-version }}
       - uses: actions/cache@v2
         id: setup_cache
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: '${{ runner.os }}-node-'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: Install Npm Dependencies
         id: npm_install
         env:
-          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Check Dependency License Usage
         id: check_license
-        run: '${{ env.TOOLBOX }} chk lic'
+        run: ${{ env.TOOLBOX }} chk lic
   jscpd:
     continue-on-error: true
     if: >-
@@ -170,17 +176,17 @@ jobs:
       - uses: actions/setup-node@v2.1.4
         id: setup_node
         with:
-          node-version: '${{ matrix.node-version }}'
+          node-version: ${{ matrix.node-version }}
       - uses: actions/cache@v2
         id: setup_cache
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: '${{ runner.os }}-node-'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: Install Npm Dependencies
         id: npm_install
         env:
-          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Run jscpd to collect code duplicates
         id: jscpd
@@ -192,11 +198,11 @@ jobs:
             --gitignore
       - name: Persist Jscpd Results
         id: persist_jscpd
-        if: '${{ env.RUN_PERSIST_JSCPD == ''true'' }}'
+        if: ${{ env.RUN_PERSIST_JSCPD == 'true' }}
         uses: actions/upload-artifact@v2
         with:
           name: jscpd
-          path: '${{ github.workspace }}/tmp/jscpd'
+          path: ${{ github.workspace }}/tmp/jscpd
   audit:
     continue-on-error: true
     if: >-
@@ -216,17 +222,17 @@ jobs:
       - uses: actions/setup-node@v2.1.4
         id: setup_node
         with:
-          node-version: '${{ matrix.node-version }}'
+          node-version: ${{ matrix.node-version }}
       - uses: actions/cache@v2
         id: setup_cache
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: '${{ runner.os }}-node-'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: Install Npm Dependencies
         id: npm_install
         env:
-          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Check dependencies for Vulnerabilities
         id: npm_audit
@@ -248,23 +254,23 @@ jobs:
       - uses: actions/setup-node@v2.1.4
         id: setup_node
         with:
-          node-version: '${{ matrix.node-version }}'
+          node-version: ${{ matrix.node-version }}
       - uses: actions/cache@v2
         id: setup_cache
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: '${{ runner.os }}-node-'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
       - name: Install Npm Dependencies
         id: npm_install
         env:
-          GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Lint Sources
         id: lint
-        run: 'npm run lint:src --silent'
+        run: npm run lint:src --silent
       - name: Lint Specs
-        run: 'npm run lint:docs --silent'
+        run: npm run lint:docs --silent
   dispatch_deploy:
     runs-on: ubuntu-latest
     needs:
@@ -280,6 +286,6 @@ jobs:
         id: dispatch_event
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: '${{ secrets.TOKEN_GITHUB }}'
-          event-type: '${{ env.EVENT_TYPE }}'
-          client-payload: '${{ env.EVENT_PAYLOAD }}'
+          token: ${{ secrets.TOKEN_GITHUB }}
+          event-type: ${{ env.EVENT_TYPE }}
+          client-payload: ${{ env.EVENT_PAYLOAD }}
