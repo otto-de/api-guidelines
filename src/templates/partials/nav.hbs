@@ -18,17 +18,20 @@
 {{#each children}}
 
 
-  {{#if sideNav}}
-  <li class="uk-parent">
-    <a href="#{{index.nav.id}}">{{{name}}}</a>
-    <ul class="uk-nav-sub">
+{{#if sideNav}}
+<li class="uk-parent">
+  <a href="#{{index.nav.id}}">{{{name}}}</a>
+  <ul class="uk-nav-sub">
     {{#each sideNav}}<li><a href="#{{nav.id}}">{{{nav.text}}}</a></li>{{/each}}
-    </ul>
-  </li>
-  {{else}}
-  <li><a href="#{{index.nav.id}}">{{{name}}}</a></li>
-  {{/if}}
+  </ul>
+</li>
+{{else}}
+<li><a href="#{{index.nav.id}}">{{{name}}}</a></li>
+{{/if}}
 
 {{/each}}
 
 {{/each}}
+
+<li class="uk-nav-header">Legal</li>
+<li><a href="https://www.otto.de/impressum" target="_blank">Imprint</a></li>
