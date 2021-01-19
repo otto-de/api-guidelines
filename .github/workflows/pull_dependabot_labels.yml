@@ -13,20 +13,20 @@ name: Label Dependabot PR
 jobs:
   labels:
     runs-on: ubuntu-latest
-    if: 'startsWith(github.event.pull_request.user.login, ''dependabot'')'
+    if: startsWith(github.event.pull_request.user.login, 'dependabot')
     steps:
-      - uses: jurijzahn8019/action-dependabot-bump-range@v0.0.15
+      - uses: jurijzahn8019/action-dependabot-bump-range@v0.0.16
         id: checker
         with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Add Pull Request Label for Major Updates
         uses: actions-ecosystem/action-add-labels@v1
         if: steps.checker.outputs.diff == 'major'
         with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: 'pull: not merge'
       - name: Add Pull Request Label for Version Diff
         uses: actions-ecosystem/action-add-labels@v1
         with:
-          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: 'dependency: ${{ steps.checker.outputs.diff }}'

@@ -10,7 +10,7 @@ jobs:
     name: Semantic PR
     runs-on: ubuntu-latest
     steps:
-      - uses: amannn/action-semantic-pull-request@v2.2.0
+      - uses: amannn/action-semantic-pull-request@v3.2.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -23,5 +23,7 @@ jobs:
             refactor
             revert
             test
+            npm
+            actions
           requireScope: true
-          subjectPattern: ^[a-z]+(\([a-z,*]+\))?:\s[^A-Z]+$
+          subjectPattern: ^[^A-Z]+$
