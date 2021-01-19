@@ -219,7 +219,7 @@ export class Parser {
    */
   public processFrontMatter(): FrontMatter {
     const fm = this.tokens.find((t) => t.type === "front_matter")?.meta;
-    const res: FrontMatter = fm ? load(fm) : this.frontMatter;
+    const res = fm ? (load(fm) as FrontMatter) : this.frontMatter;
     if (Parser.isRule(res)) {
       if (!res.appliesTo) {
         res.appliesTo = ["server"];
