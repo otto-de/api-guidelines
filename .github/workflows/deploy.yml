@@ -9,9 +9,9 @@ name: Deploy Terraform
       - deploy
 env:
   NODE_VER: 14.x
-  GITHUB_TOKEN: '${{ secrets.TOKEN_GITHUB }}'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
-  APK_PACKAGES: jq nodejs npm
+  TF_PLUGIN_CACHE_DIR: ${{ github.workspace }}/.terraform.d/plugin-cache
   RUN_PRE_DEPLOY: ''
   RUN_POST_DEPLOY: ''
   RUN_TF_DEPLOY: false
@@ -22,136 +22,182 @@ env:
 jobs:
   develop:
     runs-on: ubuntu-latest
-    container: 'hashicorp/terraform:latest'
     strategy:
       matrix:
         target:
           - develop
       fail-fast: false
     env:
-      TB_DR: '${{ matrix.dr }}'
-      TB_ENVIRONMENT: '${{ matrix.target }}'
+      TB_DR: ${{ matrix.dr }}
+      TB_ENVIRONMENT: ${{ matrix.target }}
     steps:
-      - name: 'Install APK Packages: ${{ env.APK_PACKAGES }}'
-        run: 'apk add --no-progress ${{ env.APK_PACKAGES }}'
       - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ env.NODE_VER }}'
-        uses: actions/setup-node@v2.1.4
+        id: checkout
+      - uses: actions/setup-node@v2.1.4
+        id: setup_node
         with:
-          node-version: '${{ env.NODE_VER }}'
-      - name: Setup Npm Cache
+          node-version: ${{ matrix.node-version }}
+      - name: setup cache for node
         uses: actions/cache@v2
+        id: setup_cache_node
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install Package Dependencies
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14
+      - name: setup cache for terraform
+        uses: actions/cache@v2
+        id: setup_cache_terraform
+        with:
+          path: ${{ env.TF_PLUGIN_CACHE_DIR }}
+          key: >-
+            ${{ runner.os }}-terraform-${{ hashFiles('**/.terraform.lock.hcl')
+            }}
+          restore-keys: ${{ runner.os }}-terraform-
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Build Sources
+        id: build
         run: npm run build
       - name: Configure AWS Credentials
+        id: aws_credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
-          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
       - name: Run Custom Process before Deployment
-        if: '${{ env.RUN_PRE_DEPLOY != '''' }}'
-        run: '${{ env.RUN_PRE_DEPLOY }}'
+        id: run_pre_deploy
+        if: ${{ env.RUN_PRE_DEPLOY != '' }}
+        run: ${{ env.RUN_PRE_DEPLOY }}
       - name: Apply Terraform Stacks
-        if: '${{ env.RUN_TF_DEPLOY == ''true'' }}'
+        id: terraform_apply
+        if: ${{ env.RUN_TF_DEPLOY == 'true' }}
         run: |
           echo "Deploy to: $TB_ENVIRONMENT"
           ${{ env.TOOLBOX }} terraform apply --plan
       - name: Execute toolbox s3 upload
-        if: '${{ env.RUN_S3_UPLOAD == ''true'' }}'
-        run: '${{ env.TOOLBOX }} s3 upload'
+        id: s3_upload
+        if: ${{ env.RUN_S3_UPLOAD == 'true' }}
+        run: ${{ env.TOOLBOX }} s3 upload
       - name: Invalidate Cloudfront Distribution
-        if: '${{ env.RUN_CF_INVALIDATE == ''true'' }}'
-        run: '${{ env.TOOLBOX }} cloudfront invalidate'
+        id: cf_invalidate
+        if: ${{ env.RUN_CF_INVALIDATE == 'true' }}
+        run: ${{ env.TOOLBOX }} cloudfront invalidate
       - name: Run Custom Process after Deployment
-        if: '${{ env.RUN_POST_DEPLOY != '''' }}'
-        run: '${{ env.RUN_POST_DEPLOY }}'
+        id: run_post_deploy
+        if: ${{ env.RUN_POST_DEPLOY != '' }}
+        run: ${{ env.RUN_POST_DEPLOY }}
       - name: Register Healthcheck
-        if: '${{ env.RUN_HEALTHCHECK == ''true'' }}'
+        id: register_healthcheck
+        if: ${{ env.RUN_HEALTHCHECK == 'true' }}
         run: |
           echo https://dashboard.live.spoc.cloud.otto.de/dashboard
           ${{ env.TOOLBOX }} healthcheck register
       - name: Report Deployment
-        if: '${{ env.RUN_DEPLOYMENT_REPORT == ''true'' }}'
+        id: deployment_report
+        if: ${{ env.RUN_DEPLOYMENT_REPORT == 'true' }}
         run: |
           echo "https://deployment-report.live.qs.cloud.otto.de/ui/index.html"
           ${{ env.TOOLBOX }} deployment-report send
       - name: Destroy Deployment Admin
-        if: '${{ env.RUN_TF_DEPLOY == ''true'' && always() }}'
-        run: '${{ env.TOOLBOX }} terraform destroy -g admin'
+        id: terraform_destroy
+        if: ${{ env.RUN_TF_DEPLOY == 'true' && always() }}
+        run: ${{ env.TOOLBOX }} terraform destroy -g admin
   live:
     needs:
       - develop
     if: '!!github.event.release && !github.event.release.prerelease'
     runs-on: ubuntu-latest
-    container: 'hashicorp/terraform:latest'
     strategy:
       matrix:
         target:
           - live
       fail-fast: false
     env:
-      TB_DR: '${{ matrix.dr }}'
-      TB_ENVIRONMENT: '${{ matrix.target }}'
+      TB_DR: ${{ matrix.dr }}
+      TB_ENVIRONMENT: ${{ matrix.target }}
     steps:
-      - name: 'Install APK Packages: ${{ env.APK_PACKAGES }}'
-        run: 'apk add --no-progress ${{ env.APK_PACKAGES }}'
       - uses: actions/checkout@v2.3.4
-      - name: 'Use Node.js ${{ env.NODE_VER }}'
-        uses: actions/setup-node@v2.1.4
+        id: checkout
+      - uses: actions/setup-node@v2.1.4
+        id: setup_node
         with:
-          node-version: '${{ env.NODE_VER }}'
-      - name: Setup Npm Cache
+          node-version: ${{ matrix.node-version }}
+      - name: setup cache for node
         uses: actions/cache@v2
+        id: setup_cache_node
         with:
           path: ~/.npm
-          key: '${{ runner.os }}-node-${{ hashFiles(''**/package-lock.json'') }}'
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install Package Dependencies
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14
+      - name: setup cache for terraform
+        uses: actions/cache@v2
+        id: setup_cache_terraform
+        with:
+          path: ${{ env.TF_PLUGIN_CACHE_DIR }}
+          key: >-
+            ${{ runner.os }}-terraform-${{ hashFiles('**/.terraform.lock.hcl')
+            }}
+          restore-keys: ${{ runner.os }}-terraform-
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Build Sources
+        id: build
         run: npm run build
       - name: Configure AWS Credentials
+        id: aws_credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: '${{ secrets.AWS_ACCESS_KEY_ID }}'
-          aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
       - name: Run Custom Process before Deployment
-        if: '${{ env.RUN_PRE_DEPLOY != '''' }}'
-        run: '${{ env.RUN_PRE_DEPLOY }}'
+        id: run_pre_deploy
+        if: ${{ env.RUN_PRE_DEPLOY != '' }}
+        run: ${{ env.RUN_PRE_DEPLOY }}
       - name: Apply Terraform Stacks
-        if: '${{ env.RUN_TF_DEPLOY == ''true'' }}'
+        id: terraform_apply
+        if: ${{ env.RUN_TF_DEPLOY == 'true' }}
         run: |
           echo "Deploy to: $TB_ENVIRONMENT"
           ${{ env.TOOLBOX }} terraform apply --plan
       - name: Execute toolbox s3 upload
-        if: '${{ env.RUN_S3_UPLOAD == ''true'' }}'
-        run: '${{ env.TOOLBOX }} s3 upload'
+        id: s3_upload
+        if: ${{ env.RUN_S3_UPLOAD == 'true' }}
+        run: ${{ env.TOOLBOX }} s3 upload
       - name: Invalidate Cloudfront Distribution
-        if: '${{ env.RUN_CF_INVALIDATE == ''true'' }}'
-        run: '${{ env.TOOLBOX }} cloudfront invalidate'
+        id: cf_invalidate
+        if: ${{ env.RUN_CF_INVALIDATE == 'true' }}
+        run: ${{ env.TOOLBOX }} cloudfront invalidate
       - name: Run Custom Process after Deployment
-        if: '${{ env.RUN_POST_DEPLOY != '''' }}'
-        run: '${{ env.RUN_POST_DEPLOY }}'
+        id: run_post_deploy
+        if: ${{ env.RUN_POST_DEPLOY != '' }}
+        run: ${{ env.RUN_POST_DEPLOY }}
       - name: Register Healthcheck
-        if: '${{ env.RUN_HEALTHCHECK == ''true'' }}'
+        id: register_healthcheck
+        if: ${{ env.RUN_HEALTHCHECK == 'true' }}
         run: |
           echo https://dashboard.live.spoc.cloud.otto.de/dashboard
           ${{ env.TOOLBOX }} healthcheck register
       - name: Report Deployment
-        if: '${{ env.RUN_DEPLOYMENT_REPORT == ''true'' }}'
+        id: deployment_report
+        if: ${{ env.RUN_DEPLOYMENT_REPORT == 'true' }}
         run: |
           echo "https://deployment-report.live.qs.cloud.otto.de/ui/index.html"
           ${{ env.TOOLBOX }} deployment-report send
       - name: Destroy Deployment Admin
-        if: '${{ env.RUN_TF_DEPLOY == ''true'' && always() }}'
-        run: '${{ env.TOOLBOX }} terraform destroy -g admin'
+        id: terraform_destroy
+        if: ${{ env.RUN_TF_DEPLOY == 'true' && always() }}
+        run: ${{ env.TOOLBOX }} terraform destroy -g admin
