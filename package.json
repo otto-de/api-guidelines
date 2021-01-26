@@ -55,7 +55,7 @@
     "@otto-ec/assets-debug": "^1.2.2",
     "@otto-ec/bender": "^1.10.0",
     "@otto-ec/kestrel": "^3.4.0",
-    "@otto-ec/toolbox": "^1.19.2",
+    "@otto-ec/toolbox": "^1.20.0",
     "@otto-ec/toolbox-config-assets": "^1.26.0",
     "@rollup/plugin-typescript": "^8.1.0",
     "@types/jest": "^26.0.20",
