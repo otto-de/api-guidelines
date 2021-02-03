@@ -18,12 +18,12 @@ merge:
       body: pull_request_body
   required_statuses:
     - Semantic PR
-    - build (14.x)
-    - specs (12.x)
-    - specs (14.x)
-    - license (14.x)
+    - build-complete
+    - specs-complete
+    - license-complete
     - 'policy-bot: master'
     - lint (14.x)
+    - terraform-plan
   delete_after_merge: true
 update:
   trigger:

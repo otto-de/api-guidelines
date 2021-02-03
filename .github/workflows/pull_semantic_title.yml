@@ -25,5 +25,6 @@ jobs:
             test
             npm
             actions
+            terraform
           requireScope: true
           subjectPattern: ^[^A-Z]+$

@@ -17,6 +17,7 @@ name: Build, Test, Lint
       - .github/workflows/pull_*.yml
       - .github/workflows/repository_*.yml
       - .github/workflows/private_deps_*.yml
+      - .github/workflows/tf_deps_*.yml
   pull_request: {}
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -27,7 +28,16 @@ env:
   RUN_PERSIST_COVERAGE: false
   RUN_PERSIST_DIST: false
   RUN_PERSIST_JSCPD: false
+  TF_PLUGIN_CACHE_DIR: ${{ github.workspace }}/.terraform.d/plugin-cache
+  TF_PLAN_STACK: deploy
 jobs:
+  build-complete:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - name: 🚀 all build jobs have been run successfully 🚀
+        run: echo 🎉🎉🎉
   build:
     runs-on: ubuntu-latest
     strategy:
@@ -67,6 +77,13 @@ jobs:
         with:
           name: dist
           path: ${{ github.workspace }}/dist
+  specs-complete:
+    runs-on: ubuntu-latest
+    needs:
+      - specs
+    steps:
+      - name: 🚀 all spec jobs have been run successfully 🚀
+        run: echo 🎉🎉🎉
   specs:
     runs-on: ubuntu-latest
     strategy:
@@ -76,7 +93,7 @@ jobs:
           - 14.x
       fail-fast: false
     needs:
-      - build
+      - build-complete
     env:
       JEST_JUNIT_OUTPUT_DIR: tmp/test-results/jest
       JEST_JUNIT_OUTPUT_NAME: results.xml
@@ -127,10 +144,17 @@ jobs:
         with:
           name: spec-results
           path: ${{ github.workspace }}/tmp/test-results
+  license-complete:
+    runs-on: ubuntu-latest
+    needs:
+      - license
+    steps:
+      - name: 🚀 all license jobs have been run successfully 🚀
+        run: echo 🎉🎉🎉
   license:
     runs-on: ubuntu-latest
     needs:
-      - build
+      - build-complete
     strategy:
       matrix:
         node-version:
@@ -164,7 +188,7 @@ jobs:
       github.event.pull_request.user.login != 'dependabot-preview[bot]'
     runs-on: ubuntu-latest
     needs:
-      - build
+      - build-complete
     strategy:
       matrix:
         node-version:
@@ -210,7 +234,7 @@ jobs:
       github.event.pull_request.user.login != 'dependabot-preview[bot]'
     runs-on: ubuntu-latest
     needs:
-      - build
+      - build-complete
     strategy:
       matrix:
         node-version:
@@ -242,7 +266,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     needs:
-      - build
+      - build-complete
     strategy:
       matrix:
         node-version:
@@ -289,3 +313,50 @@ jobs:
           token: ${{ secrets.TOKEN_GITHUB }}
           event-type: ${{ env.EVENT_TYPE }}
           client-payload: ${{ env.EVENT_PAYLOAD }}
+  terraform-plan:
+    runs-on: ubuntu-latest
+    env:
+      TB_ENVIRONMENT: develop
+    needs:
+      - build-complete
+    steps:
+      - uses: actions/checkout@v2.3.4
+        id: checkout
+      - uses: actions/setup-node@v2.1.4
+        id: setup_node
+        with:
+          node-version: 14.x
+      - name: setup cache for node
+        uses: actions/cache@v2
+        id: setup_cache_node
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14
+      - name: setup cache for terraform
+        uses: actions/cache@v2
+        id: setup_cache_terraform
+        with:
+          path: ${{ env.TF_PLUGIN_CACHE_DIR }}
+          key: >-
+            ${{ runner.os }}-terraform-${{ hashFiles('**/.terraform.lock.hcl')
+            }}
+          restore-keys: ${{ runner.os }}-terraform-
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Configure AWS Credentials
+        id: aws_credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+      - name: Plan Terraform Stack for ${{ env.TF_PLAN_STACK }}
+        id: terraform_plan
+        run: ${{ env.TOOLBOX }} terraform plan ${{ env.TF_PLAN_STACK }}
