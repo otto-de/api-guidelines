@@ -298,9 +298,9 @@ jobs:
   dispatch_deploy:
     runs-on: ubuntu-latest
     needs:
-      - specs
+      - specs-complete
       - lint
-      - license
+      - license-complete
     if: github.event.ref == 'refs/heads/master'
     env:
       EVENT_TYPE: deploy
