@@ -350,6 +350,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
+      - name: Build sources with npm script
+        id: build
+        run: npm run build
       - name: Configure AWS Credentials
         id: aws_credentials
         uses: aws-actions/configure-aws-credentials@v1
