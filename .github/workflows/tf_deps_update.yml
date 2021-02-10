@@ -38,7 +38,7 @@ jobs:
         run: npm ci
       - name: Configure git credentials
         id: credentials
-        uses: oleksiyrudenko/gha-git-credentials@v2
+        uses: oleksiyrudenko/gha-git-credentials@v2.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure AWS Credentials

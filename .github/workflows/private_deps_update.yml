@@ -24,7 +24,7 @@ jobs:
         run: git fetch --prune --unshallow --tags
       - name: Configure git credentials
         id: credentials
-        uses: oleksiyrudenko/gha-git-credentials@v2
+        uses: oleksiyrudenko/gha-git-credentials@v2.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check for Dependency Updates
