@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
-      - uses: actions/setup-node@v2.1.4
+      - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -125,7 +125,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
-      - uses: actions/setup-node@v2.1.4
+      - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
