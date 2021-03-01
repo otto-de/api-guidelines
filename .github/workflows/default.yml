@@ -305,7 +305,7 @@ jobs:
     env:
       EVENT_TYPE: deploy
       EVENT_PAYLOAD: '{"ref": "${{ github.head_ref }}", "sha": "${{ github.sha }}"}'
-      EVENT_REPO: ''
+      EVENT_REPO: ${{ github.repository }}
     steps:
       - name: Dispatch Deploy Trigger Event
         id: dispatch_event
