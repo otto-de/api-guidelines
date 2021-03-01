@@ -63,13 +63,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
+      - name: Build sources with npm script
+        id: build
+        run: npm run build
       - name: Compile sources with typescript
         id: compile
         if: ${{ env.RUN_COMPILE == 'true' }}
         run: ${{ env.COMPILE_COMMAND }}
-      - name: Build sources with npm script
-        id: build
-        run: npm run build
       - name: Persist dist
         id: persist_dist
         if: ${{ env.RUN_PERSIST_DIST == 'true' }}
@@ -305,6 +305,7 @@ jobs:
     env:
       EVENT_TYPE: deploy
       EVENT_PAYLOAD: '{"ref": "${{ github.head_ref }}", "sha": "${{ github.sha }}"}'
+      EVENT_REPO: ''
     steps:
       - name: Dispatch Deploy Trigger Event
         id: dispatch_event
@@ -313,6 +314,7 @@ jobs:
           token: ${{ secrets.TOKEN_GITHUB }}
           event-type: ${{ env.EVENT_TYPE }}
           client-payload: ${{ env.EVENT_PAYLOAD }}
+          repository: ${{ env.EVENT_REPO }}
   terraform-plan:
     runs-on: ubuntu-latest
     env:

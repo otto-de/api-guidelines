@@ -36,7 +36,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.NODE_VER }}
       - name: setup cache for node
         uses: actions/cache@v2.1.4
         id: setup_cache_node
@@ -128,7 +128,7 @@ jobs:
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.NODE_VER }}
       - name: setup cache for node
         uses: actions/cache@v2.1.4
         id: setup_cache_node

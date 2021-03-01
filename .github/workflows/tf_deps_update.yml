@@ -6,6 +6,7 @@ name: Terraform Deps Update
     types:
       - deps-update
 env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
 jobs:
   terraform-update:
@@ -48,6 +49,10 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
+      - name: Run Custom Process before Deployment
+        id: run_pre_deploy
+        if: ${{ env.RUN_PRE_DEPLOY != '' }}
+        run: ${{ env.RUN_PRE_DEPLOY }}
       - name: Run Terraform Upgrade
         id: updater
         env:

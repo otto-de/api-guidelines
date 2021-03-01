@@ -9,25 +9,25 @@ jobs:
     steps:
       - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.8
         id: checker
-        if: '${{ !startsWith(github.event.repository.name, ''assets_'') }}'
+        if: ${{ !startsWith(github.event.repository.name, 'assets_') }}
         with:
-          token: '${{ secrets.TOKEN_GITHUB }}'
-          username: '${{ github.event.assignee.login }}'
+          token: ${{ secrets.TOKEN_GITHUB }}
+          username: ${{ github.event.assignee.login }}
           teams: otto-ec/assets
       - uses: jurijzahn8019/action-is-issue-on-board@v0.0.6
         id: isOnBoard
-        if: '${{ startsWith(github.event.repository.name, ''assets_'') }}'
+        if: ${{ startsWith(github.event.repository.name, 'assets_') }}
         with:
-          token: '${{ secrets.TOKEN_GITHUB }}'
-          owner: '${{ github.repository_owner }}'
+          token: ${{ secrets.TOKEN_GITHUB }}
+          owner: ${{ github.repository_owner }}
           board: Team Assets
-          repo: '${{ github.event.repository.name }}'
-          number: '${{ github.event.issue.number }}'
+          repo: ${{ github.event.repository.name }}
+          number: ${{ github.event.issue.number }}
       - uses: alex-page/github-project-automation-plus@v0.5.1
         if: >-
-          ${{ steps.checker.outputs.ismember ||
+          ${{ steps.checker.outputs.ismember == 'true' &&
           steps.isOnBoard.outputs.columnName == 'Pool' }}
         with:
           project: Team Assets
           column: To do
-          repo-token: '${{ secrets.TOKEN_GITHUB }}'
+          repo-token: ${{ secrets.TOKEN_GITHUB }}
