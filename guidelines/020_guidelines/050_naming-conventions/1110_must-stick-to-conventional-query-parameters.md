@@ -9,20 +9,24 @@ To provide clients with a consistent API, the following query parameters must be
 
 ||| accordion Paging { begin }
 
+::: warning
+This rule applies to public APIs. For private APIs it should be followed.
+:::
+
 | name       | description                        | values | example         |
 | :--------- | :--------------------------------- | :----- | :-------------- |
 | `pageSize` | Number of elements in the response | `1..`  | `?pageSize=10`  |
 | `page`     | Page number (0-indexed)            | `0..`  | `?page=2`       |
 | `after`    | Results after the cursor position  | \*     | `?after=e2e3c`  |
 | `before`   | Results before the cursor position | \*     | `?before=129fa` |
-|||
+|            |                                    |
 
 ||| accordion Sorting
 
-| name   | description                                                                                                                                                                                                         | values                 | example                 |
-| :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------- | :---------------------- |
-| `sort` | Property to sort by with optional ordering. Can be provided multiple times to sort by multiple properties. Naming should correspond to JSON field names with dot-navigation if necessary (e.g. `price.grossValue`). | `<field>[:(asc|desc)]` | `?sort=price:desc,name` |
-|||
+| name   | description                                                                                                                                                                                                         | values         | example |
+| :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------- | :------ | ----------------------- |
+| `sort` | Property to sort by with optional ordering. Can be provided multiple times to sort by multiple properties. Naming should correspond to JSON field names with dot-navigation if necessary (e.g. `price.grossValue`). | `<field>[:(asc | desc)]` | `?sort=price:desc,name` |
+|        |                                                                                                                                                                                                                     |
 
 ||| accordion Querying
 
@@ -57,4 +61,4 @@ Examples:
 - Do not embed anything: `?embed=()`
 - Embed products into the response: `?embed=(o:product)`
 - Embed all products and for every product also embed its variations: `?embed=(o:product, o:product(o:variation))`
-|||
+  |||

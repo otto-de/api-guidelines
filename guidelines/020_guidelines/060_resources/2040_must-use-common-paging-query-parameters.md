@@ -5,6 +5,10 @@ id: R100024
 
 # use common paging query parameters
 
+::: warning
+This rule applies to public APIs. For private APIs it should be followed.
+:::
+
 For offset-based pagination you must stick to the following query parameters:
 
 - `pageSize`: Number of elements in the response or the chunk size
