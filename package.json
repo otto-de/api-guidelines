@@ -78,7 +78,7 @@
     "markdown-it-front-matter": "^0.2.3",
     "markdown-it-highlightjs": "^3.4.0",
     "markdownlint": "^0.23.1",
-    "markdownlint-cli": "^0.26.0",
+    "markdownlint-cli": "^0.27.1",
     "node-sass": "^5.0.0",
     "nodemon": "^2.0.7",
     "reveal-md": "^4.3.0",
