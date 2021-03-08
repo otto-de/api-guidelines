@@ -14,21 +14,21 @@ Request methods in RESTful services can be:
   In general, requests to safe methods are cacheable, if no current or authoritative response from the server is required.
 
 ::: info
-The above definitions, of _intended (side) effect_ allows the server to provide additional state changing behavior as logging, accounting, rate-limiting, metrics collecting, pre-fetching, etc.
-However, these actual effects and state changes, must not be intended by the operation so that it can be held accountable.
+Requests can result in numerous server actions such as logging, accounting, collecting metrics, pre-fetching, etc. Clients, however, cannot expect or be held accountable for these _side effects_. 
+Some server actions, such as rate limiting, may also cause a server-side stage change and produce a different response code as a result. This behavior would still allow the methods to be considered safe or idempotent.
 :::
 
 Method implementations must fulfill the following basic properties according to [RFC 7231](https://tools.ietf.org/html/rfc7231):
 
-| Method                | Safe | Idempotent | Cacheable |
-| --------------------- | ---- | ---------- | --------- |
-| `GET`                 | ✔    | ✔          | ✔         |
-| `HEAD`                | ✔    | ✔          | ✔         |
-| `POST`                | ✗    | ✗ [^1]     | ✗ [^2]    |
-| `PUT`                 | ✗    | ✔          | ✗         |
-| `PATCH`               | ✗    | ✗ [^3]     | ✗         |
-| `DELETE`              | ✗    | ✔          | ✗         |
-| `OPTIONS`             | ✔    | ✔          | ✗         |
+| Method    | Safe | Idempotent | Cacheable |
+| --------- | ---- | ---------- | --------- |
+| `GET`     | ✔    | ✔          | ✔         |
+| `HEAD`    | ✔    | ✔          | ✔         |
+| `POST`    | ✗    | ✗ [^1]     | ✗ [^2]    |
+| `PUT`     | ✗    | ✔          | ✗         |
+| `PATCH`   | ✗    | ✗ [^3]     | ✗         |
+| `DELETE`  | ✗    | ✔          | ✗         |
+| `OPTIONS` | ✔    | ✔          | ✗         |
 
 [^1]: No, but you [SHOULD consider to design `POST` and `PATCH` idempotent](./guidelines/020_guidelines/030_http/1030_should-consider-to-design-post-and-patch-idempotent.md).
 [^2]: May, but only if the specific `POST` endpoint is `safe`. `Note:`{ label } Not supported by most caches.
