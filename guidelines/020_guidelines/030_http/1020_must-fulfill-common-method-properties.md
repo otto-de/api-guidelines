@@ -14,8 +14,8 @@ Request methods in RESTful services can be:
   In general, requests to safe methods are cacheable, if no current or authoritative response from the server is required.
 
 ::: info
-Requests can result in numerous server actions such as logging, accounting, collecting metrics, pre-fetching, etc. Clients, however, cannot expect or be held accountable for these _side effects_. 
-Some server actions, such as rate limiting, may also cause a server-side stage change and produce a different response code as a result. This behavior would still allow the methods to be considered safe or idempotent.
+Requests can result in numerous server actions such as logging, accounting, collecting metrics, pre-fetching, etc. Clients, however, cannot expect or be held accountable for these _side effects_.
+Some server actions, such as rate limiting, may also cause a server-side state change and produce a different response code as a result. This behavior would still allow the methods to be considered safe or idempotent.
 :::
 
 Method implementations must fulfill the following basic properties according to [RFC 7231](https://tools.ietf.org/html/rfc7231):
