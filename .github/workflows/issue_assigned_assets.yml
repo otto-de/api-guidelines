@@ -7,14 +7,14 @@ jobs:
   process:
     runs-on: ubuntu-latest
     steps:
-      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.9
+      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.10
         id: checker
         if: ${{ !startsWith(github.event.repository.name, 'assets_') }}
         with:
           token: ${{ secrets.TOKEN_GITHUB }}
           username: ${{ github.event.assignee.login }}
           teams: otto-ec/assets
-      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.7
+      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.8
         id: isOnBoard
         if: ${{ startsWith(github.event.repository.name, 'assets_') }}
         with:
