@@ -9,7 +9,7 @@ id: R100026
 This rule applies to public APIs. For private APIs it is a recommendation.
 :::
 
-Provide links to navigate the result. Clients have to be able to navigate the collection without any additional knowledge. If the link is present, it has to point to a valid segment of the collection resource.
+Provide links to navigate the result. Clients must be able to navigate the collection without additional knowledge. If the link is present, it must point to a valid segment of the collection resource.
 The [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml) must be used whenever applicable.
 
 The most common ones are:
