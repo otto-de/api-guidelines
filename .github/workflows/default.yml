@@ -28,7 +28,6 @@ env:
   RUN_PERSIST_COVERAGE: false
   RUN_PERSIST_DIST: false
   RUN_PERSIST_JSCPD: false
-  TF_PLUGIN_CACHE_DIR: ${{ github.workspace }}/.terraform.d/plugin-cache
   TF_PLAN_STACK: deploy
 jobs:
   build-complete:
@@ -315,53 +314,3 @@ jobs:
           event-type: ${{ env.EVENT_TYPE }}
           client-payload: ${{ env.EVENT_PAYLOAD }}
           repository: ${{ env.EVENT_REPO }}
-  terraform-plan:
-    runs-on: ubuntu-latest
-    env:
-      TB_ENVIRONMENT: develop
-    needs:
-      - build-complete
-    steps:
-      - uses: actions/checkout@v2.3.4
-        id: checkout
-      - uses: actions/setup-node@v2.1.5
-        id: setup_node
-        with:
-          node-version: 14.x
-      - name: setup cache for node
-        uses: actions/cache@v2.1.5
-        id: setup_cache_node
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-      - uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 0.14
-      - name: setup cache for terraform
-        uses: actions/cache@v2.1.5
-        id: setup_cache_terraform
-        with:
-          path: ${{ env.TF_PLUGIN_CACHE_DIR }}
-          key: >-
-            ${{ runner.os }}-terraform-${{ hashFiles('**/.terraform.lock.hcl')
-            }}
-          restore-keys: ${{ runner.os }}-terraform-
-      - name: Install Npm Dependencies
-        id: npm_install
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci
-      - name: Build sources with npm script
-        id: build
-        run: npm run build
-      - name: Configure AWS Credentials
-        id: aws_credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-central-1
-      - name: Plan Terraform Stack for ${{ env.TF_PLAN_STACK }}
-        id: terraform_plan
-        run: ${{ env.TOOLBOX }} terraform plan ${{ env.TF_PLAN_STACK }}
