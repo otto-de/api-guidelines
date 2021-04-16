@@ -4,7 +4,7 @@ merge:
     labels:
       - 'pull: automerge'
     branches:
-      - master
+      - main
   ignore:
     labels:
       - 'pull: not merge'
@@ -21,7 +21,7 @@ merge:
     - build-complete
     - specs-complete
     - license-complete
-    - 'policy-bot: master'
+    - 'policy-bot: main'
     - lint (14.x)
     - terraform-plan
   delete_after_merge: true
@@ -30,7 +30,7 @@ update:
     labels:
       - 'pull: update'
     branches:
-      - master
+      - main
   ignore:
     labels:
       - 'pull: not update'

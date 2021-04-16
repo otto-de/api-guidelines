@@ -4,7 +4,7 @@ name: Private Deps Update
     - cron: 0 7 * * *
   push:
     branches:
-      - master
+      - main
     paths:
       - package.json
   repository_dispatch:

@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 14
       - name: setup cache for node
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         id: setup_cache_node
         with:
           path: ~/.npm

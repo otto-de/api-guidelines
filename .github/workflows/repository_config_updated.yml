@@ -2,7 +2,7 @@ name: Repository config Updated
 'on':
   push:
     branches:
-      - master
+      - main
     paths:
       - .github/gitty.yml
 jobs:
@@ -13,7 +13,7 @@ jobs:
         id: dispatch_event
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: '${{ secrets.TOKEN_GITHUB }}'
+          token: ${{ secrets.TOKEN_GITHUB }}
           event-type: gitty-changed
           repository: otto-ec/assets_protecty
           client-payload: |-
