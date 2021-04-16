@@ -57,6 +57,15 @@
       padding: 0;
     }
 
+    footer {
+      color: #c4c4c4;
+      font-size: 12px;
+
+      a[target="_blank"] {
+        color: lighten($global-link-color, 20%) !important;
+      }
+    }
+
     .hljs {
       padding: 1.5em;
     }
