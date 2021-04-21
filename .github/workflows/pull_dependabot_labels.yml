@@ -1,6 +1,6 @@
 name: Label Dependabot PR
 'on':
-  pull_request:
+  pull_request_target:
     types:
       - labeled
       - unlabeled
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.event.pull_request.user.login, 'dependabot')
     steps:
-      - uses: jurijzahn8019/action-dependabot-bump-range@v0.0.25
+      - uses: jurijzahn8019/action-dependabot-bump-range@v0.0.26
         id: checker
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

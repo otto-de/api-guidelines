@@ -4,6 +4,7 @@ name: Deploy Terraform
     types:
       - prereleased
       - released
+      - edited
   repository_dispatch:
     types:
       - deploy
