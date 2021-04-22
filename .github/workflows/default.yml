@@ -18,7 +18,7 @@ name: Build, Test, Lint
       - .github/workflows/repository_*.yml
       - .github/workflows/private_deps_*.yml
       - .github/workflows/tf_deps_*.yml
-  pull_request: {}
+  pull_request_target: {}
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox

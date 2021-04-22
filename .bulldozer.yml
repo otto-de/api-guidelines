@@ -23,7 +23,6 @@ merge:
     - license-complete
     - 'policy-bot: main'
     - lint (14.x)
-    - terraform-plan
   delete_after_merge: true
 update:
   trigger:
