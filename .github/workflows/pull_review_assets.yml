@@ -35,7 +35,7 @@ jobs:
       }}
     steps:
       - name: Move Pull Request with Reviewers to 'Review / Approval'
-        uses: alex-page/github-project-automation-plus@v0.5.1
+        uses: alex-page/github-project-automation-plus@v0.6.0
         if: ${{ startsWith(github.event.repository.name, 'assets_') }}
         with:
           project: Team Assets
@@ -63,7 +63,7 @@ jobs:
       }}
     steps:
       - name: Move Pull Request without Reviewers to 'In Progress'
-        uses: alex-page/github-project-automation-plus@v0.5.1
+        uses: alex-page/github-project-automation-plus@v0.6.0
         if: ${{ startsWith(github.event.repository.name, 'assets_') }}
         with:
           project: Team Assets
