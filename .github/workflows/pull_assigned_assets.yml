@@ -22,7 +22,7 @@ jobs:
           echo "User is team Member"
           echo ${{ env.USER_IS_MEMBER }}
       - name: Move new Draft Pull Request in 'To do'
-        uses: alex-page/github-project-automation-plus@v0.6.0
+        uses: alex-page/github-project-automation-plus@v0.7.0
         if: >-
           steps.checker.outputs.ismember  && github.event.pull_request.draft ==
           true
@@ -31,7 +31,7 @@ jobs:
           column: To do
           repo-token: ${{ secrets.TOKEN_GITHUB }}
       - name: Move new Pull Request in Progress
-        uses: alex-page/github-project-automation-plus@v0.6.0
+        uses: alex-page/github-project-automation-plus@v0.7.0
         if: >-
           steps.checker.outputs.ismember  && github.event.pull_request.draft ==
           false
