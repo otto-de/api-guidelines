@@ -105,7 +105,7 @@ jobs:
           token: ${{ secrets.TOKEN_GITHUB }}
           username: ${{ steps.mentions.outputs.mentions }}
           teams: otto-ec/assets
-      - uses: alex-page/github-project-automation-plus@v0.7.0
+      - uses: alex-page/github-project-automation-plus@v0.7.1
         id: automation
         if: |-
           ${{ 
