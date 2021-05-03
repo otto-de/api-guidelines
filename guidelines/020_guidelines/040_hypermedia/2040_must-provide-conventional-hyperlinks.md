@@ -7,7 +7,7 @@ id: R100033
 
 ::: warning
 This rule applies to public APIs. For private APIs it should be followed.
-  :::
+:::
 
 Hyperlinks to other resources [must use `application/hal+json`](./guidelines/020_guidelines/040_hypermedia/1020_must-implement-rest-maturity-level-3-for-public-apis.md) in all [public API resources](./guidelines/010_core-principles/0030_api-scope.md).
 
@@ -29,7 +29,9 @@ Example of a [paged collection](./guidelines/020_guidelines/060_resources/2060_m
 {
   "_links": {
     "self": { "href": "https://api.otto.de/orders?page=2&pageSize=10" },
-    "profile": { "href": "https://api.otto.de/profiles/paged-collection+v1" },
+    "profile": {
+      "href": "https://api.otto.de/profiles/orders/paged-collection+v1"
+    },
     "search": {
       "href": "https://api.otto.de/orders{?q,page,pageSize}",
       "templated": true
@@ -51,7 +53,7 @@ Example of a `collection item`:
 {
   "_links": {
     "self": { "href": "https://api.otto.de/orders/4711" },
-    "profile": { "href": "https://api.otto.de/profiles/order+v1" },
+    "profile": { "href": "https://api.otto.de/profiles/orders/order+v1" },
     "collection": {
       "href": "https://api.otto.de/orders{?q,page,pageSize}",
       "templated": true

@@ -11,7 +11,7 @@ To clearly document that a `GET`, `HEAD` or `POST` endpoint implements any kind 
 
 ```yaml
 paths:
-  '/products':
+  "/products":
     get:
       operationId: products-read
       summary: This endpoint will return a collection of products.
@@ -19,18 +19,18 @@ paths:
         Load a collection of products.
       responses:
         200:
-         description: Successfully load products
-         headers:
-           Cache-Control:
-             description: >
-               Indicates if this response is cacheable.
-               See [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2.2) for possible values.
-             schema:
-               type: string
-               content:
-                 'application/json+hal;profile="https://api.develop.otto.de/api-docs/profiles/products+v1"':
-                   schema:
-                     "$ref": "#/components/schemas/LoadProductsV1Response"
+          description: Successfully load products
+          headers:
+            Cache-Control:
+              description: >
+                Indicates if this response is cacheable.
+                See [RFC 7234](https://tools.ietf.org/html/rfc7234#section-5.2.2) for possible values.
+              schema:
+                type: string
+                content:
+                  ? 'application/json+hal;profile="https://api.otto.de/profiles/products/products+v1"'
+                  : schema:
+                      "$ref": "#/components/schemas/LoadProductsV1Response"
 ```
 
 :::
