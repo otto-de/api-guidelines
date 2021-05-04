@@ -47,7 +47,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 0.14
+          terraform_version: 0.15
       - name: setup cache for terraform
         uses: actions/cache@v2.1.5
         id: setup_cache_terraform
@@ -139,7 +139,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: 0.14
+          terraform_version: 0.15
       - name: setup cache for terraform
         uses: actions/cache@v2.1.5
         id: setup_cache_terraform
