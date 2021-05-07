@@ -6,13 +6,13 @@ id: R100066
 # use resolvable profile URLs
 
 To avoid name collisions for different domains and to allow grouping of profiles within the same context, the profile URI uses a `context-id`.
-The URI that identifies a profile must be resolvable and must match `https://api.otto.de/profiles/{context-id}/{name}+v{version}`.
+The URI that identifies a profile must be resolvable and must match `https://api.otto.de/portal/profiles/{context-id}/{name}+v{version}`.
 
 Profile URIs must comply with the following conventions:
 
 - must contain exactly one `context-id`
 - `context-id` and `name` should be kebab-case
-- use plurals or _list_ to indicate a collection, e.g. `https://api.otto.de/profiles/search/products+v1`.
+- use plurals or _list_ to indicate a collection, e.g. `https://api.otto.de/portal/profiles/search/products+v1`.
 - must not contain team, task or use case shortcuts
 - must not contain trailing slashes
 
@@ -24,7 +24,9 @@ If the API uses [`application/hal+json`](./guidelines/020_guidelines/040_hyperme
 {
   "_links": {
     "self": { "href": "https://api.otto.de/orders/4711" },
-    "profile": { "href": "https://api.otto.de/profiles/checkout/order+v1" }
+    "profile": {
+      "href": "https://api.otto.de/portal/profiles/checkout/order+v1"
+    }
   },
   "total": 3000,
   "currency": "EUR",

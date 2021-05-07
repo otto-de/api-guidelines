@@ -7,12 +7,12 @@ id: R100037
 
 ::: warning
 This rule applies to public APIs. For private APIs it should be followed.
-  :::
+:::
 
 If no [IANA-registered](http://www.iana.org/assignments/link-relations/link-relations.xhtml) link relation type is applicable and no [existing custom link relation type](./guidelines/020_guidelines/040_hypermedia/3010_must-prefer-existing-custom-link-relation-types.md) can be used instead, a custom link relation type can be introduced.
 
 - Custom link relation types must have a fully qualified URL.
-- The URL must be resolvable using the URI template `https://api.otto.de/link-relations/{rel}`.
+- The URL must be resolvable using the URI template `https://api.otto.de/portal/link-relations/{rel}`.
 - Custom link relation types must be documented.
 - The documentation must be accessible in a human-readable format using the URL of the link relation type.
 

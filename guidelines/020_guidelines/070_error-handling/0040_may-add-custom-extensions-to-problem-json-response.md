@@ -15,7 +15,7 @@ For example, an additional `link` attribute below the `path` attribute might con
 
 ```json
 {
-  "type": "https://api.otto.de/api-docs/errors/ValidationError",
+  "type": "https://api.otto.de/portal/errors/ValidationError",
   "title": "Your request cannot be validated.",
   "status": 400,
   "validationErrors": [

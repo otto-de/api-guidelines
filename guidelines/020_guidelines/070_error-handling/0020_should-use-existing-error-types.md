@@ -5,7 +5,7 @@ id: R000037
 
 # use existing error types
 
-Already existing error types are [documented](https://api.otto.de/api-docs/errors).
+Already existing error types are [documented](https://api.otto.de/portal/errors).
 We encourage API designers to reuse existing error types instead of creating completely new or slightly modified ones.
 After thorough consideration, enhancing an existing error type by [custom extensions](0040_may-add-custom-extensions-to-problem-json-response.md) is a feasible option.
 

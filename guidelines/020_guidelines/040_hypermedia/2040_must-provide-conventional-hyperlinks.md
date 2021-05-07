@@ -30,7 +30,7 @@ Example of a [paged collection](./guidelines/020_guidelines/060_resources/2060_m
   "_links": {
     "self": { "href": "https://api.otto.de/orders?page=2&pageSize=10" },
     "profile": {
-      "href": "https://api.otto.de/profiles/orders/paged-collection+v1"
+      "href": "https://api.otto.de/portal/profiles/orders/paged-collection+v1"
     },
     "search": {
       "href": "https://api.otto.de/orders{?q,page,pageSize}",
@@ -53,7 +53,9 @@ Example of a `collection item`:
 {
   "_links": {
     "self": { "href": "https://api.otto.de/orders/4711" },
-    "profile": { "href": "https://api.otto.de/profiles/orders/order+v1" },
+    "profile": {
+      "href": "https://api.otto.de/portal/profiles/orders/order+v1"
+    },
     "collection": {
       "href": "https://api.otto.de/orders{?q,page,pageSize}",
       "templated": true

@@ -18,7 +18,7 @@ As [versioning](./guidelines/020_guidelines/080_versioning/0000_index.md) of API
       {
         "href": "https://api.otto.de/authors/4711",
         "type": "application/hal+json",
-        "profile": "https://api.otto.de/profiles/authors/person+v1"
+        "profile": "https://api.otto.de/portal/profiles/authors/person+v1"
       }
     ]
   }
@@ -34,12 +34,12 @@ While using the profile parameter improves the discoverability of the API (becau
       {
         "href": "https://api.otto.de/authors/4711",
         "type": "application/hal+json",
-        "profile": "https://api.otto.de/profiles/authors/person+v1"
+        "profile": "https://api.otto.de/portal/profiles/authors/person+v1"
       },
       {
         "href": "https://api.otto.de/authors/4711",
         "type": "application/hal+json",
-        "profile": "https://api.otto.de/profiles/authors/person+v2"
+        "profile": "https://api.otto.de/portal/profiles/authors/person+v2"
       }
     ]
   }

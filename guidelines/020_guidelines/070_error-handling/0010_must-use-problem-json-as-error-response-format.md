@@ -15,7 +15,7 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/problem+json
 
 {
-  "type": "https://api.otto.de/api-docs/errors/UnauthorizedError",
+  "type": "https://api.otto.de/portal/errors/UnauthorizedError",
   "title": "Not authorized to view account details.",
   "status": 401,
   "detail": "Due to privacy concerns you are not allowed to view account details of others.",
@@ -35,13 +35,13 @@ New error types must be triaged with the API product owners.
 
 Response fields in detail:
 
-| field | description | mandatory |
-|-------|-------------|----------|
-| `type` | Relative URI that references comprehensive error type documentation. If no documentation exists for whatever reason the content must be 'about:blank' | ✔ |
-| `title` | Title should roughly contain and describe the problem. However, it should be static and should not include a detailed error description, e.g. do not list the invalid values. | ✔ |
-| `status` | Represents the corresponding [HTTP Status Code](./guidelines/020_guidelines/030_http/3020_must-use-standard-http-status-code.md). | ✔ |
-| `detail` | Should contain further details about the error. The RFC specifies that this field should not contain debugging information. Instead, it may contain details about the exact problem and maybe also how to solve it. Should not be parsed for further information. | ✗ |
-| `instance` | It is possible to specify the instance of the service that has the problem or the relative URI that was called. | ✗ |
-| `key` | Represents a unique identifier of the error type in the global context of the API in PascalCase. | ✔ |
+| field      | description                                                                                                                                                                                                                                                       | mandatory |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| `type`     | Relative URI that references comprehensive error type documentation. If no documentation exists for whatever reason the content must be 'about:blank'                                                                                                             | ✔         |
+| `title`    | Title should roughly contain and describe the problem. However, it should be static and should not include a detailed error description, e.g. do not list the invalid values.                                                                                     | ✔         |
+| `status`   | Represents the corresponding [HTTP Status Code](./guidelines/020_guidelines/030_http/3020_must-use-standard-http-status-code.md).                                                                                                                                 | ✔         |
+| `detail`   | Should contain further details about the error. The RFC specifies that this field should not contain debugging information. Instead, it may contain details about the exact problem and maybe also how to solve it. Should not be parsed for further information. | ✗         |
+| `instance` | It is possible to specify the instance of the service that has the problem or the relative URI that was called.                                                                                                                                                   | ✗         |
+| `key`      | Represents a unique identifier of the error type in the global context of the API in PascalCase.                                                                                                                                                                  | ✔         |
 
 `Caution:`{label="warning"} In contrast to the RFC, not only the fields `type` and `title` are mandatory, but also `status` and `key`.

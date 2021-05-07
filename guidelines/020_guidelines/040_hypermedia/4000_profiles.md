@@ -13,14 +13,14 @@ Using OpenAPI Spec, the structure of the representation must be specified, so th
 
 Depending on the context, the same domain object may have several representations. For example, `product` as a search result might contain information such as availability or delivery options. `product` as part of the processed customer order shares some essential details with the search result, but would likely contain some other attributes instead. Therefore, different perspectives on the same business object may result in different representations.
 
-The specification must be identifiable by a URL such as `https://api.otto.de/profiles/products/product+v1`.
-If later a second version of the `product` representation is added, the new version of the spec (`https://api.otto.de/profiles/products/product+v2`) can be distinguished from the earlier version.
+The specification must be identifiable by a URL such as `https://api.otto.de/portal/profiles/products/product+v1`.
+If later a second version of the `product` representation is added, the new version of the spec (`https://api.otto.de/portal/profiles/products/product+v2`) can be distinguished from the earlier version.
 
 Using the [Accept header with profile parameter](./guidelines/020_guidelines/080_versioning/1040_should-use-accept-header-with-profile-parameter.md), clients can now specify the requested version of the specification like this:
 
 ```http request
 GET https://api.otto.de/products/42 HTTP/1.1
-Accept: application/hal+json; profile="https://api.otto.de/profiles/products/product+v1"
+Accept: application/hal+json; profile="https://api.otto.de/portal/profiles/products/product+v1"
 ```
 
 The returned `product` representation (an `application/hal+json` document) [must contain a link](./guidelines/020_guidelines/040_hypermedia/2040_must-provide-conventional-hyperlinks.md) to the profile:
@@ -29,7 +29,9 @@ The returned `product` representation (an `application/hal+json` document) [must
 {
   "_links": {
     "self": { "href": "https://api.otto.de/products/42" },
-    "profile": { "href": "https://api.otto.de/profiles/products/product+v1" }
+    "profile": {
+      "href": "https://api.otto.de/portal/profiles/products/product+v1"
+    }
   },
   "etc": "..."
 }
@@ -51,7 +53,9 @@ In our case, the representation might contain N links to product images (using a
       }
     ],
     "self": { "href": "https://api.otto.de/products/42" },
-    "profile": { "href": "https://api.otto.de/profiles/products/product+v1" },
+    "profile": {
+      "href": "https://api.otto.de/portal/profiles/products/product+v1"
+    },
     "o:customer-reviews": { "href": "https://api.otto.de/customer-reviews/42" },
     "o:product-images": [
       { "href": "https://i.otto.de/42.jpg" },
