@@ -87,7 +87,7 @@ jobs:
           board: Team Assets
           repo: ${{ github.event.repository.name }}
           number: ${{ github.event.issue.number }}
-      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.12
+      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.13
         id: isMember
         if: |-
           ${{ 
