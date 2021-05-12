@@ -40,7 +40,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: 'approval: submitted'
       - name: Remove Label when approved
-        uses: actions-ecosystem/action-remove-labels@v1
+        uses: actions-ecosystem/action-remove-labels@v1.1.0
         continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
