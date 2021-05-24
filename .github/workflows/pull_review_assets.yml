@@ -47,7 +47,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: 'approval: waiting'
       - name: Remove Pull Request Label for approval
-        uses: actions-ecosystem/action-remove-labels@v1.1.0
+        uses: actions-ecosystem/action-remove-labels@v1.1.1
         continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -70,7 +70,7 @@ jobs:
           column: In Progress
           repo-token: ${{ secrets.TOKEN_GITHUB }}
       - name: Remove Pull Request Label for approval
-        uses: actions-ecosystem/action-remove-labels@v1.1.0
+        uses: actions-ecosystem/action-remove-labels@v1.1.1
         continue-on-error: true
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
