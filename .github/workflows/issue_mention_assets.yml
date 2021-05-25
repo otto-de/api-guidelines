@@ -74,7 +74,7 @@ jobs:
           else
             echo "Mo Mentions found"
           fi
-      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.12
+      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.13
         id: isOnBoard
         if: >-
           ${{ steps.mentions.outputs.mentions && steps.mentions.outputs.mentions
@@ -125,7 +125,7 @@ jobs:
           repo-token: ${{ secrets.TOKEN_GITHUB }}
       - name: Add Label to the issue
         id: labeler
-        uses: actions-ecosystem/action-add-labels@v1
+        uses: actions-ecosystem/action-add-labels@v1.1.2
         if: |-
           ${{
             !contains(github.event.issue.labels.*.name, 'help wanted')
