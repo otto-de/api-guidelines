@@ -88,7 +88,7 @@
     "table": "^6.7.1",
     "ts-jest": "^26.5.6",
     "ts-node": "^9.1.1",
-    "typescript": "^4.2.4",
+    "typescript": "^4.3.2",
     "uikit": "^3.6.22",
     "yargs": "^17.0.1"
   }
