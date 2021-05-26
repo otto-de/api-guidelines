@@ -98,8 +98,8 @@ jobs:
       JEST_JUNIT_OUTPUT_NAME: results.xml
       RUN_PRE_SPECS: ''
       SPECS_COMMANDLINE: |
-        $(npm bin)/jest --colors -w 2 --ci --silent --coverage \
-          --coverageDirectory tmp/coverage \
+        $(npm bin)/jest --colors -w 2 --ci --silent --clearCache \
+          --coverageDirectory tmp/coverage --coverage \
           --coverageReporters json json-summary text html clover \
           --reporters default --reporters jest-junit
     steps:
