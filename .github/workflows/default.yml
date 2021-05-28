@@ -28,9 +28,7 @@ env:
   RUN_PERSIST_COVERAGE: false
   RUN_PERSIST_DIST: false
   RUN_PERSIST_JSCPD: false
-  GITHUB_CHECKOUT_REF: >-
-    ${{ github.event.pull_request.merge_commit_sha ||
-    github.event.pull_request.head.ref }}
+  GITHUB_CHECKOUT_REF: ${{ github.event.pull_request.head.ref }}
   TF_PLAN_STACK: deploy
 jobs:
   build-complete:
