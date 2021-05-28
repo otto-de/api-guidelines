@@ -45,7 +45,7 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
-      - uses: hashicorp/setup-terraform@v1
+      - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 0.15
       - name: setup cache for terraform
@@ -137,7 +137,7 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-node-
-      - uses: hashicorp/setup-terraform@v1
+      - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 0.15
       - name: setup cache for terraform

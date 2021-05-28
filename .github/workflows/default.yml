@@ -28,6 +28,9 @@ env:
   RUN_PERSIST_COVERAGE: false
   RUN_PERSIST_DIST: false
   RUN_PERSIST_JSCPD: false
+  GITHUB_CHECKOUT_REF: >-
+    ${{ github.event.pull_request.merge_commit_sha ||
+    github.event.pull_request.head.ref }}
   TF_PLAN_STACK: deploy
 jobs:
   build-complete:
@@ -47,6 +50,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
@@ -105,6 +110,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
@@ -162,6 +169,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
@@ -196,6 +205,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
@@ -242,6 +253,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
@@ -274,6 +287,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
         id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
       - uses: actions/setup-node@v2.1.5
         id: setup_node
         with:
