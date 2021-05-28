@@ -39,7 +39,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VER }}
       - name: setup cache for node
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         id: setup_cache_node
         with:
           path: ~/.npm
@@ -49,7 +49,7 @@ jobs:
         with:
           terraform_version: 0.15
       - name: setup cache for terraform
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         id: setup_cache_terraform
         with:
           path: ${{ env.TF_PLUGIN_CACHE_DIR }}
@@ -131,7 +131,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VER }}
       - name: setup cache for node
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         id: setup_cache_node
         with:
           path: ~/.npm
@@ -141,7 +141,7 @@ jobs:
         with:
           terraform_version: 0.15
       - name: setup cache for terraform
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v2.1.6
         id: setup_cache_terraform
         with:
           path: ${{ env.TF_PLUGIN_CACHE_DIR }}

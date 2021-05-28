@@ -51,7 +51,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         id: setup_cache
         with:
           path: ~/.npm
@@ -109,7 +109,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         id: setup_cache
         with:
           path: ~/.npm
@@ -166,7 +166,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         id: setup_cache
         with:
           path: ~/.npm
@@ -200,7 +200,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         id: setup_cache
         with:
           path: ~/.npm
@@ -246,7 +246,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         id: setup_cache
         with:
           path: ~/.npm
@@ -278,7 +278,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.5
+      - uses: actions/cache@v2.1.6
         id: setup_cache
         with:
           path: ~/.npm
