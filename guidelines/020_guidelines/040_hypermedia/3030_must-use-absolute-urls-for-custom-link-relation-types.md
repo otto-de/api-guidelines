@@ -11,8 +11,12 @@ This rule applies to public APIs. For private APIs it should be followed.
 
 If no [IANA-registered](http://www.iana.org/assignments/link-relations/link-relations.xhtml) link relation type is applicable and no [existing custom link relation type](./guidelines/020_guidelines/040_hypermedia/3010_must-prefer-existing-custom-link-relation-types.md) can be used instead, a custom link relation type can be introduced.
 
+Custom link relations must comply with the following rules:
+
 - Custom link relation types must have a fully qualified URL.
-- The URL must be resolvable using the URI template `https://api.otto.de/portal/link-relations/{rel}`.
+- The URL must be resolvable using the URI template `https://api.otto.de/portal/link-relations/{context-id}/{rel}`.
+- Just as with [profile URLs](./guidelines/020_guidelines/040_hypermedia/4010_must-use-resolvable-profile-urls.md), link relation URLs must contain exactly one `context-id`. Context information prevent name collisions and allow grouping of link relations by domain.
+- In the URL, `context-id` and `rel` must be kebab-case.
 - Custom link relation types must be documented.
 - The documentation must be accessible in a human-readable format using the URL of the link relation type.
 

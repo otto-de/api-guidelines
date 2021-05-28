@@ -48,7 +48,7 @@ In our case, the representation might contain N links to product images (using a
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/link-relations/{rel}",
+        "href": "https://api.otto.de/portal/link-relations/products/{rel}",
         "templated": true
       }
     ],

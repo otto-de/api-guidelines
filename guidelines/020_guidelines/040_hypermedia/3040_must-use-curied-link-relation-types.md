@@ -7,12 +7,12 @@ id: R100038
 
 ::: warning
 This rule applies to public APIs. For private APIs it should be followed.
-  :::
+:::
 
 Custom link relation types can be introduced, if no [IANA-registered](./guidelines/020_guidelines/040_hypermedia/3020_must-prefer-iana-registered-link-relation-types.md) or [existing custom](./guidelines/020_guidelines/040_hypermedia/3010_must-prefer-existing-custom-link-relation-types.md) link relation type is matching the semantics of a link.
 In this case the rule [MUST use absolute URLs for custom link relation types](./guidelines/020_guidelines/040_hypermedia/3030_must-use-absolute-urls-for-custom-link-relation-types.md) must be adhered to.
 
-A resource that links to other resources using a custom link relation type must add `curies` with `"name": "o"` and `"href": "https://api.otto.de/link-relations/{rel}"` to its `_links` section:
+A resource that links to other resources using a custom link relation type must add `curies` with `"name": "o"` and `"href": "https://api.otto.de/portal/link-relations/{context-id}/{rel}"` to its `_links` section:
 
 ```json
 {
@@ -21,7 +21,7 @@ A resource that links to other resources using a custom link relation type must 
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/link-relations/{rel}",
+        "href": "https://api.otto.de/portal/link-relations/orders/{rel}",
         "templated": true
       }
     ]
@@ -38,7 +38,7 @@ Links to a resource with a custom link relation type must be curied using this C
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/link-relations/{rel}",
+        "href": "https://api.otto.de/portal/link-relations/orders/{rel}",
         "templated": true
       }
     ],
@@ -59,7 +59,7 @@ If the linked resources [can be embedded](./guidelines/020_guidelines/060_resour
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/link-relations/{rel}",
+        "href": "https://api.otto.de/portal/link-relations/orders/{rel}",
         "templated": true
       }
     ],
