@@ -1,12 +1,22 @@
 # Versioning
 
-After deciding to continue using HAL+JSON as the API format, we can cluster the [list of identified options](https://github.com/otto-ec/ottoapi_guidelines/blob/master/references/versioning.md) into three categories, including those relying on media types otherwise forbidden by using JSON:API.
+OTTO API supports two versioning approaches: via [profiles](./guidelines/020_guidelines/040_hypermedia/4000_profiles.md) and via [URL path](./guidelines/020_guidelines/080_versioning/1050_should-not-use-resource-versioned-path.md). Versioning via profiles is preferred.
 
-We cannot support a single global version number for the whole OTTO API, because it would introduce way too much coordination overhead between our feature teams.
-Also we want to use industry standards as much as possible, factoring
-out solutions that violate existing standards or rely on draft standards where incompatible changes might happen.
+We cannot go with a single global version number for the entire OTTO API, as this would mean too much coordination overhead for our feature teams. Also, we want to use industry standards wherever possible and exclude solutions that violate existing standards or are based on draft standards where incompatible changes might occur.
 
-Both of the remaining options require some semantic of 'latest version' of an endpoint.
-For [resource versioned path](https://github.com/otto-ec/ottoapi_guidelines/blob/master/references/versioning.md#resource-versioned-paths) this can be solved by using a special version identifier of `latest` as part of the URI, e.g. <https://api.otto.de/checkouts/latest.>
-The option [Accept header with profile parameter](./guidelines/020_guidelines/080_versioning/1040_should-use-accept-header-with-profile-parameter.md)
-needs some server-side logic to route to the correct endpoint in case an `Accept` header used for content negotiation does not include a versioned profile for the media type.
+URL-based versioning links only a specific version of a resource and creates a fixed dependency on a specific version. This conflicts with the use of hypermedia/HAL. Therefore, versioning must be done via profiles.
+In addition, profiles also allow resource/sub-resource independent versioning.
+
+In cases where profile-based versioning is not possible or sufficient, URL-based versioning can be applied.
+
+:::info
+During the initial discussion of versioning, several options have been [identified and evaluated](https://github.com/otto-ec/ottoapi_guidelines/blob/master/references/versioning.md).
+:::
+
+::: references
+
+- [Profiles in HAL+JSON](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-08#page-8)
+- [The 'profile' Link Relation Type (RFC 9606)](https://tools.ietf.org/html/rfc6906)
+- [SHOULD use Accept header with profile parameter](./guidelines/020_guidelines/080_versioning/1040_should-use-accept-header-with-profile-parameter.md)
+- [MUST provide conventional hyperlinks](./guidelines/020_guidelines/040_hypermedia/2040_must-provide-conventional-hyperlinks.md)
+  :::
