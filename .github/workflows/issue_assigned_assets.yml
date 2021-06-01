@@ -7,7 +7,7 @@ jobs:
   process:
     runs-on: ubuntu-latest
     steps:
-      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.15
+      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.16
         id: checker
         if: ${{ !startsWith(github.event.repository.name, 'assets_') }}
         with:
