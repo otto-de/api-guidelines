@@ -7,7 +7,12 @@ id: R000038
 
 Validation checks can be performed on the request body, e.g. on form input values or business objects to be stored, as well as on path and query parameters. The `ValidationError` schema should be used for all types of validation errors - both syntactic and semantic. All validation errors for one request should be combined into a self-sufficient error response that contains detailed messages for each failed check.
 
-If an input validation error occurs, we expect a `400 Bad Request` response. The problem `type` is defined at <https://api.otto.de/portal/errors/ValidationError>. The `title` should be _"Your request cannot be validated."_.
+If an input validation error occurs, we expect a `400 Bad Request` or `422 Unprocessable Entity` response.
+
+- The `400` is returned, if the server is not able to understand the client's request data, e.g. if required fields are missing or a date value is not parsable.
+- The `422` is returned in cases, where the server is able to understand the request, but is unable to process it due to internal business contraints, e.g. a credit check for a certain customer disallows paying cash on delivery.
+
+The problem `type` is defined at <https://api.otto.de/portal/errors/ValidationError>. The `title` should be _"Your request cannot be validated."_.
 
 This results in the following structure:
 
