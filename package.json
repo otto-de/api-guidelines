@@ -63,7 +63,7 @@
     "@types/markdown-it": "^12.0.2",
     "@types/node": "^15.14.0",
     "@types/table": "^6.3.2",
-    "browser-sync": "^2.27.3",
+    "browser-sync": "^2.27.4",
     "chalk": "^4.1.1",
     "concurrently": "^6.2.0",
     "globby": "^11.0.4",
