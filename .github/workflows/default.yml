@@ -59,12 +59,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
-        id: setup_cache
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - name: Install Npm Dependencies
         id: npm_install
         env:
@@ -106,7 +101,7 @@ jobs:
       JEST_JUNIT_OUTPUT_NAME: results.xml
       RUN_PRE_SPECS: ''
       SPECS_COMMANDLINE: |
-        $(npm bin)/jest --colors -w 2 --ci --silent --clearCache \
+        $(npm bin)/jest --colors -w 2 --ci --silent \
           --coverageDirectory tmp/coverage --coverage \
           --coverageReporters json json-summary text html clover \
           --reporters default --reporters jest-junit
@@ -119,12 +114,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
-        id: setup_cache
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - name: Install Npm Dependencies
         id: npm_install
         env:
@@ -178,12 +168,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
-        id: setup_cache
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - name: Install Npm Dependencies
         id: npm_install
         env:
@@ -214,12 +199,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
-        id: setup_cache
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - name: Install Npm Dependencies
         id: npm_install
         env:
@@ -262,12 +242,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
-        id: setup_cache
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - name: Install Npm Dependencies
         id: npm_install
         env:
@@ -296,12 +271,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
-        id: setup_cache
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - name: Install Npm Dependencies
         id: npm_install
         env:

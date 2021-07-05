@@ -38,13 +38,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ env.NODE_VER }}
-      - name: setup cache for node
-        uses: actions/cache@v2.1.6
-        id: setup_cache_node
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 0.15
@@ -130,13 +124,7 @@ jobs:
         id: setup_node
         with:
           node-version: ${{ env.NODE_VER }}
-      - name: setup cache for node
-        uses: actions/cache@v2.1.6
-        id: setup_cache_node
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
+          cache: npm
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
           terraform_version: 0.15
