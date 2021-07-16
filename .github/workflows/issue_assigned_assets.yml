@@ -23,7 +23,7 @@ jobs:
           board: Team Assets
           repo: ${{ github.event.repository.name }}
           number: ${{ github.event.issue.number }}
-      - uses: alex-page/github-project-automation-plus@v0.8.0
+      - uses: alex-page/github-project-automation-plus@v0.8.1
         if: >-
           ${{ steps.checker.outputs.ismember == 'true' &&
           steps.isOnBoard.outputs.columnName == 'Pool' }}
