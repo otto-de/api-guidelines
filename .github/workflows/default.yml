@@ -55,7 +55,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -110,7 +110,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -164,7 +164,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -195,7 +195,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -238,7 +238,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -267,7 +267,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
