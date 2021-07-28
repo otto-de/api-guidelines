@@ -1,3 +1,19 @@
+# Config ID: workflow.default
+# 
+# This configuration file is auto-generated 
+# by http://github.com/otto-ec/assets_protecty. 
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/workflow/default, 
+# 
+# and use the schema appropriate to this file.
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets
+# 
 name: Build, Test, Lint
 'on':
   push:
@@ -18,12 +34,8 @@ name: Build, Test, Lint
       - .github/workflows/repository_*.yml
       - .github/workflows/private_deps_*.yml
       - .github/workflows/tf_deps_*.yml
-  pull_request:
-    branches-ignore:
-      - dependabot/*
-  pull_request_target:
-    branches:
-      - dependabot/*
+  pull_request: {}
+  pull_request_target: {}
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
@@ -45,6 +57,10 @@ jobs:
         run: echo 🎉🎉🎉
   build:
     runs-on: ubuntu-latest
+    if: >-
+      ${{ ( startsWith(github.actor, 'dependabot') == false && github.event_name
+      == 'pull_request' ) || ( startsWith(github.actor, 'dependabot') == true &&
+      github.event_name == 'pull_request_target' ) }}
     strategy:
       matrix:
         node-version:
