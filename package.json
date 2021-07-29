@@ -84,7 +84,7 @@
     "reveal-md": "^5.1.2",
     "rollup": "^2.55.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "sass": "^1.35.1",
+    "sass": "^1.36.0",
     "table": "^6.7.1",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.1.0",
