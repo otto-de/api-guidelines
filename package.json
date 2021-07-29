@@ -57,7 +57,7 @@
     "@otto-ec/kestrel": "^4.0.10",
     "@otto-ec/toolbox": "^1.20.3",
     "@otto-ec/toolbox-config-assets": "^1.28.0",
-    "@rollup/plugin-typescript": "^8.2.1",
+    "@rollup/plugin-typescript": "^8.2.3",
     "@types/jest": "^26.0.24",
     "@types/js-yaml": "^4.0.2",
     "@types/markdown-it": "^12.0.3",
