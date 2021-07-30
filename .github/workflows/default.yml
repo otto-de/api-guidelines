@@ -48,19 +48,18 @@ env:
   GITHUB_CHECKOUT_REF: ${{ github.event.pull_request.head.ref }}
   TF_PLAN_STACK: deploy
 jobs:
-  build-complete:
-    runs-on: ubuntu-latest
-    needs:
-      - build
-    steps:
-      - name: 🚀 all build jobs have been run successfully 🚀
-        run: echo 🎉🎉🎉
-  build:
+  checkrun:
     runs-on: ubuntu-latest
     if: >-
-      ${{ ( startsWith(github.actor, 'dependabot') == false && github.event_name
-      == 'pull_request' ) || ( startsWith(github.actor, 'dependabot') == true &&
-      github.event_name == 'pull_request_target' ) }}
+      ${{  startsWith(github.actor, 'dependabot') == false ||  (
+      startsWith(github.actor, 'dependabot') == true && github.event_name ==
+      'pull_request_target' ) }}
+    steps:
+      - run: echo "begin workflow run"
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - checkrun
     strategy:
       matrix:
         node-version:
@@ -95,12 +94,12 @@ jobs:
         with:
           name: dist
           path: ${{ github.workspace }}/dist
-  specs-complete:
+  build-complete:
     runs-on: ubuntu-latest
     needs:
-      - specs
+      - build
     steps:
-      - name: 🚀 all spec jobs have been run successfully 🚀
+      - name: 🚀 all build jobs have been run successfully 🚀
         run: echo 🎉🎉🎉
   specs:
     runs-on: ubuntu-latest
@@ -159,12 +158,12 @@ jobs:
         with:
           name: spec-results
           path: ${{ github.workspace }}/tmp/test-results
-  license-complete:
+  specs-complete:
     runs-on: ubuntu-latest
     needs:
-      - license
+      - specs
     steps:
-      - name: 🚀 all license jobs have been run successfully 🚀
+      - name: 🚀 all spec jobs have been run successfully 🚀
         run: echo 🎉🎉🎉
   license:
     runs-on: ubuntu-latest
@@ -193,6 +192,13 @@ jobs:
       - name: Check Dependency License Usage
         id: check_license
         run: ${{ env.TOOLBOX }} chk lic
+  license-complete:
+    runs-on: ubuntu-latest
+    needs:
+      - license
+    steps:
+      - name: 🚀 all license jobs have been run successfully 🚀
+        run: echo 🎉🎉🎉
   jscpd:
     continue-on-error: true
     if: >-
