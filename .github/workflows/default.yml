@@ -51,9 +51,11 @@ jobs:
   checkrun:
     runs-on: ubuntu-latest
     if: >-
-      ${{  startsWith(github.actor, 'dependabot') == false ||  (
-      startsWith(github.actor, 'dependabot') == true && github.event_name ==
-      'pull_request_target' ) }}
+      ${{  github.event.pull_request == null ||  (  (
+      startsWith(github.event.pull_request.user.login, 'dependabot') == false &&
+      github.event_name == 'pull_request' ) || (
+      startsWith(github.event.pull_request.user.login, 'dependabot') == true &&
+      github.event_name == 'pull_request_target' ) ) }}
     steps:
       - run: echo "begin workflow run"
   build:
@@ -202,8 +204,8 @@ jobs:
   jscpd:
     continue-on-error: true
     if: >-
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      github.event.pull_request.user.login != 'dependabot-preview[bot]'
+      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ==
+      false }}
     runs-on: ubuntu-latest
     needs:
       - build-complete
@@ -245,8 +247,8 @@ jobs:
   audit:
     continue-on-error: true
     if: >-
-      github.event.pull_request.user.login != 'dependabot[bot]' &&
-      github.event.pull_request.user.login != 'dependabot-preview[bot]'
+      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ==
+      false }}
     runs-on: ubuntu-latest
     needs:
       - build-complete
