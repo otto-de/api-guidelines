@@ -42,7 +42,7 @@ jobs:
           column: Review / Approval
           repo-token: ${{ secrets.TOKEN_GITHUB }}
       - name: Add Pull Request Label for approval
-        uses: actions-ecosystem/action-add-labels@v1
+        uses: actions-ecosystem/action-add-labels@v1.1.3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: 'approval: waiting'
