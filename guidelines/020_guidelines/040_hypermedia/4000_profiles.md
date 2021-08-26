@@ -69,10 +69,15 @@ In our case, the representation might contain N links to product images (using a
 As links may either contain a single link or an array of links, the specification of the `product` representation
 [must be explicit](./guidelines/020_guidelines/040_hypermedia/3050_must-document-link-cardinality.md), whether `o:customer-reviews` contains a single link or an array of links.
 
+Profiles may also apply to request bodies: all public endpoints which accept requests with a body must support request versioning. Currently, this implicates POST, PUT, and PATCH, but other HTTP methods may follow. According to the RFCs, `application/json` and `application/json-patch+json` media types do not allow parameters, so for requests with a body, `application/hal+json` must be used instead.
+
 ::: references
 
 - [The 'profile' Link Relation Type (RFC 9606)](https://tools.ietf.org/html/rfc6906)
 - [SHOULD use Accept header with profile parameter](./guidelines/020_guidelines/080_versioning/1040_should-use-accept-header-with-profile-parameter.md)
 - [MUST provide conventional hyperlinks](./guidelines/020_guidelines/040_hypermedia/2040_must-provide-conventional-hyperlinks.md)
 - [Paged collection](./guidelines/020_guidelines/060_resources/2060_must-provide-page-metadata.md)
+- [MUST use profiles for Public APIs](https://api.develop.otto.de/api-docs/guidelines/#R000065)
+- Parameters in `application/json` [RFC 7159, Section 11](https://datatracker.ietf.org/doc/html/rfc7159#section-11)
+- Parameters in `application/json-patch+json` [RFC 6902, Section 6](https://datatracker.ietf.org/doc/html/rfc6902#section-6)
   :::
