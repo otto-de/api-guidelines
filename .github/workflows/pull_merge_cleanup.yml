@@ -1,5 +1,21 @@
+# Config ID: dependabot.cleanup
+# 
+# This configuration file is auto-generated 
+# by http://github.com/otto-ec/assets_protecty. 
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/dependabot/cleanup, 
+# 
+# and use the schema appropriate to this file.
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, terraform, non-assets
+# 
 name: Pull Merge Cleanup
-'on':
+"on":
   schedule:
     - cron: 0 10 * * *
   repository_dispatch:
@@ -9,10 +25,10 @@ jobs:
   process:
     runs-on: ubuntu-latest
     steps:
-      - uses: pascalgn/automerge-action@v0.14.2
+      - uses: pascalgn/automerge-action@v0.14.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: '!pull: not merge,!approval: waiting'
+          MERGE_LABELS: "!pull: not merge,!approval: waiting"
           MERGE_METHOD: squash
           MERGE_COMMIT_MESSAGE: pull-request-title-and-description
           MERGE_DELETE_BRANCH: true

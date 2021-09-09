@@ -1,5 +1,21 @@
+# Config ID: workflow.deploy
+# 
+# This configuration file is auto-generated 
+# by http://github.com/otto-ec/assets_protecty. 
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/workflow/deploy, 
+# 
+# and use the schema appropriate to this file.
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: tf-deploy, terraform
+# 
 name: Deploy Terraform
-'on':
+"on":
   release:
     types:
       - prereleased
@@ -13,8 +29,8 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
   TF_PLUGIN_CACHE_DIR: ${{ github.workspace }}/.terraform.d/plugin-cache
-  RUN_PRE_DEPLOY: ''
-  RUN_POST_DEPLOY: ''
+  RUN_PRE_DEPLOY: ""
+  RUN_POST_DEPLOY: ""
   RUN_TF_DEPLOY: false
   RUN_S3_UPLOAD: true
   RUN_CF_INVALIDATE: true
@@ -107,7 +123,7 @@ jobs:
   live:
     needs:
       - develop
-    if: '!!github.event.release && !github.event.release.prerelease'
+    if: "!!github.event.release && !github.event.release.prerelease"
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -1,5 +1,21 @@
+# Config ID: issues.mentions
+# 
+# This configuration file is auto-generated 
+# by http://github.com/otto-ec/assets_protecty. 
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/issues/mentions, 
+# 
+# and use the schema appropriate to this file.
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: non-assets
+# 
 name: Issue Mention Assets
-'on':
+"on":
   issues:
     types:
       - opened
@@ -74,7 +90,7 @@ jobs:
           else
             echo "Mo Mentions found"
           fi
-      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.23
+      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.24
         id: isOnBoard
         if: >-
           ${{ steps.mentions.outputs.mentions && steps.mentions.outputs.mentions
@@ -87,7 +103,7 @@ jobs:
           board: Team Assets
           repo: ${{ github.event.repository.name }}
           number: ${{ github.event.issue.number }}
-      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.28
+      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.29
         id: isMember
         if: |-
           ${{ 
@@ -100,7 +116,7 @@ jobs:
           MENTIONS: ${{ steps.mentions.outputs.mentions }}
           ONBOARD: ${{ steps.isOnBoard.outputs.isOnBoard }}
           DEBUG: action-is-user-member-of-teams*
-          DEBUG_DEPTH: '9'
+          DEBUG_DEPTH: "9"
         with:
           token: ${{ secrets.TOKEN_GITHUB }}
           username: ${{ steps.mentions.outputs.mentions }}
