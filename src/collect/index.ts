@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
-import chalk from "chalk";
 import { debug } from "@otto-ec/assets-debug";
 import yargs from "yargs";
-import { writeLine } from "@otto-ec/toolbox";
+import { colors, stdout } from "@otto-ec/assets-core-utils/stdio";
 import { collect, render, rules, badLinks } from "./lib/pack";
 import { nextId } from "./lib/nextid";
 import { ContentError } from "./lib/errors";
@@ -19,7 +18,7 @@ const log = debug("collect:entrypoint");
 
 process.on("unhandledRejection", (e) => {
   const error = e as Error;
-  log.error("\n", chalk.red(error.message), "\n", error.stack);
+  log.error("\n", colors.red(error.message), "\n", error.stack);
   process.exit(1);
 });
 
@@ -99,13 +98,13 @@ export default yargs
     if (e) {
       if (e instanceof ContentError) {
         if (process.env.CI && process.env.GITHUB_ACTIONS) {
-          writeLine(
+          stdout(
             `::error file=${e.file},line=${e.line},col=${e.col}::${e.message}`
           );
         } else {
-          writeLine(e.file);
-          writeLine(
-            `  ${e.line}:${e.col} ${chalk.redBright("error")} ${e.message}`
+          stdout(e.file);
+          stdout(
+            `  ${e.line}:${e.col} ${colors.redBright("error")} ${e.message}`
           );
         }
       } else {

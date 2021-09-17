@@ -1,8 +1,8 @@
 import { debug } from "@otto-ec/assets-debug";
-import globby from "globby";
-import { registerPartial, registerHelper } from "handlebars";
-import chalk from "chalk";
+import { handlebars } from "@otto-ec/assets-core-utils/external";
 import { table } from "table";
+import { globby } from "@otto-ec/toolbox-cli-core/utils";
+import { colors } from "@otto-ec/assets-core-utils/stdio";
 import { readText } from "./fs";
 import { Parser } from "./parser";
 import type { Config } from "./config";
@@ -30,7 +30,7 @@ export async function registerPartials(config: Config): Promise<void> {
   await Promise.all(
     partials.map(async (p) => {
       const pData = await readText(p);
-      registerPartial(
+      handlebars.registerPartial(
         p.replace(`${config.templates.partials}/`, "").replace(".hbs", ""),
         pData
       );
@@ -42,37 +42,42 @@ export async function registerPartials(config: Config): Promise<void> {
  * Registers helpers for heandlebars, add needed handlebars helpers here
  */
 export function registerHelpers(): void {
-  registerHelper("toLowerCase", (str: string): string => str.toLowerCase());
+  handlebars.registerHelper("toLowerCase", (str: string): string =>
+    str.toLowerCase()
+  );
 
-  registerHelper("frontMatterToClasses", (frontMatter: FrontMatter) => {
-    const { type, reviewType } = frontMatter;
-    // eslint-disable-next-line no-nested-ternary
-    const appliesTo = Array.isArray(frontMatter.appliesTo)
-      ? frontMatter.appliesTo
-      : typeof frontMatter.appliesTo === "string"
-      ? [frontMatter.appliesTo]
-      : undefined;
+  handlebars.registerHelper(
+    "frontMatterToClasses",
+    (frontMatter: FrontMatter) => {
+      const { type, reviewType } = frontMatter;
+      // eslint-disable-next-line no-nested-ternary
+      const appliesTo = Array.isArray(frontMatter.appliesTo)
+        ? frontMatter.appliesTo
+        : typeof frontMatter.appliesTo === "string"
+        ? [frontMatter.appliesTo]
+        : undefined;
 
-    const classes = [] as string[];
+      const classes = [] as string[];
 
-    if (type) {
-      classes.push(`js_rule-${type.toLowerCase().replace(/[\s\W]/g, "-")}`);
+      if (type) {
+        classes.push(`js_rule-${type.toLowerCase().replace(/[\s\W]/g, "-")}`);
+      }
+
+      if (appliesTo) {
+        appliesTo.forEach((a) => {
+          classes.push(`js_rule-applies-${a.toLowerCase()}`);
+        });
+      }
+
+      if (reviewType) {
+        classes.push(
+          `js_rule-review-${reviewType.toLowerCase().replace(/[\s\W]/g, "-")}`
+        );
+      }
+
+      return classes.join(" ");
     }
-
-    if (appliesTo) {
-      appliesTo.forEach((a) => {
-        classes.push(`js_rule-applies-${a.toLowerCase()}`);
-      });
-    }
-
-    if (reviewType) {
-      classes.push(
-        `js_rule-review-${reviewType.toLowerCase().replace(/[\s\W]/g, "-")}`
-      );
-    }
-
-    return classes.join(" ");
-  });
+  );
 }
 
 /**
@@ -86,9 +91,9 @@ export function formatRules(): string {
       ...[...Parser.ruleMap.entries()]
         .sort(([a], [b]) => a.localeCompare(b))
         .map(([k, v]) => [
-          chalk.cyanBright(k),
-          chalk.magentaBright(v.nav.text),
-          chalk.greenBright(v.source),
+          colors.cyanBright(k),
+          colors.magentaBright(v.nav.text),
+          colors.greenBright(v.source),
         ]),
     ],
     {
@@ -105,9 +110,9 @@ export function formatBadLinks(): string {
       ...[...Parser.badLinks.values()]
         .sort((a, b) => a.source.localeCompare(b.source))
         .map((v) => [
-          chalk.cyanBright(v.href),
-          chalk.magentaBright(v.source),
-          chalk.greenBright(v.map),
+          colors.cyanBright(v.href),
+          colors.magentaBright(v.source),
+          colors.greenBright(v.map),
         ]),
     ],
     {

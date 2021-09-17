@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { execaTask, writeLine } from "@otto-ec/toolbox";
 import { debug } from "@otto-ec/assets-debug";
-import chalk from "chalk";
 import { Arguments } from "yargs";
+import { colors, stdout } from "@otto-ec/assets-core-utils/stdio";
+import { execaValueTask } from "@otto-ec/toolbox";
 import { Args } from "./opts";
 
 const log = debug("collect:lint");
@@ -10,12 +10,12 @@ const log = debug("collect:lint");
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function lint(argv: Arguments<Args>): Promise<void> {
   log.debug("Run lint");
-  const npmBin = await execaTask({}).execute(
+  const npmBin = await execaValueTask({}).execute(
     { execaInput: { cmd: "npm", args: ["bin"] } } as any,
-    {}
+    {} as any
   );
 
-  const lintCtx = await execaTask({}).execute(
+  const lintCtx = await execaValueTask({}).execute(
     {
       execaInput: {
         cmd: `${npmBin.execaOutput.stdout}/markdownlint`,
@@ -24,7 +24,7 @@ export async function lint(argv: Arguments<Args>): Promise<void> {
       },
       execaOutput: undefined as any,
     },
-    {}
+    {} as any
   );
 
   log.debug("Output Results for code: ", lintCtx.execaOutput.exitCode);
@@ -40,13 +40,13 @@ export async function lint(argv: Arguments<Args>): Promise<void> {
       if (m.groups) {
         const { file, line, msg } = m.groups;
         if (process.env.CI && process.env.GITHUB_ACTIONS) {
-          writeLine(`::error file=${file},line=${line},col=0::${msg}`);
+          stdout(`::error file=${file},line=${line},col=0::${msg}`);
         } else {
-          writeLine(file);
-          writeLine(`  ${line}:0 ${chalk.redBright("error")} ${msg}`);
+          stdout(file);
+          stdout(`  ${line}:0 ${colors.redBright("error")} ${msg}`);
         }
       } else {
-        writeLine(m[0]);
+        stdout(m[0]);
       }
     });
   }

@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable import/no-extraneous-dependencies */
 import { debug } from "@otto-ec/assets-debug";
-import { hbTransform, writeLine } from "@otto-ec/toolbox";
 import { join } from "path";
 import type { Arguments } from "yargs";
+import { stdout } from "@otto-ec/assets-core-utils/stdio";
+import { hbTransform } from "@otto-ec/assets-core-utils/handlebars";
 import { getConfig } from "./config";
 import { collectCategory } from "./collect";
 import { readText, outputFile } from "./fs";
@@ -45,11 +46,11 @@ export async function collect(argv: Arguments<Args>): Promise<void> {
 
 export async function rules(argv: Arguments<Args>): Promise<void> {
   log.info("Processed rules:");
-  writeLine(formatRules());
+  stdout(formatRules());
 }
 
 export async function badLinks(argv: Arguments<Args>): Promise<void> {
-  writeLine(formatBadLinks());
+  stdout(formatBadLinks());
 }
 
 export async function render(argv: Arguments<Args>): Promise<void> {

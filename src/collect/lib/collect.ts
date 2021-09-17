@@ -1,6 +1,6 @@
-import globby from "globby";
 import { debug } from "@otto-ec/assets-debug";
 import MarkdownIt from "markdown-it";
+import { globby } from "@otto-ec/toolbox-cli-core/utils";
 import { readText } from "./fs";
 import { Parser } from "./parser";
 import { Category } from "../types";
@@ -36,9 +36,7 @@ export function parseCategoryFromDir(dir: string): string | undefined {
  * Collect index data from a single directory
  * @param dir
  */
-export async function getIndexData(
-  dir: string
-): Promise<{
+export async function getIndexData(dir: string): Promise<{
   path: string;
   indexData: string;
   catNameFromDir?: string;

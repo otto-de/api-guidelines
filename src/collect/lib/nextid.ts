@@ -1,7 +1,6 @@
 import { debug } from "@otto-ec/assets-debug";
 import { Arguments } from "yargs";
-import { writeLine } from "@otto-ec/toolbox";
-import chalk from "chalk";
+import { colors, stdout } from "@otto-ec/assets-core-utils/stdio";
 import { getConfig } from "./config";
 import { Args } from "./opts";
 import { getParser } from "./markdown";
@@ -45,8 +44,8 @@ export async function nextId(argv: Arguments<Args>): Promise<void> {
   }
 
   const formatted = config.rules.prefix + next.toString().padStart(6, "0");
-  writeLine(
-    chalk.yellowBright("Next Free Rule ID is: ") +
-      chalk.magentaBright(formatted)
+  stdout(
+    colors.yellowBright("Next Free Rule ID is: ") +
+      colors.magentaBright(formatted)
   );
 }
