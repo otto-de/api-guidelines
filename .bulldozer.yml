@@ -1,16 +1,33 @@
+# Config ID: bulldozer.default
+# 
+# This configuration file is auto-generated 
+# by https://github.com/otto-ec/assets_protecty. 
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/bulldozer/default, 
+# 
+# and use the schema appropriate to this file.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, integration, tf-update, terraform, lint, no-specs, non-assets
+# 
 version: 1
 merge:
   trigger:
     labels:
-      - 'pull: automerge'
+      - "pull: automerge"
     branches:
       - main
   ignore:
     labels:
-      - 'pull: not merge'
-      - 'approval: waiting'
+      - "pull: not merge"
+      - "approval: waiting"
+      - "dependabot :rocket:"
     comment_substrings:
-      - '==DO_NOT_MERGE=='
+      - "==DO_NOT_MERGE=="
   method: squash
   options:
     squash:
@@ -21,16 +38,16 @@ merge:
     - build-complete
     - specs-complete
     - license-complete
-    - 'policy-bot: main'
+    - "policy-bot: main"
     - lint (14.x)
   delete_after_merge: true
 update:
   trigger:
     labels:
-      - 'pull: update'
+      - "pull: update"
     branches:
       - main
   ignore:
     labels:
-      - 'pull: not update'
-      - 'dependabot :rocket:'
+      - "pull: not update"
+      - "dependabot :rocket:"
