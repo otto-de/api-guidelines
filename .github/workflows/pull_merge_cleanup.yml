@@ -1,7 +1,7 @@
 # Config ID: dependabot.cleanup
 # 
 # This configuration file is auto-generated 
-# by http://github.com/otto-ec/assets_protecty. 
+# by https://github.com/otto-ec/assets_protecty. 
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
@@ -10,7 +10,7 @@
 # - .github/gitty.yml#/configs/dependabot/cleanup, 
 # 
 # and use the schema appropriate to this file.
-# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
@@ -21,16 +21,33 @@ name: Pull Merge Cleanup
   repository_dispatch:
     types:
       - pulls-automerge
+env:
+  TOOLBOX: $(npm bin)/toolbox
 jobs:
   process:
     runs-on: ubuntu-latest
     steps:
-      - uses: pascalgn/automerge-action@v0.14.3
+      - uses: actions/checkout@v2.3.4
+        id: checkout
+      - uses: actions/setup-node@v2.1.5
+        id: setup_node
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: actions/cache@v2.1.6
+        id: setup_cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Instruct Dependabot to merge PRs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_LABELS: "!pull: not merge,!approval: waiting"
-          MERGE_METHOD: squash
-          MERGE_COMMIT_MESSAGE: pull-request-title-and-description
-          MERGE_DELETE_BRANCH: true
-          MERGE_RETRIES: 2
-          UPDATE_METHOD: rebase
+        run: >-
+          ${{ env.TOOLBOX }} gh pr dpb merge --no-base --repo
+          "{{app.repo.name}}" --nolabels "pull: not merge" --nolabels "approval:
+          waiting" --nocache --yes
