@@ -57,7 +57,7 @@ jobs:
           cache: npm
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
-          terraform_version: 0.15
+          terraform_version: 1
       - name: setup cache for terraform
         uses: actions/cache@v2.1.6
         id: setup_cache_terraform
@@ -141,7 +141,7 @@ jobs:
           cache: npm
       - uses: hashicorp/setup-terraform@v1.3.2
         with:
-          terraform_version: 0.15
+          terraform_version: 1
       - name: setup cache for terraform
         uses: actions/cache@v2.1.6
         id: setup_cache_terraform
