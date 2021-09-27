@@ -5,9 +5,9 @@ import { join } from "path";
 import type { Arguments } from "yargs";
 import { stdout } from "@otto-ec/assets-core-utils/stdio";
 import { hbTransform } from "@otto-ec/assets-core-utils/handlebars";
+import { readText, outputFile } from "@otto-ec/assets-core-utils/fs";
 import { getConfig } from "./config";
 import { collectCategory } from "./collect";
-import { readText, outputFile } from "./fs";
 import {
   registerPartials,
   formatRules,
@@ -17,7 +17,7 @@ import {
 } from "./utils";
 import { getParser } from "./markdown";
 import { Parser } from "./parser";
-import { Args } from "./opts";
+import { Args } from "../types";
 
 const log = debug("collect:pack");
 

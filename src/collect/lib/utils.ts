@@ -3,7 +3,7 @@ import { handlebars } from "@otto-ec/assets-core-utils/external";
 import { table } from "table";
 import { globby } from "@otto-ec/toolbox-cli-core/utils";
 import { colors } from "@otto-ec/assets-core-utils/stdio";
-import { readText } from "./fs";
+import { readText } from "@otto-ec/assets-core-utils/fs";
 import { Parser } from "./parser";
 import type { Config } from "./config";
 import { FrontMatter } from "../types";

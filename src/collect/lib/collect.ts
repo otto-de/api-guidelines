@@ -1,7 +1,7 @@
 import { debug } from "@otto-ec/assets-debug";
 import MarkdownIt from "markdown-it";
 import { globby } from "@otto-ec/toolbox-cli-core/utils";
-import { readText } from "./fs";
+import { readText } from "@otto-ec/assets-core-utils/fs";
 import { Parser } from "./parser";
 import { Category } from "../types";
 import { Config } from "./config";

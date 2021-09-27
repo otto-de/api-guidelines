@@ -1,6 +1,11 @@
 import type { Parser } from "./lib/parser";
 import type { Config } from "./lib/config";
 
+export interface Args {
+  render: boolean;
+  model: boolean;
+}
+
 /**
  * Rule types allowed in Api Guidelines
  */
@@ -53,12 +58,4 @@ export interface Model {
   categorys: Category;
   docs: Set<Parser>;
   headings: ProcessedHeading[];
-}
-
-declare global {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type Mock<T extends (...args: any) => any> = jest.Mock<
-    ReturnType<T>,
-    Parameters<T>
-  >;
 }

@@ -3,7 +3,7 @@ import { debug } from "@otto-ec/assets-debug";
 import { Arguments } from "yargs";
 import { colors, stdout } from "@otto-ec/assets-core-utils/stdio";
 import { execaValueTask } from "@otto-ec/toolbox";
-import { Args } from "./opts";
+import { Args } from "../types";
 
 const log = debug("collect:lint");
 

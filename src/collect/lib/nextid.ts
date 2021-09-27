@@ -1,8 +1,9 @@
 import { debug } from "@otto-ec/assets-debug";
 import { Arguments } from "yargs";
 import { colors, stdout } from "@otto-ec/assets-core-utils/stdio";
+import assert from "assert";
 import { getConfig } from "./config";
-import { Args } from "./opts";
+import { Args } from "../types";
 import { getParser } from "./markdown";
 import { collectCategory } from "./collect";
 import { Parser } from "./parser";
@@ -21,13 +22,8 @@ export async function nextId(argv: Arguments<Args>): Promise<void> {
   const ids = [...Parser.ruleMap.keys()]
     .map((r) => {
       const match = new RegExp(config.rules.matcher).exec(r);
-      return Number.parseInt(
-        match?.groups?.id ??
-          (() => {
-            throw new Error(`Could not parse rule id: ${r}`);
-          })(),
-        10
-      );
+      assert(match?.groups?.id, `Could not parse rule id: ${r}`);
+      return Number.parseInt(match.groups.id, 10);
     })
     .sort((a, b) => a - b);
   log.debug("Parsed IDs: %o", ids);
