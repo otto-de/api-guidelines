@@ -1,7 +1,7 @@
 # Config ID: workflow.default
 # 
 # This configuration file is auto-generated 
-# by http://github.com/otto-ec/assets_protecty. 
+# by https://github.com/otto-ec/assets_protecty. 
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
@@ -10,7 +10,7 @@
 # - .github/gitty.yml#/configs/workflow/default, 
 # 
 # and use the schema appropriate to this file.
-# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets
 # 
@@ -114,7 +114,6 @@ jobs:
       matrix:
         node-version:
           - 14.x
-          - 16.x
       fail-fast: false
     needs:
       - build-complete
