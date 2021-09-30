@@ -63,7 +63,7 @@
     "@types/jest": "^27.0.2",
     "@types/js-yaml": "^4.0.3",
     "@types/markdown-it": "^12.2.1",
-    "@types/node": "^16.10.1",
+    "@types/node": "^16.10.2",
     "@types/table": "^6.3.2",
     "browser-sync": "^2.27.5",
     "concurrently": "^6.2.2",
