@@ -17,14 +17,27 @@
 name: Pull Merge Cleanup
 "on":
   schedule:
-    - cron: 0 7,12,17 * * *
+    - cron: 0 4,9,13,17 * * *
   repository_dispatch:
     types:
       - pulls-automerge
 env:
   TOOLBOX: $(npm bin)/toolbox
 jobs:
-  process:
+  default:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pascalgn/automerge-action@v0.14.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: "!pull: not merge,!approval: waiting,!dependabot :rocket:"
+          MERGE_METHOD: squash
+          MERGE_COMMIT_MESSAGE: pull-request-title-and-description
+          MERGE_DELETE_BRANCH: true
+          MERGE_RETRIES: 2
+          UPDATE_LABELS: "!pull: not update,!dependabot :rocket:"
+          UPDATE_METHOD: rebase
+  dependabot:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4

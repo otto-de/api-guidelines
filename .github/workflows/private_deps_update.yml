@@ -1,5 +1,21 @@
+# Config ID: dependabot.private
+# 
+# This configuration file is auto-generated 
+# by http://github.com/otto-ec/assets_protecty. 
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/dependabot/private, 
+# 
+# and use the schema appropriate to this file.
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, terraform, non-assets
+# 
 name: Private Deps Update
-'on':
+"on":
   schedule:
     - cron: 0 7 * * *
   push:
@@ -11,7 +27,7 @@ name: Private Deps Update
     types:
       - deps-update
 env:
-  PACKAGE_REGEX: '@otto-ec'
+  PACKAGE_REGEX: "@otto-ec"
 jobs:
   package-update:
     runs-on: ubuntu-latest
@@ -32,11 +48,11 @@ jobs:
         env:
           AUTHOR_EMAIL: fkt-assets-github@otto.de
           AUTHOR_NAME: FKT-assets-github
-          EXECUTE: 'true'
+          EXECUTE: "true"
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           LOG_LEVEL: debug
           UPDATE_COMMAND: npx
-          PULL_REQUEST_TITLE: 'npm(priv): bump private otto-ec packages'
+          PULL_REQUEST_TITLE: "npm(priv): bump private otto-ec packages"
           BRANCH_PREFIX: deps-priv/
         run: >-
           npx actions-package-update npm-check-updates --packageFile
