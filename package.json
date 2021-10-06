@@ -62,7 +62,7 @@
     "@rollup/plugin-typescript": "^8.2.5",
     "@types/jest": "^27.0.2",
     "@types/js-yaml": "^4.0.3",
-    "@types/markdown-it": "^12.2.1",
+    "@types/markdown-it": "^12.2.2",
     "@types/node": "^16.10.3",
     "@types/table": "^6.3.2",
     "browser-sync": "^2.27.5",
