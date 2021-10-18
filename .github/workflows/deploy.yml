@@ -48,7 +48,7 @@ jobs:
       TB_DR: ${{ matrix.dr }}
       TB_ENVIRONMENT: ${{ matrix.target }}
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         id: checkout
       - uses: actions/setup-node@v2.4.1
         id: setup_node
@@ -132,7 +132,7 @@ jobs:
       TB_DR: ${{ matrix.dr }}
       TB_ENVIRONMENT: ${{ matrix.target }}
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v2.3.5
         id: checkout
       - uses: actions/setup-node@v2.4.1
         id: setup_node
