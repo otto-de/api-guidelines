@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.head_commit.author.username != 'dependabot[bot]'
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
       - name: Fetch Branches and Tags
         id: fetch

@@ -71,7 +71,7 @@ jobs:
           - 14.x
       fail-fast: false
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
@@ -127,7 +127,7 @@ jobs:
           --coverageReporters json json-summary text html clover \
           --reporters default --reporters jest-junit
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
@@ -181,7 +181,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
@@ -219,7 +219,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
@@ -262,7 +262,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
@@ -291,7 +291,7 @@ jobs:
           - 14.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}

@@ -40,7 +40,7 @@ jobs:
   dependabot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.5
+      - uses: actions/checkout@v2.4.0
         id: checkout
       - uses: actions/setup-node@v2.4.1
         id: setup_node
