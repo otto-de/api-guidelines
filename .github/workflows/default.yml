@@ -112,6 +112,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        include:
+          - node-version: 14.x
+            install-cmd: npm ci
+          - node-version: 16.x
+            install-cmd: npm ci -f
         node-version:
           - 14.x
       fail-fast: false
@@ -140,7 +145,7 @@ jobs:
         id: npm_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci
+        run: ${{ matrix.install-cmd }}
       - name: Run Custom Process before Specs
         id: run_pre_specs
         if: ${{ env.RUN_PRE_SPECS != '' }}
