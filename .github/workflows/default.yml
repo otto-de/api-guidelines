@@ -1,16 +1,16 @@
 # Config ID: workflow.default
 # 
-# This configuration file is auto-generated 
-# by http://github.com/otto-ec/assets_protecty. 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
 # 
 # If you need to modify this file permanently then place your configuration overrides in
-# - .github/gitty.yml#/configs/workflow/default, 
+# - .github/gitty.yml#/configs/workflow/default,
 # 
 # and use the schema appropriate to this file.
-# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets
 # 
@@ -32,6 +32,7 @@ name: Build, Test, Lint
       - .github/settings.yml
       - .github/pr-labeler.yml
       - .github/dependabot.yml
+      - .github/workflows/deploy.yml
       - .github/workflows/issue_*.yml
       - .github/workflows/pull_*.yml
       - .github/workflows/repository_*.yml
@@ -75,7 +76,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -136,7 +137,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -190,7 +191,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -228,7 +229,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -271,7 +272,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
@@ -300,7 +301,7 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}

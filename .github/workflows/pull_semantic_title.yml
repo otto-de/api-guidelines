@@ -1,21 +1,21 @@
 # Config ID: pulls.title
 # 
-# This configuration file is auto-generated 
-# by http://github.com/otto-ec/assets_protecty. 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
 # 
 # If you need to modify this file permanently then place your configuration overrides in
-# - .github/gitty.yml#/configs/pulls/title, 
+# - .github/gitty.yml#/configs/pulls/title,
 # 
 # and use the schema appropriate to this file.
-# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
 name: Ensure Semantic PR
-'on':
+"on":
   pull_request:
     types:
       - opened
@@ -26,7 +26,7 @@ jobs:
     name: Semantic PR
     runs-on: ubuntu-latest
     steps:
-      - uses: amannn/action-semantic-pull-request@v3.4.6
+      - uses: amannn/action-semantic-pull-request@v3.5.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

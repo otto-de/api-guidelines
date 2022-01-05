@@ -1,0 +1,72 @@
+# Config ID: workflow.npm_unpublish
+# 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/workflow/npm_unpublish,
+# 
+# and use the schema appropriate to this file.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: default, npm-package
+# 
+name: Unpublish Npm Package
+"on":
+  release:
+    types:
+      - unpublished
+      - deleted
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  TOOLBOX: $(npm bin)/toolbox
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+      fail-fast: true
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - uses: actions/checkout@v2.4.0
+        id: checkout
+        with:
+          ref: ${{ github.event.release.tag_name }}
+      - uses: actions/setup-node@v2.5.1
+        id: setup_node
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://npm.pkg.github.com/
+          cache: npm
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Calculate Package Version
+        id: package_version
+        run: |
+          PKG_VER=$(${{ env.TOOLBOX }} c --dcr --dc app.package.fullname)
+          echo "::debug::Package Version: ${PKG_VER}"; 
+          echo "PKG_VER=${PKG_VER}" >> $GITHUB_ENV
+      - name: Deprecate Package ${{ env.PKG_VER }}
+        id: deprecate
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          NODE_AUTH_TOKEN: ${{secrets.TOKEN_GITHUB}}
+        run: npm deprecate ${{ env.PKG_VER }} "This Release was deleted"
+      - name: Try Remove Package ${{ env.PKG_VER }}
+        id: unpublish
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          NODE_AUTH_TOKEN: ${{secrets.TOKEN_GITHUB}}
+        run: npm unpublish ${{ env.PKG_VER }}

@@ -1,16 +1,16 @@
 # Config ID: dependabot.cleanup
 # 
-# This configuration file is auto-generated 
-# by http://github.com/otto-ec/assets_protecty. 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
 # 
 # If you need to modify this file permanently then place your configuration overrides in
-# - .github/gitty.yml#/configs/dependabot/cleanup, 
+# - .github/gitty.yml#/configs/dependabot/cleanup,
 # 
 # and use the schema appropriate to this file.
-# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
@@ -42,11 +42,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
         id: checkout
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: actions/cache@v2.1.6
+      - uses: actions/cache@v2.1.7
         id: setup_cache
         with:
           path: ~/.npm

@@ -1,16 +1,16 @@
 # Config ID: workflow.deploy
 # 
-# This configuration file is auto-generated 
-# by http://github.com/otto-ec/assets_protecty. 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
 # 
 # If you need to modify this file permanently then place your configuration overrides in
-# - .github/gitty.yml#/configs/workflow/deploy, 
+# - .github/gitty.yml#/configs/workflow/deploy,
 # 
 # and use the schema appropriate to this file.
-# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: tf-deploy, terraform
 # 
@@ -21,6 +21,16 @@ name: Deploy Terraform
       - prereleased
       - released
       - edited
+  workflow_dispatch:
+    inputs:
+      go_develop:
+        description: "go develop: set 'false' in order to skip deploy to develop"
+        required: true
+        default: "true"
+      go_live:
+        description: "go live: set 'true' in order to deploy to live"
+        required: true
+        default: "false"
   repository_dispatch:
     types:
       - deploy
@@ -38,6 +48,7 @@ env:
   RUN_DEPLOYMENT_REPORT: false
 jobs:
   develop:
+    if: ${{ github.event.inputs.go_develop != 'false' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -50,7 +61,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
         id: checkout
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ env.NODE_VER }}
@@ -59,7 +70,7 @@ jobs:
         with:
           terraform_version: 1
       - name: setup cache for terraform
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         id: setup_cache_terraform
         with:
           path: ${{ env.TF_PLUGIN_CACHE_DIR }}
@@ -77,7 +88,7 @@ jobs:
         run: npm run build
       - name: Configure AWS Credentials
         id: aws_credentials
-        uses: aws-actions/configure-aws-credentials@v1.5.11
+        uses: aws-actions/configure-aws-credentials@v1.6.0
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -121,7 +132,10 @@ jobs:
   live:
     needs:
       - develop
-    if: "!!github.event.release && !github.event.release.prerelease"
+    if: >-
+      ${{  (!!github.event.release && !github.event.release.prerelease) ||
+      github.event.inputs.go_live == 'true' || (github.event.inputs.go_live ==
+      'true' && github.event.inputs.go_develop == 'false' && always()) }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -134,7 +148,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
         id: checkout
-      - uses: actions/setup-node@v2.4.1
+      - uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
           node-version: ${{ env.NODE_VER }}
@@ -143,7 +157,7 @@ jobs:
         with:
           terraform_version: 1
       - name: setup cache for terraform
-        uses: actions/cache@v2.1.6
+        uses: actions/cache@v2.1.7
         id: setup_cache_terraform
         with:
           path: ${{ env.TF_PLUGIN_CACHE_DIR }}
@@ -161,7 +175,7 @@ jobs:
         run: npm run build
       - name: Configure AWS Credentials
         id: aws_credentials
-        uses: aws-actions/configure-aws-credentials@v1.5.11
+        uses: aws-actions/configure-aws-credentials@v1.6.0
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

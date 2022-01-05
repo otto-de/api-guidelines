@@ -1,16 +1,16 @@
 # Config ID: pulls.review
 # 
-# This configuration file is auto-generated 
-# by http://github.com/otto-ec/assets_protecty. 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
 # 
 # If you need to modify this file permanently then place your configuration overrides in
-# - .github/gitty.yml#/configs/pulls/review, 
+# - .github/gitty.yml#/configs/pulls/review,
 # 
 # and use the schema appropriate to this file.
-# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Get Pull review info
         id: reviews
-        uses: jurijzahn8019/action-get-pull-review-info@v0.0.44
+        uses: jurijzahn8019/action-get-pull-review-info@v0.0.52
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
   to-review:
