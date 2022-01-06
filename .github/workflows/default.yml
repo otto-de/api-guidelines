@@ -112,7 +112,10 @@ jobs:
   specs:
     runs-on: ubuntu-latest
     strategy:
-      matrix: []
+      matrix:
+        include:
+          - node-version: 14.x
+            install-cmd: npm ci
       fail-fast: false
     needs:
       - build-complete
