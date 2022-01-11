@@ -5,53 +5,49 @@ id: R004040
 
 # represent maps as objects with keys being their property names
 
-Strive to model map-like data structures as JSON objects, with map's keys encoded as property names and the values as property values of the JSON object.
+Strive to model your schema consumer-agnostic. That implies:
 
-DO
-
-````json
-{
-    "availableSizesByColor": {
-      "red": ["L", "XL"],
-      "blue": ["S", "XL"],
-      "green": ["L"]
-    }
-}
-````
+- don't expect your consumer to use a certain technology, library or framework
+- don't fulfill consumer-specific requirements such as indexing data, as other consumers have different requirements.
 
 DON'T
 
-````json
+```json
 {
-    "availableSizesByColor": [
-        {
-            "key": "red",
-            "value": ["L", "XL"]
-        },
-        {
-            "key": "blue",
-            "value": ["S", "XL"]
-        },
-        {
-            "key": "green",
-            "value": ["L"]
-        }
-    ]
+  "availableVariantsByColor": [
+    {
+      "key": "red",
+      "value": ["L", "XL"]
+    },
+    {
+      "key": "blue",
+      "value": ["S", "XL"]
+    },
+    {
+      "key": "green",
+      "value": ["L"]
+    }
+  ]
 }
-````
+```
 
-`Note`{ label } The map keys don't need to follow the rule for using camelCase for property names and can follow whatever format is natural to their domain.
+This example violates both of the above rules because:
 
-That means, a map of currencies to prices could be encoded like this:
+- the data is grouped by color. Another consumer might require the data to be grouped by size
+- the dictionary representation of data uses a custom meta-schema instead of native json objects.
+
+DO
 
 ```json
 {
-  "translations": {
-    "de": "Farbe",
-    "en-US": "color",
-    "en-GB": "colour",
-    "eo": "koloro",
-    "nl": "kleur"
-  }
+  "availableVariants": [
+    { "color": "red", "size": "L" },
+    { "color": "red", "size": "XL" },
+    { "color": "blue", "size": "S" },
+    { "color": "blue", "size": "XL" },
+    { "color": "green", "size": "L" }
+  ]
 }
 ```
+
+If the consumer is not able to create a backend for the frontend, the API provider can provide a subresource e.g. `[...]/available-variants`, which allows filtering and sorting in different ways.
