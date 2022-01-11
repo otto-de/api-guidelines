@@ -1,7 +1,7 @@
 # Config ID: workflow.deploy
 # 
 # This configuration file is auto-generated
-# by https://github.com/otto-ec/assets_protecty.
+# by http://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
@@ -10,7 +10,7 @@
 # - .github/gitty.yml#/configs/workflow/deploy,
 # 
 # and use the schema appropriate to this file.
-# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: tf-deploy, terraform
 # 
@@ -134,8 +134,92 @@ jobs:
       - develop
     if: >-
       ${{  (!!github.event.release && !github.event.release.prerelease) ||
-      github.event.inputs.go_live == 'true' || (github.event.inputs.go_live ==
-      'true' && github.event.inputs.go_develop == 'false' && always()) }}
+      (github.event.inputs.go_live == 'true' && github.event.inputs.go_develop
+      == 'true' ) }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        target:
+          - live
+      fail-fast: false
+    env:
+      TB_DR: ${{ matrix.dr }}
+      TB_ENVIRONMENT: ${{ matrix.target }}
+    steps:
+      - uses: actions/checkout@v2.4.0
+        id: checkout
+      - uses: actions/setup-node@v2.5.1
+        id: setup_node
+        with:
+          node-version: ${{ env.NODE_VER }}
+          cache: npm
+      - uses: hashicorp/setup-terraform@v1.3.2
+        with:
+          terraform_version: 1
+      - name: setup cache for terraform
+        uses: actions/cache@v2.1.7
+        id: setup_cache_terraform
+        with:
+          path: ${{ env.TF_PLUGIN_CACHE_DIR }}
+          key: >-
+            ${{ runner.os }}-terraform-${{ hashFiles('**/.terraform.lock.hcl')
+            }}
+          restore-keys: ${{ runner.os }}-terraform-
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Build Sources
+        id: build
+        run: npm run build
+      - name: Configure AWS Credentials
+        id: aws_credentials
+        uses: aws-actions/configure-aws-credentials@v1.6.0
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+      - name: Run Custom Process before Deployment
+        id: run_pre_deploy
+        if: ${{ env.RUN_PRE_DEPLOY != '' }}
+        run: ${{ env.RUN_PRE_DEPLOY }}
+      - name: Apply Terraform Stacks
+        id: terraform_apply
+        if: ${{ env.RUN_TF_DEPLOY == 'true' }}
+        run: |
+          echo "Deploy to: $TB_ENVIRONMENT"
+          ${{ env.TOOLBOX }} terraform apply --plan
+      - name: Execute toolbox s3 upload
+        id: s3_upload
+        if: ${{ env.RUN_S3_UPLOAD == 'true' }}
+        run: ${{ env.TOOLBOX }} s3 upload
+      - name: Invalidate Cloudfront Distribution
+        id: cf_invalidate
+        if: ${{ env.RUN_CF_INVALIDATE == 'true' }}
+        run: ${{ env.TOOLBOX }} cloudfront invalidate
+      - name: Run Custom Process after Deployment
+        id: run_post_deploy
+        if: ${{ env.RUN_POST_DEPLOY != '' }}
+        run: ${{ env.RUN_POST_DEPLOY }}
+      - name: Register Healthcheck
+        id: register_healthcheck
+        if: ${{ env.RUN_HEALTHCHECK == 'true' }}
+        run: |
+          echo https://dashboard.live.spoc.cloud.otto.de/dashboard
+          ${{ env.TOOLBOX }} healthcheck register
+      - name: Report Deployment
+        id: deployment_report
+        if: ${{ env.RUN_DEPLOYMENT_REPORT == 'true' }}
+        run: ${{ env.TOOLBOX }} deployment-report
+      - name: Destroy Deployment Admin
+        id: terraform_destroy
+        if: ${{ env.RUN_TF_DEPLOY == 'true' && always() }}
+        run: ${{ env.TOOLBOX }} terraform destroy -g admin
+  live_only:
+    if: >-
+      ${{ github.event.inputs.go_live == 'true' &&
+      github.event.inputs.go_develop == 'false' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
