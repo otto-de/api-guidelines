@@ -77,7 +77,7 @@ Profiles may also apply to request bodies: all public endpoints which accept req
 - [SHOULD use Accept header with profile parameter](./guidelines/020_guidelines/080_versioning/1040_should-use-accept-header-with-profile-parameter.md)
 - [MUST provide conventional hyperlinks](./guidelines/020_guidelines/040_hypermedia/2040_must-provide-conventional-hyperlinks.md)
 - [Paged collection](./guidelines/020_guidelines/060_resources/2060_must-provide-page-metadata.md)
-- [MUST use profiles for Public APIs](https://api.develop.otto.de/api-docs/guidelines/#R000065)
+- [MUST use profiles for Public APIs](./guidelines/020_guidelines/080_versioning/0005_must_version_with_profiles.md)
 - Parameters in `application/json` [RFC 7159, Section 11](https://datatracker.ietf.org/doc/html/rfc7159#section-11)
 - Parameters in `application/json-patch+json` [RFC 6902, Section 6](https://datatracker.ietf.org/doc/html/rfc6902#section-6)
   :::

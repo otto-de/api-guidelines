@@ -13,7 +13,7 @@ Both are part of the interface definition and provide important information for 
 
 `Note:`{ label } In most cases it is not useful to document all technical errors, especially if they are not under control of the service provider. Thus unless a response code conveys application-specific functional semantics or is used in a non-standard way that requires additional explanation, multiple error response specifications can be combined using the following pattern:
 
-See [Error Handling](#error-handling) for more details.
+See [Error Handling](./guidelines/020_guidelines/070_error-handling/0000_index.md) for more details.
 
 ```yaml
 responses:

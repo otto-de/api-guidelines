@@ -14,7 +14,7 @@ For [public APIs](./guidelines/010_core-principles/0030_api-scope.md), all colle
 The list of resources is embedded under `_embedded` with the key representing the link-relation type.
 This is the same as the one used in the `_links` section.
 
-The [Embedded resources](guidelines/020_guidelines/060_resources/1000_embedded-resources.md) section provides more information on embedding documents.
+The [Embedded resources](./guidelines/020_guidelines/060_resources/1000_embedded-resources.md) section provides more information on embedding documents.
 
 ::: references
 

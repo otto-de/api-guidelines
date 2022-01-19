@@ -6,10 +6,11 @@ To run the docs server in a Docker container, run
 export GITHUB_TOKEN=<github-pat>"; ./tools/docker/run_docs_server
 ```
 
-This will build the container and then run it with `guidelines` folder mounted so that
-changes will be rendered in real-time and no rebuild is required. The container is named `ottoapi-docs-server`.
+This will build the container and then run it with `guidelines` folder mounted so that changes will be rendered in
+real-time and no rebuild is required. The container is named `ottoapi-docs-server`.
 
-**NOTE** For installing the NPM dependencies, you will need a valid github access token.
+**NOTE** For installing the NPM dependencies, you will need a valid github access token. The github access token must be
+granted 'read:packages' scope and must have access to otto-ec.
 
 ## Configuration
 
