@@ -1,10 +1,12 @@
 {
-  "name": "ottoapi-guidelines",
-  "version": "1.0.0",
+  "name": "@otto-ec/ottoapi-guidelines",
+  "version": "1.1.0-update-document-structure.6",
   "description": "This repository is the source for establishing a uniform API standard (aka API Guidelines), which serves as a set of rules for the creation of new APIs within MA-EC. (In the future, this standard can also be used to unify existing APIs.) The [API Manifesto](/manifesto.md) helps to establish this standard and comprises values that a work group has agreed upon in advance.",
-  "main": "index.js",
+  "files": [
+    "content/**/*.md"
+  ],
   "scripts": {
-    "build": "(for S in clean images js css collect; do npm run build:$S; [ $? -ne 0 ] && exit 1; done; exit 0;)",
+    "build": "echo nothin todo #(for S in clean images js css collect; do npm run build:$S; [ $? -ne 0 ] && exit 1; done; exit 0;)",
     "build:images": "cp -R src/img/* dist",
     "build:js": "rollup -c && kestrel build --js",
     "build:clean": "npm run clean",
@@ -25,9 +27,10 @@
     "watch:model": "nodemon --config config/nodemon.model.json -x 'npm run build:collect -- model'",
     "watch:css": "nodemon --config config/nodemon.css.json -x 'npm run build:css && npm run build:images'",
     "watch:js": "nodemon --config config/nodemon.js.json -x 'npm run build:js'",
-    "serve": "browser-sync start -s \"dist\" -f \"dist\" -w",
+    "serve": "GUIDELINES_PATH=/content/guidelines VITE_GUIDELINES_DEV=true vite -c vite.config.ts",
     "clean": "mkdir -p ./tmp ./build ./dist && rm -rf ./tmp/* ./build/* ./dist/*",
     "packci": "echo 'TODO'",
+    "packlocal": "export PKGNAME=ottoapi-guidelines; mkdir -p ./tmp && rm -rf ./tmp/*-$PKGNAME-*.tgz; rm -rf ./tmp/package; npm pack && mv -f *-$PKGNAME-*.tgz ./tmp/ && tar xfz ./tmp/*-$PKGNAME-*.tgz -C ./tmp",
     "reveal": "reveal-md $1 --theme presentations/themes/otto-api.css --highlight-theme atom-one-dark-reasonable",
     "test": "jest"
   },
@@ -51,11 +54,14 @@
       "@otto-ec/toolbox-config-assets"
     ]
   },
-  "dependencies": {
+  "devDependencies": {
     "@otto-ec/assets-core-utils": "^1.3.1",
     "@otto-ec/assets-debug": "^1.3.0",
     "@otto-ec/bender": "^1.14.0",
     "@otto-ec/kestrel": "^4.1.1",
+    "@otto-ec/ottoapi-cli": "^1.6.8",
+    "@otto-ec/ottoapi-portal-common": "^0.2.13",
+    "@otto-ec/ottoapi-portal-guidelines": "^0.1.8",
     "@otto-ec/toolbox": "^2.1.2",
     "@otto-ec/toolbox-cli-core": "^1.3.0",
     "@otto-ec/toolbox-config-assets": "^1.29.2",
@@ -65,6 +71,8 @@
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^16.11.7",
     "@types/table": "^6.3.2",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vue/compiler-sfc": "^3.2.26",
     "browser-sync": "^2.27.7",
     "concurrently": "^6.3.0",
     "jest": "^27.3.1",
@@ -82,13 +90,14 @@
     "nodemon": "^2.0.15",
     "reveal-md": "^5.2.0",
     "rollup": "^2.59.0",
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "sass": "^1.43.4",
     "table": "^6.7.3",
     "ts-jest": "^27.0.7",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4",
-    "uikit": "^3.9.4",
+    "vite": "^2.7.10",
     "yargs": "^17.1.1"
   }
 }

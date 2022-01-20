@@ -1,0 +1,1 @@
+import "@otto-ec/assets-core-utils";

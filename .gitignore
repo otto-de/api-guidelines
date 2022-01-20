@@ -1,7 +1,7 @@
 # Git Ignore
 # Put file patterns here for files which should not be committed
 
-# Log Files 
+# Log Files
 *.log
 
 # Node Modules
@@ -44,3 +44,7 @@ tslint*
 # generated api docs
 docs/api
 .DS_Store
+
+# provided by @otto-ec/ottoapi-portal-common
+/index.html
+public/
