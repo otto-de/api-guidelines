@@ -7,10 +7,7 @@
   ],
   "scripts": {
     "build": "GUIDELINES_PATH=/content/guidelines VITE_GUIDELINES_DEV=true vite -c vite.config.ts build",
-    "build:clean": "npm run clean",
-    "build:collect": "FORCE_COLOR=true DEBUG_COLORS=true DEBUG_DEPTH=6 DEBUG_LEVEL=debug DEBUG=collect:* npm run collect",
     "dev": "npm run serve",
-    "dev:docker": "npm run serve",
     "lint": "bender ml --files \"content/guidelines/**/*.md\"",
     "nextRuleId": "npm run collect -- nextid",
     "links:broken": "npm run collect -- bad-links",
