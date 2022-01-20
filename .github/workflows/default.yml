@@ -249,6 +249,7 @@ jobs:
           client-payload: ${{ env.EVENT_PAYLOAD }}
           repository: ${{ env.EVENT_REPO }}
   lint:
+    runs-on: ubuntu-latest
     steps:
       - name: Lint Specs
         run: npm run lint:docs --silent
