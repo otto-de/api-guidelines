@@ -1,0 +1,257 @@
+# Config ID: workflow.default
+# 
+# This configuration file is auto-generated
+# by http://github.com/otto-ec/assets_protecty.
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/workflow/default,
+# 
+# and use the schema appropriate to this file.
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets
+# 
+name: Build, Test, Lint
+"on":
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - LICENSE
+      - CHANGELOG.md
+      - README.md
+      - docs/*
+      - .bulldozer.yml
+      - .policy.yml
+      - .versionrc
+      - .github/gitty.yml
+      - .github/stale.yml
+      - .github/settings.yml
+      - .github/pr-labeler.yml
+      - .github/dependabot.yml
+      - .github/workflows/deploy.yml
+      - .github/workflows/issue_*.yml
+      - .github/workflows/pull_*.yml
+      - .github/workflows/repository_*.yml
+      - .github/workflows/private_deps_*.yml
+      - .github/workflows/tf_deps_*.yml
+  pull_request: {}
+  pull_request_target: {}
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  TOOLBOX: $(npm bin)/toolbox
+  RUN_COMPILE: true
+  COMPILE_COMMAND: $(npm bin)/tsc --noEmit
+  RUN_PERSIST_TESTRESULTS: false
+  RUN_PERSIST_COVERAGE: false
+  RUN_PERSIST_DIST: false
+  RUN_PERSIST_JSCPD: false
+  GITHUB_CHECKOUT_REF: ${{ github.event.pull_request.head.ref }}
+jobs:
+  checkrun:
+    runs-on: ubuntu-latest
+    if: >-
+      ${{  github.event.pull_request == null ||  (  (
+      startsWith(github.event.pull_request.user.login, 'dependabot') == false &&
+      github.event_name == 'pull_request' ) || (
+      startsWith(github.event.pull_request.user.login, 'dependabot') == true &&
+      github.event_name == 'pull_request_target' ) ) }}
+    steps:
+      - run: echo "begin workflow run"
+  build:
+    runs-on: ubuntu-latest
+    needs:
+      - checkrun
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v2.4.0
+        id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: actions/setup-node@v2.5.1
+        id: setup_node
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Build sources with npm script
+        timeout-minutes: 2
+        id: build
+        run: npm run build
+      - name: Compile sources with typescript
+        timeout-minutes: 3
+        id: compile
+        if: ${{ env.RUN_COMPILE == 'true' }}
+        run: ${{ env.COMPILE_COMMAND }}
+      - name: Persist dist
+        id: persist_dist
+        if: ${{ env.RUN_PERSIST_DIST == 'true' }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ${{ github.workspace }}/dist
+  build-complete:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - name: 🚀 all build jobs have been run successfully 🚀
+        run: echo 🎉🎉🎉
+  license:
+    runs-on: ubuntu-latest
+    needs:
+      - build-complete
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2.4.0
+        id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: actions/setup-node@v2.5.1
+        id: setup_node
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Check Dependency License Usage
+        id: check_license
+        run: ${{ env.TOOLBOX }} chk lic
+  license-complete:
+    runs-on: ubuntu-latest
+    needs:
+      - license
+    steps:
+      - name: 🚀 all license jobs have been run successfully 🚀
+        run: echo 🎉🎉🎉
+  jscpd:
+    continue-on-error: true
+    if: >-
+      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ==
+      false }}
+    runs-on: ubuntu-latest
+    needs:
+      - build-complete
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2.4.0
+        id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: actions/setup-node@v2.5.1
+        id: setup_node
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Run jscpd to collect code duplicates
+        id: jscpd
+        run: |
+          npx jscpd \
+            --output tmp/jscpd \
+            --format typescript,json,javascript \
+            --reporters console,html \
+            --gitignore
+      - name: Persist Jscpd Results
+        id: persist_jscpd
+        if: ${{ env.RUN_PERSIST_JSCPD == 'true' }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: jscpd
+          path: ${{ github.workspace }}/tmp/jscpd
+  audit:
+    continue-on-error: true
+    if: >-
+      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ==
+      false }}
+    runs-on: ubuntu-latest
+    needs:
+      - build-complete
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@v2.4.0
+        id: checkout
+        with:
+          ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: actions/setup-node@v2.5.1
+        id: setup_node
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+      - name: Check dependencies for Vulnerabilities
+        id: npm_audit
+        run: |
+          npm set audit-level=high
+          npm audit --only prod
+  dispatch_deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - build-complete
+    if: >-
+      ${{ github.event.ref == 'refs/heads/main' &&  (
+      startsWith(github.event.head_commit.message, 'feat') ||
+      startsWith(github.event.head_commit.message, 'fix') ) }}
+    env:
+      EVENT_TYPE: publish
+      EVENT_PAYLOAD: |-
+        {
+          "ref": "${{ github.head_ref }}",
+          "sha": "${{ github.sha }}",
+          "reason": {
+            "module": "apidocs",
+            "message": ${{ toJSON(github.event.head_commit.message) }},
+            "user": "${{ github.event.head_commit.author.name }}"
+          }
+        }
+      EVENT_REPO: otto-ec/ottoapi_portal
+    steps:
+      - name: Dispatch Deploy Trigger Event
+        id: dispatch_event
+        uses: peter-evans/repository-dispatch@v1.1.3
+        with:
+          token: ${{ secrets.TOKEN_GITHUB }}
+          event-type: ${{ env.EVENT_TYPE }}
+          client-payload: ${{ env.EVENT_PAYLOAD }}
+          repository: ${{ env.EVENT_REPO }}
+  lint:
+    steps:
+      - name: Lint Sources
+        id: lint
+        run: npm run lint:src --silent
+      - name: Lint Specs
+        run: npm run lint:docs --silent
