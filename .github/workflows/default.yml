@@ -1,19 +1,19 @@
 # Config ID: workflow.default
-# 
+#
 # This configuration file is auto-generated
 # by https://github.com/otto-ec/assets_protecty.
-# 
+#
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
-# 
+#
 # If you need to modify this file permanently then place your configuration overrides in
 # - .github/gitty.yml#/configs/workflow/default,
-# 
+#
 # and use the schema appropriate to this file.
 # See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
-# 
+#
 # This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets
-# 
+#
 name: Build, Test, Lint
 "on":
   push:
@@ -248,8 +248,3 @@ jobs:
           event-type: ${{ env.EVENT_TYPE }}
           client-payload: ${{ env.EVENT_PAYLOAD }}
           repository: ${{ env.EVENT_REPO }}
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Lint Specs
-        run: npm run lint
