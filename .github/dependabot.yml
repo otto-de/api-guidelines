@@ -1,27 +1,50 @@
+# Config ID: dependabot.default
+# 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/dependabot/default,
+# 
+# and use the schema appropriate to this file.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, terraform, non-assets
+# 
 version: 2
+registries:
+  npm-github:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: ${{secrets.TOKEN_GITHUB}}
 updates:
   - package-ecosystem: npm
+    registries:
+      - npm-github
     directory: /
     schedule:
       interval: daily
-      time: '05:00'
+      time: "05:00"
       timezone: Europe/Berlin
     open-pull-requests-limit: 5
     commit-message:
       prefix: npm
       include: scope
     labels:
-      - 'dependabot :rocket:'
+      - "dependabot :rocket:"
     versioning-strategy: increase
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: daily
-      time: '06:00'
+      time: "06:00"
       timezone: Europe/Berlin
     open-pull-requests-limit: 5
     commit-message:
       prefix: actions
       include: scope
     labels:
-      - 'dependabot :rocket:'
+      - "dependabot :rocket:"

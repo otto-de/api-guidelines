@@ -252,4 +252,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lint Specs
-        run: npm run lint:docs --silent
+        run: npm run lint
