@@ -68,5 +68,5 @@
     "forceConsistentCasingInFileNames": true,
     /* Disallow inconsistently-cased references to the same file. */ "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["cli/**/*.ts"]
 }
