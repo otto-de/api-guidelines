@@ -104,7 +104,7 @@ When the access token is about to expire the client will use the grant type `ref
 
 Example:
 
-```
+```http request
 POST /oauth2/token HTTP/1.1
 Host: api.otto.de
 
