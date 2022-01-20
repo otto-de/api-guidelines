@@ -1,0 +1,71 @@
+# Config ID: dependabot.private
+# 
+# This configuration file is auto-generated
+# by https://github.com/otto-ec/assets_protecty.
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/dependabot/private,
+# 
+# and use the schema appropriate to this file.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, terraform, non-assets
+# 
+name: Private Deps Update
+"on":
+  schedule:
+    - cron: 0 7 * * *
+  push:
+    branches:
+      - main
+    paths:
+      - package.json
+  repository_dispatch:
+    types:
+      - deps-update
+  workflow_dispatch:
+    inputs:
+      regexp:
+        description: override package regex
+        required: false
+        default: "@otto-ec"
+      logLevel:
+        description: log level used by npx
+        required: false
+        default: debug
+env:
+  PACKAGE_REGEX: ${{ github.event.inputs.regexp || '@otto-ec' }}
+  LOG_LEVEL: ${{ github.event.inputs.logLevel || 'debug' }}
+jobs:
+  package-update:
+    runs-on: ubuntu-latest
+    if: github.event.head_commit.author.username != 'dependabot[bot]'
+    steps:
+      - uses: actions/checkout@v2.4.0
+        id: checkout
+      - name: Fetch Branches and Tags
+        id: fetch
+        run: git fetch --prune --unshallow --tags
+      - name: Configure git credentials
+        id: credentials
+        uses: oleksiyrudenko/gha-git-credentials@v2.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check for Dependency Updates
+        id: updater
+        env:
+          AUTHOR_EMAIL: fkt-assets-github@otto.de
+          AUTHOR_NAME: FKT-assets-github
+          EXECUTE: "true"
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          UPDATE_COMMAND: npx
+          PULL_REQUEST_TITLE: "npm(priv): bump private otto-ec packages"
+          BRANCH_PREFIX: deps-priv/
+          COMMIT_FILES: package.json package-lock.json
+        run: >-
+          npx actions-package-update npm-check-updates --packageFile
+          package.json --dep dev,prod -u -f "/${{ env.PACKAGE_REGEX }}/"
+          --loglevel verbose
