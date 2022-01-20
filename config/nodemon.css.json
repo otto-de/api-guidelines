@@ -1,6 +1,0 @@
-{
-  "verbose": true,
-  "watch": ["./src/scss"],
-  "ext": "ts,js,css,scss",
-  "delay": 2000
-}

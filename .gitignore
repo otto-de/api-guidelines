@@ -37,7 +37,7 @@ terraform/**/*.tfstate.*
 
 # Bender Injected Files
 .browserslistrc*
-#.eslintrc*
+.eslintrc*
 .prettierrc*
 tslint*
 

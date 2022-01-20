@@ -1,2 +1,0 @@
-KESTREL_IMAGE=857142261145.dkr.ecr.eu-central-1.amazonaws.com/kestrel
-KESTREL_VERSION=stable
