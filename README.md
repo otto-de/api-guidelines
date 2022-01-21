@@ -1,6 +1,6 @@
 # OTTO API Guidelines
 
-<https://api.develop.otto.de/api-docs/guidelines/>
+<https://api.develop.otto.de/portal/guidelines>
 
 This repository is the source for establishing a uniform API standard (aka API Guidelines), which serves as a set of rules for the creation of new APIs within MA-EC.
 (In the future, this standard can also be used to unify existing APIs.)
