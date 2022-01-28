@@ -27,19 +27,19 @@ recommendation to use gzip compression.
 Example:
 
 In this example the origin service (serving <https://myExampleService:8080>) can only be reached through a reverse proxy
-(serving <https://api.otto.de>). The client communicates with the origin service through the reverse proxy. That is why
-the origin service can only deduct the client facing URI from the `Forwarded` header. The `Forwarded` header is set by
-the reverse proxy.
+which acts as an API gateway (serving <https://api.otto.de>). The client communicates with the origin service through
+the API gateway. That is why the origin service can only deduct the client facing URI from the `Forwarded` header.
+The `Forwarded` header is set by the API gateway.
 
 ```http request
-# Request from the client to the API-Gateway
+# Request from the client to the API gateway
 GET https://api.otto.de/example-api/my-ressource/1234
-# Proxied request from the API-Gateway to the origin service
+# Proxied request from the API gateway to the origin service
 GET https://myExampleService:8080/my-ressource/1234
 Forwarded: for=156.124.2.46;host=api.otto.de;proto=https
 ```
 
-The answer from the origin-services must ues the `host` and `proto` directives of the `Forwarded` header and its api
+The answer from the origin-services must ues the `host` and `proto` directives of the `Forwarded` header and its API
 gateway path to generate absolute URLs:
 
 ```json
