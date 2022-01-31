@@ -1,19 +1,19 @@
 # Config ID: workflow.default
-#
+# 
 # This configuration file is auto-generated
-# by https://github.com/otto-ec/assets_protecty.
-#
+# by http://github.com/otto-ec/assets_protecty.
+# 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
-#
+# 
 # If you need to modify this file permanently then place your configuration overrides in
 # - .github/gitty.yml#/configs/workflow/default,
-#
+# 
 # and use the schema appropriate to this file.
-# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
-#
+# See http://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
 # This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets
-#
+# 
 name: Build, Test, Lint
 "on":
   push:
@@ -217,7 +217,7 @@ jobs:
         id: npm_audit
         run: |
           npm set audit-level=high
-          npm audit --only prod
+          npm audit
   dispatch_deploy:
     runs-on: ubuntu-latest
     needs:
@@ -233,7 +233,7 @@ jobs:
           "ref": "${{ github.head_ref }}",
           "sha": "${{ github.sha }}",
           "reason": {
-            "module": "apidocs",
+            "module": "guidelines",
             "message": ${{ toJSON(github.event.head_commit.message) }},
             "user": "${{ github.event.head_commit.author.name }}"
           }
