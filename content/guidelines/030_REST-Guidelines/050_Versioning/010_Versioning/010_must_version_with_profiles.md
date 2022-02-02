@@ -5,7 +5,7 @@ id: R000065
 
 # must use profiles for Public APIs
 
-[Public APIs](./guidelines/010_core-principles/0030_api-scope.md) must be versioned with [profiles](./guidelines/020_guidelines/040_hypermedia/4000_profiles.md) and provide comprehensive profile documentation using custom `x-ottopapi` tags.
+[Public APIs](./guidelines/010_core-principles/0030_api-scope.md) must be versioned with [profiles](./guidelines/020_guidelines/040_hypermedia/4000_profiles.md) and provide comprehensive profile documentation using custom `x-ottoapi` tags.
 
 ```yml
 openapi: 3.0.3
