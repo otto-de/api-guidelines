@@ -1,0 +1,10 @@
+{
+  "name": "guidelines.async.references",
+  "version": "1.0.0",
+  "scripts": {
+    "toc": "markdown-notes-tree"
+  },
+  "dependencies": {
+    "markdown-notes-tree": "^1.12.0"
+  }
+}
