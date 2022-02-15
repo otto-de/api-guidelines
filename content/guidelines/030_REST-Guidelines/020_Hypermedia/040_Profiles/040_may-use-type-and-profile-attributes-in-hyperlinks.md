@@ -9,7 +9,7 @@ The HAL `_links` object's property names are link relation types and values are 
 
 Beside others, HAL links may contain the optional attributes ['type'](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.3) or ['profile'](https://tools.ietf.org/html/draft-kelly-json-hal-08#section-5.6)
 
-As [versioning](./guidelines/020_guidelines/080_versioning/0000_index.md) of APIs [should be implemented using `Accept` header and `profile` parameter](R000030), HAL representations of a resource may use `type` and `profile` to specify the mediatype and profile of a linked resource.
+As [versioning](/guidelines/030_REST-Guidelines/050_Versioning/index.md) of APIs [should be implemented using `Accept` and `Content-Type` headers with profile parameter](R000030), HAL representations of a resource may use `type` and `profile` to specify the mediatype and profile of a linked resource.
 
 ```json
 {
