@@ -1,6 +1,10 @@
-# Versioning
+---
+sideNav: true
+---
 
-OTTO API supports two versioning approaches: via [profiles](/guidelines/030_REST-Guidelines/020_Hypermedia/040_Profiles/index.md) and via [URL path](R000031). Versioning via profiles is preferred.
+# Versioning of incompatible changes
+
+OTTO API supports two versioning approaches: via [profiles](R000065) and via [URL path](R000031). Versioning via profiles is preferred.
 
 ::::: accordions
 :::: accordion Why profile versioning
@@ -17,11 +21,10 @@ During the initial discussion of versioning, several options have been [identifi
 :::
 
 ::: references
-
 - [Profiles in HAL+JSON](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-08#page-8)
 - [The 'profile' Link Relation Type (RFC 9606)](https://tools.ietf.org/html/rfc6906)
 - [SHOULD use `Accept` and `Content-Type` headers with profile parameter](R000030)
 - [MUST provide conventional hyperlinks](R100033)
-  :::
-  ::::
-  :::::
+:::
+::::
+:::::

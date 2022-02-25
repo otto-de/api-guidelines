@@ -1,4 +1,8 @@
-# Deprecation
+---
+sideNav: true
+---
+
+# Preview / deprecation of versions
 
 Sometimes it is necessary to phase out an API endpoint, an API version, or an API feature, for example, if a field or parameter is no longer supported or a whole business functionality behind an endpoint is supposed to be shut down.
 As long as the API endpoints and features are still used by consumers these shutdowns are breaking changes and not allowed.
