@@ -9,7 +9,7 @@ Using the `ETag` response header in combination with the `If-None-Match` request
 This approach offers a solution where other caching headers (e.g. `Cache-Control` or `Expires`) hint at a _stale_ resource on the client side.
 
 :::warning
-When implementing `ETag` for caching, also "[SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](R000060)" applies, see below "pitfalls".
+When implementing `ETag` for caching, also "[SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](@guidelines/R000060)" applies, see below "pitfalls".
 :::
 
 ```sh

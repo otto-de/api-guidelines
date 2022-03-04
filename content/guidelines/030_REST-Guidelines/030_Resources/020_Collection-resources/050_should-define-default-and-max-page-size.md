@@ -14,5 +14,5 @@ which can be used as the `pageSize` query parameter.
 
 ::: references
 
-- [MUST stick to conventional query parameters](./guidelines/020_guidelines/050_naming-conventions/1110_must-stick-to-conventional-query-parameters.md).
+- [MUST stick to conventional query parameters](@guidelines/R000049).
   :::

@@ -15,9 +15,9 @@ There are two techniques to change APIs without breaking them:
 - introduce new API versions and still support older versions.
 
 We strongly encourage using compatible API extensions and discourage versioning.
-The following guidelines for service providers ([SHOULD prefer compatible extensions](R000028)) and consumers ([MUST prepare clients accept compatible API extensions](R000029)) enable us (having Postel’s Law in mind) to make compatible changes without versioning.
+The following guidelines for service providers ([SHOULD prefer compatible extensions](@guidelines/R000028)) and consumers ([MUST prepare clients accept compatible API extensions](@guidelines/R000029)) enable us (having Postel’s Law in mind) to make compatible changes without versioning.
 
 ::: info
 There is a difference between incompatible and breaking changes. Incompatible changes are changes that are not covered by the compatibility rules below. Breaking changes are incompatible changes deployed into operation, and thereby breaking running API consumers. Usually, incompatible changes are breaking changes when deployed into operation.
-However, in specific controlled situations it is possible to deploy incompatible changes in a non-breaking way, if no API consumer is using the affected API aspects, (see also [Deprecation](./guidelines/020_guidelines/090_deprecation/0000_index.md)).
+However, in specific controlled situations it is possible to deploy incompatible changes in a non-breaking way, if no API consumer is using the affected API aspects, (see also [Deprecation](../../060_Deprecation/index.md)).
 :::

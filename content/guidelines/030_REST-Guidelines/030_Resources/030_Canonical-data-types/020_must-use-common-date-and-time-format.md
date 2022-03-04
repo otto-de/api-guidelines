@@ -33,7 +33,7 @@ HTTP headers must use the date format recommended by the HTTP specification [RFC
 
 ::: references
 
-- [MUST use common data formats](R100071)
+- [MUST use common data formats](@guidelines/R100071)
   :::
 
 [rfc3339]: https://tools.ietf.org/html/rfc3339#section-5.6

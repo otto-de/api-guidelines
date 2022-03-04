@@ -5,7 +5,7 @@ id: R000059
 
 # use `PATCH` with JSON Patch `test` operation for concurrency control
 
-In a situation where partial updates on different properties of an entity are common, chances of running into an optimistic locking situation increase with the number of concurrent updates, even if embracing [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](R000060). Performing a partial update using `PATCH` with media type `application/json-patch+json` (see [RFC 6902](https://tools.ietf.org/html/rfc6902)) can guard against unnoticed concurrent updates of properties relevant for the particular update.
+In a situation where partial updates on different properties of an entity are common, chances of running into an optimistic locking situation increase with the number of concurrent updates, even if embracing [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](@guidelines/R000060). Performing a partial update using `PATCH` with media type `application/json-patch+json` (see [RFC 6902](https://tools.ietf.org/html/rfc6902)) can guard against unnoticed concurrent updates of properties relevant for the particular update.
 
 JSON Patch offers a [`test` operation](https://tools.ietf.org/html/rfc6902#section-4.6) that allows a server to reject a partial update, if the condition defined by the client cannot be met.
 

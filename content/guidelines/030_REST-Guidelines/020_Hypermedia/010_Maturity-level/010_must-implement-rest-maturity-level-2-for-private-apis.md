@@ -8,9 +8,9 @@ id: R000032
 For private APIs, we strive for a good implementation of [REST Maturity Level 2](https://martinfowler.com/articles/richardsonMaturityModel.html#level2) as it enables us to build resource-oriented APIs that make full use of HTTP methods and status codes.
 This is reflected in many rules of our guidelines, such as:
 
-- [MUST use nouns to represent resources](R000016)
-- [MUST use HTTP methods correctly](R000007)
-- [MUST use standard HTTP status codes](R000012)
+- [MUST use nouns to represent resources](@guidelines/R000016)
+- [MUST use HTTP methods correctly](@guidelines/R000007)
+- [MUST use standard HTTP status codes](@guidelines/R000012)
 
 Although this is not HATEOAS, it should not prevent you from designing proper link relations in your APIs.
 

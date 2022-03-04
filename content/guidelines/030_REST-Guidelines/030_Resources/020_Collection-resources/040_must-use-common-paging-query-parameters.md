@@ -23,6 +23,6 @@ For cursor-based pagination we _recommend_ using the following query parameters:
 
 ::: references
 
-- [MUST stick to conventional query parameters](R000049)
-- [MUST support pagination](R100023)
+- [MUST stick to conventional query parameters](@guidelines/R000049)
+- [MUST support pagination](@guidelines/R100023)
   :::

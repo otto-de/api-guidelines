@@ -9,5 +9,5 @@ The `Vary` header as specified in [RFC7231#section-7.1.4](https://tools.ietf.org
 
 See:
 
-- [MAY use `ETag` header for caching resources](R000010)
-- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](R000060)
+- [MAY use `ETag` header for caching resources](@guidelines/R000010)
+- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](@guidelines/R000060)

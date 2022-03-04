@@ -9,8 +9,8 @@ id: R100038
 This rule applies to public APIs. For private APIs it should be followed.
 :::
 
-Custom link relation types can be introduced, if no [IANA-registered](R100036) or [existing custom](R100035) link relation type is matching the semantics of a link.
-In this case the rule [MUST use absolute URLs for custom link relation types](R100037) must be adhered to.
+Custom link relation types can be introduced, if no [IANA-registered](@guidelines/R100036) or [existing custom](@guidelines/R100035) link relation type is matching the semantics of a link.
+In this case the rule [MUST use absolute URLs for custom link relation types](@guidelines/R100037) must be adhered to.
 
 A resource that links to other resources using a custom link relation type must add `curies` with `"name": "o"` and `"href": "https://api.otto.de/portal/link-relations/{context-id}/{rel}"` to its `_links` section:
 
@@ -50,7 +50,7 @@ Links to a resource with a custom link relation type must be curied using this C
 }
 ```
 
-If the linked resources [can be embedded](R000041) into the response, the service should use the same link relation type that is used to link the subresources:
+If the linked resources [can be embedded](@guidelines/R000041) into the response, the service should use the same link relation type that is used to link the subresources:
 
 ```json
 {
@@ -93,9 +93,9 @@ If the linked resources [can be embedded](R000041) into the response, the servic
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](R000032)
-- [MUST implement REST maturity level 3 for public APIs](R000033)
-- [MUST prefer IANA-registered link relation types](R100036)
-- [MUST prefer existing custom link relation types](R100035)
-- [MUST use absolute URLs for custom link relation types](R100037)
+- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
+- [MUST prefer IANA-registered link relation types](@guidelines/R100036)
+- [MUST prefer existing custom link relation types](@guidelines/R100035)
+- [MUST use absolute URLs for custom link relation types](@guidelines/R100037)
   :::

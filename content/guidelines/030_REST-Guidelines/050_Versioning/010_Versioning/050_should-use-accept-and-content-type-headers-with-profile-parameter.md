@@ -18,8 +18,8 @@ The server may decline invalid combinations of `Content-Type` and `Accept` heade
 ::: references
 
 - [API Versioning](/guidelines/030_REST-Guidelines/050_Versioning/index.md)
-- [MUST use profiles for Public APIs](R000065)
-- [MUST use resolvable profile URLs](R100066)
-- [MUST provide OpenAPI spec for profiles](R100067)
+- [MUST use profiles for Public APIs](@guidelines/R000065)
+- [MUST use resolvable profile URLs](@guidelines/R100066)
+- [MUST provide OpenAPI spec for profiles](@guidelines/R100067)
 - [RFC 7231, p. 59: 406 for unsupported versions](https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.6)
   :::

@@ -13,7 +13,7 @@ If you choose to implement this behavior nevertheless, you should communicate th
 
 ::: references
 
-- [SHOULD follow concurrenct update pattern with `If-Modified-Since` header](R000073)
-- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](R000060)
+- [SHOULD follow concurrenct update pattern with `If-Modified-Since` header](@guidelines/R000073)
+- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](@guidelines/R000060)
 
 :::

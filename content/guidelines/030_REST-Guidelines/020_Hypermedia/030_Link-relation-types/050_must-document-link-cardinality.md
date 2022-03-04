@@ -37,6 +37,6 @@ Thats why every profile must document the cardinality of the link relation types
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](R000032)
-- [MUST implement REST maturity level 3 for public APIs](R000033)
+- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
   :::

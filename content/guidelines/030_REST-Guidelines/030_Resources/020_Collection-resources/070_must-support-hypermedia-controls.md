@@ -27,6 +27,6 @@ Exposing this data should consider the performance implications, not only now bu
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](R000032)
-- [MUST implement REST maturity level 3 for public APIs](R000033)
+- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
   :::

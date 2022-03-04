@@ -53,11 +53,11 @@ These format names are intended to be used in the OpenAPI specification provided
 
 ::: references
 
-- [MUST provide API specification using OpenAPI](R000003)
-- [MUST provide OpenAPI specification for profiles](R100067)
+- [MUST provide API specification using OpenAPI](@guidelines/R000003)
+- [MUST provide OpenAPI specification for profiles](@guidelines/R100067)
   :::
 
-[rule-date]: ./guidelines/020_guidelines/060_resources/3020_must-use-common-date-and-time-format.md
+[rule-date]: ./020_must-use-common-date-and-time-format.md
 [rfc3339]: https://tools.ietf.org/html/rfc3339#section-5.6
 [rfc5322]: https://tools.ietf.org/html/rfc5322#section-3.4.1
 [rfc6531]: https://tools.ietf.org/html/rfc6531

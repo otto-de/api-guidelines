@@ -18,7 +18,7 @@ Profile URIs must comply with the following conventions:
 
 The URL must point to a human-readable documentation of the profile.
 
-If the API uses [`application/hal+json`](R000032), the `_links` of the representation [must contain a `profile` link](R100033) with an `href` containing the URL of the representation's profile:
+If the API uses [`application/hal+json`](@guidelines/R000032), the `_links` of the representation [must contain a `profile` link](@guidelines/R100033) with an `href` containing the URL of the representation's profile:
 
 ```json
 {
@@ -36,7 +36,7 @@ If the API uses [`application/hal+json`](R000032), the `_links` of the represent
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](R000032)
-- [MUST implement REST maturity level 3 for public APIs](R000033)
-- [MUST provide conventional hyperlinks](R100033)
+- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
+- [MUST provide conventional hyperlinks](@guidelines/R100033)
   :::
