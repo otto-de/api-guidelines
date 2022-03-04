@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.1.0...v1.2.0) (2022-03-04)
+
+### Features
+
+- **async:** document decision making process for async guidelines ([de5f0a8](https://github.com/otto-ec/ottoapi_guidelines/commit/de5f0a80b926160e2a8f14927a2f0da04a873655))
+- **guideline:** add a new rule that describes the usage of extensible enums ([bf2dd16](https://github.com/otto-ec/ottoapi_guidelines/commit/bf2dd16f6dcb4ba1edf25d639fca5ead758eb386)), closes [#1265](https://github.com/otto-ec/ottoapi_guidelines/issues/1265)
+- **guideline:** add a new rule that describes the usage of extensible enums ([#2](https://github.com/otto-ec/ottoapi_guidelines/issues/2)nd try) ([#1273](https://github.com/otto-ec/ottoapi_guidelines/issues/1273)) ([6246df9](https://github.com/otto-ec/ottoapi_guidelines/commit/6246df9b3c98ab3343e2b0227e77014ff0942a18)), closes [#1270](https://github.com/otto-ec/ottoapi_guidelines/issues/1270) [#1270](https://github.com/otto-ec/ottoapi_guidelines/issues/1270) [#1272](https://github.com/otto-ec/ottoapi_guidelines/issues/1272) [#1265](https://github.com/otto-ec/ottoapi_guidelines/issues/1265) [otto-ec/ottoapi_guidelines#1272](https://github.com/otto-ec/ottoapi_guidelines/issues/1272)
+- **guidelines:** added example on how to generate absolute urls ([99c1504](https://github.com/otto-ec/ottoapi_guidelines/commit/99c1504af2de78ce555cb78dcabb5159cdb11342)), closes [#1215](https://github.com/otto-ec/ottoapi_guidelines/issues/1215) [#1219](https://github.com/otto-ec/ottoapi_guidelines/issues/1219) [#264](https://github.com/otto-ec/ottoapi_guidelines/issues/264)
+- **guidelines:** added example on how to generate absolute urls ([4562614](https://github.com/otto-ec/ottoapi_guidelines/commit/4562614a78b8e3f4da502a605c81d26638a4a0e3)), closes [#264](https://github.com/otto-ec/ottoapi_guidelines/issues/264)
+- **guidelines:** updated r000030 to also specify profile for content type header ([#1253](https://github.com/otto-ec/ottoapi_guidelines/issues/1253)) ([bd5a231](https://github.com/otto-ec/ottoapi_guidelines/commit/bd5a2313933656e7b1aa3f4afdad8d2615ca0c08)), closes [#846](https://github.com/otto-ec/ottoapi_guidelines/issues/846)
+
+### Bug Fixes
+
+- **app:** fix broken markdown table ([f811885](https://github.com/otto-ec/ottoapi_guidelines/commit/f81188599ec769874c48006c5da7dce0b8de50bf))
+- **guidelines:** fix description for better understanding ([#1207](https://github.com/otto-ec/ottoapi_guidelines/issues/1207)) ([84fb237](https://github.com/otto-ec/ottoapi_guidelines/commit/84fb2372ee09f6d314b04b8b0c7b4931489e5eca)), closes [/api.develop.otto.de/api-docs/guidelines/#R004020](https://github.com/otto-ec//api.develop.otto.de/api-docs/guidelines//issues/R004020) [#1190](https://github.com/otto-ec/ottoapi_guidelines/issues/1190)
+- **links:** correct links and use new syntax ([d88d5b5](https://github.com/otto-ec/ottoapi_guidelines/commit/d88d5b58323b71547941158927fa0814dd49f5c6))
+- **policy:** fixed incorrect policy configuration for async group ([#1325](https://github.com/otto-ec/ottoapi_guidelines/issues/1325)) ([804be84](https://github.com/otto-ec/ottoapi_guidelines/commit/804be8489870d5e48c3517602adbebb9dbdee81b))
+
 ## 1.1.0 (2022-01-20)
 
 ### Features
