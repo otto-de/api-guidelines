@@ -3,4 +3,4 @@ sideNav: true
 navTitle: JSON
 ---
 
-# JSON
+# Naming conventions
