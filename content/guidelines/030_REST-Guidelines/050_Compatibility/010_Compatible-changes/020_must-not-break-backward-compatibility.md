@@ -19,5 +19,5 @@ The following guidelines for service providers ([SHOULD prefer compatible extens
 
 ::: info
 There is a difference between incompatible and breaking changes. Incompatible changes are changes that are not covered by the compatibility rules below. Breaking changes are incompatible changes deployed into operation, and thereby breaking running API consumers. Usually, incompatible changes are breaking changes when deployed into operation.
-However, in specific controlled situations it is possible to deploy incompatible changes in a non-breaking way, if no API consumer is using the affected API aspects, (see also [Deprecation](../../060_Deprecation/index.md)).
+However, in specific controlled situations it is possible to deploy incompatible changes in a non-breaking way, if no API consumer is using the affected API aspects, (see also [Deprecation](../../050_Compatibility/040_Deprecation/index.md)).
 :::

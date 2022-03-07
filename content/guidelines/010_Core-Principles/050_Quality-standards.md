@@ -62,7 +62,7 @@ We provide all consumers of our API with comprehensive, professional, up-to-date
 :::: accordion Communication
 
 We always keep both developers and consumers of our API informed through appropriate channels.
-Changes and [deprecations](../030_REST-Guidelines/060_Deprecation/index.md) are communicated regularly and actively.
+Changes and [deprecations](../030_REST-Guidelines/050_Compatibility/040_Deprecation/index.md) are communicated regularly and actively.
 Therefore, we establish different synchronous and asynchronous communication channels to support developers and consumers.
 ::::
 

@@ -1,6 +1,10 @@
-# Versioning
+---
+sideNav: true
+---
 
-OTTO API supports two versioning approaches: via [profiles](/guidelines/030_REST-Guidelines/020_Hypermedia/040_Profiles/index.md) and via [URL path](@guidelines/R000031). Versioning via profiles is preferred.
+# Versioning of incompatible changes
+
+OTTO API supports two versioning approaches: via [profiles](R000065) and via [URL path](@guidelines/R000031). Versioning via profiles is preferred.
 
 ::::: accordions
 :::: accordion Why profile versioning
