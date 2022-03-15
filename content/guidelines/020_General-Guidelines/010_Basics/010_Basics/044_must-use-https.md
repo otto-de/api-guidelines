@@ -4,6 +4,8 @@ id: R000046
 reviewType: automatic
 ---
 
-# use HTTPS
+# use TLS
 
-All service URLs must be secured via HTTPS.
+All API communication must be secured via Transport Level Security (TLS) formerly known as Secure Sockets Layer (SSL).
+
+This means that HTTP communication must be made over TLS, resulting in HTTPS communication.
