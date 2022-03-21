@@ -51,7 +51,7 @@ jobs:
     if: ${{ needs.check.outputs.clear != 'true' }}
     steps:
       - name: Set approval check to failed
-        uses: LouisBrunner/checks-action@v1.1.1
+        uses: LouisBrunner/checks-action@v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: pull-approved
@@ -73,8 +73,8 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           merge-method: SQUASH
-      - name: Set approval check to failed
-        uses: LouisBrunner/checks-action@v1.1.1
+      - name: Set approval check to success
+        uses: LouisBrunner/checks-action@v1.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: pull-approved

@@ -27,6 +27,19 @@ name: Label Dependabot PR
       - reopened
       - unlocked
 jobs:
+  approval:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.pull_request.user.login, 'dependabot')
+    steps:
+      - name: Set approval check to success
+        uses: LouisBrunner/checks-action@v1.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: pull-approved
+          conclusion: success
+          sha: ${{ github.event.pull_request.head.sha }}
+          output: |
+            {"summary": "Dependabot pr does not need approval" }
   labels:
     runs-on: ubuntu-latest
     if: startsWith(github.event.pull_request.user.login, 'dependabot')
@@ -35,14 +48,22 @@ jobs:
         id: checker
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Add Pull Request Label for Version Diff
+        uses: actions-ecosystem/action-add-labels@v1.1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: "dependency: ${{ steps.checker.outputs.diff }}"
       - name: Add Pull Request Label for Major Updates
         uses: actions-ecosystem/action-add-labels@v1.1.3
         if: steps.checker.outputs.diff == 'major'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           labels: "pull: not merge"
-      - name: Add Pull Request Label for Version Diff
-        uses: actions-ecosystem/action-add-labels@v1.1.3
+      - name: Instruct dependabot to merge pr
+        if: ${{ steps.checker.outputs.diff != 'major' }}
+        uses: mshick/add-pr-comment@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          labels: "dependency: ${{ steps.checker.outputs.diff }}"
+          repo-token: ${{ secrets.TOKEN_GITHUB }}
+          message: |
+            @dependabot merge
+          allow-repeats: false
