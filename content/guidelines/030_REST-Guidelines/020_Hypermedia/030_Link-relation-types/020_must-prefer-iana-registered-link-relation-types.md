@@ -6,7 +6,7 @@ id: R100036
 # prefer IANA-registered link relation types
 
 ::: warning
-This rule applies to public APIs. For private APIs it should be followed.
+This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
 Instead of defining [custom link relation types](@guidelines/R100037),
@@ -18,6 +18,6 @@ A link relation type `o:author` must not be defined, because the IANA registry a
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
-- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
+- [MUST implement REST maturity level 2](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for transitional APIs](@guidelines/R000033)
   :::

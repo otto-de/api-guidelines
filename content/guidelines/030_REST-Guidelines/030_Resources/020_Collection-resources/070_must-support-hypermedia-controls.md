@@ -6,7 +6,7 @@ id: R100026
 # support hypermedia controls in collection resources
 
 ::: warning
-This rule applies to public APIs. For private APIs it is a recommendation.
+This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
 Provide links to navigate the result. Clients must be able to navigate the collection without additional knowledge. If the link is present, it must point to a valid segment of the collection resource.
@@ -27,6 +27,6 @@ Exposing this data should consider the performance implications, not only now bu
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
-- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
+- [MUST implement REST maturity level 2](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for transitional APIs](@guidelines/R000033)
   :::

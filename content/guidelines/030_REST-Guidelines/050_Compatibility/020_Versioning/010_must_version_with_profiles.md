@@ -3,9 +3,9 @@ type: MUST
 id: R000065
 ---
 
-# must use profiles for Public APIs
+# use profiles for Public APIs
 
-[Public APIs](../../../010_Core-Principles/030_API-scope.md) must be versioned with [profiles](../../020_Hypermedia/040_Profiles/index.md) and provide comprehensive profile documentation using custom `x-ottoapi` tags.
+[Public APIs](../../../010_Core-Principles/030_API-scope.md) have to be versioned with [profiles](../../020_Hypermedia/040_Profiles/index.md) and provide comprehensive profile documentation using custom `x-ottoapi` tags.
 
 ```yml
 openapi: 3.0.3

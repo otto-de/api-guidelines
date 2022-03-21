@@ -6,7 +6,7 @@ id: R100063
 # document link cardinality
 
 ::: warning
-This rule applies to public APIs. For private APIs it should be followed.
+This rule applies to APIs, that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
 The HAL `_links` object holds property names of link relation types, and values of either a link object:
@@ -37,6 +37,6 @@ Thats why every profile must document the cardinality of the link relation types
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
-- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
+- [MUST implement REST maturity level 2](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for transitional APIs](@guidelines/R000033)
   :::

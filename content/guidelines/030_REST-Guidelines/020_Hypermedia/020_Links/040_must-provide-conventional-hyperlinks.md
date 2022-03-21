@@ -6,10 +6,10 @@ id: R100033
 # provide conventional hyperlinks
 
 ::: warning
-This rule applies to public APIs. For private APIs it should be followed.
+This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
-Hyperlinks to other resources [must use `application/hal+json`](@guidelines/R000033) in all [public API resources](../../../010_Core-Principles/030_API-scope.md).
+Hyperlinks to other resources [must use HAL](@guidelines/R000036).
 
 The following links must be contained in HAL representations:
 
@@ -69,8 +69,8 @@ Example of a `collection item`:
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
-- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
+- [MUST implement REST maturity level 2](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for transitional APIs](@guidelines/R000033)
 - [MUST support hypermedia controls in collection resources](@guidelines/R100026)
 - [Link-Relation Types](../030_Link-relation-types/index.md)
 - [IANA link relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)

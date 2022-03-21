@@ -6,7 +6,7 @@ id: R100037
 # use absolute URLs for custom link relation types
 
 ::: warning
-This rule applies to public APIs. For private APIs it should be followed.
+This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
 If no [IANA-registered](http://www.iana.org/assignments/link-relations/link-relations.xhtml) link relation type is applicable and no [existing custom link relation type](@guidelines/R100035) can be used instead, a custom link relation type can be introduced.
@@ -24,7 +24,7 @@ Using a link relation type such as `"variation": {"href":"https://api.otto.de/va
 
 ::: references
 
-- [MUST implement REST maturity level 2 for private APIs](@guidelines/R000032)
-- [MUST implement REST maturity level 3 for public APIs](@guidelines/R000033)
+- [MUST implement REST maturity level 2](@guidelines/R000032)
+- [MUST implement REST maturity level 3 for transitional APIs](@guidelines/R000033)
 - [MUST use curied link relation types](@guidelines/R100038)
   :::

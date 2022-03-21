@@ -82,7 +82,7 @@ Even though the `profile` parameter is only defined for the media type `applicat
 - [SHOULD use `Accept` and `Content-Type` headers with profile parameter](@guidelines/R000030)
 - [MUST provide conventional hyperlinks](@guidelines/R100033)
 - [Paged collection](@guidelines/R100023)
-- [MUST use profiles for Public APIs](/guidelines/030_REST-Guidelines/050_Versioning/010_Versioning/010_must_version_with_profiles.md)
+- [MUST use profiles for Public APIs](../../050_Compatibility/020_Versioning/010_must_version_with_profiles.md)
 - Parameters in `application/json` [RFC 7159, Section 11](https://datatracker.ietf.org/doc/html/rfc7159#section-11)
 - Parameters in `application/json-patch+json` [RFC 6902, Section 6](https://datatracker.ietf.org/doc/html/rfc6902#section-6)
   :::

@@ -1,8 +1,9 @@
 # Hypermedia
 
-In a system with many distributed resources connected by hyperlinks, it is important to provide the client with the
-current state of the application from the resources of our REST interface.
+Besides the best practices for [compatible API evolutions](../050_Compatibility/010_Compatible-changes/index.md), there are other guidelines to facilitate business changes without impacting consumers.
 
-Furthermore, we transmit all possible state transitions to the client via hyperlinks.
-In addition to the need of resource links we establish a consistent JSON response format with the goal of increasing productivity and efficiency.
-Instead of spending valuable time developing different own formats we will adopt conventions from an existing format and extend where required.
+To achieve this, API contracts should not contain or publish explicit or implicit business rules, such as the conditions under which a resource is usable. These rules would then be part of the API contract, and any incompatible change to these rules (e.g. a stricter interpretation) would break API clients.
+
+Instead, API providers should embed in their responses information about when certain contextually relevant resources are accessible and thus usable. This information is commonly referred to as hypermedia.
+
+This section deals with topics such as [when hypermedia needs to be implemented](@guidelines/R000033), [which hypermedia standard to use](@guidelines/R000036), details about how to use [hypermedia links](./020_Links/index.md), [link relations](./030_Link-relation-types/index.md) and finally [profiles](./040_Profiles/index.md) to support [versioning](../050_Compatibility/020_Versioning/index.md).

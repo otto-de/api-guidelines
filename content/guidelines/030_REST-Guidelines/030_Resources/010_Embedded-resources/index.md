@@ -13,8 +13,6 @@ Servers should not entirely "swap out" a link for an embedded resource (or vice 
 :::: accordions
 ::: accordion Example
 
-The format used for embedded resources should be application/hal+json for private APIs. For public APIs the format `application/hal+json` is mandatory.
-
 The following examples show the hypertext cache pattern applied to an "author" link:
 
 _Before:_
