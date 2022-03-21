@@ -14,7 +14,7 @@
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
-name: Pull Merge Cleanup
+name: PR Merge Cleanup
 "on":
   schedule:
     - cron: 0 4,9,13,17 * * *
@@ -25,19 +25,6 @@ name: Pull Merge Cleanup
 env:
   TOOLBOX: $(npm bin)/toolbox
 jobs:
-  default:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: pascalgn/automerge-action@v0.14.3
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          MERGE_LABELS: "!pull: not merge,!approval: waiting,!dependabot :rocket:"
-          MERGE_METHOD: squash
-          MERGE_COMMIT_MESSAGE: pull-request-title-and-description
-          MERGE_DELETE_BRANCH: true
-          MERGE_RETRIES: 2
-          UPDATE_LABELS: "!pull: not update,!dependabot :rocket:"
-          UPDATE_METHOD: rebase
   dependabot:
     runs-on: ubuntu-latest
     steps:

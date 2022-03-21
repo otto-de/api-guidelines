@@ -14,7 +14,7 @@
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
-name: Assigned Issue to Assets
+name: Issue Assigned to Assets
 "on":
   issues:
     types:

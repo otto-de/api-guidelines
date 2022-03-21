@@ -14,13 +14,16 @@
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
-name: Review Pull by Assets
+name: PR Review Request
 "on":
   pull_request_target:
     types:
       - review_requested
       - review_request_removed
       - ready_for_review
+  check_suite:
+    types:
+      - completed
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -37,17 +40,15 @@ jobs:
     steps:
       - name: Get Pull review info
         id: reviews
-        uses: jurijzahn8019/action-get-pull-review-info@v0.0.64
+        uses: jurijzahn8019/action-get-pull-review-info@v0.0.65
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
   to-review:
     runs-on: ubuntu-latest
     needs:
       - check
-    if: |-
-      ${{ 
-        needs.check.outputs.requested > 0 
-        || needs.check.outputs.reviews > 0
+    if: >-
+      ${{  needs.check.outputs.requested > 0  || needs.check.outputs.reviews > 0
       }}
     steps:
       - name: Move Pull Request with Reviewers to 'Review / Approval'
@@ -72,10 +73,8 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - check
-    if: |-
-      ${{ 
-        needs.check.outputs.requested < 1 
-        && needs.check.outputs.reviews < 1
+    if: >-
+      ${{  needs.check.outputs.requested < 1  && needs.check.outputs.reviews < 1
       }}
     steps:
       - name: Move Pull Request without Reviewers to 'In Progress'

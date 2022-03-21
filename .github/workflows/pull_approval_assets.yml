@@ -14,7 +14,7 @@
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
-name: Approval Pull by Assets
+name: PR Review Approval
 "on":
   pull_request_review:
     types:
@@ -32,7 +32,7 @@ jobs:
     steps:
       - name: Get Pull review info
         id: reviews
-        uses: jurijzahn8019/action-get-pull-review-info@v0.0.64
+        uses: jurijzahn8019/action-get-pull-review-info@v0.0.65
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set Clear Flag
@@ -44,12 +44,43 @@ jobs:
             && steps.reviews.outputs.changes_requested < 1
           }}
         run: echo "::set-output name=clear::true"
-  process:
+  on_disapproved:
+    runs-on: ubuntu-latest
+    needs:
+      - check
+    if: ${{ needs.check.outputs.clear != 'true' }}
+    steps:
+      - name: Set approval check to failed
+        uses: LouisBrunner/checks-action@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: pull-approved
+          conclusion: failure
+          output: |
+            {"summary": "Wait for required approvers" }
+  on_approved:
     runs-on: ubuntu-latest
     needs:
       - check
     if: ${{ needs.check.outputs.clear == 'true' }}
     steps:
+      - name: Enable automerge
+        if: >-
+          ${{ (needs.check.outputs.requested > 0 || needs.check.outputs.reviews
+          > 0) && contains(github.event.pull_request.labels.*.name, 'pull: not
+          merge') }}
+        uses: alexwilson/enable-github-automerge-action@1.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          merge-method: SQUASH
+      - name: Set approval check to failed
+        uses: LouisBrunner/checks-action@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: pull-approved
+          conclusion: success
+          output: |
+            {"summary": "All requested reviews are approved" }
       - name: Add Label when Approved
         uses: actions-ecosystem/action-add-labels@v1.1.3
         with:

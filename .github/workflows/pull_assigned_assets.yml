@@ -14,7 +14,7 @@
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
-name: Assigned Pull to Assets
+name: PR Assigned to Assets
 "on":
   pull_request_target:
     types:
