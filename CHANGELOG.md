@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.2.0...v1.3.0) (2022-03-22)
+
+### Features
+
+- **event-guidelines:** added event definition ([#1298](https://github.com/otto-ec/ottoapi_guidelines/issues/1298)) ([e153788](https://github.com/otto-ec/ottoapi_guidelines/commit/e153788d345962f9c3d81976a9d15f054e541f38)), closes [#1277](https://github.com/otto-ec/ottoapi_guidelines/issues/1277)
+- **event-guidelines:** new rule must consume events idempotently ([#1381](https://github.com/otto-ec/ottoapi_guidelines/issues/1381)) ([46525eb](https://github.com/otto-ec/ottoapi_guidelines/commit/46525ebcb41061738c9571ba19a7c8dc31a46aa4)), closes [#1287](https://github.com/otto-ec/ottoapi_guidelines/issues/1287) [#1287](https://github.com/otto-ec/ottoapi_guidelines/issues/1287) [#1287](https://github.com/otto-ec/ottoapi_guidelines/issues/1287) [#1287](https://github.com/otto-ec/ottoapi_guidelines/issues/1287) [#1385](https://github.com/otto-ec/ottoapi_guidelines/issues/1385) [#1387](https://github.com/otto-ec/ottoapi_guidelines/issues/1387)
+- **event:** added must use cloudevents rule ([#1333](https://github.com/otto-ec/ottoapi_guidelines/issues/1333)) ([a3a70b6](https://github.com/otto-ec/ottoapi_guidelines/commit/a3a70b664e9af1460012c5c887f71885e17554fc)), closes [#1280](https://github.com/otto-ec/ottoapi_guidelines/issues/1280)
+- **guidelines:** add must name events in past tense rule ([#1390](https://github.com/otto-ec/ottoapi_guidelines/issues/1390)) ([c5b7db7](https://github.com/otto-ec/ottoapi_guidelines/commit/c5b7db71aa304b71b116bcafc960189d73e07ef3)), closes [#1356](https://github.com/otto-ec/ottoapi_guidelines/issues/1356)
+- **guidelines:** added must use asyncapi rule ([#1399](https://github.com/otto-ec/ottoapi_guidelines/issues/1399)) ([f022edc](https://github.com/otto-ec/ottoapi_guidelines/commit/f022edcf139d445a6800923769d3e480938752d7))
+- **guidelines:** changed https rule to be more generic ([ec4e239](https://github.com/otto-ec/ottoapi_guidelines/commit/ec4e239ee594af3dbc00f4aae072739eaa50a96c)), closes [#1383](https://github.com/otto-ec/ottoapi_guidelines/issues/1383)
+- **guidelines:** relax must criteria mandating hypermedia usage ([#1370](https://github.com/otto-ec/ottoapi_guidelines/issues/1370)) ([393a2ec](https://github.com/otto-ec/ottoapi_guidelines/commit/393a2ec6f7bcae0d4df887f16daf216b83575ec5))
+
+### Bug Fixes
+
+- **guidlines:** event name rule not showing up ([9b0878d](https://github.com/otto-ec/ottoapi_guidelines/commit/9b0878dd263b99b0dbc137d59639cbc206a67ab8))
+
 ## [1.2.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.1.0...v1.2.0) (2022-03-04)
 
 ### Features
