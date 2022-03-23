@@ -30,7 +30,7 @@ jobs:
   deps_approve:
     runs-on: ubuntu-latest
     if: >-
-      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') &&
+      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ||
       startsWith(github.head_ref, 'deps-') }}
     steps:
       - name: Set approval check to success
