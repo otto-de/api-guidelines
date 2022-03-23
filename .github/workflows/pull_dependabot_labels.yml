@@ -14,7 +14,7 @@
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
-name: Label Dependabot PR
+name: Dependency PR Checks
 "on":
   pull_request_target:
     types:
@@ -27,9 +27,11 @@ name: Label Dependabot PR
       - reopened
       - unlocked
 jobs:
-  approval:
+  deps_approve:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.user.login, 'dependabot')
+    if: >-
+      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') &&
+      startsWith(github.head_ref, 'deps-') }}
     steps:
       - name: Set approval check to success
         uses: LouisBrunner/checks-action@v1.2.0
@@ -39,10 +41,10 @@ jobs:
           conclusion: success
           sha: ${{ github.event.pull_request.head.sha }}
           output: |
-            {"summary": "Dependabot pr does not need approval" }
-  labels:
+            {"summary": "Dependency update does not need approvals" }
+  deps_labels:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.pull_request.user.login, 'dependabot')
+    if: ${{ startsWith(github.event.pull_request.user.login, 'dependabot') }}
     steps:
       - uses: jurijzahn8019/action-dependabot-bump-range@v0.0.70
         id: checker
