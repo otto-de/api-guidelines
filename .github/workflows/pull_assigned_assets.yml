@@ -26,7 +26,7 @@ jobs:
       !startsWith(github.event.repository.name, 'assets_') &&
       !startsWith(github.event.pull_request.user.login, 'dependabot')
     steps:
-      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.57
+      - uses: jurijzahn8019/action-is-user-member-of-teams@v0.0.58
         id: checker
         with:
           token: ${{ secrets.TOKEN_GITHUB }}
