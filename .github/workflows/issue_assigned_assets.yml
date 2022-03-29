@@ -30,7 +30,7 @@ jobs:
           token: ${{ secrets.TOKEN_GITHUB }}
           username: ${{ github.event.assignee.login }}
           teams: otto-ec/assets
-      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.52
+      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.53
         id: isOnBoard
         if: ${{ startsWith(github.event.repository.name, 'assets_') }}
         with:
