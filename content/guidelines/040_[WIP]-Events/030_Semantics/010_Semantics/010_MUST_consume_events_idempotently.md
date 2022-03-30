@@ -29,10 +29,13 @@ The event `time` context attribute might seem like a perfect fit for deduplicati
 - all producing instances of the same event source have clocks that are synced with a minimal clock drift.
 - all events for the same source must be published in event `time` order to the messaging system. If this is not the case, events may be dropped by the consumers.
 - the producer needs to make sure that no two events have the same event `time`.
-  :::
+
+As these requirements impose quite a restriction on the producer, a separate [`sequence` context attribute may be provided](@guidelines/R200003).
+:::
 
 ::: references
 
+- [MAY provide `sequence` context attribute](@guidelines/R200003)
 - [You cannot have exactly-once delivery](https://bravenewgeek.com/you-cannot-have-exactly-once-delivery/)
 - [Exactly-Once Semantics Are Possible: Here’s How Kafka Does It](https://www.confluent.io/de-de/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/)
 - [Processing guarantees in kafka](https://medium.com/@andy.bryant/processing-guarantees-in-kafka-12dd2e30be0e)
