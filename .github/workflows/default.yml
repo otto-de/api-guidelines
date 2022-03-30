@@ -68,8 +68,8 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 14.x
-      fail-fast: false
+          - 16.x
+      fail-fast: true
     steps:
       - uses: actions/checkout@v3
         id: checkout
@@ -84,7 +84,7 @@ jobs:
         id: npm_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci
+        run: npm ci -f
       - name: Build sources with npm script
         timeout-minutes: 2
         id: build
@@ -115,7 +115,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 14.x
+          - 16.x
       fail-fast: true
     steps:
       - uses: actions/checkout@v3
@@ -131,7 +131,7 @@ jobs:
         id: npm_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci
+        run: npm ci -f
       - name: Check Dependency License Usage
         id: check_license
         run: ${{ env.TOOLBOX }} chk lic
@@ -153,7 +153,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 14.x
+          - 16.x
       fail-fast: true
     steps:
       - uses: actions/checkout@v3
@@ -169,7 +169,7 @@ jobs:
         id: npm_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci
+        run: npm ci -f
       - name: Run jscpd to collect code duplicates
         id: jscpd
         run: |
@@ -196,7 +196,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 14.x
+          - 16.x
       fail-fast: true
     steps:
       - uses: actions/checkout@v3
@@ -212,7 +212,7 @@ jobs:
         id: npm_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci
+        run: npm ci -f
       - name: Check dependencies for Vulnerabilities
         id: npm_audit
         run: |

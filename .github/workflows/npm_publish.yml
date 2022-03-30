@@ -1,7 +1,7 @@
 # Config ID: workflow.npm_publish
 # 
 # This configuration file is auto-generated
-# by httpss://github.com/otto-ec/assets_protecty.
+# by https://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
@@ -10,7 +10,7 @@
 # - .github/gitty.yml#/configs/workflow/npm_publish,
 # 
 # and use the schema appropriate to this file.
-# See httpss://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: default, npm-package, no-specs
 # 
@@ -30,7 +30,7 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 14.x
+          - 16.x
       fail-fast: true
     env:
       JEST_JUNIT_OUTPUT_DIR: tmp/test-results/jest
@@ -52,7 +52,7 @@ jobs:
         id: npm_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci
+        run: npm ci -f
       - name: Build Sources
         id: build
         run: npm run build
