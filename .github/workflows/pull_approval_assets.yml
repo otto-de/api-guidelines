@@ -21,6 +21,9 @@ name: PR Review Approval
       - edited
       - dismissed
       - submitted
+  pull_request:
+    types:
+      - synchronize
 jobs:
   check:
     runs-on: ubuntu-latest
