@@ -20,6 +20,12 @@ The minor version needs to be increased when:
 - A new message is produced.
 - Compatible schema changes to an existing message have been made.
 
+The patch version needs to be increased when:
+
+- Metadata of the AsyncAPI specification have changed.
+- The applications consumed messages have changed.
+- Refactorings have been made that do not change produced messages.
+
 ::: references
 
 - [AsyncAPI Info Object schema](https://www.asyncapi.com/docs/specifications/v2.3.0#infoObject)
