@@ -27,21 +27,6 @@ name: Dependency PR Checks
       - reopened
       - unlocked
 jobs:
-  deps_approve:
-    runs-on: ubuntu-latest
-    if: >-
-      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ||
-      startsWith(github.head_ref, 'deps-') }}
-    steps:
-      - name: Set approval check to success
-        uses: LouisBrunner/checks-action@v1.2.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: pull-approved
-          conclusion: success
-          sha: ${{ github.event.pull_request.head.sha }}
-          output: |
-            {"summary": "Dependency update does not need approvals" }
   deps_labels:
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.event.pull_request.user.login, 'dependabot') }}
@@ -69,3 +54,20 @@ jobs:
           message: |
             @dependabot merge
           allow-repeats: false
+  deps_approve:
+    needs:
+      - deps_labels
+    runs-on: ubuntu-latest
+    if: >-
+      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ||
+      startsWith(github.head_ref, 'deps-') }}
+    steps:
+      - name: Set approval check to success
+        uses: LouisBrunner/checks-action@v1.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: pull-approved
+          conclusion: success
+          sha: ${{ github.event.pull_request.head.sha }}
+          output: |
+            {"summary": "Dependency update does not need approvals" }

@@ -47,20 +47,6 @@ jobs:
             && steps.reviews.outputs.changes_requested < 1
           }}
         run: echo "::set-output name=clear::true"
-  on_disapproved:
-    runs-on: ubuntu-latest
-    needs:
-      - check
-    if: ${{ needs.check.outputs.clear != 'true' }}
-    steps:
-      - name: Set approval check to failed
-        uses: LouisBrunner/checks-action@v1.2.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: pull-approved
-          conclusion: failure
-          output: |
-            {"summary": "Wait for required approvers" }
   on_approved:
     runs-on: ubuntu-latest
     needs:
