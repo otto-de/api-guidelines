@@ -57,7 +57,7 @@
     "@vitejs/plugin-vue": "^2.3.1",
     "@vue/compiler-sfc": "^3.2.31",
     "rollup-plugin-copy": "^3.4.0",
-    "sass": "^1.49.10",
+    "sass": "^1.49.11",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3",
