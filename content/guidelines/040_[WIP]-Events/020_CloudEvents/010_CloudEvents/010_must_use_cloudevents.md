@@ -14,7 +14,7 @@ The guidelines contain some further rules regarding the usage of context attribu
 | Attribute                                                                                              | Further Rules                                                                 |
 | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | [id](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)                           |                                                                               |
-| [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | TODO create MUST source rule                                                  |
+| [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | [MUST provide meaningful `source` context attribute](@guidelines/R200010)     |
 | [specversion](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion)         | only '1.0' allowed                                                            |
 | [type](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type)                       | [MUST follow naming scheme for `type` context attribute](@guidelines/R200009) |
 | [datacontenttype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#datacontenttype) | TODO create MUST rule                                                         |
