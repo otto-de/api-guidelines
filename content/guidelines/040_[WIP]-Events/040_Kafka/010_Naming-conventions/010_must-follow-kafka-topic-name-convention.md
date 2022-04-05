@@ -29,15 +29,10 @@ de.otto.events.{context}.{event-source-type}.{event-name}
 
 ### Data change events
 
-Topics containing data change events must be named:
+Topics containing data change events must be named analogue to the contained [data event types](@guidelines/R200009).
+If the data topic contains data events of different types all containing the complete state of one particular entity type, the topic must be named after the entity type. The topic name should be in plural form.
 
-```text
-de.otto.data.{context}.{event-source-type}.{version}
-```
-
-The `version` part **must** have a leading `v`. The first version is `1`. The version must be increased on incompatible changes.
-
-`Example`{ label} de.otto.data.checkout.payment.v1
+`Example`{ label} event type de.otto.data.checkout.payment.v1 can be found in de.otto.data.checkout.payments.v1,<br /> event type de.otto.data.products.variation.price.v1 can be found in de.otto.data.products.variations.prices.v1
 
 ::: info
 This rule only applies to API topics. Topics which are not part of the API must adhere to the [naming conventions for internal topics](https://confluence.otto.de/pages/viewpage.action?spaceKey=KAFKA&title=08.1.2+Topic+Naming+Conventions).
