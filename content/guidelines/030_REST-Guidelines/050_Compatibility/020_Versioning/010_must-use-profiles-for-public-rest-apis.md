@@ -3,7 +3,7 @@ type: MUST
 id: R000065
 ---
 
-# use profiles for Public APIs
+# use profiles for Public REST APIs
 
 [Public APIs](../../../010_Core-Principles/030_API-scope.md) have to be versioned with [profiles](../../020_Hypermedia/040_Profiles/index.md) and provide comprehensive profile documentation using custom `x-ottoapi` tags.
 

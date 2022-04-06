@@ -7,7 +7,7 @@ id: R000069
 
 During the deprecation phase, the API provider should add a `Deprecation` header (see [draft: RFC Deprecation HTTP Header](https://tools.ietf.org/html/draft-dalal-deprecation-header)) and - if also planned - a `Sunset` header (see [RFC 8594](https://tools.ietf.org/html/rfc8594#section-3)) to each response affected by a deprecated element (see [MUST reflect deprecation in API specifications](@guidelines/R000067)).
 
-The `Deprecation` header can either be set to `true` when a feature is disabled, or it can carry an deprecation timestamp at which a replacement is made available and consumers are no longer allowed to use the feature (see [MUST NOT start using deprecated APIs](@guidelines/R000071)).
+The `Deprecation` header can either be set to `true` when a feature is disabled, or it can carry a deprecation timestamp at which a replacement is made available and consumers are no longer allowed to use the feature (see [MUST NOT start using deprecated APIs](@guidelines/R000071)).
 The optional `Sunset` timestamp indicates when consumers have to stop using a feature at the latest.
 The sunset timestamp should always offer an appropriate time interval for switching to a replacement feature.
 

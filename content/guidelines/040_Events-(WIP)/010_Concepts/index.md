@@ -45,3 +45,9 @@ Example of data events:
   - operation (always required): INSERT, UPDATE or DELETE.
   - before (optional for UPDATE and DELETE, always missing/null for INSERT): State of the entity before the operation.
   - after (always missing/null for DELETE, required for INSERT and UPDATE): State of the entity after the operation.
+
+## Definitions
+
+**Event producer** - [API](../../020_General-Guidelines/010_Basics/index.md#Definitions) for [Events](#events). The term event producer is used within the event guidelines to describe the implementation of the API. The meaning is identical the [producer](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#producer) term in the CloudEvents specification.
+
+**Event consumer** - [API client](../../020_General-Guidelines/010_Basics/index.md#Definitions) for event APIs. The meaning is identical to the [consumer](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#consumer) term in the CloudEvents specification.

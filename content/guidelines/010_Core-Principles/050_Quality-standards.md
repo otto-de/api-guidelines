@@ -28,7 +28,7 @@ This consistency covers several facets such as documentation, naming conventions
 :::: accordion Reliability
 If our API infrastructure is not reliable, consumers will not build trust, and engagement will not increase.
 API reliability extends beyond uptime.
-We do not limit our evaluation to availability, but also include aspects such as variations in response times or behavior with an increasing number of concurrent clients.
+We do not limit our evaluation to availability, but also include aspects such as variations in response times or behavior with an increasing number of concurrent API clients.
 
 We avoid unannounced changes and prevent outages to the best of our knowledge.
 When having to choose between consistency (always return even in case of an error) and availability (in doubt return stale content), we prefer availability. Even to the detriment of consistency.

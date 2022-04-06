@@ -4,20 +4,21 @@ sideNav: true
 
 # Versioning of incompatible changes
 
-OTTO API supports two versioning approaches: via [profiles](R000065) and via [URL path](@guidelines/R000031). Versioning via profiles is preferred.
+OTTO API supports two versioning approaches for HTTP APIs: via [profiles](R000065) and via [URL path](@guidelines/R000031). Versioning via profiles is preferred.
 
 ::::: accordions
 :::: accordion Why profile versioning
 
-We cannot go with a single global version number for the entire OTTO API, as this would mean too much coordination overhead for our feature teams. Also, we want to use industry standards wherever possible and exclude solutions that violate existing standards or are based on draft standards where incompatible changes might occur.
+We cannot go with a single global version number for the entire OTTO REST API, as this would mean too much coordination overhead for our feature teams.
+To implement versioning for REST APIs, we want to use industry standards wherever possible. Thus, we exclude solutions that violate existing standards or are based on draft standards that might change in an incompatible way.
 
-URL-based versioning links only a specific version of a resource and creates a fixed dependency on a specific version. This conflicts with the use of hypermedia/HAL. Therefore, versioning must be done via profiles.
+URL-based versioning links only to a specific version of a resource and creates a fixed dependency on a specific version. This conflicts with the use of hypermedia/HAL. Therefore, versioning must be done via profiles.
 In addition, profiles also allow resource/sub-resource independent versioning.
 
 In cases where profile-based versioning is not possible or sufficient, URL-based versioning can be applied.
 
 :::info
-During the initial discussion of versioning, several options have been [identified and evaluated](https://github.com/otto-ec/ottoapi_guidelines/blob/master/references/versioning.md).
+During the initial discussion of versioning, several options have been [identified and evaluated](https://github.com/otto-ec/ottoapi_guidelines/blob/main/content/references/REST/versioning.md).
 :::
 
 ::: references

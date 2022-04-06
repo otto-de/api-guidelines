@@ -1,4 +1,4 @@
 # Kafka
 
 Kafka is a possible transport for asynchronous communication.
-The rules within this chapter cater how Kafka should be used.
+The rules within this section cater how Kafka should be used.
