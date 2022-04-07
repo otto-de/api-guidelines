@@ -1,0 +1,83 @@
+# Config ID: pulls.approval
+# 
+# This configuration file is auto-generated
+# by httpss://github.com/otto-ec/assets_protecty.
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/pulls/approval,
+# 
+# and use the schema appropriate to this file.
+# See httpss://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, terraform, non-assets
+# 
+name: PR Review Approval
+"on":
+  pull_request_review:
+    types:
+      - edited
+      - dismissed
+      - submitted
+  pull_request:
+    types:
+      - synchronize
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.draft == false &&
+      !startsWith(github.event.pull_request.user.login, 'dependabot')
+    outputs:
+      clear: ${{ steps.check.outputs.clear == 'true' }}
+    steps:
+      - name: Get Pull review info
+        id: reviews
+        uses: jurijzahn8019/action-get-pull-review-info@v0.0.67
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set Clear Flag
+        id: check
+        if: |-
+          ${{
+            steps.reviews.outputs.requested < 1
+            && steps.reviews.outputs.approved > 0
+            && steps.reviews.outputs.changes_requested < 1
+          }}
+        run: echo "::set-output name=clear::true"
+  on_approved:
+    runs-on: ubuntu-latest
+    needs:
+      - check
+    if: ${{ needs.check.outputs.clear == 'true' }}
+    steps:
+      - name: Enable automerge
+        if: >-
+          ${{ (needs.check.outputs.requested > 0 || needs.check.outputs.reviews
+          > 0) && contains(github.event.pull_request.labels.*.name, 'pull: not
+          merge') }}
+        uses: alexwilson/enable-github-automerge-action@1.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          merge-method: SQUASH
+      - name: Set approval check to success
+        uses: LouisBrunner/checks-action@v1.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: pull-approved
+          conclusion: success
+          output: |
+            {"summary": "All requested reviews are approved" }
+      - name: Add Label when Approved
+        uses: actions-ecosystem/action-add-labels@v1.1.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: "approval: submitted"
+      - name: Remove Label when approved
+        uses: actions-ecosystem/action-remove-labels@v1.3.0
+        continue-on-error: true
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: "approval: waiting"

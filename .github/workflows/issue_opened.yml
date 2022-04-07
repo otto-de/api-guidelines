@@ -1,0 +1,50 @@
+# Config ID: issues.opened
+# 
+# This configuration file is auto-generated
+# by httpss://github.com/otto-ec/assets_protecty.
+# 
+# Do not modify this file unless you know what you do.
+# All changes will be overwritten during next update run.
+# 
+# If you need to modify this file permanently then place your configuration overrides in
+# - .github/gitty.yml#/configs/issues/opened,
+# 
+# and use the schema appropriate to this file.
+# See httpss://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# 
+# This config can be affected by these presets: base, default, terraform, non-assets
+# 
+name: Issue Opened
+"on":
+  issues:
+    types:
+      - opened
+      - reopened
+env:
+  TARGET_PROJECT: 14
+  NPMRC_CONFIG: |
+    @otto-ec:registry=https://npm.pkg.github.com/
+    //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+jobs:
+  add_to_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure Node and Cache
+        uses: actions/setup-node@v3
+        id: setup_node
+        with:
+          node-version: 16.x
+      - name: Add npm config
+        run: |
+          echo "${NPMRC_CONFIG}" > .npmrc
+      - name: Check and add issue to the Project
+        id: add_item
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          REPO_OWNER: ${{ github.event.repository.owner.login }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          ITEM_NUMBER: ${{ github.event.issue.number }}
+        run: >-
+          npx @otto-ec/toolbox@next gh prj adi  --owner ${{ env.REPO_OWNER }}
+          --repo ${{ env.REPO_NAME }} --project ${{ env.TARGET_PROJECT }} 
+          --issue ${{ env.ITEM_NUMBER }} --debug
