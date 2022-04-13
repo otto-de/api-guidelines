@@ -1,7 +1,7 @@
 # Config ID: pulls.approval
 # 
 # This configuration file is auto-generated
-# by httpss://github.com/otto-ec/assets_protecty.
+# by https://github.com/otto-ec/assets_protecty.
 # 
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
@@ -10,7 +10,7 @@
 # - .github/gitty.yml#/configs/pulls/approval,
 # 
 # and use the schema appropriate to this file.
-# See httpss://github.com/otto-ec/assets_protecty#readme for more details and documentation.
+# See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 # 
 # This config can be affected by these presets: base, default, terraform, non-assets
 # 
@@ -24,6 +24,7 @@ name: PR Review Approval
   pull_request:
     types:
       - synchronize
+      - review_request_removed
 jobs:
   check:
     runs-on: ubuntu-latest
@@ -55,8 +56,7 @@ jobs:
     steps:
       - name: Enable automerge
         if: >-
-          ${{ (needs.check.outputs.requested > 0 || needs.check.outputs.reviews
-          > 0) && contains(github.event.pull_request.labels.*.name, 'pull: not
+          ${{ !contains(github.event.pull_request.labels.*.name, 'pull: not
           merge') }}
         uses: alexwilson/enable-github-automerge-action@1.0.0
         with:
