@@ -9,7 +9,7 @@ The deprecation of API elements must be part of the specification (e.g. OpenAPI 
 
 The API provider must set `deprecated: true` for the affected element and add further explanation to the `description` section of the API specification.
 
-If a API version or feature is deprecated, the API provider must:
+If an API version or feature is deprecated, the API provider must:
 
 - specify a sunset date in the description
 - document in detail what consumers should use instead
