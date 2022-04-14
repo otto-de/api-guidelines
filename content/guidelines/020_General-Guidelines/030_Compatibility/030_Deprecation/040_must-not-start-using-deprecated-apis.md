@@ -6,4 +6,4 @@ appliesTo: client
 
 # not start using deprecated APIs
 
-Consumers must not start using deprecated APIs, API versions, or API features.
+Consumers must not start using deprecated APIs, API versions or API features.
