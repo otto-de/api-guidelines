@@ -45,5 +45,7 @@ The hierarchical-type contains at least one segment describing the data. It may 
 ::: references
 
 - [MUST change `type` context attribute to indicate incompatible changes](@guidelines/R200014)
+- [MUST filter consumed events by `type`](@guidelines/R200015)
 - [The role of the `type` attribute within versioning](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#the-role-of-the-type-attribute-within-versioning)
+
   :::
