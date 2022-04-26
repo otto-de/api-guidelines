@@ -17,12 +17,12 @@ The `type` is made of segments. Segments are separated by `"."`. Each segment mu
 
 The `type` must be written in kebab-case. Segments are seperated by `"."`.
 
-| Segment           | Description                                                       |
-| :---------------- | :---------------------------------------------------------------- |
-| context           | Name of Business Context ex: Sales, Orders etc.                   |
-| event-source-type | Type name of the source of the entity. Example: Payment, Wishlist |
-| event-name        | The event name.                                                   |
-| version           | version of the event with a "v" prefix, starting with v1          |
+| Segment           | Description                                                                                                                                                                                                 |
+| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| context           | Name of Business Context ex: Sales, Orders etc.                                                                                                                                                             |
+| event-source-type | Type name of the source of the entity. Example: Payment, Wishlist                                                                                                                                           |
+| event-name        | The event name.                                                                                                                                                                                             |
+| version           | version of the event with a "v" prefix, starting with v1 . Please refer to [MUST change `type` context attribute to indicate incompatible changes](@guidelines/R200014) for more information on versioning. |
 
 ### Domain Events
 
@@ -44,5 +44,6 @@ The hierarchical-type contains at least one segment describing the data. It may 
 
 ::: references
 
+- [MUST change `type` context attribute to indicate incompatible changes](@guidelines/R200014)
 - [The role of the `type` attribute within versioning](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#the-role-of-the-type-attribute-within-versioning)
   :::
