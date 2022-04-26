@@ -105,7 +105,7 @@ Patching the same resource twice is **not** required to be idempotent (check [MU
 
 `Note:`{ label } To prevent unnoticed concurrent updates when using `PATCH` you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](@guidelines/R000060) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
 Refer to [SHOULD consider to design `POST` and `PATCH` idempotent](@guidelines/R000009) for details and options.
-:::
+::::
 
 :::: accordion DELETE
 `DELETE` requests are used to **delete** resources.
