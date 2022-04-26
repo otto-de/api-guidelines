@@ -90,7 +90,7 @@ jobs:
           else
             echo "Mo Mentions found"
           fi
-      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.56
+      - uses: jurijzahn8019/action-is-issue-on-board@v0.0.57
         id: isOnBoard
         if: >-
           ${{ steps.mentions.outputs.mentions && steps.mentions.outputs.mentions
