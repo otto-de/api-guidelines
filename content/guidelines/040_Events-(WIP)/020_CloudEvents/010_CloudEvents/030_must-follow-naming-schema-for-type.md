@@ -11,7 +11,7 @@ The [`type` context attribute](https://github.com/cloudevents/spec/blob/v1.0.2/c
 - Using the type as a primary means by which consumer identify an event.
 - Guaranteeing consumers a stable event type that will never change in an incompatible way.
 
-The `type` is made of segments. Segments are separated by `"."`. Each segment must be written in kebab-case. Only lower case ASCII characters, numbers and `"-"` are allowed.
+The `type` is made of segments. Segments are separated by `"."`. Each segment must be written in kebab-case. Only lower case english letters, numbers and `"-"` are allowed.
 
 ### General
 
