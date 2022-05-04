@@ -1,35 +1,4 @@
 {
-  "app": { "name": "guidelines" },
-  "check": {
-    "license": {
-      "excludePackages": "xmldom@0.1.27"
-    }
-  },
-  "s3": {
-    "config": {
-      "swamp": "{{hbs swamp.profiles.apidocs_upload}}",
-      "groups": ["web"]
-    },
-    "buckets": {
-      "default": {
-        "app": "api-docs",
-        "to": "{{parent.app}}/guidelines"
-      }
-    }
-  },
-  "cloudfront": {
-    "config": {
-      "swamp": "{{hbs swamp.profiles.apidocs_upload}}"
-    },
-    "distributions": {
-      "default": {
-        "name": "api-docs"
-      }
-    }
-  },
-  "swamp": {
-    "profiles": {
-      "apidocs_upload": "{{swamp.profiles.default}}+{{env.current.accounts.default.name}}:service-api-docs-uploader"
-    }
-  }
+  "app": { "name": "ottoapi-guidelines" },
+  "guidelines": { "sources": { "contentRoot": "content/guidelines" } }
 }

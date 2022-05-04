@@ -1,0 +1,69 @@
+name: Lint Pull Request
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+  pull_request_target:
+    types: [opened, edited, synchronize]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  checkuser:
+    runs-on: ubuntu-latest
+    if: >-
+      ${{ ( startsWith(github.actor, 'dependabot') == false && github.event_name
+      == 'pull_request' ) || ( startsWith(github.actor, 'dependabot') == true &&
+      github.event_name == 'pull_request_target' ) }}
+    steps:
+      - run: echo "Check Complete"
+
+  lint-changes:
+    runs-on: ubuntu-latest
+    needs: [checkuser]
+
+    steps:
+      - name: Checkout Sources from Pull
+        uses: actions/checkout@v2.4.0
+        id: checkout
+      - name: Configure Node Runtime
+        uses: actions/setup-node@v2.5.1
+        id: setup_node
+        with:
+          node-version: 14.x
+      - name: Configure Npm Cache
+        uses: actions/cache@v2.1.7
+        id: setup_cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: Install Npm Dependencies
+        id: npm_install
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: npm ci
+
+      - name: Lint PR Content if api specs are changed
+        id: prlint
+        run: npm run cli --silent -- guidelines-pull lint-changes
+
+      - name: Lint PR Title if sources are changed
+        uses: amannn/action-semantic-pull-request@v4.5.0
+        if: ${{ steps.prlint.outputs.otherChanged == 'true' }}
+        with:
+          types: |
+            chore
+            feat
+            fix
+            docs
+            style
+            refactor
+            revert
+            test
+            npm
+            actions
+            terraform
+          requireScope: true
+          subjectPattern: ^[^A-Z]+$
