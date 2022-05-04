@@ -13,5 +13,6 @@ If the `time` context attribute does not contain the timestamp of when the event
 
 ::: references
 
-- [MUST use common date and time format](@guidelines/r100072).
-  :::
+- [](@guidelines/r100072)
+
+:::

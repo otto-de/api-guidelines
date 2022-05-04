@@ -16,6 +16,7 @@ Consumers may use the `sequence` attribute to process the events from one event 
 If multiple producers publish events originating from the same event source, they will need to coordinate so that the semantics of the `sequencetype` are met.
 
 ::: references
-- [MUST enable consumer to process domain events in order](@guidelines/r200007)
-- TODO MUST provide a meaningful source context attribute
+
+- [](@guidelines/r200007)
+- [](@guidelines/R200010)
   :::

@@ -40,6 +40,6 @@ This rule only applies to API topics. Topics which are not part of the API must 
 
 ::: references
 
-- [MUST name events in past tense](@guidelines/r200004)
+- [](@guidelines/r200004)
 - [OTTO CoE Confluent Cloud - Topic Naming Conventions](https://confluence.otto.de/pages/viewpage.action?spaceKey=KAFKA&title=08.1.2+Topic+Naming+Conventions)
   :::

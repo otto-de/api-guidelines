@@ -18,7 +18,7 @@ Suppose compatibility checking is activated in the Confluent Schema Registry, th
 
 ::: references
 
-- [MUST follow naming scheme for `type` context attribute](@guidelines/R200009).
-- [MUST obtain approval of consumers before API shutdown](@guidelines/R000054)
+- [](@guidelines/R200009).
+- [](@guidelines/R000054)
 - [The role of the `type` attribute within versioning](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#the-role-of-the-type-attribute-within-versioning)
   :::

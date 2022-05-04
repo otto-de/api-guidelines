@@ -39,4 +39,6 @@ https://api.otto.de/products/variations/12345 (the actual REST-URL)
 
 ::: references
 
-- [MAY provide sequence context attribute](@guidelines/R200003)
+- [](@guidelines/R200003)
+
+:::
