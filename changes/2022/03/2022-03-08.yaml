@@ -1,0 +1,5 @@
+features:
+  - scope: event
+    subject: added must use cloudevents rule
+    hash: a3a70b664e9af1460012c5c887f71885e17554fc
+    date: "2022-03-08"

@@ -1,0 +1,5 @@
+features:
+  - scope: guideline
+    subject: add a new rule that describes the usage of extensible enums
+    hash: bf2dd16f6dcb4ba1edf25d639fca5ead758eb386
+    date: "2022-02-16"

@@ -1,0 +1,5 @@
+fixes:
+  - scope: guidlines
+    subject: event name rule not showing up
+    hash: 9b0878dd263b99b0dbc137d59639cbc206a67ab8
+    date: "2022-03-18"

@@ -1,0 +1,13 @@
+features:
+  - scope: guidelines
+    subject: relax must criteria mandating hypermedia usage
+    hash: 393a2ec6f7bcae0d4df887f16daf216b83575ec5
+    date: "2022-03-21"
+  - scope: event-guidelines
+    subject: new rule must consume events idempotently
+    hash: 46525ebcb41061738c9571ba19a7c8dc31a46aa4
+    date: "2022-03-21"
+  - scope: guidelines
+    subject: added must use asyncapi rule
+    hash: f022edcf139d445a6800923769d3e480938752d7
+    date: "2022-03-21"

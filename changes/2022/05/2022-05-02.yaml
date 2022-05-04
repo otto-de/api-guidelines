@@ -1,0 +1,5 @@
+fixes:
+  - scope: guidelines
+    subject: fixed type alphabet
+    hash: d86df80192a3f238406a4e69138e8b5602bbfef2
+    date: "2022-05-02"

@@ -1,0 +1,10 @@
+features:
+  - scope: guideline
+    subject: adds rule must provide meaningful source
+    hash: 7d5946cbd558ed2c1a1fcbda4edf00076911694f
+    date: "2022-04-05"
+fixes:
+  - scope: guideline
+    subject: aligning kafka topic naming and event type naming
+    hash: 595f236b06efcab98074dd3a33685e1107f8c013
+    date: "2022-04-05"

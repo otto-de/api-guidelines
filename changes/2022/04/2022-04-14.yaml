@@ -1,0 +1,9 @@
+fixes:
+  - scope: guidelines
+    subject: add proof-read for compatibility refactoring
+    hash: 40580d3e24cb06cc8289ecae65e7e0713f020937
+    date: "2022-04-14"
+  - scope: guidelines
+    subject: use correct spellings
+    hash: 899f36351b184e85a3e4f83dfac6bcb82f2bfeb4
+    date: "2022-04-14"

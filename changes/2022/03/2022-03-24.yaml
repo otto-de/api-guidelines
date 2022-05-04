@@ -1,0 +1,9 @@
+features:
+  - scope: guideline
+    subject: refactored rule ensure implementation is compliant
+    hash: c0d28907e12ca9041d768f9ff713a68235251394
+    date: "2022-03-24"
+  - scope: guideline
+    subject: adds rule must provide contact information
+    hash: c949e7c3f98aa6262806eef3a42ab8adad325af1
+    date: "2022-03-24"
