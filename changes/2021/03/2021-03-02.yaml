@@ -1,0 +1,5 @@
+features:
+  - scope: guidelines
+    subject: mark pagination params as should for private apis
+    hash: c9e82b2e20b9e81bd5ffe100c5f8a93cd864b55f
+    date: "2021-03-02"

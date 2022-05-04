@@ -1,0 +1,5 @@
+features:
+  - scope: guidelines
+    subject: add reasoning behind a should rule
+    hash: 5e2a564e2a52246d5f27b50edd7050a9d0b9c3dc
+    date: "2022-01-11"

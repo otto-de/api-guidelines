@@ -1,0 +1,5 @@
+features:
+  - scope: guidelines
+    subject: add media type restrictions for requests with a body
+    hash: 19f564d96f642af29b1f70452ae7cae23048c911
+    date: "2021-08-26"

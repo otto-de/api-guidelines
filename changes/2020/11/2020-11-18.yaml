@@ -1,0 +1,5 @@
+features:
+  - scope: collect
+    subject: add rule review type
+    hash: 3e3b71f453c1f6527816e647546983003a9734f6
+    date: "2020-11-18"

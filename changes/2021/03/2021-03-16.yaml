@@ -1,0 +1,5 @@
+fixes:
+  - scope: guidelines
+    subject: changed wording to correspond with a should requirement
+    hash: da975f7e7adce3dfc3bee02b11bac6b02b045461
+    date: "2021-03-16"

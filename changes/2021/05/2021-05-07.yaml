@@ -1,0 +1,5 @@
+fixes:
+  - scope: guidelines
+    subject: update profile and link relation urls
+    hash: ad6aad06cbe6ff116eb2aaf4a8eb3d0cdc2b3fd1
+    date: "2021-05-07"

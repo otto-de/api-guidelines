@@ -1,0 +1,5 @@
+features:
+  - scope: guidelines
+    subject: add naming conventions for profiles
+    hash: d9b10cda3aaf3f3b25f18e4d1eecffd09d12f7fb
+    date: "2021-05-03"

@@ -1,0 +1,13 @@
+features:
+  - scope: null
+    subject: Proofreading Resources
+    hash: d089b733116c8e285c2e8e57631d8a3b905c6c97
+    date: "2020-09-08"
+  - scope: null
+    subject: Feature/http caching
+    hash: c7c16a6610152fe6c765e909e140582b8dc47cc9
+    date: "2020-09-08"
+  - scope: null
+    subject: Code examples disclaimer
+    hash: d44012a7ca8138fe9e6c4ee885717ec360acd518
+    date: "2020-09-08"

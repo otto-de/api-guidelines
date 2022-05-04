@@ -1,0 +1,5 @@
+fixes:
+  - scope: guidelines/security
+    subject: rename rule according to writing guidelines
+    hash: 3ac02ffc2c55c55b5babd81ff1d20c1daa748d80
+    date: "2020-06-15"

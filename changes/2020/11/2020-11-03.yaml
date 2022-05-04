@@ -1,0 +1,5 @@
+fixes:
+  - scope: rules
+    subject: adjust rule type
+    hash: 93297ca0e1cbc90afdcee242b07aebca34b01db0
+    date: "2020-11-03"

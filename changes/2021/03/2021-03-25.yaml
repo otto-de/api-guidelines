@@ -1,0 +1,5 @@
+features:
+  - scope: guidelines
+    subject: latest version if not accept header specified
+    hash: 08fbbc7b8ff072109f5f45977c82f17c9e82278f
+    date: "2021-03-25"

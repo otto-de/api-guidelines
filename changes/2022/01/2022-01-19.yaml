@@ -1,0 +1,9 @@
+fixes:
+  - scope: guidelines
+    subject: fixed broken links within the guidelines
+    hash: 7b1530ed4b35492873e995bdb710cd10f75f5f36
+    date: "2022-01-19"
+  - scope: guidelines
+    subject: fix another broken link
+    hash: af95b05431ffbe87f3b9571e448506f3656a36a1
+    date: "2022-01-19"

@@ -1,0 +1,10 @@
+features:
+  - scope: guidelines
+    subject: add error message guidelines
+    hash: 43108d799bf46de73ee3f1fb9540ec4f05dfb925
+    date: "2020-08-05"
+fixes:
+  - scope: guidelines/security
+    subject: remove deprecated implicit grant
+    hash: 619c5fed21daeeecda95829d7d49fcb428781de8
+    date: "2020-08-05"

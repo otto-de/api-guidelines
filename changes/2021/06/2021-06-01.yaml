@@ -1,0 +1,5 @@
+features:
+  - scope: guidelines
+    subject: versioning with profiles and accept header handling
+    hash: a4b24bdd78959af2cab4660c503f9ee1a68ceb05
+    date: "2021-06-01"

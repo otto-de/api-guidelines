@@ -1,0 +1,5 @@
+fixes:
+  - scope: proof-read
+    subject: error handling
+    hash: 4a1769f31c778e329e0b3d94e18e298f250e37f4
+    date: "2020-08-28"

@@ -1,0 +1,5 @@
+fixes:
+  - scope: guidelines/security
+    subject: fix title typo
+    hash: ba30462da6c7e93e7d7da27453e4ffaabaf49982
+    date: "2020-06-10"
