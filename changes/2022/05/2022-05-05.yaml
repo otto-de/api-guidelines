@@ -1,0 +1,13 @@
+features:
+  - scope: guidelines
+    subject: >-
+      adds rule must write new incompatible version of data events into a
+      separate topic
+    hash: 27aebcce200197460ee82033e8adc9a727e808d2
+    date: "2022-05-05"
+  - scope: guidelines
+    subject: >-
+      adds rule must write new incompatible version of domain events into the
+      same topic
+    hash: ac84900a35d1dcb27b72551927ee06fffdb04586
+    date: "2022-05-05"
