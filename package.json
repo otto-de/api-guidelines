@@ -50,7 +50,7 @@
     "@otto-ec/ottoapi-cli": "^1.9.0-feat-guidelines-changelog.0",
     "@otto-ec/ottoapi-portal-common": "^0.2.46",
     "@otto-ec/ottoapi-portal-guidelines": "^0.1.21",
-    "@otto-ec/toolbox": "^2.4.0",
+    "@otto-ec/toolbox": "^2.5.2",
     "@otto-ec/toolbox-cli-core": "^1.7.0",
     "@otto-ec/toolbox-config-assets": "^1.29.5",
     "@rollup/plugin-typescript": "^8.3.2",
