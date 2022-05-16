@@ -1,0 +1,9 @@
+features:
+  - scope: guidelines
+    subject: adds new rule should not publish data from other business domains
+    hash: 0775669afbf4848e845a03fb43c3a0b77e3559d7
+    date: "2022-05-16"
+  - scope: guidelines
+    subject: adds new rule must choose adequate retention time
+    hash: 326fbbbc986f1dbd32aa27d279d75caa7509c9e2
+    date: "2022-05-16"
