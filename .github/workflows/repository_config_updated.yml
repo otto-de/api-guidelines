@@ -21,6 +21,7 @@ name: Repository config Updated
       - main
     paths:
       - .github/gitty.yml
+  workflow_dispatch: {}
 jobs:
   invoke-protecty:
     runs-on: ubuntu-latest

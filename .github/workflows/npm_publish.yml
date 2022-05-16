@@ -24,6 +24,12 @@ name: Publish Npm Package
     types:
       - prereleased
       - released
+  workflow_dispatch:
+    inputs:
+      prerelease:
+        description: if set to true, will make a prerelease
+        required: true
+        default: "true"
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -64,14 +70,18 @@ jobs:
         run: ${{ env.SPECS_COMMANDLINE }}
       - name: Publish Prerelease with next tag
         id: release
-        if: github.event.release.prerelease
+        if: >-
+          ${{  github.event.release.prerelease == true ||
+          github.event.inputs.prerelease == 'true' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: npm publish --tag next
       - name: Publish Release with latest tag
         id: prerelease
-        if: "!github.event.release.prerelease"
+        if: >-
+          ${{  github.event.release.prerelease == false ||
+          github.event.inputs.prerelease == 'false' }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
