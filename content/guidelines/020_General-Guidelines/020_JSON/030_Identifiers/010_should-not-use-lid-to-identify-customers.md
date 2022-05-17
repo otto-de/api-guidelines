@@ -3,6 +3,8 @@ type: SHOULD NOT
 id: R100074
 ---
 
+foo
+
 # use lId (or loginId) to identify customers
 
 The lId (or loginId) was introduced for one specific, limited usecase and is a suboptimal way to identify logged in customers.
