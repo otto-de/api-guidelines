@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.4.0...v1.5.0) (2022-05-23)
+
+
+### Features
+
+* **changes:** implement changelog ([5b71233](https://github.com/otto-ec/ottoapi_guidelines/commit/5b712336a6eea1473a3b85387c92f3ca84ae471e))
+
 ## [1.4.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.3.0...v1.4.0) (2022-05-16)
 
 ### Features
