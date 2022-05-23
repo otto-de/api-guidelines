@@ -7,5 +7,6 @@ export default defineConfig(
   { outDir: "tmp/viteout" },
   guidelines({
     path: join(process.cwd(), "content", "guidelines"),
+    changelogPath: join(process.cwd(), "changes"),
   })
 );
