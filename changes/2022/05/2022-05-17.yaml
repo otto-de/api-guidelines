@@ -1,0 +1,6 @@
+features:
+  - scope: r000001
+    subject: the foo bar change
+    hash: af3bdea83d5577cfa3db0f0e4b56a60e3256b029
+    body: "- wtf stuff"
+    date: "2022-05-17"
