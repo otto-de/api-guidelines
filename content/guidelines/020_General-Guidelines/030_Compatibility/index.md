@@ -13,5 +13,5 @@ The general rules for compatibility included in this section are independent of 
 Versioning and other compatibility rules specific to REST and Event APIs are documented in their respective sections:
 
 - [Compatibility for REST APIs](../../030_REST-Guidelines/050_Compatibility/index.md)
-- [Compatibility for Event APIs](<../../040_Events-(WIP)/050_Compatibility/index.md>)
+- [Compatibility for Event APIs](../../040_Events-MVP/050_Compatibility/index.md)
   :::
