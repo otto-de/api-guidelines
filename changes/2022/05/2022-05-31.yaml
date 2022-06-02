@@ -1,0 +1,5 @@
+features:
+  - scope: guidelines
+    subject: release MPV of Event Guidelines
+    hash: bae2470b921f386b19da362db4ca0a54d6cf4da7
+    date: "2022-05-31"
