@@ -1,3 +1,3 @@
-# Semantics
+# Event consumption
 
-THIS IS A WORKING TITLE. Looking for a better title :)
+This section contains rules regarding the consumption of events.

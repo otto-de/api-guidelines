@@ -5,7 +5,7 @@ id: R200010
 
 # provide meaningful `source` context attribute
 
-Producers of events must provide a meaningful [`source` context attribute](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1) that consumers can use to identify the event source uniquely.
+Producers of events must provide a meaningful [`source` context attribute](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1) that consumers can use to uniquely identify the event source.
 
 If the event results from an operation on an entity accessible using a URL, this resource's URL should be used as `source`. Providing the URL as a `source` makes it easier to interconnect the various provided APIs of an application.
 
@@ -25,16 +25,16 @@ The `source` URI needs to follow the [naming conventions for URIs](../../../030_
 
 ### Examples
 
-`source` for event sources that can be accessed using a URL:
+A `source` for event sources that can be accessed using a URL:
 
 ```text
-https://api.otto.de/products/variations/12345 (the actual REST-URL)
+https://api.otto.de/products/variations/12345 #(the actual REST-URL)
 ```
 
-`source` for event sources that cannot be accessed using a URL because no REST API exists:
+A `source` for event sources that cannot be accessed using a URL because no REST API exists:
 
 ```text
-//api.otto.de/products/variations/12345 (non-resolvable URI)
+//api.otto.de/products/variations/12345 #(non-resolvable URI)
 ```
 
 ::: references

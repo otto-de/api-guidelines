@@ -7,7 +7,7 @@ id: R200018
 
 Events published from one domain should not contain data from other business domains. This rule explicitly excludes data that has become part of the domain but originated in another domain.
 
-Not including foreign data and its scheme reduces transitive dependencies. Transitive schema dependencies may lead to a trickle-down effect of incompatible schema changes whenever a transitive dependencies' schema introduces incompatible changes.
+Not including foreign data and its schema reduces transitive dependencies. Transitive schema dependencies may lead to a trickle-down effect of incompatible schema changes whenever a transitive dependencies' schema introduces incompatible changes.
 
 If there is a need to link to other business domains, API providers can use the following means:
 
@@ -16,7 +16,7 @@ If there is a need to link to other business domains, API providers can use the 
 
 ### Example
 
-Consider a price alarm service that consumes price information of products from the product domain. Every user can set a price alarm with a limit price on a specified product. If the product's price drops below the limit price of the alarm, the service should publish a`PriceAlarmMet` event. The service itself has some business rules that influence if it raises an alarm event to guarantee that only stable prices will lead to a `PriceAlarmMet` event.
+Consider a price alarm service that consumes price information of products from the product domain. Every user can set a price alarm with a limit price on a specified product. If the product's price drops below the limit price of the alarm, the service should publish a `PriceAlarmMet` event. The service itself has some business rules that influence if it raises an alarm event to guarantee that only stable prices will lead to a `PriceAlarmMet` event.
 
 Data that has become part of the price alarm domain and can be included in the `PriceAlarmMet` event:
 

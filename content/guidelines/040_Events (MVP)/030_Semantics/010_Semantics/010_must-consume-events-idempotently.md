@@ -7,9 +7,9 @@ id: R200002
 
 Usually exactly-once delivery semantic is desired when it comes to messaging. Exactly-once delivery means, that every message is delivered exactly once. In a distributed messaging system exactly-once delivery is very hard to archive.
 
-A producer may crash after a message has been successfully received by the messaging system, but before he received an acknowledgement. On restart, the producer will send the message a second time not knowing that the message has already been published.
+A producer may crash after a message has been successfully received by the messaging system, but before receiving an acknowledgement. On restart, the producer will send the message a second time not knowing that the message has already been published.
 
-A consumer may crash after successfully processing a message, but before he has sent an acknowledgement. On restart, the consumer receives the already processed message a second time, because the messaging system does not know that it already has been processed.
+A consumer may crash after successfully processing a message, but before sending an acknowledgement. On restart, the consumer receives the already processed message a second time, because the messaging system does not know that it already has been processed.
 
 Consumers must be prepared for duplicate events, due to this at-least-once delivery guarantee.
 

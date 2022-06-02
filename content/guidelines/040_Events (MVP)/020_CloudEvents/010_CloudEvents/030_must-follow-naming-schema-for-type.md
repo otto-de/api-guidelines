@@ -11,18 +11,18 @@ The [`type` context attribute](https://github.com/cloudevents/spec/blob/v1.0.2/c
 - Using the type as a primary means by which consumer identify an event.
 - Guaranteeing consumers a stable event type that will never change in an incompatible way.
 
-The `type` is made of segments. Segments are separated by `"."`. Each segment must be written in kebab-case. Only lower case english letters, numbers and `"-"` are allowed.
+The `type` is made of segments, each separated by a dot `"."`. Each segment must be written in kebab-case, and only contain lower case english letters, numbers and the dash character `"-"`.
 
 ### General
 
 The `type` must be written in kebab-case. Segments are seperated by `"."`.
 
-| Segment           | Description                                                                                                                            |
-| :---------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| context           | Name of Business Context ex: Sales, Orders etc.                                                                                        |
-| event-source-type | Type name of the source of the entity. Example: Payment, Wishlist                                                                      |
-| event-name        | The event name.                                                                                                                        |
-| version           | version of the event with a "v" prefix, starting with v1 . Please refer to [](@guidelines/R200014) for more information on versioning. |
+| Segment           | Description                                                                                                                         |
+| :---------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| context           | The name of the business context, e.g., Sales, Orders.                                                                              |
+| event-source-type | Type name of the source of the entity. Example: Payment, Wishlist                                                                   |
+| event-name        | The event name.                                                                                                                     |
+| version           | The version of the event with a "v" prefix, starting with v1 . Also see [](@guidelines/R200014) for more information on versioning. |
 
 ### Domain Events
 
@@ -30,7 +30,11 @@ The `type` must be written in kebab-case. Segments are seperated by `"."`.
 de.otto.events.{context}.{event-source-type}.{event-name}.{version}
 ```
 
-`Example`{ label } de.otto.events.checkout.payment.payment-received.v1
+Example of a domain event:
+
+```text
+de.otto.events.checkout.payment.payment-received.v1
+```
 
 ### Data change events
 
@@ -40,7 +44,13 @@ de.otto.data.{context}.{hierarchical-type}.{version}
 
 The hierarchical-type contains at least one segment describing the data. It may contain multiply segments. The top level hierarchical-type segment is often the event-source-type. Each additional segment describes the data type even further.
 
-`Examples`{ label} de.otto.data.checkout.payment.v1, de.otto.data.checkout.payment.payment-created.v1, de.otto.data.checkout.payment.payment-method.count-per-day.v1
+Examples of data change events:
+
+```text
+de.otto.data.checkout.payment.v1
+de.otto.data.checkout.payment.payment-created.v1
+de.otto.data.checkout.payment.payment-method.count-per-day.v1
+```
 
 ::: references
 

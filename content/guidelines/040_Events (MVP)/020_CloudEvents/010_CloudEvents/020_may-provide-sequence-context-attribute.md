@@ -5,7 +5,7 @@ id: R200003
 
 # provide sequence context attribute
 
-The CloudEvents` [Sequence extension](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/extensions/sequence.md) may be used to enable consumers to events in order.
+The CloudEvents' [Sequence extension](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/extensions/sequence.md) may be used to enable consumers to process events in order.
 
 The context attribute `sequence` should contain the relative order of the event within the event stream produced by one unique event source. The event source is defined by the `source` context attribute and may be producer specific.
 

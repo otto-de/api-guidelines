@@ -9,7 +9,7 @@ CloudEvents is a [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/
 
 CloudEvents makes it easier for middleware to extract needed context information from events without knowing the structure of the event data itself.
 
-The CloudEvents specification is designed to be [extensible](https://github.com/cloudevents/spec/blob/main/cloudevents/documented-extensions.md). Extensions need to be agreed on between consumer and producer. Some already defined extensions in the CloudEvents repository are used within the guideline to handle common concerns such as tracing.
+The CloudEvents specification is designed to be [extensible](https://github.com/cloudevents/spec/blob/main/cloudevents/documented-extensions.md). Extensions need to be agreed on between consumer and producer. Some already defined extensions in the CloudEvents repository are used within the event guidelines to handle common concerns such as tracing.
 
 ::: references
 
