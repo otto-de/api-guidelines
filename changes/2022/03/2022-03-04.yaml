@@ -1,9 +1,0 @@
-fixes:
-  - scope: links
-    subject: correct links and use new syntax
-    hash: d88d5b58323b71547941158927fa0814dd49f5c6
-    date: "2022-03-04"
-  - scope: app
-    subject: fix broken markdown table
-    hash: f81188599ec769874c48006c5da7dce0b8de50bf
-    date: "2022-03-04"

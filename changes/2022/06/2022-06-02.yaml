@@ -1,9 +1,0 @@
-fixes:
-  - scope: chore
-    subject: fix typos and spellings
-    hash: 7fc03a4b1a27eac40d303b74967fd53732e6d206
-    date: "2022-06-02"
-  - scope: chore
-    subject: fix broken link
-    hash: 16a7f921ed5447b6dcd4c96db5d506928461ff92
-    date: "2022-06-02"

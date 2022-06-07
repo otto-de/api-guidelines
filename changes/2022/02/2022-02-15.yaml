@@ -1,5 +1,5 @@
 features:
   - scope: guidelines
-    subject: updated r000030 to also specify profile for content type header
+    subject: update r000030 to also specify profile for content type header
     hash: bd5a2313933656e7b1aa3f4afdad8d2615ca0c08
     date: "2022-02-15"

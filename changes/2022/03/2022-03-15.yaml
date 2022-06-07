@@ -1,5 +1,5 @@
 features:
   - scope: guidelines
-    subject: changed https rule to be more generic
+    subject: chang https rule to be more generic
     hash: ec4e239ee594af3dbc00f4aae072739eaa50a96c
     date: "2022-03-15"
