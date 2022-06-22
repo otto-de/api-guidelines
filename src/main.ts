@@ -6,7 +6,7 @@ import "vuex";
 import "vue-router";
 
 import { createDefaultApp } from "@otto-ec/ottoapi-portal-common";
-import guidelines from "@Guidelines/index";
+import guidelines from "@otto-ec/ottoapi-portal-guidelines";
 
 /** This is used to add missing "/" route to the dev app" */
 guidelines.routes = [...guidelines.routes, { path: "/", name: "home", redirect: "/guidelines" }];
