@@ -5,9 +5,9 @@ id: R200012
 
 # use `binary` content mode
 
-Event producers must use `binary` content mode if the transport supports it.
-
 CloudEvents can, depending on the transport, be encoded _on the wire_ in [two content modes](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#message).
+
+Event producers must use `binary` content mode if the chosen transport supports it.
 
 In `structured` content mode, event data and context attributes are encoded together as a single JSON document using the [JSON Event Format for CloudEvents](https://github.com/cloudevents/spec/blob/main/cloudevents/formats/json-format.md).
 Consumers need to parse the JSON Event Format to extract context attributes for operations solely based on context attributes (e.g., filtering on the `type` context attribute).

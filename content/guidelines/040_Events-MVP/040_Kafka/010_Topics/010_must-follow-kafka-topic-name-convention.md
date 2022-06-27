@@ -7,11 +7,11 @@ id: R200006
 
 Kafka topic names must adhere to this naming convention to conclude about the content of a topic by its name.
 
-A topic name has multiple segments separated by a ".". Each segment must be written in kebab-case.
+A topic name is made of segments, each separated by a dot ".". Each segment must be written in kebab-case, and only contain lower case English letters, numbers, and the dash character "-".
 
 ### Domain events
 
-Topics containing **all** domain events from an event-source must be named:
+Topics containing **all** domain events from an event-source must follow the naming scheme:
 
 ```text
 de.otto.events.{context}.{event-source-type}
@@ -23,7 +23,7 @@ Example:
 de.otto.events.checkout.payment
 ```
 
-Topics containing only a certain event type from an event-source must be named:
+Topics containing only a certain event type from an event-source must follow the naming scheme:
 
 ```text
 de.otto.events.{context}.{event-source-type}.{event-name}

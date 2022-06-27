@@ -3,25 +3,30 @@ type: MUST
 id: R200002
 ---
 
-# consume events idempotently
+# prepare consumers to consume events idempotently
 
-Usually exactly-once delivery semantic is desired when it comes to messaging. Exactly-once delivery means, that every message is delivered exactly once. In a distributed messaging system exactly-once delivery is very hard to archive.
+Usually exactly-once delivery semantic is desired when it comes to messaging. In a distributed messaging system, exactly-once delivery is hard to achieve because of crashes that can occur on either producer or consumer side.
 
-A producer may crash after a message has been successfully received by the messaging system, but before receiving an acknowledgement. On restart, the producer will send the message a second time not knowing that the message has already been published.
+A producer may crash after successfully sending a message, but before a record was created, that the message has been sent. On restart, the producer will send the message a second time not knowing that the message has already been sent before.
 
-A consumer may crash after successfully processing a message, but before sending an acknowledgement. On restart, the consumer receives the already processed message a second time, because the messaging system does not know that it already has been processed.
+A consumer may crash after successfully processing a received message, but before a record was created, that the message has been processed. On restart, the consumer receives and processes the already processed message a second time not knowing that the message has already been processed before.
 
-Consumers must be prepared for duplicate events, due to this at-least-once delivery guarantee.
+Instead of an exactly-once delivery only an at-least-once delivery can be guaranteed, and API providers must prepare consumers for duplicate events.
 
-Multiple strategies exist to implement a consumer that handles duplicate events:
+API consumers can choose from multiple strategies to handle duplicate events:
 
 ### Idempotent Operation
 
-The operation of the consumer is in itself idempotent. No matter how often the same event is processed, the result is the same as if it is processed once. Depending on the consumers' domain, designing the operation to be idempotent can be difficult or even impossible.
+When implementing the indempotent operation strategy, the consumer needs to guarantee that no matter how often the same event is processed, the result is always the same as if the event was processed once. Depending on the consumers' domain, designing the operation to be idempotent can be difficult or even impossible.
 
 ### Event deduplication
 
-The consumer needs to deduplicate the events, thus becoming an idempotent consumer. This is usually been implemented by storing which events already have been handled. New events will be ignored if they have been processed before. The information which events have already been processed should be persisted in the same persistent storage in which results of the operation are persisted. If for example a consumer updates a database row as a reaction to an event, the information that the event has been processed should also be stored in the db within the same transaction. This guarantees that events are only processed once or not at all without introducing additional complexity such as distributed transactions. If the event itself contains information about the sequence in which it should be processed, deduplicating will be easier. Instead of persisting every processed event id, the consumer only needs to store the last processed event sequence number for each event source. New events will be ignored, if the sequence number is not after the last processed sequence number. If the sequence is monotonically increasing and contiguous, the consumer can even process the events in the correct order. The processing of a new event will be deferred if the sequence number is after the last processed event but not the next expected sequence number.
+When using the event deduplication strategy, a consumer can become idempotent by discarding those events, which already have been processed once before.
+This can be accomplished by storing the information that an event has been processed in addition to the operation's result from processing the event in the same persisted storage and the same transaction. For example, if a consumer updates a database row in response to an event, the information that the event was processed should also be stored in the database within the same transaction. By comparing new incoming events with the information stored in the database, consumers can detect and discard already processed duplicate events.
+
+If the event itself contains information about the sequence in which it should be processed, deduplicating requires less effort. Instead of persisting every processed event id, a consumer only needs to store the last processed event sequence number for each event source. New events can be discarded, if the sequence number is not in line with the last processed sequence number.
+
+In case the sequence is always monotonically increasing and contiguous, consumers can even process the events in the correct order but need to be aware that events do not always arrive in the correct order. The processing of a new event should be deferred if the sequence number follows the last processed event but is not the next expected sequence number.
 
 ::: warning Usage of `time` context attribute for deduplication
 The event `time` context attribute might seem like a perfect fit for deduplicating events. One could persist the `time` of the last processed event and drop all events with a `time` &lt;= to the last processed event. For this to work out, the producer needs to garantuee the following:

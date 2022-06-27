@@ -9,9 +9,9 @@ Events must be encoded as [CloudEvents 1.0.2](https://github.com/cloudevents/spe
 
 The CloudEvents specification defines a number of required and optional [context attributes](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#context-attributes). Context attributes can be treated as metadata about the event, that can be extracted without knowing the structure of the event itself.
 
-The guidelines contain some further rules regarding the usage of context attributes:
+The following table shows the most important context attributes and includes event guidelines rules, which are specific to some context attributes.
 
-| Attribute                                                                                              | Further Rules                                                                 |
+| Context attribute                                                                                      | Event Guideline rules                                                         |
 | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | [id](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)                           |                                                                               |
 | [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | [MUST provide meaningful `source` context attribute](@guidelines/R200010)     |

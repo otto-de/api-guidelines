@@ -11,9 +11,9 @@ API providers must guarantee that the schema of an event `type` only changes in 
 If an incompatible change is needed, a new `type` with an increased version segment must be introduced. With the introduction of the new event type, the old event type becomes deprecated. It may only be sunsetted once all consumers have migrated to the new event type. Until then, both event types need to be written by the event producer.
 
 ::: info Confluent Schema Registry version
-Do not confuse the event type version with the schema version managed by the Confluent Schema Registry. The confluent schema registry issues a new schema version whenever the schema of a subject changes. In contrast to the event type version, the schema version is also increased for compatible changes.
+Do not confuse the event type version with the schema version managed by the Confluent Schema Registry. The Confluent Schema Registry issues a new schema version whenever the schema of a subject changes. In contrast to the event type version, the schema version is also increased for compatible changes.
 
-Suppose compatibility checking is activated in the Confluent Schema Registry, thus not allowing incompatible schemas. In that case, the event type version can be seen as the major version and the schema version as the minor version of the event type.
+Assuming incompatible schemas are not allowed due to enabling compatibility checking in the Confluent Schema Registry, the event type version can be considered as the major version, and the schema version as the minor version.
 :::
 
 ::: references

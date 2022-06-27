@@ -7,7 +7,7 @@ id: R200008
 
 In order to generate meaningful changelogs and version numbers, AsyncAPI specification files need to follow [semantic versioning](https://semver.org).
 
-In the context of an AsyncAPI specification, semantic versioning currently only needs to consider produced messages.
+In the context of an AsyncAPI specification, semantic versioning currently only needs to consider produced messages and not consumed messages.
 
 The major version needs to be increased when:
 

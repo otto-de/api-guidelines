@@ -8,23 +8,23 @@ id: R200009
 The [`type` context attribute](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type) can be leveraged in order to accomplish the following:
 
 - Allow hierarchical filtering of events.
-- Using the type as a primary means by which consumer identify an event.
+- Using the type as a primary means by which consumer identify an event type.
 - Guaranteeing consumers a stable event type that will never change in an incompatible way.
 
 The `type` is made of segments, each separated by a dot `"."`. Each segment must be written in kebab-case, and only contain lower case english letters, numbers and the dash character `"-"`.
 
 ### General
 
-The `type` must be written in kebab-case. Segments are seperated by `"."`.
-
-| Segment           | Description                                                                                                                         |
+| Placeholder       | Description                                                                                                                         |
 | :---------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
 | context           | The name of the business context, e.g., Sales, Orders.                                                                              |
-| event-source-type | Type name of the source of the entity. Example: Payment, Wishlist                                                                   |
+| event-source-type | The name of the event source type, e.g., Payment, Wishlist                                                                          |
 | event-name        | The event name.                                                                                                                     |
 | version           | The version of the event with a "v" prefix, starting with v1 . Also see [](@guidelines/R200014) for more information on versioning. |
 
 ### Domain Events
+
+Naming scheme for domain events:
 
 ```text
 de.otto.events.{context}.{event-source-type}.{event-name}.{version}
@@ -36,7 +36,9 @@ Example of a domain event:
 de.otto.events.checkout.payment.payment-received.v1
 ```
 
-### Data change events
+### Data events
+
+Naming scheme for data events:
 
 ```text
 de.otto.data.{context}.{hierarchical-type}.{version}
@@ -44,7 +46,7 @@ de.otto.data.{context}.{hierarchical-type}.{version}
 
 The hierarchical-type contains at least one segment describing the data. It may contain multiply segments. The top level hierarchical-type segment is often the event-source-type. Each additional segment describes the data type even further.
 
-Examples of data change events:
+Examples of data events:
 
 ```text
 de.otto.data.checkout.payment.v1

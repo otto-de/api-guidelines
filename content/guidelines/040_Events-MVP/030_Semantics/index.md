@@ -1,3 +1,3 @@
-# Event consumption
+# Semantics
 
-This section contains rules regarding the consumption of events.
+This section contains rules regarding the semantics of events.
