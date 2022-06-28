@@ -5,7 +5,7 @@ CloudEvents is a [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/
 The [CloudEvents](https://cloudevents.io/) standard defines two things:
 
 1. Common event context metadata and semantics
-2. How to encode events including metadata on the various transports
+2. How to encode events including metadata on the various protocols
 
 The CloudEvents specification is designed to be [extensible](https://github.com/cloudevents/spec/blob/main/cloudevents/documented-extensions.md). Extensions need to be agreed on between consumer and producer. Some already defined extensions in the CloudEvents repository are used within the event guidelines to handle common concerns such as tracing.
 

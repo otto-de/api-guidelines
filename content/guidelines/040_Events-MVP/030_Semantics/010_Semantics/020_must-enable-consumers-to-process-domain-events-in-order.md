@@ -8,7 +8,7 @@ id: R200007
 The sequence of events produced by a unique event source is often important for consumers.
 Consumers must be able to process domain events in the order in which they happened.
 
-API provider can enable consumers to process domain events in order either by transport-specific guarantees or by providing the [sequence context attribute](@guidelines/R200003).
+API provider can enable consumers to process domain events in order either by protocol-specific guarantees or by providing the [sequence context attribute](@guidelines/R200003).
 
 ### Kafka
 
