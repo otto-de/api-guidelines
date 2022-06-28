@@ -45,7 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@otto-ec/assets-core-utils": "^1.9.0",
+    "@otto-ec/assets-core-utils": "^1.10.0",
     "@otto-ec/assets-debug": "^2.1.0",
     "@otto-ec/bender": "^1.14.2",
     "@otto-ec/ottoapi-cli": "^1.9.0",
