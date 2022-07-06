@@ -1,19 +1,19 @@
 # Config ID: pulls.review
-# 
+#
 # This configuration file is auto-generated
 # by https://github.com/otto-ec/assets_protecty.
-# 
+#
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
-# 
+#
 # If you need to modify this file permanently then place your configuration overrides in
 # - .github/gitty.yml#/configs/pulls/review,
-# 
+#
 # and use the schema appropriate to this file.
 # See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
-# 
+#
 # This config can be affected by these presets: base, default, terraform, non-assets
-# 
+#
 name: PR Review Request
 "on":
   pull_request_target:

@@ -1,19 +1,19 @@
 # Config ID: workflow.default
-# 
+#
 # This configuration file is auto-generated
 # by https://github.com/otto-ec/assets_protecty.
-# 
+#
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
-# 
+#
 # If you need to modify this file permanently then place your configuration overrides in
 # - .github/gitty.yml#/configs/workflow/default,
-# 
+#
 # and use the schema appropriate to this file.
 # See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
-# 
-# This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets
-# 
+#
+# This config can be affected by these presets: base, default, integration, tf-update, integration-tf, terraform, lint, dispatch-deploy, no-specs, non-assets, pkg-pnpm
+#
 name: Build, Test, Lint
 "on":
   push:
@@ -46,6 +46,8 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
   RUN_COMPILE: true
+  PKG_MANAGER: npm
+  PKG_INSTALL_CMD: npm ci
   COMPILE_COMMAND: $(npm bin)/tsc --noEmit
   RUN_PERSIST_TESTRESULTS: false
   RUN_PERSIST_COVERAGE: false
@@ -77,20 +79,25 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: pnpm/action-setup@v2
+        id: setup_pnpm
+        if: ${{ env.PKG_MANAGER == 'pnpm' }}
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
-      - name: Install Npm Dependencies
-        id: npm_install
+          cache: ${{ env.PKG_MANAGER }}
+      - name: Install Dependencies
+        id: pkg_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci -f
+        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Build sources with npm script
         timeout-minutes: 2
         id: build
-        run: npm run build
+        run: ${{ env.PKG_MANAGER }} run build
       - name: Compile sources with typescript
         timeout-minutes: 3
         id: compile
@@ -124,16 +131,21 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: pnpm/action-setup@v2
+        id: setup_pnpm
+        if: ${{ env.PKG_MANAGER == 'pnpm' }}
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
-      - name: Install Npm Dependencies
-        id: npm_install
+          cache: ${{ env.PKG_MANAGER }}
+      - name: Install Dependencies
+        id: pkg_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci -f
+        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Check Dependency License Usage
         id: check_license
         run: ${{ env.TOOLBOX }} chk lic
@@ -162,16 +174,21 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: pnpm/action-setup@v2
+        id: setup_pnpm
+        if: ${{ env.PKG_MANAGER == 'pnpm' }}
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
-      - name: Install Npm Dependencies
-        id: npm_install
+          cache: ${{ env.PKG_MANAGER }}
+      - name: Install Dependencies
+        id: pkg_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci -f
+        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Run jscpd to collect code duplicates
         id: jscpd
         run: |
@@ -205,16 +222,21 @@ jobs:
         id: checkout
         with:
           ref: ${{ env.GITHUB_CHECKOUT_REF }}
+      - uses: pnpm/action-setup@v2
+        id: setup_pnpm
+        if: ${{ env.PKG_MANAGER == 'pnpm' }}
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
-      - name: Install Npm Dependencies
-        id: npm_install
+          cache: ${{ env.PKG_MANAGER }}
+      - name: Install Dependencies
+        id: pkg_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci -f
+        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Check dependencies for Vulnerabilities
         id: npm_audit
         run: |

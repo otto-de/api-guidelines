@@ -1,19 +1,19 @@
 # Config ID: workflow.npm_publish
-# 
+#
 # This configuration file is auto-generated
 # by https://github.com/otto-ec/assets_protecty.
-# 
+#
 # Do not modify this file unless you know what you do.
 # All changes will be overwritten during next update run.
-# 
+#
 # If you need to modify this file permanently then place your configuration overrides in
 # - .github/gitty.yml#/configs/workflow/npm_publish,
-# 
+#
 # and use the schema appropriate to this file.
 # See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
-# 
-# This config can be affected by these presets: default, npm-package, no-specs
-# 
+#
+# This config can be affected by these presets: default, npm-package, no-specs, pkg-pnpm
+#
 env:
   RUN_SPECS: false
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,20 +48,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         id: checkout
+      - uses: pnpm/action-setup@v2
+        id: setup_pnpm
+        if: ${{ env.PKG_MANAGER == 'pnpm' }}
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         id: setup_node
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://npm.pkg.github.com/
-          cache: npm
-      - name: Install Npm Dependencies
-        id: npm_install
+          cache: ${{ env.PKG_MANAGER }}
+      - name: Install Dependencies
+        id: pkg_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: npm ci -f
+        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Build Sources
         id: build
-        run: npm run build
+        run: ${{ env.PKG_MANAGER }} run build
       - name: Execute Tests
         id: specs
         if: ${{ env.RUN_SPECS == 'true' }}
@@ -76,7 +81,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: npm publish --tag next
+        run: ${{ env.PKG_MANAGER }} publish --tag next
       - name: Publish Release with latest tag
         id: prerelease
         if: >-
