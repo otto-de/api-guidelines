@@ -18,6 +18,8 @@ env:
   RUN_SPECS: false
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
+  PKG_MANAGER: npm
+  PKG_INSTALL_CMD: npm ci
 name: Publish Npm Package
 "on":
   release:

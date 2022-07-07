@@ -23,6 +23,8 @@ name: Unpublish Npm Package
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
+  PKG_MANAGER: npm
+  PKG_INSTALL_CMD: npm ci
 jobs:
   publish:
     runs-on: ubuntu-latest
