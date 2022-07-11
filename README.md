@@ -24,9 +24,8 @@ If you need write permissions to this repository, you can add your team via PR t
 
 ## Contributing
 
-If you have not previously contributed to this repository, please contact Team Assets, so that we can onboard you and your team.
-The onboarding process is described on our [wiki page](https://github.com/otto-ec/ottoapi_docs/wiki/Team-onboarding-for-spec-file-publication).
-The directory `./content` contains the Markdown files for the editorial content of this repository.
+The directory `./content` contains the Markdown files for the API Portal's guidelines section.
+Our [Technical Writing Style Guide](https://github.com/otto-ec/ottoapi_portal/wiki) helps to write clear and consistent content and explains which custom content elements you can use in your Markdown files.
 
 Run the development service:
 
