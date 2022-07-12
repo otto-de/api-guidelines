@@ -2,7 +2,7 @@
 sideNav: true
 ---
 
-# Client behaviour
+# Client behavior
 
 Clients must be tolerant to changes of REST APIs. The rules in this section define how clients should behave to ease API evolution.
 
