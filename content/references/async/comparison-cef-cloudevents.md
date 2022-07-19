@@ -38,31 +38,6 @@ Currently, most events are encoded using CEF. Therefore, this article focuses on
 | sequenceNumber          | [sequence](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/extensions/sequence.md#sequence-1)                | yes                                                   | sequence just contains a string. The semantics of this string is either defined by an out-of-band communication or by an additional [sequencetype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/extensions/sequence.md#sequencetype) context attribute. The predefined [Integer](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/extensions/sequence.md#integer) sequencetype defines the same semantics as `sequenceNumber` in CEF if the `source` context attribute contains the `sequenceKey`. |
 | test                    | n/a                                                                                                                      | yes                                                   | not defined within the CloudEvents spec, may be added by Otto with a custom extension.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-## Possible custom extension for test
-
-#### testscope
-
-- Type: `String`
-- Description: Scope of testing. This could be involved Teams or Functions.
-- Constraints:
-  - OPTIONAL
-  - MUST be a non-empty string
-- Examples:
-  - Kraken
-  - OrderPlacement
-  - Plankton
-
-#### testtype
-
-- Type: `String`
-- Description: Type of test you send this data for.
-- Constraints:
-  - OPTIONAL, REQUIRED if testscope is provided
-  - MUST be a non-empty string
-- Examples:
-  - PerformanceTest
-  - SystemTest
-  - End2EndTest
 
 ## Example of converting a DeepSea Common Event Format (CEF) to CloudEvent format
 
