@@ -2,12 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.5.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.4.0...v1.5.0) (2022-05-23)
-
+## [1.6.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.5.0...v1.6.0) (2022-07-19)
 
 ### Features
 
-* **changes:** implement changelog ([5b71233](https://github.com/otto-ec/ottoapi_guidelines/commit/5b712336a6eea1473a3b85387c92f3ca84ae471e))
+- **guidelines:** release MPV of Event Guidelines ([#1569](https://github.com/otto-ec/ottoapi_guidelines/issues/1569)) ([bae2470](https://github.com/otto-ec/ottoapi_guidelines/commit/bae2470b921f386b19da362db4ca0a54d6cf4da7))
+- **guidelines:** renames the concept of transport to protocol ([#1623](https://github.com/otto-ec/ottoapi_guidelines/issues/1623)) ([11474aa](https://github.com/otto-ec/ottoapi_guidelines/commit/11474aa70c7668a400c4eeb678261c8201aef90d))
+- **guidelines:** Rework contract description ([#1621](https://github.com/otto-ec/ottoapi_guidelines/issues/1621)) ([aa194a9](https://github.com/otto-ec/ottoapi_guidelines/commit/aa194a9df8e8743ba2807eb761cae88628d6994f)), closes [#1611](https://github.com/otto-ec/ottoapi_guidelines/issues/1611)
+
+### Bug Fixes
+
+- **chore:** fix broken link ([#1577](https://github.com/otto-ec/ottoapi_guidelines/issues/1577)) ([16a7f92](https://github.com/otto-ec/ottoapi_guidelines/commit/16a7f921ed5447b6dcd4c96db5d506928461ff92))
+- **chore:** fix typos and spellings ([#1576](https://github.com/otto-ec/ottoapi_guidelines/issues/1576)) ([7fc03a4](https://github.com/otto-ec/ottoapi_guidelines/commit/7fc03a4b1a27eac40d303b74967fd53732e6d206))
+- **event-guidelines:** editorial corrections ([#1615](https://github.com/otto-ec/ottoapi_guidelines/issues/1615)) ([3e469f4](https://github.com/otto-ec/ottoapi_guidelines/commit/3e469f44a427e2c6282236e0f78153d020b86869))
+- **event-guidelines:** reworks the concept section ([#1631](https://github.com/otto-ec/ottoapi_guidelines/issues/1631)) ([4dc6c89](https://github.com/otto-ec/ottoapi_guidelines/commit/4dc6c897821aab111f26527dd7f0771fb77e1b98)), closes [#1610](https://github.com/otto-ec/ottoapi_guidelines/issues/1610)
+
+## [1.5.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.4.0...v1.5.0) (2022-05-23)
+
+### Features
+
+- **changes:** implement changelog ([5b71233](https://github.com/otto-ec/ottoapi_guidelines/commit/5b712336a6eea1473a3b85387c92f3ca84ae471e))
 
 ## [1.4.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.3.0...v1.4.0) (2022-05-16)
 
