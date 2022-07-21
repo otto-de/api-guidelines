@@ -1,0 +1,5 @@
+fixes:
+  - scope: event-guidelines
+    subject: fix must use binary content mode incorrectly named
+    hash: 03568a85097f5ca47106ee77408ac38ba78131f4
+    date: "2022-07-21"
