@@ -7,7 +7,7 @@ URL: <https://api.develop.otto.de/portal/guidelines>
 
 ## Requirements
 
-This project requires at least [Node.js](https://nodejs.org/en/) version 14.13.1, or higher. We recommend using version 16.0.0.
+This project requires at least Node.js version 16, or higher. We recommend using version 18.
 If you need write permissions to this repository, you can add your team via PR to this file: [.github/gitty.yml#/configs/settings/default/teams](.github/gitty.yml#/configs/settings/default/teams).
 
 ### Get started
