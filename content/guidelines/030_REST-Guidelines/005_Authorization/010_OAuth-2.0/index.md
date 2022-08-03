@@ -17,7 +17,7 @@ Clients can use the returned information to obtain details about the OAuth 2.0 a
 
 :::: accordion Client Management
 
-OAuth clients and scopes are managed through [Herakles](https://auth.live.shozu.cloud.otto.de/herakles) (internal link).
+OAuth clients and scopes are managed through [Herakles](https://olymp.live.shozu.cloud.otto.de/#/herakles/) (internal link).
 ::::
 
 :::: accordion JSON Web Token
