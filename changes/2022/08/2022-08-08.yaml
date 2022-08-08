@@ -1,0 +1,5 @@
+fixes:
+  - scope: guidelines
+    subject: fixes broken links in must validate jwt rule
+    hash: 37a4a63a0a254ac4e9676f8f2ad9462816bbdcd4
+    date: "2022-08-08"
