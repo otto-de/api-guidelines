@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 14.x
       - name: Configure Npm Cache
-        uses: actions/cache@v3.0.5
+        uses: actions/cache@v3.0.6
         id: setup_cache
         with:
           path: ~/.npm
