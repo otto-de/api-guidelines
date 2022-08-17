@@ -22,7 +22,12 @@ name: PR Merge Cleanup
     types:
       - pulls-automerge
   workflow_dispatch: {}
+permissions:
+  contents: read
+  pull-requests: write
+  packages: read
 env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
   PKG_MANAGER: npm
   PKG_INSTALL_CMD: npm ci -f
@@ -47,8 +52,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: ${{ env.PKG_INSTALL_CMD }}
       - name: Instruct Dependabot to merge PRs
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: >-
           ${{ env.TOOLBOX }} gh pr dpb --no-base --repo "{{app.repo.name}}"
           --is-pr --is-open --nolabels "pull: not merge" --nolabels "approval:

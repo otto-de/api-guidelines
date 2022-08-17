@@ -26,6 +26,11 @@ name: Dependency PR Checks
       - ready_for_review
       - reopened
       - unlocked
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+  statuses: write
 jobs:
   deps-labels:
     runs-on: ubuntu-latest
@@ -50,7 +55,7 @@ jobs:
         if: ${{ steps.checker.outputs.diff != 'major' }}
         uses: mshick/add-pr-comment@v1
         with:
-          repo-token: ${{ secrets.TOKEN_GITHUB }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           message: |
             @dependabot merge
           allow-repeats: false
@@ -58,9 +63,6 @@ jobs:
     needs:
       - deps-labels
     runs-on: ubuntu-latest
-    if: >-
-      ${{ startsWith(github.event.pull_request.user.login, 'dependabot') ||
-      startsWith(github.head_ref, 'deps-') }}
     steps:
       - name: Set approval check to success
         uses: LouisBrunner/checks-action@v1.2.0

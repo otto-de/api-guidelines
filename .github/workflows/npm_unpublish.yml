@@ -63,7 +63,7 @@ jobs:
         id: deprecate
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          NODE_AUTH_TOKEN: ${{secrets.TOKEN_GITHUB}}
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: >-
           ${{ env.PKG_MANAGER }} deprecate ${{ env.PKG_VER }} "This Release was
           deleted"
@@ -72,5 +72,5 @@ jobs:
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-          NODE_AUTH_TOKEN: ${{secrets.TOKEN_GITHUB}}
+          NODE_AUTH_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: ${{ env.PKG_MANAGER }} unpublish ${{ env.PKG_VER }}

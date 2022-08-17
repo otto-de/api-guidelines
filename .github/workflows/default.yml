@@ -42,6 +42,7 @@ name: Build, Test, Lint
       - changes/**
   pull_request: {}
   pull_request_target: {}
+permissions: read-all
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   TOOLBOX: $(npm bin)/toolbox
