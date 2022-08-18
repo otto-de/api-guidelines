@@ -52,6 +52,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: ${{ env.PKG_INSTALL_CMD }}
       - name: Instruct Dependabot to merge PRs
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: >-
           ${{ env.TOOLBOX }} gh pr dpb --no-base --repo "{{app.repo.name}}"
           --is-pr --is-open --nolabels "pull: not merge" --nolabels "approval:
