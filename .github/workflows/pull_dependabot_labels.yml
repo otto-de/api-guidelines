@@ -55,7 +55,7 @@ jobs:
         if: ${{ steps.checker.outputs.diff != 'major' }}
         uses: mshick/add-pr-comment@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.TOKEN_GITHUB }}
           message: |
             @dependabot merge
           allow-repeats: false
