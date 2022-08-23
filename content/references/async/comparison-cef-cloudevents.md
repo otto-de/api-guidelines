@@ -103,7 +103,7 @@ Host: internal.otto.market
 ce-specversion: 1.0
 ce-id: 11f51bab-36ff-45e4-80da-881dba4f3508
 ce-type: de.otto.payment.payment-processing.paymentpledged.v2
-ce-ource: //internal.otto.market/payment/payment-processing
+ce-source: //internal.otto.market/payment/payment-processing
 ce-time: 2022-06-15T15:03:29.749+0000
 ce-traceparent: 00-5ad4298a6e154128ad80d59dd724aa60-00f067aa0ba902b7-00
 ce-test: OrderGenerationTest.Kraken
