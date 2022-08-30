@@ -2,7 +2,7 @@
 sideNav: true
 ---
 
-# Error handling
+# Errors
 
 HTTP status codes are the most obvious choice for error communication, but they have a limited expressiveness.
 Many status codes are too generic to explain the specific type of an error.

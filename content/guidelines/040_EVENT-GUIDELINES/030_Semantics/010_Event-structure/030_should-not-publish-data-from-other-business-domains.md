@@ -11,8 +11,8 @@ Not including foreign data and its schema reduces transitive dependencies. Trans
 
 Instead of including data from other domains, API providers should link to the data inside other domains, using either:
 
-- An entity-Id pointing to an entity in the other business domain.
-- Id and source of the CloudEvent from the other business domain.
+- An entity's ID pointing to an entity in the other business domain.
+- ID and source of the CloudEvent from the other business domain.
 
 ### Example
 
@@ -21,7 +21,7 @@ Consider a price alarm service that consumes price information of products from 
 Data that has become part of the price alarm domain and can be included in the `PriceAlarmMet` event:
 
 - The price of the product that triggered the `PriceAlarmMet` event.
-- The id of the product.
+- The ID of the product.
 
 Example data that has not become part of the price alarm domain and should not be included in the `PriceAlarmMet` event:
 

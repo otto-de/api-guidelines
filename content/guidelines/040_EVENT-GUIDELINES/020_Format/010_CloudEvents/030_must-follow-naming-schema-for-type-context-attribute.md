@@ -22,7 +22,7 @@ The `type` is made of segments, each separated by a dot `"."`. Each segment must
 | event-name        | The event name.                                                                                                                     |
 | version           | The version of the event with a "v" prefix, starting with v1 . Also see [](@guidelines/R200014) for more information on versioning. |
 
-### Domain Events
+### Domain events
 
 Naming scheme for domain events:
 
