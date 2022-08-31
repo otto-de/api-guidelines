@@ -1,0 +1,5 @@
+fixes:
+  - scope: rest-guidelines
+    subject: removing restriction to always name curies "o"
+    hash: ad920927af1b8007c82c6436368e6cd5d79becd3
+    date: "2022-08-31"
