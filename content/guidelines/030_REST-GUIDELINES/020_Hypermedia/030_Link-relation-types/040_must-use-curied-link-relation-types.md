@@ -9,10 +9,10 @@ id: R100038
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
-Custom link relation types can be introduced, if no [IANA-registered](@guidelines/R100036) or [existing custom](@guidelines/R100035) link relation type is matching the semantics of a link.
-In this case the rule [MUST use absolute URLs for custom link relation types](@guidelines/R100037) must be adhered to.
+Custom link relation types can be introduced if no [IANA-registered](@guidelines/R100036) or [existing custom](@guidelines/R100035) link relation type matches the semantics of a link.
+In this case, the rule [MUST use absolute URLs for custom link relation types](@guidelines/R100037) must be adhered to.
 
-A resource that links to other resources using a custom link relation type must add `curies` with `"name": "o"` and `"href": "https://api.otto.de/portal/link-relations/{context-id}/{rel}"` to its `_links` section:
+A resource that uses custom link relation types to link to other resources must have a `curies` array in its `_links` property. OTTO API curie objects inside this array must have the property `href` with a value in the form of `https://api.otto.de/portal/link-relations/{context-id}/{rel}`.
 
 ```json
 {
