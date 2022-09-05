@@ -16,10 +16,12 @@ The CloudEvents specification requires producers to ensure that the combination 
 The following schema should be used for the `source` attribute:
 
 ```text
-({protocol-if-resolvable}:)//api.otto.de/{context}/{context-specific}
+({protocol-if-resolvable}:)//{registered-domain}/{context}/{context-specific}
 ```
 
-The protocol must not be part of the source if the event source can't be accessed using a URL. This convention clearly communicates to event consumers that the provided URI does not point to a valid API.
+The protocol **must not** be part of the source if the event source can't be accessed using a URL. This convention communicates to event consumers that the provided URI does not point to a valid API.
+
+The specified domain **must be** owned by OTTO to guarantee a globally unique `source` as the CloudEvents spec recommends. The default domain for non-resolvable URLs is `otto.de`, but API providers may use other domains if they are more suitable.
 
 The `source` URI needs to follow the [naming conventions for URIs](../../../030_REST-GUIDELINES/030_Resources/030_Naming-conventions/index.md).
 
@@ -34,7 +36,7 @@ https://api.otto.de/products/variations/12345 #(the actual REST-URL)
 A `source` for event sources that cannot be accessed using a URL because no REST API exists:
 
 ```text
-//api.otto.de/products/variations/12345 #(non-resolvable URI)
+//otto.de/products/variations/12345 #(non-resolvable URI)
 ```
 
 ::: references
