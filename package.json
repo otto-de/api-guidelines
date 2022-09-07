@@ -48,7 +48,7 @@
     "@otto-ec/assets-core-utils": "^1.11.0",
     "@otto-ec/assets-debug": "^2.1.2",
     "@otto-ec/bender": "^1.14.2",
-    "@otto-ec/ottoapi-cli": "^1.14.0",
+    "@otto-ec/ottoapi-cli": "^1.15.0",
     "@otto-ec/ottoapi-portal-guidelines": "^0.1.29",
     "@otto-ec/toolbox": "^3.2.1",
     "@otto-ec/toolbox-cli-core": "^1.9.1",
