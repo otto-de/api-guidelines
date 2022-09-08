@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-node@v2.5.1
         id: setup_node
         with:
-          node-version: 14.x
+          node-version: 18.x
       - name: Configure Npm Cache
         uses: actions/cache@v3.0.8
         id: setup_cache
