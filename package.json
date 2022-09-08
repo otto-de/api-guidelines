@@ -57,7 +57,7 @@
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.7.15",
     "@vitejs/plugin-vue": "^2.3.4",
-    "@vue/compiler-sfc": "^3.2.37",
+    "@vue/compiler-sfc": "^3.2.39",
     "@vueuse/core": "^8.9.4",
     "@vueuse/shared": "^8.9.4",
     "prismjs": "^1.29.0",
