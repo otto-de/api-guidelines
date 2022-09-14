@@ -1,0 +1,5 @@
+features:
+  - scope: event-guidelines
+    subject: adds new CloudEvents test extension
+    hash: dd09fec11f4340e619a608e24d859cac34988ab8
+    date: "2022-09-14"
