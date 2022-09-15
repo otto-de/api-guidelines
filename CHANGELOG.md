@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.7.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.6.0...v1.7.0) (2022-09-15)
+
+### Features
+
+- **event-guidelines:** adds new CloudEvents test extension ([#1756](https://github.com/otto-ec/ottoapi_guidelines/issues/1756)) ([dd09fec](https://github.com/otto-ec/ottoapi_guidelines/commit/dd09fec11f4340e619a608e24d859cac34988ab8))
+
+### Bug Fixes
+
+- **event-guidelines:** fix must use binary content mode incorrectly named ([#1673](https://github.com/otto-ec/ottoapi_guidelines/issues/1673)) ([03568a8](https://github.com/otto-ec/ottoapi_guidelines/commit/03568a85097f5ca47106ee77408ac38ba78131f4))
+- **event-guidelines:** generalize source prefix ([#1750](https://github.com/otto-ec/ottoapi_guidelines/issues/1750)) ([83f575d](https://github.com/otto-ec/ottoapi_guidelines/commit/83f575da6fa83a985e68f8bbc820fb37629c74f5)), closes [#1746](https://github.com/otto-ec/ottoapi_guidelines/issues/1746)
+- **guidelines:** fixes broken links in must validate jwt rule ([#1700](https://github.com/otto-ec/ottoapi_guidelines/issues/1700)) ([37a4a63](https://github.com/otto-ec/ottoapi_guidelines/commit/37a4a63a0a254ac4e9676f8f2ad9462816bbdcd4)), closes [#1689](https://github.com/otto-ec/ottoapi_guidelines/issues/1689)
+- **readme:** updated documented Node.js version ([254e073](https://github.com/otto-ec/ottoapi_guidelines/commit/254e073c0cb522af3be6ffe41fe1396ef65d6560))
+- **rest-guidelines:** removing restriction to always name curies "o" ([#1718](https://github.com/otto-ec/ottoapi_guidelines/issues/1718)) ([ad92092](https://github.com/otto-ec/ottoapi_guidelines/commit/ad920927af1b8007c82c6436368e6cd5d79becd3)), closes [#1616](https://github.com/otto-ec/ottoapi_guidelines/issues/1616)
+
 ## [1.6.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.5.0...v1.6.0) (2022-07-19)
 
 ### Features
