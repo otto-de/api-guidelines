@@ -57,7 +57,7 @@
     "@rollup/plugin-typescript": "^8.5.0",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.7.23",
-    "@vitejs/plugin-vue": "^3.1.0",
+    "@vitejs/plugin-vue": "^3.1.2",
     "@vue/compiler-sfc": "^3.2.40",
     "@vueuse/core": "^9.3.0",
     "@vueuse/shared": "^9.3.0",
