@@ -1,6 +1,7 @@
 # Concepts
 
 This section explains various event-related concepts in detail as used in the context of the event guidelines. These concepts constitute the foundation of the event guidelines.
+The [glossary](/support/glossary/a-d) contains further information on the terms and concepts used here.
 
 Currently, the guidelines for asynchronous APIs only focus on event APIs as those are hard to implement using REST-APIs.
 Rules for command-based asynchronous APIs will be added later on.
@@ -82,12 +83,6 @@ Example of data events:
   - operation (always required): INSERT, UPDATE or DELETE.
   - before (optional for UPDATE and DELETE, always missing/null for INSERT): State of the entity before the operation.
   - after (always missing/null for DELETE, required for INSERT and UPDATE): State of the entity after the operation.
-
-## Definitions
-
-**Event producer** - [API](../../020_GENERAL-GUIDELINES/010_Basics/index.md#Definitions) for [Events](#events). The term event producer is used within the event guidelines to describe the implementation of the API. The meaning is identical the [producer](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#producer) term in the CloudEvents specification.
-
-**Event consumer** - [API client](../../020_GENERAL-GUIDELINES/010_Basics/index.md#Definitions) for event APIs. The meaning is identical to the [consumer](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#consumer) term in the CloudEvents specification.
 
 ::: references
 
