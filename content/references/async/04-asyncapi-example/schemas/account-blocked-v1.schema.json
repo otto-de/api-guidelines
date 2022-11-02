@@ -1,0 +1,29 @@
+{
+  "$id": "/schemas/account/blocked-v1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Account blocked event v1",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "description": "The identification of an account."
+    },
+    "blocked": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "by": {
+          "type": "string"
+        },
+        "blockedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["reason", "by", "blockedAt"]
+    }
+  },
+  "required": ["accountId", "blocked"]
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "/schemas/account/deleted-v1",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Account deleted event",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "description": "The identification of an account."
+    },
+    "deleted": {
+      "type": "object",
+      "properties": {
+        "reason": {
+          "type": "string"
+        },
+        "by": {
+          "type": "string"
+        },
+        "deletedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["by", "deletedAt"]
+    }
+  },
+  "required": ["accountId", "deleted"]
+}

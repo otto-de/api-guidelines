@@ -1,0 +1,38 @@
+{
+  "$id": "/schemas/account/created-v2",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Account created event v2",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "description": "The identification of an account."
+    },
+    "owner": {
+      "type": "object",
+      "description": "The owner of the account.",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The first name of the owner."
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The last name of the owner."
+        },
+        "vip": {
+          "type": "boolean",
+          "description": "Flag indicating a VIP.",
+          "default": false
+        }
+      },
+      "required": ["firstName", "lastName"]
+    },
+    "createdAt": {
+      "type": "string",
+      "description": "The timestamp at which the account has been created.",
+      "format": "date-time"
+    }
+  },
+  "required": ["accountId", "owner", "createdAt"]
+}
