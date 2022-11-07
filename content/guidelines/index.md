@@ -4,24 +4,18 @@ navTitle: OTTO API Guidelines
 
 # OTTO API Guidelines
 
-::: warning Work in progress!
-This version is intended as a sneak preview. Contents and structure are likely to change.
-:::
-
-The OTTO API Guidelines define standards and guidelines for building REST APIs at OTTO's MA-EC department.
-
-MA-EC consists of various microservice teams that aim to provide functionality for OTTO clients via RESTful APIs.
 Our APIs are a valuable part of our business assets, as with APIs we generate the corresponding operating values.
 Ideally, by applying the API guidelines, all APIs look as if they were created by a single team, thus providing API consumers with a homogeneous, easy-to-use product.
 This facilitates a great developer experience and the ability to quickly compose complex business processes.
 
 With this in mind, we trust that our teams build APIs that are:
 
-- RESTful
 - self-explanatory
-- easy to use
+- easy to use and robust
 - of high quality
+- consistent
 - transparently versioned
+- RESTful with respect to REST APIs
 
 ## How to read the guidelines
 
