@@ -50,10 +50,6 @@ env:
   PKG_MANAGER: npm
   PKG_INSTALL_CMD: npm ci
   COMPILE_COMMAND: $(npm bin)/tsc --noEmit
-  RUN_PERSIST_TESTRESULTS: false
-  RUN_PERSIST_COVERAGE: false
-  RUN_PERSIST_DIST: false
-  RUN_PERSIST_JSCPD: false
   GITHUB_CHECKOUT_REF: ${{ github.event.pull_request.head.ref }}
 jobs:
   checkrun:
@@ -104,13 +100,13 @@ jobs:
         id: compile
         if: ${{ env.RUN_COMPILE == 'true' }}
         run: ${{ env.COMPILE_COMMAND }}
-      - name: Persist dist
-        id: persist_dist
-        if: ${{ env.RUN_PERSIST_DIST == 'true' }}
-        uses: actions/upload-artifact@v3
+      - uses: actions/cache@v3
+        id: cache_workspace
         with:
-          name: dist
-          path: ${{ github.workspace }}/dist
+          path: ./
+          key: >-
+            workspace-${{ runner.os }}-id-${{ github.run_id }}-sha-${{
+            github.sha }}
   build-complete:
     runs-on: ubuntu-latest
     needs:
@@ -128,10 +124,13 @@ jobs:
           - 16.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v3
-        id: checkout
+      - uses: actions/cache@v3
+        id: cache_workspace
         with:
-          ref: ${{ env.GITHUB_CHECKOUT_REF }}
+          path: ./
+          key: >-
+            workspace-${{ runner.os }}-id-${{ github.run_id }}-sha-${{
+            github.sha }}
       - uses: pnpm/action-setup@v2
         id: setup_pnpm
         if: ${{ env.PKG_MANAGER == 'pnpm' }}
@@ -142,11 +141,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: ${{ env.PKG_MANAGER }}
-      - name: Install Dependencies
-        id: pkg_install
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Check Dependency License Usage
         id: check_license
         run: ${{ env.TOOLBOX }} chk lic
@@ -171,10 +165,13 @@ jobs:
           - 16.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v3
-        id: checkout
+      - uses: actions/cache@v3
+        id: cache_workspace
         with:
-          ref: ${{ env.GITHUB_CHECKOUT_REF }}
+          path: ./
+          key: >-
+            workspace-${{ runner.os }}-id-${{ github.run_id }}-sha-${{
+            github.sha }}
       - uses: pnpm/action-setup@v2
         id: setup_pnpm
         if: ${{ env.PKG_MANAGER == 'pnpm' }}
@@ -185,11 +182,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: ${{ env.PKG_MANAGER }}
-      - name: Install Dependencies
-        id: pkg_install
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Run jscpd to collect code duplicates
         id: jscpd
         run: |
@@ -198,13 +190,6 @@ jobs:
             --format typescript,json,javascript \
             --reporters console,html \
             --gitignore
-      - name: Persist Jscpd Results
-        id: persist_jscpd
-        if: ${{ env.RUN_PERSIST_JSCPD == 'true' }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: jscpd
-          path: ${{ github.workspace }}/tmp/jscpd
   audit:
     continue-on-error: true
     if: >-
@@ -219,10 +204,13 @@ jobs:
           - 16.x
       fail-fast: true
     steps:
-      - uses: actions/checkout@v3
-        id: checkout
+      - uses: actions/cache@v3
+        id: cache_workspace
         with:
-          ref: ${{ env.GITHUB_CHECKOUT_REF }}
+          path: ./
+          key: >-
+            workspace-${{ runner.os }}-id-${{ github.run_id }}-sha-${{
+            github.sha }}
       - uses: pnpm/action-setup@v2
         id: setup_pnpm
         if: ${{ env.PKG_MANAGER == 'pnpm' }}
@@ -233,11 +221,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: ${{ env.PKG_MANAGER }}
-      - name: Install Dependencies
-        id: pkg_install
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: ${{ env.PKG_INSTALL_CMD }}
       - name: Check dependencies for Vulnerabilities
         id: npm_audit
         run: |
