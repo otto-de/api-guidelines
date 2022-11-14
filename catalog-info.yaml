@@ -14,4 +14,4 @@ spec:
   lifecycle: production
   owner: api-crew
   definition:
-    $asyncapi: "content/references/async/04-asyncapi-example/asyncapi.yaml"
+    $asyncapi: "./content/references/async/04-asyncapi-example/asyncapi.yaml"
