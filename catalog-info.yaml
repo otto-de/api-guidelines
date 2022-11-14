@@ -3,15 +3,10 @@ kind: API
 metadata:
   name: example-guideline-conform-asyncapi
   description: |
-    Example guideline conform AsyncAPI. The spec displays the following features:  
-    - JSON schema is kept separate from the AsyncAPI spec.
-    - Traits are used to define the common CloudEvent header.
-    - Applies OTTO naming conventions.
-    - Documentation of Kafka security measures.
-    - Versioning of incompatible changes
+    Example guideline conform AsyncAPI.
 spec:
   type: asyncapi
   lifecycle: production
   owner: api-crew
   definition:
-    $asyncapi: "./content/references/async/04-asyncapi-example/asyncapi.yaml"
+    $text: "./content/references/async/04-asyncapi-example/asyncapi.yaml"
