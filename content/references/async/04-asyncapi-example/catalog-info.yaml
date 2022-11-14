@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: example-guideline-conform-asyncapi
+  description: |
+    Example guideline conform AsyncAPI. The spec displays the following features:  
+    - JSON schema is kept separate from the AsyncAPI spec.
+    - Traits are used to define the common CloudEvent header.
+    - Applies OTTO naming conventions.
+    - Documentation of Kafka security measures.
+    - Versioning of incompatible changes
+spec:
+  type: asyncapi
+  lifecycle: production
+  owner: api-crew
+  definition:
+    $asyncapi: "asyncapi.yaml"
