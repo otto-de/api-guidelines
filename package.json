@@ -47,7 +47,7 @@
   "devDependencies": {
     "@otto-ec/assets-core-utils": "^1.12.0",
     "@otto-ec/assets-debug": "^2.1.2",
-    "@otto-ec/bender": "^1.14.3-feat-make-bender-esm-ready.6",
+    "@otto-ec/bender": "^1.14.3-feat-make-bender-esm-ready.7",
     "@otto-ec/ottoapi-cli": "^1.18.5",
     "@otto-ec/ottoapi-portal-common": "^0.2.71",
     "@otto-ec/ottoapi-portal-guidelines": "^0.1.34",
