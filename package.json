@@ -51,7 +51,7 @@
     "@otto-ec/ottoapi-cli": "^1.18.5",
     "@otto-ec/ottoapi-portal-common": "^0.2.71",
     "@otto-ec/ottoapi-portal-guidelines": "^0.1.34",
-    "@otto-ec/toolbox": "^3.4.0",
+    "@otto-ec/toolbox": "^3.4.1",
     "@otto-ec/toolbox-cli-core": "^1.9.1",
     "@otto-ec/toolbox-config-assets": "^1.30.1",
     "@rollup/plugin-typescript": "^9.0.2",
