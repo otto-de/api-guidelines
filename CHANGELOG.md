@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.7.3...v1.8.0) (2022-11-24)
+
+### Features
+
+- **guidelines:** use customer id instead of ec-uuid ([#1856](https://github.com/otto-ec/ottoapi_guidelines/issues/1856)) ([1413a3c](https://github.com/otto-ec/ottoapi_guidelines/commit/1413a3cc3bfe743b830ef5b3372d691fc0112a10))
+
 ### [1.7.3](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.7.2...v1.7.3) (2022-11-23)
 
 ### [1.7.2](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.7.1...v1.7.2) (2022-11-01)
