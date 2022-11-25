@@ -253,6 +253,11 @@ jobs:
           "41898282+github-actions[bot]@users.noreply.github.com"
 
           git config --local user.name "github-actions[bot]"
+
+          export
+          REMOTE_URL="https://FKT-assets-github:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git";
+
+          git remote set-url origin "${REMOTE_URL}"
       - name: Bump Specs Versions
         id: builder
         run: |
@@ -260,7 +265,7 @@ jobs:
 
           COUNT=$(git status | grep "changes\/" | grep -v version.yaml | wc -l);
           echo "Got Modified Data: ${COUNT}";
-          echo "::set-output name=modified::${COUNT}";
+          echo "modified=${COUNT}" >> $GITHUB_OUTPUT;
       - name: Commit and push Changes
         if: steps.builder.outputs.modified > 0
         env:
@@ -271,5 +276,7 @@ jobs:
           git commit --no-verify -am "chore(changes): update specs versions";
       - name: Publish new package
         id: bump_publish
-        if: steps.builder.outputs.modified > 0 || github.event.inputs.npm_publish
+        if: >-
+          steps.builder.outputs.modified > 0 || github.event.inputs.npm_publish
+          == 'true'
         run: ${{ env.TOOLBOX }} app publish --yes
