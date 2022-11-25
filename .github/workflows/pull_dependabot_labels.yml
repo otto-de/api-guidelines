@@ -53,7 +53,7 @@ jobs:
           labels: "pull: not merge"
       - name: Instruct dependabot to merge pr
         if: ${{ steps.checker.outputs.diff != 'major' }}
-        uses: mshick/add-pr-comment@v1
+        uses: mshick/add-pr-comment@v2
         with:
           repo-token: ${{ secrets.TOKEN_GITHUB }}
           message: |

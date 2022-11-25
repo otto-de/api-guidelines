@@ -93,3 +93,19 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: npm publish
+  dispatch_deploy:
+    needs:
+      - publish
+    env:
+      EVENT_REPO: otto-ec/ottoapi_portal
+      EVENT_TYPE: publish
+      EVENT_PAYLOAD: |-
+        {
+          "ref": "${{ github.head_ref }}",
+          "sha": "${{ github.sha }}",
+          "reason": {
+            "module": "guidelines",
+            "message": ${{ toJSON(github.event.head_commit.message) }},
+            "user": "${{ github.event.head_commit.author.name }}"
+          }
+        }
