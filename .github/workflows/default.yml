@@ -264,7 +264,7 @@ jobs:
       - name: Commit changes
         if: steps.builder.outputs.modified > 0
         run: |
-          git add .
+          git add changes
           git commit --no-verify -am "chore(changes): update specs versions";
       - name: Publish new package
         id: bump_publish
