@@ -248,16 +248,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Configure Git
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: >
           git config --local user.email
           "41898282+github-actions[bot]@users.noreply.github.com"
 
           git config --local user.name "github-actions[bot]"
-
-          export
-          REMOTE_URL="https://FKT-assets-github:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git";
-
-          git remote set-url origin "${REMOTE_URL}"
       - name: Bump Specs Versions
         id: builder
         run: |
@@ -266,11 +263,8 @@ jobs:
           COUNT=$(git status | grep "changes\/" | grep -v version.yaml | wc -l);
           echo "Got Modified Data: ${COUNT}";
           echo "modified=${COUNT}" >> $GITHUB_OUTPUT;
-      - name: Commit and push Changes
+      - name: Commit changes
         if: steps.builder.outputs.modified > 0
-        env:
-          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
-          MAIN_BRANCH: main
         run: |
           git add .
           git commit --no-verify -am "chore(changes): update specs versions";
@@ -279,4 +273,9 @@ jobs:
         if: >-
           steps.builder.outputs.modified > 0 || github.event.inputs.npm_publish
           == 'true'
-        run: ${{ env.TOOLBOX }} app publish --yes
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: >
+          git remote set-url origin
+          https://FKT-assets-github:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git;
+          ${{ env.TOOLBOX }} app publish --yes;
