@@ -248,8 +248,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: npm ci
       - name: Configure Git
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: >
           git config --local user.email
           "41898282+github-actions[bot]@users.noreply.github.com"
@@ -260,7 +258,7 @@ jobs:
         run: |
           npm run bump;
 
-          COUNT=$(git status | grep "changes\/" | grep -v version.yaml | wc -l);
+          COUNT=$(git status | grep "changes\/" | grep version.yaml | wc -l);
           echo "Got Modified Data: ${COUNT}";
           echo "modified=${COUNT}" >> $GITHUB_OUTPUT;
       - name: Commit changes
