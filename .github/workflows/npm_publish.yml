@@ -98,6 +98,12 @@ jobs:
     needs:
       - publish
     steps:
+      - name: Get commit message
+        id: commit_message
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s");
+          echo "Commit message: ${COMMIT_MESSAGE}";
+          echo "message=${COMMIT_MESSAGE}" >> $GITHUB_OUTPUT;
       - name: Dispatch Deploy Trigger Event
         id: dispatch_event
         uses: peter-evans/repository-dispatch@v2
@@ -111,7 +117,7 @@ jobs:
               "sha": "${{ github.sha }}",
               "reason": {
                 "module": "guidelines",
-                "message": ${{ toJSON(github.event.head_commit.message) }},
+                "message": ${{ toJSON(steps.commit_message.outputs.message) }},
                 "user": "${{ github.event.head_commit.author.name }}"
               }
             }
