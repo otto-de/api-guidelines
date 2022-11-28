@@ -45,7 +45,7 @@ name: Build, Test, Lint
   workflow_dispatch:
     inputs:
       npm_publish:
-        description: if set to true, will make a npm release
+        description: trigger npm release
         type: boolean
 permissions: read-all
 env:
