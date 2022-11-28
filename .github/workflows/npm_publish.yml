@@ -98,7 +98,9 @@ jobs:
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=format:"%B");
           echo "Commit message: ${COMMIT_MESSAGE}";
-          echo "message=${COMMIT_MESSAGE}" >> $GITHUB_OUTPUT;
+          echo "message<<EOF" >> $GITHUB_OUTPUT;
+          echo "$COMMIT_MESSAGE" >> $GITHUB_OUTPUT;
+          echo "EOF" >> $GITHUB_OUTPUT;
       - name: Dispatch Deploy Trigger Event
         id: dispatch_event
         uses: peter-evans/repository-dispatch@v2
