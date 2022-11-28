@@ -96,7 +96,7 @@ jobs:
       - name: Get commit message
         id: commit_message
         run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s");
+          COMMIT_MESSAGE=$(git log -1 --pretty=format:"%B");
           echo "Commit message: ${COMMIT_MESSAGE}";
           echo "message=${COMMIT_MESSAGE}" >> $GITHUB_OUTPUT;
       - name: Dispatch Deploy Trigger Event
