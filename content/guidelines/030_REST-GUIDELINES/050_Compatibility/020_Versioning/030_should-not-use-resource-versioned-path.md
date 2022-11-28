@@ -7,4 +7,4 @@ id: R000031
 
 Version numbers in URLs should not be used.
 However, if the preferred versioning option is not possible,
-[resource versioned path](https://github.com/otto-ec/ottoapi_guidelines/blob/main/content/references/REST/versioning.md#resource-versioned-paths) may be introduced, if absolutely required.
+a [resource versioned path (internal link)](https://github.com/otto-ec/ottoapi_guidelines/blob/main/content/references/REST/versioning.md#resource-versioned-paths) may be introduced, if absolutely required.

@@ -4,7 +4,7 @@ sideNav: true
 
 # Versioning of incompatible changes
 
-OTTO API supports two versioning approaches for HTTP APIs: via [profiles](R000065) and via [URL path](@guidelines/R000031). Versioning via profiles is preferred.
+OTTO API supports two versioning approaches for HTTP APIs: via [profiles](@guidelines/R000065) and via [URL path](@guidelines/R000031). Versioning via profiles is preferred.
 
 ::::: accordions
 :::: accordion Why profile versioning
@@ -18,7 +18,7 @@ In addition, profiles also allow resource/sub-resource independent versioning.
 In cases where profile-based versioning is not possible or sufficient, URL-based versioning can be applied.
 
 :::info
-During the initial discussion of versioning, several options have been [identified and evaluated](https://github.com/otto-ec/ottoapi_guidelines/blob/main/content/references/REST/versioning.md).
+During the initial discussion of versioning, several options have been [identified and evaluated (internal link)](https://github.com/otto-ec/ottoapi_guidelines/blob/main/content/references/REST/versioning.md).
 :::
 
 ::: references

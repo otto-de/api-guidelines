@@ -37,4 +37,4 @@ This extension defines the `test` context attribute that event producers can pro
 
 - [](@guidelines/r200022)
 - [](@guidelines/r200023)
-- [Former specification of the test header](https://confluence.otto.de/x/pwZxE) (replaced by this rule)
+- [Former specification of the test header (internal link)](https://confluence.otto.de/x/pwZxE) that was replaced by this rule
