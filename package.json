@@ -56,7 +56,7 @@
     "@otto-ec/toolbox-config-assets": "^1.30.1",
     "@rollup/plugin-typescript": "^9.0.2",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.11.9",
+    "@types/node": "^18.11.10",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/compiler-sfc": "^3.2.41",
     "@vueuse/core": "^9.6.0",
