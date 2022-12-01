@@ -1,0 +1,61 @@
+name: Lint Pull Request external
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+  pull_request_target:
+    types: [opened, edited, synchronize]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  checkuser:
+    runs-on: ubuntu-latest
+    if: >-
+      ${{ ( startsWith(github.actor, 'dependabot') == false && github.event_name
+      == 'pull_request' ) || ( startsWith(github.actor, 'dependabot') == true &&
+      github.event_name == 'pull_request_target' ) }}
+    steps:
+      - run: echo "Check Complete"
+
+  lint-changes:
+    runs-on: ubuntu-latest
+    needs: [checkuser]
+
+    steps:
+      - name: Configure Node Runtime
+        uses: actions/setup-node@v3
+        id: setup_node
+        with:
+          node-version: 18.x
+          cache: "npm"
+      - name: Install ottoapi cli
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: |
+          npm config set @otto-ec:registry=https://npm.pkg.github.com/
+          npm config set //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+          npm -g i @otto-ec/ottoapi-cli
+      - name: Lint PR Content if api specs are changed
+        id: prlint
+        run: ottoapi guidelines-pull lint-changes
+
+      - name: Lint PR Title if sources are changed
+        uses: amannn/action-semantic-pull-request@v4.6.0
+        if: ${{ steps.prlint.outputs.otherChanged == 'true' }}
+        with:
+          types: |
+            chore
+            feat
+            fix
+            docs
+            style
+            refactor
+            revert
+            test
+            npm
+            actions
+            terraform
+          requireScope: true
+          subjectPattern: ^[^A-Z]+$
