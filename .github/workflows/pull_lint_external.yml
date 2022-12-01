@@ -8,15 +8,6 @@ env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  checkuser:
-    runs-on: ubuntu-latest
-    if: >-
-      ${{ ( startsWith(github.actor, 'dependabot') == false && github.event_name
-      == 'pull_request' ) || ( startsWith(github.actor, 'dependabot') == true &&
-      github.event_name == 'pull_request_target' ) }}
-    steps:
-      - run: echo "Check Complete"
-
   lint-changes:
     runs-on: ubuntu-latest
     needs: [checkuser]
