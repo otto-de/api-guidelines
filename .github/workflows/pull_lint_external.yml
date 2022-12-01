@@ -1,8 +1,6 @@
 name: Lint Pull Request external
 
 on:
-  pull_request:
-    types: [opened, edited, synchronize]
   pull_request_target:
     types: [opened, edited, synchronize]
 
@@ -24,21 +22,25 @@ jobs:
     needs: [checkuser]
 
     steps:
+      # Always checks out the target branch to not introduce insecure code from the PR that gets executed.
+      - name: Checkout Sources from Pull
+        uses: actions/checkout@v3
+        id: checkout
       - name: Configure Node Runtime
         uses: actions/setup-node@v3
         id: setup_node
         with:
           node-version: 18.x
-      - name: Install ottoapi cli
+          cache: npm
+      - name: Install Npm Dependencies
+        id: npm_install
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: |
-          npm config set @otto-ec:registry=https://npm.pkg.github.com/
-          npm config set //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
-          npm -g i @otto-ec/ottoapi-cli
+        run: npm ci
+
       - name: Lint PR Content if api specs are changed
         id: prlint
-        run: ottoapi guidelines-pull lint-changes
+        run: npm run cli --silent -- guidelines-pull lint-changes
 
       - name: Lint PR Title if sources are changed
         uses: amannn/action-semantic-pull-request@v4.6.0
