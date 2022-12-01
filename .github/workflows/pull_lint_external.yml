@@ -10,7 +10,6 @@ env:
 jobs:
   lint-changes:
     runs-on: ubuntu-latest
-    needs: [checkuser]
 
     steps:
       # Always checks out the target branch to not introduce insecure code from the PR that gets executed.
