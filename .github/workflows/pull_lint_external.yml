@@ -29,7 +29,6 @@ jobs:
         id: setup_node
         with:
           node-version: 18.x
-          cache: "npm"
       - name: Install ottoapi cli
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
