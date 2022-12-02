@@ -17,7 +17,7 @@ The following table shows the most important context attributes of the CloudEven
 | [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | [MUST provide meaningful `source` context attribute](@guidelines/R200010)     |
 | [specversion](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion)         | only '1.0' allowed                                                            |
 | [type](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type)                       | [MUST follow naming scheme for `type` context attribute](@guidelines/R200009) |
-| [datacontenttype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#datacontenttype) |                                                                               |
+| [datacontenttype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#datacontenttype) | [MUST provide `datacontenttype` context attribute](@guidelines/R200013)       |
 | [dataschema](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#dataschema)           |                                                                               |
 | [time](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time)                       | [MUST provide event time in UTC](@guidelines/R200011)                         |
 | [subject](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)                 |                                                                               |

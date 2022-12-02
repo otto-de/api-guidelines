@@ -29,4 +29,4 @@ The following protocols support the `binary` content mode:
 
 Protocols not supporting `binary` content mode:
 
-The [Websockets])(https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/websockets-protocol-binding.md#13-content-modes) protocol, however, does not support the binary content mode.
+The [Websockets](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/websockets-protocol-binding.md#13-content-modes) protocol, however, does not support the binary content mode.
