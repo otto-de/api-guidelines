@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Get Pull review info
         id: reviews
-        uses: jurijzahn8019/action-get-pull-review-info@v0.0.102
+        uses: jurijzahn8019/action-get-pull-review-info@v0.0.103
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
   to-review:
