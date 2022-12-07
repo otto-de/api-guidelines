@@ -12,15 +12,13 @@
 # and use the schema appropriate to this file.
 # See https://github.com/otto-ec/assets_protecty#readme for more details and documentation.
 #
-# This config can be affected by these presets: base, default, integration, tf-update, terraform, lint, no-specs, non-assets
+# This config can be affected by these presets: base, default, terraform, non-assets
 #
 version: 1
 merge:
   trigger:
     labels:
       - "pull: automerge"
-    branches:
-      - main
   ignore:
     labels:
       - "pull: not merge"
@@ -33,12 +31,6 @@ merge:
     squash:
       title: pull_request_title
       body: pull_request_body
-  required_statuses:
-    - Semantic PR
-    - build-complete
-    - license-complete
-    - "policy-bot: main"
-  delete_after_merge: true
 update:
   trigger:
     labels:
