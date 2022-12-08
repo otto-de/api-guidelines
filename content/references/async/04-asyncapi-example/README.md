@@ -20,3 +20,7 @@ asyncapi generate fromTemplate asyncapi.yaml @asyncapi/html-template --force-wri
 # Open html
 open html/index.html
 ```
+
+## Example of integration into Backstage
+
+Have a look at the [catalog-info.yaml](/catalog-info.yaml) in the root of this repository for an example of the necessary metadata needed to integrate this AsyncAPI example into backstage.
