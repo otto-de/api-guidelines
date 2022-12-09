@@ -1,0 +1,18 @@
+fixes:
+  - scope: r200013
+    subject: datacontenttype only to be provided if media type is defined
+    hash: ae79795d3a8abe196d9d6fa9e8ab6d1daef5d042
+    body: >-
+      - clarify that `datacontenttype` only needs to be provided if a media
+
+      type is defined
+
+      Co-authored-by: Thorsten Hake <mail@thorsten-hake.com>
+
+      Co-authored-by: serviceintegration-bulldozer[bot]
+      <60896867+serviceintegration-bulldozer[bot]@users.noreply.github.com>
+
+      Co-authored-by: cgebken <christina.gebken@otto.de>
+
+      Co-authored-by: Birgit Bader <birgit.bader@otto.de>
+    date: "2022-12-09"
