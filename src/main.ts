@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 // This is used to run the app locally
-// It uses defautls from portal common
+// It uses defaults from portal common
 import "vue";
 import "vuex";
 import "vue-router";
