@@ -4,13 +4,13 @@ This document should server as a reference for the various user identifiers that
 
 It is explicitly meant to be descriptive not normative.
 
-| id         | State      | synonyms | tech origin      | business owner | tracking label    |
-| ---------- | ---------- | -------- | ---------------- | -------------- | ----------------- |
-| browserId  |            |          | ShoZu / PA-layer | unknown        | -                 |
-| visitorId  |            |          | ShoZu / PA-layer | unknown        | ot_Vid            |
-| customerId |            |          | Plankton         | Plankton       | ??                |
-| ec-uuid    | deprecated | uuid     |  Identity   | Identity            | user_UniqueUserId |
-| lId        |            | loginId  | Identity   | Identity            | ot_Lid            |
+| id         | State      | synonyms          | tech origin      | business owner | tracking label    |
+| ---------- | ---------- | ----------------- | ---------------- | -------------- | ----------------- |
+| browserId  |            |                   | ShoZu / PA-layer | unknown        | -                 |
+| visitorId  |            |                   | ShoZu / PA-layer | unknown        | ot_Vid            |
+| customerId |            |                   | Plankton         | Plankton       | ??                |
+| ec-uuid    | deprecated | EC Unique User ID | Identity         | Identity       | user_UniqueUserId |
+| lId        |            | loginId           | Identity         | Identity       | ot_Lid            |
 
 ## browserId
 
@@ -43,8 +43,8 @@ It is explicitly meant to be descriptive not normative.
 - **deprecated and replaced by customerId**
 - primary identifier by Team Identity for logged in users
 - Team Identity recommended way to query for and map to logged in users
-- structurally a UUID
-- might at some point be superseded by a new ID maintained by DeepSea/Plankton timeline 1+ years
+- A hash of the combination of accountNumber and creation date in the core system.
+- structurally **NOT** a UUID but a hash value.
 - very widely used in code ([2000+ hits in code](https://github.com/search?q=org%3Aotto-ec+UniqueUserId&type=Code)), basically anyone validating logins
 
 ## lId
