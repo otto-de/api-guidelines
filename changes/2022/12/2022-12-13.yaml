@@ -3,34 +3,8 @@ features:
     subject: align problem+json rules to the rfc
     hash: eb835c8607444d250c6375a77eade64f80cb2e20
     body: >-
-      - Removed "key" and enforced a more sensible usage of the "type"
-
-      property (r000034).
-
-      - Reworked to point to ValidationError documentation. Mention that
-
-      `about:blank` should be used for problems that do not add any semantics
-
-      to the status code (r000037).
-
-      - Reworked to clearly state that a resolvable type documentation is not
-
-      required. The type is primarily used as an identifier, as stated in the
-
-      RFC. Add an example of a type documentation. Clearly stating that a
-
-      context-specific type can be introduced (r000040).
-
-      - Fixed so that the table is displayed again. Changed so that only
-
-      status 400 is allowed for ValidationError to comply with the RFC that
-
-      states that only one status is associated with a type. (r000038)
-
-      Co-authored-by: Thorsten Hake <mail@thorsten-hake.com>
-
-      Co-authored-by: serviceintegration-bulldozer[bot]
-      <60896867+serviceintegration-bulldozer[bot]@users.noreply.github.com>
-
-      Co-authored-by: Birgit Bader <birgit.bader@otto.de>
+      - Removed "key" and enforced a more sensible usage of the "type" property (r000034).
+      - Reworked to point to ValidationError documentation. Mention that `about:blank` should be used for problems that do not add any semantics to the status code (r000037).
+      - Reworked to clearly state that a resolvable type documentation is not required. The type is primarily used as an identifier, as stated in the RFC. Add an example of a type documentation. Clearly stating that a context-specific type can be introduced (r000040).
+      - Fixed so that the table is displayed again. Changed so that only status 400 is allowed for ValidationError to comply with the RFC that states that only one status is associated with a type. (r000038)
     date: "2022-12-13"
