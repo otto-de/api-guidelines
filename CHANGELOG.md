@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.9.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.8.10...v1.9.0) (2022-12-14)
+
+### Features
+
+- align problem+json rules to the rfc ([#1883](https://github.com/otto-ec/ottoapi_guidelines/issues/1883)) ([eb835c8](https://github.com/otto-ec/ottoapi_guidelines/commit/eb835c8607444d250c6375a77eade64f80cb2e20)), closes [#1778](https://github.com/otto-ec/ottoapi_guidelines/issues/1778)
+
+### Bug Fixes
+
+- **rest-references:** states that ec-uuid is not a uuid ([#1938](https://github.com/otto-ec/ottoapi_guidelines/issues/1938)) ([4dfd457](https://github.com/otto-ec/ottoapi_guidelines/commit/4dfd4579d863ba9dbdcf089e850b2f0a7feaa7fb))
+
 ### [1.8.10](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.8.9...v1.8.10) (2022-12-13)
 
 ### [1.8.9](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.8.8...v1.8.9) (2022-12-09)
