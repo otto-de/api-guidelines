@@ -1,3 +1,3 @@
 # HEADER
 
-Just an automerge test.
+Just an automerge test #2.
