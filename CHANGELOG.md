@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.1](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.9.0...v1.9.1) (2022-12-14)
+
+### Bug Fixes
+
+- **changelog:** fixes incorrect changelog. ([f8e29cf](https://github.com/otto-ec/ottoapi_guidelines/commit/f8e29cf048c15210160159bd23fdd007900b576a))
+
 ## [1.9.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.8.10...v1.9.0) (2022-12-14)
 
 ### Features
