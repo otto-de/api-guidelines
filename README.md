@@ -37,29 +37,13 @@ Navigate to [http://localhost:3000](http://localhost:3000) to see the rendered o
 
 Happy coding!
 
-## Deployment
+## Release & deployment
 
-Every commit to the default branch triggers an update of the API Portal contents, which can then be accessed at the development URLs:
-
-- API Gateway Develop: <https://api.develop.otto.de/portal>
-- Amazon CloudFront Develop: <https://api-portal.develop.assets.cloud.otto.de/portal>
-
-Both URLs access the same API Portal application.
-The API Gateway Develop requests the Amazon CloudFront Develop URL internally by proxy.
-
-### Serve production build
-
-Create a production build and preview it:
-
-```bash
-npm run build
-npm run preview
-```
-
-### Release
-
-You can use [toolbox](https://github.com/otto-ec/assets_toolbox) to invoke the pipeline and create a new npm release:
+Each commit of type `feat` or `fix` triggers a changelog generation.
+When a changelog is generated, a new npm package is built and triggers this release command:
 
 ```bash
 $(npm bin)/tb app publish
 ```
+
+Once a package is created, the actions for the ottoapi_portal deployment are triggered.
