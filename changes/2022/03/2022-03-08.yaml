@@ -1,5 +1,5 @@
 features:
-  - scope: event
-    subject: add must use cloudevents rule
+  - scope: r200001
+    subject: add rule must use cloudevents
     hash: a3a70b664e9af1460012c5c887f71885e17554fc
     date: "2022-03-08"

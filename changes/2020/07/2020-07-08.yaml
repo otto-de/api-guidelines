@@ -1,5 +1,11 @@
 features:
-  - scope: null
-    subject: Feature/json guidelines
+  - scope: guidelines
+    subject: add rules for JSON guidelines
     hash: f409e16af26981a30bd03bc76ff0496c7a3ecaec
+    body: |
+      - (R004020)
+      - (R004021)
+      - (R004050)
+      - (R004080)
+      - (R004090)
     date: "2020-07-08"

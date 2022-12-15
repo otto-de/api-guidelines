@@ -1,5 +1,7 @@
 fixes:
-  - scope: guidelines
-    subject: fixed type alphabet
+  - scope: r200009
+    subject: fix type alphabet
     hash: d86df80192a3f238406a4e69138e8b5602bbfef2
+    body: >-
+      - The possible characters used in the type context attribute have been limited to those present in the English language.
     date: "2022-05-02"

@@ -1,9 +1,0 @@
-features:
-  - scope: guidelines
-    subject: renames the concept of transport to protocol
-    hash: 11474aa70c7668a400c4eeb678261c8201aef90d
-    date: "2022-06-28"
-  - scope: guidelines
-    subject: Rework contract description
-    hash: aa194a9df8e8743ba2807eb761cae88628d6994f
-    date: "2022-06-28"

@@ -1,5 +1,7 @@
-features:
-  - scope: guidelines
-    subject: add example on how to generate absolute urls
+fixes:
+  - scope: r100032
+    subject: add example on how to generate absolute URLs
     hash: 99c1504af2de78ce555cb78dcabb5159cdb11342
+    body: >-
+      - add example on how to generate absolute URLs
     date: "2022-01-28"

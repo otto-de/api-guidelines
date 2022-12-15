@@ -1,5 +1,5 @@
 features:
-  - scope: legal
-    subject: add license note and attribution
+  - scope: guidelines
+    subject: add license note and attribution to introduction
     hash: 357bbedc9cf4b2546ac6685b8c3d16b76b164fc1
     date: "2021-04-16"

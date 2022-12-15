@@ -1,5 +1,7 @@
-features:
-  - scope: guidelines
-    subject: chang https rule to be more generic
+fixes:
+  - scope: r000046
+    subject: change https rule to be more generic
     hash: ec4e239ee594af3dbc00f4aae072739eaa50a96c
+    body: >-
+      - secure communication via TLS
     date: "2022-03-15"

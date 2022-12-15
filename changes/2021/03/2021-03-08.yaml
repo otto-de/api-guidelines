@@ -1,9 +1,0 @@
-fixes:
-  - scope: guidelines
-    subject: rephrased info box based on a review comment
-    hash: dc3ab6320fec94ef1d0e113d49c929c9ae01f0c5
-    date: "2021-03-08"
-  - scope: guidelines
-    subject: incorporate review comment
-    hash: 71f6e8dc4221640a7e94ffbe0bf6ae7416cbcea6
-    date: "2021-03-08"

@@ -1,5 +1,5 @@
 features:
-  - scope: guidelines
-    subject: add must name events in past tense rule
+  - scope: r200004
+    subject: add rule must name events in past tense
     hash: c5b7db71aa304b71b116bcafc960189d73e07ef3
     date: "2022-03-16"

@@ -1,5 +1,5 @@
 features:
-  - scope: http
+  - scope: R000025
     subject: add rule for user agent
     hash: 14566df72bf15f5c121270567ac3e17c5ea0314e
     date: "2020-09-15"

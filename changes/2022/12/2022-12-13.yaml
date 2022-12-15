@@ -1,8 +1,8 @@
-features:
-  - scope: "*"
+fixes:
+  - scope: guidelines
     subject: align problem+json rules to the rfc
     hash: eb835c8607444d250c6375a77eade64f80cb2e20
-    body: >-
+    body: |
       - Removed "key" and enforced a more sensible usage of the "type" property (r000034).
       - Reworked to point to ValidationError documentation. Mention that `about:blank` should be used for problems that do not add any semantics to the status code (r000037).
       - Reworked to clearly state that a resolvable type documentation is not required. The type is primarily used as an identifier, as stated in the RFC. Add an example of a type documentation. Clearly stating that a context-specific type can be introduced (r000040).

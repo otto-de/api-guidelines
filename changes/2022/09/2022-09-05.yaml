@@ -1,5 +1,7 @@
 fixes:
-  - scope: event-guidelines
+  - scope: r200010
     subject: generalize source prefix
     hash: 83f575da6fa83a985e68f8bbc820fb37629c74f5
+    body: >-
+      - generalize source prefix
     date: "2022-09-05"

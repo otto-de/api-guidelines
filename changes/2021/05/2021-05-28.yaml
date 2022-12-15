@@ -1,5 +1,8 @@
-features:
+fixes:
   - scope: guidelines
-    subject: added portal and context-id to link-rel urls
+    subject: add portal and context-id to link-rel urls
     hash: 9ecb34c9de675b7245b52da1efd69b078cb1f0a3
+    body: |
+      - (R100037)
+      - (R100038)
     date: "2021-05-28"

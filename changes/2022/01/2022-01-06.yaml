@@ -1,5 +1,5 @@
 features:
-  - scope: guidelines
+  - scope: r100077
     subject: add rule for external identifiers
     hash: 8100876c0c80e633bd4d8f3c47159d6f9df3d9a0
     date: "2022-01-06"

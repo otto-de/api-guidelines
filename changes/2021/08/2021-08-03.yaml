@@ -1,5 +1,0 @@
-fixes:
-  - scope: guidelines
-    subject: unify spelling of ec-uuid
-    hash: 8caffd9035db4c2a970de2d2925422849fc543c3
-    date: "2021-08-03"

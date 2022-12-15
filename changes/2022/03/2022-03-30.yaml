@@ -1,21 +1,22 @@
 features:
-  - scope: guidelines
+  - scope: r200006
     subject: add rule must follow naming schema for kafka topic
     hash: 3556d8b2e6bfab4d7289a6f9840fb0fbddce2041
     date: "2022-03-30"
-  - scope: guidelines
+  - scope: r200009
     subject: add new rule must follow naming scheme for type context attribute
     hash: f1b0e50c4b09c691d2cd632e6e471bfc2aa0ee1b
     date: "2022-03-30"
-  - scope: guideline
+  - scope: r200008
     subject: add rule must use semantic versioning in asyncapi specification
     hash: df25c30daf88d9042e398ff57912e462d9d29f6a
     date: "2022-03-30"
-  - scope: guidelines
+  - scope: r200003
     subject: add new rule may provide sequence context attribute
     hash: 594ae511765266f778ce34da99f90d0e8f2dd5f0
     date: "2022-03-30"
+fixes:
   - scope: guidelines
-    subject: improve distinction between domain event and data event
+    subject: improve distinction between domain event and data event in event concepts section
     hash: 0946e522c202bff28fc8bda81c0ba046174381c4
     date: "2022-03-30"

@@ -1,5 +1,5 @@
 features:
-  - scope: guidelines
-    subject: new rule for impl to spec compliance
+  - scope: r000076
+    subject: add rule for implementation to spec compliance
     hash: d8f9b692495cda56adc62c1151f72b38416e57dc
     date: "2021-08-05"

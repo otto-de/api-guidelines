@@ -1,5 +1,7 @@
-features:
-  - scope: guidelines
-    subject: latest version if not accept header specified
+fixes:
+  - scope: r000030
+    subject: use latest version if not accept header specified
     hash: 08fbbc7b8ff072109f5f45977c82f17c9e82278f
+    body: >-
+      - use latest version if no accept header was specified
     date: "2021-03-25"
