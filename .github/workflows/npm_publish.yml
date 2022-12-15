@@ -41,12 +41,10 @@ jobs:
           - 16.x
       fail-fast: true
     env:
-      JEST_JUNIT_OUTPUT_DIR: tmp/test-results/jest
-      JEST_JUNIT_OUTPUT_NAME: results.xml
-      SPECS_COMMANDLINE: |
-        $(npm bin)/jest --colors -w 2 --ci --silent --coverage \
-          --coverageDirectory tmp/coverage --coverageReporters json json-summary text html clover \
-          --reporters default --reporters jest-junit
+      NODE_OPTIONS: "--experimental-vm-modules"
+      SPECS_COMMANDLINE: >-
+        $(npm bin)/jest --colors -w 2 --ci --silent --coverage
+        --coverageReporters text text-summary
     steps:
       - uses: actions/checkout@v3
         id: checkout
