@@ -59,7 +59,7 @@
     "@types/node": "^18.11.17",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vue/compiler-sfc": "^3.2.45",
-    "@vueuse/core": "^9.7.0",
+    "@vueuse/core": "^9.8.2",
     "@vueuse/shared": "^9.7.0",
     "prismjs": "^1.29.0",
     "rollup-plugin-copy": "^3.4.0",
