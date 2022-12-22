@@ -54,7 +54,7 @@ env:
   RUN_COMPILE: true
   PKG_MANAGER: npm
   PKG_INSTALL_CMD: npm ci
-  COMPILE_COMMAND: $(npm bin)/tsc --noEmit
+  COMPILE_COMMAND: echo "no compile command :)"
   GITHUB_CHECKOUT_REF: ${{ github.event.pull_request.head.ref }}
 jobs:
   checkrun:
