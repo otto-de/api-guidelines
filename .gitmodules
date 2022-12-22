@@ -1,0 +1,3 @@
+[submodule "preview/ottoapi_portal"]
+	path = preview/ottoapi_portal
+	url = git@github.com:otto-ec/ottoapi_portal.git
