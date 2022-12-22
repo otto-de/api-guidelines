@@ -1,0 +1,25 @@
+name: Portal Preview Update
+"on":
+  schedule:
+    - cron: 0 5 * * *
+  workflow_dispatch: {}
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Update submodule
+        run: git submodule update --force --remote --init
+      - name: Check changes
+        run: git diff  --exit-code preview/ottoapi_portal
+      - name: Commit and ush changes
+        if: failure()
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add preview/ottoapi_portal
+          git commit -a -m "chore(preview): update portal"
+          git push
