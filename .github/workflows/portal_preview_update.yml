@@ -13,14 +13,14 @@ jobs:
       - name: Update submodule
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
-        run: git submodule update --force --remote --init
-      - name: Check changes
-        run: git diff  --exit-code preview/ottoapi_portal
+        run: |
+          git submodule set-url preview/ottoapi_portal https://FKT-assets-github:${GITHUB_TOKEN}@github.com/otto-ec/ottoapi_portal.git
+          git submodule update --force --remote --init
       - name: Commit and ush changes
-        if: failure()
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
+          git diff  --exit-code preview/ottoapi_portal || exit 0
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add preview/ottoapi_portal
