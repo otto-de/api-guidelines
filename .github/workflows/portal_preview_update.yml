@@ -1,7 +1,7 @@
 name: Portal Preview Update
 "on":
-  schedule:
-    - cron: 0 5 * * *
+  #  schedule:
+  #    - cron: 0 5 * * *
   workflow_dispatch: {}
 
 jobs:
@@ -14,7 +14,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
-          git submodule set-url preview/ottoapi_portal https://FKT-assets-github:${GITHUB_TOKEN}@github.com/otto-ec/ottoapi_portal.git
           git submodule update --force --remote --init
       - name: Commit and ush changes
         env:
