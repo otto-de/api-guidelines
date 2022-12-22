@@ -39,11 +39,7 @@ Happy coding!
 
 ## Release & deployment
 
-Each commit of type `feat` or `fix` triggers a changelog generation.
-When a changelog is generated, a new npm package is built and triggers this release command:
+Each commit of type `feat` or `fix` triggers a new npm package release and generates a new changelog entry.
+[ottoapi_portal](https://github.com/otto-ec/ottoapi_portal) will be notified and automatically consumes the new version.
 
-```bash
-$(npm bin)/tb app publish
-```
-
-Once a package is created, the actions for the ottoapi_portal deployment are triggered.
+Actions are provided by the [ottoapi_cli](https://github.com/otto-ec/ottoapi_cli)
