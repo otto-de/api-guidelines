@@ -14,7 +14,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
+          git submodule set-url preview/ottoapi_portal https://FKT-assets-github:${GITHUB_TOKEN}@github.com/otto-ec/ottoapi_portal.git
           git submodule update --force --remote --init
+          git restore .gitmodules
       - name: Commit and ush changes
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
