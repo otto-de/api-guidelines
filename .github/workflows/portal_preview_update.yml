@@ -30,6 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
-          git add preview/ottoapi_portal || (echo nothing changed && exit 0)
-          git commit -m "chore(preview): update portal"
+          git add preview/ottoapi_portal
+          git commit -m "chore(preview): update portal" || (echo nothing changed && exit 0)
           git push
