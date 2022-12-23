@@ -1,7 +1,7 @@
 name: Portal Preview Update
 "on":
-  #  schedule:
-  #    - cron: 0 5 * * *
+  schedule:
+    - cron: 0 5 * * *
   workflow_dispatch: {}
 
 jobs:
@@ -10,20 +10,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
       - name: Update submodule
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
           git submodule set-url preview/ottoapi_portal https://FKT-assets-github:${GITHUB_TOKEN}@github.com/otto-ec/ottoapi_portal.git
           git submodule update --force --remote --init
-          git restore .gitmodules
-      - name: Commit and ush changes
+
+      #  reset .gitmodules to remove token
+      - name: Reset .gitmodules
+        run: git restore .gitmodules
+
+      - name: Config git user
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
           git diff  --exit-code preview/ottoapi_portal || exit 0
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add preview/ottoapi_portal
-          git commit -a -m "chore(preview): update portal"
+          git commit -m "chore(preview): update portal"
           git push
