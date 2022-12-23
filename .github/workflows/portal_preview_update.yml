@@ -5,6 +5,10 @@ name: Portal Preview Update
     - cron: 0 5 * * *
   workflow_dispatch: {}
 
+permissions: read-all
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -21,16 +25,16 @@ jobs:
           git submodule set-url preview/ottoapi_portal git@github.com:otto-ec/ottoapi_portal.git
 
       - name: Config git user
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
 
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
           git add preview/ottoapi_portal
-          git commit -m "chore(preview): update portal" || (echo nothing changed && exit 0)
-          git push
+          git commit --no-verify -m "chore(preview): update portal" || exit 0
+
+          export REMOTE_URL="https://FKT-assets-github:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push "${REMOTE_URL}" HEAD:main --follow-tags
