@@ -17,10 +17,7 @@ jobs:
         run: |
           git submodule set-url preview/ottoapi_portal https://FKT-assets-github:${GITHUB_TOKEN}@github.com/otto-ec/ottoapi_portal.git
           git submodule update --force --remote --init
-
-      #  reset .gitmodules to remove token
-      - name: Reset .gitmodules
-        run: git restore .gitmodules
+          git submodule set-url git@github.com:otto-ec/ottoapi_portal.git
 
       - name: Config git user
         env:
@@ -33,7 +30,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
         run: |
-          git diff  --exit-code preview/ottoapi_portal || exit 0
-          git add preview/ottoapi_portal
+          git add preview/ottoapi_portal || (echo nothing changed && exit 0)
           git commit -m "chore(preview): update portal"
           git push
