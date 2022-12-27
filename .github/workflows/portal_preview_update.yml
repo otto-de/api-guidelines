@@ -12,7 +12,7 @@ env:
 jobs:
   update:
     runs-on: ubuntu-latest
-    if: ${{ github.event.ref == 'refs/heads/main' }}
+    if: ${{ github.event.ref == 'refs/heads/main' }} || ${{ github.event.schedule != '' }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
