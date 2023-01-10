@@ -6,7 +6,7 @@ As long as applications are used, they are subject to change. As applications ch
 According to this definition, the term _compatibility_ refers solely to the exchange of messages _on the wire_. Further interpretations, such as the API's specification file itself and its possible processing on the tool side (e.g. code generators), are explicitly excluded. However, API providers are of course free to give their consumers further guarantees that go beyond compatibility _on the wire_.
 :::
 
-This section deals with topics, such as [compatible API evolution](./010_Compatible-changes/index.md), introduction of [new API components](020_Preview/index.md) and finally retiring [obsoleted API components](030_Deprecation/index.md).
+This section deals with topics, such as [compatible API evolution](./010_Compatible-changes/index.md), introduction of [new API components](./020_Preview/index.md) and finally retiring [obsoleted API components](./030_Deprecation/index.md).
 
 ::: info
 The general rules for compatibility included in this section are independent of the API type.
