@@ -1,0 +1,5 @@
+fixes:
+  - scope: r100077
+    subject: move rule to naming conventions section
+    hash: abe23a27f3b3a7b46a64fdbdbabba7d718c212f0
+    date: "2023-01-09"
