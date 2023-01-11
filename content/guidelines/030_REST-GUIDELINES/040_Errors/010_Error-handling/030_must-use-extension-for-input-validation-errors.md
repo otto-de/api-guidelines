@@ -9,14 +9,15 @@ Validation checks can be performed on the request body, e.g. on form input value
 
 If an input validation error occurs, we expect a `400 Bad Request` response.
 
-The problem `type` is defined as <https://api.otto.de/portal/errors/ValidationError>. The `title` should be _"Your request cannot be validated."_. The status code is always `400`.
+The problem `type` is defined as <https://api.otto.de/portal/errors/ValidationError>.<br />
+The `title` should be _"Your request cannot be validated."_.<br />
+The `status` code is always `400`.
 
 This results in the following structure:
 
 ```json
 {
   "type": "https://api.otto.de/portal/errors/ValidationError",
-  "key": "ValidationError",
   "title": "Your request cannot be validated.",
   "status": 400,
   "validationErrors": [
