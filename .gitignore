@@ -39,12 +39,9 @@ terraform/**/*.tfstate.*
 .browserslistrc*
 #.eslintrc*
 #.prettierrc*
-tslint*
 
 # generated api docs
 docs/api
-.DS_Store
 
-# provided by @otto-ec/ottoapi-portal-common
-/index.html
-public/
+# preview provided by @otto-ec/ottoapi-portal
+preview/ottoapi_portal
