@@ -20,7 +20,11 @@ If you need write permissions to this repository, you can add your team via PR t
 ### Setup the repository
 
 1. Clone this repository: `git clone git@github.com:otto-ec/ottoapi_guidelines.git`
-2. Install the dependencies: `npm ci`
+2. Install the dependencies:
+
+   ```bash
+   npm ci
+   ```
 
 ## Contributing
 

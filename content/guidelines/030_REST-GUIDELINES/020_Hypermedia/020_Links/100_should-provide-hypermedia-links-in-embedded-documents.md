@@ -5,7 +5,7 @@ id: R100028
 
 # provide hypermedia links in embedded documents
 
-The list resource items should provide the same links as the single resource representation as described in [Hypermedia](../../020_Hypermedia/index.md).
+The list resource items should provide the same links as the single resource representation as described in [Hypermedia](../index.md).
 
 Links may be omitted to prevent performance degradation or response bloat.
 Keep the client's use cases in mind.
