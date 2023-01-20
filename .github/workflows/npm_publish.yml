@@ -110,7 +110,7 @@ jobs:
             {
               "ref": "${{ github.head_ref }}",
               "sha": "${{ github.sha }}",
-              "live": true,
+              "live": "true",
               "reason": {
                 "module": "guidelines",
                 "message": ${{ toJSON(steps.commit_message.outputs.message) }},
