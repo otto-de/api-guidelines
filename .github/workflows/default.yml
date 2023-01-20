@@ -32,6 +32,7 @@ name: Build, Test, Lint
       - .github/settings.yml
       - .github/pr-labeler.yml
       - .github/dependabot.yml
+      - .github/workflows/codeql.yml
       - .github/workflows/deploy.yml
       - .github/workflows/issue_*.yml
       - .github/workflows/pull_*.yml
