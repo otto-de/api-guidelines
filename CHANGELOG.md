@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.10](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.9.9...v1.9.10) (2023-01-25)
+
+### Bug Fixes
+
+- **r000038:** change type of the validation error ([#1983](https://github.com/otto-ec/ottoapi_guidelines/issues/1983)) ([f0197e0](https://github.com/otto-ec/ottoapi_guidelines/commit/f0197e082ba6433dd2cdf31f34bf340b612d6914))
+
 ### [1.9.9](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.9.8...v1.9.9) (2023-01-20)
 
 ### [1.9.8](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.9.7...v1.9.8) (2023-01-20)
