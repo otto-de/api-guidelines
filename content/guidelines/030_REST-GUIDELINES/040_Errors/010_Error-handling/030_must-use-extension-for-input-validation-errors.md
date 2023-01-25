@@ -5,11 +5,11 @@ id: R000038
 
 # use `problem+json` extension for input validation errors
 
-Validation checks can be performed on the request body, e.g. on form input values or business objects to be stored, as well as on path and query parameters. The `ValidationError` schema should be used for all types of validation errors. All validation errors for one request should be combined into a self-sufficient error response that contains detailed messages for each failed check.
+Validation checks can be performed on the request body, e.g. on form input values or business objects to be stored, as well as on path and query parameters. The `validation-failed` type should be used for all sorts of validation errors. All validation errors for one request should be combined into a self-sufficient error response that contains detailed messages for each failed check.
 
 If an input validation error occurs, we expect a `400 Bad Request` response.
 
-The problem `type` is defined as <https://api.otto.de/portal/errors/ValidationError>.<br />
+The problem `type` is defined as <https://api.otto.de/portal/problems/validation-failed>.<br />
 The `title` should be _"Your request cannot be validated."_.<br />
 The `status` code is always `400`.
 
@@ -17,7 +17,7 @@ This results in the following structure:
 
 ```json
 {
-  "type": "https://api.otto.de/portal/errors/ValidationError",
+  "type": "https://api.otto.de/portal/problems/validation-failed",
   "title": "Your request cannot be validated.",
   "status": 400,
   "validationErrors": [
@@ -109,7 +109,7 @@ Corresponding error response:
 
 ```json
 {
-  "type": "https://api.otto.de/portal/errors/ValidationError",
+  "type": "https://api.otto.de/portal/problems/validation-failed",
   "title": "Your request cannot be validated.",
   "status": 400,
   "validationErrors": [
