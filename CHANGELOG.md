@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.9.11](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.9.10...v1.9.11) (2023-01-27)
+
+### Bug Fixes
+
+- **r000037:** fix displayed name of the link ([#1987](https://github.com/otto-ec/ottoapi_guidelines/issues/1987)) ([c257a96](https://github.com/otto-ec/ottoapi_guidelines/commit/c257a96af04669e400865bb988fafd6c55bac021)), closes [#1983](https://github.com/otto-ec/ottoapi_guidelines/issues/1983)
+
 ### [1.9.10](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.9.9...v1.9.10) (2023-01-25)
 
 ### Bug Fixes
