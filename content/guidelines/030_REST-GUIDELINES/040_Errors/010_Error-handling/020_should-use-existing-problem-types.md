@@ -6,7 +6,7 @@ id: R000037
 # use existing problem types
 
 In addition to the [predefined types](https://www.rfc-editor.org/rfc/rfc7807#section-4.2) in RFC7807, we have defined
-the problem type [https://api.otto.de/portal/errors/ValidationError](@guidelines/R000038).
+the problem type [https://api.otto.de/portal/problems/validation-failed](@guidelines/R000038).
 
 We encourage API designers to reuse existing problem types instead of creating completely new or slightly modified ones.
 
