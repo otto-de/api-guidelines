@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set approval check to success
-        uses: LouisBrunner/checks-action@v1.5.0
+        uses: LouisBrunner/checks-action@v1.6.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: pull-approved
