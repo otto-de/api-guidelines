@@ -28,7 +28,7 @@ permissions:
   packages: read
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  TOOLBOX: $(npm bin)/toolbox
+  TOOLBOX: npm exec toolbox --
   PKG_MANAGER: npm
   PKG_INSTALL_CMD: npm ci -f
 jobs:

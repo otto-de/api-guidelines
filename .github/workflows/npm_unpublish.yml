@@ -22,17 +22,12 @@ name: Unpublish Npm Package
       - deleted
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  TOOLBOX: $(npm bin)/toolbox
+  TOOLBOX: npm exec toolbox --
   PKG_MANAGER: npm
   PKG_INSTALL_CMD: npm ci
 jobs:
   publish:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 16.x
-      fail-fast: true
     steps:
       - name: Dump GitHub context
         env:
@@ -45,7 +40,7 @@ jobs:
       - uses: actions/setup-node@v3
         id: setup_node
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.x
           registry-url: https://npm.pkg.github.com/
           cache: ${{ env.PKG_MANAGER }}
       - name: Install Dependencies
