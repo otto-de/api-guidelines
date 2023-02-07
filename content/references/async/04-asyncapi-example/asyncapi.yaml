@@ -1,4 +1,4 @@
-asyncapi: 2.4.0
+asyncapi: 2.6.0
 info:
   title: OTTO example AsyncAPI
   version: 1.0.0
@@ -41,7 +41,7 @@ channels:
           cleanup.policy: "delete"
           retention.ms: 259200000 #72 hours
     subscribe:
-      summary: |
+      description: |
         Subscribe to all events related to an account. Make sure to filter
         all consumed events by the CloudEvent type.
       operationId: consumeAccountEvents
