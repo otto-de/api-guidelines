@@ -30,15 +30,16 @@ channels:
   # The name of the kafka topic containing the domain events. See https://api.otto.de/portal/guidelines/r200006
   "de.otto.events.account-management.account":
     # State in the channel item description all relevant topic configurations for API consumers.
-    # Also state your order garantuee (see https://api.otto.de/portal/guidelines/r200007)
+    # Also state your order guarantee (see https://api.otto.de/portal/guidelines/r200007)
     description: |
       This topic contains all domain events related to an account. 
 
-      Events are garantueed to appear in order for each account.
-
-      Relevant topic configuration: 
-      - [`cleanup.policy`](https://kafka.apache.org/documentation/#topicconfigs_cleanup.policy): delete
-      - [`retention.ms`](https://kafka.apache.org/documentation/#topicconfigs_retention.ms`): 259200000 (72 hours)
+      Events are guaranteed to appear in order for each account.
+    bindings:
+      kafka:
+        topicConfiguration:
+          cleanup.policy: "delete"
+          retention.ms: 259200000 #72 hours
     subscribe:
       summary: |
         Subscribe to all events related to an account. Make sure to filter
@@ -64,32 +65,35 @@ channels:
 
       This topic contains `de.otto.data.account-management.account.v1` events for the account type. 
 
-      Events are garantueed to appear in order for each account.
+      Events are guaranteed to appear in order for each account.
 
       A tombstone signals a deleted account.
-
-      Relevant topic configuration:
-      - [`cleanup.policy`](https://kafka.apache.org/documentation/#topicconfigs_cleanup.policy): compact
-      - [`delete.retention.ms`](https://kafka.apache.org/documentation/#topicconfigs_delete.retention.ms): 86400000 (1 day)
+    deprecated: true
+    bindings:
+      kafka:
+        topicConfiguration:
+          cleanup.policy: compact
+          delete.retention.ms: 86400000 # 1 day
     subscribe:
       operationId: consumeAccountDataEventsV1
       message:
         oneOf:
           - $ref: "#/components/messages/accountDataEventV1"
           - $ref: "#/components/messages/accountDataDeletedEventV1"
-  # Incompatible versions of data event will be published to a seperate topic.
+  # Incompatible versions of data event will be published to a separate topic.
   # See https://api.otto.de/portal/guidelines/r200016
   "de.otto.data.account-management.account.v2":
     description: |
       This topic contains `de.otto.data.account-management.account.v2` for the account type. 
 
-      Events are garantueed to appear in order for each account.
+      Events are guaranteed to appear in order for each account.
 
       A tombstone signals a deleted account.
-
-      Relevant topic configuration:
-      - [`cleanup.policy`](https://kafka.apache.org/documentation/#topicconfigs_cleanup.policy): compact
-      - [`delete.retention.ms`](https://kafka.apache.org/documentation/#topicconfigs_delete.retention.ms): 86400000 (1 day)
+    bindings:
+      kafka:
+        topicConfiguration:
+          cleanup.policy: compact
+          delete.retention.ms: 86400000 # 1 day
     subscribe:
       operationId: consumeAccountDataEventsV2
       message:
@@ -101,6 +105,7 @@ components:
     accountCreatedV1:
       name: accountCreated.v1
       title: Account created v1
+      deprecated: true
       description: |
         **DEPRECATED**: use `de.otto.events.account-management.account.created.v2` instead.
 
@@ -176,6 +181,7 @@ components:
     accountDataEventV1:
       name: accountDataEvent.v1
       title: Account data event v1
+      deprecated: true
       description: |
         An event that is being emitted whenever the the state of an account changes. Contains the whole state of the account.
       contentType: application/json
@@ -190,6 +196,7 @@ components:
     accountDataDeletedEventV1:
       name: accountDataDeletedEvent.v1
       title: Account deleted (data event) v1
+      deprecated: true
       description: |
         A tombstone event indicates that the account has been deleted.
       traits:
