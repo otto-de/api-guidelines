@@ -1,7 +1,7 @@
 # HTTP Idempotence
 
-- https://github.com/otto-ec/ottoapi_manifest/issues/58
-- https://api.develop.otto.de/api-docs/guidelines/#R000009
+- <https://github.com/otto-ec/ottoapi_manifest/issues/58>
+- <https://api.otto.de/api-docs/guidelines/#R000009>
 
 ## Considerations
 

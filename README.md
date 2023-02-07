@@ -3,7 +3,7 @@
 This repository contains the source documentation of the OTTO API guidelines and acts as a `module` for the [OTTO API Portal](https://github.com/otto-ec/ottoapi_portal). The API guidelines aim for establishing a uniform API standard, which serves as a set of rules for the creation of new APIs.
 The [API Manifesto](/manifesto.md) helps to establish this standard and comprises values that we have agreed upon in advance.
 
-URL: <https://api.develop.otto.de/portal/guidelines>
+URL: <https://api.otto.de/portal/guidelines>
 
 ## Requirements
 

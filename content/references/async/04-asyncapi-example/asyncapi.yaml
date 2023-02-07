@@ -27,10 +27,10 @@ servers:
     security:
       - saslSsl: []
 channels:
-  # The name of the kafka topic containing the domain events. See https://api.develop.otto.de/portal/guidelines/r200006
+  # The name of the kafka topic containing the domain events. See https://api.otto.de/portal/guidelines/r200006
   "de.otto.events.account-management.account":
     # State in the channel item description all relevant topic configurations for API consumers.
-    # Also state your order garantuee (see https://api.develop.otto.de/portal/guidelines/r200007)
+    # Also state your order garantuee (see https://api.otto.de/portal/guidelines/r200007)
     description: |
       This topic contains all domain events related to an account. 
 
@@ -47,14 +47,14 @@ channels:
       message:
         oneOf:
           # Incompatible versions of domain events will be published to the same topic.
-          # See https://api.develop.otto.de/portal/guidelines/r200017
+          # See https://api.otto.de/portal/guidelines/r200017
           - $ref: "#/components/messages/accountCreatedV1"
           - $ref: "#/components/messages/accountCreatedV2"
           - $ref: "#/components/messages/accountBlocked"
           - $ref: "#/components/messages/accountUnblocked"
           - $ref: "#/components/messages/accountDeleted"
   # The name of the kafka topic containing the data event v1.
-  # See https://api.develop.otto.de/portal/guidelines/r200006
+  # See https://api.otto.de/portal/guidelines/r200006
   "de.otto.data.account-management.account.v1":
     # The description explicitly mentions the semantic meaning of kafka tombstones.
     description: |
@@ -78,7 +78,7 @@ channels:
           - $ref: "#/components/messages/accountDataEventV1"
           - $ref: "#/components/messages/accountDataDeletedEventV1"
   # Incompatible versions of data event will be published to a seperate topic.
-  # See https://api.develop.otto.de/portal/guidelines/r200016
+  # See https://api.otto.de/portal/guidelines/r200016
   "de.otto.data.account-management.account.v2":
     description: |
       This topic contains `de.otto.data.account-management.account.v2` for the account type. 
@@ -235,7 +235,7 @@ components:
     accountEvent:
       schemaFormat: "application/schema+json;version=draft-07"
       headers:
-        # Guidelines for CloudEvent attributes: https://api.develop.otto.de/portal/guidelines/r200001
+        # Guidelines for CloudEvent attributes: https://api.otto.de/portal/guidelines/r200001
         description: CloudEvent headers as defined in the CloudEvent spec.
         type: object
         properties:
@@ -264,7 +264,7 @@ components:
             format: date-time
             example: "1990-12-31T23:59:60Z"
           ce_test:
-            description: See https://api.develop.otto.de/portal/guidelines/r200021
+            description: See https://api.otto.de/portal/guidelines/r200021
             type: string
             example: "account-mangement.performancetest"
         required:

@@ -1,6 +1,6 @@
 # OTTO AsyncAPI example
 
-The [asyncapi.yaml](asyncapi.yaml) contains an example AsyncAPI spec that has been created according to the [Event-Guidelines](https://api.develop.otto.de/portal/guidelines/event-guidelines/concepts).
+The [asyncapi.yaml](asyncapi.yaml) contains an example AsyncAPI spec that has been created according to the [Event-Guidelines](https://api.otto.de/portal/guidelines/event-guidelines/concepts).
 
 It contains useful comments and references to the applied guidelines.
 
