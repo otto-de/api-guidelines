@@ -8,7 +8,7 @@ id: R000041
 Embedding related resources (also known as resource expansion) is a great way to reduce the number of requests.
 Resources that link to subresources should return these subresources using the HAL `_embedded` object.
 
-::: info
+::: info Info
 Do not embed a resource or at least embed it optional (via embed query param), if it generates unnecessary load, traffic, or response bloat.
 :::
 

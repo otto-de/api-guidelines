@@ -7,6 +7,4 @@ id: R000062
 
 If multiple values need to be supported, they should be provided as a comma-separated list (e.g. `key=value1,value2`).
 
-::: info
-Must not promote usage of multiple occurrence of the same parameter in the query string (e.g. `key=value1&key=value2`), prefer lists instead.
-:::
+Multiple occurrences of the same parameter in the query string (e.g. `key=value1&key=value2`) must not be promoted, prefer lists instead.

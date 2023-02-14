@@ -8,7 +8,7 @@ According to this definition, the term _compatibility_ refers solely to the exch
 
 This section deals with topics, such as [compatible API evolution](./010_Compatible-changes/index.md), introduction of [new API components](./020_Preview/index.md) and finally retiring [obsoleted API components](./030_Deprecation/index.md).
 
-::: info
+::: info Info
 The general rules for compatibility included in this section are independent of the API type.
 Versioning and other compatibility rules specific to REST and Event APIs are documented in their respective sections:
 

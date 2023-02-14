@@ -97,7 +97,7 @@ HTTP/1.1 428 Precondition Required
 :::
 ::::
 
-::: info
+::: info Info
 Using `HEAD` instead of `GET` in order to just fetch the most current `ETag` value is always an option to save bandwidth!
 :::
 

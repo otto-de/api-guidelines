@@ -20,6 +20,6 @@ The scope, level of detail, and content of the endpoints are not intended for pu
 Access to data and company assets is only granted to selected and predictable API consumers.
 This approach enables a targeted and managed development of API clients and products.
 
-::: info
+::: info Info
 The OTTO API corresponds to the attributes **public**, **closed**, and **published**.
 :::

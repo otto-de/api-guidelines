@@ -20,6 +20,6 @@ Sunset: Sun, 31 Dec 2025 23:59:59 GMT
 
 If multiple elements are deprecated, the `Deprecation` and `Sunset` headers are expected to be set to the earliest timestamp to reflect the shortest interval consumers are expected to get active.
 
-::: warning
+::: warning Important
 Adding the `Deprecation` and `Sunset` header to the response is not sufficient to gain client consent to shut down an API or feature.
 :::

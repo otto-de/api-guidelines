@@ -13,11 +13,9 @@ Use one of the following options for your implementation instead:
 2. Use a templated hypermedia link, such as `o:templated-link`.
 3. Use querying capabilities, e.g. `/some-resource?external-id-name={external-id}`.
 
-::: warning
-
 This is why using an external identifier as primary resource identifier is not recommended:
 
 - The API will often respond with a 404 status for consumer requests with existing identifiers, causing issues for error monitoring.
 - 404 errors should be reserved for rare cases, where an API forgets to notify a consumer about a resource being deleted and the consumer accesses this (now) stale link.
 - Business need might change the relation.
-  :::
+

@@ -17,7 +17,7 @@ In addition, profiles also allow resource/sub-resource independent versioning.
 
 In cases where profile-based versioning is not possible or sufficient, URL-based versioning can be applied.
 
-:::info
+::: info Info
 During the initial discussion of versioning, several options have been [identified and evaluated (internal link)](https://github.com/otto-ec/ottoapi_guidelines/blob/main/content/references/REST/versioning.md).
 :::
 

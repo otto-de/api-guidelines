@@ -22,12 +22,10 @@ Examples:
 
 Use `date-time` in UTC without time zone (e.g. `2020-06-16T12:53:11Z`).
 
-::: info
 In the [OpenAPI specification][openapi-specification-data-types] `full-date` corresponds to `date`, `date-time` corresponds to `date-time`.
 In the [JSON Schema specification][json-schema-spec-defined-formats] `full-time` corresponds to `time`.
-:::
 
-::: warning
+::: warning Important
 HTTP headers must use the date format recommended by the HTTP specification [RFC7231][rfc7231] (e.g. `Sun, 06 Nov 1994 08:49:37 GMT`).
 :::
 

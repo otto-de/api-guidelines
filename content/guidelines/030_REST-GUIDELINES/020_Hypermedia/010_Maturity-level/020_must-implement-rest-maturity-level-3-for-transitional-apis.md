@@ -16,20 +16,20 @@ Hypermedia must be implemented for [unsafe resource operations](@guidelines/R000
 
 Unsafe resource operations will fail depending on the state of the resource itself.
 
-`Example`{ label } _Cancellation of an order is only possible as long as it is not shipped.
+Example: _Cancellation of an order is only possible as long as it is not shipped.
 When error responses are solely caused by the caller's request entity and/or parameter(s), the implementation of hypermedia links is not necessary._
 
 ### Authorization
 
 Unsafe resource operations will fail depending on the [authorization](../../005_Authorization/index.md) of the calling identity.
 
-`Example`{ label } _Rating products is only available to customers with a certain reputation._
+Example: _Rating products is only available to customers with a certain reputation._
 
 ### Time
 
 Unsafe resource operations will fail depending on the time the resource is accessed.
 
-`Example`{ label } _Vouchers are only valid for 2 weeks, after that period their usage will lead to errors, though the voucher itself has not changed it's state_
+Example: _Vouchers are only valid for 2 weeks, after that period their usage will lead to errors, though the voucher itself has not changed it's state_
 
 ::: references
 

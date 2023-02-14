@@ -18,7 +18,9 @@ To keep a consistent naming pattern, scopes should be constructed according to t
 {resource}.{permission}
 ```
 
-`Note`{ label } A scope without explicit permissions grants access to the whole resource.
+::: info Info
+A scope without explicit permissions grants access to the whole resource.
+:::
 
 :::: accordions
 ::: accordion Rules

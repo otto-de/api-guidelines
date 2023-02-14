@@ -24,4 +24,6 @@ should be considered semantically equivalent to this object with `absent propert
 }
 ```
 
-`Note`{ label } `PATCH` endpoints are an exception to this rule (see [MUST use HTTP methods correctly](R000007)). Regarding the example above, a `PATCH` request with the first object would set the `name` to `John` and the `age` to `null`, whereas a request with the second object would only modify the `name`.
+::: info Info
+`PATCH` endpoints are an exception to this rule (see [MUST use HTTP methods correctly](R000007)). Referring to the example above, a `PATCH` request with the first object would set the `name` to `John` and the `age` to `null`, whereas a request with the second object would only modify the `name`.
+:::

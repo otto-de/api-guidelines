@@ -5,7 +5,7 @@ id: R000045
 
 # use HAL format for embedded resources
 
-::: warning
+::: info Info
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 

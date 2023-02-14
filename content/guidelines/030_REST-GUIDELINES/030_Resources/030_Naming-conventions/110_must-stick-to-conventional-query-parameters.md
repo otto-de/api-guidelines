@@ -10,7 +10,7 @@ To provide clients with a consistent API, the following query parameters must be
 ::::: accordions
 :::: accordion Paging
 
-::: warning
+::: info Info
 This rule applies to public APIs. For private APIs it should be followed.
 :::
 

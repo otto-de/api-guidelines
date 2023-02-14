@@ -13,7 +13,7 @@ All implementations of our API follow the [Robustness Principle](https://en.wiki
 Future changes to interfaces cannot be anticipated in advance, so aspects such as backward compatibility, loose coupling, and the elimination of the need to synchronize different services are of crucial importance.
 This is especially applicable for microservice environments where dependencies between services should be kept to a minimum.
 
-::: info
+::: info Info
 Be conservative in what you do, be liberal in what you accept from others.
 :::
 ::::

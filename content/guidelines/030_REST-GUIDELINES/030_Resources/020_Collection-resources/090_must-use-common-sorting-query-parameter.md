@@ -14,7 +14,9 @@ If simple sorting of the results is possible, the `sort` query parameter must be
 - Services do not need to support all resource properties to be used for sorting and must respond with a `400 Bad Request` if they do not.
 - If the use case cannot be expressed using this simple sorting parameter, you should introduce a separate query parameter or a separate endpoint that accepts a complex filter/query language as a JSON body instead of a query parameter.
 
-`Note`{ label } Make sure to add the `sort` parameter to the to HAL links if necessary.
+::: info Info
+Make sure to add the `sort` parameter to the to HAL links if necessary.
+:::
 
 ::: references
 

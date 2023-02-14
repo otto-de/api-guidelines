@@ -5,7 +5,7 @@ id: R100026
 
 # support hypermedia controls in collection resources
 
-::: warning
+::: info Info
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
@@ -20,7 +20,7 @@ The most common ones are:
 - `first` (_optional_): the first page
 - `last` (_optional_): the last page
 
-::: info
+::: info Info
 Some properties like `first`, `next` and `last` can be omitted if the implementation is not feasable, for example, when the calculation has a big performance impact.
 Exposing this data should consider the performance implications, not only now but over the lifespan of the service.
 :::

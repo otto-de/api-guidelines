@@ -23,6 +23,6 @@ For example:
 However, even endpoints providing public resources [must be secured with OAuth 2.0](R000051).
 To harmonize the access to public resources we defined the special scope `otto.read`, which can be used to secure those resources.
 
-::: danger
+::: warning Important
 Every resource that **cannot be clearly** classified as public has to be considered as private and is not allowed to use the `otto.read` scope.
 :::

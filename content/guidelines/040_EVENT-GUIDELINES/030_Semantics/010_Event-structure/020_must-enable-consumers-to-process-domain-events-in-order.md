@@ -15,7 +15,7 @@ API provider can enable consumers to process domain events in order either by pr
 Kafka supports [idempotent producers](https://kafka.apache.org/documentation/#producerconfigs_enable.idempotence) to guarantee in-order delivery.
 This is enabled by default from Kafka 3.0.1 on if no other configuration option prevents it from being idempotent.
 
-::: info
+::: info Info
 If very high throughput and low latency is needed, an idempotent producer may not be the right option.
 An idempotent producer needs to receive acknowledgement for each written record by a certain number of kafka nods (configured by [`min.insync.replicas`](https://kafka.apache.org/documentation/#producerconfigs_enable.idempotence)).
 This introduces additional latency.

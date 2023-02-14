@@ -5,8 +5,8 @@ id: R100063
 
 # document link cardinality
 
-::: warning
-This rule applies to APIs, that have to comply with [REST maturity level 3](@guidelines/R000033).
+::: info Info
+This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
 The HAL `_links` object holds property names of link relation types, and values of either a link object:

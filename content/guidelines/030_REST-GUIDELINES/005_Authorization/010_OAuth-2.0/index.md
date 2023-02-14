@@ -30,7 +30,7 @@ In short: JWTs are [URL safe base64](https://tools.ietf.org/html/rfc4648#section
 - payload (containing, among other things, the expiration date and scope(s) of the token) and
 - signature to allow decentralized verification of said payload
 
-`Note`{ label } You can find examples, a validator and a collection of libraries for different languages as well as runtime environments at [jwt.io](https://jwt.io/).
+You can find examples, a validator and a collection of libraries for different languages as well as runtime environments at [jwt.io](https://jwt.io/).
 
 ### Example Token
 
@@ -63,7 +63,7 @@ The JSON content parts of the decoded token look like this:
 }
 ```
 
-::: warning Large Bearer Tokens
+::: warning Important
 Requesting a large number of scopes will result in large Bearer Tokens. Servers might reject requests containing an `Authorization` header that is larger than 4kB with `413 Payload Too Large` status code.
 :::
 ::::
@@ -97,7 +97,9 @@ To solve this, OAuth 2.0 introduced [refresh tokens](https://tools.ietf.org/html
 A refresh token allows an application to obtain a new access token in the background without prompting the user for login credentials and thus not interrupting the user journey.
 Typical clients that need a refresh token are mobile and web applications that want to keep the user authenticated for longer than the lifetime of the default access token without having to regularly re-authenticate the user.
 
-`Note`{ label } A refresh token can only be used once and must be replaced after usage.
+::: info Info
+A refresh token can only be used once and must be replaced after usage.
+:::
 
 In order to refresh an access token, a client needs to extract the `refresh_token` attribute that comes as part of the JSON response when requesting an access token, and store it for later usage.
 When the access token is about to expire the client will use the grant type `refresh_token` (instead of `authorization_code` or `client_credentials`) to fetch a new token.

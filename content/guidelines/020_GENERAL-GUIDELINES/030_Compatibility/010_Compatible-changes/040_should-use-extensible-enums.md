@@ -38,11 +38,11 @@ PaymentType:
       preview: true
 ```
 
-::: warning
+::: warning Important
 Do not use the `enum` keyword in combination with `x-extensible-enum`.
 :::
 
-::: info
+::: info Info
 Note that the "x-extensible-enum" extension property is ignored by most tools. When API clients need to process the different values, the logic must be added manually. This results in extra work for the consumers, but guarantees that automatically generated clients do not break when adding new values.
 :::
 

@@ -47,7 +47,7 @@ event type de.otto.data.checkout.payment.v1 can be found in de.otto.data.checkou
 event type de.otto.data.products.variation.price.v1 can be found in de.otto.data.products.variations.prices.v1
 ```
 
-::: info
+::: info Info
 This rule only applies to API topics. Topics which are not part of the API must adhere to the [naming conventions for internal topics (internal link)](https://confluence.otto.de/pages/viewpage.action?spaceKey=KAFKA&title=08.1.2+Topic+Naming+Conventions).
 :::
 
