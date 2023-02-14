@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Get Pull review info
         id: reviews
-        uses: jurijzahn8019/action-get-pull-review-info@v0.0.111
+        uses: jurijzahn8019/action-get-pull-review-info@v0.0.113
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set Clear Flag
