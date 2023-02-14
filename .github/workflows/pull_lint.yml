@@ -33,7 +33,7 @@ jobs:
       #        run: npm run cli --silent -- guidelines-pull lint-changes
 
       - name: Lint PR Title if sources are changed
-        uses: amannn/action-semantic-pull-request@v5.0.2
+        uses: amannn/action-semantic-pull-request@v5.1.0
         if: ${{ steps.prlint.outputs.otherChanged == 'true' }}
         with:
           types: |
