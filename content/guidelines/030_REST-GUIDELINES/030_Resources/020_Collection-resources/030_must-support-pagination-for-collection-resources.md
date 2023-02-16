@@ -31,7 +31,7 @@ CONs
 - assumes fixed length / fixed window: next page might contain previous elements or skip elements if elements were inserted or deleted in the meantime.
   Should be avoided for frequently updated collections.
 
-Example with `page` and `pageSize` as query parameter:
+Example:
 
 ```json
 {
@@ -74,46 +74,6 @@ Example with `page` and `pageSize` as query parameter:
     "totalElements": 100,
     "totalPages": 1,
     "number": 0
-  },
-
-  "currentlyProcessing": 14,
-  "shippedToday": 20
-}
-```
-
-Example with `offset` and `limit` as query parameter:
-
-```json
-{
-  "_links": {
-    "item": [
-      { "href": "https://api.otto.de/orders/123" },
-      ...
-    ],
-    "self": { "href": "https://api.otto.de/orders?offset=9&limit=5" },
-    "prev": { "href": "https://api.otto.de/orders?offset=4&limit=5" },
-    "next": { "href": "https://api.otto.de/orders?offset=14&limit=5" }
-  },
-  "_embedded": {
-    "item": [
-      {
-        "total": 30.0,
-        "currency": "USD",
-        "status": "shipped",
-
-        "_links": {
-          "self": { "href": "https://api.otto.de/orders/123" }
-        }
-      },
-      ...
-    ]
-  },
-
-  "_offsetPage": {
-    "limit": 5,
-    "offset": 9,
-    "count" : 5,
-    "totalElements": 22
   },
 
   "currentlyProcessing": 14,
