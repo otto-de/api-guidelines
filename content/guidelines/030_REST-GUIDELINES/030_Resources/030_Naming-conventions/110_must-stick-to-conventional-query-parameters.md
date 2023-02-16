@@ -18,6 +18,8 @@ This rule applies to public APIs. For private APIs it should be followed.
 | :--------- | :--------------------------------- | :----- | :-------------- |
 | `pageSize` | Number of elements in the response | `1..`  | `?pageSize=10`  |
 | `page`     | Page number (0-indexed)            | `0..`  | `?page=2`       |
+| `limit`    | Number of elements in the response | `1..`  | `?limit=10`     |
+| `offset`   | Starting point of the collection   | `0..`  | `?offset=9`     |
 | `after`    | Results after the cursor position  | \*     | `?after=e2e3c`  |
 | `before`   | Results before the cursor position | \*     | `?before=129fa` |
 
