@@ -223,6 +223,11 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 300
+      - uses: actions/setup-node@v3
+        id: setup_node
+        with:
+          node-version: 18.2
+          cache: npm
       - name: Install Npm Dependencies
         id: npm_install
         env:
