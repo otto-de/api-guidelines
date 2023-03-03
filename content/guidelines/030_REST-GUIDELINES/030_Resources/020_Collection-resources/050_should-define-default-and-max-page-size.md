@@ -3,14 +3,14 @@ type: SHOULD
 id: R100039
 ---
 
-# define default and maximum page size
+# define default and maximum page size or limit
 
 Every collection resource should define and document
 
-- a reasonable default page size (`defaultPageSize`)
-- a maximum page size (`maxPageSize`)
+- a reasonable default page size or limit (`defaultPageSize` or `defaultLimit`)
+- a maximum page size or limit (`maxPageSize` or `maxLimit`)
 
-which can be used as the `pageSize` query parameter.
+which can be used as the `pageSize` or `limit` query parameter.
 
 ::: references
 
