@@ -1,0 +1,7 @@
+features:
+  - scope: "*"
+    subject: >-
+      adjustment of the offset-based rules to use also limit and offset as query
+      parameters
+    hash: f7d736defe62311c9bb7b1d820e171d1b5203593
+    date: "2023-03-03"
