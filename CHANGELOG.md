@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.10.2...v1.11.0) (2023-03-03)
+
+### Features
+
+- adjustment of the offset-based rules to use also limit and offset as query parameters ([#2017](https://github.com/otto-ec/ottoapi_guidelines/issues/2017)) ([f7d736d](https://github.com/otto-ec/ottoapi_guidelines/commit/f7d736defe62311c9bb7b1d820e171d1b5203593)), closes [#1751](https://github.com/otto-ec/ottoapi_guidelines/issues/1751)
+
 ### [1.10.2](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.10.1...v1.10.2) (2023-03-02)
 
 ### [1.10.1](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.10.0...v1.10.1) (2023-02-16)
