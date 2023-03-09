@@ -14,7 +14,7 @@ The HAL `_links` object holds property names of link relation types, and values 
 ```json
 {
   "_links": {
-    "author": { "href": "http://api.otto.de/users/42" }
+    "https://api.otto.de/users/link-relations/author": { "href": "https://api.otto.de/users/42" }
   }
 }
 ```
@@ -24,16 +24,16 @@ The HAL `_links` object holds property names of link relation types, and values 
 ```json
 {
   "_links": {
-    "item": [
-      { "href": "http://api.otto.de/products/4711" },
-      { "href": "http://api.otto.de/products/0815" }
+    "https://api.otto.de/products/link-relations/item": [
+      { "href": "https://api.otto.de/products/4711" },
+      { "href": "https://api.otto.de/products/0815" }
     ]
   }
 }
 ```
 
 In order to simplify the implementation of API clients, the client must know which link relation types contain single link objects, and which contain an array of link objects.
-Thats why every profile must document the cardinality of the link relation types used in the profile.
+That's why every profile must document the cardinality of the link relation types used in the profile.
 
 ::: references
 

@@ -9,10 +9,8 @@ id: R100038
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
 :::
 
-Custom link relation types can be introduced if no [IANA-registered](@guidelines/R100036) or [existing custom](@guidelines/R100035) link relation type matches the semantics of a link.
-In this case, the rule [MUST use absolute URLs for custom link relation types](@guidelines/R100037) must be adhered to.
-
-A resource that uses custom link relation types to link to other resources must have a `curies` array in its `_links` property. OTTO API curie objects inside this array must have the property `href` with a value in the form of `https://api.otto.de/portal/link-relations/{context-id}/{rel}`.
+A resource that uses [custom link relation types](@guidelines/R100037) to link to other resources must have a `curies` array in its `_links` property.
+Curie objects inside this array must have a templated property `href`.
 
 ```json
 {
@@ -21,7 +19,7 @@ A resource that uses custom link relation types to link to other resources must 
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/portal/link-relations/orders/{rel}",
+        "href": "https://api.otto.de/orders/link-relations/{rel}",
         "templated": true
       }
     ]
@@ -38,7 +36,7 @@ Links to a resource with a custom link relation type must be curied using this C
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/portal/link-relations/orders/{rel}",
+        "href": "https://api.otto.de/orders/link-relations/{rel}",
         "templated": true
       }
     ],
@@ -59,7 +57,7 @@ If the linked resources [can be embedded](@guidelines/R000041) into the response
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/portal/link-relations/orders/{rel}",
+        "href": "https://api.otto.de/orders/link-relations/{rel}",
         "templated": true
       }
     ],
@@ -97,5 +95,5 @@ If the linked resources [can be embedded](@guidelines/R000041) into the response
 - [MUST implement REST maturity level 3 for transitional APIs](@guidelines/R000033)
 - [MUST prefer IANA-registered link relation types](@guidelines/R100036)
 - [MUST prefer existing custom link relation types](@guidelines/R100035)
-- [MUST use absolute URLs for custom link relation types](@guidelines/R100037)
+- [MUST use absolute URIs for custom link relation types](@guidelines/R100037)
   :::

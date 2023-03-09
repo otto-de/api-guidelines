@@ -6,4 +6,4 @@ To achieve this, API contracts should not contain or publish explicit or implici
 
 Instead, API responses should include information about when certain contextually relevant resources are accessible and thus usable. This information is commonly referred to as hypermedia.
 
-This section deals with topics such as [when hypermedia needs to be implemented](@guidelines/R000033), [which hypermedia standard to use](@guidelines/R000036), details about how to use [hypermedia links](./020_Links/index.md), [link relations](./030_Link-relation-types/index.md) and finally [profiles](./040_Profiles/index.md) to support [versioning](../050_Compatibility/020_Versioning/index.md).
+This section deals with topics such as [when hypermedia needs to be implemented](@guidelines/R000033), [which hypermedia standard to use](@guidelines/R000036), details about how to use [hypermedia links](./020_Links/index.md), and [link relations](./030_Link-relation-types/index.md).

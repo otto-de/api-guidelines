@@ -28,7 +28,7 @@ paths:
               schema:
                 type: string
                 content:
-                  'application/json+hal;profile="https://api.otto.de/portal/profiles/products/products+v1"':
+                  'application/json+hal;profile="https://api.otto.de/products/profiles/products+v1"':
                     schema:
                       "$ref": "#/components/schemas/LoadProductsV1Response"
 ```
