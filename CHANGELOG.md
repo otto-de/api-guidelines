@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.12.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.11.0...v1.12.0) (2023-03-09)
+
+### Features
+
+- profile and link-rel urls can be independent of the portal ([#2021](https://github.com/otto-ec/ottoapi_guidelines/issues/2021)) ([cf99405](https://github.com/otto-ec/ottoapi_guidelines/commit/cf99405b613f16aef2e95963cfc6ec2d8d7ae29d)), closes [#1996](https://github.com/otto-ec/ottoapi_guidelines/issues/1996) [#1401](https://github.com/otto-ec/ottoapi_guidelines/issues/1401)
+
 ## [1.11.0](https://github.com/otto-ec/ottoapi_guidelines/compare/v1.10.2...v1.11.0) (2023-03-03)
 
 ### Features
