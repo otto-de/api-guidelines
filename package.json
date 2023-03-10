@@ -51,7 +51,7 @@
     "@otto-ec/toolbox-cli-core": "^1.9.1",
     "@otto-ec/toolbox-config-assets": "^1.31.0",
     "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.14.6",
+    "@types/node": "^18.15.0",
     "markdown-it": "^13.0.1",
     "markdown-it-front-matter": "^0.2.3",
     "ts-node": "^10.9.1",
