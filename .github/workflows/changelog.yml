@@ -1,0 +1,51 @@
+name: Changelog
+
+on:
+  #  push:
+  #    branches:
+  #      - main
+  workflow_dispatch:
+    inputs:
+      ref-number:
+        description: Pull request revision number
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      packages: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.2"
+          cache: npm
+
+      - name: NPM install
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: npm ci
+
+      - name: Create Changelog
+        id: create-changelog
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PR_REF: ${{github.event.inputs.ref-number}}
+        run: >
+          npm run changelog
+
+      - name: Auto commit
+        if: success()
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        with:
+          commit_message: "chore(changelog): update changelog"
+          file_pattern: "changes/changelog.md"
