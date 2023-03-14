@@ -1,4 +1,3 @@
-
 // MANAGED BY: @otto-ec/bender
 // remove magic string if you want to override default config
 
@@ -8,4 +7,3 @@ const config = {
 };
 
 module.exports = config;
-
