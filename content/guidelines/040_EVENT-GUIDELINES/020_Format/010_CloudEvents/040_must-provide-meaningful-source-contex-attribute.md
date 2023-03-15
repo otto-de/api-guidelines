@@ -23,7 +23,7 @@ The protocol **must not** be part of the source if the event source can't be acc
 
 The specified domain **must be** owned by OTTO to guarantee a globally unique `source` as the CloudEvents spec recommends. The default domain for non-resolvable URLs is `otto.de`, but API providers may use other domains if they are more suitable.
 
-The `source` URI needs to follow the [naming conventions for URIs](../../../030_REST-GUIDELINES/030_Resources/030_Naming-conventions/index.md).
+The `source` URI needs to follow the [naming conventions for URIs](../../../030_REST-GUIDELINES/020_Resources/030_Naming-conventions/index.md).
 
 ### Examples
 
