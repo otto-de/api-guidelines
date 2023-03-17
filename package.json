@@ -1,63 +1,30 @@
 {
-  "name": "@otto-ec/ottoapi-guidelines",
+  "name": "@otto-de/api-guidelines",
   "version": "1.12.1",
   "description": "This repository is the source for establishing a uniform API standard (aka API Guidelines), which serves as a set of rules for the creation of new APIs within MA-EC. (In the future, this standard can also be used to unify existing APIs.) The [API Manifesto](/manifesto.md) helps to establish this standard and comprises values that a work group has agreed upon in advance.",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/otto-de/api-guidelines#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otto-de/api-guidelines.git"
+  },
+  "bugs": {
+    "url": "https://github.com/otto-de/api-guidelines/issues"
+  },
   "files": [
     "changes",
     "content"
   ],
   "scripts": {
-    "build": "echo no build command",
-    "bump": "npm run cli -- guidelines bump",
-    "clean": "rm -rf ./tmp ./build ./dist ./public ./gen ./src ./index.html",
-    "cli": "FORCE_COLOR=true DEBUG_COLORS=true DEBUG_DEPTH=6 DEBUG_LEVEL=${DEBUG_LEVEL:-warning} DEBUG=ottoapi-cli:* ottoapi --debug ''",
-    "collect": "ts-node -T cli/index.ts ",
-    "dev": "npm run serve",
-    "links:broken": "npm run collect -- bad-links",
-    "lint": "bender ml --files \"content/guidelines/**/*.md\"",
-    "nextRuleId": "npm run collect -- nextid",
-    "packlocal": "export PKGNAME=ottoapi-guidelines; mkdir -p ./tmp && rm -rf ./tmp/*-$PKGNAME-*.tgz; rm -rf ./tmp/package; npm pack && mv -f *-$PKGNAME-*.tgz ./tmp/ && tar xfz ./tmp/*-$PKGNAME-*.tgz -C ./tmp",
-    "rules:list": "npm run collect -- list-rules",
-    "rules:nextid": "npm run collect -- nextid",
-    "serve": "cd preview && OTTOAPI_GUIDELINES_BASE_PATH=../../ npm run serve",
+    "clean": "rm -rf ./dist",
     "changelog": "npx tsx scripts/changelog/index.ts",
     "test": "vitest run"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/otto-ec/ottoapi_guidelines.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/otto-ec/ottoapi_guidelines/issues"
-  },
-  "homepage": "https://github.com/otto-ec/ottoapi_guidelines#readme",
-  "bender": {
-    "eslint_env_node": true,
-    "eslint_env_browser": false,
-    "eslint_plugin_compat": false,
-    "eslint_plugin_jest": false
-  },
-  "toolbox": {
-    "configs": [
-      "@otto-ec/toolbox-config-assets"
-    ]
-  },
   "devDependencies": {
     "@actions/github": "^5.1.1",
-    "@otto-ec/assets-core-utils": "^1.12.2",
-    "@otto-ec/assets-debug": "^2.1.2",
-    "@otto-ec/bender": "^2.0.5",
-    "@otto-ec/ottoapi-cli": "^1.24.2",
-    "@otto-ec/toolbox": "^3.4.4",
-    "@otto-ec/toolbox-cli-core": "^1.9.1",
-    "@otto-ec/toolbox-config-assets": "^1.31.0",
-    "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.15.3",
-    "markdown-it": "^13.0.1",
-    "markdown-it-front-matter": "^0.2.3",
-    "ts-node": "^10.9.1",
+    "tsx": "^3.12.5",
     "typescript": "^4.9.5",
     "vitest": "^0.29.3"
   }

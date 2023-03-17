@@ -1,4 +1,4 @@
-# ottoapi_guidelines
+# api-guidelines
 
 This repository contains the source documentation of the OTTO API guidelines and acts as a `module` for the [OTTO API Portal](https://github.com/otto-ec/ottoapi_portal). The API guidelines aim for establishing a uniform API standard, which serves as a set of rules for the creation of new APIs.
 The [API Manifesto](/manifesto.md) helps to establish this standard and comprises values that we have agreed upon in advance.
@@ -19,7 +19,7 @@ If you need write permissions to this repository, you can add your team via PR t
 
 ### Setup the repository
 
-1. Clone this repository: `git clone git@github.com:otto-ec/ottoapi_guidelines.git`
+1. Clone this repository: `git clone git@github.com:otto-de/api-guidelines.git`
 2. Install the dependencies:
 
    ```bash
