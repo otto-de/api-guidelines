@@ -41,7 +41,9 @@ function createChangelogEntry(message: PullRequestMessage, date: string) {
 function prependChangelogEntry(fileContent: string, textToPrepend: string): string {
   const [first, ...rest] = fileContent.split(CHANGELOG_ENTRIES_MARKER);
   if (rest.length === 0) {
-    throw `Entries marker '${CHANGELOG_ENTRIES_MARKER}' is missing in CHANGELOG.md file!`;
+    throw new Error(
+      `Entries marker '${CHANGELOG_ENTRIES_MARKER}' is missing in CHANGELOG.md file!`
+    );
   }
   // Re add marker to first element (changelog header)
   const firstWithMarker = first + CHANGELOG_ENTRIES_MARKER;

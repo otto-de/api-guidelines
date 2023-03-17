@@ -17,13 +17,21 @@
     "content"
   ],
   "scripts": {
-    "clean": "rm -rf ./dist",
     "changelog": "npx tsx scripts/changelog/index.ts",
+    "clean": "rm -rf ./dist",
+    "prepare": "husky install",
     "test": "vitest run"
   },
   "devDependencies": {
     "@actions/github": "^5.1.1",
     "@types/node": "^18.15.3",
+    "eslint": "^8.36.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4",
     "tsx": "^3.12.5",
     "typescript": "^4.9.5",
     "vitest": "^0.29.3"

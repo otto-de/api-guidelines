@@ -1,4 +1,5 @@
 import { context } from "@actions/github";
+import { error } from "@actions/core";
 import { Context } from "@actions/github/lib/context";
 import { getPullRequest } from "./pull-request";
 import { addChangelogEntry, createChangelogEntry, isFixOrFeature } from "./entry";
@@ -21,12 +22,11 @@ export async function run(githubContext: Context) {
       const changelogEntry = createChangelogEntry(pullRequest.message, pullRequest.date);
       addChangelogEntry(changelogEntry);
     }
-  } catch (error) {
-    console.error(error);
+  } catch (err) {
+    error(`${err}`);
   }
 }
 
 if (!process.env.TEST) {
   run(context);
 }
-
