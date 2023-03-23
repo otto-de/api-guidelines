@@ -1,5 +1,0 @@
----
-sideNav: true
----
-
-# Naming conventions
