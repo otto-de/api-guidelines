@@ -1,49 +1,40 @@
-# api-guidelines
+# OTTO API Guidelines
 
-This repository contains the source documentation of the OTTO API guidelines and acts as a `module` for the [OTTO API Portal](https://github.com/otto-ec/ottoapi_portal). The API guidelines aim for establishing a uniform API standard, which serves as a set of rules for the creation of new APIs.
-The [API Manifesto](/manifesto.md) helps to establish this standard and comprises values that we have agreed upon in advance.
+Our APIs are a valuable part of our business assets, as with APIs we generate the corresponding operating values.
+Ideally, by applying the API guidelines, all APIs look as if they were created by a single team, thus providing API consumers with a homogeneous, easy-to-use product.
+This facilitates a great developer experience and the ability to quickly compose complex business processes.
 
-URL: <https://api.otto.de/portal/guidelines>
+With this in mind, we trust that our teams build APIs that are:
 
-## Requirements
+- self-explanatory
+- easy to use and robust
+- of high quality
+- consistent
+- transparently versioned
 
-This project requires at least Node.js version 16, or higher. We recommend using version 18.
-If you need write permissions to this repository, you can add your team via PR to this file: [.github/gitty.yml#/configs/settings/default/teams](.github/gitty.yml#/configs/settings/default/teams).
+## How to read the guidelines
 
-### Get started
+This guide is a living document and will be revised over time as new rules are added or existing rules are modified.
 
-1. Create a `GITHUB_TOKEN` [in your GitHub developer settings](https://github.com/settings/tokens).
-2. Assign the scope `read:packages` to the token and enable `SSO` for it.
-3. Export the token: `export GITHUB_TOKEN=<Your Personal GitHub Accesss Token with SSO and packages:read>`
-4. Ensure that Node.js and npm work properly: `node -v && npm -v`
+The guidelines are structured into individual rules that use the key words "MUST", "MUST NOT", "SHOULD", "SHOULD NOT", and "MAY".
+These keywords are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt).
+In this document, such keywords are highlighted at the beginning of each section in uppercase letters and are color-coded.
 
-### Setup the repository
+::: info Disclaimer
+Code examples may be incomplete and/or may violate the rules described in the guidelines.
+Examples are intentionally kept simple to make them more accessible and easier to comprehend.
+They are always correct in their context, but not necessarily outside of it.
 
-1. Clone this repository: `git clone git@github.com:otto-de/api-guidelines.git`
-2. Install the dependencies:
+Common examples for this are:
 
-   ```bash
-   npm ci
-   ```
+- omitted headers such as `Authorization`
+- omitted (mandatory) properties in JSON responses
+  :::
 
-## Contributing
+## Attribution
 
-The directory `./content` contains the Markdown files for the API Portal's guidelines section.
-Our [Technical Writing Style Guide](https://github.com/otto-ec/ottoapi_portal/wiki) helps to write clear and consistent content and explains which custom content elements you can use in your Markdown files.
+At this point we would like to send Kudos to Zalando SE whose Tech Team did a great job crafting the [Zalando RESTful API Guidelines](https://opensource.zalando.com/restful-api-guidelines/#).
+As much of the content resonates with what we do at OTTO, their well-prepared document inspired us and in certain parts provided a basis when crafting the OTTO API Guidelines.
 
-Run the development service:
-
-```bash
-npm run serve
-```
-
-Navigate to [http://localhost:3000](http://localhost:3000) to see the rendered output.
-
-Happy coding!
-
-## Release & deployment
-
-Each commit of type `feat` or `fix` triggers a new npm package release and generates a new changelog entry.
-[ottoapi_portal](https://github.com/otto-ec/ottoapi_portal) will be notified and automatically consumes the new version.
-
-Actions are provided by the [ottoapi_cli](https://github.com/otto-ec/ottoapi_cli)
+The Zalando RESTful API Guidelines are published under the [Creative Commons Attribution 4.0 International License](https://github.com/zalando/restful-api-guidelines/blob/main/LICENSE) (CC BY 4.0).
+For further notes on these OTTO API Guidelines’ license under CC BY 4.0, please refer to the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode).
