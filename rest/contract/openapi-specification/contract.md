@@ -1,0 +1,3 @@
+# Contract
+
+[INCLUDE openapi-specification](/)
