@@ -1,7 +1,3 @@
----
-sideNav: true
----
-
 # OAuth 2.0
 
 The API uses [OAuth 2.0](https://oauth.net/2/) for authorization.
@@ -119,3 +115,5 @@ grant_type=refresh_token
 The response to the refresh token grant is the same as when issuing an access token. You can optionally issue a new refresh token in the response, or if you don’t include a new refresh token, the client assumes the current refresh token will continue to be valid.
 ::::
 :::::
+
+[RULES](../oauth/rules/)
