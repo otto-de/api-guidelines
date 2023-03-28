@@ -11,12 +11,18 @@ This section deals with topics such as [when hypermedia needs to be implemented]
 
 ## Maturity level
 
-[INCLUDE maturity leve](/)
+[<!--INCLUDE-->Maturity level](../hypermedia/maturity-level/maturity-level.md)
+
+[<!--RULES-->Rules](../hypermedia/maturity-level/rules/)
 
 ## Links
 
-[INCLUDE links](/)
+[<!--INCLUDE-->Links](../hypermedia/links/links.md)
+
+[<!--RULES-->Rules](../hypermedia/links/rules/)
 
 ## Link relation types
 
-[INCLUDE link-relation-types](/)
+[<!--INCLUDE-->Link-relation-types](../hypermedia/link-relation-types/link-relation-types.md)
+
+[<!--RULES-->Rules](../hypermedia/link-relation-types/rules/)
