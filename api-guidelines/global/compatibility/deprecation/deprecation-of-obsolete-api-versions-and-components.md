@@ -1,7 +1,3 @@
----
-sideNav: true
----
-
 # Deprecation of obsolete API versions and components
 
 Sometimes it is necessary to phase out an API, an API version or an API feature.
