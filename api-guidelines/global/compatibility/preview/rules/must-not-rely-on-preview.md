@@ -1,7 +1,6 @@
 ---
 type: MUST NOT
 id: R000077
-appliesTo: client
 ---
 
 # rely on API components marked as preview

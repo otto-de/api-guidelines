@@ -1,7 +1,6 @@
 ---
 type: SHOULD
 id: R000073
-appliesTo: client
 ---
 
 # follow concurrent update pattern with `If-Unmodified-Since` header

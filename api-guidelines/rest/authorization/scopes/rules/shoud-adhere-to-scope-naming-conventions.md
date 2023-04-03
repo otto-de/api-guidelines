@@ -1,7 +1,6 @@
 ---
 type: SHOULD
 id: R000048
-reviewType: automatic
 ---
 
 # adhere to scope naming conventions

@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R000025
-appliesTo: client
 ---
 
 # set user agent request header

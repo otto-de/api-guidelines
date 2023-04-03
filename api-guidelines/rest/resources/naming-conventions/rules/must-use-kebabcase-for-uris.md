@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R000023
-reviewType: automatic
 ---
 
 # use kebab-case for URIs

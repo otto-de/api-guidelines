@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R000021
-appliesTo: client
 ---
 
 # use Bearer Authentication

@@ -1,7 +1,6 @@
 ---
 type: MUST NOT
 id: R000071
-appliesTo: client
 ---
 
 # not start using deprecated APIs

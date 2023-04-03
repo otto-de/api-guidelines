@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R000080
-appliesTo: client
 ---
 
 # accept undocumented status codes

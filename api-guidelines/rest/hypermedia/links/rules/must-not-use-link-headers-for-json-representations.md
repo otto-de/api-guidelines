@@ -1,7 +1,6 @@
 ---
 type: MUST NOT
 id: R100034
-reviewType: automatic
 ---
 
 # use link headers for JSON representations

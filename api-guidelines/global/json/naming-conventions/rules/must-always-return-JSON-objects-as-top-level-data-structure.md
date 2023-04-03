@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R004030
-reviewType: automatic
 ---
 
 # always return JSON objects as top-level data structure

@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R000014
-reviewType: automatic
 ---
 
 # use code 429 with headers for rate limits

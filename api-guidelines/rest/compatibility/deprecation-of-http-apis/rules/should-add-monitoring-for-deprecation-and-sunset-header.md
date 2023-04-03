@@ -1,7 +1,6 @@
 ---
 type: SHOULD
 id: R000070
-appliesTo: client
 ---
 
 # add monitoring for `Deprecation` and `Sunset` header

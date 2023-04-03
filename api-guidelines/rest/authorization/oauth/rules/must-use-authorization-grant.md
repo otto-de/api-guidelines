@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R000052
-reviewType: automatic
 ---
 
 <!--

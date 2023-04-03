@@ -1,7 +1,6 @@
 ---
 type: MUST
 id: R000081
-appliesTo: client
 ---
 
 # follow redirection
