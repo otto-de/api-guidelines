@@ -33,7 +33,7 @@
     "changelog": "npx tsx scripts/changelog/index.ts",
     "clean": "rm -rf ./dist",
     "prepare": "husky install",
-    "prepublishOnly": "npm run build",
+    "prepack": "npm run build",
     "test": "vitest run"
   },
   "devDependencies": {
