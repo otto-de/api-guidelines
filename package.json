@@ -12,19 +12,36 @@
   "bugs": {
     "url": "https://github.com/otto-de/api-guidelines/issues"
   },
+  "engines": {
+    "node": ">=16"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./dist/plugin.cjs"
+  },
   "files": [
     "changes",
-    "content"
+    "content",
+    "dist",
+    "src",
+    "!**/*.spec.ts",
+    "!**/__tests__"
   ],
   "scripts": {
+    "build": "npm run clean && npm run build:redocly",
+    "build:redocly": "esbuild src/plugin.ts --bundle --platform=node --outfile=dist/plugin.cjs --log-level=warning --external:@redocly/openapi-core",
     "changelog": "npx tsx scripts/changelog/index.ts",
     "clean": "rm -rf ./dist",
     "prepare": "husky install",
+    "prepack": "npm run build",
     "test": "vitest run"
   },
   "devDependencies": {
+    "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
+    "@redocly/openapi-core": "^1.0.0-beta.124",
     "@types/node": "^18.15.3",
+    "esbuild": "^0.17.12",
     "eslint": "^8.36.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.7.0",
