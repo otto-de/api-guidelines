@@ -20,8 +20,6 @@
     ".": "./dist/plugin.cjs"
   },
   "files": [
-    "changes",
-    "content",
     "dist",
     "src",
     "!**/*.spec.ts",
