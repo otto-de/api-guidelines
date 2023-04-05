@@ -32,11 +32,13 @@ jobs:
           git config --global user.name "GitHub Actions"
 
       - name: Bump Version
+        id: bump_version
         env:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
         run: |
           VERSION=$(npm version $RELEASE_TYPE)
           git commit --amend -m "chore: release $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Push changes
         env:
@@ -51,3 +53,5 @@ jobs:
 
       - name: Release
         uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.bump_version.outputs.version }}
