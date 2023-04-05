@@ -37,6 +37,7 @@ jobs:
         run: |
           VERSION=$(npm version $RELEASE_TYPE)
           git commit --amend -m "chore: release $VERSION"
+          git tag $VERSION
 
       - name: Push changes
         env:
