@@ -12,7 +12,7 @@ on:
           - minor
           - major
 jobs:
-  build:
+  publish:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
@@ -44,4 +44,7 @@ jobs:
         run: |
           git push origin && git push --tags
 
-      - run: npm publish --dry-run
+      - name: Publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish
