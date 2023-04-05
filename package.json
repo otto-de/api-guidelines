@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/api-guidelines",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This repository is the source for establishing a uniform API standard (aka API Guidelines), which serves as a set of rules for the creation of new APIs within MA-EC. (In the future, this standard can also be used to unify existing APIs.) The [API Manifesto](/manifesto.md) helps to establish this standard and comprises values that a work group has agreed upon in advance.",
   "author": "",
   "license": "ISC",
