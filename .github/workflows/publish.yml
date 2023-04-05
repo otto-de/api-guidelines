@@ -37,7 +37,6 @@ jobs:
         run: |
           VERSION=$(npm version $RELEASE_TYPE)
           git commit --amend -m "chore: release $VERSION"
-          git tag $VERSION
 
       - name: Push changes
         env:
@@ -49,3 +48,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm publish
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
