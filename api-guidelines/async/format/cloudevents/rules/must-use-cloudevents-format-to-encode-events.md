@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200001
 ---
 
-# use CloudEvents format to encode events
+# MUST use CloudEvents format to encode events
 
 Events must be encoded as [CloudEvents 1.0.2](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md).
 

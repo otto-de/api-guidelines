@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100024
 ---
 
-# use common paging query parameters
+# MUST use common paging query parameters
 
 ::: info Info
 This rule applies to public APIs. For private APIs it should be followed.

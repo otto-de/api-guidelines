@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000014
 ---
 
-# use code 429 with headers for rate limits
+# MUST use code 429 with headers for rate limits
 
 APIs that intend to manage the request rate of clients must use the `429 Too Many Requests` response code, if the client exceeded the request rate (refer to [RFC 6585](https://tools.ietf.org/html/rfc6585)).
 Such responses must also contain header information providing further details to the client.

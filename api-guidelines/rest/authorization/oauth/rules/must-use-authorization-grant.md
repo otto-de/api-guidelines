@@ -1,5 +1,4 @@
 ---
-type: MUST
 id: R000052
 ---
 
@@ -8,7 +7,7 @@ The automatic check only ensures the schema is used in the spec
 The implementation can only be checks by CDCs
 -->
 
-# use Authorization Grant
+# MUST use Authorization Grant
 
 Authorization Grant is a credential representing the resource owner's authorization (to access its protected resources) used by the client to obtain an access token.
 

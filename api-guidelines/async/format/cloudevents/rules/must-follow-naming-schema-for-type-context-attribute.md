@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200009
 ---
 
-# follow naming scheme for `type` context attribute
+# MUST follow naming scheme for `type` context attribute
 
 The [`type` context attribute](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type) can be leveraged in order to accomplish the following:
 

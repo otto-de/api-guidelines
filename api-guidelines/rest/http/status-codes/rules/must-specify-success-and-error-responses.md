@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000011
 ---
 
-# specify success and error responses
+# MUST specify success and error responses
 
 APIs should define the functional, business view and abstract from implementation aspects.
 Success and error responses are a vital part to define how an API is used correctly.

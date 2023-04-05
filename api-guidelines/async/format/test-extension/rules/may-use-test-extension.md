@@ -1,9 +1,8 @@
 ---
-type: MAY
 id: R200021
 ---
 
-# use test extension
+# MAY use test extension
 
 API providers may use the OTTO-specific test extension described within this rule to communicate that an event is a result of a test in a **non-live** environment. This enables testing certain use cases together with multiple teams while simultaneously enabling all teams to identify and ignore hindering test events.
 

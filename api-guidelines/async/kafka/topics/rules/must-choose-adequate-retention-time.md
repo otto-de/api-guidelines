@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200019
 ---
 
-# choose adequate retention time
+# MUST choose adequate retention time
 
 Specific individual records cannot be deleted from topics that are configured with the [`delete` cleanup policy](https://kafka.apache.org/documentation/#topicconfigs_cleanup.policy). Records will be marked as to be deleted after a specific [retention time](https://kafka.apache.org/documentation/#topicconfigs_retention.ms). The API provider must choose the retention time adequately considering the following factors:
 

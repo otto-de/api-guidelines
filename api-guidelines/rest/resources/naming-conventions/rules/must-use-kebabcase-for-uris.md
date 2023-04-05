@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000023
 ---
 
-# use kebab-case for URIs
+# MUST use kebab-case for URIs
 
 When crafting a URI, we use a hyphen to delimit combined words (kebab-case).
 

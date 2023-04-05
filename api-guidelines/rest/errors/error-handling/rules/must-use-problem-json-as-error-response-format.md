@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000034
 ---
 
-# use `problem+json` as error response format
+# MUST use `problem+json` as error response format
 
 We decided to adopt "Problem Details for HTTP APIs" as described in [RFC 7807](https://tools.ietf.org/html/rfc7807).
 In case of an error, all REST operations must return an error response in this well-defined format along with the appropriate media type `application/problem+json`. This error response enhances the correctly used [HTTP status code](R000012) with contextual information.

@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000028
 ---
 
-# prefer compatible extensions
+# SHOULD prefer compatible extensions
 
 API providers should always prefer to extend APIs in a compatible way. The following rules provide guidance on how to evolve APIs in a backward-compatible way:
 

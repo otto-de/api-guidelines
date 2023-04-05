@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000049
 ---
 
-# stick to conventional query parameters
+# MUST stick to conventional query parameters
 
 To provide clients with a consistent API, the following query parameters must be used instead of introducing custom parameters for the same functionality.
 

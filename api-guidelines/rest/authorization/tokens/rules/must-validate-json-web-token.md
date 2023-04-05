@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000050
 ---
 
-# validate JSON Web Token
+# MUST validate JSON Web Token
 
 Each endpoint must validate the JWT that the API client has passed along as the access token for its request.
 

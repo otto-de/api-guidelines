@@ -1,9 +1,8 @@
 ---
-type: SHOULD NOT
 id: R000026
 ---
 
-# use URI versioning
+# SHOULD NOT use URI versioning
 
 If you absolutely have to use a version identifier as part of your URL, do so by keeping it as a path segment relative to your resource.
 

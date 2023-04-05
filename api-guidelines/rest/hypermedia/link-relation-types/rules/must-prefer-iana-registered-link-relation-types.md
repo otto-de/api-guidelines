@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100036
 ---
 
-# prefer IANA-registered link relation types
+# MUST prefer IANA-registered link relation types
 
 ::: info Info
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).

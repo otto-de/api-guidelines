@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000074
 ---
 
-# honor available `ETag` header on subsequent modifications
+# SHOULD honor available `ETag` header on subsequent modifications
 
 In addition to the normal payload, an optional `ETag` header can be part of the response to a `GET` or `HEAD` request.
 

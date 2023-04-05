@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200007
 ---
 
-# enable consumers to process domain events in order
+# MUST enable consumers to process domain events in order
 
 The sequence of events produced by a unique event source is often important for consumers.
 Consumers must be able to process domain events in the order in which they happened.

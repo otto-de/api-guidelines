@@ -1,9 +1,8 @@
 ---
-type: MAY
 id: R200003
 ---
 
-# provide sequence context attribute
+# MAY provide sequence context attribute
 
 The CloudEvents' [Sequence extension](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/extensions/sequence.md) may be used to enable consumers to process events in order. Consumers may use the `sequence` attribute to process the events from one event source in the correct order, if order is important for the consumer. This is not possible without a `sequence` attribute, as order is not guaranteed by most distributed messaging systems.
 

@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000047
 ---
 
-# define and assign permissions by using scopes
+# MUST define and assign permissions by using scopes
 
 Endpoints must define permissions to protect access to their resources.
 Each endpoint must define at least one OAuth 2.0 scope using the defined [naming conventions](R000048).

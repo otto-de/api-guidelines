@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200012
 ---
 
-# use `binary` content mode if supported by chosen protocol
+# MUST use `binary` content mode if supported by chosen protocol
 
 Depending on the protocol. CloudEvents can be encoded _on the wire_ in [two content modes](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#message).
 

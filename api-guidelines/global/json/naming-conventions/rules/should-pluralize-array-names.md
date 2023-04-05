@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R004050
 ---
 
-# pluralize array names
+# SHOULD pluralize array names
 
 Arrays should have pluralized names whereas objects should be named in singular.
 

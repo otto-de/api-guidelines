@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R004040
 ---
 
-# represent maps as objects with keys being their property names
+# SHOULD represent maps as objects with keys being their property names
 
 Strive to model your schema consumer-agnostic. That implies:
 

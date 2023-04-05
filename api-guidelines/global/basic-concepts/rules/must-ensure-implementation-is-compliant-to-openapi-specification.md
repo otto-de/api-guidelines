@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000076
 ---
 
-# ensure implementation complies with the contract
+# MUST ensure implementation complies with the contract
 
 The contract defined in the specification (i.e. OpenAPI or AsyncAPI) is binding.
 API providers must ensure that the implementation complies with the agreed specification.

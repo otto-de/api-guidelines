@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100063
 ---
 
-# document link cardinality
+# MUST document link cardinality
 
 ::: info Info
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).

@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100066
 ---
 
-# use absolute URIs for profiles
+# MUST use absolute URIs for profiles
 
 Profiles must be identified by absolute URIs (as defined in [RFC 6906](https://www.rfc-editor.org/rfc/rfc6906#section-3)) and documented in the OpenAPI specification.
 

@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200017
 ---
 
-# write new incompatible version of domain events into the same topic
+# MUST write new incompatible version of domain events into the same topic
 
 Event producers write different domain event types for the same entity type to the same topic to [provide order guarantees](@guidelines/R200007) for event consumers.
 Therefore, topics for domain events usually contain multiple domain event types which are versioned independently.

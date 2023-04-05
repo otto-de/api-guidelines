@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000022
 ---
 
-# use camelCase for query parameters
+# MUST use camelCase for query parameters
 
 Use CamelCase to delimit combined words in query parameters.
 

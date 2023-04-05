@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000061
 ---
 
-# contain a separate ID field in the payload
+# MUST contain a separate ID field in the payload
 
 The payload of a resource must always contain the technical ID for the client, so that it can be reused without parsing it from the links.
 

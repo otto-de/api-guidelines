@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100030
 ---
 
-# use common sorting query parameter
+# MUST use common sorting query parameter
 
 If simple sorting of the results is possible, the `sort` query parameter must be used.
 

@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R004070
 ---
 
-# support filtering of fields using common query parameter
+# SHOULD support filtering of fields using common query parameter
 
 To reduce potential load on the server and reduce the payload size, you can use the `fields` query parameter to specify the set of properties you are interested in and that will be included in the response.
 You should also support filtering of nested properties.

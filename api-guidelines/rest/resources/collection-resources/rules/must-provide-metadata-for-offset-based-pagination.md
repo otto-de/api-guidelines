@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100025
 ---
 
-# provide metadata for offset-based pagination
+# MUST provide metadata for offset-based pagination
 
 Metadata is important for clients that build their own links and do not use hypermedia controls.
 

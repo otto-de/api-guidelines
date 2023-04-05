@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000080
 ---
 
-# accept undocumented status codes
+# MUST accept undocumented status codes
 
 Clients must be prepared to handle HTTP status codes not explicitly specified in endpoint definitions.
 

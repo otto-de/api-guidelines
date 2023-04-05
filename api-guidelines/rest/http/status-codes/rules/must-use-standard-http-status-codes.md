@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000012
 ---
 
-# use standard HTTP status codes
+# MUST use standard HTTP status codes
 
 You must only use standardized HTTP status codes consistently with their intended semantics.
 You must not invent new HTTP status codes.

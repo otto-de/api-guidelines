@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000062
 ---
 
-# support lists for multiple values of the same query parameter
+# MUST support lists for multiple values of the same query parameter
 
 If multiple values need to be supported, they should be provided as a comma-separated list (e.g. `key=value1,value2`).
 

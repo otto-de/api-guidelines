@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R100078
 ---
 
-# use customerId to identify customers
+# SHOULD use customerId to identify customers
 
 The `customerId` is the recommended way to identify logged in customers. It replaces the `ec-uuid`.
 

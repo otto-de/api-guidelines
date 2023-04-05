@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200011
 ---
 
-# provide event `time` in UTC
+# MUST provide event `time` in UTC
 
 The [`time`](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time) context attribute must be provided in [date-time](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) format in the UTC timezone. Using a common timezone and format makes it easier to sort events only by interpreting the string representation.
 

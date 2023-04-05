@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000033
 ---
 
-# implement REST maturity level 3 for transitional APIs
+# MUST implement REST maturity level 3 for transitional APIs
 
 Hypermedia must be implemented for [unsafe resource operations](@guidelines/R000008) (e.g. `POST`) that will cause client errors (`4xx`) depending on one of the below mentioned criteria. If one or more of the criteria apply to the cause of error, [REST Maturity Level 3](https://martinfowler.com/articles/richardsonMaturityModel.html#level3) must be implemented in order to:
 

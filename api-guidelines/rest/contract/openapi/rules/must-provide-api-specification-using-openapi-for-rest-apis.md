@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000003
 ---
 
-# provide API specification using OpenAPI for REST APIs
+# MUST provide API specification using OpenAPI for REST APIs
 
 We use the OpenAPI specification as a standard to define API specification files.
 Every API must be described using the OpenAPI specification.

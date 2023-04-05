@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000043
 ---
 
-# read embedded resources instead of traversing links
+# SHOULD read embedded resources instead of traversing links
 
 For any given link relation, clients of an API should be automated to read from an embedded resource (if present) in preference to traversing a link.
 

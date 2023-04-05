@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R006030
 ---
 
-# avoid `Vary` header for caching
+# SHOULD avoid `Vary` header for caching
 
 The `Vary` header as specified in [RFC7231#section-7.1.4](https://tools.ietf.org/html/rfc7231#section-7.1.4) is difficult to setup in order to support correct caching. For example, implementing secondary key calculation as described in [RFC7234#section-4.1](https://tools.ietf.org/html/rfc7234#section-4.1) has a high potential for mistakes. Whenever possible, use the `ETag` header instead of `Vary` for caching.
 

@@ -1,9 +1,8 @@
 ---
-type: MAY
 id: R000010
 ---
 
-# use `ETag` header for caching resources
+# MAY use `ETag` header for caching resources
 
 Using the `ETag` response header in combination with the `If-None-Match` request header is a powerful tool for caching resources.
 This approach offers a solution where other caching headers (e.g. `Cache-Control` or `Expires`) hint at a _stale_ resource on the client side.

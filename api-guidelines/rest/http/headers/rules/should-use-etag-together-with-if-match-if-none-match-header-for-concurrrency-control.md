@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000060
 ---
 
-# use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control
+# SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control
 
 When creating or updating resources it may be necessary to expose conflicts and to prevent the 'lost update' or 'initially created' problem.
 Following [RFC 7232 "HTTP: Conditional Requests"](https://tools.ietf.org/html/rfc7232), this can be best accomplished by supporting the [`ETag`](https://tools.ietf.org/html/rfc7232#section-2.3) header together with the [`If-Match`](https://tools.ietf.org/html/rfc7232#section-3.1) or [`If-None-Match`](https://tools.ietf.org/html/rfc7232#section-3.2) conditional header.

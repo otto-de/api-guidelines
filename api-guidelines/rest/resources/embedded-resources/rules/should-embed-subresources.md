@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000041
 ---
 
-# embed subresources
+# SHOULD embed subresources
 
 Embedding related resources (also known as resource expansion) is a great way to reduce the number of requests.
 Resources that link to subresources should return these subresources using the HAL `_embedded` object.

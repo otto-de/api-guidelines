@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R004020
 ---
 
-# use same semantics for null and absent properties
+# MUST use same semantics for null and absent properties
 
 If a property is `nullable` and `not required`, a property `null` value and an absent property must be considered semantically equivalent.
 

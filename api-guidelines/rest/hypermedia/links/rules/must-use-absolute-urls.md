@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100032
 ---
 
-# use absolute URLs
+# MUST use absolute URLs
 
 Links to other resources must always use full, absolute hrefs. If a client supplies
 a [`Forwarded` request header](@guidelines/R000044), the

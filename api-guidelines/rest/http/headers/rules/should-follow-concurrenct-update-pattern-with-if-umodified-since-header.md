@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000073
 ---
 
-# follow concurrent update pattern with `If-Unmodified-Since` header
+# SHOULD follow concurrent update pattern with `If-Unmodified-Since` header
 
 If an API implements concurrency control via the `Last-Modified` header, clients should follow this pattern.
 This means, a client should send a received `Last-Modified` timestamp using the `If-Unmodified-Since` header.

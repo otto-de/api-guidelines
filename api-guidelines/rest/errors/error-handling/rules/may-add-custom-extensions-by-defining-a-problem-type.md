@@ -1,9 +1,8 @@
 ---
-type: MAY
 id: R000040
 ---
 
-# add custom extensions by defining a problem `type`
+# MAY add custom extensions by defining a problem `type`
 
 As described in [section 3.2](https://www.rfc-editor.org/rfc/rfc7807#section-3.2) of [RFC 7807](https://www.rfc-editor.org/rfc/rfc7807) _problem `type` definitions may extend the problem details object with additional members_.
 Thus, API providers need to define a specific problem `type` if they want to add additional non-standard properties to a problem+json response.

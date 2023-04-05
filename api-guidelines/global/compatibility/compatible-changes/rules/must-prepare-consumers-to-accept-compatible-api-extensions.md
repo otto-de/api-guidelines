@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000029
 ---
 
-# prepare consumers to accept compatible API extensions
+# MUST prepare consumers to accept compatible API extensions
 
 API consumers should apply the robustness principle:
 

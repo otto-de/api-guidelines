@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000044
 ---
 
-# support `Forwarded` header
+# MUST support `Forwarded` header
 
 In order to support proxies in front of your origin server, you must implement support for the `Fowarded` request header.
 

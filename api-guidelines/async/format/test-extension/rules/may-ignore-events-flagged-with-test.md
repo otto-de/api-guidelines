@@ -1,9 +1,8 @@
 ---
-type: MAY
 id: R200023
 ---
 
-# ignore events flagged with `test` context attribute
+# MAY ignore events flagged with `test` context attribute
 
 While the decision to not take part in tests by other teams has to be made by each team individually, it is considered good practice to take part in all tests.
 

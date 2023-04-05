@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200004
 ---
 
-# name events in past tense
+# MUST name events in past tense
 
 Events must be named in past tense to clearly communicate that the event has happened in the past.
 

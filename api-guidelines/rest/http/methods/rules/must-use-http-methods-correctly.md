@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000007
 ---
 
-# use HTTP methods correctly
+# MUST use HTTP methods correctly
 
 We are compliant with the standardized HTTP method semantics described as follows:
 

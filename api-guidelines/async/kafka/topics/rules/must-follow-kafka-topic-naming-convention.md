@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200006
 ---
 
-# follow kafka topic naming convention
+# MUST follow kafka topic naming convention
 
 Kafka topic names must adhere to this naming convention to conclude about the content of a topic by its name.
 

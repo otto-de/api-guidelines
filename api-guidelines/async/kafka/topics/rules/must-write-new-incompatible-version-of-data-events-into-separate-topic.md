@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200016
 ---
 
-# write new incompatible version of data events into a separate topic
+# MUST write new incompatible version of data events into a separate topic
 
 If a [new `type`](@guidelines/R200014) for a data event is defined, its instances must be written to a separate topic than the currently defined data event types. Thus, not breaking existing event consumers.
 

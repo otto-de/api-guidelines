@@ -1,9 +1,8 @@
 ---
-type: SHOULD NOT
 id: R100074
 ---
 
-# use lId (or loginId) to identify customers
+# SHOULD NOT use lId (or loginId) to identify customers
 
 The lId (or loginId) was introduced for one specific, limited usecase and is a suboptimal way to identify logged in customers.
 On a technical level one customer can have a multitude of different lIds.

@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100021
 ---
 
-# use HAL format for collection resources
+# MUST use HAL format for collection resources
 
 ::: info Info
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).

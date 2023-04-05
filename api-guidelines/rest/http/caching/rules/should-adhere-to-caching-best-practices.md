@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R006010
 ---
 
-# adhere to caching best practices
+# SHOULD adhere to caching best practices
 
 For consistent cache handling amongst services, adhere to the best practices shown below:
 

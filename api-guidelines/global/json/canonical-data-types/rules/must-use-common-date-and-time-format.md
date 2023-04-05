@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100072
 ---
 
-# use common date and time format
+# MUST use common date and time format
 
 Use the `full-date`, `date-time` or `full-time` format as defined in [RFC3339][rfc3339].
 

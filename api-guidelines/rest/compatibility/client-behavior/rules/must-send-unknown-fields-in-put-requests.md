@@ -1,10 +1,8 @@
 ---
-type: MUST
 id: R000079
-appliesTo: client
 ---
 
-# send unknown fields in PUT requests
+# MUST send unknown fields in PUT requests
 
 To allow API evolution of services, clients must not break if providers add new properties to responses (see [MUST prepare consumers to accept compatible API extensions](@guidelines/R000029)).
 

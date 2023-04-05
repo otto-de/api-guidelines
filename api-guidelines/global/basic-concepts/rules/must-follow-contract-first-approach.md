@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000001
 ---
 
-# follow Contract First approach
+# MUST follow Contract First approach
 
 When a new API is being developed, we follow the [Contract First approach](../../../010_CORE-PRINCIPLES/040_Contract-first.md).
 This requires the following aspects:

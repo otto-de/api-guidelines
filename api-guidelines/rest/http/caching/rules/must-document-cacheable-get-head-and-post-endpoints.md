@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R006020
 ---
 
-# document cacheable `GET`, `HEAD` and `POST` endpoints
+# MUST document cacheable `GET`, `HEAD` and `POST` endpoints
 
 To clearly document that a `GET`, `HEAD` or `POST` endpoint implements any kind of caching, the support of caching headers (`Cache-Control`, `Vary`, `Etag`) must be declared in the response.
 

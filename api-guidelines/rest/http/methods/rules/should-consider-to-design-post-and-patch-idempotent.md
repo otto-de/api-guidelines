@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000009
 ---
 
-# consider to design `POST` and `PATCH` idempotent
+# SHOULD consider to design `POST` and `PATCH` idempotent
 
 In many cases it is helpful or even necessary to design `POST` and `PATCH` [idempotent](@guidelines/R000008) for clients to expose conflicts and prevent resource duplication (a.k.a. zombie resources) or lost updates, for example, if the same resources may be created or changed in parallel or multiple times.
 To design an idempotent API endpoint owners should consider to apply one of the following two patterns.

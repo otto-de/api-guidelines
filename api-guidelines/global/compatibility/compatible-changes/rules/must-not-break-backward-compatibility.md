@@ -1,9 +1,8 @@
 ---
-type: MUST NOT
 id: R000027
 ---
 
-# break backward compatibility
+# MUST NOT break backward compatibility
 
 API specifications establish a contract between providers and consumers and cannot be broken by unilateral decisions.
 Providers can change their API specifications, but have to ensure their changes won't break existing consuming clients.

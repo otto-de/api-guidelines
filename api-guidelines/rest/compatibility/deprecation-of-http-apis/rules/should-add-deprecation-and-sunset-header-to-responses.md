@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000069
 ---
 
-# add `Deprecation` and `Sunset` header to responses
+# SHOULD add `Deprecation` and `Sunset` header to responses
 
 During the deprecation phase, the API provider should add a `Deprecation` header (see [draft: RFC Deprecation HTTP Header](https://tools.ietf.org/html/draft-dalal-deprecation-header)) and - if also planned - a `Sunset` header (see [RFC 8594](https://tools.ietf.org/html/rfc8594#section-3)) to each response affected by a deprecated element (see [MUST reflect deprecation in API specifications](@guidelines/R000067)).
 

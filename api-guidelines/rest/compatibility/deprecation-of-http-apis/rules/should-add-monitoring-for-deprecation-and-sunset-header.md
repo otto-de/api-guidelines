@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000070
 ---
 
-# add monitoring for `Deprecation` and `Sunset` header
+# SHOULD add monitoring for `Deprecation` and `Sunset` header
 
 Consumers should monitor the `Deprecation` and `Sunset` headers in HTTP responses to get information about future sunset of APIs and API features (see [SHOULD add `Deprecation` and `Sunset` header to responses](@guidelines/R000069)).
 We recommend that API providers build alerts on this monitoring information to ensure alignment with API consumers on the required migration task.

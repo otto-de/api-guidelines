@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000063
 ---
 
-# support optional embedding of subresources
+# SHOULD support optional embedding of subresources
 
 Resources that link to subresources [SHOULD support embedding of subresources](@guidelines/R000041).
 In order to improve flexibility of the API for different use cases, embedding of subresources should be optional, using the request parameter [`embed`](@guidelines/R000049) to select the

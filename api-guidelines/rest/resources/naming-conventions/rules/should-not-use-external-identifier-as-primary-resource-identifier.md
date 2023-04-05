@@ -1,9 +1,8 @@
 ---
-type: SHOULD NOT
 id: R100077
 ---
 
-# use external identifiers as primary resource identifiers
+# SHOULD NOT use external identifiers as primary resource identifiers
 
 When you create an API endpoint that requires a resource identifier, you SHOULD NOT use an external identifier as resource identifier. Example: You're about to implement `some-resource/{external-id}`, assuming that `some-resource` is your resource and `external-id` is an ID that is not under your control - you'd better not do that.
 

@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000042
 ---
 
-# contain links for embedded resources
+# MUST contain links for embedded resources
 
 ::: info Info
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).

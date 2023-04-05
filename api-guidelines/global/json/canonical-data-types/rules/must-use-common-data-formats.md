@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100071
 ---
 
-# use common data formats
+# MUST use common data formats
 
 Use standard data formats as defined in
 

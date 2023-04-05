@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200014
 ---
 
-# change `type` context attribute to indicate incompatible changes
+# MUST change `type` context attribute to indicate incompatible changes
 
 The `type` context attribute is the primary means by which event consumers can identify the type of event they receive.
 API providers must guarantee that the schema of an event `type` only changes in compatible ways, not breaking existing event consumers.

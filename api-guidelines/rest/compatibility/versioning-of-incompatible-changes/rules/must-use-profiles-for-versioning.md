@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000065
 ---
 
-# use profiles for versioning
+# MUST use profiles for versioning
 
 ::: info Info
 This rule applies to [public APIs](../../../010_CORE-PRINCIPLES/030_API-scope.md). For private APIs it should be followed.

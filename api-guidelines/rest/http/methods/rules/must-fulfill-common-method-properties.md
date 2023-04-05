@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000008
 ---
 
-# fulfill common method properties
+# MUST fulfill common method properties
 
 Request methods in RESTful services can be:
 

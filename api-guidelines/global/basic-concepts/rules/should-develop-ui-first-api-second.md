@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000002
 ---
 
-# develop UI first, API second
+# SHOULD develop UI first, API second
 
 While the development of additional endpoints is crucial to establish a comprehensive and vital API ecosystem, we do not want to build endpoints upfront without the appropriate use cases.
 In a first step, you should focus on implementing an appropriate UI to identify the requirements and quality factors of the API.

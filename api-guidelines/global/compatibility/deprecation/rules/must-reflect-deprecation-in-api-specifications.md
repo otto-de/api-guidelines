@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000067
 ---
 
-# reflect deprecation in specifications
+# MUST reflect deprecation in specifications
 
 The deprecation of API elements must be part of the specification (e.g. OpenAPI or AsyncAPI). Each specification format allows for different elements to be deprecated.
 

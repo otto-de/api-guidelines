@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R100039
 ---
 
-# define default and maximum page size or limit
+# SHOULD define default and maximum page size or limit
 
 Every collection resource should define and document
 

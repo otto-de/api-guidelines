@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200005
 ---
 
-# provide API specification using AsyncAPI for asynchronous APIs
+# MUST provide API specification using AsyncAPI for asynchronous APIs
 
 We use the [AsyncAPI](https://www.asyncapi.com/) specification as a standard to define contracts for asynchronous APIs.
 Any event published for integration with other services must be described using the AsyncAPI specification.

@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200013
 ---
 
-# provide `datacontenttype` context attribute if media type is defined
+# MUST provide `datacontenttype` context attribute if media type is defined
 
 The `datacontenttype` describes how the CloudEvents [event data](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#event-data) is encoded.
 Event producers must provide the [`datacontenttype`](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#datacontenttype) context attribute to allow generic event consumers to determine the content type of the event data.

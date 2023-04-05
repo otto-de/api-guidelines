@@ -1,9 +1,8 @@
 ---
-type: SHOULD NOT
 id: R000072
 ---
 
-# use `Last-Modified` and `If-Unmodified-Since` headers for concurrency control
+# SHOULD NOT use `Last-Modified` and `If-Unmodified-Since` headers for concurrency control
 
 APIs should not use the `Last-Modified` header to achieve concurrency control.
 The header only provides a time resolution of one second, which is too coarse for most use cases.

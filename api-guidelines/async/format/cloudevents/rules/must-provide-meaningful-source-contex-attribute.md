@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200010
 ---
 
-# provide meaningful `source` context attribute
+# MUST provide meaningful `source` context attribute
 
 Producers of events must provide a meaningful [`source` context attribute](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1) that consumers can use to uniquely identify the event source.
 

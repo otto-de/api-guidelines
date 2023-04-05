@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200015
 ---
 
-# filter consumed events by `type`
+# MUST filter consumed events by `type`
 
 Event consumers must filter consumed events by the `type` context attribute to ensure that they don't break when an event producer writes a [new event type version with incompatible changes](@guidelines/R200014) on a subscribed channel (i.e., topic/queue).
 

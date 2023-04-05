@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200008
 ---
 
-# use semantic versioning for AsyncAPI specification
+# MUST use semantic versioning for AsyncAPI specification
 
 In order to generate meaningful changelogs and version numbers, AsyncAPI specification files need to follow [semantic versioning](https://semver.org).
 

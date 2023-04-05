@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100026
 ---
 
-# support hypermedia controls in collection resources
+# MUST support hypermedia controls in collection resources
 
 ::: info Info
 This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).

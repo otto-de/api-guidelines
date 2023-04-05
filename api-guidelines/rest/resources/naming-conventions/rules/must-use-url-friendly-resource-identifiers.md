@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000024
 ---
 
-# use URL-friendly resource identifiers
+# MUST use URL-friendly resource identifiers
 
 To simplify encoding of resource IDs in URLs, their representation must only consist of ASCII strings.
 

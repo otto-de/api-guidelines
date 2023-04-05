@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100023
 ---
 
-# support pagination for collection resources
+# MUST support pagination for collection resources
 
 Any sufficiently large collection resource must support pagination to handle the server load and support the client processing patterns.
 

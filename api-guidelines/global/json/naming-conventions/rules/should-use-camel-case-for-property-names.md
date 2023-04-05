@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R004010
 ---
 
-# use camelCase for property names
+# SHOULD use camelCase for property names
 
 Property names of JSON objects should be formatted in camelCase.
 

@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100020
 ---
 
-# use plural for collection resources
+# MUST use plural for collection resources
 
 If a resource can be identified as a collection resource, such as `order`, use the plural for resource naming:
 

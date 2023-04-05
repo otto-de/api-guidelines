@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000015
 ---
 
-# avoid actions as resource names
+# MUST avoid actions as resource names
 
 REST is all about resources.
 Therefore, we look at the domain entities involved in web service interaction, and try to model our API around them, using the standard HTTP methods as operational indicators.

@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000048
 ---
 
-# adhere to scope naming conventions
+# SHOULD adhere to scope naming conventions
 
 OAuth 2.0 scopes represent permissions for different resources.
 Scopes might consist of two parts:

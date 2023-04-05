@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000038
 ---
 
-# use `problem+json` extension for input validation errors
+# MUST use `problem+json` extension for input validation errors
 
 Validation checks can be performed on the request body, e.g. on form input values or business objects to be stored, as well as on path and query parameters. The `validation-failed` type should be used for all sorts of validation errors. All validation errors for one request should be combined into a self-sufficient error response that contains detailed messages for each failed check.
 

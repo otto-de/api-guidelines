@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R200002
 ---
 
-# prepare consumers to consume events idempotently
+# MUST prepare consumers to consume events idempotently
 
 Usually exactly-once delivery semantic is desired when it comes to messaging. In a distributed messaging system, exactly-once delivery is hard to achieve because of crashes that can occur on either producer or consumer side.
 

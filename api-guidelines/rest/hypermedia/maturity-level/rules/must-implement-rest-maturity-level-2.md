@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000032
 ---
 
-# implement REST maturity level 2
+# MUST implement REST maturity level 2
 
 For all our APIs, we strive for a good implementation of [REST Maturity Level 2](https://martinfowler.com/articles/richardsonMaturityModel.html#level2) as it enables us to build resource-oriented APIs that make full use of HTTP methods and status codes.
 This is reflected in many rules of our guidelines, such as:

@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R200018
 ---
 
-# not publish data from other business domains
+# SHOULD NOT publish data from other business domains
 
 Events published from one domain should not contain data from other business domains. This rule explicitly excludes data that has become part of the domain but originated in another domain.
 

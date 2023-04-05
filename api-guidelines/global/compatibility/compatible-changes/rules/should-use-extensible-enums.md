@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000035
 ---
 
-# use extensible enums
+# SHOULD use extensible enums
 
 Enums (represented by `enum` keyword) are not extensible in JSON schema. Adding a new enum value is considered as a breaking change if used in responses.
 

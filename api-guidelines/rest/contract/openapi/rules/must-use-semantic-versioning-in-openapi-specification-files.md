@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R000064
 ---
 
-# use semantic versioning in OpenAPI specification files
+# MUST use semantic versioning in OpenAPI specification files
 
 In order to generate meaningful changelogs and version numbers, OpenAPI specification files need to follow [semantic versioning](https://semver.org).
 

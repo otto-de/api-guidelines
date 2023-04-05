@@ -1,9 +1,8 @@
 ---
-type: SHOULD
 id: R000030
 ---
 
-# use `Accept` and `Content-Type` headers with profile parameter
+# SHOULD use `Accept` and `Content-Type` headers with profile parameter
 
 Change your RESTful APIs in a compatible way and avoid generating additional API versions.
 Multiple versions can significantly complicate understanding, testing, maintaining, evolving, operating and releasing our systems ([supplementary reading](http://martinfowler.com/articles/enterpriseREST.html)).

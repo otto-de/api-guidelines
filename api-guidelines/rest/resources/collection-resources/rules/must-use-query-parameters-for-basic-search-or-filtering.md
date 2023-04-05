@@ -1,9 +1,8 @@
 ---
-type: MUST
 id: R100031
 ---
 
-# use query parameters for basic search or filtering
+# MUST use query parameters for basic search or filtering
 
 Resource-specific query parameters may be introduced for querying.
 They should reference the property and the operation if necessary.
