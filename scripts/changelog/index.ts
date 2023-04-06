@@ -1,32 +1,20 @@
-import { context } from "@actions/github";
-import { error } from "@actions/core";
-import { Context } from "@actions/github/lib/context";
-import { getPullRequest } from "./pull-request";
-import { addChangelogEntry, createChangelogEntry, isFixOrFeature } from "./entry";
+import { info } from "@actions/core";
+import { getPullRequestData } from "./pullRequest";
+import { addChangelogEntry, createChangelogEntry } from "./entry";
 
-/**
- * Create changelog entries from feature/fix commits which follow the
- * Conventional Commits specification: https://www.conventionalcommits.org/
- */
-export async function run(githubContext: Context) {
-  try {
-    const pullRequest = await getPullRequest(githubContext);
+export async function run() {
+  const pullRequestData = await getPullRequestData();
 
-    if (isFixOrFeature(pullRequest.message)) {
-      const changelogEntry = createChangelogEntry(pullRequest.message, pullRequest.date);
-      addChangelogEntry(changelogEntry);
-    }
-
-    // TODO: Only for testing. Remove after final implementation!
-    if (pullRequest.message.title.startsWith("logtest")) {
-      const changelogEntry = createChangelogEntry(pullRequest.message, pullRequest.date);
-      addChangelogEntry(changelogEntry);
-    }
-  } catch (err) {
-    error(`${err}`);
+  if (!pullRequestData.isFix && !pullRequestData.isFeature) {
+    // Return early if no major/minor/patching changes.
+    info("Nothing to do. No feature/fix commit detected.");
+    return;
   }
+
+  const changelogEntry = createChangelogEntry(pullRequestData);
+  addChangelogEntry(changelogEntry);
 }
 
 if (!process.env.TEST) {
-  run(context);
+  run();
 }
