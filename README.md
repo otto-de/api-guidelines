@@ -5,6 +5,61 @@ The [API Manifesto](/manifesto.md) helps to establish this standard and comprise
 
 URL: <https://api.otto.de/portal/guidelines>
 
+## Linter
+
+### Installation
+
+1. [Install Redocly Cli](https://redocly.com/docs/cli/installation/)
+2. Add this line to your existing `.npmrc` or create a `.npmrc`.
+
+   ```text
+   @otto-de:registry=https://npm.pkg.github.com/
+   ```
+
+3. Install the dependency
+
+   ```shell
+   npm install -D @otto-de/api-guidelines
+   ```
+
+4. Add the following lines to your redocly configuration:
+
+   ```yaml
+   extends:
+     - api-guidelines/recommended
+
+   plugins:
+     - ./node_modules/@otto-de/api-guidelines/dist/plugin.cjs
+   ```
+
+### Recommended Redocly Configuration
+
+```yaml
+extends:
+  - recommended
+  - api-guidelines/recommended
+
+plugins:
+  - ./node_modules/@otto-ec/ottoapi-guidelines/dist/plugin.cjs
+```
+
+### Lint your specs
+
+```shell
+redocly lint ./path/to/your/spec.yml
+```
+
+### Change Severity
+
+If you want to disable or change the severity for some rule,
+you can add this to your redocly configuration for example:
+
+```yaml
+rules:
+  api-guidelines/always-return-json-object: off
+  api-guidelines/define-permissions-with-scope: warn
+```
+
 ## Requirements
 
 This project requires at least Node.js version 16, or higher. We recommend using version 18.
