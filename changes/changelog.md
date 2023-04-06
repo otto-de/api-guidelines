@@ -2,6 +2,13 @@
 
 <!--CHANGELOG-MARKER-->
 
+##
+
+### Hot and New
+
+- Feature A
+- Feature B
+
 ## 2023-03-14
 
 ### Feature
