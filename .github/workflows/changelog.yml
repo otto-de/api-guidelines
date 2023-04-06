@@ -31,9 +31,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
 
-      - name: Create Changelog
-        id: create-changelog
-        continue-on-error: true
+      - name: Create Changelog Entry
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           COMMIT_REF: ${{github.event.inputs.commit-ref}}

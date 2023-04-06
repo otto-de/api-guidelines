@@ -15,6 +15,8 @@ const anyPullRequestData = {
 
 const anyChangelogEntry = "any-entry";
 
+vi.mock("@actions/github");
+
 vi.mock("./pullRequest");
 vi.mocked(getPullRequestData).mockResolvedValue(anyPullRequestData as any);
 
