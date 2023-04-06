@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       commit-ref:
-        description: Pull request revision number
+        description: Revision number of commit
 
 jobs:
   changelog:
@@ -16,6 +16,7 @@ jobs:
     permissions:
       contents: write
       packages: read
+      pull-requests: read
 
     steps:
       - uses: actions/checkout@v3
