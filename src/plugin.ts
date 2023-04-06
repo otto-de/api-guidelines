@@ -22,7 +22,7 @@ import { UseOas3 } from "./rules/use-oas-3";
 import { UseStringEnum } from "./rules/use-string-enum";
 import { Operation4xxProblemDetailsRfc7807 } from "./rules/operation-4xx-problem-details-rfc7807";
 
-export const id: Plugin["id"] = "ottoapi-guidelines";
+export const id: Plugin["id"] = "api-guidelines";
 
 export const rules: Plugin["rules"] = {
   oas2: {
@@ -59,29 +59,29 @@ export const configs: Plugin["configs"] = {
       "info-contact": "error", // https://api.otto.de/portal/guidelines/r000078
       "operation-2xx-response": "error", // https://api.otto.de/portal/guidelines/r000011
       // "operation-4xx-problem-details-rfc7807": "error", // https://api.otto.de/portal/guidelines/r000034
-      "ottoapi-guidelines/operation-4xx-problem-details-rfc7807": "error", // https://api.otto.de/portal/guidelines/r000034
+      "api-guidelines/operation-4xx-problem-details-rfc7807": "error", // https://api.otto.de/portal/guidelines/r000034
       "no-path-trailing-slash": "error", // https://api.otto.de/portal/guidelines/r000020
-      "ottoapi-guidelines/always-return-json-object": "error", // https://api.otto.de/portal/guidelines/r004030
-      "ottoapi-guidelines/define-permissions-with-scope": "error", // https://api.otto.de/portal/guidelines/r000047
-      "ottoapi-guidelines/format-enumeration-upper-snake-case": "error", // https://api.otto.de/portal/guidelines/r004090
-      "ottoapi-guidelines/no-request-body-in-get-method": "error", // https://api.otto.de/portal/guidelines/r000007
-      "ottoapi-guidelines/not-use-null-for-empty-array": "warn", // https://api.otto.de/portal/guidelines/r004060
-      "ottoapi-guidelines/omit-optional-property": "warn", // https://api.otto.de/portal/guidelines/r004021
-      "ottoapi-guidelines/secure-endpoints-with-oauth-2.0": "error", // https://api.otto.de/portal/guidelines/r000051
-      "ottoapi-guidelines/use-absolute-custom-link-relation-url": "error", // https://api.otto.de/portal/guidelines/r100037
-      "ottoapi-guidelines/use-absolute-profile-url": "error", // https://api.otto.de/portal/guidelines/r100066
-      "ottoapi-guidelines/use-authorization-grant": "error", // https://api.otto.de/portal/guidelines/r000052
-      "ottoapi-guidelines/use-bearer-authentication": "error", // https://api.otto.de/portal/guidelines/r000021
-      "ottoapi-guidelines/use-camel-case-for-property-name": "warn", // https://api.otto.de/portal/guidelines/r004010
-      "ottoapi-guidelines/use-camel-case-for-query-parameter": "error", // https://api.otto.de/portal/guidelines/r000022
-      "ottoapi-guidelines/use-common-date-and-time-format": "error", // https://api.otto.de/portal/guidelines/r100072
-      "ottoapi-guidelines/use-curied-link-relation-types": "error", // https://api.otto.de/portal/guidelines/r100038
-      "ottoapi-guidelines/use-extensible-enum": "warn", // https://api.otto.de/portal/guidelines/r000035
-      "ottoapi-guidelines/use-kebab-case-for-path-parameter": "off", // TODO guideline rule will follow
-      "ottoapi-guidelines/use-kebab-case-in-uri": "error", // https://api.otto.de/portal/guidelines/r000023
-      "ottoapi-guidelines/use-oas-3": "error", // https://api.otto.de/portal/guidelines/r000003
-      "ottoapi-guidelines/use-string-enum": "error", // https://api.otto.de/portal/guidelines/r004080
-      "ottoapi-guidelines/use-tls": "error", // https://api.otto.de/portal/guidelines/r000046
+      "api-guidelines/always-return-json-object": "error", // https://api.otto.de/portal/guidelines/r004030
+      "api-guidelines/define-permissions-with-scope": "error", // https://api.otto.de/portal/guidelines/r000047
+      "api-guidelines/format-enumeration-upper-snake-case": "error", // https://api.otto.de/portal/guidelines/r004090
+      "api-guidelines/no-request-body-in-get-method": "error", // https://api.otto.de/portal/guidelines/r000007
+      "api-guidelines/not-use-null-for-empty-array": "warn", // https://api.otto.de/portal/guidelines/r004060
+      "api-guidelines/omit-optional-property": "warn", // https://api.otto.de/portal/guidelines/r004021
+      "api-guidelines/secure-endpoints-with-oauth-2.0": "error", // https://api.otto.de/portal/guidelines/r000051
+      "api-guidelines/use-absolute-custom-link-relation-url": "error", // https://api.otto.de/portal/guidelines/r100037
+      "api-guidelines/use-absolute-profile-url": "error", // https://api.otto.de/portal/guidelines/r100066
+      "api-guidelines/use-authorization-grant": "error", // https://api.otto.de/portal/guidelines/r000052
+      "api-guidelines/use-bearer-authentication": "error", // https://api.otto.de/portal/guidelines/r000021
+      "api-guidelines/use-camel-case-for-property-name": "warn", // https://api.otto.de/portal/guidelines/r004010
+      "api-guidelines/use-camel-case-for-query-parameter": "error", // https://api.otto.de/portal/guidelines/r000022
+      "api-guidelines/use-common-date-and-time-format": "error", // https://api.otto.de/portal/guidelines/r100072
+      "api-guidelines/use-curied-link-relation-types": "error", // https://api.otto.de/portal/guidelines/r100038
+      "api-guidelines/use-extensible-enum": "warn", // https://api.otto.de/portal/guidelines/r000035
+      "api-guidelines/use-kebab-case-for-path-parameter": "off", // TODO guideline rule will follow
+      "api-guidelines/use-kebab-case-in-uri": "error", // https://api.otto.de/portal/guidelines/r000023
+      "api-guidelines/use-oas-3": "error", // https://api.otto.de/portal/guidelines/r000003
+      "api-guidelines/use-string-enum": "error", // https://api.otto.de/portal/guidelines/r004080
+      "api-guidelines/use-tls": "error", // https://api.otto.de/portal/guidelines/r000046
     },
   },
 };
