@@ -17,7 +17,7 @@ The server may decline invalid combinations of `Content-Type` and `Accept` heade
 
 ::: references
 
-- [MUST use profiles for Public APIs](@guidelines/R000065)
-- [](@guidelines/R100066)
+- [MUST use profiles for Public APIs](/guidelines/r000065)
+- [MUST use absolute URIs for profiles](/guidelines/r100066)
 - [RFC 7231, p. 59: 406 for unsupported versions](https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.6)
   :::

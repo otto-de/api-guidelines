@@ -22,5 +22,5 @@ Examples:
 
 ::: references
 
-- [](@guidelines/R000023)
+- [MUST use kebab-case for URIs](/guidelines/r000023)
   :::

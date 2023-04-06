@@ -10,9 +10,9 @@ Success and error responses are a vital part to define how an API is used correc
 Therefore, you must define **all** success and service specific error responses in your API specification.
 Both are part of the interface definition and provide important information for service clients to handle standard as well as exceptional situations.
 
-In most cases it is not useful to document all technical errors, especially if they are not under control of the service provider. Thus unless a response code conveys application-specific functional semantics or is used in a non-standard way that requires additional explanation, multiple error response specifications can be combined using the following pattern:
+In most cases it is not useful to document all technical errors, especially if they are not under control of the service provider. Thus, unless a response code conveys application-specific functional semantics or is used in a non-standard way that requires additional explanation, multiple error response specifications can be combined using the following pattern:
 
-See [Error Handling](../../040_Errors/010_Error-handling/index.md) for more details.
+See [Error Handling](/guidelines/rest-guidelines/errors#error-handling) for more details.
 
 ```yaml
 responses:

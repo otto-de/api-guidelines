@@ -5,7 +5,7 @@ id: R000047
 # MUST define and assign permissions by using scopes
 
 Endpoints must define permissions to protect access to their resources.
-Each endpoint must define at least one OAuth 2.0 scope using the defined [naming conventions](R000048).
+Each endpoint must define at least one OAuth 2.0 scope using the defined [naming conventions](/guidelines/r000048).
 
 ## Granting permission to public resources
 
@@ -19,7 +19,7 @@ For example:
 - Product data
 - Deal of the day
 
-However, even endpoints providing public resources [must be secured with OAuth 2.0](R000051).
+However, even endpoints providing public resources [must be secured with OAuth 2.0](/guidelines/r000051).
 To harmonize the access to public resources we defined the special scope `otto.read`, which can be used to secure those resources.
 
 ::: warning Important

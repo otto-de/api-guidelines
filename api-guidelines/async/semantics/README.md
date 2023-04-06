@@ -2,4 +2,4 @@
 
 ## Event structure
 
-[Rules](../semantics/event-structure/rules/)
+[<!--RULES-->Rules](./event-structure/rules)

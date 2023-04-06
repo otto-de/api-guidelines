@@ -10,19 +10,19 @@ The CloudEvents specification defines a number of required and optional [context
 
 The following table shows the most important context attributes of the CloudEvents specification and includes event guidelines rules, which are specific to some context attributes.
 
-| Context attribute                                                                                      | Event Guidelines rules  |
-| ------------------------------------------------------------------------------------------------------ | ----------------------- |
-| [id](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)                           |                         |
-| [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | [](@guidelines/R200010) |
-| [specversion](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion)         | only '1.0' allowed      |
-| [type](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type)                       | [](@guidelines/R200009) |
-| [datacontenttype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#datacontenttype) | [](@guidelines/R200013) |
-| [dataschema](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#dataschema)           |                         |
-| [time](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time)                       | [](@guidelines/R200011) |
-| [subject](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)                 |                         |
+| Context attribute                                                                                      | Event Guidelines rules                                                                         |
+| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| [id](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)                           |                                                                                                |
+| [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | [MUST provide meaningful source context attribute](/guidelines/r200010)                        |
+| [specversion](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion)         | only '1.0' allowed                                                                             |
+| [type](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type)                       | [MUST follow naming scheme for type context attribute](/guidelines/r200009)                    |
+| [datacontenttype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#datacontenttype) | [MUST provide datacontenttype context attribute if media type is defined](/guidelines/r200013) |
+| [dataschema](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#dataschema)           |                                                                                                |
+| [time](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time)                       | [MUST provide event time in UTC](/guidelines/r200011)                                          |
+| [subject](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)                 |                                                                                                |
 
 The following table shows context attributes that are part of [CloudEvent extensions](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes) and used within OTTO.
 
-| Context attribute           | Event Guidelines rules                                                    |
-| --------------------------- | ------------------------------------------------------------------------- |
-| [test](@guidelines/r200021) | [](@guidelines/r200021), [](@guidelines/r200022), [](@guidelines/r200023) |
+| Context attribute           | Event Guidelines rules                                                                                                                                                                  |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [test](/guidelines/r200021) | [MAY use test extension](/guidelines/r200021), [MUST forward test context attribute](/guidelines/r200022), [MAY ignore events flagged with test context attribute](/guidelines/r200023) |

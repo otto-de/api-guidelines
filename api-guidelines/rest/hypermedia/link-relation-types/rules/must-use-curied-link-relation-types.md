@@ -5,10 +5,10 @@ id: R100038
 # MUST use curied link relation types
 
 ::: info Info
-This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
+This rule applies to APIs that have to comply with [REST maturity level 3](/guidelines/r000033).
 :::
 
-A resource that uses [custom link relation types](@guidelines/R100037) to link to other resources must have a `curies` array in its `_links` property.
+A resource that uses [custom link relation types](/guidelines/r100037) to link to other resources must have a `curies` array in its `_links` property.
 Curie objects inside this array must have a templated property `href`.
 
 ```json
@@ -47,7 +47,7 @@ Links to a resource with a custom link relation type must be curied using this C
 }
 ```
 
-If the linked resources [can be embedded](@guidelines/R000041) into the response, the service should use the same link relation type that is used to link the subresources:
+If the linked resources [can be embedded](/guidelines/r000041) into the response, the service should use the same link relation type that is used to link the subresources:
 
 ```json
 {
@@ -90,9 +90,9 @@ If the linked resources [can be embedded](@guidelines/R000041) into the response
 
 ::: references
 
-- [MUST implement REST maturity level 2](@guidelines/R000032)
-- [MUST implement REST maturity level 3 for transitional APIs](@guidelines/R000033)
-- [MUST prefer IANA-registered link relation types](@guidelines/R100036)
-- [MUST prefer existing custom link relation types](@guidelines/R100035)
-- [MUST use absolute URIs for custom link relation types](@guidelines/R100037)
+- [MUST implement REST maturity level 2](/guidelines/r000032)
+- [MUST implement REST maturity level 3 for transitional APIs](/guidelines/r000033)
+- [MUST prefer IANA-registered link relation types](/guidelines/r100036)
+- [MUST prefer existing custom link relation types](/guidelines/r100035)
+- [MUST use absolute URIs for custom link relation types](/guidelines/r100037)
   :::

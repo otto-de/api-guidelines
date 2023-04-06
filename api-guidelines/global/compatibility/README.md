@@ -13,23 +13,23 @@ However, API providers are of course free to give their consumers further guaran
 The global rules for compatibility included in this section are independent of the API type.
 Versioning and other compatibility rules specific to REST and Event APIs are documented in their respective sections:
 
-- [Compatibility for REST APIs](../../030_REST-GUIDELINES/050_Compatibility/index.md)
-- [Compatibility for Event APIs](../../040_EVENT-GUIDELINES/050_Compatibility/index.md)
+- [Compatibility for REST APIs](/guidelines/rest-guidelines/compatibility)
+- [Compatibility for Event APIs](/guidelines/event-guidelines/compatibility)
 
 ## Compatible changes
 
-[<!--INCLUDE-->Description](../compatibility/compatible-changes/compatible-changes.md)
+[<!--INCLUDE-->Description](./compatible-changes/compatible-changes.md)
 
-[<!--RULES-->Rules](../compatibility/compatible-changes/rules/)
+[<!--RULES-->Rules](./compatible-changes/rules)
 
 ## Preview of API changes
 
-[<!--INCLUDE-->Description](../compatibility/preview/preview-of-api-changes.md)
+[<!--INCLUDE-->Description](./preview/preview-of-api-changes.md)
 
-[<!--RULES-->Rules](../compatibility/preview/rules/)
+[<!--RULES-->Rules](./preview/rules)
 
 ## Deprecation of obsolete API versions and components
 
-[<!--INCLUDE-->Description](../compatibility/deprecation/deprecation-of-obsolete-api-versions-and-components.md)
+[<!--INCLUDE-->Description](./deprecation/deprecation-of-obsolete-api-versions-and-components.md)
 
-[<!--RULES-->Rules](../compatibility/deprecation/rules/)
+[<!--RULES-->Rules](./deprecation/rules)

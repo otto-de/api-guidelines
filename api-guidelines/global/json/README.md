@@ -2,12 +2,12 @@
 
 ## Naming conventions
 
-[<!--RULES-->Rules](../json/naming-conventions/rules/)
+[<!--RULES-->Rules](./naming-conventions/rules)
 
 ## Canonical data types
 
-[<!--RULES-->Rules](../json/canonical-data-types/rules/)
+[<!--RULES-->Rules](./canonical-data-types/rules)
 
 ## Identifiers
 
-[<!--RULES-->Rules](../json/identifiers/rules/)
+[<!--RULES-->Rules](./identifiers/rules)

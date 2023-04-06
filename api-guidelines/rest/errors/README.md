@@ -10,4 +10,4 @@ An API must always report the same error message scheme.
 
 ## Error handling
 
-[<!--RULES-->Rules](../errors/error-handling/rules/)
+[<!--RULES-->Rules](./error-handling/rules)

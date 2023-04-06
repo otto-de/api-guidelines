@@ -15,5 +15,5 @@ Examples:
 
 ::: references
 
-- [MUST stick to conventional query parameters](R000049)
+- [MUST stick to conventional query parameters](/guidelines/r000049)
   :::

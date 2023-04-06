@@ -2,14 +2,14 @@
 
 ## OAuth 2.0
 
-[<!--INCLUDE-->OAuth 2.0](../authorization/oauth/oauth.md)
+[<!--INCLUDE-->OAuth 2.0](./oauth/oauth.md)
 
-[<!--RULES-->Rules](../http/headers/rules/)
+[<!--RULES-->Rules](../http/headers/rules)
 
 ## Scopes
 
-[<!--RULES-->Rules](../authorization/oauth/rules)
+[<!--RULES-->Rules](./oauth/rules)
 
 ## Tokens
 
-[<!--RULES-->Rules](../tokens/rules)
+[<!--RULES-->Rules](./tokens/rules)

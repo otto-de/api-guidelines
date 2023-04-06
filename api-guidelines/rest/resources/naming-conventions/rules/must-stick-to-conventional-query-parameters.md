@@ -36,20 +36,20 @@ This rule applies to public APIs. For private APIs it should be followed.
 | :--- | :---------------- | :----- | :--------- |
 | `q`  | Simple text query | \*     | `?q=shoes` |
 
-Introduce [your own descriptive query parameters for querying](R100031).
+Introduce [your own descriptive query parameters for querying](/guidelines/r100031).
 
-If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](R100041).
+If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](/guidelines/r100041).
 ::::
 
 :::: accordion Filtering
 
-Depending on your use case and payload size, you can significantly reduce network bandwidth need by supporting filtering of returned entity fields.
+Depending on your use case and payload size, you can significantly reduce the network bandwidth need by supporting filtering of returned entity fields.
 
 | name     | description                                 | values | example                         |
 | :------- | :------------------------------------------ | :----- | :------------------------------ |
 | `fields` | Selection of fields that should be returned | \*     | `?fields=name,friends(id,name)` |
 
-See also [Filtering of fields using common query parameter](R004070)
+See also [Filtering of fields using common query parameter](/guidelines/r004070)
 ::::
 
 :::: accordion Embedding

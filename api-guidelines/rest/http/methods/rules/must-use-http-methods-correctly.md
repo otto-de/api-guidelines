@@ -13,7 +13,7 @@ We are compliant with the standardized HTTP method semantics described as follow
 - For individual resources, `GET` requests will usually generate a `404 Not Found` if the resource does not exist.
 - For collection resources, `GET` requests may return either `200 OK` (if the collection is empty) or `404 Not Found` (if the collection is missing).
 - `GET` requests must NOT have a request body payload (see `GET With Body`).
-- `GET` requests on collection resources should provide sufficient [filter](@guidelines/R000049) and [pagination](@guidelines/R000049) mechanisms.
+- `GET` requests on collection resources should provide sufficient [filter](/guidelines/r000049) and [pagination](/guidelines/r000049) mechanisms.
 
 ::::
 
@@ -49,10 +49,10 @@ This leaves the resource ID under control of the service and allows to concentra
 
 ::: info Info
 In the rare cases where `PUT` is also used for resource creation, the resource IDs are maintained by the client and passed as a URL path segment.
-Putting the same resource twice is required to be idempotent and to result in the same single resource instance (see [MUST fulfill common method properties](@guidelines/R000008)).
+Putting the same resource twice is required to be idempotent and to result in the same single resource instance (see [MUST fulfill common method properties](/guidelines/r000008)).
 :::
 
-To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](@guidelines/R000060) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
+To prevent unnoticed concurrent updates and duplicate creations when using `PUT`, you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](/guidelines/r000060) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
 ::::
 
 :::: accordion POST
@@ -63,15 +63,16 @@ The semantic for collection endpoints is best described as _"please add the encl
 - Successful `POST` requests will usually generate `200 OK` (if resources have been updated), `201 Created` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if resources have been created), `202 Accepted` (if the request was accepted but has not been finished yet), and exceptionally `204 No Content` with [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header (if the actual resource is not returned).
 
 ::: info Info
+
 - `POST` should be used for scenarios that cannot be covered by the other methods sufficiently.
-In such cases, make sure to document the fact that `POST` is used as a workaround (see `GET With Body`).
+  In such cases, make sure to document the fact that `POST` is used as a workaround (see `GET With Body`).
 
 - Resource IDs related to `POST` requests are created and managed by the server and returned with the response payload and/or as part of the URL in the [`Location`](https://tools.ietf.org/html/rfc7231#section-7.1.2) header.
 
-- Posting the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](@guidelines/R000008)) and may result in multiple resources.
-However, you [SHOULD consider to design `POST` and `PATCH` idempotent](@guidelines/R000009) to prevent this.
-:::
-::::
+- Posting the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](/guidelines/r000008)) and may result in multiple resources.
+  However, you [SHOULD consider to design `POST` and `PATCH` idempotent](/guidelines/r000009) to prevent this.
+  :::
+  ::::
 
 :::: accordion PATCH
 
@@ -86,20 +87,20 @@ The semantic of the change request is not defined in the HTTP standard and must 
 
 As implementing `PATCH` correctly is a bit tricky, we strongly suggest to choose one and only one of the following patterns per endpoint, unless forced by a backwards compatible change. In preferred order:
 
-1. Use [`PUT`](#put) with complete objects to update a resource as long as feasible (i.e. do not use `PATCH` at all).
-2. Use [`PATCH`](#patch) with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)
-3. Use [`PATCH`](#patch) with [JSON Patch](https://tools.ietf.org/html/rfc6902), a specialized media type `application/json-patch+json` (sent as `Content-Type` request header) that includes instructions on how to change the resource.
-4. Use [`POST`](#post) (with a proper description of what is happening) instead of [`PATCH`](#patch), if the request does not modify the resource in a way defined by the semantics of the media type.
+1. Use `PUT` with complete objects to update a resource as long as feasible (i.e. do not use `PATCH` at all).
+2. Use `PATCH` with partial objects to only update parts of a resource, whenever possible. (This is basically [JSON Merge Patch](https://tools.ietf.org/html/rfc7396), a specialized media type `application/merge-patch+json` (sent as `Content-Type` request header) that is a partial resource representation.)
+3. Use `PATCH` with [JSON Patch](https://tools.ietf.org/html/rfc6902), a specialized media type `application/json-patch+json` (sent as `Content-Type` request header) that includes instructions on how to change the resource.
+4. Use `POST` (with a proper description of what is happening) instead of `PATCH`, if the request does not modify the resource in a way defined by the semantics of the media type.
 
 In practice [JSON Merge Patch](https://tools.ietf.org/html/rfc7396) quickly turns out to be too limited, especially when trying to update single objects in large collections (as part of the resource).
 In this cases [JSON Patch](https://tools.ietf.org/html/rfc6902) can show its full power while still showing readable patch requests (see also [JSON patch vs. merge](http://erosb.github.io/post/json-patch-vs-merge-patch)).
 
 ::: info Info
-Patching the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](@guidelines/R000008)) and may result in a changing result. However, you [SHOULD consider to design `POST` and `PATCH` idempotent](@guidelines/R000009) to prevent this.
+Patching the same resource twice is **not** required to be idempotent (check [MUST fulfill common method properties](/guidelines/r000008)) and may result in a changing result. However, you [SHOULD consider to design `POST` and `PATCH` idempotent](/guidelines/r000009) to prevent this.
 :::
 
-To prevent unnoticed concurrent updates when using `PATCH` you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](@guidelines/R000060) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
-Refer to [SHOULD consider to design `POST` and `PATCH` idempotent](@guidelines/R000009) for details and options.
+To prevent unnoticed concurrent updates when using `PATCH` you [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](/guidelines/r000060) to allow the server to react on stricter demands that expose conflicts and prevent lost updates.
+Refer to [SHOULD consider to design `POST` and `PATCH` idempotent](/guidelines/r000009) for details and options.
 ::::
 
 :::: accordion DELETE

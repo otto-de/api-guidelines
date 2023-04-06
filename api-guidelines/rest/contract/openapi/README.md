@@ -2,8 +2,8 @@
 
 ## Basics
 
-[Rules](../global/basic-concepts/rules)
+[<!--RULES-->Rules](../../../global/basic-concepts/rules)
 
 ## OpenAPI
 
-[Rules](../openapi/rules/)
+[<!--RULES-->Rules](../openapi/rules)

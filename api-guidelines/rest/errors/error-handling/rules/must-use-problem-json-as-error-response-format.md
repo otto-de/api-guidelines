@@ -29,7 +29,7 @@ Always respond with the corresponding media type `application/problem+json` rega
 The [`type`](https://www.rfc-editor.org/rfc/rfc7807#section-3.1) of the problem object should be used to identify the problem type globally.
 The URI does not need to be resolvable. If it is resolvable, it should contain a human-readable description of the problem type.
 
-Responses should [use existing error types](R000037) if possible to keep error churn as low as possible.
+Responses should [use existing error types](/guidelines/r000037) if possible to keep error churn as low as possible.
 
 Response properties in detail:
 

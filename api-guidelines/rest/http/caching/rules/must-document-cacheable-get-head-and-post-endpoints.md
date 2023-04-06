@@ -36,5 +36,5 @@ paths:
 
 See:
 
-- [MAY use `ETag` header for caching resources](@guidelines/R000010)
-- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](@guidelines/R000060)
+- [MAY use `ETag` header for caching resources](/guidelines/r000010)
+- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](/guidelines/r000060)

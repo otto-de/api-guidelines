@@ -16,6 +16,6 @@ Example of an UTC timestamp:
 
 ::: references
 
-- [](@guidelines/r100072)
+- [# MUST use common date and time format](/guidelines/r100072)
 
 :::

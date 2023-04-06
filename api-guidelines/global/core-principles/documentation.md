@@ -1,6 +1,6 @@
 # Documentation
 
-Our [quality standards](./050_Quality-standards.md) define all the values that are important to us.
+Our [quality standards](/guidelines/core-principles/quality-standards) define all the values that are important to us.
 What's more, we aim to take care of clearly structured documentation, provide our audience with code examples, and make sure they have a great time using our API.
 Here's what that means:
 
@@ -39,7 +39,7 @@ Request and response examples that belong to every endpoint documentation have m
 Every endpoint documentation comes with examples and also provides schemas listing the available attributes with explanatory text.
 
 **Automated API reference documentation**  
-API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](@guidelines/R000003).
+API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](/guidelines/r000003).
 :::
 
 ::: accordion Consistency and accessibility

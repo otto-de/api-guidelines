@@ -29,6 +29,6 @@ Method implementations must fulfill the following basic properties according to 
 | `DELETE`  | ✗    | ✔          | ✗         |
 | `OPTIONS` | ✔    | ✔          | ✗         |
 
-[^1]: No, but you [SHOULD consider to design `POST` and `PATCH` idempotent](@guidelines/R000009).
+[^1]: No, but you [SHOULD consider to design `POST` and `PATCH` idempotent](/guidelines/r000009).
 [^2]: May, but only if the specific `POST` endpoint is `safe`. Not supported by most caches.
-[^3]: No, but you [SHOULD consider to design `POST` and `PATCH` idempotent](@guidelines/R000009).
+[^3]: No, but you [SHOULD consider to design `POST` and `PATCH` idempotent](/guidelines/r000009).

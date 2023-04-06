@@ -47,6 +47,6 @@ Note that the "x-extensible-enum" extension property is ignored by most tools. W
 
 ::: references
 
-- [SHOULD prefer compatible extensions](@guidelines/R000028)
+- [SHOULD prefer compatible extensions](/guidelines/r000028)
 - [`enum` in JSON Schema](http://json-schema.org/understanding-json-schema/reference/generic.html#enumerated-values)
 - [Zalando's rule for `x-extensible-enum`](https://opensource.zalando.com/restful-api-guidelines/#112)

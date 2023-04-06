@@ -151,6 +151,6 @@ Response:
 
 ::: references
 
-- [MUST stick to conventional query parameters](@guidelines/R000049)
-- [MUST support pagination](@guidelines/R100023)
+- [MUST stick to conventional query parameters](/guidelines/r000049)
+- [MUST support pagination](/guidelines/r100023)
   :::

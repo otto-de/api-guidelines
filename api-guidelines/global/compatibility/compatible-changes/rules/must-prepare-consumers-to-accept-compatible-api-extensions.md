@@ -12,4 +12,4 @@ API consumers should apply the robustness principle:
 More specifically, API consumers must be prepared for compatible API extensions of API providers:
 
 - Be tolerant with unknown fields in the payload (see also Martin Fowler’s post about ["TolerantReader"](http://martinfowler.com/bliki/TolerantReader.html)).
-- Be prepared that `x-extensible-enum` output types may deliver new values; either be agnostic or provide default behavior for unknown values (see [SHOULD use extensible enums](@guidelines/R000035)).
+- Be prepared that `x-extensible-enum` output types may deliver new values; either be agnostic or provide default behavior for unknown values (see [SHOULD use extensible enums](/guidelines/r000035)).

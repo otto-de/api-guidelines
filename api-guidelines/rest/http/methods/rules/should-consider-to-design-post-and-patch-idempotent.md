@@ -4,10 +4,10 @@ id: R000009
 
 # SHOULD consider to design `POST` and `PATCH` idempotent
 
-In many cases it is helpful or even necessary to design `POST` and `PATCH` [idempotent](@guidelines/R000008) for clients to expose conflicts and prevent resource duplication (a.k.a. zombie resources) or lost updates, for example, if the same resources may be created or changed in parallel or multiple times.
+In many cases it is helpful or even necessary to design `POST` and `PATCH` [idempotent](/guidelines/r000008) for clients to expose conflicts and prevent resource duplication (a.k.a. zombie resources) or lost updates, for example, if the same resources may be created or changed in parallel or multiple times.
 To design an idempotent API endpoint owners should consider to apply one of the following two patterns.
 
-- A resource specific **conditional key** provided via `If-Match` header in the request. The key is generally a meta information of the resource, for example, a _hash_ or _version number_, often stored with it. It allows to detect concurrent creations and updates to ensure idempotent behavior (see [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](@guidelines/R000060)).
+- A resource specific **conditional key** provided via `If-Match` header in the request. The key is generally a meta information of the resource, for example, a _hash_ or _version number_, often stored with it. It allows to detect concurrent creations and updates to ensure idempotent behavior (see [SHOULD consider to support `ETag` together with `If-Match`/`If-None-Match` header](/guidelines/r000060)).
 - A resource specific **secondary key** provided as a resource property in the request body. The _secondary key_ is stored permanently in the resource. It allows to ensure idempotent behavior by looking up the unique secondary key in case of multiple independent resource creations from different clients.
 
 To decide which pattern is suitable for your use case, consult the following table showing the major properties of each pattern:
@@ -21,7 +21,6 @@ To decide which pattern is suitable for your use case, consult the following tab
 | Supports safe retries                 | ✔               | ✔             |
 | Can be inspected (by intermediaries)  | ✔               | ✗             |
 | Usable without previous `GET`         | ✗               | ✔             |
-
 
 The patterns applicable to `PATCH` can be applied in the same way to `PUT` and `DELETE` providing the same properties.
 

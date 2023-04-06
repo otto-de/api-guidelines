@@ -5,7 +5,7 @@ id: R000036
 # MUST use HAL (Hypertext Application Language) to implement REST maturity level 3
 
 ::: info Info
-This rule applies to APIs that have to comply with [REST maturity level 3](@guidelines/R000033).
+This rule applies to APIs that have to comply with [REST maturity level 3](/guidelines/r000033).
 :::
 
 Since a variety of hypermedia formats exists, we decided to use HAL when a hypermedia implementation is required for the following reasons:

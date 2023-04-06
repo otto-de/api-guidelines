@@ -17,7 +17,7 @@ Assuming incompatible schemas are not allowed due to enabling compatibility chec
 
 ::: references
 
-- [](@guidelines/R200009).
-- [](@guidelines/R000054)
+- [MUST follow naming scheme for `type` context attribute](/guidelines/r200009).
+- [MUST obtain approval of consumers before API shutdown](/guidelines/r000054)
 - [The role of the `type` attribute within versioning](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#the-role-of-the-type-attribute-within-versioning)
   :::

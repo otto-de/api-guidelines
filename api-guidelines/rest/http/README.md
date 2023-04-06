@@ -2,22 +2,22 @@
 
 ## Methods
 
-[Rules](../http/methods/rules/)
+[<!--RULES-->Rules](./methods/rules)
 
 ## Headers
 
-[<!--INCLUDE-->List of headers](../http/headers/list-of-headers.md)
+[<!--INCLUDE-->List of headers](./headers/list-of-headers.md)
 
-[<!--INCLUDE-->Header fields](../http/headers/header-fields.md)
+[<!--INCLUDE-->Header fields](./headers/header-fields.md)
 
-[<!--RULES-->Rules](../http/headers/rules/)
+[<!--RULES-->Rules](./headers/rules)
 
 ## Status codes
 
-[Rules](../http/status-codes/rules/)
+[<!--RULES-->Rules](./status-codes/rules)
 
 ## Caching
 
-[<!--INCLUDE-->Caching](../http/headers/caching.md)
+[<!--INCLUDE-->Caching](./caching/caching.md)
 
-[Rules](../http/caching/rules/)
+[<!--RULES-->Rules](./caching/rules)

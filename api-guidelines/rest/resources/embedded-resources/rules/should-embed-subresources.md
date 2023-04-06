@@ -38,5 +38,5 @@ GET https://api.otto.de/products HTTP/1.1
 
 ::: references
 
-- [SHOULD support optional embedding of subresources](@guidelines/R000063)
+- [SHOULD support optional embedding of subresources](/guidelines/r000063)
   :::

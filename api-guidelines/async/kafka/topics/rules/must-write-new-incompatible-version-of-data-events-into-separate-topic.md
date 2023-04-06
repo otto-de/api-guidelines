@@ -4,9 +4,9 @@ id: R200016
 
 # MUST write new incompatible version of data events into a separate topic
 
-If a [new `type`](@guidelines/R200014) for a data event is defined, its instances must be written to a separate topic than the currently defined data event types. Thus, not breaking existing event consumers.
+If a [new `type`](/guidelines/r200014) for a data event is defined, its instances must be written to a separate topic than the currently defined data event types. Thus, not breaking existing event consumers.
 
-If the API provider deprecates the old topic, the API provider needs to [obtain approval of consumers before API shutdown](@guidelines/R000054).
+If the API provider deprecates the old topic, the API provider needs to [obtain approval of consumers before API shutdown](/guidelines/r000054).
 
 `Example`{ label} If the data event type de.otto.data.checkout.payment.v1 is currently written to the topic de.otto.data.checkout.payments.v1 and a new type de.otto.data.checkout.payment.v2 is defined, it should be written to de.otto.data.checkout.payments.v2.
 

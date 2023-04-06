@@ -2,8 +2,8 @@
 
 ## Basics
 
-[Rules](../global/basic-concepts/rules)
+[<!--RULES-->Rules](../../global/basic-concepts/rules)
 
 ## AsyncAPI
 
-[Rules](../contract/asyncapi/rules/)
+[<!--RULES-->Rules](./asyncapi/rules)
