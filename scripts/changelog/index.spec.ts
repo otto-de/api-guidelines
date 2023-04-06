@@ -1,57 +1,60 @@
 import { it, expect, vi, describe, afterEach } from "vitest";
 import { run } from "./index";
-import { getPullRequest } from "./pull-request";
-import { addChangelogEntry, createChangelogEntry, isFixOrFeature } from "./entry";
+import { getPullRequestData } from "./pullRequest";
+import { addChangelogEntry, createChangelogEntry } from "./entry";
 
-const anyGithubContext = <any>"any-context";
-
-const anyPullRequestObject = {
-  files: ["api/internal/any-internal.yml"],
-  message: {
-    title: "fix(any-scope): any commit subject",
-    body: "any commit body",
-  },
-  date: "2023-01-01T21:33:52+01:00",
+const anyPullRequestData = {
+  title: "fix(any-scope): any description",
+  body: "<changelog>any changes text",
+  date: "2023-01-01",
+  files: ["api/public/ft4/feedback/spec.yml"],
+  isFix: true,
+  isFeature: false,
+  isBreaking: false,
 };
 
 const anyChangelogEntry = "any-entry";
 
-vi.mock("./pull-request");
-vi.mocked(getPullRequest).mockResolvedValue(anyPullRequestObject as any);
+vi.mock("@actions/github");
+
+vi.mock("./pullRequest");
+vi.mocked(getPullRequestData).mockResolvedValue(anyPullRequestData as any);
 
 vi.mock("./entry");
-vi.mocked(isFixOrFeature).mockReturnValue(false);
 vi.mocked(createChangelogEntry).mockReturnValue(anyChangelogEntry);
 vi.mocked(addChangelogEntry);
+
+vi.mock("./getReleaseType");
 
 describe("run()", async () => {
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  it("should get the commit object of the current GitHub context", async () => {
-    await run(anyGithubContext);
-    expect(getPullRequest).toHaveBeenCalledWith(anyGithubContext);
+  it("should get corresponding pull request data", async () => {
+    await run();
+    expect(getPullRequestData).toHaveBeenCalledOnce();
   });
 
-  it("should create an changelog entry if commit is of type 'fix' or 'feature", async () => {
-    vi.mocked(isFixOrFeature).mockReturnValue(true);
-    await run(anyGithubContext);
-    expect(createChangelogEntry).toHaveBeenCalledWith(
-      anyPullRequestObject.message,
-      anyPullRequestObject.date
-    );
+  it("should create a changelog entry with the data of the corresponding pull request'", async () => {
+    const pullRequestData = { ...anyPullRequestData };
+    pullRequestData.isFix = true;
+    await run();
+    expect(createChangelogEntry).toHaveBeenCalledWith(pullRequestData);
   });
 
-  it("should NOT create an changelog entry if commit is NOT of type 'fix' or 'feature", async () => {
-    vi.mocked(isFixOrFeature).mockReturnValue(false);
-    await run(anyGithubContext);
-    expect(createChangelogEntry).not.toHaveBeenCalled();
-  });
-
-  it("should add entry to the changelog", async () => {
-    vi.mocked(isFixOrFeature).mockReturnValue(true);
-    await run(anyGithubContext);
+  it("should add the entry to the internal changelog if internal API specs were changed", async () => {
+    const pullRequestData = { ...anyPullRequestData };
+    pullRequestData.isFix = true;
+    await run();
     expect(addChangelogEntry).toHaveBeenCalledWith(anyChangelogEntry);
+  });
+
+  it("should do nothing if corresponding pull request is not of type 'fix' or 'feature'", async () => {
+    anyPullRequestData.isFix = false;
+    anyPullRequestData.isFeature = false;
+    await run();
+    expect(createChangelogEntry).not.toHaveBeenCalled();
+    expect(addChangelogEntry).not.toHaveBeenCalled();
   });
 });

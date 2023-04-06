@@ -1,13 +1,13 @@
 name: Changelog
 
 on:
-  #  push:
-  #    branches:
-  #      - main
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
-      ref-number:
-        description: Pull request revision number
+      commit-ref:
+        description: Revision number of commit
 
 jobs:
   changelog:
@@ -16,31 +16,26 @@ jobs:
     permissions:
       contents: write
       packages: read
+      pull-requests: read
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          fetch-depth: 0
-
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.2"
+          node-version: 18
           cache: npm
+      - run: npm ci
 
-      - name: NPM install
+      - name: Git configuration
+        run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Create Changelog Entry
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        run: npm ci
-
-      - name: Create Changelog
-        id: create-changelog
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PR_REF: ${{github.event.inputs.ref-number}}
-        run: >
+          COMMIT_REF: ${{github.event.inputs.commit-ref}}
+        run: |
           npm run changelog
 
       - name: Auto commit
