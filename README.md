@@ -39,11 +39,11 @@ npm run serve
 
 Navigate to [http://localhost:3000](http://localhost:3000) to see the rendered output.
 
-Happy coding!
-
 ## Release & deployment
 
 Each commit of type `feat` or `fix` triggers a new npm package release and generates a new changelog entry.
 [ottoapi_portal](https://github.com/otto-ec/ottoapi_portal) will be notified and automatically consumes the new version.
 
 Actions are provided by the [ottoapi_cli](https://github.com/otto-ec/ottoapi_cli)
+
+Happy coding!
