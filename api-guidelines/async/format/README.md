@@ -12,7 +12,7 @@ The CloudEvents standard defines two things:
 The CloudEvents specification is designed to be [extensible](https://github.com/cloudevents/spec/blob/main/cloudevents/documented-extensions.md). Extensions need to be agreed on between consumer and producer. Some already defined extensions in the CloudEvents repository are used within the event guidelines to handle common concerns such as tracing.
 
 The actual event payload (referred to as [event data](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#event-data)) can be encoded in any format (e.g. JSON, Avro, Protobuf).
-When using the JSON format, follow the rules defined in the section ["JSON"](./../020_GENERAL-GUIDELINES/020_JSON/index.md).
+When using the JSON format, follow the rules defined in the section ["JSON"](/guidelines/general-guidelines/json).
 
 ::: references
 
