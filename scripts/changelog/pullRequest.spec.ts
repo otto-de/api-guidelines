@@ -123,4 +123,12 @@ describe("getPullRequestData()", async () => {
       isBreaking: true,
     });
   });
+
+  it("should return null if commit has no associated pull request ", async () => {
+    anyPullRequest.data = [];
+
+    const result = await getPullRequestData();
+
+    expect(result).toBe(null);
+  });
 });
