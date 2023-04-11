@@ -5,9 +5,8 @@ import { addChangelogEntry, createChangelogEntry } from "./entry";
 export async function run() {
   const pullRequestData = await getPullRequestData();
 
-  if (!pullRequestData.isFix && !pullRequestData.isFeature) {
-    // Return early if no major/minor/patching changes.
-    info("Nothing to do. No feature/fix commit detected.");
+  if (!pullRequestData || (!pullRequestData.isFix && !pullRequestData.isFeature)) {
+    info("Nothing to do. No feature/fix pull request detected.");
     return;
   }
 
