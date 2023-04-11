@@ -1,41 +1,20 @@
 import * as fs from "fs";
-
-type PullRequestMessage = {
-  title: string;
-  body: string;
-};
+import { info } from "@actions/core";
+import { PullRequestData } from "./pullRequest";
 
 const CHANGELOG_FILE = "changes/changelog.md";
-
-const CHANGELOG_MARKER = "Changelog:";
+const CHANGELOG_MARKER = "<changelog>";
 const CHANGELOG_ENTRIES_MARKER = "<!--CHANGELOG-MARKER-->";
-const CONVENTIONAL_COMMIT_TITLES = {
-  FEATURE: "feat",
-  FIX: "fix",
-  BREAKING: "BREAKING CHANGE",
-};
 
-function getEntryBody(message: PullRequestMessage) {
-  const textAfterMarker = message.body.split(CHANGELOG_MARKER)[1];
+function getEntryText(body: string) {
+  const textAfterMarker = body.split(CHANGELOG_MARKER)[1];
   return textAfterMarker ? textAfterMarker.trim() : "";
 }
 
-function isFix(title: string) {
-  return title.startsWith(CONVENTIONAL_COMMIT_TITLES.FIX);
-}
+function createChangelogEntry(pullRequestData: PullRequestData) {
+  const entryText = getEntryText(pullRequestData.body);
 
-function isFeature(title: string) {
-  return title.startsWith(CONVENTIONAL_COMMIT_TITLES.FEATURE);
-}
-
-function isFixOrFeature(message: PullRequestMessage) {
-  return isFix(message.title) || isFeature(message.title);
-}
-
-function createChangelogEntry(message: PullRequestMessage, date: string) {
-  const body = getEntryBody(message);
-
-  return `## ${date}\n${body}`;
+  return `## ${pullRequestData.date}\n${entryText}`;
 }
 
 function prependChangelogEntry(fileContent: string, textToPrepend: string): string {
@@ -51,9 +30,10 @@ function prependChangelogEntry(fileContent: string, textToPrepend: string): stri
 }
 
 function addChangelogEntry(textToPrepend: string) {
-  const fileContent = fs.readFileSync(CHANGELOG_FILE).toString();
+  const fileContent = fs.readFileSync(CHANGELOG_FILE, { encoding: "utf-8" });
   const newFileContent = prependChangelogEntry(fileContent, textToPrepend);
   fs.writeFileSync(CHANGELOG_FILE, newFileContent);
+  info(`Changelog entry: ${textToPrepend}`);
 }
 
-export { isFixOrFeature, createChangelogEntry, addChangelogEntry };
+export { createChangelogEntry, addChangelogEntry };
