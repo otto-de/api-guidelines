@@ -1,6 +1,6 @@
 export default {
   "API Guidelines": {
     path: "/guidelines",
-    file: () => import("./README.md"),
+    file: () => import("../../api-guidelines/README.md"),
   },
 };

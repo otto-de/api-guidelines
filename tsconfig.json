@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "NodeNext",
-    "moduleResolution": "node"
-  },
-  "exclude": ["node_modules"],
-  "include": ["scripts", "src", "vitest.config.ts"]
-}

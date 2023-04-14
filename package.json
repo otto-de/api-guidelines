@@ -16,23 +16,20 @@
     "node": ">=16"
   },
   "type": "module",
-  "exports": {
-    ".": "./dist/plugin.cjs"
-  },
   "files": [
     "dist",
-    "src",
+    "src/linting",
     "!**/*.spec.ts",
     "!**/__tests__"
   ],
   "scripts": {
     "build": "npm run clean && npm run build:redocly",
-    "build:redocly": "esbuild src/plugin.ts --bundle --platform=node --outfile=dist/plugin.cjs --log-level=warning --external:@redocly/openapi-core",
-    "changelog": "npx tsx scripts/changelog/index.ts",
+    "build:redocly": "esbuild src/linting/plugin.ts --bundle --platform=node --outfile=dist/plugin.cjs --log-level=warning --external:@redocly/openapi-core",
+    "changelog": "npx tsx src/scripts/changelog/index.ts",
     "clean": "rm -rf ./dist",
-    "prepare": "husky install",
+    "prepare": "husky install src/.husky",
     "prepack": "npm run build",
-    "test": "vitest run"
+    "test": "vitest run --root src"
   },
   "devDependencies": {
     "@actions/core": "^1.10.0",

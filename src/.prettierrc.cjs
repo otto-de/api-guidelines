@@ -4,7 +4,7 @@ module.exports = {
   overrides: [
     {
       // keep quotes for better TechWriter experience
-      files: "./api-guidelines/*.ts",
+      files: "./portal/*.ts",
       options: { quoteProps: "preserve", printWidth: 200 },
     },
   ],
