@@ -7,19 +7,19 @@ Currently, the guidelines for asynchronous APIs only focus on event APIs as thos
 Rules for command-based asynchronous APIs will be added later on.
 Concentrating on event-based asynchronous APIS does not mean that developing asynchronous command APIs is discouraged, but only that no guidelines currently exist to design and develop such APIs.
 
-### Protocol
+## Protocol
 
 A protocol is a procedure by which messages are exchanged between the application and the channel. Examples of a protocol: Kafka, SNS, SQS, HTTP, JMS, Websocket.
 
-### Channel
+## Channel
 
 A channel is an addressable component that can be used to transport messages from sender to receiver using a specific protocol. The concept of a channel usually has a protocol specific naming. For example a Topic in Kafka and a Queue in Simple Queue Service (SQS) are both channels.
 
-### Message
+## Message
 
 A message is a specially formatted data structure sent and received over a specific channel. A message is a generic mechanism that supports multiple interaction patterns such as event, command, request or response.
 
-### Command
+## Command
 
 A command is a message describing an intention for an action that should be executed by a specific recipient. The execution of the command can be rejected by the recipient.
 
@@ -29,7 +29,7 @@ Example of commands:
 - AddItem
 - CancelOrder
 
-### Events
+## Events
 
 An event is a message containing information about something factual that has happened in the past.
 
@@ -43,7 +43,7 @@ Examples of events:
 - ItemAdded
 - OrderCancelled
 
-### Domain events
+## Domain events
 
 The term domain event describes an occurrence of something that happened in the business domain. The concept originates in Domain-Driven Design (DDD). The event's name usually already carries a lot of semantic meaning and is used within the domain language to describe the domain's processes.
 
@@ -65,7 +65,7 @@ Examples of domain events:
 - [What are Domain Events?](https://serialized.io/ddd/domain-event/)
   :::
 
-### Data events
+## Data events
 
 Data events describe the state of an entity at a specific moment in time.
 They may be produced at a certain rate or if the state changes.
