@@ -9,7 +9,7 @@ URL: <https://api.otto.de/portal/guidelines>
 
 ### Installation
 
-1. [Install Redocly Cli](https://redocly.com/docs/cli/installation/).
+1. [Install Redocly CLI](https://redocly.com/docs/cli/installation/).
 2. Add the following code snippet to your existing `.npmrc` or create a `.npmrc`.
 
    ```text
