@@ -18,6 +18,6 @@
 
 ## Caching
 
-[<!--INCLUDE-->Caching](./caching/caching.md)
+[<!--INCLUDE-->Context](./caching/caching.md)
 
 [<!--RULES-->Rules](./caching/rules)

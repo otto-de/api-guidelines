@@ -18,18 +18,18 @@ Versioning and other compatibility rules specific to REST and Event APIs are doc
 
 ## Compatible changes
 
-[<!--INCLUDE-->Description](./compatible-changes/compatible-changes.md)
+[<!--INCLUDE-->Context](./compatible-changes/compatible-changes.md)
 
 [<!--RULES-->Rules](./compatible-changes/rules)
 
 ## Preview of API changes
 
-[<!--INCLUDE-->Description](./preview/preview-of-api-changes.md)
+[<!--INCLUDE-->Context](./preview/preview-of-api-changes.md)
 
 [<!--RULES-->Rules](./preview/rules)
 
 ## Deprecation of obsolete API versions and components
 
-[<!--INCLUDE-->Description](./deprecation/deprecation-of-obsolete-api-versions-and-components.md)
+[<!--INCLUDE-->Context](./deprecation/deprecation-of-obsolete-api-versions-and-components.md)
 
 [<!--RULES-->Rules](./deprecation/rules)

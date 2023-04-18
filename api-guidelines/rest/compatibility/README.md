@@ -7,18 +7,18 @@ Also consider the rules defined in the [general guidelines for compatibility](/g
 
 ## Client behavior
 
-[<!--INCLUDE-->Client behavior](./client-behavior/client-behavior.md)
+[<!--INCLUDE-->Context](./client-behavior/client-behavior.md)
 
 [<!--RULES-->Rules](./client-behavior/rules)
 
 ## Versioning of incompatible changes
 
-[<!--INCLUDE-->Versioning of incompatible changes](./versioning-of-incompatible-changes/versioning-of-incompatible-changes.md)
+[<!--INCLUDE-->Context](./versioning-of-incompatible-changes/versioning-of-incompatible-changes.md)
 
 [<!--RULES-->Rules](./versioning-of-incompatible-changes/rules)
 
 ## Deprecation of HTTP APIs
 
-[<!--INCLUDE-->Deprecation of HTTP APIs](./deprecation-of-http-apis/deprecation-of-http-apis.md)
+[<!--INCLUDE-->Context](./deprecation-of-http-apis/deprecation-of-http-apis.md)
 
 [<!--RULES-->Rules](./deprecation-of-http-apis/rules)

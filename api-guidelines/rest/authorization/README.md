@@ -1,8 +1,8 @@
 # Authorization
 
-## OAuth 2.0
+## OAuth
 
-[<!--INCLUDE-->OAuth 2.0](./oauth/oauth.md)
+[<!--INCLUDE-->Context](./oauth/oauth.md)
 
 [<!--RULES-->Rules](../http/headers/rules)
 
