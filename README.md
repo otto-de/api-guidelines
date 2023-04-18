@@ -5,45 +5,57 @@ The [API Manifesto](/manifesto.md) helps to establish this standard and comprise
 
 URL: <https://api.otto.de/portal/guidelines>
 
-## Requirements
+## Linter
 
-This project requires at least Node.js version 16, or higher. We recommend using version 18.
-If you need write permissions to this repository, you can add your team via PR to this file: [.github/gitty.yml#/configs/settings/default/teams](.github/gitty.yml#/configs/settings/default/teams).
+### Installation
 
-### Get started
+1. [Install Redocly CLI](https://redocly.com/docs/cli/installation/).
+2. Add the following code snippet to your existing `.npmrc` or create a `.npmrc`.
 
-1. Create a `GITHUB_TOKEN` [in your GitHub developer settings](https://github.com/settings/tokens).
-2. Assign the scope `read:packages` to the token and enable `SSO` for it.
-3. Export the token: `export GITHUB_TOKEN=<Your Personal GitHub Accesss Token with SSO and packages:read>`
-4. Ensure that Node.js and npm work properly: `node -v && npm -v`
-
-### Setup the repository
-
-1. Clone this repository: `git clone git@github.com:otto-de/api-guidelines.git`
-2. Install the dependencies:
-
-   ```bash
-   npm ci
+   ```text
+   @otto-de:registry=https://npm.pkg.github.com/
    ```
 
-## Contributing
+3. Install the dependency.
 
-The directory `./content` contains the Markdown files for the API Portal's guidelines section.
-Our [Technical Writing Style Guide](https://github.com/otto-ec/ottoapi_portal/wiki) helps to write clear and consistent content and explains which custom content elements you can use in your Markdown files.
+   ```shell
+   npm install -D @otto-de/api-guidelines
+   ```
 
-Run the development service:
+4. Add the following code snippet to your redocly configuration:
 
-```bash
-npm run serve
+   ```yaml
+   extends:
+     - api-guidelines/recommended
+
+   plugins:
+     - ./node_modules/@otto-de/api-guidelines/dist/plugin.cjs
+   ```
+
+### Recommended Redocly configuration
+
+```yaml
+extends:
+  - recommended
+  - api-guidelines/recommended
+
+plugins:
+  - ./node_modules/@otto-ec/ottoapi-guidelines/dist/plugin.cjs
 ```
 
-Navigate to [http://localhost:3000](http://localhost:3000) to see the rendered output.
+### Lint your specs
 
-Happy coding!
+```shell
+redocly lint ./path/to/your/spec.yml
+```
 
-## Release & deployment
+### Change severity
 
-Each commit of type `feat` or `fix` triggers a new npm package release and generates a new changelog entry.
-[ottoapi_portal](https://github.com/otto-ec/ottoapi_portal) will be notified and automatically consumes the new version.
+If you'd like to disable or change the severity of a specific rule,
+you can add this to your Redocly configuration, for example, like this:
 
-Actions are provided by the [ottoapi_cli](https://github.com/otto-ec/ottoapi_cli)
+```yaml
+rules:
+  api-guidelines/always-return-json-object: off
+  api-guidelines/define-permissions-with-scope: warn
+```
