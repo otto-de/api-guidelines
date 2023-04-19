@@ -41,13 +41,17 @@ function isBreaking(title: string) {
   return title.includes("!");
 }
 
-export async function getPullRequestData(): Promise<PullRequestData> {
+export async function getPullRequestData(): Promise<PullRequestData | null> {
   const commitRef = process.env.COMMIT_REF || context.sha;
   const { data } = await client.rest.repos.listPullRequestsAssociatedWithCommit({
     owner: context.repo.owner,
     repo: context.repo.repo,
     commit_sha: commitRef,
   });
+
+  if (!data[0]) {
+    return null;
+  }
 
   const files = await getFiles(commitRef);
 

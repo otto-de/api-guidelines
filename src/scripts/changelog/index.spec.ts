@@ -57,4 +57,11 @@ describe("run()", async () => {
     expect(createChangelogEntry).not.toHaveBeenCalled();
     expect(addChangelogEntry).not.toHaveBeenCalled();
   });
+
+  it("should do nothing if there is no corresponding pull request", async () => {
+    vi.mocked(getPullRequestData).mockResolvedValue(null);
+    await run();
+    expect(createChangelogEntry).not.toHaveBeenCalled();
+    expect(addChangelogEntry).not.toHaveBeenCalled();
+  });
 });
