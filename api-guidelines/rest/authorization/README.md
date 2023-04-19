@@ -1,15 +1,7 @@
 # Authorization
 
-## OAuth
+[<!--INCLUDE-->OAuth](./oauth/README.md)
 
-[<!--INCLUDE-->Context](./oauth/oauth.md)
+[<!--INCLUDE-->Scopes](./scopes/README.md)
 
-[<!--RULES-->Rules](../http/headers/rules)
-
-## Scopes
-
-[<!--RULES-->Rules](./oauth/rules)
-
-## Tokens
-
-[<!--RULES-->Rules](./tokens/rules)
+[<!--INCLUDE-->Tokens](./tokens/README.md)

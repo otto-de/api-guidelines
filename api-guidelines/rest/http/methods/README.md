@@ -1,0 +1,3 @@
+# Methods
+
+[<!--RULES-->Rules](./rules)

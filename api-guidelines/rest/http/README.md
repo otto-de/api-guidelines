@@ -1,23 +1,9 @@
 # HTTP
 
-## Methods
+[<!--INCLUDE-->Methods](./methods/README.md)
 
-[<!--RULES-->Rules](./methods/rules)
+[<!--INCLUDE-->Headers](./headers/README.md)
 
-## Headers
+[<!--INCLUDE-->Status codes](./status-codes/README.md)
 
-[<!--INCLUDE-->List of headers](./headers/list-of-headers.md)
-
-[<!--INCLUDE-->Header fields](./headers/header-fields.md)
-
-[<!--RULES-->Rules](./headers/rules)
-
-## Status codes
-
-[<!--RULES-->Rules](./status-codes/rules)
-
-## Caching
-
-[<!--INCLUDE-->Context](./caching/caching.md)
-
-[<!--RULES-->Rules](./caching/rules)
+[<!--INCLUDE-->Caching](./caching/README.md)

@@ -19,16 +19,8 @@ When using the JSON format, follow the rules defined in the section ["JSON"](/gu
 - [CloudEvents specification 1.0.2](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md)
   :::
 
-## CloudEvents
+[<!--INCLUDE-->CloudEvents](./cloudevents/README.md)
 
-[<!--RULES-->Rules](./cloudevents/rules)
+[<!--INCLUDE-->Naming conventions](./naming-conventions/README.md)
 
-## Naming conventions
-
-[<!--RULES-->Rules](./naming-conventions/rules)
-
-## Test extension
-
-[<!--INCLUDE-->Context](./test-extension/test-extension.md)
-
-[<!--RULES-->Rules](./test-extension/rules)
+[<!--INCLUDE-->Test extension](./test-extension/README.md)

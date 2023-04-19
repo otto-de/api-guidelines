@@ -1,13 +1,7 @@
 # JSON
 
-## Naming conventions
+[<!--INCLUDE-->Naming conventions](./naming-conventions/README.md)
 
-[<!--RULES-->Rules](./naming-conventions/rules)
+[<!--INCLUDE-->Canonical data types](./canonical-data-types/README.md)
 
-## Canonical data types
-
-[<!--RULES-->Rules](./canonical-data-types/rules)
-
-## Identifiers
-
-[<!--RULES-->Rules](./identifiers/rules)
+[<!--INCLUDE-->Identifiers](./identifiers/README.md)

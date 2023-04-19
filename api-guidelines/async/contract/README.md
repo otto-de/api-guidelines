@@ -1,9 +1,5 @@
 # Contract
 
-## Basics
-
-[<!--RULES-->Rules](../../global/basic-concepts/rules)
-
-## AsyncAPI
+[<!--INCLUDE-->Basic concepts](../../global/basic-concepts/README.md)
 
 [<!--RULES-->Rules](./asyncapi/rules)

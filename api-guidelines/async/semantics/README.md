@@ -1,5 +1,3 @@
 # Semantics
 
-## Event structure
-
-[<!--RULES-->Rules](./event-structure/rules)
+[<!--INCLUDE-->Event structure](./event-structure/README.md)

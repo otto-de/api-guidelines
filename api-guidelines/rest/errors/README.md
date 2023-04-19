@@ -8,6 +8,4 @@ Different frameworks provide their own methods for error responses.
 Particularly in microservice architectures with different programming languages and frameworks in use, this is not optimal.
 An API must always report the same error message scheme.
 
-## Error handling
-
-[<!--RULES-->Rules](./error-handling/rules)
+[<!--INCLUDE-->Error handling](./error-handling/README.md)

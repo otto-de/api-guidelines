@@ -8,20 +8,8 @@ Instead, API responses should include information about when certain contextuall
 
 This section deals with topics such as [when hypermedia needs to be implemented](/guidelines/r000033), [which hypermedia standard to use](/guidelines/r000036), details about how to use [hypermedia links](/guidelines/rest-guidelines/hypermedia#links), and [link relations](/portal/guidelines/rest-guidelines/hypermedia#link-relation-types).
 
-## Maturity level
+[<!--INCLUDE-->Maturity level](./maturity-level/README.md)
 
-[<!--INCLUDE-->Maturity level](./maturity-level/maturity-level.md)
+[<!--INCLUDE-->Links](./links/README.md)
 
-[<!--RULES-->Rules](./maturity-level/rules)
-
-## Links
-
-[<!--INCLUDE-->Links](./links/links.md)
-
-[<!--RULES-->Rules](./links/rules)
-
-## Link relation types
-
-[<!--INCLUDE-->Link-relation-types](./link-relation-types/link-relation-types.md)
-
-[<!--RULES-->Rules](./link-relation-types/rules)
+[<!--INCLUDE-->Link-relation-types](./link-relation-types/README.md)
