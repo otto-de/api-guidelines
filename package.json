@@ -29,7 +29,8 @@
     "clean": "rm -rf ./dist",
     "prepare": "husky install src/.husky",
     "prepack": "npm run build",
-    "test": "vitest run --root src"
+    "test": "vitest run --root src",
+    "tsc": "tsc --noEmit -p src/tsconfig.json"
   },
   "devDependencies": {
     "@actions/core": "^1.10.0",
