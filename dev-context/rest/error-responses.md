@@ -3,7 +3,8 @@
 <https://github.com/otto-ec/ottoapi_manifest/issues/27>
 
 HTTP status codes are the most obvious choice for error communication, but they have a limited expressiveness. Many status codes are too generic to explain the specific type of an error. Most importantly, without contextual details, they are not particularly meaningful and user-friendly.
-The current API guidelines are mainly based on HTTP status codes for error communication. In addition, a self-defined response format can optionally be used to explain the occurring error in detail.
+A self-defined response format is used to explain the occurring error in detail.
+This page contains the various solutions that can be leveraged to perform this.
 
 ## Overloading HTTP status codes
 
@@ -18,7 +19,7 @@ They may sound like HTTP status codes, but are application specific and may or m
 
 Different frameworks provide their own methods for error responses. Particularly in microservice architectures with different programming languages and frameworks in use, this is not optimal. An API must always report the same error message format.
 
-## Problem Details for HTTP APIs
+## Problem Details for HTTP APIs (chosen solution)
 
 ### Example Error Response
 
@@ -27,32 +28,28 @@ HTTP/1.1 401 Unauthorized
 Content-Type: application/problem+json
 
 {
-  "type": "https://example.com/errors/ERR-42",
-  "title": "Not authorized to view account details.",
+  "type": "about:blank",
+  "title": "Not authorized",
   "status": 401,
   "detail": "Due to privacy concerns you are not allowed to view account details of others.",
-  "instance": "https://example.com/account/12345/",
-  "code": "ERR-42"
+  "instance": "https://example.com/account/12345/"
 }
 ```
 
-### ValidationError
+### validation-failed problem type
 
 As the `problem+json` media type standard does not provide a problem type for failed input validation, we had to establish one.
 One could argue that the "about:blank" problem type could be used in combination with the already defined `details` property. But [RFC 7807](https://tools.ietf.org/html/rfc7807) explicitly states, that this property is not meant to be parsed.
-Therefore, we created a new type `https://api.otto.de/portal/errors/ValidationError` with a custom property called `validationErrors`.
+Therefore, we created a new type `https://api.otto.de/portal/problems/validation-failed` with a custom property called `validationErrors`.
 
-## Notes / Questions
+### Notes / Questions
 
 - Developers do not have to dig through documentation looking for the corresponding error message. Instead: Link to documentation, error code and problem description in the actual response.
-- Extend with error code to support client specific localization!
-- Namespaces for error codes for different teams/domains/verticals?
-- Only respond with `problem+json` if client sends corresponding `Accept`-Header?
-- Format seems truly RESTfully...
+- API provider can create new problem types if needed.
+- APIs always send `application/problem+json` for errors, disregarding the `Accept` header in the error case.
+- Format seems truly RESTfully.
 - Possible localizations for error communication must and can be left to the consumer.
-- Some teams already have some form of error keys in place. How do we want to handle the transition? See: <https://confluence.otto.de/pages/viewpage.action?pageId=356208247>
-- How to structure a list of errors associated to a request? Like validation failures for more than one property of the JSON request body?
-- I think it's very important to show examples of complex input validation error responses.
+- List of problems associated with a request can be structured in custom problem types.
 
 ## Resources
 

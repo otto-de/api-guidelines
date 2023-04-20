@@ -1,15 +1,17 @@
 # Documentation Requirements
 
+<!-- SHOULD BE MOVED TO PORTAL? -->
+
 ## Clear structure
 
-### Challenge:
+### Challenge
 
 - User is overloaded with too much information and cannot find what they need
 - Information is not easy to digest
-- Basic information on how to use the API is made availabe at different spots throughout the documentation
+- Basic information on how to use the API is made available at different spots throughout the documentation
 - Information is hard to find or is not available at all
 
-### Goal:
+### Goal
 
 - Simple and smooth structure that makes it easy to get started with the API
 - Thoughtful introduction that allows users to gain a quick insight of what the API is about
@@ -17,7 +19,7 @@
 - Clear starting point to work from basic features to the advanced resources in the API
 - Enabling internal contributors to build and maintain a uniform image of the API
 
-### Approach:
+### Approach
 
 _Userfriendly navigation_
 
@@ -56,18 +58,18 @@ _Discoverable and easy to digest_
 
 ## Code examples
 
-### Challenge:
+### Challenge
 
 - Requests and responses that appear in the API documentation show internal data, inconsistent values/data, or data that does not fit the business case.
 - For API consumers it's unclear what to expect when using the API.
 
-### Goal:
+### Goal
 
 - Provide additional information to support users to understand what a function does
 - Provide code that users can copy and paste, then tweak to meet their requirements
 - Feature story telling to show users the potential of the API
 
-### Approach:
+### Approach
 
 _Default values_
 
@@ -92,7 +94,7 @@ _Automated API reference documentation_
 
 ## Consistency and accessability
 
-### Challenge:
+### Challenge
 
 - Editorial content might be available in German, while the API reference is documented in English.
 - In many cases it's unclear if British or American English should be used. This leads to inconsistent and unclear documentation.
@@ -100,7 +102,7 @@ _Automated API reference documentation_
 - API consumers want to quickly find a way to integrate and search for specific information. Instead of just using the sidebar, many consumers favor a search.
 - Users are lost in the documentation environment because it's unclear where to find which information. When they click on an info they land in a different view or the view is suddenly hidden.
 
-### Goal:
+### Goal
 
 - Uniform documentation
 - No contradictions in the code
@@ -109,7 +111,7 @@ _Automated API reference documentation_
 - Well-categorized
 - Available offline
 
-### Approach:
+### Approach
 
 - Documentation is provided in American English (EN-US), as US spelling has become the standard in APIs. Also endpoints, properties, and default values are provided in American English.
 - The documentation provides a search.
@@ -129,14 +131,14 @@ _Automated API reference documentation_
 
 ## Efficient and refined
 
-### Challenge:
+### Challenge
 
 - The editorial process of TechWriting should not affect the dev team's API (change) deployment capability.
 - Dev teams should at all times be able to deploy features, even if TechWriting did not yet touch the docs.
 - API consumers have no clue about the recent changes to the API/revision history. It might happen that they integrated and then suddenly something fails due to API changes that have not been communicated.
 - TechWriting and dev team workflows are separated. API docs origin from different working environments and sources.
 
-### Goal:
+### Goal
 
 - Well-documented API
 - TechWriting is involved
@@ -144,7 +146,7 @@ _Automated API reference documentation_
 - Flawless
 - Revision history
 
-### Approach:
+### Approach
 
 - The dev teams provide a first rough documentation so that a feature can be published even without TechWriting being involved. For example, docs can be generated from the code. TechWriting creates PRs on doc-related content on the team repos. Easy option for TechWriting to provide editorial content via Pull Requests (reviewable by developers).
 
