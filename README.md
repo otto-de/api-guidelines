@@ -38,7 +38,7 @@ The guidelines are structured into individual rules that use the key words “MU
 These keywords are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt).
 In this document, such keywords are highlighted at the beginning of each section in uppercase letters and are color-coded.
 
-> **_Disclaimer:_**  Code examples may be incomplete and/or may violate the rules described in the guidelines. Examples are intentionally kept simple to make them more accessible and easier to comprehend. They are always correct in their context, but not necessarily outside of it. Common examples for this are omitted headers such as Authorization or omitted (mandatory) properties in JSON response.
+> **_Disclaimer:_**  Code examples may be incomplete and/or may violate the rules described in the guidelines. Examples are intentionally kept simple to make them more accessible and easier to comprehend. They are always correct in their context, but not necessarily outside of it. Common examples for this are omitted headers such as Authorization or omitted (mandatory) properties in JSON responses.
 
 ## API linting
 
