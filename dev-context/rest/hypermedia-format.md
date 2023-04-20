@@ -1,7 +1,7 @@
 # Hypermedia Format
 
 In our system with many distributed resources connected by HTTP links, it is important to provide the client with the current state of the application from the resources of our REST interface. In addition, we transmit all possible state transitions to the client in the form of links.
-In addition to the need of resource links we want to establish a consistent JSON response format with the goal of increasing productivity and efficiency. Instead of spending valuable time developing different own formats we will adopt conventions from an existing format and extend where necessarry.
+In addition to the need of resource links we want to establish a consistent JSON response format with the goal of increasing productivity and efficiency. Instead of spending valuable time developing different own formats we will adopt conventions from an existing format and extend where necessary.
 
 ## HATEOAS
 
@@ -114,7 +114,7 @@ Content-Type: application/vnd.api+json
 - The coverage of the specification is more comprehensive, e.g. error responses are standardized and allow multiple error messages in one response. Pagination is a build in feature.
 - Support for [Compound Documents](https://jsonapi.org/format/#document-compound-documents) to include related resources.
 - Support for [Sparse Fields](https://jsonapi.org/format/#fetching-sparse-fieldsets) to limit the response to specific fields.
-- JSON API has an argueably broader industry support.
+- JSON API has an arguably broader industry support.
 
 **Cons**
 
