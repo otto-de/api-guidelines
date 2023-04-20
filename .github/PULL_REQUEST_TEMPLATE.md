@@ -2,16 +2,16 @@ Changelog:
 
 ### New
 
-- [New rule](URL)
+- [New ruleID](URL)
 - [New section](URL)
 
 ### Update
 
-- Added paragraph to rule [<ruleNumber>](URL).
-- Refactored rule [<ruleNumber>](URL).
-- Relaxed criteria in rule [<ruleNumber>](URL).
+- Added paragraph to rule [<ruleID>](URL).
+- Refactored rule [<ruleID>](URL).
+- Relaxed criteria in rule [<ruleID>](URL).
 
 ### Remove
 
 The rule [ruleName] has been removed, because...
-(if applicable) It has been replaced by rule [<ruleNumber>](URL).
+(if applicable) It has been replaced by rule [<ruleID>](URL).
