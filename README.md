@@ -1,6 +1,6 @@
 # OTTO API Guidelines
 
-With these guidelines we aim to establish a set of best practices and standards for designing, developing, documenting and maintaining APIs.
+With these guidelines, we aim to establish a set of best practices and standards for designing, developing, documenting, and maintaining APIs.
 
 Skip to:
 
