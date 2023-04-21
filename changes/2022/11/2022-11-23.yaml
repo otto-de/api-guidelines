@@ -1,7 +1,0 @@
-features:
-  - scope: r100078
-    subject: use customer id instead of ec-uuid
-    hash: 1413a3cc3bfe743b830ef5b3372d691fc0112a10
-    body: >-
-      - Replaces "SHOULD use ec-uuid to identify customers"
-    date: "2022-11-23"

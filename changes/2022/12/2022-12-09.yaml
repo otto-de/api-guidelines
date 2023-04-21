@@ -1,8 +1,0 @@
-fixes:
-  - scope: r200013
-    subject: datacontenttype only to be provided if media type is defined
-    hash: ae79795d3a8abe196d9d6fa9e8ab6d1daef5d042
-    body: >-
-      - clarify that `datacontenttype` only needs to be provided if a media type
-      is defined
-    date: "2022-12-09"

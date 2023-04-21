@@ -1,8 +1,0 @@
-fixes:
-  - scope: guidelines
-    subject: change structure of validation error
-    hash: 814189165db7a9f59a6952d3174d23318eae2c66
-    body: |
-      - (R000038)
-      - (R000040)
-    date: "2021-03-31"

@@ -1,7 +1,0 @@
-fixes:
-  - scope: r200008
-    subject: add paragraph containing information on how to increase the patch version
-    hash: 05504b38d160134ddb4f71d5bc01120a96d786ca
-    body: >-
-      - add paragraph on how to increase the patch version
-    date: "2022-03-31"

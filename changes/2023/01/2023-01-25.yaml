@@ -1,5 +1,0 @@
-fixes:
-  - scope: r000038
-    subject: change type of the validation error
-    hash: f0197e082ba6433dd2cdf31f34bf340b612d6914
-    date: "2023-01-25"
