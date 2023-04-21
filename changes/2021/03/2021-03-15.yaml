@@ -1,7 +1,0 @@
-fixes:
-  - scope: r000062
-    subject: change rule type from must not to must
-    hash: 4442f9da4b2d49c93bce17f315c10af7ebfc8115
-    body: >-
-      - change rule type from MUST NOT to MUST
-    date: "2021-03-15"

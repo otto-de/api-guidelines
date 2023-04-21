@@ -1,7 +1,0 @@
-features:
-  - scope: guidelines
-    subject: >-
-      adjustment of the offset-based rules to use limit and offset as query
-      parameters
-    hash: 8dd92335a4a0cd5402de8d814cb9fc8f3f02c437
-    date: "2023-02-16"

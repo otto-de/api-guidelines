@@ -1,7 +1,0 @@
-fixes:
-  - scope: r100038
-    subject: removing restriction to always name curies "o"
-    hash: ad920927af1b8007c82c6436368e6cd5d79becd3
-    body: >-
-      - remove restriction to always name curies "o"
-    date: "2022-08-31"

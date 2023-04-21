@@ -1,9 +1,0 @@
-features:
-  - scope: r200012
-    subject: add rule should use binary content mode
-    hash: 02bbff9b5f4b9d19c50c32b0421c7d0fae097361
-    date: "2022-04-19"
-  - scope: r200013
-    subject: add rule must provide datacontenttype context attribute
-    hash: 32f63b3a5687181db80d8f69eca4ff55bf7423a8
-    date: "2022-04-19"

@@ -1,5 +1,0 @@
-features:
-  - scope: r200011
-    subject: add rule must provide event time in UTC
-    hash: 2004d715bc5e34348b8e865103602d4c0cedfef7
-    date: "2022-04-06"

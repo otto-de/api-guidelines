@@ -1,7 +1,0 @@
-fixes:
-  - scope: r000030
-    subject: specify profile for content type header
-    hash: bd5a2313933656e7b1aa3f4afdad8d2615ca0c08
-    body: >-
-      - specify profile for content type header
-    date: "2022-02-15"

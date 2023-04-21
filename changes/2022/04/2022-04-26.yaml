@@ -1,9 +1,0 @@
-features:
-  - scope: r200014
-    subject: add rule must change type to indicate incompatible changes
-    hash: 617de6884964a70b1bf9b34f9aafa5aef5f77123
-    date: "2022-04-26"
-  - scope: r200015
-    subject: add rule must filter consumed events by type
-    hash: 3493b9e4ce03b76496f5328d5ad5655a1c8e6d79
-    date: "2022-04-26"
