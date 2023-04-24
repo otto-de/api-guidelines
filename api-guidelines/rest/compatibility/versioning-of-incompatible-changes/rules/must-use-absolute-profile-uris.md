@@ -22,5 +22,5 @@ Examples:
 
 ::: references
 
-- [MUST use kebab-case for URIs](/guidelines/r000023)
+- [MUST use kebab-case for URIs](../../../resources/naming-conventions/rules/must-use-kebabcase-for-uris.md)
   :::

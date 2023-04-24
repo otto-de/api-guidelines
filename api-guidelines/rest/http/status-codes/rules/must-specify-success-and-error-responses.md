@@ -12,7 +12,7 @@ Both are part of the interface definition and provide important information for 
 
 In most cases it is not useful to document all technical errors, especially if they are not under control of the service provider. Thus, unless a response code conveys application-specific functional semantics or is used in a non-standard way that requires additional explanation, multiple error response specifications can be combined using the following pattern:
 
-See [Error Handling](/guidelines/rest-guidelines/errors#error-handling) for more details.
+See [Error Handling](../../../errors/README.md#error-handling) for more details.
 
 ```yaml
 responses:

@@ -13,8 +13,8 @@ However, API providers are of course free to give their consumers further guaran
 The global rules for compatibility included in this section are independent of the API type.
 Versioning and other compatibility rules specific to REST and Event APIs are documented in their respective sections:
 
-- [Compatibility for REST APIs](/guidelines/rest-guidelines/compatibility)
-- [Compatibility for Event APIs](/guidelines/event-guidelines/compatibility)
+- [Compatibility for REST APIs](../../rest/compatibility/README.md)
+- [Compatibility for Event APIs](../../async/compatibility/README.md)
 
 [<!--INCLUDE-->Compatible changes](./compatible-changes/README.md)
 

@@ -12,7 +12,7 @@ If you do not provide the header, the server may respond with `428 Precondition 
 
 ::: references
 
-- [SHOULD NOT use `Last-Modified` and `If-Unmodified-Since` headers for concurrency control](/guidelines/r000072)
-- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](/guidelines/r000060)
+- [SHOULD NOT use `Last-Modified` and `If-Unmodified-Since` headers for concurrency control](./should-not-use-last-modified-and-if-unmodified-since-headers-for-concurrency-control.md)
+- [SHOULD use `ETag` together with `If-Match`/`If-None-Match` header for concurrency control](./should-use-etag-together-with-if-match-if-none-match-header-for-concurrrency-control.md)
 
 :::

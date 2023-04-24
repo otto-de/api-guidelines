@@ -5,7 +5,7 @@ id: R100063
 # MUST document link cardinality
 
 ::: info Info
-This rule applies to APIs that have to comply with [REST maturity level 3](/guidelines/r000033).
+This rule applies to APIs that have to comply with [REST maturity level 3](../../maturity-level/rules/must-implement-rest-maturity-level-3-for-transitional-apis.md).
 :::
 
 The HAL `_links` object holds property names of link relation types, and values of either a link object:
@@ -36,6 +36,6 @@ That's why every profile must document the cardinality of the link relation type
 
 ::: references
 
-- [MUST implement REST maturity level 2](/guidelines/r000032)
-- [MUST implement REST maturity level 3 for transitional APIs](/guidelines/r000033)
+- [MUST implement REST maturity level 2](../../maturity-level/rules/must-implement-rest-maturity-level-2.md)
+- [MUST implement REST maturity level 3 for transitional APIs](../../maturity-level/rules/must-implement-rest-maturity-level-3-for-transitional-apis.md)
   :::

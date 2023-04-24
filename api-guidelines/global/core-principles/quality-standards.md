@@ -1,6 +1,6 @@
 # Quality standards
 
-As already mentioned, [the scope of the OTTO API](/guidelines/core-principles/api-scope) ranges between a public and a private API.
+As already mentioned, [the scope of the OTTO API](./api-scope.md) ranges between a public and a private API.
 Nevertheless, when it comes to quality, we strive for the standards of a public API.
 If our API needs to be public by tomorrow, external users should then be able to consume our API immediately.
 What's more, a consistent understanding of quality standards facilitates the development of further endpoints and the evolution of the OTTO API as a product without unnecessary consultation between all parties involved.
@@ -62,7 +62,7 @@ We provide all consumers of our API with comprehensive, professional, up-to-date
 :::: accordion Communication
 
 We always keep both developers and consumers of our API informed through appropriate channels.
-Changes and [deprecations](/guidelines/rest-guidelines/compatibility#deprecation-of-http-apis) are communicated regularly and actively.
+Changes and [deprecations](../../rest/compatibility/README.md#deprecation-of-http-apis) are communicated regularly and actively.
 Therefore, we establish different synchronous and asynchronous communication channels to support developers and consumers.
 ::::
 

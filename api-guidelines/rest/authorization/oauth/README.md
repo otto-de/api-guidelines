@@ -116,4 +116,4 @@ The response to the refresh token grant is the same as when issuing an access to
 ::::
 :::::
 
-[<!--RULES-->Rules](./rules/)
+[<!--RULES-->Rules](./rules)

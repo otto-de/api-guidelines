@@ -5,7 +5,7 @@ id: R100026
 # MUST support hypermedia controls in collection resources
 
 ::: info Info
-This rule applies to APIs that have to comply with [REST maturity level 3](/guidelines/r000033).
+This rule applies to APIs that have to comply with [REST maturity level 3](../../maturity-level/rules/must-implement-rest-maturity-level-3-for-transitional-apis.md).
 :::
 
 Provide links to navigate the result. Clients must be able to navigate the collection without additional knowledge. If the link is present, it must point to a valid segment of the collection resource.
@@ -26,6 +26,6 @@ Exposing this data should consider the performance implications, not only now bu
 
 ::: references
 
-- [MUST implement REST maturity level 2](/guidelines/r000032)
-- [MUST implement REST maturity level 3 for transitional APIs](/guidelines/r000033)
+- [MUST implement REST maturity level 2](../../maturity-level/rules/must-implement-rest-maturity-level-2.md)
+- [MUST implement REST maturity level 3 for transitional APIs](../../maturity-level/rules/must-implement-rest-maturity-level-3-for-transitional-apis.md)
   :::

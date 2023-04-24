@@ -29,7 +29,7 @@ Example: `"7da7a728-f910-11e6-942a-68f728c1ba70"`, `*`
 :::
 
 ::: accordion Location
-The `Location` header includes a fully qualified URL. This URL [must also be absolute](/guidelines/r100032) and respect any `Forwarded` header.
+The `Location` header includes a fully qualified URL. This URL [must also be absolute](../../hypermedia/links/rules/must-use-absolute-urls.md) and respect any `Forwarded` header.
 Use this for two use cases:
 
 - Redirection: When answering a request with a `3xx` status code, the header value should point to where the resource moved.

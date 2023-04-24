@@ -5,7 +5,7 @@ id: R000042
 # MUST contain links for embedded resources
 
 ::: info Info
-This rule applies to APIs that have to comply with [REST maturity level 3](/guidelines/r000033).
+This rule applies to APIs that have to comply with [REST maturity level 3](../../maturity-level/rules/must-implement-rest-maturity-level-3-for-transitional-apis.md).
 :::
 
 Servers must not entirely "swap out" a link for an embedded resource (or vice versa) because client support for this technique is OPTIONAL.

@@ -19,7 +19,7 @@ The `type` is made of segments, each separated by a dot `"."`. Each segment must
 | context           | The name of the business context, e.g., Sales, Orders.                                                                              |
 | event-source-type | The name of the event source type, e.g., Payment, Wishlist                                                                          |
 | event-name        | The event name.                                                                                                                     |
-| version           | The version of the event with a "v" prefix, starting with v1 . Also see [](/guidelines/r200014) for more information on versioning. |
+| version           | The version of the event with a "v" prefix, starting with v1 . Also see [MUST change `type` context attribute to indicate incompatible changes](../../../compatibility/versioning/rules/must-change-type-context-attribute-to-indicate-incompatible-changes.md) for more information on versioning. |
 
 ### Domain events
 
@@ -55,8 +55,8 @@ de.otto.data.checkout.payment.payment-method.count-per-day.v1
 
 ::: references
 
-- [# MUST change `type` context attribute to indicate incompatible changes](/guidelines/r200014)
-- [# MUST filter consumed events by `type`](/guidelines/r200015)
+- [# MUST change `type` context attribute to indicate incompatible changes](../../../compatibility/versioning/rules/must-change-type-context-attribute-to-indicate-incompatible-changes.md)
+- [# MUST filter consumed events by `type`](../../../compatibility/versioning/rules/must-filter-consumed-events-by-type.md)
 - [The role of the `type` attribute within versioning](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#the-role-of-the-type-attribute-within-versioning)
 
   :::

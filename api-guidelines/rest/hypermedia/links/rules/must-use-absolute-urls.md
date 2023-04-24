@@ -5,7 +5,7 @@ id: R100032
 # MUST use absolute URLs
 
 Links to other resources must always use full, absolute hrefs. If a client supplies
-a [`Forwarded` request header](/guidelines/r000044), the
+a [`Forwarded` request header](./must-support-forwarded-header.md), the
 header value must be used for generating absolute URLs.
 
 The `Forwarded` header may contain the directives `host` and `proto`. The `host` directive contains the `Host` request

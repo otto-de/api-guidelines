@@ -36,9 +36,9 @@ This rule applies to public APIs. For private APIs it should be followed.
 | :--- | :---------------- | :----- | :--------- |
 | `q`  | Simple text query | \*     | `?q=shoes` |
 
-Introduce [your own descriptive query parameters for querying](/guidelines/r100031).
+Introduce [your own descriptive query parameters for querying](../../collection-resources/rules/must-use-query-parameters-for-basic-search-or-filtering.md).
 
-If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](/guidelines/r100041).
+If more advanced queries are necessary, make them available via [separate endpoints that accept queries as JSON payloads](../../collection-resources/rules/must-use-json-for-advanced-querying-and-filtering.md).
 ::::
 
 :::: accordion Filtering
@@ -49,7 +49,7 @@ Depending on your use case and payload size, you can significantly reduce the ne
 | :------- | :------------------------------------------ | :----- | :------------------------------ |
 | `fields` | Selection of fields that should be returned | \*     | `?fields=name,friends(id,name)` |
 
-See also [Filtering of fields using common query parameter](/guidelines/r004070)
+See also [Filtering of fields using common query parameter](../../../../global/json/naming-conventions/rules/should-support-filtering-of-fields-using-common-query-parameter.md)
 ::::
 
 :::: accordion Embedding

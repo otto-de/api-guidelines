@@ -7,9 +7,9 @@ id: R000032
 For all our APIs, we strive for a good implementation of [REST Maturity Level 2](https://martinfowler.com/articles/richardsonMaturityModel.html#level2) as it enables us to build resource-oriented APIs that make full use of HTTP methods and status codes.
 This is reflected in many rules of our guidelines, such as:
 
-- [MUST use nouns to represent resources](/guidelines/r000016)
-- [MUST use HTTP methods correctly](/guidelines/r000007)
-- [MUST use standard HTTP status codes](/guidelines/r000012)
+- [MUST use nouns to represent resources](../../../resources/naming-conventions/rules/must-use-nouns-to-represent-resources.md)
+- [MUST use HTTP methods correctly](../../../http/methods/rules/must-use-http-methods-correctly.md)
+- [MUST use standard HTTP status codes](../../../http/status-codes/rules/must-use-standard-http-status-codes.md)
 
 Although this is not HATEOAS, it should not prevent you from designing proper link relations in your APIs.
 

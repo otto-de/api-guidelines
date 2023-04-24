@@ -13,16 +13,16 @@ The following table shows the most important context attributes of the CloudEven
 | Context attribute                                                                                      | Event Guidelines rules                                                                         |
 | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
 | [id](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)                           |                                                                                                |
-| [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | [MUST provide meaningful source context attribute](/guidelines/r200010)                        |
+| [source](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1)                 | [MUST provide meaningful source context attribute](./must-provide-meaningful-source-contex-attribute.md)                        |
 | [specversion](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion)         | only '1.0' allowed                                                                             |
-| [type](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type)                       | [MUST follow naming scheme for type context attribute](/guidelines/r200009)                    |
-| [datacontenttype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#datacontenttype) | [MUST provide datacontenttype context attribute if media type is defined](/guidelines/r200013) |
+| [type](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type)                       | [MUST follow naming scheme for type context attribute](./must-follow-naming-schema-for-type-context-attribute.md)                    |
+| [datacontenttype](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#datacontenttype) | [MUST provide datacontenttype context attribute if media type is defined](./must-provide-datacontenttype-context-attribute-if-media-type-is-defined.md) |
 | [dataschema](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#dataschema)           |                                                                                                |
-| [time](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time)                       | [MUST provide event time in UTC](/guidelines/r200011)                                          |
+| [time](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time)                       | [MUST provide event time in UTC](./must-provide-event-time-in-utc.md)                                          |
 | [subject](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#subject)                 |                                                                                                |
 
 The following table shows context attributes that are part of [CloudEvent extensions](https://github.com/cloudevents/spec/blob/main/cloudevents/spec.md#extension-context-attributes) and used within OTTO.
 
 | Context attribute           | Event Guidelines rules                                                                                                                                                                  |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [test](/guidelines/r200021) | [MAY use test extension](/guidelines/r200021), [MUST forward test context attribute](/guidelines/r200022), [MAY ignore events flagged with test context attribute](/guidelines/r200023) |
+| [test](../../test-extension/rules/may-use-test-extension.md) | [MAY use test extension](../../test-extension/rules/may-use-test-extension.md), [MUST forward test context attribute](../../test-extension/rules/must-forward-test-context-attribute.md), [MAY ignore events flagged with test context attribute](../../test-extension/rules/may-ignore-events-flagged-with-test.md) |

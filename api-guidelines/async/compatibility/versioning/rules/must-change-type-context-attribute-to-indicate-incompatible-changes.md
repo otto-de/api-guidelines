@@ -17,7 +17,7 @@ Assuming incompatible schemas are not allowed due to enabling compatibility chec
 
 ::: references
 
-- [MUST follow naming scheme for `type` context attribute](/guidelines/r200009).
-- [MUST obtain approval of consumers before API shutdown](/guidelines/r000054)
+- [MUST follow naming scheme for `type` context attribute](../../../format/cloudevents/rules/must-follow-naming-schema-for-type-context-attribute.md).
+- [MUST obtain approval of consumers before API shutdown](../../../../global/compatibility/deprecation/rules/must-obtain-approval-of-consumers-before-api-shutdown.md)
 - [The role of the `type` attribute within versioning](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/primer.md#the-role-of-the-type-attribute-within-versioning)
   :::

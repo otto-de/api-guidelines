@@ -4,7 +4,7 @@ id: R000033
 
 # MUST implement REST maturity level 3 for transitional APIs
 
-Hypermedia must be implemented for [unsafe resource operations](/guidelines/r000008) (e.g. `POST`) that will cause client errors (`4xx`) depending on one of the below-mentioned criteria. If one or more of the criteria apply to the cause of error, [REST Maturity Level 3](https://martinfowler.com/articles/richardsonMaturityModel.html#level3) must be implemented in order to:
+Hypermedia must be implemented for [unsafe resource operations](../../../http/methods/rules/must-fulfill-common-method-properties.md) (e.g. `POST`) that will cause client errors (`4xx`) depending on one of the below-mentioned criteria. If one or more of the criteria apply to the cause of error, [REST Maturity Level 3](https://martinfowler.com/articles/richardsonMaturityModel.html#level3) must be implemented in order to:
 
 - allow clients to reason about the availability of the unsafe resource operation (e.g. for UI button enabling/disabling) before actually invoking it
 - prevent duplication of business logic on API provider and consumer side, making business logic changes even harder.
@@ -20,7 +20,7 @@ When error responses are solely caused by the caller's request entity and/or par
 
 ### Authorization
 
-Unsafe resource operations will fail depending on the [authorization](/guidelines/rest-guidelines/authorization) of the calling identity.
+Unsafe resource operations will fail depending on the [authorization](../../../authorization/README.md) of the calling identity.
 
 Example: _Rating products is only available to customers with a certain reputation._
 

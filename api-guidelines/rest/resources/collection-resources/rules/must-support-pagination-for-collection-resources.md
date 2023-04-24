@@ -21,5 +21,5 @@ CONs
 
 ::: references
 
-- [MUST stick to conventional query parameters](/guidelines/r000049)
+- [MUST stick to conventional query parameters](../../naming-conventions/rules/must-stick-to-conventional-query-parameters.md)
   :::

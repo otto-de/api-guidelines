@@ -16,6 +16,6 @@ Example of an UTC timestamp:
 
 ::: references
 
-- [# MUST use common date and time format](/guidelines/r100072)
+- [# MUST use common date and time format](../../../../global/json/canonical-data-types/rules/must-use-common-date-and-time-format.md)
 
 :::

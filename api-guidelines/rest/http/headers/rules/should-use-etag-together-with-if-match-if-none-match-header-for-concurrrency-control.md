@@ -102,5 +102,5 @@ Using `HEAD` instead of `GET` in order to just fetch the most current `ETag` val
 
 ::: references
 
-- [MAY use `ETag` header for caching resources](/guidelines/r000010)
+- [MAY use `ETag` header for caching resources](./may-use-etag-header-for-caching-resources.md)
   :::
