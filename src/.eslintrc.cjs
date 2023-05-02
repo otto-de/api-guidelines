@@ -4,7 +4,7 @@ module.exports = {
     {
       files: ["*.ts", "*.tsx"],
       parserOptions: {
-        project: "./src/tsconfig.json",
+        project: "./tsconfig.json",
       },
       extends: [
         "airbnb-base",
