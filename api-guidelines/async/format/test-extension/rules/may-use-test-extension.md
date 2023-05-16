@@ -23,7 +23,7 @@ This extension defines the `test` context attribute that event producers can pro
     - `End2EndTest` Automatically created test events to test specific business cases within multiple teams.
     - `ManualTest` Manually created test events.
 - Examples:
-  - `kraken-sales-order-management.performancetest`
+  - `kraken-sales-order-management.PerformanceTest`
 - Constraints:
   - OPTIONAL
   - MUST be a non-empty string in the format `<test-scope>.<test-type>`.
