@@ -26,24 +26,14 @@ export default {
         path: "/guidelines/core-principles/documentation",
       },
     },
-    "GENERAL GUIDELINES": {
-      "Basics": {
-        file: () => import("../../api-guidelines/global/basic-concepts/README.md"),
-        path: "/guidelines/general-guidelines/basics",
-      },
-      "JSON": {
-        file: () => import("../../api-guidelines/global/json/README.md"),
-        path: "/guidelines/general-guidelines/json",
-      },
-      "Compatibility": {
-        file: () => import("../../api-guidelines/global/compatibility/README.md"),
-        path: "/guidelines/general-guidelines/compatibility",
-      },
-    },
     "REST GUIDELINES": {
       "Contract": {
         file: () => import("../../api-guidelines/rest/contract/openapi/README.md"),
         path: "/guidelines/rest-guidelines/contract",
+      },
+      "JSON": {
+        file: () => import("../../api-guidelines/global/json/README.md"),
+        path: "/guidelines/rest-guidelines/json",
       },
       "Authorization": {
         file: () => import("../../api-guidelines/rest/authorization/README.md"),
@@ -71,13 +61,17 @@ export default {
       },
     },
     "EVENT GUIDELINES": {
-      "Concepts": {
-        file: () => import("../../api-guidelines/async/concepts/README.md"),
-        path: "/guidelines/event-guidelines/concepts",
-      },
       "Contract": {
         file: () => import("../../api-guidelines/async/contract/README.md"),
         path: "/guidelines/event-guidelines/contract",
+      },
+      "JSON": {
+        file: () => import("../../api-guidelines/global/json/README.md"),
+        path: "/guidelines/event-guidelines/json",
+      },
+      "Concepts": {
+        file: () => import("../../api-guidelines/async/concepts/README.md"),
+        path: "/guidelines/event-guidelines/concepts",
       },
       "Format": {
         file: () => import("../../api-guidelines/async/format/README.md"),
