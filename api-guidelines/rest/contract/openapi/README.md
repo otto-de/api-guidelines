@@ -1,5 +1,3 @@
-# Contract
-
-[<!--INCLUDE-->Basic concepts](../../../global/basic-concepts/README.md)
+# OpenAPI
 
 [<!--RULES-->Rules](../openapi/rules)

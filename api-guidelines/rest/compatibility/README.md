@@ -1,9 +1,12 @@
-# Compatibility for REST APIs
+# Compatibility
 
-::: info Info
-This section contains REST API-specific rules to maintain compatibility.
-Also consider the rules defined in the [general guidelines for compatibility](../../global/compatibility/README.md).
-:::
+[<!--INCLUDE-->About compatibility](../../global/compatibility/about-compatibility.md)
+
+[<!--INCLUDE-->Compatible changes](../../global/compatibility/compatible-changes/README.md)
+
+[<!--INCLUDE-->Preview of API changes](../../global/compatibility/preview/README.md)
+
+[<!--INCLUDE-->Deprecation of obsolete API versions and components](../../global/compatibility/deprecation/README.md)
 
 [<!--INCLUDE-->Client behavior](./client-behavior/README.md)
 

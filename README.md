@@ -8,7 +8,7 @@ Skip to:
 - [How to read the guidelines](#how-to-read-the-guidelines)
 - [API linting](#api-linting)
   - [Installation](#installation)
-  - [Recommended Recocly configuration](#recommended-redocly-configuration)
+  - [Recommended Redocly configuration](#recommended-redocly-configuration)
   - [Lint your specs](#lint-your-specs)
   - [Change severity](#change-severity)
 - [Attribution](#attribution)

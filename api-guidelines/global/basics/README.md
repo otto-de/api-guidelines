@@ -1,3 +1,3 @@
-# Basic concepts
+# Basics
 
 [<!--RULES-->Rules](./rules)
