@@ -3,7 +3,9 @@
 <!--CHANGELOG-MARKER-->
 ## 2023-05-16
 
+### Update
 
+- Adjusted sidebar entries to resolve general guidelines into rest and async sections.
 
 ## 2023-03-09
 
