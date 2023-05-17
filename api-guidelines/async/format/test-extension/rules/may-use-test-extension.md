@@ -17,13 +17,15 @@ This extension defines the `test` context attribute that event producers can pro
 - Type: `String`
 - Description: A string in the format `<test-scope>.<test-type>`. Both `test-type` and `test-scope` must not contain a `.` (dot).
   - `test-scope`: The scope of the executed test. Possible values include but are not limited to the name of a single context or a group of contexts (e.g., `orderprocessing`).
-  - `test-type`: The type of the test. Currently, the following types are defined; additional types may be added in the future:
+  - `test-type`: The type of the test. Currently, the following common types are defined:
     - `PerformanceTest` Automatically created test events with large datasets.
     - `SystemTest` Automatically created test events to test specific business cases within one team.
     - `End2EndTest` Automatically created test events to test specific business cases within multiple teams.
     - `ManualTest` Manually created test events.
+    
+    Additional test types may be used. They must be listed in the event documentation of the API provider
 - Examples:
-  - `kraken-sales-order-management.PerformanceTest`
+  - `SampleOrderProcessing.PerformanceTest`
 - Constraints:
   - OPTIONAL
   - MUST be a non-empty string in the format `<test-scope>.<test-type>`.
