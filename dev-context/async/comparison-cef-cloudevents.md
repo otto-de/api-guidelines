@@ -86,7 +86,7 @@ ce_specversion: "1.0"
 ce_traceparent: "00-5ad4298a6e154128ad80d59dd724aa60-00f067aa0ba902b7-00"
 ce_sequencetype: "Integer"
 ce_sequence: "25"
-ce_test: "OrderGenerationTest.Kraken"
+ce_test: "Kraken.OrderGenerationTest"
 content-type: "application/json;charset=utf-8"
 ```
 
@@ -119,7 +119,7 @@ ce-time: 2022-06-15T15:03:29.749+0000
 ce-traceparent: 00-5ad4298a6e154128ad80d59dd724aa60-00f067aa0ba902b7-00
 ce_sequencetype: Integer
 ce_sequence: 25
-ce-test: OrderGenerationTest.Kraken
+ce-test: Kraken.OrderGenerationTest
 Content-Type: application/json; charset=utf-8
 
 {
@@ -148,7 +148,7 @@ Representation in structured content mode
   "traceparent": "00-5ad4298a6e154128ad80d59dd724aa60-00f067aa0ba902b7-00",
   "sequencetype": "Integer",
   "sequence": "25",
-  "test": "OrderGenerationTest.Kraken",
+  "test": "Kraken.OrderGenerationTest",
   "data": {
     "transactionId": "c82fea59-f4d5-4712-bbc3-06a4e9eb14a6",
     "paymentReference": {
