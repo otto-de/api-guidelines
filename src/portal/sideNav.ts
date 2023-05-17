@@ -28,7 +28,7 @@ export default {
     },
     "REST GUIDELINES": {
       "Contract": {
-        file: () => import("../../api-guidelines/rest/contract/openapi/README.md"),
+        file: () => import("../../api-guidelines/rest/contract/README.md"),
         path: "/guidelines/rest-guidelines/contract",
       },
       "JSON": {
