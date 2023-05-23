@@ -10,14 +10,20 @@ This rule applies to [public APIs](../../../../global/core-principles/api-scope.
 
 APIs must be versioned using profiles (see [RFC 6906](https://www.rfc-editor.org/rfc/rfc6906)).
 
+## About profiles
+
 A profile adds additional semantics to a media type such as constraints and conventions.
 API providers must use JSON schema to define and document the added semantics in the [OpenAPI spec](../../../contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md).
 A profile is identified by a URI such as `https://api.otto.de/products/profiles/product+v1` (see [MUST use absolute URIs for profiles](./must-use-absolute-profile-uris.md)).
+
+## Media type
 
 A product representation, for example, might use `application/hal+json` as a media type.
 The media type `application/hal+json` does not provide any information to the API consumer about the properties available for a product.
 By adding the media type parameter profile (i.e., `application/hal+json;profile="https://api.otto.de/products/profiles/product+v1"`), we specify the needed additional semantics relevant for the product representation, so that API consumers know about the different properties of the `product`.
 If a second version of the `product` representation is added, the new version of the spec (`https://api.otto.de/products/profiles/product+v2`) can be distinguished from the first version.
+
+## Content negotiation
 
 The media type profile parameter enables the use of HTTP's [proactive content negotiation](https://www.rfc-editor.org/rfc/rfc9110.html#section-12.1) mechanism to perform versioning (see [SHOULD use `Accept` and `Content-Type` headers with profile parameter](./should-use-accept-and-content-type-headers-with-profile-parameter.md)).
 A client can specify the version of the resource representation by providing the `Accept` and `Content-Type` headers with a media type having a profile parameter.
