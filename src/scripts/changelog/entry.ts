@@ -3,7 +3,7 @@ import { info } from "@actions/core";
 import { PullRequestData } from "./pullRequest";
 
 const CHANGELOG_FILE = "changes/changelog.md";
-const CHANGELOG_MARKER = "<changelog>";
+const CHANGELOG_MARKER = "Changelog:";
 const CHANGELOG_ENTRIES_MARKER = "<!--CHANGELOG-MARKER-->";
 
 function getEntryText(body: string) {
