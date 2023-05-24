@@ -12,7 +12,7 @@ If it is resolvable, it should provide human-readable documentation of the profi
 
 Best practice:
 
-The URI has the same URL namespace as the API endpoints.
+The URI should be in the same URL namespace as the API endpoints.
 For example, if all API endpoints are located at `https://api.otto.de/payment/`, the profile URIs should als be located at the same context path (e.g., `https://api.otto.de/payment/profiles/payment-method+v1`).
 
 The last part of the profile URI path must be in the format "{name}+v{version}".
