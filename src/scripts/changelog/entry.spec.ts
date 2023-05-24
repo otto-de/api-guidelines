@@ -6,7 +6,7 @@ vi.mock("node:fs");
 
 const anyPullRequestData = {
   title: "fix(any-scope): any description",
-  body: "<changelog>any changes text",
+  body: "Changelog: any changes text",
   date: "2023-01-01",
   files: [],
   isFix: true,
@@ -22,7 +22,7 @@ describe("createChangelogEntry()", async () => {
   });
 
   it(`should only use the text after the changelog marker for creating the entry`, () => {
-    anyPullRequestData.body = "Some leading text<changelog>any changes text";
+    anyPullRequestData.body = "Some leading text Changelog: any changes text";
     const expected = "## 2023-01-01\nany changes text";
     const result = createChangelogEntry(anyPullRequestData);
     expect(result).toBe(expected);
