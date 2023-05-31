@@ -19,8 +19,8 @@
 - Moved the rule "MUST use resolvable profile URLs" to ["Versioning of incompatible changes"](/guidelines/rest-guidelines/compatibility#versioning-of-incompatible-changes) and renamed it to
 ["MUST use absolute URIs for profiles"](/guidelines/r100066). The requirement for a `https://api.otto.de/portal` prefix for profile URIs has been removed, and it is no longer required to provide resolvable profile URIs.
 - Removed the rule "MAY use type and profile attributes in hyperlinks", because the cardinality of the profile link may change and profile URIs are no longer resolvable.
-- Removed the rule "MUST use kebab-case profile URIs" as it is a duplicate of ["MUST use kebab-case for URIs"]([R000023](/guidelines/r000023)).
-- Removed the rule "SHOULD NOT use resource versioned path" as it is a duplicate of ["SHOULD NOT use URI versioning"]([R000026](/guidelines/r000026)).
+- Removed the rule "MUST use kebab-case profile URIs" as it is a duplicate of ["MUST use kebab-case for URIs"](/guidelines/r000023).
+- Removed the rule "SHOULD NOT use resource versioned path" as it is a duplicate of ["SHOULD NOT use URI versioning"](/guidelines/r000026).
 
 ## 2023-03-03
 
