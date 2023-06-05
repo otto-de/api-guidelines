@@ -49,10 +49,11 @@ If you'd like to use it for your own APIs, this is what you need to do:
 ### Installation
 
 1. [Install Redocly CLI](https://redocly.com/docs/cli/installation/).
-2. Add the following code snippet to your existing `.npmrc` or create a `.npmrc`.
+2. Add the following code snippet to your existing `.npmrc` or create a `.npmrc`. Set a valid GITHUB_TOKEN. (Sadly this necessary even if packages are public, we hope publishing packages to https://www.npmjs.com later to avoid this step)
 
    ```text
    @otto-de:registry=https://npm.pkg.github.com/
+   //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
    ```
 
 3. Install the dependency.
