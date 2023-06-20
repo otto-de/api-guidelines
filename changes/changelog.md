@@ -1,6 +1,12 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2023-06-20
+### Update
+
+- Changed test extension of rule [R200021](https://api.otto.de/portal/guidelines/R200021) to allow additional test types.
+- Changed the example that did not contain the correct test type.
+
 
 ## 2023-05-16
 
