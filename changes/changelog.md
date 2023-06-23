@@ -1,6 +1,15 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2023-06-23
+### Remove
+
+The following rules have been removed as this is consumer-facing content and already available in the REST API sections "Getting started" and "About the API".
+- MUST use Proof Key for Code Exchange (PKCE) for mobile and JavaScript apps
+- MUST NOT use Implicit Grant flow
+- MUST set user agent request header
+- SHOULD use Accept and Content-Type headers with profile parameter
+
 ## 2023-06-20
 ### Update
 
