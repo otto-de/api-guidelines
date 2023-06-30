@@ -19,6 +19,7 @@
   "files": [
     "dist",
     "src/linting",
+    "src/portal",
     "!**/*.spec.ts",
     "!**/__tests__"
   ],
