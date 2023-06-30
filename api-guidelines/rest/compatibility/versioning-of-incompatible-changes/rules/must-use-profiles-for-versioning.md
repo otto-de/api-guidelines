@@ -57,7 +57,7 @@ Versioning based on profiles leverages the build-in mechanisms of the HTTP proto
 
 In cases where profile-based versioning is not possible or sufficient, [URL-based versioning](./should-not-use-uri-versioning.md) can be applied.
 
-See our [versioning reference (internal link)](https://github.com/otto-ec/ottoapi_guidelines/blob/main/content/references/REST/versioning.md) for more information leading to this decision.
+See our [versioning reference (internal link)](BROKEN LINK HERE !!!) for more information leading to this decision.
 
 ::: references
 
