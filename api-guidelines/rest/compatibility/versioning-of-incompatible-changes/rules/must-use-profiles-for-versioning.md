@@ -25,7 +25,7 @@ If a second version of the `product` representation is added, the new version of
 
 ## Content negotiation
 
-The media type profile parameter enables the use of HTTP's [proactive content negotiation](https://www.rfc-editor.org/rfc/rfc9110.html#section-12.1) mechanism to perform versioning (see [SHOULD use `Accept` and `Content-Type` headers with profile parameter](./should-use-accept-and-content-type-headers-with-profile-parameter.md)).
+The media type profile parameter enables the use of HTTP's [proactive content negotiation](https://www.rfc-editor.org/rfc/rfc9110.html#section-12.1) mechanism to perform versioning.
 A client can specify the version of the resource representation by providing the `Accept` and `Content-Type` headers with a media type having a profile parameter.
 
 Although the `profile` parameter is formally only defined for the media type `application/hal+json`, we also use it deliberately for content type based versioning of other media types such as `application/json` and `application/json-patch+json`.
@@ -63,5 +63,4 @@ See our [versioning reference (internal link)](https://github.com/otto-ec/ottoap
 
 - [The 'profile' Link Relation Type (RFC 9606)](https://tools.ietf.org/html/rfc6906)
 - [Profiles in HAL+JSON](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-08#page-8)
-- [SHOULD use `Accept` and `Content-Type` headers with profile parameter](./should-use-accept-and-content-type-headers-with-profile-parameter.md)
-  :::
+:::
