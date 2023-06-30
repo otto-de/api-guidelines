@@ -18,6 +18,8 @@
   "type": "module",
   "files": [
     "dist",
+    "api-guidelines",
+    "changes",
     "src/linting",
     "src/portal",
     "!**/*.spec.ts",
