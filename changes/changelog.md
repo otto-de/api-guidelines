@@ -215,7 +215,7 @@ The following rules have been removed as this is consumer-facing content and alr
 
 ### Update
 
-- Specified profile for content type header in rule [R000030](/guidelines/r000030).
+- Specified profile for content type header in rule R000030 (SHOULD use Accept header with profile parameter).
 
 ## 2022-01-28
 
@@ -315,7 +315,7 @@ The following rules have been removed as this is consumer-facing content and alr
 
 ### New
 
-- [R000025](/guidelines/r000025)
+- R000025
 
 ## 2020-09-08
 
