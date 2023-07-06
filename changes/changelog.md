@@ -291,7 +291,7 @@ The following rules have been removed as this is consumer-facing content and alr
 
 ### Update
 
-- Updated rule [R000030](/guidelines/r000030) to use latest version if no accept header was specified.
+- Updated rule R000030 to use latest version if no accept header was specified.
 
 ## 2021-03-15
 
