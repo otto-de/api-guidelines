@@ -69,7 +69,6 @@ export const configs: Plugin["configs"] = {
       "api-guidelines/use-absolute-custom-link-relation-url": "error", // https://api.otto.de/portal/guidelines/r100037
       "api-guidelines/use-absolute-profile-url": "error", // https://api.otto.de/portal/guidelines/r100066
       "api-guidelines/use-authorization-grant": "error", // https://api.otto.de/portal/guidelines/r000052
-      "api-guidelines/use-bearer-authentication": "error", // https://api.otto.de/portal/guidelines/r000021
       "api-guidelines/use-camel-case-for-property-name": "warn", // https://api.otto.de/portal/guidelines/r004010
       "api-guidelines/use-camel-case-for-query-parameter": "error", // https://api.otto.de/portal/guidelines/r000022
       "api-guidelines/use-common-date-and-time-format": "error", // https://api.otto.de/portal/guidelines/r100072
