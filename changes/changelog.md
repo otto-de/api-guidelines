@@ -315,7 +315,7 @@ The following rules have been removed as this is consumer-facing content and alr
 
 ### New
 
-- R000025
+- MUST set user agent request header (R000025)
 
 ## 2020-09-08
 
