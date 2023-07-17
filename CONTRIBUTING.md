@@ -48,19 +48,19 @@ Changelog:
 
 ### New
 
-- [New ruleID](URL)
-- [New section](URL)
+- Rule name [New ruleID](relative path)
+- [Name of new section](relative path)
+
 
 ### Update
 
-- Added paragraph to rule [<ruleID>](URL).
-- Refactored rule [<ruleID>](URL).
-- Relaxed criteria in rule [<ruleID>](URL).
+- Refactored rule "rule name [ruleID](relative path)".
+- Relaxed criteria in rule "rule name [ruleID](relative path)".
 
-### Remove
+### Removal
 
-The rule [ruleName] has been removed, because...
-(if applicable) It has been replaced by rule [<ruleID>](URL).
+The rule "rule name" has been removed, because...
+(if applicable) It has been replaced by rule "rule name [ruleID](relative path)".
 ```
 
 Pay attention to the following when editing this template:
@@ -83,7 +83,9 @@ Changelog:
 
 ### Update
 
+- Refactored rule "MUST provide meaningful `source` context attribute [R200010](../api-guidelines/async/format/cloudevents/rules/must-provide-meaningful-source-context-attribute.md)".
 - Updated the information on contract for [async](https://api.otto.de/portal/guidelines/event-guidelines/contract) and [rest](https://api.otto.de/portal/guidelines/rest-guidelines/contract).
+
 ```
 
 ## Report a bug
