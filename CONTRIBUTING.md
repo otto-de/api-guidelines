@@ -83,7 +83,9 @@ Changelog:
 
 ### Update
 
+- Refactored rule "MUST provide meaningful `source` context attribute [R200010](../api-guidelines/async/format/cloudevents/rules/must-provide-meaningful-source-context-attribute.md)".
 - Updated the information on contract for [async](https://api.otto.de/portal/guidelines/event-guidelines/contract) and [rest](https://api.otto.de/portal/guidelines/rest-guidelines/contract).
+
 ```
 
 ## Report a bug
