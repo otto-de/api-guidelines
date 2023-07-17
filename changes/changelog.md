@@ -5,7 +5,7 @@
 
 
 ## 2023-06-23
-### Remove
+### Removal
 
 The following rules have been removed as this is consumer-facing content and already available in the REST API sections "Getting started" and "About the API".
 
