@@ -96,7 +96,7 @@ The following rules have been removed as this is consumer-facing content and alr
 
 ### Update
 
-- Generalized source prefix in rule "MUST provide meaningful `source` context attribute [R200010](../api-guidelines/async/format/cloudevents/rules/must-provide-meaningful-source-contex-attribute.md)".
+- Generalized source prefix in rule "MUST provide meaningful `source` context attribute [R200010](../api-guidelines/async/format/cloudevents/rules/must-provide-meaningful-source-context-attribute.md)".
 
 ## 2022-08-31
 
@@ -154,7 +154,7 @@ The following rules have been removed as this is consumer-facing content and alr
 
 ### New
 
-- MUST provide meaningful `source` context attribute [R200010](../api-guidelines/async/format/cloudevents/rules/must-provide-meaningful-source-contex-attribute.md)
+- MUST provide meaningful `source` context attribute [R200010](../api-guidelines/async/format/cloudevents/rules/must-provide-meaningful-source-context-attribute.md)
 
 ## 2022-03-31
 
