@@ -64,4 +64,10 @@ describe("run()", async () => {
     expect(createChangelogEntry).not.toHaveBeenCalled();
     expect(addChangelogEntry).not.toHaveBeenCalled();
   });
+
+  it("should NOT add an empty entry", async () => {
+    vi.mocked(createChangelogEntry).mockReturnValue("");
+    await run();
+    expect(addChangelogEntry).not.toHaveBeenCalled();
+  });
 });
