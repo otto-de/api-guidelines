@@ -1,13 +1,8 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
-## 2023-07-17
-
-
-## 2023-07-12
-
-
 ## 2023-06-23
+
 ### Removal
 
 The following rules have been removed as this is consumer-facing content and already available in the REST API sections "Getting started" and "About the API".
@@ -18,11 +13,11 @@ The following rules have been removed as this is consumer-facing content and alr
 - SHOULD use Accept and Content-Type headers with profile parameter
 
 ## 2023-06-20
+
 ### Update
 
 - Changed test extension of rule "MAY use test extension [R200021](../api-guidelines/async/format/test-extension/rules/may-use-test-extension.md)" to allow additional test types.
 - Changed the example that did not contain the correct test type.
-
 
 ## 2023-05-16
 
