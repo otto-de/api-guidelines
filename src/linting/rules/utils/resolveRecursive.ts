@@ -1,5 +1,5 @@
 import { ResolveFn, ResolveResult } from "@redocly/openapi-core/lib/walk";
-import type { OasRef } from "@redocly/openapi-core/src/typings/openapi";
+import type { OasRef } from "@redocly/openapi-core";
 
 export const resolveRecursive = <T extends OasRef>(
   node: T,

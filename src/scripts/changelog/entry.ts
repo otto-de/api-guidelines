@@ -14,7 +14,7 @@ function getEntryText(body: string) {
 function createChangelogEntry(pullRequestData: PullRequestData) {
   const entryText = getEntryText(pullRequestData.body);
 
-  return `## ${pullRequestData.date}\n${entryText}`;
+  return entryText ? `## ${pullRequestData.date}\n${entryText}` : "";
 }
 
 function prependChangelogEntry(fileContent: string, textToPrepend: string): string {

@@ -11,7 +11,10 @@ export async function run() {
   }
 
   const changelogEntry = createChangelogEntry(pullRequestData);
-  addChangelogEntry(changelogEntry);
+
+  if (changelogEntry) {
+    addChangelogEntry(changelogEntry);
+  }
 }
 
 if (!process.env.TEST) {

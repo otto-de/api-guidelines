@@ -8,7 +8,7 @@ export const UseCamelCaseForPropertyName: Oas3Rule = () => {
   let isWithinMediaType = false;
   let isHalSchema = false;
 
-  const isReservedHALKey = (key: string | number) => ["_links", "_embedded"].includes(`${key}`);
+  const isReservedHALKey = (key: string | number) => `${key}`.startsWith("_");
 
   return {
     MediaType: {

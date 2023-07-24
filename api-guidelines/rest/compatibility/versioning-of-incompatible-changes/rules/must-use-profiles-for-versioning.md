@@ -14,7 +14,7 @@ APIs must be versioned using profiles (see [RFC 6906](https://www.rfc-editor.org
 
 A profile adds additional semantics to a media type such as constraints and conventions.
 API providers must use JSON schema to define and document the added semantics in the [OpenAPI spec](../../../contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md).
-A profile is identified by a URI such as `https://api.otto.de/products/profiles/product+v1` (see [MUST use absolute URIs for profiles](./must-use-absolute-profile-uris.md)).
+A profile is identified by a URI such as `https://api.otto.de/products/profiles/product+v1` see [MUST use absolute URIs for profiles](../../../compatibility/versioning-of-incompatible-changes/rules/must-use-absolute-profile-uris.md).
 
 ## Media type
 
@@ -57,7 +57,7 @@ Versioning based on profiles leverages the build-in mechanisms of the HTTP proto
 
 In cases where profile-based versioning is not possible or sufficient, [URL-based versioning](./should-not-use-uri-versioning.md) can be applied.
 
-See our [versioning reference (internal link)](/dev-context/rest/versioning.md) for more information leading to this decision.
+See our [versioning reference (internal link)](../../../../../dev-context/rest/versioning.md) for more information leading to this decision.
 
 ::: references
 

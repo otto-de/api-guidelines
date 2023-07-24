@@ -30,9 +30,8 @@ describe("createChangelogEntry()", async () => {
 
   it(`should create an empty changelog entry if the marker is missing in the pull request body`, () => {
     anyPullRequestData.body = "any changes text";
-    const expected = "## 2023-01-01\n";
     const result = createChangelogEntry(anyPullRequestData);
-    expect(result).toBe(expected);
+    expect(result).toBe("");
   });
 });
 

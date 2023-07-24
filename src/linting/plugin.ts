@@ -10,7 +10,6 @@ import { SecureEndpointsWithOAuth20 } from "./rules/secure-endpoints-with-oauth-
 import { UseAbsoluteCustomLinkRelationUrl } from "./rules/use-absolute-custom-link-relation-url";
 import { UseAbsoluteProfileUrl } from "./rules/use-absolute-profile-url";
 import { UseAuthorizationGrant } from "./rules/use-authorization-grant";
-import { UseBearerAuthentication } from "./rules/use-bearer-authentication";
 import { UseCamelCaseForPropertyName } from "./rules/use-camel-case-for-property-name";
 import { UseCamelCaseForQueryParameter } from "./rules/use-camel-case-for-query-parameter";
 import { UseCommonDateAndTimeFormat } from "./rules/use-common-date-and-time-format";
@@ -39,7 +38,6 @@ export const rules: Plugin["rules"] = {
     "use-absolute-custom-link-relation-url": UseAbsoluteCustomLinkRelationUrl,
     "use-absolute-profile-url": UseAbsoluteProfileUrl,
     "use-authorization-grant": UseAuthorizationGrant,
-    "use-bearer-authentication": UseBearerAuthentication,
     "use-camel-case-for-property-name": UseCamelCaseForPropertyName,
     "use-camel-case-for-query-parameter": UseCamelCaseForQueryParameter,
     "use-common-date-and-time-format": UseCommonDateAndTimeFormat,
@@ -71,7 +69,6 @@ export const configs: Plugin["configs"] = {
       "api-guidelines/use-absolute-custom-link-relation-url": "error", // https://api.otto.de/portal/guidelines/r100037
       "api-guidelines/use-absolute-profile-url": "error", // https://api.otto.de/portal/guidelines/r100066
       "api-guidelines/use-authorization-grant": "error", // https://api.otto.de/portal/guidelines/r000052
-      "api-guidelines/use-bearer-authentication": "error", // https://api.otto.de/portal/guidelines/r000021
       "api-guidelines/use-camel-case-for-property-name": "warn", // https://api.otto.de/portal/guidelines/r004010
       "api-guidelines/use-camel-case-for-query-parameter": "error", // https://api.otto.de/portal/guidelines/r000022
       "api-guidelines/use-common-date-and-time-format": "error", // https://api.otto.de/portal/guidelines/r100072

@@ -2,16 +2,16 @@ Changelog:
 
 ### New
 
-- [New ruleID](URL)
-- [New section](URL)
+- Rule name [New ruleID](relative path)
+- [Name of new section](relative path)
 
 ### Update
 
-- Added paragraph to rule [<ruleID>](URL).
-- Refactored rule [<ruleID>](URL).
-- Relaxed criteria in rule [<ruleID>](URL).
+- Added paragraph to rule "rule name [ruleID](relative path)".
+- Refactored rule "rule name [ruleID](relative path)".
+- Relaxed criteria in rule "rule name [ruleID](relative path)".
 
-### Remove
+### Removal
 
-The rule [ruleName] has been removed, because...
-(if applicable) It has been replaced by rule [<ruleID>](URL).
+The rule "rule name" has been removed, because...
+(if applicable) It has been replaced by rule "rule name [ruleID](relative path)".
