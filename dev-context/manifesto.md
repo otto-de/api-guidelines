@@ -35,8 +35,7 @@ Specifically, this means:
 * Limits the dependencies to what is strictly necessary
 
 ## We meet the quality standards of a public API.
-
-See [quality standard](decisions/quality-standard.md).
+See [quality standard](../api-guidelines/global/core-principles/quality-standards.md).
 
 ## The responses of our API are consistently structured.
 
@@ -49,4 +48,4 @@ Across all APIs within EC the responses provide
 
 ## Our API is transparently versioned.
 
-See [versioning](decisions/versioning.md).
+See [versioning](rest/versioning.md).
