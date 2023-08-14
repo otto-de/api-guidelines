@@ -11,6 +11,7 @@ Skip to:
 - [Create a pull request](#create-a-pull-request)
 - [Create a pull request draft](#create-a-pull-request-draft)
 - [Compose a changelog relevant pull request](#compose-a-changelog-relevant-pull-request)
+- [Review a pull request (checklist)](#review-a-pull-request-checklist)
 - [Report a bug](#report-a-bug)
 - [Suggest a feature](#suggest-a-feature)
 
@@ -87,6 +88,14 @@ Changelog:
 - Updated the information on contract for [async](https://api.otto.de/portal/guidelines/event-guidelines/contract) and [rest](https://api.otto.de/portal/guidelines/rest-guidelines/contract).
 
 ```
+
+## Review a pull request (checklist)
+
+- Does the added/changed information belong where it is placed?
+- Does the change introduce security vulnerabilities, sensitive data or internal information?
+- Is the wording used correctly and consistently, and does it fit into the overall concept?
+- Does the pull request comply with the [conventional commits spec](https://www.conventionalcommits.org/en/v1.0.0/) and does the commit message convey the purpose of the change, see also [Compose a changelog relevant pull request](#compose-a-changelog-relevant-pull-request)?
+- Will this change highly impact the way we design APIs, and should this be discussed amongst API providers/API community?
 
 ## Report a bug
 
