@@ -55,7 +55,7 @@ The JSON content parts of the decoded token look like this:
   "jti": "6f76d949-fad5-4634-ba4f-b7ebf9d32ade", // (unique) ID of the token itself
   "nbf": 1591888481, // epoch time the token must not be accepted before
   "scp": ["otto.read"], // the scope the token is granting access to
-  "sub": "8d0c8242d4654d41858e150f5ef5b3deccd749d3" // (if applicable) the subject of the token, in this case a customer
+  "sub": "69241ea2-327e-47aa-b36c-be61abbc2f30" // (if applicable) the subject of the token, in this case a customer identified by it's customerId
 }
 ```
 
