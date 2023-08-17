@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2023-08-17
+### Update
+
+- Clarified that the `sub` claim of tokens granted through the Authorization Code Grant flow contains the customerId instead of ec-uuid for now, see "SHOULD use customerId to identify customers [R100078](https://api.otto.de/portal/guidelines/r100078)".
+
 ## 2023-06-23
 
 ### Removal
