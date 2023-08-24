@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2023-08-24
+### Update
+
+- Aligned the customerId header name in rule "SHOULD use customerId to identify customers [R100078](https://api.otto.de/portal/guidelines/r100078)" to follow the deprecation of `X-`prefixes according RFC6648.
+
 ## 2023-08-17
 ### Update
 
