@@ -4,7 +4,8 @@ id: R100078
 
 # SHOULD use customerId to identify customers
 
-The `customerId` is the recommended way to identify logged in customers. It replaces the `ec-uuid`.
+The `customerId` is the recommended way to identify customers.
+It replaces the `ec-uuid`.
 
 In HTTP headers, the `customerId` should be named consistently `Customer-Id`.
 
