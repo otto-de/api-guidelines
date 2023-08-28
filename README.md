@@ -80,7 +80,7 @@ extends:
   - api-guidelines/recommended
 
 plugins:
-  - ./node_modules/@otto-ec/ottoapi-guidelines/dist/plugin.cjs
+  - ./node_modules/@otto-de/api-guidelines/dist/plugin.cjs
 ```
 
 ### Lint your specs
