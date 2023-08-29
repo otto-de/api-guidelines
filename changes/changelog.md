@@ -1,6 +1,12 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2023-08-29
+### Update
+
+- Added links to use cases for "MUST use Authorization Grant [R000052](api-guidelines/api-guidelines/rest/authorization/oauth/rules/must-use-authorization-grant.md)".
+- Emphasize warning, when not to use customerId as HTTP header for "SHOULD use customerId to identify customers [R100078](api-guidelines/api-guidelines/global/json/identifiers/rules/should-use-customerid-to-identify-customers.md)".
+
 ## 2023-08-24
 ### Update
 
