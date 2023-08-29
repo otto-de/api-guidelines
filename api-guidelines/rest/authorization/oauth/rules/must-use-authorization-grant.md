@@ -21,4 +21,7 @@ The OTTO API supports two grant types:
 The [Resource Owner Password Credentials](https://oauth.net/2/grant-types/password/) grant type is not supported.
 :::
 
-The grant type to be used depends on the use cases outlined in the following rules.
+The grant type to be used depends on the use cases outlined in the following rules:
+
+- [Use Authorization Code Grant for confidential clients](should-use-authorization-code-grant-for-confidential-clients.md)
+- [Use Client Credentials Grant for machine to machine authorization](should-use-client-credentials-grant-for-machine-to-machine-authorization.md)
