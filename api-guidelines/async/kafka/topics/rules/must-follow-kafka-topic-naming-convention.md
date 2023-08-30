@@ -47,11 +47,11 @@ event type de.otto.data.products.variation.price.v1 can be found in de.otto.data
 ```
 
 ::: info Info
-This rule only applies to API topics. Topics which are not part of the API must adhere to the [naming conventions for internal topics (internal link)](https://confluence.otto.de/pages/viewpage.action?spaceKey=KAFKA&title=08.1.2+Topic+Naming+Conventions).
+This rule only applies to API topics. Topics which are not part of the API must adhere to the [naming conventions for internal topics (internal link)](https://og2.me/Bhl0TB).
 :::
 
 ::: references
 
 - [MUST name events in past tense](../../../format/naming-conventions/rules/must-name-events-in-past-tense.md)
-- [OTTO CoE Confluent Cloud - Topic Naming Conventions (internal link)](https://confluence.otto.de/pages/viewpage.action?spaceKey=KAFKA&title=08.1.2+Topic+Naming+Conventions)
+- [OTTO CoE Confluent Cloud - Topic Naming Conventions (internal link)](https://og2.me/Bhl0TB)
   :::
