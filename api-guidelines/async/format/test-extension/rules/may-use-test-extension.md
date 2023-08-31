@@ -38,4 +38,4 @@ This extension defines the `test` context attribute that event producers can pro
 
 - [MUST forward `test` context attribute](./must-forward-test-context-attribute.md)
 - [MAY ignore events flagged with `test` context attribute](./may-ignore-events-flagged-with-test.md)
-- [Former specification of the test header (internal link)](https://confluence.otto.de/x/pwZxE) that was replaced by this rule
+- [Former specification of the test header (internal link)](https://og2.me/S1RAEW) that was replaced by this rule
