@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2023-09-18
+### Update
+
+- Added uri-list format to rule "MUST use common data formats [R100071](https://api.otto.de/portal/guidelines/r100071)".
+
 ## 2023-08-29
 ### Update
 
