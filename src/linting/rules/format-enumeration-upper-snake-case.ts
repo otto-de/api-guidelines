@@ -1,5 +1,5 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { isUpperSnakeCase } from "./utils/isUpperSnakeCase";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import { isUpperSnakeCase } from "./utils/isUpperSnakeCase.js";
 
 /**
  * @see https://api.otto.de/portal/guidelines/r004090

@@ -1,7 +1,6 @@
-import { it, expect, vi, describe, afterEach } from "vitest";
-import { run } from "./index";
-import { getPullRequestData } from "./pullRequest";
-import { addChangelogEntry, createChangelogEntry } from "./entry";
+import { run } from "./index.js";
+import { getPullRequestData } from "./pullRequest.js";
+import { addChangelogEntry, createChangelogEntry } from "./entry.js";
 
 const anyPullRequestData = {
   title: "fix(any-scope): any description",

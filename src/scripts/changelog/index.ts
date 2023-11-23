@@ -1,6 +1,6 @@
 import { info } from "@actions/core";
-import { getPullRequestData } from "./pullRequest";
-import { addChangelogEntry, createChangelogEntry } from "./entry";
+import { getPullRequestData } from "./pullRequest.js";
+import { addChangelogEntry, createChangelogEntry } from "./entry.js";
 
 export async function run() {
   const pullRequestData = await getPullRequestData();

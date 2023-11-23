@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { isJsonContentType } from "./isJsonContentType";
+import { isJsonContentType } from "./isJsonContentType.js";
 
 it("Returns true for valid JSON content types", () => {
   expect(isJsonContentType("application/hal+json")).toBe(true);

@@ -1,10 +1,10 @@
-import { expect, it } from "vitest";
-import { lintFromString, OasRef } from "@redocly/openapi-core";
-import { createTestConfig } from "../__tests__/createTestConfig";
-import { resolveRecursive } from "./resolveRecursive";
+import { lintFromString, type OasRef } from "@redocly/openapi-core";
+import { createTestConfig } from "../__tests__/createTestConfig.js";
+import { resolveRecursive } from "./resolveRecursive.js";
 
 const config = createTestConfig({
   oas3: {
+    // @ts-ignore
     "test-rule": () => {
       return {
         Schema(schema, { report, resolve }) {
@@ -45,7 +45,7 @@ paths:
   });
 
   expect(location[0].pointer).toBe(
-    "#/paths/~1get/get/responses/200/content/application~1hal+json/schema"
+    "#/paths/~1get/get/responses/200/content/application~1hal+json/schema",
   );
 });
 

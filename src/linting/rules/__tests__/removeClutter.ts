@@ -1,4 +1,4 @@
-import { NormalizedProblem } from "@redocly/openapi-core";
+import type { NormalizedProblem } from "@redocly/openapi-core";
 
 export function removeClutter(problems: NormalizedProblem[]) {
   // remove source

@@ -8,7 +8,8 @@ Open Issue: https://github.com/Redocly/redocly-cli/issues/932
 
  */
 
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+// @ts-ignore
 import { validateDefinedAndNonEmpty } from "@redocly/openapi-core/lib/rules/utils";
 
 /**

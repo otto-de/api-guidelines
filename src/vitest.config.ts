@@ -4,5 +4,6 @@ export default defineConfig({
   test: {
     include: ["src/**/*.spec.ts", "scripts/**/*.spec.ts"],
     reporters: ["verbose"],
+    globals: true,
   },
 });

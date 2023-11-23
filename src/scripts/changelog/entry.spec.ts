@@ -1,6 +1,5 @@
-import { it, expect, describe, vi } from "vitest";
 import { readFileSync, writeFileSync } from "fs";
-import { addChangelogEntry, createChangelogEntry } from "./entry";
+import { addChangelogEntry, createChangelogEntry } from "./entry.js";
 
 vi.mock("node:fs");
 

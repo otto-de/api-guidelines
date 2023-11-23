@@ -1,29 +1,29 @@
 import type { Plugin } from "@redocly/openapi-core/lib/config";
-import { UseTLS } from "./rules/use-tls";
-import { AlwaysReturnJsonObject } from "./rules/always-return-json-object";
-import { DefinePermissionsWithScope } from "./rules/define-permissions-with-scope";
-import { FormatEnumerationUpperSnakeCase } from "./rules/format-enumeration-upper-snake-case";
-import { NoRequestBodyInGetMethod } from "./rules/no-request-body-in-get-method";
-import { NotUseNullForEmptyArray } from "./rules/not-use-null-for-empty-array";
-import { OmitOptionalProperty } from "./rules/omit-optional-property";
-import { SecureEndpointsWithOAuth20 } from "./rules/secure-endpoints-with-oauth-2.0";
-import { UseAbsoluteCustomLinkRelationUrl } from "./rules/use-absolute-custom-link-relation-url";
-import { UseAbsoluteProfileUrl } from "./rules/use-absolute-profile-url";
-import { UseAuthorizationGrant } from "./rules/use-authorization-grant";
-import { UseCamelCaseForPropertyName } from "./rules/use-camel-case-for-property-name";
-import { UseCamelCaseForQueryParameter } from "./rules/use-camel-case-for-query-parameter";
-import { UseCommonDateAndTimeFormat } from "./rules/use-common-date-and-time-format";
-import { UseCuriedLinkRelationTypes } from "./rules/use-curied-link-relation-types";
-import { UseExtensibleEnum } from "./rules/use-extensible-enum";
-import { UseKebabCaseForPathParameter } from "./rules/use-kebab-case-for-path-parameter";
-import { UseKebabCaseInUri } from "./rules/use-kebab-case-in-uri";
-import { UseOas3 } from "./rules/use-oas-3";
-import { UseStringEnum } from "./rules/use-string-enum";
-import { Operation4xxProblemDetailsRfc7807 } from "./rules/operation-4xx-problem-details-rfc7807";
+import { UseTLS } from "./rules/use-tls.js";
+import { AlwaysReturnJsonObject } from "./rules/always-return-json-object.js";
+import { DefinePermissionsWithScope } from "./rules/define-permissions-with-scope.js";
+import { FormatEnumerationUpperSnakeCase } from "./rules/format-enumeration-upper-snake-case.js";
+import { NoRequestBodyInGetMethod } from "./rules/no-request-body-in-get-method.js";
+import { NotUseNullForEmptyArray } from "./rules/not-use-null-for-empty-array.js";
+import { OmitOptionalProperty } from "./rules/omit-optional-property.js";
+import { SecureEndpointsWithOAuth20 } from "./rules/secure-endpoints-with-oauth-2.0.js";
+import { UseAbsoluteCustomLinkRelationUrl } from "./rules/use-absolute-custom-link-relation-url.js";
+import { UseAbsoluteProfileUrl } from "./rules/use-absolute-profile-url.js";
+import { UseAuthorizationGrant } from "./rules/use-authorization-grant.js";
+import { UseCamelCaseForPropertyName } from "./rules/use-camel-case-for-property-name.js";
+import { UseCamelCaseForQueryParameter } from "./rules/use-camel-case-for-query-parameter.js";
+import { UseCommonDateAndTimeFormat } from "./rules/use-common-date-and-time-format.js";
+import { UseCuriedLinkRelationTypes } from "./rules/use-curied-link-relation-types.js";
+import { UseExtensibleEnum } from "./rules/use-extensible-enum.js";
+import { UseKebabCaseForPathParameter } from "./rules/use-kebab-case-for-path-parameter.js";
+import { UseKebabCaseInUri } from "./rules/use-kebab-case-in-uri.js";
+import { UseOas3 } from "./rules/use-oas-3.js";
+import { UseStringEnum } from "./rules/use-string-enum.js";
+import { Operation4xxProblemDetailsRfc7807 } from "./rules/operation-4xx-problem-details-rfc7807.js";
 
 export const id: Plugin["id"] = "api-guidelines";
 
-export const rules: Plugin["rules"] = {
+export const rules = {
   oas2: {
     "use-oas-3": UseOas3,
   },
@@ -51,7 +51,7 @@ export const rules: Plugin["rules"] = {
   },
 };
 
-export const configs: Plugin["configs"] = {
+export const configs = {
   recommended: {
     rules: {
       "info-contact": "error", // https://api.otto.de/portal/guidelines/r000078

@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { isUpperSnakeCase } from "./isUpperSnakeCase";
+import { isUpperSnakeCase } from "./isUpperSnakeCase.js";
 
 it("returns true for upper snake case strings", () => {
   expect(isUpperSnakeCase("THIS_IS_UPPER_SNAKE_CASE")).toBe(true);

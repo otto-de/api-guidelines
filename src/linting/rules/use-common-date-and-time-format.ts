@@ -1,14 +1,14 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { Oas3Schema } from "@redocly/openapi-core";
-import { Location } from "@redocly/openapi-core/lib/ref-utils";
-import { Problem } from "@redocly/openapi-core/lib/walk";
-import { isValidDateFormat } from "./utils/isValidDateFormat";
-import { isValidDateTimeFormat } from "./utils/isValidDateTimeFormat";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import type { Oas3Schema } from "@redocly/openapi-core";
+import type { Location } from "@redocly/openapi-core/lib/ref-utils.d.js";
+import type { Problem } from "@redocly/openapi-core/lib/walk.d.js";
+import { isValidDateFormat } from "./utils/isValidDateFormat.js";
+import { isValidDateTimeFormat } from "./utils/isValidDateTimeFormat.js";
 
 const findInvalidDateExamples = (
   { format, properties, items }: Oas3Schema,
   example: unknown,
-  location: Location
+  location: Location,
 ): Location[] => {
   if (example) {
     if (format === "date") {
@@ -38,7 +38,7 @@ function findAndReport(
   schema: Oas3Schema,
   example: unknown,
   location: Location,
-  report: (problem: Problem) => void
+  report: (problem: Problem) => void,
 ) {
   const locations = findInvalidDateExamples(schema, example, location);
   locations.forEach((loc) => {

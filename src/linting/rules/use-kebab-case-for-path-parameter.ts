@@ -1,5 +1,5 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { isKebabCase } from "./utils/isKebabCase";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import { isKebabCase } from "./utils/isKebabCase.js";
 
 /**
  * @see NO RULE -> will follow

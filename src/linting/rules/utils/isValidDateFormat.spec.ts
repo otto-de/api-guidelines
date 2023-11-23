@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { isValidDateFormat } from "./isValidDateFormat";
+import { isValidDateFormat } from "./isValidDateFormat.js";
 
 it("returns true for valid dates in YYYY-MM-DD format", () => {
   expect(isValidDateFormat("2023-03-28")).toBe(true);

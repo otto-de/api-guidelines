@@ -1,5 +1,4 @@
-import { it, expect, vi, describe, afterEach } from "vitest";
-import { getPullRequestData } from "./pullRequest";
+import { getPullRequestData } from "./pullRequest.js";
 
 const anyPullRequest = {
   data: [

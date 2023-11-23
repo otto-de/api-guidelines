@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { isAbsoluteURI } from "./isAbsoluteURI";
+import { isAbsoluteURI } from "./isAbsoluteURI.js";
 
 it("returns true for absolute URIs", () => {
   expect(isAbsoluteURI("https://www.example.com")).toBe(true);

@@ -1,10 +1,12 @@
 module.exports = {
   extends: ["airbnb-base", "plugin:prettier/recommended"],
+  root: true,
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
       parserOptions: {
         project: "./tsconfig.json",
+        tsconfigRootDir: __dirname,
       },
       extends: [
         "airbnb-base",

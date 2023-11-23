@@ -1,12 +1,11 @@
-import { expect, it } from "vitest";
-
 import { lintFromString } from "@redocly/openapi-core";
-import { AlwaysReturnJsonObject } from "./always-return-json-object";
-import { createTestConfig } from "./__tests__/createTestConfig";
-import { removeClutter } from "./__tests__/removeClutter";
+import { AlwaysReturnJsonObject } from "./always-return-json-object.js";
+import { createTestConfig } from "./__tests__/createTestConfig.js";
+import { removeClutter } from "./__tests__/removeClutter.js";
 
 const config = createTestConfig({
   oas3: {
+    // @ts-ignore
     "test-rule": AlwaysReturnJsonObject,
   },
 });

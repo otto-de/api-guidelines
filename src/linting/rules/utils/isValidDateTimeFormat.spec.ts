@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { isValidDateTimeFormat } from "./isValidDateTimeFormat";
+import { isValidDateTimeFormat } from "./isValidDateTimeFormat.js";
 
 it("Valid ISO 8601 date-time format with Z", () => {
   const input = "2023-03-28T15:30:45.123Z";

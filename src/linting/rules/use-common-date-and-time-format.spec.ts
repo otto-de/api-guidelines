@@ -1,12 +1,11 @@
-import { expect, it } from "vitest";
-
 import { lintFromString } from "@redocly/openapi-core";
-import { createTestConfig } from "./__tests__/createTestConfig";
-import { removeClutter } from "./__tests__/removeClutter";
-import { UseCommonDateAndTimeFormat } from "./use-common-date-and-time-format";
+import { createTestConfig } from "./__tests__/createTestConfig.js";
+import { removeClutter } from "./__tests__/removeClutter.js";
+import { UseCommonDateAndTimeFormat } from "./use-common-date-and-time-format.js";
 
 const config = createTestConfig({
   oas3: {
+    // @ts-ignore
     "test-rule": UseCommonDateAndTimeFormat,
   },
 });

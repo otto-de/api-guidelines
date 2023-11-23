@@ -1,6 +1,5 @@
-import { describe, expect, it, vi } from "vitest";
 import { lintFromString } from "@redocly/openapi-core";
-import { createTestConfig } from "./createTestConfig";
+import { createTestConfig } from "./createTestConfig.js";
 
 const spec = `
 openapi: 3.0.3
@@ -63,6 +62,7 @@ describe("redocly visitor", () => {
 
     const config = createTestConfig({
       oas3: {
+        // @ts-ignore
         "test-rule": () => ({
           Response: {
             SchemaProperties: spy,
@@ -84,6 +84,7 @@ describe("redocly visitor", () => {
 
     const config = createTestConfig({
       oas3: {
+        // @ts-ignore
         "test-rule": () => ({
           SchemaProperties: spy,
         }),
@@ -103,6 +104,7 @@ describe("redocly visitor", () => {
 
     const config = createTestConfig({
       oas3: {
+        // @ts-ignore
         "test-rule": () => ({
           SchemaProperties: {
             SchemaProperties: spy,

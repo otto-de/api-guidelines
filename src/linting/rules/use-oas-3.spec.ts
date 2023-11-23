@@ -1,12 +1,11 @@
-import { expect, it } from "vitest";
-
 import { lintFromString } from "@redocly/openapi-core";
-import { createTestConfig } from "./__tests__/createTestConfig";
-import { removeClutter } from "./__tests__/removeClutter";
-import { UseOas3 } from "./use-oas-3";
+import { createTestConfig } from "./__tests__/createTestConfig.js";
+import { removeClutter } from "./__tests__/removeClutter.js";
+import { UseOas3 } from "./use-oas-3.js";
 
 const config = createTestConfig({
   oas2: {
+    // @ts-ignore
     "test-rule": UseOas3,
   },
 });

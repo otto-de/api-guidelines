@@ -1,12 +1,11 @@
-import { expect, it } from "vitest";
-
 import { lintFromString } from "@redocly/openapi-core";
-import { createTestConfig } from "./__tests__/createTestConfig";
-import { removeClutter } from "./__tests__/removeClutter";
-import { UseCamelCaseForQueryParameter } from "./use-camel-case-for-query-parameter";
+import { createTestConfig } from "./__tests__/createTestConfig.js";
+import { removeClutter } from "./__tests__/removeClutter.js";
+import { UseCamelCaseForQueryParameter } from "./use-camel-case-for-query-parameter.js";
 
 const config = createTestConfig({
   oas3: {
+    // @ts-ignore
     "test-rule": UseCamelCaseForQueryParameter,
   },
 });

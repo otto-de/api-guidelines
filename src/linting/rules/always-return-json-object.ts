@@ -1,13 +1,13 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { isRef, Oas3Schema } from "@redocly/openapi-core";
-import { Location } from "@redocly/openapi-core/lib/ref-utils";
-import { ResolveFn } from "@redocly/openapi-core/lib/walk";
-import { isJsonContentType } from "./utils/isJsonContentType";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import { isRef, type Oas3Schema } from "@redocly/openapi-core";
+import type { Location } from "@redocly/openapi-core/lib/ref-utils.d.js";
+import type { ResolveFn } from "@redocly/openapi-core/lib/walk.d.js";
+import { isJsonContentType } from "./utils/isJsonContentType.js";
 
 const findNonObjectLocations = (
   schema: Oas3Schema,
   location: Location,
-  resolve: ResolveFn
+  resolve: ResolveFn,
 ): Location[] => {
   const { type, allOf, anyOf, oneOf } = schema;
   if (type && type === "object") {
@@ -25,7 +25,7 @@ const findNonObjectLocations = (
   if (allOf) {
     const loc = location.child("allOf");
     return allOf.some(
-      (s, index) => findNonObjectLocations(s, loc.child(index), resolve).length === 0
+      (s, index) => findNonObjectLocations(s, loc.child(index), resolve).length === 0,
     )
       ? []
       : [loc];

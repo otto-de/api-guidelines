@@ -1,12 +1,12 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { Oas3Schema } from "@redocly/openapi-core";
-import { Location } from "@redocly/openapi-core/lib/ref-utils";
-import { Problem } from "@redocly/openapi-core/lib/walk";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import type { Oas3Schema } from "@redocly/openapi-core";
+import type { Location } from "@redocly/openapi-core/lib/ref-utils.d.js";
+import type { Problem } from "@redocly/openapi-core/lib/walk.d.js";
 
 const findArrayNullExamples = (
   { type, properties, items }: Oas3Schema,
   example: unknown,
-  location: Location
+  location: Location,
 ): Location[] => {
   if (example === null && type === "array") return [location];
 

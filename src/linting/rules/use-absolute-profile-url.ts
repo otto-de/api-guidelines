@@ -1,5 +1,5 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { isAbsoluteURI } from "./utils/isAbsoluteURI";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import { isAbsoluteURI } from "./utils/isAbsoluteURI.js";
 
 /**
  * @see  https://api.otto.de/portal/guidelines/r100066

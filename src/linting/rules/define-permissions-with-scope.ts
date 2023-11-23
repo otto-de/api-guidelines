@@ -1,5 +1,5 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { Location } from "@redocly/openapi-core/lib/ref-utils";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import type { Location } from "@redocly/openapi-core/lib/ref-utils.d.js";
 
 /**
  * @see https://api.otto.de/portal/guidelines/r000047

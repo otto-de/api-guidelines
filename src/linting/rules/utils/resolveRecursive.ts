@@ -1,10 +1,10 @@
-import { ResolveFn, ResolveResult } from "@redocly/openapi-core/lib/walk";
 import type { OasRef } from "@redocly/openapi-core";
+import type { ResolveFn, ResolveResult } from "@redocly/openapi-core/lib/walk.d.js";
 
 export const resolveRecursive = <T extends OasRef>(
   node: T,
   resolve: ResolveFn,
-  from?: string
+  from?: string,
 ): ResolveResult<T> => {
   const resolvedNode = resolve(node, from);
 
@@ -13,6 +13,6 @@ export const resolveRecursive = <T extends OasRef>(
   return resolveRecursive(
     resolvedNode.node,
     resolve,
-    resolvedNode.location?.source.absoluteRef ?? from
+    resolvedNode.location?.source.absoluteRef ?? from,
   );
 };

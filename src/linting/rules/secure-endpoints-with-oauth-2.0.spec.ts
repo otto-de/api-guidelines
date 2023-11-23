@@ -1,12 +1,11 @@
-import { expect, it } from "vitest";
-
 import { lintFromString } from "@redocly/openapi-core";
-import { createTestConfig } from "./__tests__/createTestConfig";
-import { removeClutter } from "./__tests__/removeClutter";
-import { SecureEndpointsWithOAuth20 } from "./secure-endpoints-with-oauth-2.0";
+import { createTestConfig } from "./__tests__/createTestConfig.js";
+import { removeClutter } from "./__tests__/removeClutter.js";
+import { SecureEndpointsWithOAuth20 } from "./secure-endpoints-with-oauth-2.0.js";
 
 const config = createTestConfig({
   oas3: {
+    // @ts-ignore
     "test-rule": SecureEndpointsWithOAuth20,
   },
 });

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { info } from "@actions/core";
-import { PullRequestData } from "./pullRequest";
+import type { PullRequestData } from "./pullRequest.js";
 
 const CHANGELOG_FILE = "changes/changelog.md";
 const CHANGELOG_MARKER = "Changelog:";
@@ -21,7 +21,7 @@ function prependChangelogEntry(fileContent: string, textToPrepend: string): stri
   const [first, ...rest] = fileContent.split(CHANGELOG_ENTRIES_MARKER);
   if (rest.length === 0) {
     throw new Error(
-      `Entries marker '${CHANGELOG_ENTRIES_MARKER}' is missing in CHANGELOG.md file!`
+      `Entries marker '${CHANGELOG_ENTRIES_MARKER}' is missing in CHANGELOG.md file!`,
     );
   }
   // Re add marker to first element (changelog header)

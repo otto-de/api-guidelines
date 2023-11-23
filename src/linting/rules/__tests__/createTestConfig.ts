@@ -1,4 +1,4 @@
-import { CustomRulesConfig } from "@redocly/openapi-core/lib/config/types";
+import type { CustomRulesConfig } from "@redocly/openapi-core/lib/config/types.d.js";
 import { Config } from "@redocly/openapi-core";
 
 export function createTestConfig(customRulesConfig: CustomRulesConfig) {
@@ -8,6 +8,7 @@ export function createTestConfig(customRulesConfig: CustomRulesConfig) {
       plugins: [
         {
           id: "test-plugin",
+          // @ts-ignore
           rules: customRulesConfig,
         },
       ],
@@ -15,8 +16,8 @@ export function createTestConfig(customRulesConfig: CustomRulesConfig) {
         Object.values(customRulesConfig).map((ruleSet) =>
           Object.keys(ruleSet)
             .map((rule) => [rule, "error"])
-            .flat()
-        )
+            .flat(),
+        ),
       ),
     },
   });

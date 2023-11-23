@@ -1,12 +1,11 @@
-import { expect, it } from "vitest";
-
 import { lintFromString } from "@redocly/openapi-core";
-import { createTestConfig } from "./__tests__/createTestConfig";
-import { removeClutter } from "./__tests__/removeClutter";
-import { UseCamelCaseForPropertyName } from "./use-camel-case-for-property-name";
+import { createTestConfig } from "./__tests__/createTestConfig.js";
+import { removeClutter } from "./__tests__/removeClutter.js";
+import { UseCamelCaseForPropertyName } from "./use-camel-case-for-property-name.js";
 
 const config = createTestConfig({
   oas3: {
+    // @ts-ignore
     "test-rule": UseCamelCaseForPropertyName,
   },
 });

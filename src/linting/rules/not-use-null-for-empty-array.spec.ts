@@ -1,12 +1,11 @@
-import { expect, it } from "vitest";
-
 import { lintFromString } from "@redocly/openapi-core";
-import { createTestConfig } from "./__tests__/createTestConfig";
-import { removeClutter } from "./__tests__/removeClutter";
-import { NotUseNullForEmptyArray } from "./not-use-null-for-empty-array";
+import { createTestConfig } from "./__tests__/createTestConfig.js";
+import { removeClutter } from "./__tests__/removeClutter.js";
+import { NotUseNullForEmptyArray } from "./not-use-null-for-empty-array.js";
 
 const config = createTestConfig({
   oas3: {
+    // @ts-ignore
     "test-rule": NotUseNullForEmptyArray,
   },
 });

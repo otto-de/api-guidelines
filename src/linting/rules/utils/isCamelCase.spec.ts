@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { isCamelCase } from "./isCamelCase";
+import { isCamelCase } from "./isCamelCase.js";
 
 it("should fooBar should be valid", () => {
   expect(isCamelCase("fooBar")).toBeTruthy();

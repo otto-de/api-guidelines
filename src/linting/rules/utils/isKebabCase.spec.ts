@@ -1,5 +1,4 @@
-import { expect, it } from "vitest";
-import { isKebabCase } from "./isKebabCase";
+import { isKebabCase } from "./isKebabCase.js";
 
 it("should return true for valid kebab case strings", () => {
   expect(isKebabCase("this-is-kebab-case")).toBe(true);

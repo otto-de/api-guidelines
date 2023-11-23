@@ -1,5 +1,5 @@
-import { Oas3Rule } from "@redocly/openapi-core/lib/visitors";
-import { isCamelCase } from "./utils/isCamelCase";
+import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
+import { isCamelCase } from "./utils/isCamelCase.js";
 
 /**
  * @see https://api.otto.de/portal/guidelines/r004010
