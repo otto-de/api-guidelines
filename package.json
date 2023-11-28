@@ -30,7 +30,7 @@
     "build:redocly": "esbuild src/linting/plugin.ts --bundle --platform=node --outfile=dist/plugin.cjs --log-level=warning --external:@redocly/openapi-core",
     "changelog": "npx tsx src/scripts/changelog/index.ts",
     "clean": "rm -rf ./dist",
-    "prepare": "husky install src/.husky",
+    "prepare": "husky install src/.husky || exit 0",
     "prepack": "npm run build",
     "test": "vitest run --root src",
     "tsc": "tsc --noEmit -p src/tsconfig.json"
