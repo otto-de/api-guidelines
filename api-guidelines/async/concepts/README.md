@@ -62,7 +62,7 @@ Examples of domain events:
 
 ::: references
 
-- [What are Domain Events?](https://serialized.io/ddd/domain-event/)
+- [What are Domain Events?](https://web.archive.org/web/20221201162409/https://serialized.io/ddd/domain-event/)
   :::
 
 ## Data events
