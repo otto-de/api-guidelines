@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2024-01-31
+### Update
+
+- Replaced the dead link to `serialized.io/ddd/domain-event` with its internet archive counterpart.
+
 ## 2023-09-18
 ### Update
 
