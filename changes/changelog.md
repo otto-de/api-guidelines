@@ -1,6 +1,17 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2024-02-05
+### Removal
+
+The following rules have been removed as they contained consumer-facing content. This content has been included in the API Portal in the REST API sections "Status codes", "Headers" "Preview", and "Deprecation" respectively.
+
+- MUST NOT rely on API components marked as preview
+- MUST NOT not start using deprecated APIs
+- MUST accept undocumented status codes
+- MUST follow redirection
+- SHOULD honor available ETag header on subsequent modifications
+
 ## 2024-01-31
 ### Update
 
