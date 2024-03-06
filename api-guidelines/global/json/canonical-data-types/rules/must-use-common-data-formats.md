@@ -53,10 +53,11 @@ These format names are intended to be used in the OpenAPI specification provided
 
 ::: references
 
-- [MUST provide API specification using OpenAPI][rule-date]
+- [MUST provide API specification using OpenAPI][rule-spec]
   :::
 
-[rule-date]: ../../../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md
+[rule-date]: ../../../../global/json/canonical-data-types/rules/must-use-common-date-and-time-format.md
+[rule-spec]: ../../../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md
 [rfc3339]: https://tools.ietf.org/html/rfc3339#section-5.6
 [rfc5322]: https://tools.ietf.org/html/rfc5322#section-3.4.1
 [rfc1123]: https://tools.ietf.org/html/rfc1123#section-2.1
