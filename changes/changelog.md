@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2024-03-06
+### Update
+
+- Fixed the link to the date rule in "MUST use common data formats" [R100071](https://api.otto.de/portal/guidelines/r100071).
+
 ## 2024-02-05
 ### Removal
 
