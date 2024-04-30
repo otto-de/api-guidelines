@@ -97,6 +97,17 @@ Changelog:
 - Does the pull request comply with the [conventional commits spec](https://www.conventionalcommits.org/en/v1.0.0/) and does the commit message convey the purpose of the change, see also [Compose a changelog relevant pull request](#compose-a-changelog-relevant-pull-request)?
 - Will this change highly impact the way we design APIs, and should this be discussed amongst API providers/API community?
 
+## Add a new guideline
+
+You are welcome to propose a new API guideline.
+To identify a rule ID, you can use the below command to retrieve a sorted list of the rule IDs already taken.
+This way you can identify a new rule ID for the guideline.
+Do not reuse existing rule IDs.
+
+```bash
+grep -r "^id:" api-guidelines | rev | cut -d" " -f1 | rev | sort | less
+```
+
 ## Report a bug
 
 Nobody is perfect.
@@ -108,13 +119,3 @@ Include as many details as possible to help us understand the issue.
 
 You're welcome to report a feature or suggest an improvement to an existing functionality via a GitHub issue.
 Include as many details as possible to help us understand the requirement.
-
-
-### Findng Rule IDs
-
-If you are proposing a new rule, You can use the below one liner to get a sorted list of all rule IDs already defined. This way you can identify what id your new rule could take.
-Please do not re-use existing rule IDs.
-
-```bash
-grep -r "^id:" api-guidelines | rev | cut -d" " -f1 | rev | sort | less
-```
