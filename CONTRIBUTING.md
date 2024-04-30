@@ -108,3 +108,13 @@ Include as many details as possible to help us understand the issue.
 
 You're welcome to report a feature or suggest an improvement to an existing functionality via a GitHub issue.
 Include as many details as possible to help us understand the requirement.
+
+
+### Findng Rule IDs
+
+If you are proposing a new rule, You can use the below one liner to get a sorted list of all rule IDs already defined. This way you can identify what id your new rule could take.
+Please do not re-use existing rule IDs.
+
+```bash
+grep -r "^id:" api-guidelines | rev | cut -d" " -f1 | rev | sort | less
+```
