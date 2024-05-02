@@ -100,13 +100,11 @@ Changelog:
 ## Add a new guideline
 
 You are welcome to propose a new API guideline.
-To identify a rule ID, you can use the below command to retrieve a sorted list of the rule IDs already taken.
-This way you can identify a new rule ID for the guideline.
-Do not reuse existing rule IDs.
+Each API guideline requires a unique rule ID, which must be noted in the front matter of the file.
+To identify an unused and thus available rule ID, run the following command:
 
 ```bash
-grep -r "^id:" api-guidelines | rev | cut -d" " -f1 | rev | sort | less
-```
+grep -r "^id: R00" api-guidelines | rev | cut -d" " -f1 | rev | sort | less
 
 ## Report a bug
 
