@@ -97,6 +97,18 @@ Changelog:
 - Does the pull request comply with the [conventional commits spec](https://www.conventionalcommits.org/en/v1.0.0/) and does the commit message convey the purpose of the change, see also [Compose a changelog relevant pull request](#compose-a-changelog-relevant-pull-request)?
 - Will this change highly impact the way we design APIs, and should this be discussed amongst API providers/API community?
 
+## Add a new guideline
+
+You are welcome to propose a new API guideline.
+Each API guideline requires a unique rule ID, which must be noted in the front matter of the file.
+To identify an unused and thus available rule ID, run the following command:
+
+```bash
+grep -r "^id: R00" api-guidelines | rev | cut -d" " -f1 | rev | sort | less
+```
+
+You can choose any rule ID that is not included in the list.
+
 ## Report a bug
 
 Nobody is perfect.
