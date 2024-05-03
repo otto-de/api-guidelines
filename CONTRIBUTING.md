@@ -104,7 +104,7 @@ Each API guideline requires a unique rule ID, which must be noted in the front m
 To identify an unused and thus available rule ID, run the following command:
 
 ```bash
-grep -r "^id: R00" api-guidelines | rev | cut -d" " -f1 | rev | sort | less
+grep -r "^id: " api-guidelines | rev | cut -d" " -f1 | rev | sort | less
 ```
 
 You can choose any rule ID that is not included in the list.
