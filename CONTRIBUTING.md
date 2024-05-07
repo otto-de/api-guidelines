@@ -12,6 +12,7 @@ Skip to:
 - [Create a pull request draft](#create-a-pull-request-draft)
 - [Compose a changelog relevant pull request](#compose-a-changelog-relevant-pull-request)
 - [Review a pull request (checklist)](#review-a-pull-request-checklist)
+- [Add a new guideline](#add-a-new-guideline)
 - [Report a bug](#report-a-bug)
 - [Suggest a feature](#suggest-a-feature)
 
