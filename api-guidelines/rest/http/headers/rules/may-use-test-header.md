@@ -35,7 +35,7 @@ This has several benefits:
     - OPTIONAL
     - MUST be a non-empty string in the format `<test-scope>.<test-type>`.
 
-### Example Usages
+## Example use cases
 
 ![Example usages of the test extension](../../../../async/format/test-extension/rules/test-extension-usage-examples.png)
 
