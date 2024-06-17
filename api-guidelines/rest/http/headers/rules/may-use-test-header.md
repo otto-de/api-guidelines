@@ -4,13 +4,18 @@ id: R0000XX
 
 # MAY use `Test` header
 
-API consumers and providers may use the OTTO-specific test header described within this rule to communicate that a request or response is a result of a test in a **non-live** environment. This enables testing certain use cases together with multiple teams while simultaneously enabling all teams to identify and ignore hindering test data.
+API consumers and providers may use the OTTO-specific `Test` header described within this rule to communicate that a request or response is part of a test.
 
-Requests and responses **must not** be flagged with `Test` in the live environment as this could negatively impact the data integrity of the overall system.
+Test requests are created in various contexts.
+Some of them require special handling on provider or consumer side, such as bypassing specific validations or using modified business logic while processing.
+This rule defines the test header that API consumers and providers can use to identify test data.
+Downstream teams can then forward this test header in subsequent processing steps, e.g. as a test extension in an asynchronous event.
 
-Test requests are often created in various contexts. Some of them require special handling on provider or consumer side, such as bypassing specific validations or using modified business logic while processing.
+This has several benefits:
 
-This rule defines the `Test` header that API consumers and providers can provide to identify test data and enable the provider or consumer to forward this test header in their further processing, e.g. passing it as test extension in an asynchronous event.
+- It allows for testing of certain use cases across multiple teams.
+- It enables all teams to identify and ignore hindering test data.
+- It ensures data integrity of the overall system.
 
 ### `Test` header
 
