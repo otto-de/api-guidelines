@@ -19,21 +19,13 @@ This has several benefits:
 
 ### `Test` header
 
-- Type: `String`
-- Description: A string in the format `<test-scope>.<test-type>`. Both `test-type` and `test-scope` must not contain a `.` (dot).
-    - `test-scope`: The scope of the executed test. Possible values include but are not limited to the name of a single context or a group of contexts (e.g., `orderprocessing`).
-    - `test-type`: The type of the test. Currently, the following common types are defined:
-        - `PerformanceTest` Automatically created test data in large scale.
-        - `SystemTest` Automatically created test data to test specific business cases within one team.
-        - `End2EndTest` Automatically created test data to test specific business cases within multiple teams.
-        - `ManualTest` Manually created data.
+The `Test` header is optional but if set, it MUST be a non-empty string in the format `<test-scope>.<test-type>`.
+Example: `OrderProcessing.PerformanceTest`.
 
-      Additional test types may be used. They must be listed in the API documentation of the API provider
-- Examples:
-    - `SampleOrderProcessing.PerformanceTest`
-- Constraints:
-    - OPTIONAL
-    - MUST be a non-empty string in the format `<test-scope>.<test-type>`.
+| Segment  |  Description | Possible values | Constraints  | Example  |
+|---|---|---|---|---|
+| `test-scope`  | The scope of the executed test. | Possible values include but are not limited to the name of a single context or a group of contexts.  | Must not contain a `.` (dot).  | OrderProcessing  |
+| `test-type`  | The type of the test. | The following common types are defined:<br><br>- `PerformanceTest`: Automatically created test data in large scale.<br> - `SystemTest`: Automatically created test data for test-specific business cases within one team.<br>- `End2EndTest`: Automatically created test data to test specific business cases across multiple teams.<br>- `ManualTest`: Manually created data.<br><br>Additional test types may be used but must explicitly be listed in the API documentation of the API provider. | Must not contain a `.` (dot).  | PerformanceTest  |
 
 ## Example use cases
 
