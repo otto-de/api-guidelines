@@ -17,7 +17,7 @@ This has several benefits:
 - It enables all teams to identify and ignore hindering test data.
 - It ensures data integrity of the overall system.
 
-### `Test` header
+## `Test` header
 
 The `Test` header is optional but if set, it MUST be a non-empty string in the format `<test-scope>.<test-type>`.
 Example: `OrderProcessing.PerformanceTest`.
