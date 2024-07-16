@@ -2,7 +2,12 @@
 
 Our [quality standards](./quality-standards.md) define all the values that are important to us.
 What's more, we aim to take care of clearly structured documentation, provide our audience with code examples, and make sure they have a great time using our API.
-Here's what that means:
+This includes:
+
+- [Clear structure](#clear-structure)
+- [Code examples](#code-examples)
+- [Consistency and accessibility](#consistency-and-accessibility)
+- [Efficient and refined](#efficient-and-refined)
 
 ## Clear structure
 
@@ -46,14 +51,12 @@ Automated API reference documentation
 
 API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md).
 
-
 ## Consistency and accessibility
 
 - Documentation is provided in American English (EN-US), as US spelling has become the standard in APIs. Also endpoints, properties, and default values are provided in American English.
 - Users can search the documentation.
 - The sidebar is available at all times so that the documentation can be easily browsed. All the endpoints can be accessed via the sidebar.
 - Code examples and explanatory text are visually separated.
-
 
 ## Efficient and refined
 
