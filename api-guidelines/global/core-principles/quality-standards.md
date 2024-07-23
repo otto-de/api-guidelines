@@ -62,13 +62,13 @@ The bandwidth of possible metrics ranges from purely technical information such 
 
 ## Documentation and support
 
-We help both vendors during development and users of the API with the integration by offering suitable ways of exchange and support.
+We help both the providors during development and the users of the API with the integration by offering suitable ways of exchange and support.
 As the primary resource for explaining the API and its capabilities, documentation must be as accessible to the audience as possible.
 We provide all consumers of the API with comprehensive, professional, up-to-date, and complete information.
 
 ## Communication
 
-We always keep both developers and consumers of the API informed through appropriate channels.
+We always keep both providers and consumers of the API informed through appropriate channels.
 Changes and [deprecations](../../rest/compatibility/README.md#deprecation-of-http-apis) are communicated regularly and actively.
 Therefore, we establish different synchronous and asynchronous communication channels to support developers and consumers.
 
@@ -77,4 +77,4 @@ Therefore, we establish different synchronous and asynchronous communication cha
 API consumers should have fun using the API.
 Our goal is to provide seamless experience to developers when writing software, and to increase their efficiency.
 API consumers should be comfortable using the API in their programming language of choice, finding the functionality they need, as well as using the output.
-We give developers the right tools to help them succeed and aim to provide an as short as possible TTFHW.
+We give developers the right tools to help them succeed and aim to provide an as short as possible Time to First Hello World (TTFHW).
