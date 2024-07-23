@@ -11,29 +11,26 @@ This includes, but is not limited to:
 ## Accessibility and usability
 
 - We provide access to all API endpoints in a central location, some sort of documentation portal at the best, to ensure that users can easily use the API.
-- The documentation is browsable.
-- A well-structured sidebar ensures that the documentation can be navigated so that all the endpoints can be accessed.
+- The documentation is browsable across all available endpoints.
+- A well-structured navigation ensures that the documentation can be navigated.
 - We give users the chance to get in touch with us.
 - All information is easily discoverable, easy to digest, and prepared in a way that users can effectively work with it.
-- We'll be consistent with our tone of voice, terminology, attribute names, API endpoint design, requests and responses, and counting.
+- We are consistent with our tone of voice, terminology, attribute names, API endpoint design, requests and responses, and counting.
 - The layout supports usability accordingly, e.g. with syntax highlighting or multi-column layout.
 
 ## Code examples
 
 - Every endpoint documentation comes with examples and also provides schemas listing the available attributes with explanatory text.
-- Request and response examples that belong to every endpoint documentation have meaningful default values that follow a specific story.
-- Code examples and explanatory text are visually separated.
-- API endpoints and examples are shown in context.
+- Request and response examples that belong to every endpoint documentation have meaningful default values that in the best case follow a specific story.
+- API endpoints and examples are shown in business context.
 - API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md).
 
-## Context and walkthroughs
+## Context
 
 - We give context for API usage such as information about HTTP methods, API operations, request and response headers, versioning, pagination, or errors.
-- With step-by-step walkthroughs we'll cover specific functionality that can be implemented with the API.
-- We cater for experienced users that already have an idea of the endpoints to be used, and at the same time provide the respective structure and information for inexperienced users who need a thorough introduction and/or example use cases.
-- We provide an overview of the most likely tasks to perform with the API.
+- We cater for experienced users that already have an idea of the endpoints to be used and at the same time provide the respective structure and information for inexperienced users who need a thorough introduction, example use cases, or both.
 
 ## Up-to-dateness
 
 - The API is well-documented and up-to-date.  
-- Users can flawlessly integrate and are informed about recent changes.
+- Users can integrate easily and keep up-to-date with the latest API changes.
