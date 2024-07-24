@@ -62,7 +62,7 @@ The bandwidth of possible metrics ranges from purely technical information such 
 
 ## Documentation and support
 
-We help both the providors during development and the users of the API with the integration by offering suitable ways of exchange and support.
+We help both the providers during development and the users of the API with the integration by offering suitable ways of exchange and support.
 As the primary resource for explaining the API and its capabilities, documentation must be as accessible to the audience as possible.
 We provide all consumers of the API with comprehensive, professional, up-to-date, and complete information.
 
