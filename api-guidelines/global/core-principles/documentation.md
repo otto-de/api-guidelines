@@ -22,7 +22,6 @@ This includes, but is not limited to:
 
 - Every endpoint documentation comes with examples and also provides schemas listing the available attributes with explanatory text.
 - Request and response examples that belong to every endpoint documentation have meaningful default values that in the best case follow a specific story.
-- API endpoints and examples are shown in business context.
 - API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md).
 
 ## Context
