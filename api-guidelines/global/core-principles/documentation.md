@@ -1,57 +1,35 @@
 # Documentation
 
-Our [quality standards](./quality-standards.md) define all the values that are important to us.
-What's more, we aim to take care of clearly structured documentation, provide our audience with code examples, and make sure they have a great time using our API.
-Here's what that means:
+We strive to make API implementation a breeze with meaningful, easy-to-understand documentation.
+This includes, but is not limited to:
 
-:::: accordions
-::: accordion Clear structure
-**Usability**
+- [Accessibility and usability](#accessibility-and-usability)
+- [Code examples](#code-examples)
+- [Context and walkthroughs](#context-and-walkthroughs)
+- [Up-to-dateness](#up-to-dateness)
 
-- A user-friendly navigation makes it easy to discover the API and find all relevant information.
-- The sidebar is cleary structured and easy to navigate.
-- API endpoints and examples are shown in context.
+## Accessibility and usability
 
-**Getting started**
+- We provide access to all API endpoints in a central location, some sort of documentation portal at the best, to ensure that users can easily use the API.
+- The documentation is browsable across all available endpoints.
+- A well-structured navigation ensures that the documentation can be navigated.
+- We give users the chance to get in touch with us.
+- All information is easily discoverable, easy to digest, and prepared in a way that users can effectively work with it.
+- We are consistent with our tone of voice, terminology, attribute names, API endpoint design, requests and responses, and counting.
+- The layout supports usability accordingly, e.g. with syntax highlighting or multi-column layout.
 
-- Basic information is available at one central place, such as info about HTTP methods, API operations, request/response headers, versioning, pagination, or errors.
-- A short and simple guide provides an overview of the most likely tasks to perform with the API.
-- Users can get in touch with us via a contact form.
+## Code examples
 
-**Tutorials**  
-With step-by-step walkthroughs we'll cover specific functionality that can be implemented with the API.
+- Every endpoint documentation comes with examples and also provides schemas listing the available attributes with explanatory text.
+- Request and response examples that belong to every endpoint documentation have meaningful default values that in the best case follow a specific story.
+- API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md).
 
-**Familiarize users with the API**  
-We'll cater for experienced users that already have an idea of the endpoints to be used, and at the same time provide the respective structure and information for inexperienced users who need a thorough introduction and/or example use cases.
+## Context
 
-**Discoverable and easy to digest**
+- We give context for API usage such as information about HTTP methods, API operations, request and response headers, versioning, pagination, or errors.
+- We cater for experienced users that already have an idea of the endpoints to be used and at the same time provide the respective structure and information for inexperienced users who need a thorough introduction, example use cases, or both.
 
-- All information is easily discoverable, easy to digest, and prepared in a way that the user can effectively work with it.
-- We'll be consistent with our tone of voice, terminology, attribute names, API endpoint design, requests and responses, and counting.
-- The layout supports accordingly, e.g. with syntax highlighting or multi-column layout.
-  :::
+## Up-to-dateness
 
-::: accordion Code examples
-**Default values**  
-Request and response examples that belong to every endpoint documentation have meaningful default values that follow a specific story.
-
-**Code examples and schemas**  
-Every endpoint documentation comes with examples and also provides schemas listing the available attributes with explanatory text.
-
-**Automated API reference documentation**  
-API reference documentation is created and published automatically, see [MUST provide API specification using OpenAPI](../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md).
-:::
-
-::: accordion Consistency and accessibility
-
-- Documentation is provided in American English (EN-US), as US spelling has become the standard in APIs. Also endpoints, properties, and default values are provided in American English.
-- Users can search the documentation.
-- The sidebar is available at all times so that the documentation can be easily browsed. All the endpoints can be accessed via the sidebar.
-- Code examples and explanatory text are visually separated.
-  :::
-
-::: accordion Efficient and refined
-The API is well-documented and up-to-date.  
-Users can flawlessly integrate and are informed about recent changes via a revision history.
-:::
-::::
+- The API is well-documented and up-to-date.  
+- Users can integrate easily and keep up-to-date with the latest API changes.
