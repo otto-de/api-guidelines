@@ -9,7 +9,7 @@ API consumers and providers may use the OTTO-specific `Test` header described wi
 Test requests are created in various contexts.
 Some of them require special handling on provider or consumer side, such as bypassing specific validations or using modified business logic while processing.
 This rule defines the test header that API consumers and providers can use to identify test data.
-Downstream teams can then forward this test header in subsequent processing steps, e.g. as a test extension in an asynchronous event.
+Downstream teams must then forward this test header in subsequent processing steps, e.g. as a test extension in an asynchronous event.
 
 This has several benefits:
 
@@ -26,6 +26,10 @@ Example: `OrderProcessing.PerformanceTest`.
 |---|---|---|---|---|
 | `test-scope`  | The scope of the executed test. | Possible values include but are not limited to the name of a single context or a group of contexts.  | Must not contain a `.` (dot).  | OrderProcessing  |
 | `test-type`  | The type of the test. | The following common types are defined:<br><br>- `PerformanceTest`: Automatically created test data in large scale.<br> - `SystemTest`: Automatically created test data for test-specific business cases within one team.<br>- `End2EndTest`: Automatically created test data to test specific business cases across multiple teams.<br>- `ManualTest`: Manually created data.<br><br>Additional test types may be used but must explicitly be listed in the API documentation of the API provider. | Must not contain a `.` (dot).  | PerformanceTest  |
+
+::: warning Important
+Make sure you get in touch with your consumers and downstream API providers before participating in tests with your APIs in general, as they could impact their system or generate unexpected costs.
+:::
 
 ## Example use cases
 

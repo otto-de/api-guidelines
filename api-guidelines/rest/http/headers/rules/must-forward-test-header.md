@@ -4,6 +4,6 @@ id: R000081
 
 # MUST forward `Test` header
 
-An API provider or consumer that makes API requests as a direct consequence of an API request or response flagged with a test header must add the [`Test` header](./may-use-header.md) of the triggering interaction to all following requests.
+An API provider or consumer that makes API requests as a direct consequence of an API request or response flagged with a test header must add the [`Test` header](./may-use-header.md) of the triggering interaction to all following requests and subsequent asynchronous events.
 
-This behavior enables downstream API providers and consumers to choose whether or not they would like to participate in the test.
+This behavior enables downstream API providers and consumers to choose whether they would like to participate in the test.
