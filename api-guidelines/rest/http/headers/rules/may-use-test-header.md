@@ -7,7 +7,7 @@ id: R000080
 API consumers and providers may use the OTTO-specific `Test` header described below to communicate that a request or response is part of a test.
 
 Test requests are created in various contexts.
-Some of them require special handling on provider or consumer side, such as bypassing specific validations or using modified business logic while processing.
+Some of them require special handling on the provider or consumer side, such as bypassing certain validations or using modified business logic during processing.
 This rule defines the test header that API consumers and providers can use to identify test data.
 Downstream teams must then forward this test header in subsequent processing steps, e.g. as a test extension in an asynchronous event.
 
