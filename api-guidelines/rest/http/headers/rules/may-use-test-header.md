@@ -4,7 +4,7 @@ id: R000080
 
 # MAY use `Test` header
 
-API consumers and providers may use the OTTO-specific `Test` header described within this rule to communicate that a request or response is part of a test.
+API consumers and providers may use the OTTO-specific `Test` header described below to communicate that a request or response is part of a test.
 
 Test requests are created in various contexts.
 Some of them require special handling on provider or consumer side, such as bypassing specific validations or using modified business logic while processing.
