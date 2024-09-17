@@ -38,7 +38,7 @@ Make sure you get in touch with your consumers and downstream API providers befo
 ::: references
 
 - [MUST forward `Test` header](./must-forward-test-header.md)
-- [Async event guideline: MAY use test extension](../../../../async/format/test-extension/rules/may-use-test-extension.md)
+- [MAY use test extension](../../../../async/format/test-extension/rules/may-use-test-extension.md)
 - [Async event guideline: MUST forward `test` context attribute](../../../../async/format/test-extension/rules/must-forward-test-context-attribute.md)
 - [Async event guideline: MAY ignore events flagged with `test` context attribute](../../../../async/format/test-extension/rules/may-ignore-events-flagged-with-test.md)
 :::
