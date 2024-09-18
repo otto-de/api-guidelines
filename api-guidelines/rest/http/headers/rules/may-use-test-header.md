@@ -28,7 +28,7 @@ Example: `OrderProcessing.PerformanceTest`.
 | `test-type`  | The type of the test. | The following common types are defined:<br><br>- `PerformanceTest`: Automatically created test data in large scale.<br> - `SystemTest`: Automatically created test data for test-specific business cases within one team.<br>- `End2EndTest`: Automatically created test data to test specific business cases across multiple APIs.<br>- `ManualTest`: Manually created data.<br><br>Additional test types may be used but must explicitly be listed in the API documentation of the API provider. | Must not contain a `.` (dot).  | PerformanceTest  |
 
 ::: warning Important
-Make sure you get in touch with your consumers and downstream API providers before participating in tests with your APIs in general, as they could impact their system or generate unexpected costs.
+Make sure you get in touch with your consumers and downstream API providers before participating in tests with your APIs, as these could affect their system or cause unexpected costs.
 :::
 
 ## Example use cases
