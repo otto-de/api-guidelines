@@ -1,6 +1,12 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2024-09-18
+### New
+
+- MAY use Test header [R000080](api-guidelines/rest/http/headers/rules/may-use-test-header.md)
+- MUST forward Test header [R000081](api-guidelines/rest/http/headers/rules/must-forward-test-header.md)
+
 ## 2024-03-06
 ### Update
 
