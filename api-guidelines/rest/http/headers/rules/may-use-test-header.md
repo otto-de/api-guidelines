@@ -19,7 +19,7 @@ This has several benefits:
 
 ## `Test` header
 
-The `Test` header is optional but if set, it MUST be a non-empty string in the format `<test-scope>.<test-type>`.
+The `Test` header is optional, but if set, it MUST be a non-empty string in the format `<test-scope>.<test-type>`.
 Example: `OrderProcessing.PerformanceTest`.
 
 | Segment  |  Description | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Constraints  | Example  |
