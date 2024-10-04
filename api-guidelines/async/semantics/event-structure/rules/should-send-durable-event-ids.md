@@ -4,6 +4,11 @@ id: R000058
 
 # SHOULD send durable event IDs 
 
-An event is a message containing information about something factual that has happened in the past. An event MUST have an ID that identifies the event. In case of retries or sending over multiple channels the event ID SHOULD be the same. Consumers SHOULD assume that Events with identical source and id are duplicates.
+An event is a message that contains information about something factual that occurred in the past. 
+Each event must have an ID that identifies the event. 
+The event ID should be the same for retries or when sending via multiple channels. Consumers should assume that events with an identical source and ID are duplicates.
 
-See also [cloud event spec](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)
+::: references
+
+- [id message attribute in cloud event spec](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id)
+  :::
