@@ -4,13 +4,13 @@
 ## 2024-10-07
 ### New
 
-- SHOULD send durable event IDs [R000058](https://api.otto.de/portal/guidelines/r000058)
+- SHOULD send durable event IDs [R000082](https://api.otto.de/portal/guidelines/r000082)
 
 ## 2024-09-18
 ### New
 
-- MAY use Test header [R000080](api-guidelines/rest/http/headers/rules/may-use-test-header.md)
-- MUST forward Test header [R000081](api-guidelines/rest/http/headers/rules/must-forward-test-header.md)
+- MAY use `Test` header [R000080](https://api.otto.de/portal/guidelines/r000080)
+- MUST forward `Test` header [R000081](https://api.otto.de/portal/guidelines/r000081)
 
 ## 2024-03-06
 ### Update
