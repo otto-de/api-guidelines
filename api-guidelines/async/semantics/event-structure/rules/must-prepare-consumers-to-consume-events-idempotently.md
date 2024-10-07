@@ -40,6 +40,7 @@ As these requirements impose quite a restriction on the producer, a separate [`s
 ::: references
 
 - [MAY provide `sequence` context attribute](../../../format/cloudevents/rules/may-provide-sequence-context-attribute.md)
+- [SHOULD send durable event IDs ](should-send-durable-event-ids.md)
 - [You cannot have exactly-once delivery](https://bravenewgeek.com/you-cannot-have-exactly-once-delivery/)
 - [Exactly-Once Semantics Are Possible: Here’s How Kafka Does It](https://www.confluent.io/de-de/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/)
 - [Processing guarantees in kafka](https://medium.com/@andy.bryant/processing-guarantees-in-kafka-12dd2e30be0e)
