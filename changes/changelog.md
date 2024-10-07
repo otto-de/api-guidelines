@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2024-10-07
+### New
+
+- SHOULD send durable event IDs [R000058](https://api.otto.de/portal/guidelines/r000058)
+
 ## 2024-09-18
 ### New
 
