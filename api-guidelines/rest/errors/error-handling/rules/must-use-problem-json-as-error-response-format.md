@@ -4,7 +4,7 @@ id: R000034
 
 # MUST use `problem+json` as error response format
 
-We decided to adopt "Problem Details for HTTP APIs" as described in [RFC 7807](https://tools.ietf.org/html/rfc7807).
+We decided to adopt "Problem Details for HTTP APIs" as described in [RFC 9457](https://tools.ietf.org/html/rfc9457).
 In case of an error, all REST operations must return an error response in this well-defined format along with the appropriate media type `application/problem+json`. This error response enhances the correctly used [HTTP status code](../../../http/status-codes/rules/must-use-standard-http-status-codes.md) with contextual information.
 
 Example response:
@@ -26,7 +26,7 @@ Content-Type: application/problem+json
 Always respond with the corresponding media type `application/problem+json` regardless of the given `accept` header.
 :::
 
-The [`type`](https://www.rfc-editor.org/rfc/rfc7807#section-3.1) of the problem object should be used to identify the problem type globally.
+The [`type`](https://www.rfc-editor.org/rfc/rfc9457#section-3.1) of the problem object should be used to identify the problem type globally.
 The URI does not need to be resolvable. If it is resolvable, it should contain a human-readable description of the problem type.
 
 Responses should [use existing error types](./should-use-existing-problem-types.md) if possible to keep error churn as low as possible.

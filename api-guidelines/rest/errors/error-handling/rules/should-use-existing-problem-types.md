@@ -4,7 +4,7 @@ id: R000037
 
 # SHOULD use existing problem types
 
-In addition to the [predefined types](https://www.rfc-editor.org/rfc/rfc7807#section-4.2) in RFC7807, we have defined
+In addition to the [predefined types](https://www.rfc-editor.org/rfc/rfc9457#section-4.2) in RFC9457, we have defined
 the problem type [https://api.otto.de/portal/problems/validation-failed](./must-use-extension-for-input-validation-errors.md).
 
 We encourage API designers to reuse existing problem types instead of creating completely new or slightly modified ones.

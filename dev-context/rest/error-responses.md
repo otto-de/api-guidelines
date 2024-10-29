@@ -39,7 +39,7 @@ Content-Type: application/problem+json
 ### validation-failed problem type
 
 As the `problem+json` media type standard does not provide a problem type for failed input validation, we had to establish one.
-One could argue that the "about:blank" problem type could be used in combination with the already defined `details` property. But [RFC 7807](https://tools.ietf.org/html/rfc7807) explicitly states, that this property is not meant to be parsed.
+One could argue that the "about:blank" problem type could be used in combination with the already defined `details` property. But [RFC 9457](https://tools.ietf.org/html/rfc9457) explicitly states, that this property is not meant to be parsed.
 Therefore, we created a new type `https://api.otto.de/portal/problems/validation-failed` with a custom property called `validationErrors`.
 
 ### Notes / Questions
@@ -55,7 +55,7 @@ Therefore, we created a new type `https://api.otto.de/portal/problems/validation
 
 - [HTTP Status Codes](https://httpstatuses.com)
 - [Blog: Indicating Problems in HTTP APIs](https://www.mnot.net/blog/2013/05/15/http_problem)
-- [IETF RFC: Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)
+- [IETF RFC: Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc9457)
 - [Registered IANA Media Type](https://www.iana.org/assignments/media-types/application/problem+json)
 - [problem+json JAVA](https://github.com/zalando/problem)
 - [problem+json for Spring MVC](https://github.com/zalando/problem-spring-web)
