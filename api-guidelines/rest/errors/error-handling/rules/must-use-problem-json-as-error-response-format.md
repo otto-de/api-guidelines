@@ -26,7 +26,7 @@ Content-Type: application/problem+json
 Always respond with the corresponding media type `application/problem+json` regardless of the given `accept` header.
 :::
 
-The [`type`](https://www.rfc-editor.org/rfc/rfc9457#section-3.1) of the problem object should be used to identify the problem type globally.
+The [`type`](https://www.rfc-editor.org/rfc/rfc9457#section-3.1.1) of the problem object should be used to identify the problem type globally.
 The URI does not need to be resolvable. If it is resolvable, it should contain a human-readable description of the problem type.
 
 Responses should [use existing error types](./should-use-existing-problem-types.md) if possible to keep error churn as low as possible.
