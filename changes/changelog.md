@@ -1,10 +1,6 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
-## 2024-11-12
-### Update
-
-- Fixed dead link in rule [r200006](portal/guidelines/r200006).
 
 ## 2024-10-07
 ### New
