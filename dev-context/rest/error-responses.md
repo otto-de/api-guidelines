@@ -60,5 +60,5 @@ Therefore, we created a new type `https://api.otto.de/portal/problems/validation
 - [problem+json JAVA](https://github.com/zalando/problem)
 - [problem+json for Spring MVC](https://github.com/zalando/problem-spring-web)
 - [Error Responses with Spring MVC](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-ann-rest-exceptions.html)
-- [Error Responses with Spring Reactor](https://docs.spring.io/spring-framework/reference/web/webflux/ann-rest-exceptions.html)
+- [Error Responses with Spring WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux/ann-rest-exceptions.html)
 - [problem+json documents with Node.js](https://www.npmjs.com/package/problem-json)
