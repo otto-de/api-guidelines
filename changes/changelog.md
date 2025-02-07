@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2025-02-07
+### Update
+
+- Fixed the links to the AsyncAPI docs in "MUST provide API specification using AsyncAPI for asynchronous APIs" [R200005](https://api.otto.de/portal/guidelines/R200005).
+
 
 ## 2024-10-07
 ### New
