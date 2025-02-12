@@ -1,12 +1,12 @@
 import { lintFromString } from "@redocly/openapi-core";
-import { Operation4xxProblemDetailsRfc7807 } from "./operation-4xx-problem-details-rfc7807.js";
+import { Operation4xxProblemDetailsRfc9457 } from "./operation-4xx-problem-details-rfc9457.js";
 import { createTestConfig } from "./__tests__/createTestConfig.js";
 import { removeClutter } from "./__tests__/removeClutter.js";
 
 const config = createTestConfig({
   oas3: {
     // @ts-ignore
-    "test-rule": Operation4xxProblemDetailsRfc7807,
+    "test-rule": Operation4xxProblemDetailsRfc9457,
   },
 });
 

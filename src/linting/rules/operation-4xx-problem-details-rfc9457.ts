@@ -1,6 +1,6 @@
 /*
 this is copied from
-https://github.com/Redocly/redocly-cli/blob/main/packages/core/src/rules/oas3/operation-4xx-problem-details-rfc7807.ts
+https://github.com/Redocly/redocly-cli/blob/main/packages/core/src/rules/oas3/operation-4xx-problem-details-rfc9457.ts
 
 and modified to ignore anyOf, allOf, oneOf
 
@@ -13,9 +13,9 @@ import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
 import { validateDefinedAndNonEmpty } from "@redocly/openapi-core/lib/rules/utils";
 
 /**
- * Validation according rfc7807 - https://datatracker.ietf.org/doc/html/rfc7807
+ * Validation according rfc9457 - https://datatracker.ietf.org/doc/html/rfc9457
  */
-export const Operation4xxProblemDetailsRfc7807: Oas3Rule = () => {
+export const Operation4xxProblemDetailsRfc9457: Oas3Rule = () => {
   return {
     Response: {
       skip(_response, key: string | number) {

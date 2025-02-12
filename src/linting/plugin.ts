@@ -19,7 +19,7 @@ import { UseKebabCaseForPathParameter } from "./rules/use-kebab-case-for-path-pa
 import { UseKebabCaseInUri } from "./rules/use-kebab-case-in-uri.js";
 import { UseOas3 } from "./rules/use-oas-3.js";
 import { UseStringEnum } from "./rules/use-string-enum.js";
-import { Operation4xxProblemDetailsRfc7807 } from "./rules/operation-4xx-problem-details-rfc7807.js";
+import { Operation4xxProblemDetailsRfc9457 } from "./rules/operation-4xx-problem-details-rfc9457.js";
 
 export const id: Plugin["id"] = "api-guidelines";
 
@@ -47,7 +47,7 @@ export const rules = {
     "use-kebab-case-in-uri": UseKebabCaseInUri,
     "use-string-enum": UseStringEnum,
     "use-tls": UseTLS,
-    "operation-4xx-problem-details-rfc7807": Operation4xxProblemDetailsRfc7807,
+    "operation-4xx-problem-details-rfc9457": Operation4xxProblemDetailsRfc9457,
   },
 };
 
@@ -56,8 +56,8 @@ export const configs = {
     rules: {
       "info-contact": "error", // https://api.otto.de/portal/guidelines/r000078
       "operation-2xx-response": "error", // https://api.otto.de/portal/guidelines/r000011
-      // "operation-4xx-problem-details-rfc7807": "error", // https://api.otto.de/portal/guidelines/r000034
-      "api-guidelines/operation-4xx-problem-details-rfc7807": "error", // https://api.otto.de/portal/guidelines/r000034
+      // "operation-4xx-problem-details-rfc9457": "error", // https://api.otto.de/portal/guidelines/r000034
+      "api-guidelines/operation-4xx-problem-details-rfc9457": "error", // https://api.otto.de/portal/guidelines/r000034
       "no-path-trailing-slash": "error", // https://api.otto.de/portal/guidelines/r000020
       "api-guidelines/always-return-json-object": "error", // https://api.otto.de/portal/guidelines/r004030
       "api-guidelines/define-permissions-with-scope": "error", // https://api.otto.de/portal/guidelines/r000047
