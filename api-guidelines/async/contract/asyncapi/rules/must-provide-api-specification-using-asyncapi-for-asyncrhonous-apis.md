@@ -7,5 +7,7 @@ id: R200005
 We use the [AsyncAPI](https://www.asyncapi.com/) specification as a standard to define contracts for asynchronous APIs.
 Any event published for integration with other services must be described using the AsyncAPI specification.
 
-The API description format used must be [AsyncAPI 2.3.0](https://v2.asyncapi.com/docs/reference/specification/v2.3.0) or newer.
-We will extend it according to our needs by using [specification extensions](https://v2.asyncapi.com/docs/reference/specification/v2.3.0#specificationExtensions) in order to describe the functionality that we require.
+The API description format used must be [AsyncAPI 3.0.0](https://www.asyncapi.com/docs/reference/specification/v3.0.0) or newer.
+We use extensions to extend the specification to our needs by using [specification extensions](https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions) in order to describe the functionality that we require.
+
+We publish the specification in [backstage](https://backstage.live.si.cloud.otto.de/startpage)
