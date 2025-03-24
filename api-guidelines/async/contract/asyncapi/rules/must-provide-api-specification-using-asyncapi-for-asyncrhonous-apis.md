@@ -10,4 +10,4 @@ Any event published for integration with other services must be described using 
 The API description format used must be [AsyncAPI 3.0.0](https://www.asyncapi.com/docs/reference/specification/v3.0.0) or newer.
 We extend the specification to our needs by using [specification extensions](https://www.asyncapi.com/docs/reference/specification/v3.0.0#specificationExtensions) in order to describe the functionality that we require.
 
-We publish the specification in [our internal developer portal](https://backstage.live.si.cloud.otto.de/startpage)
+We publish the specification in [our internal developer portal](https://backstage.live.si.cloud.otto.de/startpage).
