@@ -1,6 +1,12 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2025-03-25
+### Update
+
+- Changed the required API description format for asynchronous APIs from `2.3.0` to `3.0.0` in "MUST provide API specification using AsyncAPI for asynchronous APIs" [R200005](https://api.otto.de/portal/guidelines/r200005).
+- Extended "MUST provide API specification using AsyncAPI for asynchronous APIs" [R200005](https://api.otto.de/portal/guidelines/r200005) by the information that asynchronous APIs must be published in our internal developer portal.
+
 ## 2025-02-07
 ### Update
 
