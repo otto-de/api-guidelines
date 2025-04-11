@@ -1,0 +1,286 @@
+openapi: 3.0.1
+
+info:
+  title: otto-recipes
+  description: API to manage recipes provided and maintained by OTTO colleagues.
+  version: "1.0.0"
+  contact:
+    name: Feel good management
+    email: recipes@otto.de
+
+servers:
+  - url: https://api.live.otto.de
+    description: "Live server"
+  - url: https://api.develop.otto.de
+    description: "Develop server"
+
+paths:
+  /recipes:
+    get:
+      operationId: getRecipes
+      summary: List recipes
+      description: Returns a list of recipes provided by our lovely OTTO colleagues.
+      parameters:
+        - name: account-id
+          in: header
+          description: The unique identifier of the related account.
+          required: true
+          schema:
+            type: string
+            pattern: "[0-9a-f]{40}"
+        - name: page
+          description: The page number to retrieve.
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+          example: 1
+        - name: pageSize
+          description: The number of recipes per page.
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 200
+            default: 10
+          example: 10
+        - name: maxPreparationTime
+          in: query
+          required: false
+          description: Filters the recipes by the provided preparation time in minutes. The response only includes recipes with a shorter preparation time.
+          schema:
+            type: integer
+        - name: experienceLevel
+          in: query
+          required: false
+          description: Filters the recipes by the provided experience level(s).
+          schema:
+            type: array
+            items:
+              description: The recommended experience level for the recipe.
+              type: string
+              x-extensible-enum:
+                - value: BEGINNER
+                  description: I can do deep frozen pizza. Maybe even fried eggs.
+                - value: ADVANCED
+                  description: I can do rice and pasta. Sometimes even with sauce.
+                - value: PRO
+                  description: I can do whatever you want! 
+        - name: recipeId
+          description: Filters the recipes by the provided recipe ID(s).
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          explode: false
+          required: false
+          example:
+            - "3509314713"
+      responses:
+        "200": { $ref: "#/components/responses/RecipesResponseV1" }
+      security:
+        - clientCredentials:
+            - recipes.read
+
+components:
+  responses:
+    RecipesResponseV1:
+      description: Contains alphabetically sorted recipes.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RecipesCollectionV1"
+          examples:
+            default:
+              $ref: "#/components/examples/RecipesResponseV1"
+
+  schemas:
+    RecipesCollectionV1:
+      description: The results matching the provided query parameters.
+      properties:
+        results:
+          type: array
+          description: The list of recipes.
+          items:
+            $ref: "#/components/schemas/RecipesCollectionItemV1"
+
+    RecipesCollectionItemV1:
+      description: Contains the recipe information.
+      oneOf:
+        - $ref: "#/components/schemas/RecipesCollectionDefaultItemV1"
+        - $ref: "#/components/schemas/RecipesCollectionDinnerItemV1"
+      discriminator:
+        propertyName: mealType
+        mapping:
+          SNACK: "#/components/schemas/RecipesCollectionDefaultItemV1"
+          LUNCH: "#/components/schemas/RecipesCollectionDefaultItemV1"
+          BREAKFAST: "#/components/schemas/RecipesCollectionDefaultItemV1"
+          DINNER: "#/components/schemas/RecipesCollectionDinnerItemV1"
+
+    RecipesCollectionBasicItemV1:
+      description: A single recipe.
+      type: object
+      required:
+        - id
+        - name
+        - ingredients
+        - preparationTime
+        - experienceLevel
+        - links
+      properties:
+        id:
+          description: The unique identifier of the recipe.
+          type: string
+        name:
+          description: The name of the recipe.
+          type: string
+        healthLabel:
+          description: Indicates how big your guilty conscience should be.
+          type: string
+        creationDate:
+          description: The date and time the recipe was added to the recipe collection.
+          type: string
+          format: date-time
+        ingredients:
+          description: Contains information about the ingredients required for the recipe.
+          type: array
+          items:
+            description: The list of ingredients.
+            required:
+              - name
+              - foodId
+              - quantity
+            properties:
+              name:
+                description: The ingredient.
+                type: string
+              foodId:
+                description: The unique identifier of the ingredient.
+                type: string
+              quantity:
+                description: The quantity of the ingredient required for four people.
+                type: object 
+                required:
+                  - value
+                  - unit
+                properties:
+                  value:
+                    description: The value related to the quantity. 
+                    type: integer
+                  unit:
+                    description: The unit related to the quantity.
+                    type: string
+        preparationTime:
+          description: The average preparation time in minutes.
+          type: integer
+        experienceLevel:
+          description: The recommended experience level for the recipe.
+          type: string
+          x-extensible-enum:
+            - value: BEGINNER
+              description: I can do deep frozen pizza. Maybe even fried eggs.
+            - value: ADVANCED
+              description: I can do rice and pasta. Sometimes even with sauce.
+            - value: PRO
+              description: I can do whatever you want!
+        _links:
+          description: Contains a dictionary collection of link elements.
+          type: object
+          required:
+            - self
+          properties:
+            self:
+              type: object
+              required: 
+                - href
+              properties:
+                href:
+                  description: See [Link Objects, href](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-07#section-5.1).
+                  type: string
+        
+    RecipesCollectionDefaultItemV1:
+      allOf:
+        - $ref: "#/components/schemas/RecipesCollectionBasicItemV1"  
+        - description: A single recipe. Is only applicable for the meal types `SNACK`, `LUNCH` and `BREAKFAST`.
+          type: object
+          required:
+            - mealType
+          properties:
+            mealType:
+              description: The type of meal associated with the recipe.
+              type: string
+              x-extensible-enum:
+                - value: SNACK
+                  description: I need chocolate. Now.
+                - value: LUNCH
+                  description: Whaat? Half the day is gone yet?
+                - value: BREAKFAST
+                  description: Goood morning!
+
+    RecipesCollectionDinnerItemV1:
+      allOf:
+        - $ref: "#/components/schemas/RecipesCollectionBasicItemV1"  
+        - description: A single recipe. Is only applicable for the meal type `DINNER`.
+          type: object
+          required:
+            - mealType
+          properties:
+            mealType:
+              description: The type of meal associated with the recipe.
+              type: string
+              x-extensible-enum:
+                - value: DINNER
+                  description: Finally the good stuff!
+            dishType:
+              description: The type of dish associated with the recipe.
+              type: string
+              x-extensible-enum:
+                - value: PASTA
+                  description: Best dish ever... I mean, who doesn't like pasta?
+                - value: BBQ
+                  description: It's all about meat!
+                - value: VEGETARIAN
+                  description: It's all about vegetables and fruits!
+            calories:
+              description: The number of little monsters that sew your clothes tighter at night.
+              type: integer
+
+  examples:
+    RecipesResponseV1:
+      description: A response including a single recipe with two ingredients.
+      value:
+        results:
+            - id: "3509314713"
+              name: "Best cheese nachos"
+              healthLabel: "Extremely healthy"
+              creationDate: "2022-12-06T00:00:00Z"
+              mealType: "SNACK"
+              ingredients:
+                - name: "Cheese"
+                  foodId: "57618045"
+                  quantity:
+                    value: 150
+                    unit: "mg"
+                - name: "Nachos"
+                  foodId: "67438035"
+                  quantity:
+                    value: 300
+                    unit: "mg"
+              preparationTime: 10
+              experienceLevel: "BEGINNER"
+              _links:
+                self:
+                  href: "https://best-recipes.com/3509314713"
+
+  securitySchemes:
+    clientCredentials:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: "https://api.develop.otto.de/oauth2/token"
+          scopes:
+            recipes.read: Read recipes
