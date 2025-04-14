@@ -33,8 +33,11 @@ servers:
 
 channels:
   de.otto.events.account-management.account:
+    # The name of the kafka topic containing the domain events. See https://api.otto.de/portal/guidelines/r200006
     address: de.otto.events.account-management.account
     messages:
+      # Incompatible versions of domain events will be published to the same topic.
+      # See https://api.otto.de/portal/guidelines/r200017
       accountCreatedV1:
         $ref: '#/components/messages/accountCreatedV1'
       accountCreatedV2:
@@ -45,19 +48,23 @@ channels:
         $ref: '#/components/messages/accountUnblocked'
       accountDeleted:
         $ref: '#/components/messages/accountDeleted'
+    # Also state your order guarantee (see https://api.otto.de/portal/guidelines/r200007)
     description: |
       This topic contains all domain events related to an account. 
 
       Events are guaranteed to appear in order for each account.
     bindings:
+      # State all relevant topic configurations for API consumers.
       kafka:
         topic: de.otto.events.account-management.account
         partitions: 6
         topicConfiguration:
           cleanup.policy: [delete]
-          retention.ms: 259200000
+          retention.ms: 259200000 # 72 hours
 
   de.otto.data.account-management.account.v1:
+    # The name of the kafka topic containing the data event v1.
+    # See https://api.otto.de/portal/guidelines/r200006
     address: de.otto.data.account-management.account.v1
     messages:
       accountDataEventV1:
@@ -85,8 +92,10 @@ channels:
         partitions: 6
         topicConfiguration:
           cleanup.policy: [compact]
-          delete.retention.ms: 86400000
+          delete.retention.ms: 86400000 #  1 day
 
+  # Incompatible versions of data event will be published to a separate topic.
+  # See https://api.otto.de/portal/guidelines/r200016
   de.otto.data.account-management.account.v2:
     address: de.otto.data.account-management.account.v2
     messages:
@@ -168,6 +177,7 @@ components:
         Indicates that a new account has been created.
       contentType: application/json
       traits:
+        # The accountEvent trait is used to extract common properties of all messages.
         - $ref: '#/components/messageTraits/accountEvent'
       payload:
         $ref: schemas/account-created-v1.schema.json
