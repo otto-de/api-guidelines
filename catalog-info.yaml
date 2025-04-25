@@ -6,7 +6,7 @@ metadata:
     Example guideline conform AsyncAPI.
 spec:
   type: asyncapi
-  lifecycle: production
-  owner: api-crew
+  lifecycle: experimental
+  owner: group:apex
   definition:
-    $asyncapi: /content/references/async/04-asyncapi-example/asyncapi.yaml
+    $text: dev-context/async/04-asyncapi-example/asyncapi.yaml

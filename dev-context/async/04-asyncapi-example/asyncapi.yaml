@@ -1,9 +1,11 @@
-asyncapi: 2.6.0
+asyncapi: 3.0.0
+
 info:
   title: OTTO example AsyncAPI
   version: 1.0.0
-  description: |
+  description: >
     ## OTTO Guideline compatible API spec
+
     This spec has the following features:
      - JSON schema is kept separate from the AsyncAPI spec.
      - Traits are used to define the common CloudEvent header.
@@ -11,7 +13,8 @@ info:
      - Documentation of Kafka security measures.
      - Versioning of incompatible changes
 
-    It uses a simple fictional example of an account service that emits the following events:
+    It uses a simple fictional example of an account service that emits the
+    following events:
      - `de.otto.events.account-management.account.created.v1`
      - `de.otto.events.account-management.account.blocked.v1`
      - `de.otto.events.account-management.account.unblocked.v1`
@@ -19,46 +22,56 @@ info:
      - `de.otto.events.account-management.account.created.v2` -- incompatible change
      - `de.otto.data.account-management.account.v1`
      - `de.otto.data.account-management.account.v2` -- incompatible change
+
 servers:
   test:
-    url: "test.mykafkacluster.org:8092"
+    host: 'test.mykafkacluster.org:8092'
     protocol: kafka-secure
     description: Test broker
     security:
-      - saslSsl: []
+      - $ref: '#/components/securitySchemes/saslSsl'
+
 channels:
-  # The name of the kafka topic containing the domain events. See https://api.otto.de/portal/guidelines/r200006
-  "de.otto.events.account-management.account":
-    # State in the channel item description all relevant topic configurations for API consumers.
+  de.otto.events.account-management.account:
+    # The name of the kafka topic containing the domain events. See https://api.otto.de/portal/guidelines/r200006
+    address: de.otto.events.account-management.account
+    messages:
+      # Incompatible versions of domain events will be published to the same topic.
+      # See https://api.otto.de/portal/guidelines/r200017
+      accountCreatedV1:
+        $ref: '#/components/messages/accountCreatedV1'
+      accountCreatedV2:
+        $ref: '#/components/messages/accountCreatedV2'
+      accountBlocked:
+        $ref: '#/components/messages/accountBlocked'
+      accountUnblocked:
+        $ref: '#/components/messages/accountUnblocked'
+      accountDeleted:
+        $ref: '#/components/messages/accountDeleted'
     # Also state your order guarantee (see https://api.otto.de/portal/guidelines/r200007)
     description: |
       This topic contains all domain events related to an account. 
 
       Events are guaranteed to appear in order for each account.
     bindings:
+      # State all relevant topic configurations for API consumers.
       kafka:
+        topic: de.otto.events.account-management.account
+        partitions: 6
         topicConfiguration:
-          cleanup.policy: "delete"
-          retention.ms: 259200000 #72 hours
-    subscribe:
-      description: |
-        Subscribe to all events related to an account. Make sure to filter
-        all consumed events by the CloudEvent type.
-      operationId: consumeAccountEvents
-      message:
-        oneOf:
-          # Incompatible versions of domain events will be published to the same topic.
-          # See https://api.otto.de/portal/guidelines/r200017
-          - $ref: "#/components/messages/accountCreatedV1"
-          - $ref: "#/components/messages/accountCreatedV2"
-          - $ref: "#/components/messages/accountBlocked"
-          - $ref: "#/components/messages/accountUnblocked"
-          - $ref: "#/components/messages/accountDeleted"
-  # The name of the kafka topic containing the data event v1.
-  # See https://api.otto.de/portal/guidelines/r200006
-  "de.otto.data.account-management.account.v1":
-    # The description explicitly mentions the semantic meaning of kafka tombstones.
-    description: |
+          cleanup.policy: [delete]
+          retention.ms: 259200000 # 72 hours
+
+  de.otto.data.account-management.account.v1:
+    # The name of the kafka topic containing the data event v1.
+    # See https://api.otto.de/portal/guidelines/r200006
+    address: de.otto.data.account-management.account.v1
+    messages:
+      accountDataEventV1:
+        $ref: '#/components/messages/accountDataEventV1'
+      accountDataDeletedEventV1:
+        $ref: '#/components/messages/accountDataDeletedEventV1'
+    description: >
       **DEPRECATED**: use `de.otto.data.account-management.account.v2` instead.
 
       **SUNSET**: 2022-12-01
@@ -68,45 +81,85 @@ channels:
       Events are guaranteed to appear in order for each account.
 
       A tombstone signals a deleted account.
-    deprecated: true
     bindings:
       kafka:
+        topic: de.otto.data.account-management.account.v1
+        partitions: 6
         topicConfiguration:
-          cleanup.policy: compact
-          delete.retention.ms: 86400000 # 1 day
-    subscribe:
-      operationId: consumeAccountDataEventsV1
-      message:
-        oneOf:
-          - $ref: "#/components/messages/accountDataEventV1"
-          - $ref: "#/components/messages/accountDataDeletedEventV1"
+          cleanup.policy: [compact]
+          delete.retention.ms: 86400000 #  1 day
+
   # Incompatible versions of data event will be published to a separate topic.
   # See https://api.otto.de/portal/guidelines/r200016
-  "de.otto.data.account-management.account.v2":
-    description: |
-      This topic contains `de.otto.data.account-management.account.v2` for the account type. 
+  de.otto.data.account-management.account.v2:
+    address: de.otto.data.account-management.account.v2
+    messages:
+      accountDataEventV2:
+        $ref: '#/components/messages/accountDataEventV2'
+      accountDataDeletedEventV2:
+        $ref: '#/components/messages/accountDataDeletedEventV2'
+    description: >
+      This topic contains `de.otto.data.account-management.account.v2` for the
+      account type. 
 
       Events are guaranteed to appear in order for each account.
 
       A tombstone signals a deleted account.
     bindings:
       kafka:
+        topic: de.otto.data.account-management.account.v2
+        partitions: 6
         topicConfiguration:
-          cleanup.policy: compact
-          delete.retention.ms: 86400000 # 1 day
-    subscribe:
-      operationId: consumeAccountDataEventsV2
-      message:
-        oneOf:
-          - $ref: "#/components/messages/accountDataEventV2"
-          - $ref: "#/components/messages/accountDataDeletedEventV2"
+          cleanup.policy: [compact]
+          delete.retention.ms: 86400000
+
+operations:
+  sendAccountEvents:
+    action: send
+    channel:
+      $ref: '#/channels/de.otto.events.account-management.account'
+    description: |
+      Contains all events related to an account. Make sure to filter
+      all consumed events by the CloudEvent type.
+    messages:
+      - $ref: >-
+          #/channels/de.otto.events.account-management.account/messages/accountCreatedV1
+      - $ref: >-
+          #/channels/de.otto.events.account-management.account/messages/accountCreatedV2
+      - $ref: >-
+          #/channels/de.otto.events.account-management.account/messages/accountBlocked
+      - $ref: >-
+          #/channels/de.otto.events.account-management.account/messages/accountUnblocked
+      - $ref: >-
+          #/channels/de.otto.events.account-management.account/messages/accountDeleted
+
+  sendAccountDataEventsV1:
+    action: send
+    channel:
+      $ref: '#/channels/de.otto.data.account-management.account.v1'
+    messages:
+      - $ref: >-
+          #/channels/de.otto.data.account-management.account.v1/messages/accountDataEventV1
+      - $ref: >-
+          #/channels/de.otto.data.account-management.account.v1/messages/accountDataDeletedEventV1
+
+  sendAccountDataEventsV2:
+    action: send
+    channel:
+      $ref: '#/channels/de.otto.data.account-management.account.v2'
+    messages:
+      - $ref: >-
+          #/channels/de.otto.data.account-management.account.v2/messages/accountDataEventV2
+      - $ref: >-
+          #/channels/de.otto.data.account-management.account.v2/messages/accountDataDeletedEventV2
+
 components:
   messages:
     accountCreatedV1:
       name: accountCreated.v1
       title: Account created v1
       deprecated: true
-      description: |
+      description: >
         **DEPRECATED**: use `de.otto.events.account-management.account.created.v2` instead.
 
         **SUNSET**: 2022-12-01
@@ -115,13 +168,14 @@ components:
       contentType: application/json
       traits:
         # The accountEvent trait is used to extract common properties of all messages.
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       payload:
-        $ref: "schemas/account-created-v1.schema.json"
+        $ref: schemas/account-created-v1.schema.json
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.events.account-management.account.created.v1"]
+            const: de.otto.events.account-management.account.created.v1
+
     accountCreatedV2:
       name: accountCreated.v2
       title: Account created v2
@@ -129,13 +183,14 @@ components:
         Indicates that a new account has been created.
       contentType: application/json
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       payload:
-        $ref: "schemas/account-created-v2.schema.json"
+        $ref: schemas/account-created-v2.schema.json
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.events.account-management.account.created.v2"]
+            enum:
+              - de.otto.events.account-management.account.created.v2
     accountBlocked:
       name: accountBlocked
       title: Account blocked
@@ -143,13 +198,14 @@ components:
         Indicates that an account has been blocked.
       contentType: application/json
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       payload:
-        $ref: "schemas/account-blocked-v1.schema.json"
+        $ref: schemas/account-blocked-v1.schema.json
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.events.account-management.account.blocked.v1"]
+            const: de.otto.events.account-management.account.blocked.v1
+
     accountUnblocked:
       name: accountUnblocked
       title: Account unblocked
@@ -157,13 +213,14 @@ components:
         Indicates that an account has been unblocked.
       contentType: application/json
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       payload:
-        $ref: "schemas/account-unblocked-v1.schema.json"
+        $ref: schemas/account-unblocked-v1.schema.json
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.events.account-management.account.unblocked.v1"]
+            const: de.otto.events.account-management.account.unblocked.v1
+
     accountDeleted:
       name: accountDeleted
       title: Account deleted
@@ -171,28 +228,31 @@ components:
         Indicates that an account has been deleted.
       contentType: application/json
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       payload:
-        $ref: "schemas/account-deleted-v1.schema.json"
+        $ref: schemas/account-deleted-v1.schema.json
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.events.account-management.account.deleted.v1"]
+            const: de.otto.events.account-management.account.deleted.v1
+
     accountDataEventV1:
       name: accountDataEvent.v1
       title: Account data event v1
       deprecated: true
-      description: |
-        An event that is being emitted whenever the the state of an account changes. Contains the whole state of the account.
+      description: >
+        An event that is being emitted whenever the the state of an account
+        changes. Contains the whole state of the account.
       contentType: application/json
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       payload:
-        $ref: "schemas/account-data-v1.schema.json"
+        $ref: schemas/account-data-v1.schema.json
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.data.account-management.account.v1"]
+            const: de.otto.data.account-management.account.v1
+
     accountDataDeletedEventV1:
       name: accountDataDeletedEvent.v1
       title: Account deleted (data event) v1
@@ -200,80 +260,94 @@ components:
       description: |
         A tombstone event indicates that the account has been deleted.
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.data.account-management.account.v1"]
+            const: de.otto.data.account-management.account.v1
+
     accountDataEventV2:
       name: accountDataEvent.v2
       title: Account data event v2
-      description: |
-        An event that is being emitted whenever the the state of an account changes. Contains the whole state of the account.
+      description: >
+        An event that is being emitted whenever the the state of an account changes.
+        Contains the whole state of the account.
       contentType: application/json
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       payload:
-        $ref: "schemas/account-data-v2.schema.json"
+        $ref: schemas/account-data-v2.schema.json
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.data.account-management.account.v2"]
+            const: de.otto.data.account-management.account.v2
+
     accountDataDeletedEventV2:
       name: accountDataDeletedEvent.v2
       title: Account deleted (data event) v2
       description: |
         A tombstone event indicates that the account has been deleted.
       traits:
-        - $ref: "#/components/messageTraits/accountEvent"
+        - $ref: '#/components/messageTraits/accountEvent'
       headers:
         properties:
           ce_type:
-            enum: ["de.otto.data.account-management.account.v2"]
+            const: de.otto.data.account-management.account.v2
+
   securitySchemes:
     saslSsl:
       type: userPassword
-      description: Provide your username (api key) and password (secret) for SASL/PLAIN authentication over TLS 1.2.
+      description: >-
+        Provide your username (api key) and password (secret) for SASL/PLAIN
+        authentication over TLS 1.2.
+
   schemas:
     AccountId:
       description: The identification of an account.
       type: string
+
   messageTraits:
     accountEvent:
-      schemaFormat: "application/schema+json;version=draft-07"
       headers:
-        # Guidelines for CloudEvent attributes: https://api.otto.de/portal/guidelines/r200001
         description: CloudEvent headers as defined in the CloudEvent spec.
         type: object
         properties:
           ce_id:
-            description: The ID of the event. See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id
+            description: >-
+              The ID of the event. See
+              https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#id
             type: string
           ce_type:
-            description: |
-              The type of event. See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type
+            description: >
+              The type of event. See
+              https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type
             type: string
           ce_source:
-            description: |
-              The source of the account event. In case of this account mangement API, 
-              the source is always the account entity emitting the event. 
-              The ID of the account is part of the source header but should not be extracted from it.
+            description: >
+              The source of the account event. In case of this account mangement
+              API, the source is always the account entity emitting the event. 
+
+              The ID of the account is part of the source header but should not
+              be extracted from it.
+
               See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1
             type: string
-            example: "//api.otto.de/account-management/accounts/1234-account-id"
+            example: //api.otto.de/account-management/accounts/1234-account-id
           ce_specversion:
-            description: See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion
+            description: >-
+              See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion
             type: string
-            enum: ["1.0"]
+            const: '1.0'
           ce_time:
-            description: See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time
+            description: >-
+              See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time
             type: string
             format: date-time
-            example: "1990-12-31T23:59:60Z"
+            example: '1990-12-31T23:59:60Z'
           ce_test:
-            description: See https://api.otto.de/portal/guidelines/r200021
+            description: 'See https://api.otto.de/portal/guidelines/r200021'
             type: string
-            example: "account-mangement.performancetest"
+            example: AccountMangement.PerformanceTest
         required:
           - ce_id
           - ce_source
@@ -283,6 +357,6 @@ components:
       bindings:
         kafka:
           key:
-            $ref: "#/components/schemas/AccountId"
+            $ref: '#/components/schemas/AccountId'
             schemaIdLocation: payload
             schemaIdPayloadEncoding: confluent
