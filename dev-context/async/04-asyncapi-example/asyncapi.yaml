@@ -76,8 +76,7 @@ channels:
 
       **SUNSET**: 2022-12-01
 
-      This topic contains `de.otto.data.account-management.account.v1` events
-      for the account type. 
+      This topic contains `de.otto.data.account-management.account.v1` events for the account type. 
 
       Events are guaranteed to appear in order for each account.
 
@@ -161,8 +160,7 @@ components:
       title: Account created v1
       deprecated: true
       description: >
-        **DEPRECATED**: use
-        `de.otto.events.account-management.account.created.v2` instead.
+        **DEPRECATED**: use `de.otto.events.account-management.account.created.v2` instead.
 
         **SUNSET**: 2022-12-01
 
@@ -272,8 +270,8 @@ components:
       name: accountDataEvent.v2
       title: Account data event v2
       description: >
-        An event that is being emitted whenever the the state of an account
-        changes. Contains the whole state of the account.
+        An event that is being emitted whenever the the state of an account changes.
+        Contains the whole state of the account.
       contentType: application/json
       traits:
         - $ref: '#/components/messageTraits/accountEvent'
