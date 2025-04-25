@@ -50,7 +50,7 @@ paths:
         - name: maxPreparationTime
           in: query
           required: false
-          description: 
+          description: |
             Filters the recipes by the provided preparation time in minutes.
             The response only includes recipes with a shorter preparation time.
           schema:
