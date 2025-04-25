@@ -74,16 +74,12 @@ channels:
     description: >
       **DEPRECATED**: use `de.otto.data.account-management.account.v2` instead.
 
-
       **SUNSET**: 2022-12-01
-
 
       This topic contains `de.otto.data.account-management.account.v1` events
       for the account type. 
 
-
       Events are guaranteed to appear in order for each account.
-
 
       A tombstone signals a deleted account.
     bindings:
@@ -107,9 +103,7 @@ channels:
       This topic contains `de.otto.data.account-management.account.v2` for the
       account type. 
 
-
       Events are guaranteed to appear in order for each account.
-
 
       A tombstone signals a deleted account.
     bindings:
@@ -170,9 +164,7 @@ components:
         **DEPRECATED**: use
         `de.otto.events.account-management.account.created.v2` instead.
 
-
         **SUNSET**: 2022-12-01
-
 
         Indicates that a new account has been created.
       contentType: application/json
@@ -335,27 +327,22 @@ components:
           ce_source:
             description: >
               The source of the account event. In case of this account mangement
-              API, 
-
-              the source is always the account entity emitting the event. 
+              API, the source is always the account entity emitting the event. 
 
               The ID of the account is part of the source header but should not
               be extracted from it.
 
-              See
-              https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1
+              See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#source-1
             type: string
             example: //api.otto.de/account-management/accounts/1234-account-id
           ce_specversion:
             description: >-
-              See
-              https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion
+              See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#specversion
             type: string
             const: '1.0'
           ce_time:
             description: >-
-              See
-              https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time
+              See https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#time
             type: string
             format: date-time
             example: '1990-12-31T23:59:60Z'
