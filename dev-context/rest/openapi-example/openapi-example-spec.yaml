@@ -9,7 +9,7 @@ info:
     email: recipes@otto.de
 
 servers:
-  - url: https://api.live.otto.de
+  - url: https://api.otto.de
     description: "Live server"
   - url: https://api.develop.otto.de
     description: "Develop server"
@@ -50,7 +50,9 @@ paths:
         - name: maxPreparationTime
           in: query
           required: false
-          description: Filters the recipes by the provided preparation time in minutes. The response only includes recipes with a shorter preparation time.
+          description: 
+            Filters the recipes by the provided preparation time in minutes.
+            The response only includes recipes with a shorter preparation time.
           schema:
             type: integer
         - name: experienceLevel
@@ -91,7 +93,7 @@ components:
     RecipesResponseV1:
       description: Contains alphabetically sorted recipes.
       content:
-        application/json:
+        application/hal+json;profile="https://api.otto.de/portal/profiles/recipes/recipe+v1":
           schema:
             $ref: "#/components/schemas/RecipesCollectionV1"
           examples:
@@ -211,7 +213,9 @@ components:
             - mealType
           properties:
             mealType:
-              description: The type of meal associated with the recipe.
+              description: |
+                The type of meal associated with the recipe.
+                Depending on the meal type, the recipe result contains a different property set.
               type: string
               x-extensible-enum:
                 - value: SNACK
@@ -230,7 +234,9 @@ components:
             - mealType
           properties:
             mealType:
-              description: The type of meal associated with the recipe.
+              description: |
+                The type of meal associated with the recipe.
+                Depending on the meal type, the recipe result contains a different property set.
               type: string
               x-extensible-enum:
                 - value: DINNER
@@ -281,6 +287,6 @@ components:
       type: oauth2
       flows:
         clientCredentials:
-          tokenUrl: "https://api.develop.otto.de/oauth2/token"
+          tokenUrl: "/oauth2/token"
           scopes:
             recipes.read: Read recipes
