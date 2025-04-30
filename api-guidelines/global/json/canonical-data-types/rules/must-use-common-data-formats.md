@@ -15,7 +15,7 @@ Format names starting with `otto:` are not defined by OpenAPI or JSON Schema and
 They represent formats that are not covered or are extensions of existing ones.
 
 | type    | format                | spec                                   | example                                                                              | comment                                 | 
-| ------- | --------------------- | -------------------------------------- |--------------------------------------------------------------------------------------|-----------------------------------------|
+|---------|-----------------------|----------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------|
 | integer | int32                 |                                        |                                                                                      | signed 32 bits                          |
 | integer | int64                 |                                        |                                                                                      | signed 64 bits (a.k.a long) |
 | number  | float                 |                                        |                                                                                      |                                         | 
@@ -48,6 +48,7 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | otto:country-code     | [ISO 3166-1-alpha2][iso3166-1-alpha2]  | `DE`, `GB`                                                                           |                                         |
 | string  | otto:language-code    | [ISO 639-1][iso639-1], [BCP 47][bcp47] | `de`, `de-DE`, `en`, `en-US`                                                         |                                         |
 | string  | otto:currency-code    | [ISO 4217][iso4217]                    | `EUR`, `USD`, `CHF`                                                                  |                                         |
+| object  | otto:money            | [Rule](../should-use.com.yml  TBD)     | `{"amount":  "1.45", "currency": "EUR"}`                                             |                                         |
 
 These format names are intended to be used in the OpenAPI specification provided by the service.
 
