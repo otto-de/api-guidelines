@@ -19,16 +19,17 @@ required:
   - amount
 properties:
   amount:
-    type: string
-    description: The money amount without currency. "." is used as a decimal separator.
-    pattern: ^\d+(\.\d+)?$
+    type: number
+    format: decimal
+    example: 99.95
+    description: The money amount without currency.
   currency:
     type: string
     description: The alphabetic currency code for the amount as defined in ISO 4217.
-    enum:
-      - "EUR"
-    default: "EUR"
-    pattern: "^[A-Z]{3}$"
+    format: otto:currency-code
+    x-extensible-enum:
+      - value: EUR
+        description: Euro
 ```
 
 ### Example 
