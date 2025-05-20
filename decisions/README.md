@@ -5,9 +5,7 @@ All formerly taken decisions remain in the `dev-context` folder unless they [nee
 
 ## Content of this folder
 
-This folder contains the following decisions:
-
-- [Decision xyz](add link when available)
+This folder contains all API guideline-related decisions taken or updated after May 2025.
 
 ### About the `dev-context` folder
 
@@ -19,10 +17,12 @@ The following applies regarding the `dev-context` folder:
 
 ## Add a new decision
 
-To add a new decision, follow the [ADR guidelines](https://github.com/otto-ec/techwriting_hub/blob/main/how-tos/how-to-create-an-adr.md) (internal link).
+To add a new decision, proceed as follows:
+
+1. Follow the [ADR guidelines](https://github.com/otto-ec/techwriting_hub/blob/main/how-tos/how-to-create-an-adr.md) (internal link).<br>
 If you can't access the provided link, use [this template](https://github.com/joelparkerhenderson/architecture-decision-record/tree/main/locales/en/templates/decision-record-template-by-michael-nygard) by Michael Nygard to add a new decision regarding a guideline.
-When you add a new decision, make sure to add a sequential number to the file name.
-In the decision, reference the related guideline(s).
+1. In the decision, reference the related guideline(s).
+1. Add a sequential number to the file name.
 
 ## Update a decision filed in the `dev-context` folder
 
