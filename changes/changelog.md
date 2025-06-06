@@ -1,6 +1,12 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2025-06-06
+### Update
+
+- Establish new folder [decisions](./decisions) to hold future architecture decision records.
+- Moved archive of decisions to [decisions/dev-context](./decisions/dev-context).
+
 ## 2025-03-25
 ### Update
 
