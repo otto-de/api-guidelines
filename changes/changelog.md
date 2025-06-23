@@ -4,8 +4,8 @@
 ## 2025-06-06
 ### Update
 
-- Establish new folder [decisions](./decisions) to hold future architecture decision records.
-- Moved archive of decisions to [decisions/dev-context](./decisions/dev-context).
+- Established new GitHub repository folder [decisions](https://github.com/otto-de/api-guidelines/tree/main/decisions) to hold future architecture decision records.
+- Moved archive of decisions to GitHub repository folder [decisions/dev-context](https://github.com/otto-de/api-guidelines/tree/main/decisions/dev-context).
 
 ## 2025-03-25
 ### Update
