@@ -30,4 +30,4 @@ This new format is defined as a SHOULD rule, giving teams the option to benefit 
 
 
 [zalando-notes]: https://opensource.zalando.com/restful-api-guidelines/#_notes
-[rule-R100079]: ../api-guidelines/global/json/canonical-data-types/rules/should-use-the-common-otto-decimal-format.md
+[rule-R100079]: ../api-guidelines/global/json/canonical-data-types/rules/should-use-common-otto-decimal-format.md

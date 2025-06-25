@@ -2,12 +2,11 @@
 id: R100080
 ---
 
-# SHOULD use the common money object
+# SHOULD use common money object
 
-As money amounts are very common in our APIs (checkout, order-positions, transactional-communication), we would like to 
-introduce a rule that ensures that money amounts are always formatted the same.
+As money amounts are very common in our APIs (checkout, order-positions, transactional-communication), this rule ensures that money amounts are always formatted the same.
 
-This money object directly benefits from existing common data types [otto:decimal][otto-decimla] and [otto:currency-code][otto-currency-code].
+This money object directly benefits from existing common data types [otto:decimal][otto-decimal] and [otto:currency-code][otto-currency-code].
 
 ## Schema definition
 
@@ -34,13 +33,16 @@ properties:
         description: The currency code for Euro, the official currency of the eurozone.
 ```
 
-### Example 
+### Example
+
 ```json
 {
-  "price": {"amount":  99.95, "currency": "EUR" /* optional, defaults to EUR */}
+  "price": {
+    "amount":  99.95, 
+    "currency": "EUR" /* optional, defaults to EUR */
+  }
 }
 ```
 
-
-[otto-decimal]: ./should-use-the-common-otto-decimal-format.md
+[otto-decimal]: ./should-use-common-otto-decimal-format.md
 [otto-currency-code]: ./must-use-common-data-formats.md
