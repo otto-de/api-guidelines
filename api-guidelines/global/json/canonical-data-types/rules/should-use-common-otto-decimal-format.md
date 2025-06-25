@@ -2,10 +2,9 @@
 id: R100079
 ---
 
-# SHOULD use the common `otto:decimal` format
+# SHOULD use common `otto:decimal` format
 
-When a business case processing JSON properties calls for a higher precision as available by using floats by default, using type `number` with format `otto:decimal` allows for custom conversion logic based on application programming language and not relying on [OpenAPI `number` data type][openapi-data-type] being automaticaly converted to `float` or `double`.
-
+When a business case processing JSON properties calls for a higher precision as available by using floats by default, using type `number` with format `otto:decimal` allows for custom conversion logic based on application programming language and not relying on [OpenAPI `number` data type][openapi-data-types] being automatically converted to `float` or `double`.
 
 Examples for correct representations as monetary amounts (in EUR):
 
