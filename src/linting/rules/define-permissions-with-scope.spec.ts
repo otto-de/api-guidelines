@@ -173,8 +173,8 @@ openapi: 3.0.3
 
 components:
   securitySchemes:
-    clientCredentials:
-      type: oauth2
+    test:
+      type: http
 `;
 
   const result = await lintFromString({
