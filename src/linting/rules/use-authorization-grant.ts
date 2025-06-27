@@ -17,7 +17,7 @@ export const UseAuthorizationGrant: Oas3Rule = () => {
     },
 
     SecurityScheme({ flows }, { report, location }) {
-      if (!flows.clientCredentials && !flows.authorizationCode) {
+      if (!flows?.clientCredentials && !flows?.authorizationCode) {
         report({
           message,
           location,

@@ -10,7 +10,7 @@ export const DefinePermissionsWithScope: Oas3Rule = () => {
 
   return {
     SecurityScheme({ flows }) {
-      Object.values(flows)
+      Object.values(flows ?? {})
         .flatMap((flow) => Object.keys(flow.scopes ?? {}))
         .forEach((scope) => definedScopes.add(scope));
     },
