@@ -93,3 +93,36 @@ components:
     ]
   `);
 });
+
+it("should handle missing flows", async () => {
+  const spec = `
+openapi: 3.0.3
+components:
+  securitySchemes:
+    test:
+      type: http
+`;
+
+  const result = await lintFromString({
+    source: spec,
+    config,
+  });
+
+  removeClutter(result);
+
+  expect(result).toMatchInlineSnapshot(`
+    [
+      {
+        "location": [
+          {
+            "pointer": "#/components/securitySchemes/test",
+            "reportOnKey": false,
+          },
+        ],
+        "message": "Must use Authorization Grant. See https://api.otto.de/portal/guidelines/r000052",
+        "ruleId": "test-rule",
+        "suggest": [],
+      },
+    ]
+  `);
+});
