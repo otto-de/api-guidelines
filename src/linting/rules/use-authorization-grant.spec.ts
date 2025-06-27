@@ -115,7 +115,7 @@ components:
       {
         "location": [
           {
-            "pointer": "#/components/securitySchemes/clientCredentials",
+            "pointer": "#/components/securitySchemes/test",
             "reportOnKey": false,
           },
         ],
