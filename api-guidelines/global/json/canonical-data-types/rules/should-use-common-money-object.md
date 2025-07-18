@@ -4,7 +4,7 @@ id: R100080
 
 # SHOULD use common money object
 
-As money amounts are very common in our APIs (checkout, order-positions, transactional-communication), this rule ensures that money amounts are always formatted the same.
+As money amounts are commonly used in our APIs, for example, in the `Checkout`, Order management`, and `Transactional communication` API, this guideline ensures that money amounts are always formatted in the same way.
 
 This money object directly benefits from existing common data types [otto:decimal][otto-decimal] and [otto:currency-code][otto-currency-code].
 
