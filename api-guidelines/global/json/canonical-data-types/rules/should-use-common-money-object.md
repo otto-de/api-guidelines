@@ -33,7 +33,7 @@ properties:
         description: The currency code for Euro, the official currency of the eurozone.
 ```
 
-### Example
+## Example
 
 ```json
 {
