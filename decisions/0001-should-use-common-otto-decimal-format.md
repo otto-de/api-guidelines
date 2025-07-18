@@ -14,7 +14,7 @@ Not having such a format could lead to lose precision when reyling on default co
 
 ### Option 1
 
-Keep using formats `double` or `float` and accept that naive implementations implicitly accepting the default conversion run at risk to introduce calculation errors.
+Keep using formats `double` or `float` and accept that naive implementations that implicitly accept the default conversion run at risk of introducing calculation errors.
 
 ### Option 2
 
