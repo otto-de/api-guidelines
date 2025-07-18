@@ -6,7 +6,9 @@
 
 ## Context
 
-We want to introduce a new API guideline rule for defining the data type and format for higher precision decimals as used e.g. in calculation with monetary amounts. This rule will be part of the JSON chapter applicable for both synchronous REST APIs and asynchronous Events.
+Using a unified format for decimals supports precision when relying on default conversion from `number` to `double` or `float`, as described in the [Zalando API guidelines][zalando-notes].
+Implementing a new API guideline to define the data type and format can help with higher precision in decimals as used, for example, in calculation with monetary amounts.
+This rule will be part of the JSON chapter applicable for both synchronous REST APIs and asynchronous events.
 
 Not having such a format could lead to lose precision when reyling on default conversion from `number` to `double` or `float` as described at [Zalando's API guidelines][zalando-notes].
 
