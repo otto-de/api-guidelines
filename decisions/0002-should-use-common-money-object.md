@@ -25,7 +25,7 @@ Example:
 }
 ```
 
-### Option 1.2
+### Option 2
 
 Represent the monetary amount as a `number` containing euros and cents separated by a decimal point according to the common format [`otto:decimal`][rule-R100079] to prevent accidental rounding errors.
 
