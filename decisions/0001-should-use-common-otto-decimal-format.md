@@ -22,7 +22,7 @@ Use a custom format `otto:decimal` that enforces making informed decisions on ho
 
 ## Decision
 
-Introduce [new API guideline rule][rule-R100079]
+Introduce [new API guideline rule][rule-R100079].
 
 ## Consequences
 
