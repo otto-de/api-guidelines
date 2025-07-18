@@ -1,4 +1,4 @@
-# [0001] New API guideline rule for `otto:decimal` format
+# [0001] Use `otto:decimal` format for higher precision in amounts specified in APIs
 
 - Status: `proposed`
 - Decided by: <jens.fischer@otto.de>, <max.edenharter@otto.de>
