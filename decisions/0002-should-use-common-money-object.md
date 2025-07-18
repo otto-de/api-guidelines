@@ -29,7 +29,7 @@ Example:
 
 Represent the monetary amount as a `number` containing euros and cents separated by a decimal point according to the common format [`otto:decimal`][rule-R100079] to prevent accidental rounding errors.
 
-#### Example
+Example:
 
 ```json
 {
@@ -37,11 +37,11 @@ Represent the monetary amount as a `number` containing euros and cents separated
 }
 ```
 
-### Option 1.3
+### Option 3
 
-As option 1.1, but instead of using an `integer` with format `int64`, use `string` containing euros and cents separated by a decimal point to force explicit conversion into a data type with sufficient precision in the programming language used to consume the API.
+Represent the monetary amount as a `string` containing euros and cents separated by a decimal point to force explicit conversion into a data type with sufficient precision in the programming language used to consume the API.
 
-#### Example
+Example:
 
 ```json
 {
@@ -49,7 +49,11 @@ As option 1.1, but instead of using an `integer` with format `int64`, use `strin
 }
 ```
 
-`string` has been chosen as a type for amount because `number` is deserialized to an IEEE 754 float representation (see https://floating-point-gui.de/). The representation as float can lead to rounding and calculation errors. This is especially true for currencies with many decimal places (e.g., bitcoin). Example in Javascript:
+The type `string` is the preferred option as a type for the `amount` property because the type `number` is deserialized to an IEEE 754 float representation (see https://floating-point-gui.de/).
+The representation as float can lead to rounding and calculation errors.
+This is especially true for currencies with many decimal places (e.g., bitcoin).
+
+Example in Javascript:
 
 ```javascript
 let a = 2.2
@@ -57,16 +61,21 @@ let b = 2.1
 console.log(a+b) //logs 4.300000000000001
 ```
 
-### Option 2.1
+### Option 4
 
-As option 1.1, but use a JSON object with separate properties for amount (as `integer` with format `int64`) and optional currency (as `string`) to allow for future support of multiple currencies.
+Use a JSON object with separate properties:
 
-Although currently not needed, a clear separation of currency and money amount is possible.
-Easier to use in OpenAPI and AsyncAPI definitions, because one does not need to repeat the description of the money amount every time it is used in a property.
+- Amount as `integer` with format `int64`
+- (Optional) Currency as `string` 
+  
+This allows for future support of multiple currencies.
 
-`currency` is optional and by default "EUR" and thus can be absent for most of OTTOs APIs. This reduces the payload for the current use cases.
+Although currently not needed, a clear separation of currency and monetary amount is possible.
+It is easier to use in OpenAPI and AsyncAPI definitions, because it is not necessary to repeat the description of the monetary amount every time it is used in a property.
 
-#### Example
+The `currency` property is optional and defaults to the value `EUR`. It can thus be omitted for most OTTO APIs. This reduces the payload for the current use cases.
+
+Example:
 
 ```json
 {
@@ -77,11 +86,16 @@ Easier to use in OpenAPI and AsyncAPI definitions, because one does not need to 
 }
 ```
 
-### Option 2.2
+### Option 5
 
-As a mix of options 1.2 and 2.1.
+Use a JSON object `price` with separate properties:
 
-#### Example
+- Amount as `number` containing euros and cents separated by a decimal point according to the common format [`otto:decimal`][rule-R100079] 
+- Currency as `string` 
+
+This option prevents accidental rounding errors and allows for future support of multiple currencies.
+
+Example:
 
 ```json
 {
@@ -92,11 +106,14 @@ As a mix of options 1.2 and 2.1.
 }
 ```
 
-### Option 2.3
+### Option 6
 
-As a mix of options 1.3 and 2.1.
+Use a JSON object `price` with separate properties:
 
-#### Example
+- Amount as `string` containing euros and cents separated by a decimal point according to the common format [`otto:decimal`][rule-R100079] 
+- Currency as `string` 
+
+Example:
 
 ```json
 {
@@ -109,15 +126,20 @@ As a mix of options 1.3 and 2.1.
 
 ## Decision
 
-Option 2.2 is chosen as the best compromise between future-proofing and current use cases. It allows for a clear separation of amount and currency, while still being easy to use in OpenAPI and AsyncAPI definitions. The `otto:decimal` format ensures that the amount is represented with sufficient precision to avoid rounding errors. It is no breaking change for existing Partner APIs, which would be very difficult to communicate to partners.
+Option 5 is chosen as the best compromise between being future-proof and the current use cases.
+It allows for a clear separation of monetary amount and currency, while it is still easy to use in OpenAPI and AsyncAPI definitions.
+The `otto:decimal` format ensures that the amount is represented with sufficient precision to avoid rounding errors.
+It is not a breaking change for existing Partner APIs.
 
 ## Consequences
 
-Existing APIs will need to be updated to use the new money object format. This will require some effort and breaking changes, but it will lead to a more consistent and easier-to-use API landscape in the long run. As we cannot expect teams to update their incompatible APIs immediately, we will define this as a SHOULD rule, allowing teams to migrate their APIs at their own pace.
+Existing APIs need to be updated to use the new money object format.
+This requires some effort and breaking changes, but it will lead to a more consistent and easier-to-use API landscape in the long run.
+As teams cannot be expected to update their incompatible APIs immediately, the related rule is defined as a SHOULD rule, allowing teams to migrate their APIs at their own pace.
 
 ## Further reading
 
-* [Async api guidelines community](https://otto-eg.atlassian.net/wiki/spaces/P20/pages/123274149/Async+api+guidelines+community#:~:text=Guideline%20missing%20for%20%E2%80%9Cmoney%E2%80%9D%20or%20%E2%80%9Cprice%E2%80%9D%20format)
+* [Async API guidelines community](https://otto-eg.atlassian.net/wiki/spaces/P20/pages/123274149/Async+api+guidelines+community#:~:text=Guideline%20missing%20for%20%E2%80%9Cmoney%E2%80%9D%20or%20%E2%80%9Cprice%E2%80%9D%20format)
 * [otto-de GitHub Issue with comments](https://github.com/otto-de/api-guidelines/issues/29)
 * [Zalando API guidelines](https://opensource.zalando.com/restful-api-guidelines/#173)
 
