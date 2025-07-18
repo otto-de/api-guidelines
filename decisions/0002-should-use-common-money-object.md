@@ -8,7 +8,7 @@
 
 Currently, there is no common format for monetary amounts across the OTTO APIs. This leads to inconsistencies and makes it harder to use the APIs in a consistent way. As teams don't share a common format for monetary amounts, they need to implement custom format conversions for use cases spanning multiple APIs from different teams. This is especially true for APIs that are used in the context of payments, orders, and pricing.
 
-For example, the OTTO Consumer REST APIs with context.id product, checkout and order-position-items define properties that refer to eurocents without explicit currency. They use either `string`, `number` or `integer` (with format `int64`) as their format for money amounts respectively, while Partner APIs from OTTO Market use a JSON object containing an amount property using `number` and a currency property using `string`.
+For example, the OTTO Consumer REST APIs with the context IDs `product`, `checkout` and `order-position-items` define properties that refer to eurocents without explicitly mentioning the currency. For monetary amounts, they use one of the formats `string`, `number` or `integer` (with format `int64`), while Partner APIs from OTTO Market use a JSON object that contains an amount property using `number` and a currency property using `string`.
 
 ## Options
 
