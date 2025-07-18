@@ -27,7 +27,7 @@ In order to prevent rounding errors in calculations, represent the monetary amou
 
 ### Option 1.2
 
-As option 1.1, but instead of using an `integer` with format `int64`, use `number` with [common format `otto:decimal`][rule-R100079] to prevent accidental rounding errors.
+Represent the monetary amount as a `number` containing euros and cents separated by a decimal point according to the common format [`otto:decimal`][rule-R100079] to prevent accidental rounding errors.
 
 #### Example
 
