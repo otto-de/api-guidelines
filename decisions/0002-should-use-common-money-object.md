@@ -12,7 +12,7 @@ For example, the OTTO Consumer REST APIs with the context IDs `product`, `checko
 
 ## Options
 
-### Option 1.1
+### Option 1
 
 As OTTO only uses euro as currency, there is currently no need for a separate currency property.
 In order to prevent rounding errors in calculations, represent the monetary amount in eurocents as an `integer`, with format `int64`.
