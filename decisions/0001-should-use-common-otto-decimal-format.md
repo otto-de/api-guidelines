@@ -18,7 +18,7 @@ Keep using formats `double` or `float` and accept that naive implementations tha
 
 ### Option 2
 
-Use a custom format `otto:decimal` that forces implementation to make informed decisions how to convert it.
+Use a custom format `otto:decimal` that enforces making informed decisions on how to convert it during implementation.
 
 ## Decision
 
