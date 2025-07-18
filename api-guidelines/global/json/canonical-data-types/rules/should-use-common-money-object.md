@@ -39,7 +39,7 @@ properties:
 {
   "price": {
     "amount":  99.95, 
-    "currency": "EUR" /* optional, defaults to EUR */
+    "currency": "EUR"
   }
 }
 ```
