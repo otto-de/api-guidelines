@@ -1,4 +1,4 @@
-# [0002] New API guideline rule `otto:money` object
+# [0002] Use `otto:money` object to specify monetary amounts in APIs
 
 - Status: `proposed`
 - Decided by: <jens.fischer@otto.de>, <max.edenharter@otto.de>
