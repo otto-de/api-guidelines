@@ -12,7 +12,7 @@ The defined money object directly benefits from existing common data types such 
 
 ```yaml
 title: Money
-description: Common format for money amounts.
+description: Common format for monetary amounts.
 type: object
 required:
   - amount
