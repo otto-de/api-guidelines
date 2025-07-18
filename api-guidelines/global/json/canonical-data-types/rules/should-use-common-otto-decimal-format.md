@@ -19,7 +19,10 @@ Examples for correct representations as monetary amounts (in EUR):
 
 `1024.4225` = 1024 Euros, 42.25 Cent
 
-Make sure that you don’t convert a field of type `number` using the `otto:decimal` format to `float` / `double` types when implementing this interface in a specific language or when doing calculations. Otherwise, you might lose precision. Instead, use exact formats like Java’s `BigDecimal`. See [Stack Overflow][stack-overflow] for more info.
+Make sure that you don’t convert a field of type `number` combined with the format `otto:decimal` to type `float` or `double` when implementing this interface in a specific language or when doing calculations.
+Otherwise, you might lose precision.
+Instead, use exact formats like Java’s `BigDecimal`.
+See [Stack Overflow][stack-overflow] for more information.
 
 [openapi-data-types]: https://spec.openapis.org/oas/v3.1.0.html#data-types
 [stack-overflow]: https://stackoverflow.com/questions/3730019/why-not-use-double-or-float-to-represent-currency/3730040#3730040
