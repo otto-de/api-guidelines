@@ -4,25 +4,24 @@ id: R100079
 
 # SHOULD use common `otto:decimal` format
 
-When a business case processing JSON properties calls for a higher precision than available by using floats by default, using type `number` with format `otto:decimal` allows for custom conversion logic.
-This logic is based on application programming language and does not rely on [OpenAPI `number` data type][openapi-data-types] being automatically converted to `float` or `double`.
+When using JSON properties for calculations where a high level of precision is required, it is not an option to rely on floating point arithmetic. Instead, using the type `number` with format `otto:decimal` allows for custom conversion logic without losing precision.
 
-Examples for correct representations as monetary amounts (in EUR):
-
-`42.20` or `42.2` = 42 Euros, 20 Cent
-
-`0.23` = 23 Cent
-
-`42.0` or `42` = 42 Euros
-
-`1024.42` = 1024 Euros, 42 Cent
-
-`1024.4225` = 1024 Euros, 42.25 Cent
-
-Make sure that you don’t convert a field of type `number` combined with the format `otto:decimal` to type `float` or `double` when implementing this interface in a specific language or when doing calculations.
-Otherwise, you might lose precision.
-Instead, use exact formats like Java’s `BigDecimal`.
+This logic is based on application programming language and does not rely on [OpenAPI `number` data type][openapi-data-types] being automatically converted to `float` or `double`. Instead, a carefully chosen JSON decoder should be used that uses exact formats like Java’s `BigDecimal`.
 See [Stack Overflow][stack-overflow] for more information.
+
+
+Examples for `otto:decimal` format used in `otto:money` object with default `otto:currency-code` of EUR:
+
+`0.01` = 0 Euros and 1 Cent
+
+`23.0` or `23` = 23 Euros and 0 Cent
+
+`45.60` or `45.6` = 45 Euros and 60 Cent
+
+`-789.01` = negative 789 Euros and 01 Cent
+
+`1234.5678` = 1234 Euros and 56.78 Cent
+
 
 [openapi-data-types]: https://spec.openapis.org/oas/v3.1.0.html#data-types
 [stack-overflow]: https://stackoverflow.com/questions/3730019/why-not-use-double-or-float-to-represent-currency/3730040#3730040

@@ -1,8 +1,8 @@
 # [0001] Use `otto:decimal` format for higher precision in amounts specified in APIs
 
-- Status: `proposed`
+- Status: `accepted`
 - Decided by: <jens.fischer@otto.de>, <max.edenharter@otto.de>
-- Date: 2025-05-19
+- Date: 2025-07-31
 
 ## Context
 

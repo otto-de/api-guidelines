@@ -1,8 +1,8 @@
 # [0002] Use `otto:money` object to specify monetary amounts in APIs
 
-- Status: `proposed`
+- Status: `accepted`
 - Decided by: <jens.fischer@otto.de>, <max.edenharter@otto.de>
-- Date: 2025-05-19
+- Date: 2025-07-31
 
 ## Context
 
@@ -91,9 +91,11 @@ Example:
 Use a JSON object `price` with separate properties:
 
 - Amount as `number` containing euros and cents separated by a decimal point according to the common format [`otto:decimal`][rule-R100079] 
-- Currency as `string` 
+- (Optional) Currency as `string` 
 
 This option prevents accidental rounding errors and allows for future support of multiple currencies.
+
+The `currency` property is optional and defaults to the value `EUR`. It can thus be omitted for most OTTO APIs. This reduces the payload for the current use cases.
 
 Example:
 
@@ -111,7 +113,9 @@ Example:
 Use a JSON object `price` with separate properties:
 
 - Amount as `string` containing euros and cents separated by a decimal point according to the common format [`otto:decimal`][rule-R100079] 
-- Currency as `string` 
+- (Optional) Currency as `string` 
+
+The `currency` property is optional and defaults to the value `EUR`. It can thus be omitted for most OTTO APIs. This reduces the payload for the current use cases.
 
 Example:
 
@@ -139,6 +143,7 @@ As teams cannot be expected to update their incompatible APIs immediately, the r
 
 ## Further reading
 
+* [Representing Money in JSON](https://github.com/FasterXML/jackson-datatypes-misc/blob/2.x/javax-money/MONEY.md)
 * [Async API guidelines community](https://otto-eg.atlassian.net/wiki/spaces/P20/pages/123274149/Async+api+guidelines+community#:~:text=Guideline%20missing%20for%20%E2%80%9Cmoney%E2%80%9D%20or%20%E2%80%9Cprice%E2%80%9D%20format)
 * [otto-de GitHub Issue with comments](https://github.com/otto-de/api-guidelines/issues/29)
 * [Zalando API guidelines](https://opensource.zalando.com/restful-api-guidelines/#173)
