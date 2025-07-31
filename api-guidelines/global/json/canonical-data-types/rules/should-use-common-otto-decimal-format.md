@@ -18,7 +18,7 @@ Examples for `otto:decimal` format used in `otto:money` object with default `ott
 
 `45.60` or `45.6` = 45 Euros and 60 Cent
 
-`-789.01` = negative 789 Euros and 01 Cent
+`-789.01` = negative 789 Euros and 1 Cent
 
 `1234.5678` = 1234 Euros and 56.78 Cent
 
