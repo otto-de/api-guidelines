@@ -4,13 +4,14 @@ id: R100079
 
 # SHOULD use common `otto:decimal` format
 
-When using JSON properties for calculations where a high level of precision is required, it is not an option to rely on floating point arithmetic. Instead, using the type `number` with format `otto:decimal` allows for custom conversion logic without losing precision.
-
-This logic is based on application programming language and does not rely on [OpenAPI `number` data type][openapi-data-types] being automatically converted to `float` or `double`. Instead, a carefully chosen JSON decoder should be used that uses exact formats like Java’s `BigDecimal`.
+When using JSON properties for calculations requiring a high level of precision, it is not recommended to rely on floating point arithmetic.
+Instead, using the type `number` with format `otto:decimal` allows for custom conversion logic without losing precision.
+The conversion logic is based on application programming language and does not rely on the [OpenAPI `number` data type][openapi-data-types] being automatically converted to `float` or `double`.
+Instead, a carefully chosen JSON decoder should be used that uses exact formats like Java's `BigDecimal`.
 See [Stack Overflow][stack-overflow] for more information.
 
+Examples for the `otto:decimal` format being used in an `otto:money` object with EUR as the default `otto:currency-code`:
 
-Examples for `otto:decimal` format used in `otto:money` object with default `otto:currency-code` of EUR:
 
 `0.01` = 0 Euros and 1 Cent
 
