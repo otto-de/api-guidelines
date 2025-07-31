@@ -2,12 +2,6 @@
 
 <!--CHANGELOG-MARKER-->
 
-## 2025-06-25
-### New
-
-- Added new API guideline rule for `otto:decimal` format [R100079](https://api.otto.de/portal/guidelines/r100079).
-- Added new API guideline rule for `otto:money` object [R100080](https://api.otto.de/portal/guidelines/r100080).
-
 ## 2025-06-06
 ### Update
 
