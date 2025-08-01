@@ -32,11 +32,12 @@ Example of the [`otto:money` object](./should-use-common-otto-money-object.md) f
 
 ```json
 {
-  "amount": 45.60,
-  "currency": "EUR"
+  "price": {
+      "amount": 45.60,
+      "currency": "EUR"
+  }
 }
 ```
-
 
 Representing negative values
 
