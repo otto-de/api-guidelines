@@ -10,9 +10,9 @@ The conversion logic is based on application programming language and does not r
 Instead, a carefully chosen JSON decoder should be used that uses exact formats like Java's `BigDecimal`.
 See [Stack Overflow][stack-overflow] for more information.
 
-Examples for the `otto:decimal` format:
+## Examples for the `otto:decimal` format
 
-Representing fractional values between -1 and 1
+Representing fractional values between -1 and 1:
 
 ```json
 {
@@ -20,7 +20,7 @@ Representing fractional values between -1 and 1
 }
 ```
 
-Representing whole numbers (integers)
+Representing whole numbers (integers):
 
 ```json
 {
@@ -28,7 +28,7 @@ Representing whole numbers (integers)
 }
 ```
 
-Example of the [`otto:money` object](./should-use-common-otto-money-object.md) for monetary amounts
+Representing monetary amounts following the [`otto:money` object](./should-use-common-otto-money-object.md) guideline:
 
 ```json
 {
@@ -39,7 +39,7 @@ Example of the [`otto:money` object](./should-use-common-otto-money-object.md) f
 }
 ```
 
-Representing negative values
+Representing negative values:
 
 
 ```json
@@ -48,7 +48,7 @@ Representing negative values
 }
 ```
 
-Representing values with multiple decimal places
+Representing values with multiple decimal places:
 
 ```json
 {
