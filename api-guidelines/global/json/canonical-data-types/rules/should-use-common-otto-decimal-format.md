@@ -28,7 +28,7 @@ Representing whole numbers (integers)
 }
 ```
 
-Example of the [`otto:money` format for monetary amounts](./should-use-common-otto-money-object.md)
+Example of the [`otto:money` object](./should-use-common-otto-money-object.md) for monetary amounts
 
 ```json
 {
