@@ -20,7 +20,7 @@ Keep using formats `double` or `float` and accept that naive implementations tha
 
 ### Option 2
 
-Use a custom format `otto:decimal` that enforces making informed decisions on how to convert it during implementation.
+Use a custom format `otto:decimal` that enforces making informed decisions on how to convert decimals during implementation.
 
 ## Decision
 
