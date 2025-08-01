@@ -145,7 +145,7 @@ As teams cannot be expected to update their incompatible APIs immediately, the r
 
 * [Representing Money in JSON](https://github.com/FasterXML/jackson-datatypes-misc/blob/2.x/javax-money/MONEY.md)
 * [Async API guidelines community](https://otto-eg.atlassian.net/wiki/spaces/P20/pages/123274149/Async+api+guidelines+community#:~:text=Guideline%20missing%20for%20%E2%80%9Cmoney%E2%80%9D%20or%20%E2%80%9Cprice%E2%80%9D%20format)
-* [otto-de GitHub Issue with comments](https://github.com/otto-de/api-guidelines/issues/29)
+* [otto-de GitHub issue with comments](https://github.com/otto-de/api-guidelines/issues/29)
 * [Zalando API guidelines](https://opensource.zalando.com/restful-api-guidelines/#173)
 
 [rule-R100079]: ../api-guidelines/global/json/canonical-data-types/rules/should-use-common-otto-decimal-format.md
