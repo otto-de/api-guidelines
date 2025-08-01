@@ -30,7 +30,7 @@ properties:
     format: otto:currency-code
     x-extensible-enum:
       - value: EUR
-        description: The currency code for Euro, the official currency of the eurozone.
+        description: The currency code for euro, the official currency of the eurozone.
 ```
 
 ## Example
