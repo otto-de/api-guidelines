@@ -10,18 +10,50 @@ The conversion logic is based on application programming language and does not r
 Instead, a carefully chosen JSON decoder should be used that uses exact formats like Java's `BigDecimal`.
 See [Stack Overflow][stack-overflow] for more information.
 
-Examples for the `otto:decimal` format being used in an `otto:money` object with EUR as the default `otto:currency-code`:
+Examples for the `otto:decimal` format:
+
+Representing fractional values between -1 and 1
+
+```json
+{
+  "value": 0.01
+}
+```
+
+Representing whole numbers (integers)
+
+```json
+{
+  "count": 23
+}
+```
+
+Example of the [`otto:money` format for monetary amounts](./should-use-common-otto-money-object.md)
+
+```json
+{
+  "amount": 45.60,
+  "currency": "EUR"
+}
+```
 
 
-`0.01` = 0 Euros and 1 Cent
+Representing negative values
 
-`23.0` or `23` = 23 Euros and 0 Cent
 
-`45.60` or `45.6` = 45 Euros and 60 Cent
+```json
+{
+  "temperature": -23.4
+}
+```
 
-`-789.01` = negative 789 Euros and 1 Cent
+Representing values with multiple decimal places
 
-`1234.5678` = 1234 Euros and 56.78 Cent
+```json
+{
+  "weight": 12.345
+}
+```
 
 
 [openapi-data-types]: https://spec.openapis.org/oas/v3.1.0.html#data-types
