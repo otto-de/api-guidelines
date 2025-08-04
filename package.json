@@ -33,12 +33,14 @@
     "prepare": "husky install src/.husky || exit 0",
     "prepack": "npm run build",
     "test": "vitest run --root src",
-    "tsc": "tsc --noEmit -p src/tsconfig.json"
+    "tsc": "tsc --noEmit -p src/tsconfig.json",
+    "lint": "eslint 'src/**/*.{ts,js}' && prettier --check 'src/**/*.{ts,js}'",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,js}' && prettier --write 'src/**/*.{ts,js}'"
   },
   "devDependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0",
-    "@redocly/openapi-core": "^1.4.1",
+    "@redocly/openapi-core": "^1.34.5",
     "@types/node": "^20.9.4",
     "esbuild": "^0.19.7",
     "eslint": "^8.54.0",

@@ -1,17 +1,25 @@
 import { isCamelCase } from "./isCamelCase.js";
 
-it("should fooBar should be valid", () => {
-  expect(isCamelCase("fooBar")).toBeTruthy();
-});
+describe("isCamelCase", () => {
+  it.each([
+    "thisIsCamelCase",
+    "anotherExample123",
+    "myGreat0To10Foo",
+    "variable",
+    "myTop10Entities",
+    "affine3D",
+  ])(`should return true for "%s"`, (value) => {
+    expect(isCamelCase(value)).toBeTruthy();
+  });
 
-it("should foo should be valid", () => {
-  expect(isCamelCase("foo")).toBeTruthy();
-});
-
-it("should foo-bar should be valid", () => {
-  expect(isCamelCase("foo-bar")).toBeFalsy();
-});
-
-it("should foo_bar should be valid", () => {
-  expect(isCamelCase("foo_bar")).toBeFalsy();
+  it.each([
+    "kebab-case",
+    "10AwesomeThings",
+    "snake_case",
+    "SCREAMING_SNAKE_CASE",
+    "WRonGCAmelCase",
+    "SCREAMING-KEBAB-CASE",
+  ])(`should return false for "%s"`, (value) => {
+    expect(isCamelCase(value)).toBeFalsy();
+  });
 });
