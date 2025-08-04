@@ -1,1 +1,1 @@
-export const isCamelCase = (value: string) => /^([a-z]+)(([A-Z]([a-z]+))*)$/.test(value);
+export const isCamelCase = (value: string) => /^[a-z][a-zA-Z0-9]+$/.test(value);
