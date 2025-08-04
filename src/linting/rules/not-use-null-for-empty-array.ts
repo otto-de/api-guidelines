@@ -1,10 +1,10 @@
 import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
-import type { Oas3Schema } from "@redocly/openapi-core";
+import type { Oas3_1Schema, Oas3Schema } from "@redocly/openapi-core";
 import type { Location } from "@redocly/openapi-core/lib/ref-utils.d.js";
 import type { Problem } from "@redocly/openapi-core/lib/walk.d.js";
 
 const findArrayNullExamples = (
-  { type, properties, items }: Oas3Schema,
+  { type, properties, items }: Oas3Schema | Oas3_1Schema,
   example: unknown,
   location: Location,
 ): Location[] => {
@@ -12,7 +12,13 @@ const findArrayNullExamples = (
 
   if (Array.isArray(example) && items) {
     return example
-      .map((value, index) => findArrayNullExamples(items, example[index], location.child(index)))
+      .map((value, index) =>
+        findArrayNullExamples(
+          items as Oas3Schema | Oas3_1Schema,
+          example[index],
+          location.child(index),
+        ),
+      )
       .flat();
   }
 

@@ -1,11 +1,11 @@
 import type { Oas3Rule } from "@redocly/openapi-core/lib/visitors.d.js";
-import { isRef, type Oas3Schema } from "@redocly/openapi-core";
+import { isRef, type Oas3_1Schema, type Oas3Schema } from "@redocly/openapi-core";
 import type { Location } from "@redocly/openapi-core/lib/ref-utils.d.js";
 import type { ResolveFn } from "@redocly/openapi-core/lib/walk.d.js";
 import { isJsonContentType } from "./utils/isJsonContentType.js";
 
 const findNonObjectLocations = (
-  schema: Oas3Schema,
+  schema: Oas3Schema | Oas3_1Schema,
   location: Location,
   resolve: ResolveFn,
 ): Location[] => {
