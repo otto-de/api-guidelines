@@ -1,11 +1,23 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2025-08-04
+### New
+
+- SHOULD use common `otto:decimal` format [R100079](https://api.otto.de/portal/guidelines/r100079)
+- SHOULD use common `otto:money` object [R100080](https://api.otto.de/portal/guidelines/r100080)
+
+## 2025-06-06
+### Update
+
+- Established new GitHub repository folder [decisions](https://github.com/otto-de/api-guidelines/tree/main/decisions) to hold future architecture decision records.
+- Moved archive of decisions to GitHub repository folder [decisions/dev-context](https://github.com/otto-de/api-guidelines/tree/main/decisions/dev-context).
+
 ## 2025-03-25
 ### Update
 
 - Changed the required API description format for asynchronous APIs from `2.3.0` to `3.0.0` in "MUST provide API specification using AsyncAPI for asynchronous APIs" [R200005](https://api.otto.de/portal/guidelines/r200005).
-- Extended "MUST provide API specification using AsyncAPI for asynchronous APIs" [R200005](https://api.otto.de/portal/guidelines/r200005) by the information that asynchronous APIs must be published in our internal developer portal.
+- Extended "MUST provide API specification using AsyncAPI for asynchronous APIs" [R200005](https://api.otto.de/portal/guidelines/r200005) by the information that asynchronous APIs must be published in the internal developer portal.
 
 ## 2025-02-07
 ### Update
