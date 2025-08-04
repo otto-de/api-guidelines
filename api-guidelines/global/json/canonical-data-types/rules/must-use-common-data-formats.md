@@ -15,7 +15,7 @@ Format names starting with `otto:` are not defined by OpenAPI or JSON Schema and
 They represent formats that are not covered or are extensions of existing ones.
 
 | type    | format                | spec                                   | example                                                                              | comment                                 | 
-| ------- | --------------------- | -------------------------------------- |--------------------------------------------------------------------------------------|-----------------------------------------|
+|---------|-----------------------|----------------------------------------|--------------------------------------------------------------------------------------|-----------------------------------------|
 | integer | int32                 |                                        |                                                                                      | signed 32 bits                          |
 | integer | int64                 |                                        |                                                                                      | signed 64 bits (a.k.a long) |
 | number  | float                 |                                        |                                                                                      |                                         | 
@@ -48,6 +48,7 @@ They represent formats that are not covered or are extensions of existing ones.
 | string  | otto:country-code     | [ISO 3166-1-alpha2][iso3166-1-alpha2]  | `DE`, `GB`                                                                           |                                         |
 | string  | otto:language-code    | [ISO 639-1][iso639-1], [BCP 47][bcp47] | `de`, `de-DE`, `en`, `en-US`                                                         |                                         |
 | string  | otto:currency-code    | [ISO 4217][iso4217]                    | `EUR`, `USD`, `CHF`                                                                  |                                         |
+| number  | otto:decimal          | [decimal rule][rule-decimal]           | `99.95`                                                                              |                                         |
 
 These format names are intended to be used in the OpenAPI specification provided by the service.
 
@@ -58,6 +59,7 @@ These format names are intended to be used in the OpenAPI specification provided
 
 [rule-date]: ../../../../global/json/canonical-data-types/rules/must-use-common-date-and-time-format.md
 [rule-spec]: ../../../../rest/contract/openapi/rules/must-provide-api-specification-using-openapi-for-rest-apis.md
+[rule-decimal]: ../../../../global/json/canonical-data-types/rules/should-use-common-otto-decimal-format.md
 [rfc3339]: https://tools.ietf.org/html/rfc3339#section-5.6
 [rfc5322]: https://tools.ietf.org/html/rfc5322#section-3.4.1
 [rfc1123]: https://tools.ietf.org/html/rfc1123#section-2.1
