@@ -1,6 +1,12 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2025-08-04
+### New
+
+- SHOULD use common `otto:decimal` format [R100079](https://api.otto.de/portal/guidelines/r100079)
+- SHOULD use common `otto:money` object [R100080](https://api.otto.de/portal/guidelines/r100080)
+
 ## 2025-06-06
 ### Update
 
