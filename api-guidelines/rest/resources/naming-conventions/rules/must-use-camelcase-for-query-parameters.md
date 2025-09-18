@@ -4,7 +4,7 @@ id: R000022
 
 # MUST use camelCase for query parameters
 
-Use CamelCase to delimit combined words in query parameters.
+Use CamelCase to delimit combined words in query parameters. Digits should be avoided.
 
 DO
 
