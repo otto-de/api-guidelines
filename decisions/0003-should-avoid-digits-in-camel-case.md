@@ -31,7 +31,7 @@ top100LoveSongs:
 
 ### Option 2
 
-Do not allow digits in camel case names, e.g. `itemOne`, `topOneHundredLoveSongs`, as the linter rule is already in place.
+Do not allow digits in camel case names.
 
 Example:
 
@@ -58,8 +58,8 @@ Option 2 is chosen, as there is no known use case for digits in camel case names
 
 Existing guidelines referencing camel case names need to be updated to explicitly state that digits should be avoided.
 
-[rule-R100022]: ../api-guidelines/rest/resources/naming-conventions/rules/must-use-camelcase-for-query-parameters.md
-[rule-R104010]: ../api-guidelines/global/json/naming-conventions/rules/should-use-camel-case-for-property-names.md
+[rule-R000022]: ../api-guidelines/rest/resources/naming-conventions/rules/must-use-camelcase-for-query-parameters.md
+[rule-R004010]: ../api-guidelines/global/json/naming-conventions/rules/should-use-camel-case-for-property-names.md
 
 
 
