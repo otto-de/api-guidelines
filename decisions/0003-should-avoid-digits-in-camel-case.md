@@ -52,7 +52,9 @@ popularLoveSongs:
 
 ## Decision
 
-Option 2 is chosen, as there is no known use case for digits in camel case names, and the OpenAPI specification provides features to describe ranges and array length if needed. The linter rule is already in place and has been used in several APIs without issues. This decision ensures more consistent naming conventions across all APIs.
+Option 2 is chosen, as there is no known use case for digits in camel case names, and the OpenAPI specification provides features to describe ranges and array length if needed.
+The linter rule is already in place and has been used in several APIs without issues.
+This decision ensures more consistent naming conventions across all APIs.
 
 ## Consequences
 
