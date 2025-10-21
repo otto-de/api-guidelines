@@ -6,7 +6,7 @@
 
 ## Context
 
-Currently, there several rules in the OTTO API guidelines that refer to using camel case for naming properties, parameters, and other identifiers in APIs.
+Several rules in the OTTO API guidelines refer to using camel case for naming properties, parameters, and other identifiers in APIs.
 The guidelines do not explicitly address the use of digits in camel case names, but our linter does not allow digits in camel case names.
 
 ## Options
