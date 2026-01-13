@@ -12,7 +12,8 @@ DO
 {
     "name": "John",
     "jobDescription": "product manager",
-    "vacationDays": 37
+    "vacationDays": 37,
+    "entryDate": "2023-01-15"
 }
 ````
 
@@ -22,6 +23,7 @@ DON'T
 {
     "NAME": "John",
     "job-description": "product manager",
-    "vacationdays": 37
+    "vacationdays": 37,
+    "1stDay": "2023-01-15"
 }
 ````
