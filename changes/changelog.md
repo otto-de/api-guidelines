@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2026-01-15
+### Update
+
+- Added hint to pluralize field names in filter query parameters in "MUST use query parameters for basic search or filtering" [R100031](./api-guidelines/rest/resources/collection-resources/rules/must-use-query-parameters-for-basic-search-or-filtering.md).
+
 ## 2025-08-04
 ### New
 
