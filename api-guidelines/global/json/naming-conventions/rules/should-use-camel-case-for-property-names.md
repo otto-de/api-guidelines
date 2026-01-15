@@ -4,7 +4,7 @@ id: R004010
 
 # SHOULD use camelCase for property names
 
-Property names of JSON objects should be formatted in camelCase and avoid digits.
+Property names of JSON objects should be formatted in camelCase, and digits should be avoided.
 
 DO
 
