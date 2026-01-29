@@ -24,7 +24,7 @@ In your APIs, you [must use curied link relation types](./must-use-curied-link-r
 {
   "_links": {
     "https://api.otto.de/checkout/link-relations/checkout-items": {
-      "href": "https://api.otto.de/checkout/items"
+      "href": "https://api.otto.de/portal/link-relations#o_3Acheckout-items"
     }
   }
 }
