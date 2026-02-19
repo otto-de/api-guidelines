@@ -14,17 +14,14 @@ The URI used as the link relation type must be treated as an identifier that sho
 While encouraged, it does not need to be resolvable.
 If the URI is resolvable, it should provide human-readable documentation of the link relation type.
 
-The URI should be in the same URL namespace as the API endpoints.
-For example, if all API endpoints are located at `https://api.otto.de/payment/`, the custom link relation URIs should als be located at the same context path (e.g., `https://api.otto.de/payment/link-relations/payment-method`).
-
 Here's an example of an uncuried link relation that serves for demonstration only.
 In your APIs, you [must use curied link relation types](./must-use-curied-link-relation-types.md).
 
 ```json
 {
   "_links": {
-    "https://api.otto.de/checkout/link-relations/checkout-items": {
-      "href": "https://api.otto.de/portal/link-relations#o_3Acheckout-items"
+    "https://api.otto.de/portal/link-relations#checkout-items": {
+      "href": "https://api.otto.de/checkout/items"
     }
   }
 }
