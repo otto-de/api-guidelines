@@ -18,7 +18,7 @@ Curie objects inside this array must have a templated property `href`.
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/orders/link-relations/{rel}",
+        "href": "https://api.otto.de/portal/link-relations#{rel}",
         "templated": true
       }
     ]
@@ -35,7 +35,7 @@ Links to a resource with a custom link relation type must be curied using this C
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/orders/link-relations/{rel}",
+        "href": "https://api.otto.de/portal/link-relations#{rel}",
         "templated": true
       }
     ],
@@ -56,7 +56,7 @@ If the linked resources [can be embedded](../../../resources/embedded-resources/
     "curies": [
       {
         "name": "o",
-        "href": "https://api.otto.de/orders/link-relations/{rel}",
+        "href": "https://api.otto.de/portal/link-relations#{rel}",
         "templated": true
       }
     ],
