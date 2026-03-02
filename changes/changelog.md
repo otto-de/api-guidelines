@@ -1,6 +1,12 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2026-03-02
+### Update
+
+- Changed "MUST use absolute URIs for custom link relation types" [R100037](https://api.otto.de/portal/guidelines/r100037) to reflect the current implementation of resolvable link relations without namespaces.
+- Updated examples of link relation URLs and templated CURIE links to match the current implementation in the [OTTO Consumer API Portal](https://api.otto.de/portal/). Changes refer to the rules "MUST use absolute URIs for custom link relation types" [R100037](https://api.otto.de/portal/guidelines/r100037), "MUST use curied link relation types" [R100038](https://api.otto.de/portal/guidelines/r100038) as well as "MUST document link cardinality" [R100063](https://api.otto.de/portal/guidelines/r100063).
+
 ## 2026-01-15
 ### Update
 
