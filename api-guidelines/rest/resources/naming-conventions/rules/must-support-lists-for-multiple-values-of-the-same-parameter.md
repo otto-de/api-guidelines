@@ -4,6 +4,21 @@ id: R000062
 
 # MUST support lists for multiple values of the same query parameter
 
-If multiple values need to be supported, they should be provided as a comma-separated list (e.g. `key=value1,value2`).
+Represent multiple values of the same query parameter as a single comma-separated list, for example `key=value1,value2`.
 
-Multiple occurrences of the same parameter in the query string (e.g. `key=value1&key=value2`) must not be promoted, prefer lists instead.
+In OpenAPI, `key=value1,value2` can be represented as an array query parameter with `explode: false`.
+
+```yaml
+parameters:
+  - in: query
+    name: key
+    explode: false
+    schema:
+      type: array
+      items:
+        type: string
+```
+
+::: warning
+Don't represent multiple values by repeating the same query parameter, for example `key=value1&key=value2`.
+:::
