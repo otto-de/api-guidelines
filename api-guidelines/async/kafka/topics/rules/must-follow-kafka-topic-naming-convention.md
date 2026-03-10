@@ -37,7 +37,7 @@ de.otto.events.checkout.payment.payment-received
 ### Data change events
 
 Topics containing data change events must be named analogue to the contained [data event types](../../../format/cloudevents/rules/must-follow-naming-schema-for-type-context-attribute.md).
-If the data topic contains data events of different types all containing the complete state of one particular entity type, the topic must be named after the entity type. The topic name should be in plural form.
+If the data topic contains data events of different types all containing the complete state of one particular entity type, the topic must be named after the entity type. The topic name [should be in plural form](./should-use-plural-form-for-data-topic-names.md).
 
 Examples:
 
@@ -53,5 +53,6 @@ This rule only applies to API topics. Topics which are not part of the API must 
 ::: references
 
 - [MUST name events in past tense](../../../format/naming-conventions/rules/must-name-events-in-past-tense.md)
+- [SHOULD use plural form for data topic names](./should-use-plural-form-for-data-topic-names.md)
 - [OTTO CoE Confluent Cloud - Topic Naming Conventions (internal link)](https://otto-eg.atlassian.net/wiki/x/xMPmAQ)
   :::
