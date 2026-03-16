@@ -31,6 +31,11 @@ The following additional rules apply for scope names:
 - Must not include internal product team names as `resource`. <!-- not automatic -->
 - `resource` should be pluralized when referring to collections and singular for singleton resources. <!-- not automatic -->
 
+> **Exception:** Google's UCP protocol requires `:` as a delimiter in predefined
+> scope names (e.g. `ucp:scopes:checkout_session`). Scopes registered exclusively
+> for UCP compliance are permitted to use `:` in their name. This is the only
+> exception to the character restriction above.
+
 :::
 
 ::: accordion Examples
