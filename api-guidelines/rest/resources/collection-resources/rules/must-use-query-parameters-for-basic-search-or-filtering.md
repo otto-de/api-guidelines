@@ -26,6 +26,7 @@ Usually this is a simple text query, satisfying simple search needs that might c
 Query parameters should be combinable (e.g. `brand=Puma&color=blue`) and otherwise respond with a `400 Bad Request`.
 
 If multiple values need to be supported, they [should be provided as a comma-separated list](../../naming-conventions/rules/must-support-lists-for-multiple-values-of-the-same-parameter.md) (e.g. `brand=Adidas,Puma`).
+Based on the use case, the query parameter name can be pluralized (for example `brands=Adidas,Puma`).
 
 These query parameters must be documented with their possible values (ranges), semantics and interactions with other query parameters (e.g. multiple values form a logical _or_, but with other query parameters an _and_ connection).
 This may be obvious for single valued properties, but not necessarily for lists (e.g. `tags=sporty,retro`)

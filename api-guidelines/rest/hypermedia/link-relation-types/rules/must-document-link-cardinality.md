@@ -13,7 +13,7 @@ The HAL `_links` object holds property names of link relation types, and values 
 ```json
 {
   "_links": {
-    "https://api.otto.de/users/link-relations/author": { "href": "https://api.otto.de/users/42" }
+    "https://api.otto.de/portal/link-relations#author": { "href": "https://api.otto.de/users/42" }
   }
 }
 ```
@@ -23,7 +23,7 @@ The HAL `_links` object holds property names of link relation types, and values 
 ```json
 {
   "_links": {
-    "https://api.otto.de/products/link-relations/item": [
+    "https://api.otto.de/portal/link-relations#item": [
       { "href": "https://api.otto.de/products/4711" },
       { "href": "https://api.otto.de/products/0815" }
     ]
