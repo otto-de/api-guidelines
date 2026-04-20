@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/api-guidelines-redocly2-ruleset",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Redocly v2 linting plugin for the OTTO API Guidelines ruleset",
   "author": "",
   "license": "ISC",
