@@ -1,0 +1,40 @@
+{
+  "name": "@otto-de/api-guidelines-redocly2-ruleset",
+  "version": "1.0.3",
+  "description": "Redocly v2 linting plugin for the OTTO API Guidelines ruleset",
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/otto-de/api-guidelines#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otto-de/api-guidelines.git"
+  },
+  "bugs": {
+    "url": "https://github.com/otto-de/api-guidelines/issues"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "type": "module",
+  "main": "dist/plugin.js",
+  "files": [
+    "dist",
+    "src",
+    "!**/*.spec.ts",
+    "!**/__tests__"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:redocly",
+    "build:redocly": "esbuild src/plugin.ts --bundle --platform=node --format=esm --outfile=dist/plugin.js --log-level=warning --external:@redocly/openapi-core",
+    "clean": "rm -rf ./dist",
+    "test": "vitest run",
+    "tsc": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@redocly/openapi-core": "^2.25.4",
+    "@types/node": "^20.9.4",
+    "esbuild": "^0.19.7",
+    "typescript": "^5.3.2",
+    "vitest": "^0.34.6"
+  }
+}
