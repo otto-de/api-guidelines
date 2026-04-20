@@ -1,0 +1,29 @@
+import type { Oas3Rule } from "@redocly/openapi-core";
+
+/**
+ * @see https://api.otto.de/portal/guidelines/r000052
+ */
+export const UseAuthorizationGrant: Oas3Rule = () => {
+  const message = "Must use Authorization Grant. See https://api.otto.de/portal/guidelines/r000052";
+
+  return {
+    Root({ components }, { report, location }) {
+      if (!components) {
+        report({
+          message,
+          location,
+        });
+      }
+    },
+
+    SecurityScheme(scheme, { report, location }) {
+      const flows = "flows" in scheme ? scheme.flows : undefined;
+      if (!flows?.clientCredentials && !flows?.authorizationCode) {
+        report({
+          message,
+          location,
+        });
+      }
+    },
+  };
+};
