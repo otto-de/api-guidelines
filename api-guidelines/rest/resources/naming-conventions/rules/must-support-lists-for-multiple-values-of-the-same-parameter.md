@@ -19,7 +19,3 @@ parameters:
       items:
         type: string
 ```
-
-::: warning
-Don't represent multiple values by repeating the same query parameter, for example `key=value1&key=value2`.
-:::
