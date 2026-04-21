@@ -37,7 +37,7 @@ jobs:
           RELEASE_TYPE: ${{ github.event.inputs.release-type }}
         run: |
           # Bump root and all workspaces to the same version, no git tag yet
-          npm version $RELEASE_TYPE --workspaces --no-git-tag-version
+          npm version $RELEASE_TYPE --workspaces --include-workspace-root --no-git-tag-version
           # Read the new version from root package.json
           VERSION="v$(node -p "require('./package.json').version")"
           # Commit all bumps and create a single tag
