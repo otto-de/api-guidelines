@@ -41,10 +41,13 @@ jobs:
           # Read the new version from root package.json
           VERSION="v$(node -p "require('./package.json').version")"
           # Commit all bumps and create a single tag
-          git add package.json api-guidelines-redocly2-ruleset/package.json
+          git add package.json package-lock.json api-guidelines-redocly2-ruleset/package.json
           git commit -m "chore: release $VERSION"
           git tag $VERSION
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Build
+        run: npm run build:all
 
       - name: Push changes
         env:
