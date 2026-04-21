@@ -38,7 +38,7 @@ The guidelines are structured into individual rules that use the key words “MU
 These keywords are to be interpreted as described in [RFC2119](https://www.ietf.org/rfc/rfc2119.txt).
 In this document, such keywords are highlighted at the beginning of each section in uppercase letters and are color-coded.
 
-> **_Disclaimer:_**  Code examples may be incomplete and/or may violate the rules described in the guidelines. Examples are intentionally kept simple to make them more accessible and easier to comprehend. They are always correct in their context, but not necessarily outside of it. Common examples for this are omitted headers such as Authorization or omitted (mandatory) properties in JSON responses.
+> **_Disclaimer:_** Code examples may be incomplete and/or may violate the rules described in the guidelines. Examples are intentionally kept simple to make them more accessible and easier to comprehend. They are always correct in their context, but not necessarily outside of it. Common examples for this are omitted headers such as Authorization or omitted (mandatory) properties in JSON responses.
 
 ## API linting
 
@@ -59,7 +59,7 @@ If you'd like to use it for your own APIs, this is what you need to do:
 3. Install the dependency.
 
    ```shell
-   npm install -D @otto-de/api-guidelines
+   npm install -D @otto-de/api-guidelines-redocly2-ruleset
    ```
 
 4. Add the following code snippet to your redocly configuration:
@@ -69,7 +69,7 @@ If you'd like to use it for your own APIs, this is what you need to do:
      - api-guidelines/recommended
 
    plugins:
-     - ./node_modules/@otto-de/api-guidelines/dist/plugin.cjs
+     - ./node_modules/@otto-de/api-guidelines-redocly2-ruleset/dist/plugin.js
    ```
 
 ### Recommended Redocly configuration
@@ -80,7 +80,7 @@ extends:
   - api-guidelines/recommended
 
 plugins:
-  - ./node_modules/@otto-de/api-guidelines/dist/plugin.cjs
+  - ./node_modules/@otto-de/api-guidelines-redocly2-ruleset/dist/plugin.js
 ```
 
 ### Lint your specs
@@ -107,4 +107,3 @@ As much of the content resonates with what we do at OTTO, their well-prepared do
 
 The Zalando RESTful API Guidelines are published under the [Creative Commons Attribution 4.0 International License](https://github.com/zalando/restful-api-guidelines/blob/main/LICENSE) (CC BY 4.0).
 For further notes on these OTTO API Guidelines’ license under CC BY 4.0, please refer to the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode).
-

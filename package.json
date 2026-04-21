@@ -1,6 +1,6 @@
 {
   "name": "@otto-de/api-guidelines",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "This repository is the source for establishing a uniform API standard (aka API Guidelines), which serves as a set of rules for the creation of new APIs within MA-EC. (In the future, this standard can also be used to unify existing APIs.) The [API Manifesto](/manifesto.md) helps to establish this standard and comprises values that a work group has agreed upon in advance.",
   "author": "",
   "license": "ISC",
@@ -16,31 +16,28 @@
     "node": ">=16"
   },
   "type": "module",
+  "workspaces": [
+    "api-guidelines-redocly2-ruleset"
+  ],
   "files": [
-    "dist",
     "api-guidelines",
     "changes",
-    "src/linting",
     "src/portal",
-    "!**/*.spec.ts",
-    "!**/__tests__"
+    "!**/*.spec.ts"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:redocly",
-    "build:redocly": "esbuild src/linting/plugin.ts --bundle --platform=node --outfile=dist/plugin.cjs --log-level=warning --external:@redocly/openapi-core",
+    "build:all": "npm run build --workspaces --include-workspace-root --if-present",
+    "tsc:all": "npm run tsc --workspaces --include-workspace-root --if-present",
+    "test:all": "npm run test --workspaces --include-workspace-root --if-present",
     "changelog": "npx tsx src/scripts/changelog/index.ts",
-    "clean": "rm -rf ./dist",
     "prepare": "husky install src/.husky || exit 0",
-    "prepack": "npm run build",
     "test": "vitest run --root src",
     "tsc": "tsc --noEmit -p src/tsconfig.json"
   },
   "devDependencies": {
     "@actions/core": "^1.10.1",
     "@actions/github": "^6.0.0",
-    "@redocly/openapi-core": "^1.4.1",
     "@types/node": "^20.9.4",
-    "esbuild": "^0.19.7",
     "eslint": "^8.54.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",

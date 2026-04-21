@@ -20,6 +20,6 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
-      - run: npm run tsc
-      - run: npm run test
+      - run: npm run build:all
+      - run: npm run tsc:all
+      - run: npm run test:all
