@@ -1,6 +1,11 @@
 # Changelog
 
 <!--CHANGELOG-MARKER-->
+## 2026-04-21
+### Update
+
+- Add OpenAPI example in "MUST support lists for multiple values of the same query parameter" [R000062](https://api.otto.de/portal/guidelines/r000062).
+
 ## 2026-03-02
 ### Update
 
