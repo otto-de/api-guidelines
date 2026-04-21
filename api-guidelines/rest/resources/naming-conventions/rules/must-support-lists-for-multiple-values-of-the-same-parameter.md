@@ -7,7 +7,7 @@ id: R000062
 If a query parameter includes multiple values, provide them as a comma-separated list, for example, `key=value1,value2`).
 Do not represent multiple values by repeating the same query parameter, for example, `key=value1&key=value2`.
 
-In OpenAPI, `key=value1,value2` can be represented as an array query parameter with `explode: false`.
+In OpenAPI, an array query parameter with `explode: false` also represents `key=value1,value2`:
 
 ```yaml
 parameters:
