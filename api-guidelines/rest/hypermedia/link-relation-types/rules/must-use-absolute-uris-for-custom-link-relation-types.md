@@ -10,9 +10,7 @@ This rule applies to APIs that have to comply with [REST maturity level 3](../..
 
 Custom link relations must be absolute URIs (as defined in [RFC 5988](https://datatracker.ietf.org/doc/html/rfc5988#section-4.2)) and documented in the OpenAPI specification.
 
-The URI used as the link relation type must be treated as an identifier that should not change.
-While encouraged, it does not need to be resolvable.
-If the URI is resolvable, it should provide human-readable documentation of the link relation type.
+The URI used as the link relation type must be treated as an identifier. [The URI should not change](./should-treat-link-relation-uris-as-immutable.md) over time. While encouraged, it does not need to be resolvable. [If the URI is resolvable, it should provide human-readable documentation](./should-provide-documentation-for-resolvable-link-relation-uris.md) of the link relation type.
 
 Here's an example of an uncuried link relation that serves for demonstration only.
 In your APIs, you [must use curied link relation types](./must-use-curied-link-relation-types.md).
@@ -32,6 +30,8 @@ In your APIs, you [must use curied link relation types](./must-use-curied-link-r
 - [MUST prefer IANA-registered link relation types](./must-prefer-iana-registered-link-relation-types.md)
 - [MUST use kebab-case for URIs](../../../resources/naming-conventions/rules/must-use-kebabcase-for-uris.md)
 - [MUST use curied link relation types](./must-use-curied-link-relation-types.md)
+- [SHOULD treat link relation URIs as immutable](./should-treat-link-relation-uris-as-immutable.md)
+- [SHOULD provide documentation for resolvable link relation URIs](./should-provide-documentation-for-resolvable-link-relation-uris.md)
 - [MUST implement REST maturity level 2](../../maturity-level/rules/must-implement-rest-maturity-level-2.md)
 - [MUST implement REST maturity level 3 for transitional APIs](../../maturity-level/rules/must-implement-rest-maturity-level-3-for-transitional-apis.md)
   :::
