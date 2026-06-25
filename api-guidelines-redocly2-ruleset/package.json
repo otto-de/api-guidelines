@@ -24,8 +24,9 @@
     "!**/__tests__"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:redocly",
-    "build:redocly": "esbuild src/plugin.ts --bundle --platform=node --format=esm --outfile=dist/plugin.js --log-level=warning --external:@redocly/openapi-core",
+    "build": "npm run clean && npm run build:redocly && npm run check:bundle",
+    "build:redocly": "esbuild src/plugin.ts --bundle --platform=node --format=esm --outfile=dist/plugin.js --log-level=warning",
+    "check:bundle": "node scripts/check-bundle.mjs",
     "clean": "rm -rf ./dist",
     "test": "vitest run",
     "tsc": "tsc --noEmit"
